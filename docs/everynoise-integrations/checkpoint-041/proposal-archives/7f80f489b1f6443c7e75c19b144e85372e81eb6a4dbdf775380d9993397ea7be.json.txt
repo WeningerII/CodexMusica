@@ -1,0 +1,207 @@
+{
+  "entries": [
+    {
+      "source_label": "rumba",
+      "source_url": "https://everynoise.com/engenremap-rumba.html",
+      "suggested_id": "rumba",
+      "allocation_ordinal": 4227,
+      "allocation_group_id": "170",
+      "id": "rumba",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "rumba",
+        "name": "Rumba (Spanish popular song)",
+        "family": "vernacular",
+        "lineage": "Bamboleo — complete four-page instrumental piano-solo edition MN0056746, licensed through Musicnotes with Sony/ATV publishing administration. The publisher expressly identifies solo piano, no lyrics, E minor and a quick bright beat marking. Preserve one piano and zero vocal roles for this separate issued edition. The original Gipsy Kings vocal/guitar ensemble and the distinct nine-page piano/vocal/guitar edition MN0056761 are not silently stripped from a purported recording reconstruction: they are different arrangements. Only publisher catalogue metadata was read; paid full notation was not downloaded, and no exact voicing, bar count or audition is asserted. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the popular rumba composition; it is not a measured transcription of the four-page edition layout. Standard-size studio upright and rhythmic block-chord pop touch are coherent authored piano choices where the licensed edition leaves construction unspecified, preserving melody and harmonic accompaniment within one instrument. Brisk bright execution follows the publisher tempo character without assigning a universal rumba BPM. A controlled live room is authored, not the original source venue. No global tuning or capture apparatus is inferred; no flamenco guitar, palmas or sung part is added to the expressly solo-piano edition. Printed notation alone does not recategorize this popular song as classical art music.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Bamboleo — complete four-page instrumental piano-solo edition MN0056746, licensed through Musicnotes with Sony/ATV publishing administration. The publisher expressly identifies solo piano, no lyrics, E minor and a quick bright beat marking. Preserve one piano and zero vocal roles for this separate issued edition. The original Gipsy Kings vocal/guitar ensemble and the distinct nine-page piano/vocal/guitar edition MN0056761 are not silently stripped from a purported recording reconstruction: they are different arrangements. Only publisher catalogue metadata was read; paid full notation was not downloaded, and no exact voicing, bar count or audition is asserted. The immutable rumba label is interpreted through its actual creator corpus as the Spanish popular rumba and cross-border Gitano rumba field, not as an unqualified world umbrella merging Cuban and Congolese traditions. Display qualification makes this explicit. The creator includes Los Chunguitos, Los Chichos, Las Grecas, Peret and Gipsy Kings; Bamboleo itself appears at71. Instituto Cervantes programmes rumba across Peret/GatoPerez and LosChichos/LosChunguitos, extending to newer rock, rap, pop and techno mixtures. The artists own history specifically identifies Bamboleo with Rumba Gitano and Spanish Romani connections in southern France. Existing rumba_catalana positively covers the Barcelona Catalan Gitano tradition and overlaps Peret, its rhythms and descendants; it is not merely one exemplar, and the selected French Gitano branch shares Catalan ancestry. The broader institutional popular-rumba field also encompasses non-Barcelona Spanish branches and newer mixtures, rather than excluding Catalan rumba. Existing nuevo_flamenco covers a wider cross-style flamenco-fusion current, overlapping some artists but not synonymous with rumba repertoire and its community. Full Cuban rumba/yambu/columbia and Congolese/Lingala rumba records have different defined historical practices; their name overlap does not establish equivalence. A solo keyboard edition is one positively issued rendition of this repertoire, not the usual ensemble or a claim the whole field is instrumental. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the popular rumba composition; it is not a measured transcription of the four-page edition layout. Standard-size studio upright and rhythmic block-chord pop touch are coherent authored piano choices where the licensed edition leaves construction unspecified, preserving melody and harmonic accompaniment within one instrument. Brisk bright execution follows the publisher tempo character without assigning a universal rumba BPM. A controlled live room is authored, not the original source venue. No global tuning or capture apparatus is inferred; no flamenco guitar, palmas or sung part is added to the expressly solo-piano edition. Printed notation alone does not recategorize this popular song as classical art music.",
+        "exemplars": [
+          "Bamboleo — complete licensed piano solo edition MN0056746"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.6766,
+        4.6278,
+        "Arles",
+        "Europe"
+      ],
+      "geo_rationale": "Artist-owned history identifies formation in Arles; editorial repertoire-artist anchor, not claimed score publication/recording place or exclusive rumba origin.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The immutable rumba label is interpreted through its actual creator corpus as the Spanish popular rumba and cross-border Gitano rumba field, not as an unqualified world umbrella merging Cuban and Congolese traditions. Display qualification makes this explicit. The creator includes Los Chunguitos, Los Chichos, Las Grecas, Peret and Gipsy Kings; Bamboleo itself appears at71. Instituto Cervantes programmes rumba across Peret/GatoPerez and LosChichos/LosChunguitos, extending to newer rock, rap, pop and techno mixtures. The artists own history specifically identifies Bamboleo with Rumba Gitano and Spanish Romani connections in southern France. Existing rumba_catalana positively covers the Barcelona Catalan Gitano tradition and overlaps Peret, its rhythms and descendants; it is not merely one exemplar, and the selected French Gitano branch shares Catalan ancestry. The broader institutional popular-rumba field also encompasses non-Barcelona Spanish branches and newer mixtures, rather than excluding Catalan rumba. Existing nuevo_flamenco covers a wider cross-style flamenco-fusion current, overlapping some artists but not synonymous with rumba repertoire and its community. Full Cuban rumba/yambu/columbia and Congolese/Lingala rumba records have different defined historical practices; their name overlap does not establish equivalence. A solo keyboard edition is one positively issued rendition of this repertoire, not the usual ensemble or a claim the whole field is instrumental.",
+      "classification_evidence": "The immutable rumba label is interpreted through its actual creator corpus as the Spanish popular rumba and cross-border Gitano rumba field, not as an unqualified world umbrella merging Cuban and Congolese traditions. Display qualification makes this explicit. The creator includes Los Chunguitos, Los Chichos, Las Grecas, Peret and Gipsy Kings; Bamboleo itself appears at71. Instituto Cervantes programmes rumba across Peret/GatoPerez and LosChichos/LosChunguitos, extending to newer rock, rap, pop and techno mixtures. The artists own history specifically identifies Bamboleo with Rumba Gitano and Spanish Romani connections in southern France. Existing rumba_catalana positively covers the Barcelona Catalan Gitano tradition and overlaps Peret, its rhythms and descendants; it is not merely one exemplar, and the selected French Gitano branch shares Catalan ancestry. The broader institutional popular-rumba field also encompasses non-Barcelona Spanish branches and newer mixtures, rather than excluding Catalan rumba. Existing nuevo_flamenco covers a wider cross-style flamenco-fusion current, overlapping some artists but not synonymous with rumba repertoire and its community. Full Cuban rumba/yambu/columbia and Congolese/Lingala rumba records have different defined historical practices; their name overlap does not establish equivalence. A solo keyboard edition is one positively issued rendition of this repertoire, not the usual ensemble or a claim the whole field is instrumental.",
+      "model_policy": "Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the popular rumba composition; it is not a measured transcription of the four-page edition layout. Standard-size studio upright and rhythmic block-chord pop touch are coherent authored piano choices where the licensed edition leaves construction unspecified, preserving melody and harmonic accompaniment within one instrument. Brisk bright execution follows the publisher tempo character without assigning a universal rumba BPM. A controlled live room is authored, not the original source venue. No global tuning or capture apparatus is inferred; no flamenco guitar, palmas or sung part is added to the expressly solo-piano edition. Printed notation alone does not recategorize this popular song as classical art music.",
+      "source_scope_limitation": "Bamboleo — complete four-page instrumental piano-solo edition MN0056746, licensed through Musicnotes with Sony/ATV publishing administration. The publisher expressly identifies solo piano, no lyrics, E minor and a quick bright beat marking. Preserve one piano and zero vocal roles for this separate issued edition. The original Gipsy Kings vocal/guitar ensemble and the distinct nine-page piano/vocal/guitar edition MN0056761 are not silently stripped from a purported recording reconstruction: they are different arrangements. Only publisher catalogue metadata was read; paid full notation was not downloaded, and no exact voicing, bar count or audition is asserted.",
+      "source_retrieval_caveat": "All three primary catalogue/artist/institution pages directly retrieved; exact creator full programme read. Paid notation not inspected. GipsyKings own historical page is an older retrospective, not treated as current complete lineup.",
+      "vocal_count_audit": {
+        "count": 0,
+        "basis": "Explicit Instrumental Solo piano edition without lyrics, not original vocal recording."
+      },
+      "instrument_role_audit": {
+        "upright_piano": "Complete solo-piano edition; upright construction/voicing authored, source piano subtype unspecified."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the popular rumba composition; it is not a measured transcription of the four-page edition layout. Standard-size studio upright and rhythmic block-chord pop touch are coherent authored piano choices where the licensed edition leaves construction unspecified, preserving melody and harmonic accompaniment within one instrument. Brisk bright execution follows the publisher tempo character without assigning a universal rumba BPM. A controlled live room is authored, not the original source venue. No global tuning or capture apparatus is inferred; no flamenco guitar, palmas or sung part is added to the expressly solo-piano edition. Printed notation alone does not recategorize this popular song as classical art music."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All three applicable original upright controls explicitly pinned."
+      },
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/gipsy-kings/bamboleo/MN0056746",
+          "title": "Licensed complete four-page piano solo edition",
+          "support_notes": "Bamboleo — complete four-page instrumental piano-solo edition MN0056746, licensed through Musicnotes with Sony/ATV publishing administration. The publisher expressly identifies solo piano, no lyrics, E minor and a quick bright beat marking. Preserve one piano and zero vocal roles for this separate issued edition. The original Gipsy Kings vocal/guitar ensemble and the distinct nine-page piano/vocal/guitar edition MN0056761 are not silently stripped from a purported recording reconstruction: they are different arrangements. Only publisher catalogue metadata was read; paid full notation was not downloaded, and no exact voicing, bar count or audition is asserted.",
+          "retrieval_ref": "turn12099view1"
+        },
+        {
+          "url": "https://www.gipsykings.com/about",
+          "title": "Artist-owned Rumba Gitano history and Bamboleo identity",
+          "support_notes": "Explicit selected composition within RumbaGitano; Arles and SpanishRomani/Catalan heritage. No complete recording roster inferred.",
+          "retrieval_ref": "turn12099view0"
+        },
+        {
+          "url": "https://toulouse.cervantes.es/FichasCultura/Ficha115468_43_1.htm",
+          "title": "Institutional Spanish popular-rumba repertoire field",
+          "support_notes": "Own documentary programme unites Peret/GatoPerez/LosChichos/LosChunguitos and newer rock/rap/pop/techno mixtures. Used for category scope, not music-performance palette.",
+          "retrieval_ref": "turn12102view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3BfEgQqVomK4wv9cYD2k6o",
+          "title": "Exact creator Rumba field and composition bridge",
+          "support_notes": "GipsyKings Bamboleo item71, alongside multiple Spanish popular-rumba branches; score is a different rendition of exact composition.",
+          "retrieval_ref": "turn12095view0"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "rumba",
+          "name": "Rumba (Spanish popular song)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not a piano depiction, the Gipsy Kings or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11976view0 confirms Iain Fergusson/Binksternet CC BY2.5; exact023bytes and original visual receipt inherited.",
+          "fresh_review_ref": "turn11976view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11976view0"
+        ]
+      },
+      "verification_status": "Original-loader three applicable upright controls protected,zero fallbacks,1638existing owners unchanged; exact historical photo receipt and all four actual browser/connector formats PASS. Independent source/category peer pending; no integratedCI claim."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

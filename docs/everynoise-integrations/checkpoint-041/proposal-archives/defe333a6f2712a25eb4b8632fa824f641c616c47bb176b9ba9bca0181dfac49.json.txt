@@ -1,0 +1,201 @@
+{
+  "entries": [
+    {
+      "source_label": "psybass",
+      "source_url": "https://everynoise.com/engenremap-psybass.html",
+      "suggested_id": "psybass",
+      "allocation_ordinal": 4176,
+      "allocation_group_id": "168",
+      "status": "frozen_pending_independent_review",
+      "id": "psybass",
+      "tradition": {
+        "id": "psybass",
+        "name": "Psybass",
+        "family": "electronic",
+        "lineage": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred. One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "bassSystem",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred. Psybass is positively named psychedelic-culture crossover with newer bass styles. Christopher Charles primary ethnography expressly contrasts psybass crossover with dubstep/trap against psydub reggae/dub features, while emphasizing flexible overlapping labels and multi-style programmes. Shanti Planti self-identifies an experimental midtempo bass collective and names psybass across its compilation practice. This is not an assertion that psydub lacks bass: actual old psydub includes Kalya Scintilla/world samples, but its stated dub-reggae processing/rhythmic branch is narrower than the cross-bass axis. Existing glitch_hop specifies hip-hop/IDM groove lineage, not the whole psychedelic festival field. Queued experimental_bass is broader sound-design crossover; downtempo_bass a slower-set axis, both overlapping but neither requires this positively documented psychedelic community. Exact EveryNoise map retrieval was transient and artist body not independently retained; no selected DJ membership or corpus purity claim. The chosen issuer explicitly names the requested field and first-person performance. One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry.",
+        "exemplars": [
+          "Aktüman — full Shuangda Festival2026 Psybass/Psydub/Breakbeats DJ set"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.0,
+        105.0,
+        "China",
+        "East Asia"
+      ],
+      "geo_rationale": "Country-level anchor for expressly documented China festival performance; no exact venue coordinate or performer birthplace inferred.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred.",
+      "neighbor_distinction": "Psybass is positively named psychedelic-culture crossover with newer bass styles. Christopher Charles primary ethnography expressly contrasts psybass crossover with dubstep/trap against psydub reggae/dub features, while emphasizing flexible overlapping labels and multi-style programmes. Shanti Planti self-identifies an experimental midtempo bass collective and names psybass across its compilation practice. This is not an assertion that psydub lacks bass: actual old psydub includes Kalya Scintilla/world samples, but its stated dub-reggae processing/rhythmic branch is narrower than the cross-bass axis. Existing glitch_hop specifies hip-hop/IDM groove lineage, not the whole psychedelic festival field. Queued experimental_bass is broader sound-design crossover; downtempo_bass a slower-set axis, both overlapping but neither requires this positively documented psychedelic community. Exact EveryNoise map retrieval was transient and artist body not independently retained; no selected DJ membership or corpus purity claim. The chosen issuer explicitly names the requested field and first-person performance.",
+      "model_policy": "One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry.",
+      "instrument_role_audit": {
+        "scope": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred.",
+        "positive_sound_source_classes": [
+          "recorded-program playback and DJ mixing"
+        ],
+        "authored_defaults": "One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "embedded_voice_count": "unknown",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0,
+        "decision": "No live vocal contribution stated; all embedded layers retained in whole programme, no false zero-headcount assertion."
+      },
+      "flat_pin_resolution": {
+        "rule": "One neutral DJ owner and one protected identity part; no shared-key conflicts."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Complete mixed programme preserved; no invented component sound mechanism."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/aktuman/shuangda-2026/",
+          "support_notes": "Fresh10963view0 full self-issued1:35:11 actual DJ performance, datedChinafestival and29-selection programme, requested field explicitly named; styles mixed and one ID unknown preserved.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://distantreader.org/stacks/journals/dancecult/dancecult-1167.pdf",
+          "support_notes": "Fresh10969view0/10970view1, ChristopherCharles2020 primary ethnography, p36 explains psybass newer-bass crossover versus psydub dub/reggae features; labels flexible and overlapping, not rigid exclusive taxonomy.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://shantiplanti.bandcamp.com/album/rhythm-code-5",
+          "support_notes": "Fresh10969view1/10972view2 issuer full collective statement and psybass-tagged international compilation context. Context only; its20tracks not substituted for selected DJ programme.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "psybass",
+          "name": "Psybass",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only; not DJ decks, live vocals, source performer, projection dome or source gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10920view3/10921view1 confirms original Iain Fergusson/Binksternet crop and CC BY2.5; historical exact bytes/visual retained without new download claim.",
+          "fresh_review_ref": "turn10920view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn10920view3",
+          "turn10921view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

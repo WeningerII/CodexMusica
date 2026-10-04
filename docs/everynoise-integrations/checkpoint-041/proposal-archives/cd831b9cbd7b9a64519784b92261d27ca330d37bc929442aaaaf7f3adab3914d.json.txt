@@ -1,0 +1,324 @@
+{
+  "entries": [
+    {
+      "source_label": "surinamese hip hop",
+      "source_url": "https://everynoise.com/engenremap-surinamesehiphop.html",
+      "suggested_id": "surinamese_hip_hop",
+      "allocation_ordinal": 578,
+      "allocation_group_id": "024",
+      "id": "surinamese_hip_hop",
+      "tradition": {
+        "id": "surinamese_hip_hop",
+        "name": "Surinamese Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Surinamese hip-hop links rap and DJ culture across Suriname and its diaspora. Its contemporary communities draw on multilingual urban music and local rhythmic traditions, with artists and soundsystems connecting hip-hop to kawina, awasa and other dance styles.",
+        "instruments": [
+          "voice",
+          "credited_auxiliary_percussion",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "MC voices interact with DJ-led recorded beats and live percussion. Alternating vocal phrases, layered rhythms and changes in recorded texture create a communal dance setting, with traditional rhythmic colors and contemporary hip-hop delivery reinforcing one another.",
+        "exemplars": [
+          "Gowtu Soundsystem",
+          "Kater Karma",
+          "OCS"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        52.3648,
+        4.8814,
+        "Amsterdam",
+        "Europe"
+      ],
+      "geo_rationale": "Actual hosting institution and diaspora community anchor, not a claim that the whole Surinamese field originates in Amsterdam.",
+      "signature_tokens": [],
+      "neighbor_distinction": "This is the Surinamese national and diaspora hip-hop community, not all Dutch rap or all Surinamese popular music. Hosting institution explicitly places Gowtu in hip-hop and identifies its Surinamese cultural network; its2024 account positively connects concerts with Kater Karma, an exact creator Surinamese Hip Hop member (item10), while its2022 bill includes exact creator OCS (items26/72). Gowtu itself is not claimed an exact playlist member. Existing dutch_hip_hop covers the Netherlands scene broadly and may include this Amsterdam-based diaspora act; the transnational Surinamese community axis crosses language and residence rather than excluding Dutch artists. Existing surinamese_pop is the broader multilingual national popular field and shares creator figures; this is its overlapping hip-hop institutional branch, not a different guitar/DJ arrangement boundary. Full kawina describes responsive Creole song/drum practice and kaseko its historical brass/skratji urban lineage; both positively contribute here without exhausting the contemporary rap/DJ community. No category-wide exclusivity or new sonic grammar is claimed.",
+      "classification_evidence": {
+        "note": "This is the Surinamese national and diaspora hip-hop community, not all Dutch rap or all Surinamese popular music. Hosting institution explicitly places Gowtu in hip-hop and identifies its Surinamese cultural network; its2024 account positively connects concerts with Kater Karma, an exact creator Surinamese Hip Hop member (item10), while its2022 bill includes exact creator OCS (items26/72). Gowtu itself is not claimed an exact playlist member. Existing dutch_hip_hop covers the Netherlands scene broadly and may include this Amsterdam-based diaspora act; the transnational Surinamese community axis crosses language and residence rather than excluding Dutch artists. Existing surinamese_pop is the broader multilingual national popular field and shares creator figures; this is its overlapping hip-hop institutional branch, not a different guitar/DJ arrangement boundary. Full kawina describes responsive Creole song/drum practice and kaseko its historical brass/skratji urban lineage; both positively contribute here without exhausting the contemporary rap/DJ community. No category-wide exclusivity or new sonic grammar is claimed."
+      },
+      "model_policy": "Three role-family cards preserve all seven humans: two MCs in an authored live-duet/live-ensemble vocal rendition, four live percussionists in the existing source-unspecified auxiliary-percussion aggregate, and one actual DJ playback/mixing card. The percussion aggregate retains positive live percussion without inventing its subtypes; it is not a substitute for positively known individual instruments. All embedded recorded layers remain within the documented DJ role, not decomposition of an opaque studio master. MC speech/song balance, vocal physiology and tuning remain unspecified. Moderate neutral effort and tract, unprocessed vocal delivery, live ensemble capture and controlled live-room space are authored new-rendition settings, not measured event attributes. International hip-hop parent reflects the documented MC/DJ community branch over live and recorded rhythmic accompaniment; other styles are explicitly retained. No global tuning, hardware, effects or source BPM claimed. Brisk, outgoing party affect in the rendered rendition is an authored compatible club-dance interpretation, not a measured source tempo or claim about every Surinamese track.",
+      "source_scope_limitation": "Gowtu Soundsystem — complete seven-person live act documented by its host Melkweg for the17February2023 fifth anniversary: one DJ, four percussion players and two MCs. The whole named act is retained, not all distinct acts or hosts on the evening bill. The venue describes its cross-style Surinamese hip-hop/urban/Afrobeat/Kawina/Awasa practice; no claim that the entire set is pure rap. Later institutional account corroborates the same seven-role configuration and Kawina-percussion heritage, without supplying the individual percussion objects, construction or techniques. Those unknown objects remain unspecified rather than assuming four identical kawina drums. Exact tracklist, duration, individual names, embedded voices, performance details and original capture remain unknown; no audio audition or retrospective verification of the announced date is claimed.",
+      "vocal_count_audit": {
+        "documented_live_MCs_count": 2,
+        "embedded_voice_count": null,
+        "total_voice_count": null,
+        "decision": "Two source MC humans retained; no guessed recorded voice counts or extra evening hosts merged into the act."
+      },
+      "instrument_role_audit": {
+        "scope": "Gowtu Soundsystem — complete seven-person live act documented by its host Melkweg for the17February2023 fifth anniversary: one DJ, four percussion players and two MCs. The whole named act is retained, not all distinct acts or hosts on the evening bill. The venue describes its cross-style Surinamese hip-hop/urban/Afrobeat/Kawina/Awasa practice; no claim that the entire set is pure rap. Later institutional account corroborates the same seven-role configuration and Kawina-percussion heritage, without supplying the individual percussion objects, construction or techniques. Those unknown objects remain unspecified rather than assuming four identical kawina drums. Exact tracklist, duration, individual names, embedded voices, performance details and original capture remain unknown; no audio audition or retrospective verification of the announced date is claimed.",
+        "roles": {
+          "voice": "Two MCs, detailed speech/singing balance unspecified",
+          "credited_auxiliary_percussion": "Four live percussionists; exact Kawina-context objects unknown",
+          "dj_playback_mixing_unspecified": "One actual DJ preserving all recorded mix layers"
+        },
+        "authored_defaults": "Three role-family cards preserve all seven humans: two MCs in an authored live-duet/live-ensemble vocal rendition, four live percussionists in the existing source-unspecified auxiliary-percussion aggregate, and one actual DJ playback/mixing card. The percussion aggregate retains positive live percussion without inventing its subtypes; it is not a substitute for positively known individual instruments. All embedded recorded layers remain within the documented DJ role, not decomposition of an opaque studio master. MC speech/song balance, vocal physiology and tuning remain unspecified. Moderate neutral effort and tract, unprocessed vocal delivery, live ensemble capture and controlled live-room space are authored new-rendition settings, not measured event attributes. International hip-hop parent reflects the documented MC/DJ community branch over live and recorded rhythmic accompaniment; other styles are explicitly retained. No global tuning, hardware, effects or source BPM claimed. Brisk, outgoing party affect in the rendered rendition is an authored compatible club-dance interpretation, not a measured source tempo or claim about every Surinamese track."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Three role-family cards preserve all seven humans: two MCs in an authored live-duet/live-ensemble vocal rendition, four live percussionists in the existing source-unspecified auxiliary-percussion aggregate, and one actual DJ playback/mixing card. The percussion aggregate retains positive live percussion without inventing its subtypes; it is not a substitute for positively known individual instruments. All embedded recorded layers remain within the documented DJ role, not decomposition of an opaque studio master. MC speech/song balance, vocal physiology and tuning remain unspecified. Moderate neutral effort and tract, unprocessed vocal delivery, live ensemble capture and controlled live-room space are authored new-rendition settings, not measured event attributes. International hip-hop parent reflects the documented MC/DJ community branch over live and recorded rhythmic accompaniment; other styles are explicitly retained. No global tuning, hardware, effects or source BPM claimed."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Three role-family cards preserve all seven humans: two MCs in an authored live-duet/live-ensemble vocal rendition, four live percussionists in the existing source-unspecified auxiliary-percussion aggregate, and one actual DJ playback/mixing card. The percussion aggregate retains positive live percussion without inventing its subtypes; it is not a substitute for positively known individual instruments. All embedded recorded layers remain within the documented DJ role, not decomposition of an opaque studio master. MC speech/song balance, vocal physiology and tuning remain unspecified. Moderate neutral effort and tract, unprocessed vocal delivery, live ensemble capture and controlled live-room space are authored new-rendition settings, not measured event attributes. International hip-hop parent reflects the documented MC/DJ community branch over live and recorded rhythmic accompaniment; other styles are explicitly retained. No global tuning, hardware, effects or source BPM claimed."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Three role-family cards preserve all seven humans: two MCs in an authored live-duet/live-ensemble vocal rendition, four live percussionists in the existing source-unspecified auxiliary-percussion aggregate, and one actual DJ playback/mixing card. The percussion aggregate retains positive live percussion without inventing its subtypes; it is not a substitute for positively known individual instruments. All embedded recorded layers remain within the documented DJ role, not decomposition of an opaque studio master. MC speech/song balance, vocal physiology and tuning remain unspecified. Moderate neutral effort and tract, unprocessed vocal delivery, live ensemble capture and controlled live-room space are authored new-rendition settings, not measured event attributes. International hip-hop parent reflects the documented MC/DJ community branch over live and recorded rhythmic accompaniment; other styles are explicitly retained. No global tuning, hardware, effects or source BPM claimed."
+        }
+      ],
+      "flat_pin_resolution": "All19 owning controls protected; no imported fallback or shared conflicts.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "credited_auxiliary_percussion",
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.melkweg.nl/nl/agenda/gowtu-5-year-anniversary-17-02-2023/",
+          "title": "Host primary complete seven-person Gowtu act",
+          "support_notes": "Fresh turn12413view0 exact four percussionists/oneDJ/twoMCs; separate named evening acts and hosts not collapsed into this act."
+        },
+        {
+          "url": "https://www.melkweg.nl/nl/agenda/gowtu-xl-02-12-2022/",
+          "title": "Host primary full cross-style practice and OCS community bridge",
+          "support_notes": "Fresh12403view0/12403search1 explicit hip-hop/Kawina/urban/Afrobeat/Awasa plus live percussion; OCS separate act, not imported performer."
+        },
+        {
+          "url": "https://www.melkweg.nl/nl/agenda/gowtu-6-year-anniversary-01-03-2024/",
+          "title": "Host primary Surinamese network and same-role corroboration",
+          "support_notes": "Fresh12413view1 exact same seven-role configuration, Kawina-instrument context and Kater Karma concert relationship; no specified percussion subtype. Later lineup TBA not treated as complete2024event roster."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5QVCFHi3JSGOzmHXSArH5S",
+          "title": "Exact creator Surinamese Hip Hop corpus",
+          "support_notes": "Fresh12372view0 Kater Karma10,OCS26/72; no Gowtu membership claim."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "surinamese_hip_hop",
+          "name": "Surinamese Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not the Gowtu performers, their percussion, decks or actual stage microphone.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn12396view2 Commons confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 URL/hash/bytes/dimensions/visual receipt retained, no fresh download.",
+          "fresh_review_ref": "turn12396view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12396view2"
+        ],
+        "fresh_rights_review": "Fresh turn12396view2 rights read, historical023 bytes and visual receipt only."
+      },
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "verification_status": "Original merged19parts19pins,1638 existing owners unchanged, threecards/fourformats252max and exact historical photo receipt pass; no final integration/CI claim.",
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-10.json",
+        "original_sha256": "b7fa238db795dcbf620ba06da1e81196e409ea15f9e92c86fd655f1cc13abcf0",
+        "prior_tradition": {
+          "id": "surinamese_hip_hop",
+          "name": "Surinamese Hip Hop",
+          "family": "hip_hop",
+          "lineage": "Gowtu Soundsystem — complete seven-person live act documented by its host Melkweg for the17February2023 fifth anniversary: one DJ, four percussion players and two MCs. The whole named act is retained, not all distinct acts or hosts on the evening bill. The venue describes its cross-style Surinamese hip-hop/urban/Afrobeat/Kawina/Awasa practice; no claim that the entire set is pure rap. Later institutional account corroborates the same seven-role configuration and Kawina-percussion heritage, without supplying the individual percussion objects, construction or techniques. Those unknown objects remain unspecified rather than assuming four identical kawina drums. Exact tracklist, duration, individual names, embedded voices, performance details and original capture remain unknown; no audio audition or retrospective verification of the announced date is claimed. Three role-family cards preserve all seven humans: two MCs in an authored live-duet/live-ensemble vocal rendition, four live percussionists in the existing source-unspecified auxiliary-percussion aggregate, and one actual DJ playback/mixing card. The percussion aggregate retains positive live percussion without inventing its subtypes; it is not a substitute for positively known individual instruments. All embedded recorded layers remain within the documented DJ role, not decomposition of an opaque studio master. MC speech/song balance, vocal physiology and tuning remain unspecified. Moderate neutral effort and tract, unprocessed vocal delivery, live ensemble capture and controlled live-room space are authored new-rendition settings, not measured event attributes. International hip-hop parent reflects the documented MC/DJ community branch over live and recorded rhythmic accompaniment; other styles are explicitly retained. No global tuning, hardware, effects or source BPM claimed. Brisk, outgoing party affect in the rendered rendition is an authored compatible club-dance interpretation, not a measured source tempo or claim about every Surinamese track.",
+          "instruments": [
+            "voice",
+            "credited_auxiliary_percussion",
+            "dj_playback_mixing_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "prior_extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Gowtu Soundsystem — complete seven-person live act documented by its host Melkweg for the17February2023 fifth anniversary: one DJ, four percussion players and two MCs. The whole named act is retained, not all distinct acts or hosts on the evening bill. The venue describes its cross-style Surinamese hip-hop/urban/Afrobeat/Kawina/Awasa practice; no claim that the entire set is pure rap. Later institutional account corroborates the same seven-role configuration and Kawina-percussion heritage, without supplying the individual percussion objects, construction or techniques. Those unknown objects remain unspecified rather than assuming four identical kawina drums. Exact tracklist, duration, individual names, embedded voices, performance details and original capture remain unknown; no audio audition or retrospective verification of the announced date is claimed. This is the Surinamese national and diaspora hip-hop community, not all Dutch rap or all Surinamese popular music. Hosting institution explicitly places Gowtu in hip-hop and identifies its Surinamese cultural network; its2024 account positively connects concerts with Kater Karma, an exact creator Surinamese Hip Hop member (item10), while its2022 bill includes exact creator OCS (items26/72). Gowtu itself is not claimed an exact playlist member. Existing dutch_hip_hop covers the Netherlands scene broadly and may include this Amsterdam-based diaspora act; the transnational Surinamese community axis crosses language and residence rather than excluding Dutch artists. Existing surinamese_pop is the broader multilingual national popular field and shares creator figures; this is its overlapping hip-hop institutional branch, not a different guitar/DJ arrangement boundary. Full kawina describes responsive Creole song/drum practice and kaseko its historical brass/skratji urban lineage; both positively contribute here without exhausting the contemporary rap/DJ community. No category-wide exclusivity or new sonic grammar is claimed. Three role-family cards preserve all seven humans: two MCs in an authored live-duet/live-ensemble vocal rendition, four live percussionists in the existing source-unspecified auxiliary-percussion aggregate, and one actual DJ playback/mixing card. The percussion aggregate retains positive live percussion without inventing its subtypes; it is not a substitute for positively known individual instruments. All embedded recorded layers remain within the documented DJ role, not decomposition of an opaque studio master. MC speech/song balance, vocal physiology and tuning remain unspecified. Moderate neutral effort and tract, unprocessed vocal delivery, live ensemble capture and controlled live-room space are authored new-rendition settings, not measured event attributes. International hip-hop parent reflects the documented MC/DJ community branch over live and recorded rhythmic accompaniment; other styles are explicitly retained. No global tuning, hardware, effects or source BPM claimed. Brisk, outgoing party affect in the rendered rendition is an authored compatible club-dance interpretation, not a measured source tempo or claim about every Surinamese track.",
+          "exemplars": [
+            "Gowtu Soundsystem — complete seven-person host-documented live practice"
+          ],
+          "crossRefs": []
+        },
+        "decision": "Restore genre history/style public profile, retain documented live performance architecture as a representative controllable branch. No whole-event reproduction or universal source-personnel claim. Studio production remains within the wider genre, not falsely decomposed from an opaque master. All existing roles/controls retained; no new dependency.",
+        "default_review": "Existing live MC/DJ or MC/turntable/drum/percussion practice is positively documented and fits a representative performance. Exact human count is not a genre rule; voice grouping is an authored ensemble choice, not universal category definition. Current resolved_parts_audit remains valid because musical controls are unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

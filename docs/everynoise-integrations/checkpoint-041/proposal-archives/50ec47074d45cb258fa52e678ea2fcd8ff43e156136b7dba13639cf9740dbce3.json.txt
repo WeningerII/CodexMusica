@@ -1,0 +1,367 @@
+{
+  "entries": [
+    {
+      "source_label": "underground power pop",
+      "source_url": "https://everynoise.com/engenremap-undergroundpowerpop.html",
+      "suggested_id": "underground_power_pop",
+      "allocation_ordinal": 1923,
+      "allocation_group_id": "077",
+      "id": "underground_power_pop",
+      "status": "READY_FOR_REVIEW",
+      "signature_tokens": [],
+      "tradition": {
+        "id": "underground_power_pop",
+        "name": "Underground Power Pop",
+        "family": "rock",
+        "lineage": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed. Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed. Underground Power Pop is the independent fan, fanzine, mail-order-label and festival network within continuing power pop. IPO founder David Bash firsthand describes Yellow Pills, Audities, Not Lame, Poptopia and IPO as an interconnected international grassroots community; his own2020 festival-site list includes the selected Speedways album. Exact creator corpus includes Material Issue, The Rooks, Shoes and The Posies, positively connected in that firsthand history. Speedways is absent from the retrieved creator sample and is not claimed a playlist member or verified IPO live performer. Full existing power_pop already includes independent Big Star/Badfinger and present continuation: neither obscurity, date nor the chosen band creates the distinction. This is an overlapping institution/community axis, not a new harmonic style or exclusive artist roster. Existing jangle_pop overlaps artists and guitars but describes a timbral/historical style rather than this cross-style independent power-pop network. Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed.",
+        "exemplars": [
+          "The Speedways — complete This Aint A Radio Sound single, May 4, 2020"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        51.5074,
+        -0.1278,
+        "London",
+        "Europe"
+      ],
+      "geo_rationale": "Exact artist track names London recording/base, an editorial source anchor not universal category origin.",
+      "neighbor_distinction": "Underground Power Pop is the independent fan, fanzine, mail-order-label and festival network within continuing power pop. IPO founder David Bash firsthand describes Yellow Pills, Audities, Not Lame, Poptopia and IPO as an interconnected international grassroots community; his own2020 festival-site list includes the selected Speedways album. Exact creator corpus includes Material Issue, The Rooks, Shoes and The Posies, positively connected in that firsthand history. Speedways is absent from the retrieved creator sample and is not claimed a playlist member or verified IPO live performer. Full existing power_pop already includes independent Big Star/Badfinger and present continuation: neither obscurity, date nor the chosen band creates the distinction. This is an overlapping institution/community axis, not a new harmonic style or exclusive artist roster. Existing jangle_pop overlaps artists and guitars but describes a timbral/historical style rather than this cross-style independent power-pop network.",
+      "classification_evidence": "Underground Power Pop is the independent fan, fanzine, mail-order-label and festival network within continuing power pop. IPO founder David Bash firsthand describes Yellow Pills, Audities, Not Lame, Poptopia and IPO as an interconnected international grassroots community; his own2020 festival-site list includes the selected Speedways album. Exact creator corpus includes Material Issue, The Rooks, Shoes and The Posies, positively connected in that firsthand history. Speedways is absent from the retrieved creator sample and is not claimed a playlist member or verified IPO live performer. Full existing power_pop already includes independent Big Star/Badfinger and present continuation: neither obscurity, date nor the chosen band creates the distinction. This is an overlapping institution/community axis, not a new harmonic style or exclusive artist roster. Existing jangle_pop overlaps artists and guitars but describes a timbral/historical style rather than this cross-style independent power-pop network.",
+      "model_policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed.",
+      "source_scope_limitation": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed.",
+      "source_retrieval_caveat": "Public complete track credits and firsthand network sources retrieved; no audio audition. Exact creator sample supports network bridge, not Speedways membership.",
+      "vocal_count_audit": {
+        "named_singers": 3,
+        "names": [
+          "Matt Julian",
+          "Mauro Venegas",
+          "Adrian Alfonso"
+        ],
+        "decision": "All retained; actual overdub count unknown; live group is authored."
+      },
+      "instrument_role_audit": {
+        "scope": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed.",
+        "performers": [
+          "Matt Julian",
+          "Mauro Venegas",
+          "Adrian Alfonso",
+          "Kris Hood"
+        ],
+        "roles": {
+          "voice": "one lead and two backing singers",
+          "electric_guitar_humbucker": "Both guitarists, source architecture unspecified",
+          "electric_bass": "Adrian Alfonso bass guitar",
+          "drum_kit": "Kris Hood complete drum role",
+          "electronic_keyboard_unspecified": "Matt Julian keyboard, engine unknown"
+        },
+        "authored_defaults": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Every actual owning control protected; shared alder control coherent for bass and guitar."
+      },
+      "verification_status": "Pending independent review.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://thespeedways.bandcamp.com/track/this-aint-a-radio-sound",
+          "title": "Artist exact whole single",
+          "support_notes": "turn777042view0; complete four-person three-voice five-family track",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rememberthelightning.substack.com/p/interview-david-bash",
+          "title": "Firsthand founder interview",
+          "support_notes": "turn330017view0; concrete grassroots network with named creator artists",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://internationalpopoverthrow.com/about/",
+          "title": "Institution own community history",
+          "support_notes": "turn223289view1; international shared independent bills",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://internationalpopoverthrow.com/david-bashs-best-of-2020-lists/",
+          "title": "Founder own circulation list",
+          "support_notes": "turn364056view0; Speedways Radio Sounds78; not evidence of live IPO performance",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5gKcYetENCc1TBkgcTiOA8",
+          "title": "Exact creator corpus",
+          "support_notes": "turn601263view0/777042view2; network artists, no Speedways sample membership",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn777042view0",
+        "turn330017view0",
+        "turn223289view1",
+        "turn364056view0",
+        "turn601263view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "underground_power_pop",
+          "name": "Underground Power Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone context, not Speedways or actual equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn571802view1 CC BY2.5 Iain Fergusson/Binksternet crop; inherited023 bytes and visual evidence only.",
+          "fresh_review_ref": "turn571802view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights only; no fresh download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn571802view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "Source-only complete track candidate; independent review pending."
+}

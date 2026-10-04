@@ -1,0 +1,292 @@
+{
+  "entries": [
+    {
+      "source_label": "lao pop",
+      "source_url": "https://everynoise.com/engenremap-laopop.html",
+      "suggested_id": "lao_pop",
+      "allocation_ordinal": 1780,
+      "allocation_group_id": "072",
+      "id": "lao_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "lao_pop",
+        "name": "Lao Pop",
+        "family": "pop",
+        "lineage": "Asian Pops 2024 — whole five-person Min-On announced concert programme, not an extracted Alexandra segment: Raisa, Christian Bautista and Alexandra Bounxouei singing, Hiroshi Urushido piano and Masatoshi Kainuma percussion. The original Japanese organizer announcement explicitly names these five roles; the later own tour report independently agrees on piano/percussion and describes solo songs plus shared singing. All three national repertoires and international/Japanese songs remain selected; no claim every piece is Lao. The separate post-concert Saitama community-choir exchange is not the announced concert roster. Exact percussion instruments, piano architecture, original vocal ranges/intervals and complete item-by-item setlist remain unspecified. No audio or video audition claimed. Broad functionalSong/pop describes a new authored verse-chorus-bridge rendition over functional harmonic progressions of this popular-song programme, not a measured transcription of every original item. Three live singers are retained with unspecified voicing and neutral register/physiology; no fixed harmony intervals are asserted. Source-unspecified piano is realized as a standard studio upright with connected legato/pedal articulation. The explicitly credited percussion remains the existing neutral auxiliary-percussion owner; no cajon, drum kit or other subtype is invented. A controlled live room is a new arrangement acoustic, not the measured original hall. The visible up-tempo vocal pacing and bold percussion affect are intentional new brisk popular-concert presentation choices, not measured original BPM or a claim every original ballad was fast. No global tuning or studio apparatus is inferred.",
+        "instruments": [
+          "voice",
+          "upright_piano",
+          "credited_auxiliary_percussion"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Asian Pops 2024 — whole five-person Min-On announced concert programme, not an extracted Alexandra segment: Raisa, Christian Bautista and Alexandra Bounxouei singing, Hiroshi Urushido piano and Masatoshi Kainuma percussion. The original Japanese organizer announcement explicitly names these five roles; the later own tour report independently agrees on piano/percussion and describes solo songs plus shared singing. All three national repertoires and international/Japanese songs remain selected; no claim every piece is Lao. The separate post-concert Saitama community-choir exchange is not the announced concert roster. Exact percussion instruments, piano architecture, original vocal ranges/intervals and complete item-by-item setlist remain unspecified. No audio or video audition claimed. Lao Pop denotes the contemporary national popular-song field positively represented by Min-On, with Lao Embassy support, through Alexandra Bounxouei alongside other national pop representatives. The organizer expressly calls Alexandra a Lao Pop singer who spreads the fusion of traditional Lao sounds and contemporary pop domestically and internationally (original Japanese ラオポップ). This is a named institutional popular-music field, not nationality alone. The exact creator Lao Pop map spans contemporary singers and rap/pop acts; Alexandra was not found and no exact creator membership is claimed. Existing lao_traditional explicitly concerns sep court ensembles and lam village sung-poetry; lao_lam_saravane is one southern lam tradition. Their national geography overlaps, but neither defines the whole contemporary national pop field. Existing thai_pop and t_pop describe the Thai mainstream/idol industry, not an exclusion of Lao influence or shared repertoire. Queued Thai OST/Thai BL OST are Thai screen-song institutional fields, not this Lao popular-song umbrella. No category difference is inferred from using piano/percussion, the Tokyo venue, or excluding the other two singers; the whole cross-national programme is a documented exchange realization of the Lao artist practice. Broad functionalSong/pop describes a new authored verse-chorus-bridge rendition over functional harmonic progressions of this popular-song programme, not a measured transcription of every original item. Three live singers are retained with unspecified voicing and neutral register/physiology; no fixed harmony intervals are asserted. Source-unspecified piano is realized as a standard studio upright with connected legato/pedal articulation. The explicitly credited percussion remains the existing neutral auxiliary-percussion owner; no cajon, drum kit or other subtype is invented. A controlled live room is a new arrangement acoustic, not the measured original hall. The visible up-tempo vocal pacing and bold percussion affect are intentional new brisk popular-concert presentation choices, not measured original BPM or a claim every original ballad was fast. No global tuning or studio apparatus is inferred.",
+        "exemplars": [
+          "Alexandra Bounxouei with Raisa, Christian Bautista, Hiroshi Urushido and Masatoshi Kainuma — whole announced Asian Pops2024 programme"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        19.8563,
+        102.4955,
+        "Laos",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Editorial Lao national popular-field anchor, not birthplace, recording location or location of the Japanese concert. Selected programme toured Japan; country field is documented by organizer and Lao Embassy sponsorship.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Lao Pop denotes the contemporary national popular-song field positively represented by Min-On, with Lao Embassy support, through Alexandra Bounxouei alongside other national pop representatives. The organizer expressly calls Alexandra a Lao Pop singer who spreads the fusion of traditional Lao sounds and contemporary pop domestically and internationally (original Japanese ラオポップ). This is a named institutional popular-music field, not nationality alone. The exact creator Lao Pop map spans contemporary singers and rap/pop acts; Alexandra was not found and no exact creator membership is claimed. Existing lao_traditional explicitly concerns sep court ensembles and lam village sung-poetry; lao_lam_saravane is one southern lam tradition. Their national geography overlaps, but neither defines the whole contemporary national pop field. Existing thai_pop and t_pop describe the Thai mainstream/idol industry, not an exclusion of Lao influence or shared repertoire. Queued Thai OST/Thai BL OST are Thai screen-song institutional fields, not this Lao popular-song umbrella. No category difference is inferred from using piano/percussion, the Tokyo venue, or excluding the other two singers; the whole cross-national programme is a documented exchange realization of the Lao artist practice.",
+      "classification_evidence": "Lao Pop denotes the contemporary national popular-song field positively represented by Min-On, with Lao Embassy support, through Alexandra Bounxouei alongside other national pop representatives. The organizer expressly calls Alexandra a Lao Pop singer who spreads the fusion of traditional Lao sounds and contemporary pop domestically and internationally (original Japanese ラオポップ). This is a named institutional popular-music field, not nationality alone. The exact creator Lao Pop map spans contemporary singers and rap/pop acts; Alexandra was not found and no exact creator membership is claimed. Existing lao_traditional explicitly concerns sep court ensembles and lam village sung-poetry; lao_lam_saravane is one southern lam tradition. Their national geography overlaps, but neither defines the whole contemporary national pop field. Existing thai_pop and t_pop describe the Thai mainstream/idol industry, not an exclusion of Lao influence or shared repertoire. Queued Thai OST/Thai BL OST are Thai screen-song institutional fields, not this Lao popular-song umbrella. No category difference is inferred from using piano/percussion, the Tokyo venue, or excluding the other two singers; the whole cross-national programme is a documented exchange realization of the Lao artist practice.",
+      "model_policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge rendition over functional harmonic progressions of this popular-song programme, not a measured transcription of every original item. Three live singers are retained with unspecified voicing and neutral register/physiology; no fixed harmony intervals are asserted. Source-unspecified piano is realized as a standard studio upright with connected legato/pedal articulation. The explicitly credited percussion remains the existing neutral auxiliary-percussion owner; no cajon, drum kit or other subtype is invented. A controlled live room is a new arrangement acoustic, not the measured original hall. The visible up-tempo vocal pacing and bold percussion affect are intentional new brisk popular-concert presentation choices, not measured original BPM or a claim every original ballad was fast. No global tuning or studio apparatus is inferred.",
+      "source_scope_limitation": "Asian Pops 2024 — whole five-person Min-On announced concert programme, not an extracted Alexandra segment: Raisa, Christian Bautista and Alexandra Bounxouei singing, Hiroshi Urushido piano and Masatoshi Kainuma percussion. The original Japanese organizer announcement explicitly names these five roles; the later own tour report independently agrees on piano/percussion and describes solo songs plus shared singing. All three national repertoires and international/Japanese songs remain selected; no claim every piece is Lao. The separate post-concert Saitama community-choir exchange is not the announced concert roster. Exact percussion instruments, piano architecture, original vocal ranges/intervals and complete item-by-item setlist remain unspecified. No audio or video audition claimed.",
+      "source_retrieval_caveat": "Min-On English November report calls Kainuma guitarist, conflicting with original Japanese organizer release and October tour report both explicitly percussion. Selected scope is the original announced five-person practice; percussion is corroborated by participating music director own official site. No unsupported guitar doubling or inferred violin from Alexandra general biography is added. Exact creator membership absent; independent organizer national pop identification supplies the bridge.",
+      "sources": [
+        {
+          "url": "https://www.atpress.ne.jp/news/399574",
+          "title": "Original organizer-issued Japanese announcement",
+          "support_notes": "940882view0 full original Min-On release June24 2024 lines19/51 complete five roles, lines48–49 expressly Lao Pop as traditional Lao/contemporary pop fusion. Original399574 URL redirects6116408.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.min-on.or.jp/special/2024/asianpops/",
+          "title": "Official programme and institutional field",
+          "support_notes": "569165view0 national pop artists, embassy sponsorship, popular-song collaborations and planned repertoire.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.min-on.org/17284/asian-pops-2024-tour-of-japan-a-resounding-success/",
+          "title": "Organizer complete tour report",
+          "support_notes": "185964view0 confirms all five roles with Kainuma percussion; collaboration and separate choir exchange distinguished.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.itsumo-music.jp/c/",
+          "title": "Participating music director official announcement",
+          "support_notes": "569165search5 corroborates same tour and Kainuma percussion.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.min-on.org/16882/tokyo-showing-of-asian-pops-2024-draws-large-diplomatic-corps-audience/",
+          "title": "Conflicting English instrument attribution retained",
+          "support_notes": "650995view1 and185964search2 say guitar; original Japanese and other organizer report agree percussion. Not silently treated as additional role.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-laopop.html",
+          "title": "Exact creator category roster",
+          "support_notes": "650995view2 full contemporary popular/rap repertoire sample; Alexandra absent, membership not asserted.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn940882view0",
+        "turn569165view0",
+        "turn185964view0",
+        "turn569165search5",
+        "turn185964search2",
+        "turn650995view2"
+      ],
+      "vocal_count_audit": {
+        "selected_singers": 3,
+        "people": [
+          "Raisa",
+          "Christian Bautista",
+          "Alexandra Bounxouei"
+        ],
+        "decision": "Three named vocalists across solos and collaborations, with unknown voicing; not a claim all three sing every bar. Two accompanists retained separately."
+      },
+      "instrument_role_audit": {
+        "scope": "Asian Pops 2024 — whole five-person Min-On announced concert programme, not an extracted Alexandra segment: Raisa, Christian Bautista and Alexandra Bounxouei singing, Hiroshi Urushido piano and Masatoshi Kainuma percussion. The original Japanese organizer announcement explicitly names these five roles; the later own tour report independently agrees on piano/percussion and describes solo songs plus shared singing. All three national repertoires and international/Japanese songs remain selected; no claim every piece is Lao. The separate post-concert Saitama community-choir exchange is not the announced concert roster. Exact percussion instruments, piano architecture, original vocal ranges/intervals and complete item-by-item setlist remain unspecified. No audio or video audition claimed.",
+        "roles": {
+          "voice": "Three named singers, including solos and collaborative numbers",
+          "upright_piano": "Hiroshi Urushido piano; upright architecture authored",
+          "credited_auxiliary_percussion": "Masatoshi Kainuma percussion, type unspecified"
+        },
+        "authored_defaults": "Broad functionalSong/pop describes a new authored verse-chorus-bridge rendition over functional harmonic progressions of this popular-song programme, not a measured transcription of every original item. Three live singers are retained with unspecified voicing and neutral register/physiology; no fixed harmony intervals are asserted. Source-unspecified piano is realized as a standard studio upright with connected legato/pedal articulation. The explicitly credited percussion remains the existing neutral auxiliary-percussion owner; no cajon, drum kit or other subtype is invented. A controlled live room is a new arrangement acoustic, not the measured original hall. The visible up-tempo vocal pacing and bold percussion affect are intentional new brisk popular-concert presentation choices, not measured original BPM or a claim every original ballad was fast. No global tuning or studio apparatus is inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge rendition over functional harmonic progressions of this popular-song programme, not a measured transcription of every original item. Three live singers are retained with unspecified voicing and neutral register/physiology; no fixed harmony intervals are asserted. Source-unspecified piano is realized as a standard studio upright with connected legato/pedal articulation. The explicitly credited percussion remains the existing neutral auxiliary-percussion owner; no cajon, drum kit or other subtype is invented. A controlled live room is a new arrangement acoustic, not the measured original hall. The visible up-tempo vocal pacing and bold percussion affect are intentional new brisk popular-concert presentation choices, not measured original BPM or a claim every original ballad was fast. No global tuning or studio apparatus is inferred."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge rendition over functional harmonic progressions of this popular-song programme, not a measured transcription of every original item. Three live singers are retained with unspecified voicing and neutral register/physiology; no fixed harmony intervals are asserted. Source-unspecified piano is realized as a standard studio upright with connected legato/pedal articulation. The explicitly credited percussion remains the existing neutral auxiliary-percussion owner; no cajon, drum kit or other subtype is invented. A controlled live room is a new arrangement acoustic, not the measured original hall. The visible up-tempo vocal pacing and bold percussion affect are intentional new brisk popular-concert presentation choices, not measured original BPM or a claim every original ballad was fast. No global tuning or studio apparatus is inferred."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge rendition over functional harmonic progressions of this popular-song programme, not a measured transcription of every original item. Three live singers are retained with unspecified voicing and neutral register/physiology; no fixed harmony intervals are asserted. Source-unspecified piano is realized as a standard studio upright with connected legato/pedal articulation. The explicitly credited percussion remains the existing neutral auxiliary-percussion owner; no cajon, drum kit or other subtype is invented. A controlled live room is a new arrangement acoustic, not the measured original hall. The visible up-tempo vocal pacing and bold percussion affect are intentional new brisk popular-concert presentation choices, not measured original BPM or a claim every original ballad was fast. No global tuning or studio apparatus is inferred."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "upright_piano",
+          "credited_auxiliary_percussion"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All21 applicable owning controls protected; no shared-key conflict or fallback."
+      },
+      "verification_status": "Pending independent source/mechanical/render peer.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lao_pop",
+          "name": "Lao Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not these performers, the piano, percussion or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh952183view2 confirms original IainFergusson/Binksternet crop CC BY2.5. Historical023 byte and visual receipts unchanged.",
+          "fresh_review_ref": "turn952183view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn952183view2"
+        ],
+        "fresh_rights_review": "Fresh952183view2 rights/context only; no new byte or visual claim."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

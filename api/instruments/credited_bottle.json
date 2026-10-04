@@ -1,0 +1,173 @@
+{
+  "id": "credited_bottle",
+  "name": "Bottle percussion",
+  "short": "Bottle percussion",
+  "family": "percussion",
+  "class": "credited_bottle",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_bottle_material",
+      "name": "Vessel material",
+      "variants": [
+        {
+          "id": "credited_bottle_glass",
+          "name": "Ordinary glass bottle (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "glass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_geometry",
+      "name": "Vessel dimensions and form",
+      "variants": [
+        {
+          "id": "credited_bottle_geometry_unspecified",
+          "name": "Bottle geometry and dimensions unspecified",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_fill",
+      "name": "Contents and pitch adjustment",
+      "variants": [
+        {
+          "id": "credited_bottle_empty",
+          "name": "Empty vessel, no measured pitch (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_excitation",
+      "name": "Excitation and implement",
+      "variants": [
+        {
+          "id": "credited_bottle_struck_wood",
+          "name": "Bottle struck with wooden implement (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "struck",
+            "wooden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_support",
+      "name": "Support and damping",
+      "variants": [
+        {
+          "id": "credited_bottle_handheld",
+          "name": "Hand-held bottle; damping from grip (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hand-held",
+            "damped"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Hand-held glass bottle used as a percussion instrument, with independent choices for vessel form, contents, striking implement and grip damping.",
+  "sources": [
+    "https://my.zikinf.com/aboutouroots",
+    "https://www.melo-app.com/notice/mapouka"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_bottle_material",
+      "name": "Vessel material",
+      "variants": [
+        {
+          "id": "credited_bottle_glass",
+          "name": "Ordinary glass bottle (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "glass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_geometry",
+      "name": "Vessel dimensions and form",
+      "variants": [
+        {
+          "id": "credited_bottle_geometry_unspecified",
+          "name": "Bottle geometry and dimensions unspecified",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_fill",
+      "name": "Contents and pitch adjustment",
+      "variants": [
+        {
+          "id": "credited_bottle_empty",
+          "name": "Empty vessel, no measured pitch (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_excitation",
+      "name": "Excitation and implement",
+      "variants": [
+        {
+          "id": "credited_bottle_struck_wood",
+          "name": "Bottle struck with wooden implement (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "struck",
+            "wooden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credited_bottle_support",
+      "name": "Support and damping",
+      "variants": [
+        {
+          "id": "credited_bottle_handheld",
+          "name": "Hand-held bottle; damping from grip (authored choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hand-held",
+            "damped"
+          ]
+        }
+      ]
+    }
+  ]
+}

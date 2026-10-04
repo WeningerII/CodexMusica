@@ -1,0 +1,233 @@
+{
+  "entries": [
+    {
+      "source_label": "korean drill",
+      "source_url": "https://everynoise.com/engenremap-koreandrill.html",
+      "suggested_id": "korean_drill",
+      "allocation_ordinal": 368,
+      "allocation_group_id": "015",
+      "id": "korean_drill",
+      "tradition": {
+        "id": "korean_drill",
+        "name": "Korean Drill",
+        "family": "hip_hop",
+        "lineage": "Fleeky Bang — complete Mnet TV full-version first qualifier, Show Me the Money11 episode1, issued21 October2022. Broadcaster title and description explicitly identify unaccompanied rap assessment. This is the whole separately issued qualifier performance, not the whole television episode or an original song with its accompaniment removed. One named rapper; judges, audience and broadcast speech are not asserted as musical contributors. No audio audition or exact runtime measurement claimed. Korean Drill is a narrower Korean localization of the drill diaspora, not all Korean rap. In his firsthand Hypebeast interview Fleeky Bang describes developing his flow from Bronx drill and discusses its reception in Korea, while acknowledging other genres in his own work. The interview also documents the Yellin/Dirty Play community. Existing k_rap already includes contemporary production and Show Me the Money, and korean_hip_hop covers the broad national scene: neither is limited to old performers. Drill, UK Drill and Brooklyn Drill share lineage and can overlap this Korean adaptation; their broad diaspora does not make every national rap field equivalent. The selected unaccompanied qualifier represents this documented practitioner in a complete broadcaster-issued vocal format; it does not demonstrate a sliding808 beat, nor establish that every qualifier or every Fleeky release is drill. The category rests on positive localized practitioner/community evidence, not Korean nationality or a different performer alone. The complete one-rapper vocal performance uses one unaccompanied single-lead voice, retaining rhythmic spoken flow without invented beats or instruments. All vocal physiology, source pitch and training remain unspecified. Natural unprocessed delivery and controlled studio capture are an authored rendition, not a claim about original broadcast processing. Broad mcRhythm.intlHipHop places this specifically vocal Korean rap branch; no absent drill production signature is manufactured. Global tuning omitted.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Fleeky Bang — complete Mnet TV full-version first qualifier, Show Me the Money11 episode1, issued21 October2022. Broadcaster title and description explicitly identify unaccompanied rap assessment. This is the whole separately issued qualifier performance, not the whole television episode or an original song with its accompaniment removed. One named rapper; judges, audience and broadcast speech are not asserted as musical contributors. No audio audition or exact runtime measurement claimed. Korean Drill is a narrower Korean localization of the drill diaspora, not all Korean rap. In his firsthand Hypebeast interview Fleeky Bang describes developing his flow from Bronx drill and discusses its reception in Korea, while acknowledging other genres in his own work. The interview also documents the Yellin/Dirty Play community. Existing k_rap already includes contemporary production and Show Me the Money, and korean_hip_hop covers the broad national scene: neither is limited to old performers. Drill, UK Drill and Brooklyn Drill share lineage and can overlap this Korean adaptation; their broad diaspora does not make every national rap field equivalent. The selected unaccompanied qualifier represents this documented practitioner in a complete broadcaster-issued vocal format; it does not demonstrate a sliding808 beat, nor establish that every qualifier or every Fleeky release is drill. The category rests on positive localized practitioner/community evidence, not Korean nationality or a different performer alone. The complete one-rapper vocal performance uses one unaccompanied single-lead voice, retaining rhythmic spoken flow without invented beats or instruments. All vocal physiology, source pitch and training remain unspecified. Natural unprocessed delivery and controlled studio capture are an authored rendition, not a claim about original broadcast processing. Broad mcRhythm.intlHipHop places this specifically vocal Korean rap branch; no absent drill production signature is manufactured. Global tuning omitted.",
+        "exemplars": [
+          "Fleeky Bang — complete Mnet SMTM11 first unaccompanied qualifier"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.9078,
+        127.7669,
+        "South Korea",
+        "East Asia"
+      ],
+      "geo_rationale": "Country-level editorial anchor for explicitly Korean localized rap practice; not a claimed qualifier venue.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=0tRBRKDTMgs",
+          "title": "Mnet TV official complete unaccompanied qualifier",
+          "support_notes": "Verified Mnet TV issuer, full-version and unaccompanied rap assessment explicitly named; fresh native indexed12141youtube12 and prior12106youtube12. Direct page fails. Actual earlier successful unmodified response retained resume461-korean-drill-primary-raw.txt."
+        },
+        {
+          "url": "https://hypebeast.kr/2023/10/streetsnaps-fleeky-bang-tray-b-yellin-crew-dirty-play-records",
+          "title": "Firsthand Fleeky Bang and Tray B interview",
+          "support_notes": "Fresh direct12140view1: self-described Bronx drill specialization and flow development, Korean reception, Yellin community; candidly also other genres."
+        }
+      ],
+      "neighbor_distinction": "Korean Drill is a narrower Korean localization of the drill diaspora, not all Korean rap. In his firsthand Hypebeast interview Fleeky Bang describes developing his flow from Bronx drill and discusses its reception in Korea, while acknowledging other genres in his own work. The interview also documents the Yellin/Dirty Play community. Existing k_rap already includes contemporary production and Show Me the Money, and korean_hip_hop covers the broad national scene: neither is limited to old performers. Drill, UK Drill and Brooklyn Drill share lineage and can overlap this Korean adaptation; their broad diaspora does not make every national rap field equivalent. The selected unaccompanied qualifier represents this documented practitioner in a complete broadcaster-issued vocal format; it does not demonstrate a sliding808 beat, nor establish that every qualifier or every Fleeky release is drill. The category rests on positive localized practitioner/community evidence, not Korean nationality or a different performer alone.",
+      "model_policy": "The complete one-rapper vocal performance uses one unaccompanied single-lead voice, retaining rhythmic spoken flow without invented beats or instruments. All vocal physiology, source pitch and training remain unspecified. Natural unprocessed delivery and controlled studio capture are an authored rendition, not a claim about original broadcast processing. Broad mcRhythm.intlHipHop places this specifically vocal Korean rap branch; no absent drill production signature is manufactured. Global tuning omitted.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice"
+        ]
+      },
+      "classification_evidence": "Korean Drill is a narrower Korean localization of the drill diaspora, not all Korean rap. In his firsthand Hypebeast interview Fleeky Bang describes developing his flow from Bronx drill and discusses its reception in Korea, while acknowledging other genres in his own work. The interview also documents the Yellin/Dirty Play community. Existing k_rap already includes contemporary production and Show Me the Money, and korean_hip_hop covers the broad national scene: neither is limited to old performers. Drill, UK Drill and Brooklyn Drill share lineage and can overlap this Korean adaptation; their broad diaspora does not make every national rap field equivalent. The selected unaccompanied qualifier represents this documented practitioner in a complete broadcaster-issued vocal format; it does not demonstrate a sliding808 beat, nor establish that every qualifier or every Fleeky release is drill. The category rests on positive localized practitioner/community evidence, not Korean nationality or a different performer alone.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "count_basis": "Broadcaster names the sole unaccompanied qualifier performer; no other musical voice credited in this complete scoped performance. Nonmusical judging speech not a claimed sung/rap part."
+      },
+      "instrument_role_audit": {
+        "scope": "Fleeky Bang — complete Mnet TV full-version first qualifier, Show Me the Money11 episode1, issued21 October2022. Broadcaster title and description explicitly identify unaccompanied rap assessment. This is the whole separately issued qualifier performance, not the whole television episode or an original song with its accompaniment removed. One named rapper; judges, audience and broadcast speech are not asserted as musical contributors. No audio audition or exact runtime measurement claimed.",
+        "roles": {
+          "voice": "One complete unaccompanied rapper"
+        },
+        "authored_defaults": "The complete one-rapper vocal performance uses one unaccompanied single-lead voice, retaining rhythmic spoken flow without invented beats or instruments. All vocal physiology, source pitch and training remain unspecified. Natural unprocessed delivery and controlled studio capture are an authored rendition, not a claim about original broadcast processing. Broad mcRhythm.intlHipHop places this specifically vocal Korean rap branch; no absent drill production signature is manufactured. Global tuning omitted."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "The complete one-rapper vocal performance uses one unaccompanied single-lead voice, retaining rhythmic spoken flow without invented beats or instruments. All vocal physiology, source pitch and training remain unspecified. Natural unprocessed delivery and controlled studio capture are an authored rendition, not a claim about original broadcast processing. Broad mcRhythm.intlHipHop places this specifically vocal Korean rap branch; no absent drill production signature is manufactured. Global tuning omitted."
+        }
+      ],
+      "verification_status": "17 applicable controls protected; all1638 existing owners unchanged. Original browser/connector four formats pass, max840 chars. Full actual street-pulsing rhythmic spoken solo voice is coherent with authored rap presentation; no beat/instrument added. Independent review pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "korean_drill",
+          "name": "Korean Drill",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only, not Fleeky Bang, a voice instrument or documented broadcaster gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12131view2 confirms credit and CC BY2.5; exact historical byte/visual receipts inherited unchanged.",
+          "fresh_review_ref": "turn12131view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh12131view2; no current binary/visual claim."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 applicable voice controls explicitly pinned; no shared-key collision or fallback."
+      },
+      "status": "READY_FOR_REVIEW",
+      "source_access_limitation": "Official issuer metadata independently indexed; direct YouTube retrieval failed. No audio or video audition claimed. Firsthand interview directly read; no creator map membership asserted."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "READY_FOR_REVIEW"
+}

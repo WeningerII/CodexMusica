@@ -1,0 +1,198 @@
+{
+  "entries": [
+    {
+      "source_label": "viet edm",
+      "source_url": "https://everynoise.com/engenremap-vietedm.html",
+      "suggested_id": "viet_edm",
+      "allocation_ordinal": 2073,
+      "allocation_group_id": "083",
+      "id": "viet_edm",
+      "tradition": {
+        "id": "viet_edm",
+        "name": "Việt EDM",
+        "family": "electronic",
+        "lineage": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers. Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers. Exact creator Việt EDM playlist includes DJ Hoang Anh at34 and81. His own88DNA institution describes training Vietnamese dance-music DJs/producers and participation in the national DJ-competition and international electronic-dance circuit. This supplies a positive dance-production community, not nationality alone. Full existing vietnamese_electronic explicitly includes electroacoustic listening/sound-art practices and is a broader overlapping national field; its selected Sound Awakener single does not restrict the whole field to ambient music. Việt EDM focuses the dance-production/DJ community within it. Existing vinahouse already includes Hoàng Anh and Vietnamese pop-remix dance practice; this is overlapping, not an artist-based exclusion. The requested creator roster also spans progressive/trance and other electronic dance production, so it is not equated with that one local remix style. A different set alone is not the category justification. Queued national EDM entries concern other positively documented communities, not a second Vietnamese umbrella. Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors.",
+        "exemplars": [
+          "DJ Hoàng Anh — complete Sanctuary of the Moon launch DJ set at1900 Le Théâtre, Hanoi"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        21.028,
+        105.852,
+        "Hanoi",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Issuer explicitly locates selected complete performance at1900 Le Théâtre Hanoi; coordinate is editorial city anchor, not surveyed booth.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Exact creator Việt EDM playlist includes DJ Hoang Anh at34 and81. His own88DNA institution describes training Vietnamese dance-music DJs/producers and participation in the national DJ-competition and international electronic-dance circuit. This supplies a positive dance-production community, not nationality alone. Full existing vietnamese_electronic explicitly includes electroacoustic listening/sound-art practices and is a broader overlapping national field; its selected Sound Awakener single does not restrict the whole field to ambient music. Việt EDM focuses the dance-production/DJ community within it. Existing vinahouse already includes Hoàng Anh and Vietnamese pop-remix dance practice; this is overlapping, not an artist-based exclusion. The requested creator roster also spans progressive/trance and other electronic dance production, so it is not equated with that one local remix style. A different set alone is not the category justification. Queued national EDM entries concern other positively documented communities, not a second Vietnamese umbrella.",
+      "model_policy": "Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors.",
+      "source_scope_limitation": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers.",
+      "classification_evidence": "Exact creator Việt EDM playlist includes DJ Hoang Anh at34 and81. His own88DNA institution describes training Vietnamese dance-music DJs/producers and participation in the national DJ-competition and international electronic-dance circuit. This supplies a positive dance-production community, not nationality alone. Full existing vietnamese_electronic explicitly includes electroacoustic listening/sound-art practices and is a broader overlapping national field; its selected Sound Awakener single does not restrict the whole field to ambient music. Việt EDM focuses the dance-production/DJ community within it. Existing vinahouse already includes Hoàng Anh and Vietnamese pop-remix dance practice; this is overlapping, not an artist-based exclusion. The requested creator roster also spans progressive/trance and other electronic dance production, so it is not equated with that one local remix style. A different set alone is not the category justification. Queued national EDM entries concern other positively documented communities, not a second Vietnamese umbrella.",
+      "vocal_count_audit": {
+        "selected_count": null,
+        "embedded_voice_count": "unknown",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0,
+        "decision": "Whole programme retained; one credited mixer is not a singer count."
+      },
+      "instrument_role_audit": {
+        "rationale": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "DJ Hoàng Anh complete published mixed performance; all embedded layers retained"
+        },
+        "authored_defaults": "Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "One valid protected neutral source role; no architecture inferred."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "One owner, one protected identity, no fallback."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Candidate pending mechanical, actual original four-format and independent review.",
+      "sources": [
+        {
+          "url": "https://djhoanganh.com/",
+          "title": "Artist and88DNA official website",
+          "support_notes": "Fresh indexed11637search0 explicitly whole named DJ set/Hanoi venue and national DJ-production institution; actual returned tool response saved resume116-vietedm-official-home-indexed.json. Direct502; embedded URL/duration unknown."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2ue7mRobKgve30zMintxMN?theme=0",
+          "title": "Exact creator The Sound of Việt EDM",
+          "support_notes": "Fresh274472view1 whole roster, DJHoangAnh34/81; various dance-production practitioners, no universal style claim."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "viet_edm",
+          "name": "Việt EDM",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context, not the performer, DJ hardware or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11639view0 confirms IainFergusson/Binksternet CC BY2.5 crop; historical exact bytes/visual unchanged.",
+          "fresh_review_ref": "turn11639view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11639view0; historical receipts unchanged, no fresh binary claim."
+      },
+      "source_review_refs": [
+        "turn11637search0",
+        "turn274472view1",
+        "turn11639view0"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

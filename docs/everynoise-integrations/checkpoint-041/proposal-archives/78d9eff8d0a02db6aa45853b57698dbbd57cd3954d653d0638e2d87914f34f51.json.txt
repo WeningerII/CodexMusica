@@ -1,0 +1,494 @@
+{
+  "entries": [
+    {
+      "source_label": "folklore peruano",
+      "source_url": "https://everynoise.com/engenremap-folkloreperuano.html",
+      "suggested_id": "folklore_peruano",
+      "allocation_ordinal": 3301,
+      "allocation_group_id": "133",
+      "status": "candidate_for_independent_review",
+      "id": "folklore_peruano",
+      "tradition": {
+        "id": "folklore_peruano",
+        "name": "Folklore Peruano",
+        "family": "vernacular",
+        "lineage": "Serapio Mejia Ayala — Saucicha (Weeping Willow), complete Smithsonian Folkways1962 issued track FW08749_102,2:10. Track-specific publisher credits explicitly identify one person with lead vocals and harp. One singer accompanies himself; full named track selected, not the fourteen-track album union. Other tracks’ flutes, drum and other performers are not imported. Album introduction independently identifies the regional Peruvian harp and recording near Cusco. Exact creator Folklore Peruano corpus includes the same performer with collaborators at64/67, different tracks candidly; Saucicha membership is not asserted. No personal audition or original instrument measurements. Publisher Chichewa language metadata is geographically anomalous; no lyric-language assertion is made without the inaccessible booklet. Broad balladPoetry is a candid authored text-forward solo song rendition with sparse self-accompanied harp, not a claim of translated narrative, fixed score form or Mande griot lineage. Neutral source-unspecified voice physiology/register/pitch/ornament controls retained; syllabic singing and single unprocessed lead are authored presentation choices, actual tracking unknown. Peruvian harp is a genuinely absent physical identity: source-backed triangular frame/large resonance box, regional variable stringing and diatonic layout. The selected1962 instrument’s exact dimensions, string count/material allocation, wood and pitch standard are unknown. Cedar resonance wood is an explicit representative construction choice documented by Ferrier, not measured Ayala equipment. Both-hand bass/treble finger plucking follows performer-pedagogue practice, not a claimed exact transcription. String-count/material configuration remains source-unspecified; no forced Paraguayan/Jarocho identity, pedal/lever mechanism, glissandi or foreign repertoire. Controlled live room, neutral axes and optional apparatus omission are authored capture scaffolding; global temperament omitted. Brisk text-forward pacing and consoling harp affect are authored rendition choices, not measured original tempo, fixed ceremonial mood or translated lyric meaning.",
+        "instruments": [
+          "voice",
+          "arpa_peruana"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+          "arpa_peruana_wood": "cedar",
+          "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+          "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+          "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Serapio Mejia Ayala — Saucicha (Weeping Willow), complete Smithsonian Folkways1962 issued track FW08749_102,2:10. Track-specific publisher credits explicitly identify one person with lead vocals and harp. One singer accompanies himself; full named track selected, not the fourteen-track album union. Other tracks’ flutes, drum and other performers are not imported. Album introduction independently identifies the regional Peruvian harp and recording near Cusco. Exact creator Folklore Peruano corpus includes the same performer with collaborators at64/67, different tracks candidly; Saucicha membership is not asserted. No personal audition or original instrument measurements. Publisher Chichewa language metadata is geographically anomalous; no lyric-language assertion is made without the inaccessible booklet. Folklore Peruano is the national folk-repertoire discovery field, positively encompassing coastal and highland practices rather than a single huayno rhythm or one Andean instrument. Exact creator corpus spans regional performers including the selected Smithsonian artist. Peruvian congressional cultural analysis explicitly includes coastal marinera/tondero alongside highland traditions in the national folkloric field. Existing huayno_peruano and andean_huayno cover huayno across their full regional variants; they are not restricted to a particular harp/violin example. Música Andina is a pan-Andean repertoire field spanning countries, while this national field includes Peru’s coastal practices as well. Música Criolla Perú and Música Afroperuana cover specific coastal traditions; their substantial overlap is acknowledged. Música Ayacuchana is geographically narrower than this nationwide field. National coverage is independently supported, not inferred solely from the selected Cusco track or translation of an existing label. Broad balladPoetry is a candid authored text-forward solo song rendition with sparse self-accompanied harp, not a claim of translated narrative, fixed score form or Mande griot lineage. Neutral source-unspecified voice physiology/register/pitch/ornament controls retained; syllabic singing and single unprocessed lead are authored presentation choices, actual tracking unknown. Peruvian harp is a genuinely absent physical identity: source-backed triangular frame/large resonance box, regional variable stringing and diatonic layout. The selected1962 instrument’s exact dimensions, string count/material allocation, wood and pitch standard are unknown. Cedar resonance wood is an explicit representative construction choice documented by Ferrier, not measured Ayala equipment. Both-hand bass/treble finger plucking follows performer-pedagogue practice, not a claimed exact transcription. String-count/material configuration remains source-unspecified; no forced Paraguayan/Jarocho identity, pedal/lever mechanism, glissandi or foreign repertoire. Controlled live room, neutral axes and optional apparatus omission are authored capture scaffolding; global temperament omitted. Brisk text-forward pacing and consoling harp affect are authored rendition choices, not measured original tempo, fixed ceremonial mood or translated lyric meaning.",
+        "exemplars": [
+          "Serapio Mejia Ayala — complete Saucicha, FW08749_102 (1962),2:10"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -13.5319,
+        -71.9675,
+        "Cusco",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Approximate Cusco locality anchor: issuer says a small town outside Cusco, exact town unspecified. This is not a measured session address.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://folkways.si.edu/serapio-mejia-ayala/saucicha-weeping-willow/latin-world/music/track/smithsonian",
+          "support_notes": "12848view0 full track-specific one-person lead vocal+harp,2:10,FW08749_102.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://folkways.si.edu/music-of-peru/b/latin-world/album/smithsonian",
+          "support_notes": "12835view0 regional Peruvian harp and nearCusco setting; album union not transferred.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0QbcHoXOyUvJK1oKSn5Vgy",
+          "support_notes": "12829search0 exact creator field, Serapio and collaborators64/67, different compositions.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.leyes.congreso.gob.pe/Documentos/2016_2021/Dictamenes/Proyectos_de_Ley/02120DC05MAY20181005.PDF",
+          "support_notes": "12878search1 national cultural committee discusses broad coastal/highland folk repertoire; this is analysis in a rejected registry proposal, not enacted law.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://revistas.unm.edu.pe/index.php/Antec/article/download/258/989/3487",
+          "support_notes": "12861view1/12878search0 performer-researcher ClaudeFerrier2025, triangular resonator and regional cedar/string variations;12864search7 confirms Cusco regional variation. Not assumed exact1962 instrument.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.claude-ferrier.ch/documents/ClaudeFerrier-Elarpaperuana.pdf",
+          "support_notes": "12876search0 own teaching method22: right-hand treble,left-hand bass, diatonic layout variablecount/range; no forced fixed36strings or440Hz.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Folklore Peruano is the national folk-repertoire discovery field, positively encompassing coastal and highland practices rather than a single huayno rhythm or one Andean instrument. Exact creator corpus spans regional performers including the selected Smithsonian artist. Peruvian congressional cultural analysis explicitly includes coastal marinera/tondero alongside highland traditions in the national folkloric field. Existing huayno_peruano and andean_huayno cover huayno across their full regional variants; they are not restricted to a particular harp/violin example. Música Andina is a pan-Andean repertoire field spanning countries, while this national field includes Peru’s coastal practices as well. Música Criolla Perú and Música Afroperuana cover specific coastal traditions; their substantial overlap is acknowledged. Música Ayacuchana is geographically narrower than this nationwide field. National coverage is independently supported, not inferred solely from the selected Cusco track or translation of an existing label.",
+      "model_policy": "Broad balladPoetry is a candid authored text-forward solo song rendition with sparse self-accompanied harp, not a claim of translated narrative, fixed score form or Mande griot lineage. Neutral source-unspecified voice physiology/register/pitch/ornament controls retained; syllabic singing and single unprocessed lead are authored presentation choices, actual tracking unknown. Peruvian harp is a genuinely absent physical identity: source-backed triangular frame/large resonance box, regional variable stringing and diatonic layout. The selected1962 instrument’s exact dimensions, string count/material allocation, wood and pitch standard are unknown. Cedar resonance wood is an explicit representative construction choice documented by Ferrier, not measured Ayala equipment. Both-hand bass/treble finger plucking follows performer-pedagogue practice, not a claimed exact transcription. String-count/material configuration remains source-unspecified; no forced Paraguayan/Jarocho identity, pedal/lever mechanism, glissandi or foreign repertoire. Controlled live room, neutral axes and optional apparatus omission are authored capture scaffolding; global temperament omitted. Brisk text-forward pacing and consoling harp affect are authored rendition choices, not measured original tempo, fixed ceremonial mood or translated lyric meaning.",
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [
+          "arpa_peruana"
+        ],
+        "distinction": "No current/pending exact Peruvian harp. Celticlever/concertpedal, Paraguayan, Veracruz andLlanos owners assert different mechanisms/identities. New source-positive regional harp physical model retains distinct resonator/configuration/tuning/gesture controls; no shared edits. Generic existing cedar material ID reused to avoid expanding global material vocabulary."
+      },
+      "classification_evidence": "Folklore Peruano is the national folk-repertoire discovery field, positively encompassing coastal and highland practices rather than a single huayno rhythm or one Andean instrument. Exact creator corpus spans regional performers including the selected Smithsonian artist. Peruvian congressional cultural analysis explicitly includes coastal marinera/tondero alongside highland traditions in the national folkloric field. Existing huayno_peruano and andean_huayno cover huayno across their full regional variants; they are not restricted to a particular harp/violin example. Música Andina is a pan-Andean repertoire field spanning countries, while this national field includes Peru’s coastal practices as well. Música Criolla Perú and Música Afroperuana cover specific coastal traditions; their substantial overlap is acknowledged. Música Ayacuchana is geographically narrower than this nationwide field. National coverage is independently supported, not inferred solely from the selected Cusco track or translation of an existing label.",
+      "vocal_count_audit": {
+        "count": 1,
+        "performers": 1,
+        "basis": "Exact track performer SerapioAyala credited lead vocals and harp; original overdub configuration unknown."
+      },
+      "instrument_role_audit": {
+        "scope": "Serapio Mejia Ayala — Saucicha (Weeping Willow), complete Smithsonian Folkways1962 issued track FW08749_102,2:10. Track-specific publisher credits explicitly identify one person with lead vocals and harp. One singer accompanies himself; full named track selected, not the fourteen-track album union. Other tracks’ flutes, drum and other performers are not imported. Album introduction independently identifies the regional Peruvian harp and recording near Cusco. Exact creator Folklore Peruano corpus includes the same performer with collaborators at64/67, different tracks candidly; Saucicha membership is not asserted. No personal audition or original instrument measurements. Publisher Chichewa language metadata is geographically anomalous; no lyric-language assertion is made without the inaccessible booklet.",
+        "voice": "One credited lead singer; neutral physiology, authored syllabic unprocessed single-lead rendition.",
+        "arpa_peruana": "Same credited performer accompanies on source-positive Peruvian harp; exact construction unknown, candid regional representative physical model."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad balladPoetry is a candid authored text-forward solo song rendition with sparse self-accompanied harp, not a claim of translated narrative, fixed score form or Mande griot lineage. Neutral source-unspecified voice physiology/register/pitch/ornament controls retained; syllabic singing and single unprocessed lead are authored presentation choices, actual tracking unknown. Peruvian harp is a genuinely absent physical identity: source-backed triangular frame/large resonance box, regional variable stringing and diatonic layout. The selected1962 instrument’s exact dimensions, string count/material allocation, wood and pitch standard are unknown. Cedar resonance wood is an explicit representative construction choice documented by Ferrier, not measured Ayala equipment. Both-hand bass/treble finger plucking follows performer-pedagogue practice, not a claimed exact transcription. String-count/material configuration remains source-unspecified; no forced Paraguayan/Jarocho identity, pedal/lever mechanism, glissandi or foreign repertoire. Controlled live room, neutral axes and optional apparatus omission are authored capture scaffolding; global temperament omitted. Brisk text-forward pacing and consoling harp affect are authored rendition choices, not measured original tempo, fixed ceremonial mood or translated lyric meaning."
+        },
+        {
+          "instrument": "arpa_peruana",
+          "parts": {
+            "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+            "arpa_peruana_wood": "cedar",
+            "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+            "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+            "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking"
+          },
+          "policy": "Broad balladPoetry is a candid authored text-forward solo song rendition with sparse self-accompanied harp, not a claim of translated narrative, fixed score form or Mande griot lineage. Neutral source-unspecified voice physiology/register/pitch/ornament controls retained; syllabic singing and single unprocessed lead are authored presentation choices, actual tracking unknown. Peruvian harp is a genuinely absent physical identity: source-backed triangular frame/large resonance box, regional variable stringing and diatonic layout. The selected1962 instrument’s exact dimensions, string count/material allocation, wood and pitch standard are unknown. Cedar resonance wood is an explicit representative construction choice documented by Ferrier, not measured Ayala equipment. Both-hand bass/treble finger plucking follows performer-pedagogue practice, not a claimed exact transcription. String-count/material configuration remains source-unspecified; no forced Paraguayan/Jarocho identity, pedal/lever mechanism, glissandi or foreign repertoire. Controlled live room, neutral axes and optional apparatus omission are authored capture scaffolding; global temperament omitted. Brisk text-forward pacing and consoling harp affect are authored rendition choices, not measured original tempo, fixed ceremonial mood or translated lyric meaning."
+        }
+      ],
+      "verification_status": "Author original full merge22controls,1638unchanged,2exactphoto receipts and four formats passed; independent peer required.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "17 voice and five harp controls intended protected; original family merge verification required."
+      },
+      "primary_retrieval_refs": [
+        "turn12848view0",
+        "turn12835view0",
+        "turn12829search0",
+        "turn12878search1",
+        "turn12861view1",
+        "turn12878search0",
+        "turn12876search0"
+      ],
+      "source_scope_limitation": "Serapio Mejia Ayala — Saucicha (Weeping Willow), complete Smithsonian Folkways1962 issued track FW08749_102,2:10. Track-specific publisher credits explicitly identify one person with lead vocals and harp. One singer accompanies himself; full named track selected, not the fourteen-track album union. Other tracks’ flutes, drum and other performers are not imported. Album introduction independently identifies the regional Peruvian harp and recording near Cusco. Exact creator Folklore Peruano corpus includes the same performer with collaborators at64/67, different tracks candidly; Saucicha membership is not asserted. No personal audition or original instrument measurements. Publisher Chichewa language metadata is geographically anomalous; no lyric-language assertion is made without the inaccessible booklet.",
+      "source_retrieval_caveat": "Whole Smithsonian track and album directly read12848view0/12835view0; exactcreator12829search0. Six-page linked FW08749 booklet returns zero text and unavailable screenshot image, curlCONNECT403; no booklet contents or audition invented. Ferrier2025 full36page research12861view1 and indexed specific construction12878search0 read; own2004method fullPDF too large but exact primary indexed technique/tuning12876search0 independently positive.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "folklore_peruano",
+          "name": "Folklore Peruano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Ayala, Peruvian harp, original1962 equipment or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12802view1 confirms historical IainFergusson/Binksternet CC BY2.5 image rights. Exact inherited023bytes/visual remain historical.",
+          "fresh_review_ref": "turn12802view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12802view1"
+        ],
+        "fresh_rights_review": "Fresh12802view1 rights only; historical023 bytes/visual retained, no new download."
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "arpa_peruana",
+        "name": "Arpa peruana (Peruvian folk harp)",
+        "short": "arpa peruana",
+        "family": "acoustic_strings",
+        "class": "plucked_harp",
+        "axes": {
+          "pitchFix": 2,
+          "sustain": 1,
+          "polyphony": 2,
+          "harmonicity": 2,
+          "register": 0,
+          "range": 2,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 1
+        },
+        "parts": [
+          {
+            "id": "arpa_peruana_form",
+            "name": "Frame and resonator form",
+            "variants": [
+              {
+                "id": "arpa_peruana_triangular_resonator",
+                "name": "Triangular frame and enlarged resonance box; dimensions unknown",
+                "default": true,
+                "descriptors": [
+                  "resonant"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "arpa_peruana_wood",
+            "name": "Soundbox wood",
+            "variants": [
+              {
+                "id": "cedar",
+                "name": "Cedar",
+                "default": true,
+                "descriptors": [
+                  "low-mid-rich-spectrum",
+                  "responsive",
+                  "soft-attack",
+                  "cedar"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "arpa_peruana_configuration",
+            "name": "String configuration",
+            "variants": [
+              {
+                "id": "arpa_peruana_configuration_unknown",
+                "name": "Regional string count and mixed material allocation unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "arpa_peruana_tuning",
+            "name": "Tuning layout",
+            "variants": [
+              {
+                "id": "arpa_peruana_diatonic_variable",
+                "name": "Diatonic layout; exact key, range and pitch standard unknown",
+                "default": true,
+                "descriptors": [
+                  "diatonic"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "arpa_peruana_gesture",
+            "name": "Playing technique",
+            "variants": [
+              {
+                "id": "arpa_peruana_two_hand_plucking",
+                "name": "Both-hand finger plucking; bass and treble regions",
+                "default": true,
+                "descriptors": [
+                  "finger-plucked"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Peruvian triangular folk harp with large resonator and diatonic layout; variable regional count/material distribution is not reduced to one national string recipe. Cedar is authored documented construction, not universal or measured source wood. Separate form, soundbox, configuration, tuning and gesture controls; no pedal/lever assumption. Numeric axes representative acoustic-plucked scaffolding.",
+        "sources": [
+          "https://revistas.unm.edu.pe/index.php/Antec/article/download/258/989/3487",
+          "https://www.claude-ferrier.ch/documents/ClaudeFerrier-Elarpaperuana.pdf",
+          "https://folkways.si.edu/music-of-peru/b/latin-world/album/smithsonian"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "arpa_peruana",
+        "name": "Arpa peruana (Peruvian folk harp)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording microphone context; not a harp depiction or actual equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "arpa_peruana",
+          "name": "Arpa peruana (Peruvian folk harp)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not a harp depiction or actual equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12802view1 confirms historical IainFergusson/Binksternet CC BY2.5 image rights. Exact inherited023bytes/visual remain historical.",
+          "fresh_review_ref": "turn12802view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12802view1"
+        ],
+        "fresh_rights_review": "Fresh12802view1 rights only; historical023 bytes/visual retained, no new download."
+      },
+      "sources": [
+        "https://revistas.unm.edu.pe/index.php/Antec/article/download/258/989/3487",
+        "https://www.claude-ferrier.ch/documents/ClaudeFerrier-Elarpaperuana.pdf",
+        "https://folkways.si.edu/music-of-peru/b/latin-world/album/smithsonian"
+      ],
+      "rationale": "No current/pending exact Peruvian harp. Celticlever/concertpedal, Paraguayan, Veracruz andLlanos owners assert different mechanisms/identities. New source-positive regional harp physical model retains distinct resonator/configuration/tuning/gesture controls; no shared edits. Generic existing cedar material ID reused to avoid expanding global material vocabulary."
+    }
+  ],
+  "status": "candidate_for_independent_review"
+}

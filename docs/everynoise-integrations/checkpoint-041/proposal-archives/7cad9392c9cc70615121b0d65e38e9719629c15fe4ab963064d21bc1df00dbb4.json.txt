@@ -1,0 +1,402 @@
+{
+  "entries": [
+    {
+      "source_label": "spanish new wave",
+      "source_url": "https://everynoise.com/engenremap-spanishnewwave.html",
+      "suggested_id": "spanish_new_wave",
+      "allocation_ordinal": 4333,
+      "allocation_group_id": "174",
+      "id": "spanish_new_wave",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "spanish_new_wave",
+        "name": "Spanish new wave",
+        "family": "rock_punk",
+        "lineage": "Spanish new wave emerged around the transition from the 1970s to the 1980s, connecting punk, pop and electronic influences with new independent scenes and La Movida. Alaska y Los Pegamoides and other formative groups helped establish a style later renewed by bands such as Juanita y Los Feos.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "credited_organ_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.punk",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Direct melodic songs, brisk rhythms, electric guitars, bass, drums and keyboard colours link punk energy with pop hooks. Synth-driven and guitar-led approaches coexist across the field.",
+        "exemplars": [
+          "Juanita y Los Feos — Nueva Numancia (2014), complete12 songs"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        40.42,
+        -3.7,
+        "Madrid",
+        "Europe"
+      ],
+      "geo_rationale": "Artist-owned Madrid location; editorial scene anchor, not guessed source studio coordinates.",
+      "sources": [
+        {
+          "url": "https://juanitaylosfeos.bandcamp.com/album/nueva-numancia",
+          "title": "Artist complete Nueva Numancia album",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full turn11614view0:12songs, five complete credits, recording/production separately named, Madrid and artist nueva-ola identity."
+        },
+        {
+          "url": "https://beatgeneration1.bandcamp.com/album/juanita-y-los-feos-s-t",
+          "title": "Issuing label first album and stylistic lineage",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn11613view0 explicitly punk/garage/nueva ola and AlaskaPegamoides/Devo lineage. Used for practitioner-category identity only; earlier2007 album personnel and analogue-session claims not transferred to2014."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Artist and issuing label positively name nueva ola alongside punk/garage and explicitly connect the practice to Alaska y Los Pegamoides, Devo and related new-wave traditions. This supports the Spanish new-wave branch and its continued independent-label practice, not a category inferred from Madrid residence alone. Full existing spanish_rock already includes Radio Futura, Nacha Pop and La Movida; overlap is explicit. Spanish new wave is a stylistically focused branch within that broad rock-urbano/Andalusian-rock umbrella, rather than a claim La Movida was absent from the old record. Existing rock_en_espanol spans multiple national scenes and rhythmic borrowings; Spanish-language lyrics alone would not establish this branch. The complete punk/new-wave album supports distortedRock.punk for the selected realization, not a claim every Spanish-new-wave artist is punk.",
+      "classification_evidence": "Artist and issuing label positively name nueva ola alongside punk/garage and explicitly connect the practice to Alaska y Los Pegamoides, Devo and related new-wave traditions. This supports the Spanish new-wave branch and its continued independent-label practice, not a category inferred from Madrid residence alone. Full existing spanish_rock already includes Radio Futura, Nacha Pop and La Movida; overlap is explicit. Spanish new wave is a stylistically focused branch within that broad rock-urbano/Andalusian-rock umbrella, rather than a claim La Movida was absent from the old record. Existing rock_en_espanol spans multiple national scenes and rhythmic borrowings; Spanish-language lyrics alone would not establish this branch. The complete punk/new-wave album supports distortedRock.punk for the selected realization, not a claim every Spanish-new-wave artist is punk.",
+      "model_policy": "Genre-supported representative ensemble and controls retained; public selected-source dossier relocated to evidence.",
+      "source_scope_limitation": "Genre-level profile; prior selected-edition scope preserved in genre_profile_repair_evidence. Representative settings are not claims about every recording.",
+      "source_retrieval_caveat": "Full artist/issuer text read; no audio audition or visual player/model identification claimed. Reader comments and recommendation widgets are not evidence.",
+      "instrument_role_audit": {
+        "whole_scope": "All12 issued tracks",
+        "source_people": {
+          "Juanita": "voice",
+          "Fa": "guitar",
+          "Ángel": "bass",
+          "Anibal": "organ",
+          "Adolfo": "drums"
+        },
+        "positive_families": 5,
+        "omitted_positive_roles": []
+      },
+      "vocal_count_audit": {
+        "credited_named_singers": 1,
+        "source_overdub_count": "unknown",
+        "authored_rendition": "One accompanied lead; no extra singer inferred from album production."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-supported representative ensemble and controls retained; public selected-source dossier relocated to evidence."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Genre-supported representative ensemble and controls retained; public selected-source dossier relocated to evidence."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Genre-supported representative ensemble and controls retained; public selected-source dossier relocated to evidence."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Genre-supported representative ensemble and controls retained; public selected-source dossier relocated to evidence."
+        },
+        {
+          "instrument": "credited_organ_unspecified",
+          "parts": {
+            "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+          },
+          "policy": "Genre-supported representative ensemble and controls retained; public selected-source dossier relocated to evidence."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "credited_organ_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Compatible shared alder body/unspecified amplifier keys deliberately protect both string owners; every owning control retained."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "spanish_new_wave",
+          "name": "Spanish new wave",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic music-making context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11591view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn11591view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11591view0"
+        ]
+      },
+      "genre_profile_repair_evidence": {
+        "before_lineage": "Spanish new wave — Juanita y Los Feos, complete12-song Nueva Numancia album issued25April2014. The artist explicitly credits all five musicians: Juanita voice, Fa guitar, Ángel bass, Anibal organ, Adolfo drums. Production and artwork personnel are not additional performers. Preserve the whole album palette, not a selected song with convenient omissions; source tracking counts and exact instrument construction are unspecified. Authored punk-band rendition uses one natural accompanied lead without guessed physiology or source overdub count; alder/maple single-coil electric guitar with nickel strings and power-chord attack, fingerstyle dual-single electric bass, maple drum kit with stick backbeat and B20 cymbals. Bare source guitar/bass construction is realized editorially, not asserted as measured gear. Organ remains source-unspecified in architecture rather than invented Hammond or Vox. Controlled live room is editorial and not a claim about actual Tigruss/Red Led studio acoustics. No global tuning or recording chain asserted. Brisk vocal pacing in the new rendition is an authored punk/new-wave treatment, not a measured original album BPM or a claim every source track shares one tempo.",
+        "before_description": "Spanish new wave — Juanita y Los Feos, complete12-song Nueva Numancia album issued25April2014. The artist explicitly credits all five musicians: Juanita voice, Fa guitar, Ángel bass, Anibal organ, Adolfo drums. Production and artwork personnel are not additional performers. Preserve the whole album palette, not a selected song with convenient omissions; source tracking counts and exact instrument construction are unspecified. Artist and issuing label positively name nueva ola alongside punk/garage and explicitly connect the practice to Alaska y Los Pegamoides, Devo and related new-wave traditions. This supports the Spanish new-wave branch and its continued independent-label practice, not a category inferred from Madrid residence alone. Full existing spanish_rock already includes Radio Futura, Nacha Pop and La Movida; overlap is explicit. Spanish new wave is a stylistically focused branch within that broad rock-urbano/Andalusian-rock umbrella, rather than a claim La Movida was absent from the old record. Existing rock_en_espanol spans multiple national scenes and rhythmic borrowings; Spanish-language lyrics alone would not establish this branch. The complete punk/new-wave album supports distortedRock.punk for the selected realization, not a claim every Spanish-new-wave artist is punk. Authored punk-band rendition uses one natural accompanied lead without guessed physiology or source overdub count; alder/maple single-coil electric guitar with nickel strings and power-chord attack, fingerstyle dual-single electric bass, maple drum kit with stick backbeat and B20 cymbals. Bare source guitar/bass construction is realized editorially, not asserted as measured gear. Organ remains source-unspecified in architecture rather than invented Hammond or Vox. Controlled live room is editorial and not a claim about actual Tigruss/Red Led studio acoustics. No global tuning or recording chain asserted. Brisk vocal pacing in the new rendition is an authored punk/new-wave treatment, not a measured original album BPM or a claim every source track shares one tempo.",
+        "before_tradition": {
+          "id": "spanish_new_wave",
+          "name": "Spanish new wave",
+          "family": "rock_punk",
+          "lineage": "Spanish new wave — Juanita y Los Feos, complete12-song Nueva Numancia album issued25April2014. The artist explicitly credits all five musicians: Juanita voice, Fa guitar, Ángel bass, Anibal organ, Adolfo drums. Production and artwork personnel are not additional performers. Preserve the whole album palette, not a selected song with convenient omissions; source tracking counts and exact instrument construction are unspecified. Authored punk-band rendition uses one natural accompanied lead without guessed physiology or source overdub count; alder/maple single-coil electric guitar with nickel strings and power-chord attack, fingerstyle dual-single electric bass, maple drum kit with stick backbeat and B20 cymbals. Bare source guitar/bass construction is realized editorially, not asserted as measured gear. Organ remains source-unspecified in architecture rather than invented Hammond or Vox. Controlled live room is editorial and not a claim about actual Tigruss/Red Led studio acoustics. No global tuning or recording chain asserted. Brisk vocal pacing in the new rendition is an authored punk/new-wave treatment, not a measured original album BPM or a claim every source track shares one tempo.",
+          "instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "credited_organ_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+          }
+        },
+        "before_model_policy": "Authored punk-band rendition uses one natural accompanied lead without guessed physiology or source overdub count; alder/maple single-coil electric guitar with nickel strings and power-chord attack, fingerstyle dual-single electric bass, maple drum kit with stick backbeat and B20 cymbals. Bare source guitar/bass construction is realized editorially, not asserted as measured gear. Organ remains source-unspecified in architecture rather than invented Hammond or Vox. Controlled live room is editorial and not a claim about actual Tigruss/Red Led studio acoustics. No global tuning or recording chain asserted. Brisk vocal pacing in the new rendition is an authored punk/new-wave treatment, not a measured original album BPM or a claim every source track shares one tempo.",
+        "reason": "Restore genre history/style and representative defaults; keep publication/session details as source evidence.",
+        "default_review": "Genre-supported representative ensemble and controls retained; public selected-source dossier relocated to evidence."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

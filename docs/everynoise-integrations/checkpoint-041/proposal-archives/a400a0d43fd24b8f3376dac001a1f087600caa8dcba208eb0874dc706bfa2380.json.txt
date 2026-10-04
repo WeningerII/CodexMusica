@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/transfer461-ethiopian-hiphop-rights-corrected.json",
+  "sha256": "983e69cdc508cbf9c82db5b52632836e57bc9c4f689259385f981e8ee4180cde",
+  "reviewer": "research116",
+  "sources": [
+    {
+      "url": "https://capitalethiopia.com/2021/03/16/from-ethiopia-to-the-world/",
+      "ref": "turn13575view0",
+      "finding": "First-person boom-bap/trap-beat writing and Addis Ababa collaborative network supports representative MC plus produced beat; no complete album reconstruction."
+    },
+    {
+      "url": "https://ethioreference.com/archives/3713",
+      "ref": "turn13577view0",
+      "finding": "Credited republication of firsthand interviews corroborates multiple language communities and national rap field."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "ref": "turn13575view1",
+      "finding": "CC BY2.5 attribution and preexisting crop confirmed; inherited historical preview receipt retained honestly."
+    }
+  ],
+  "category_review": "Full current Ethiopian pop, Amharic pop and Ethiopian Traditional read. Rhythmic MC/beat practice is an independently documented overlapping field, not a different artist or nationality alone. International hiphop parent and neutral unknown mechanism appropriate.",
+  "controls": {
+    "protected": 18,
+    "errors": [],
+    "dependencies": 0
+  },
+  "runtime": "/tmp/batch040/ethiopian-peer-runtime116.json",
+  "semantic_review": "All four complete original outputs inspected. Spoken-flowing voice accurately depicts rhythmic rap; frosty beat is compatible restrained authored studio affect, not an invented culture or physical mechanism. No source equipment or headcount claim.",
+  "amendment_review": "Exactly one stale rights-reference array changed; musical/source/photo receipt fields otherwise identical.",
+  "limitations": [
+    "No fresh image-byte download or personal fresh visual inspection claimed.",
+    "Representative practice, not transcription of a specific master."
+  ]
+}

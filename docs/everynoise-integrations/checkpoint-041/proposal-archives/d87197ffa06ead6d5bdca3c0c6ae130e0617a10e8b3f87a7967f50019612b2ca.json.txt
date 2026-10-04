@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "packet": "/tmp/batch040/resume119-30.json",
+  "sha256": "6d2c82149452a5b71d256757f82681828254aa2cc08a4eac7715b6581d08b31b",
+  "packet_sha256": "6d2c82149452a5b71d256757f82681828254aa2cc08a4eac7715b6581d08b31b",
+  "reviewer": "review_461",
+  "sources": {
+    "fresh_refs": [
+      "turn13573view0",
+      "turn13574view2",
+      "turn13574view0"
+    ],
+    "finding": "Two universities explicitly define cross-language regional traditional repertoire and flexible vocal/instrumental practices. NEA directly documents traditional Iraqi maqam basis, Bashir education, solo oud and other ensembles. Representative solo oud is a positive genre-level branch, not a stripped ensemble recording."
+  },
+  "boundary": "Read complete current arab_folk, arabic_instrumental, oud_taqsim, iraqi_maqam and arab_tarab records. National/ethnolinguistic/instrumental practices overlap this institutionally evidenced larger regional umbrella; none covers its entire non-Arab and vocal/instrumental scope. No old-exemplar narrowing or different-soloist-only distinction.",
+  "defaults": "Seven applicable owning controls match valid variants and original imported cards. Iraqi school positively supported; eleven strings/nylon/walnut/spruce/plastic are explicitly authored conventional construction. Tuning omission appropriate; no universal12TET imposed. No new dependencies.",
+  "controls_report": "/tmp/batch040/mideast-peer461-controls.json",
+  "runtime_report": "/tmp/batch040/mideast-peer461-runtime.json",
+  "literal_four_format_review": "All read and pass. Elevating/contemplative/ornamented/microtonal oud descriptors fit selected Iraqi traditional practice, no unrelated technique or extra instrument.",
+  "photo": "Fresh Commons13547view0 CC BY2.5 attribution confirmed this review turn; exact inherited historical byte/hash/dimensions passed. Generic recording context LOW label does not claim pictured oud or performer.",
+  "limitations": [
+    "Final integrated build/CI remains coordinator responsibility."
+  ]
+}

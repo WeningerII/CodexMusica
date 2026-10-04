@@ -1,0 +1,230 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "indian_underground_rap",
+        "name": "Indian Underground Rap",
+        "family": "hip_hop",
+        "lineage": "Indian underground rap developed through local crews, street cyphers, independent releases and online exchanges across cities and languages. Projects such as Hip Hop Homeland brought Mumbai, Kashmir, Punjab, Kolkata, Shillong and other communities into a shared public conversation, while neighborhood identity and everyday experience remained central.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic, text-forward verses work over producer-built beats or circulate through freestyle and battle settings. Local-language phrasing, code-switching, personal testimony and social criticism connect performers to their communities. Beat production ranges across boom-bap, trap and other hip-hop approaches rather than following one compulsory national rhythm.",
+        "exemplars": [
+          "Swadesi",
+          "MC Mawali",
+          "MC Tod Fod",
+          "Hip Hop Homeland",
+          "Loud Silence"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indian_underground_rap",
+          "name": "Indian Underground Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13704view0 confirms photographer/crop and CC BY2.5; historical bytes/visual observation inherited.",
+          "fresh_review_ref": "turn13704view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13704view0; exact historical bytes/visual receipt retained.",
+        "fresh_rights_retrieval_refs": [
+          "turn13704view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative MC with produced-beat accompaniment, supported by organizer descriptions of contemporary Indian rap and producer/MC practice. A rhythmic spoken single lead, unprocessed voice and dry studio are editable authored choices, not a claim that all crews use one singer or no effects. Cyphers, battles, sung hooks and other arrangements remain possible across the broader field. Beat is a directly documented production role with unknown synthesis/sample architecture, not a substitute for an opaque finished master or an inferred cultural instrument."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative MC with produced-beat accompaniment, supported by organizer descriptions of contemporary Indian rap and producer/MC practice. A rhythmic spoken single lead, unprocessed voice and dry studio are editable authored choices, not a claim that all crews use one singer or no effects. Cyphers, battles, sung hooks and other arrangements remain possible across the broader field. Beat is a directly documented production role with unknown synthesis/sample architecture, not a substitute for an opaque finished master or an inferred cultural instrument."
+        }
+      ],
+      "source_label": "indian underground rap",
+      "source_url": "https://everynoise.com/engenremap-indianundergroundrap.html",
+      "suggested_id": "indian_underground_rap",
+      "allocation_ordinal": 329,
+      "allocation_group_id": "014",
+      "id": "indian_underground_rap",
+      "status": "ready_for_independent_review",
+      "geo": [
+        19.076,
+        72.8777,
+        "Mumbai",
+        "South Asia"
+      ],
+      "geo_rationale": "Representative anchor for the first Hip Hop Homeland regional programme; the positively documented field is national and multilingual.",
+      "signature_tokens": [],
+      "model_policy": "Representative MC with produced-beat accompaniment, supported by organizer descriptions of contemporary Indian rap and producer/MC practice. A rhythmic spoken single lead, unprocessed voice and dry studio are editable authored choices, not a claim that all crews use one singer or no effects. Cyphers, battles, sung hooks and other arrangements remain possible across the broader field. Beat is a directly documented production role with unknown synthesis/sample architecture, not a substitute for an opaque finished master or an inferred cultural instrument.",
+      "neighbor_distinction": "Full Desi Hip Hop is a transnational South Asian umbrella and already includes an independent Mumbai branch; it is not limited to commercial diaspora pop. Full Hindi Hip Hop includes independent rappers but is language-defined. This field is the positively documented grassroots, multilingual Indian crew/cypher/independent-publication network, including Marathi and other street languages, rather than the entire Desi or Hindi scope. Underground is a community and circulation history, not proof of one tempo, exclusive artist membership or permanent opposition to later commercial success.",
+      "classification_evidence": "Full Desi Hip Hop is a transnational South Asian umbrella and already includes an independent Mumbai branch; it is not limited to commercial diaspora pop. Full Hindi Hip Hop includes independent rappers but is language-defined. This field is the positively documented grassroots, multilingual Indian crew/cypher/independent-publication network, including Marathi and other street languages, rather than the entire Desi or Hindi scope. Underground is a community and circulation history, not proof of one tempo, exclusive artist membership or permanent opposition to later commercial success.",
+      "source_scope_limitation": "Representative MC with produced-beat accompaniment, supported by organizer descriptions of contemporary Indian rap and producer/MC practice. A rhythmic spoken single lead, unprocessed voice and dry studio are editable authored choices, not a claim that all crews use one singer or no effects. Cyphers, battles, sung hooks and other arrangements remain possible across the broader field. Beat is a directly documented production role with unknown synthesis/sample architecture, not a substitute for an opaque finished master or an inferred cultural instrument.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Primary organizer and quoted practitioners identify local-language rap and rhythmic verses."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Organizer describes MCs working over separately producer-crafted beats; exact synthesis architecture is not specified."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored lead rapper with accompaniment",
+        "no_exact_session_reconstruction": true
+      },
+      "sources": [
+        {
+          "url": "https://www.mediainfoline.com/music/101india-launches-a-web-series-called-hip-hop-homeland",
+          "primary": true,
+          "evidence_ref": "turn13734view1",
+          "supports": "Contemporaneous organizational announcement reproduces101India director and participating rappers firsthand; explicit multilingual underground field and region-spanning plan."
+        },
+        {
+          "url": "https://www.redbull.com/in-en/red-bull-spotlight-2020-results",
+          "primary": true,
+          "evidence_ref": "turn13737search1",
+          "supports": "Organizer primary indexed fulltext documents grassroots Bengaluru cyphers, multilingual rap styles, workshops/battles and national network. Direct tool open returned no text, indexed retrieval used."
+        },
+        {
+          "url": "https://www.redbull.com/in-en/what-is-red-bull-64-bars",
+          "primary": true,
+          "evidence_ref": "turn13737search0",
+          "supports": "Organizer primary full indexed text explains rapper/producer beat workflow; representative arrangement practice, not claim all participants underground or reconstruction of one track."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

@@ -1,0 +1,208 @@
+{
+  "entries": [
+    {
+      "source_label": "mongolian hip hop",
+      "source_url": "https://everynoise.com/engenremap-mongolianhiphop.html",
+      "suggested_id": "mongolian_hip_hop",
+      "allocation_ordinal": 406,
+      "allocation_group_id": "017",
+      "status": "candidate_for_independent_review",
+      "id": "mongolian_hip_hop",
+      "tradition": {
+        "id": "mongolian_hip_hop",
+        "name": "Mongolian Hip Hop",
+        "family": "electronic",
+        "lineage": "Bodikhuu — Tokyo, complete13-track instrumental hip-hop album FAR-002, issued24March2023 by Farsi/Mississippi Records. The issuing label reproduces the producer’s first-person account that all samples derive from city pop, J-pop, Japanese jazz and funk, with production on an MPC-1000. Full13-track programme retained, including sampled faded voices and drum/melodic material; no sampled voice is silently erased or counted as a newly hired live singer. Source-sample singer identities/headcounts are unknown. The source expressly frames the album as instrumental sample constructions, not a vocal rap session or opaque commercial master represented by a DJ. Music solely credited Bodikhuu; mastering, cutting and artwork personnel are separate technical credits, not invented live players. No personal audition, exact source sample inventory or bar-by-bar transcription claimed. Broad experimentalElec follows this complete production-led instrumental sample collage and an authored headphone-listening rendition, not a claim all Mongolian hip-hop lacks MCs or is experimental. The existing sample-based drum machine/sampler card models the positively documented constructive sampler carrying percussion, melodic and sampled-vocal layers together; its name is not a restriction to drum sounds. Source MPC-1000 is a16-bit44.1kHz sampler per original manufacturer manual, matching the selected resolution. Chopped-sample technique follows the label. Medium swing around54percent and rolling chopped-break processing are authored rhythmic organization, not measured source quantization or a claim every fragment is a jungle break. No substitute vintage MPC60/3000 model or modern MPC Live identity is asserted. Controlled live-room presentation is authored monitoring/render space, not measured studio acoustics. The source analog mastering credit is retained in provenance but no particular tape machine/console/compressor invented. Global tuning omitted because sample source pitches and resampling intervals are undocumented.",
+        "instruments": [
+          "sampler_drum_machine"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Bodikhuu — Tokyo, complete13-track instrumental hip-hop album FAR-002, issued24March2023 by Farsi/Mississippi Records. The issuing label reproduces the producer’s first-person account that all samples derive from city pop, J-pop, Japanese jazz and funk, with production on an MPC-1000. Full13-track programme retained, including sampled faded voices and drum/melodic material; no sampled voice is silently erased or counted as a newly hired live singer. Source-sample singer identities/headcounts are unknown. The source expressly frames the album as instrumental sample constructions, not a vocal rap session or opaque commercial master represented by a DJ. Music solely credited Bodikhuu; mastering, cutting and artwork personnel are separate technical credits, not invented live players. No personal audition, exact source sample inventory or bar-by-bar transcription claimed. Mongolian Hip Hop is a national production and rap community category, not an ethnicity-based throat-singing claim. The issuing label explicitly identifies this as Mongolian instrumental hip-hop and its previous release as the first Mongolian hip-hop vinyl; the artist’s official profile identifies his Ulaanbaatar hip-hop practice. His quoted imagined Japan theme does not relocate production to Japan or turn the record into Japanese hip-hop. Existing mongolian_pop encompasses contemporary producer-led popular singles, not merely Uka; the current national hip-hop field overlaps that umbrella while positively centering hip-hop production and rap practices. Mongolian Alternative concerns a broader independent/alternative scene, not exclusively its Magnolian single; neither category is coextensive with the specifically named hip-hop network. Existing lofi_hiphop is transnational streaming-era study/sleep production aesthetics, not all instrumental sample-based hip-hop and not this national scene; jazz_rap/abstract_hip_hop are stylistic currents across communities. Mongolian Folk/LongSong/Khoomei preserve separate pastoral, song and overtone practices, none inferred here. Exact creator map read but Bodikhuu not positively reproduced there; issuer/artist national genre terminology independently establishes the selected branch, no fabricated membership. Broad experimentalElec follows this complete production-led instrumental sample collage and an authored headphone-listening rendition, not a claim all Mongolian hip-hop lacks MCs or is experimental. The existing sample-based drum machine/sampler card models the positively documented constructive sampler carrying percussion, melodic and sampled-vocal layers together; its name is not a restriction to drum sounds. Source MPC-1000 is a16-bit44.1kHz sampler per original manufacturer manual, matching the selected resolution. Chopped-sample technique follows the label. Medium swing around54percent and rolling chopped-break processing are authored rhythmic organization, not measured source quantization or a claim every fragment is a jungle break. No substitute vintage MPC60/3000 model or modern MPC Live identity is asserted. Controlled live-room presentation is authored monitoring/render space, not measured studio acoustics. The source analog mastering credit is retained in provenance but no particular tape machine/console/compressor invented. Global tuning omitted because sample source pitches and resampling intervals are undocumented.",
+        "exemplars": [
+          "Bodikhuu — Tokyo, complete13-track FAR-002 album (2023)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        47.9189,
+        106.917,
+        "Ulaanbaatar",
+        "East Asia"
+      ],
+      "geo_rationale": "Producer’s firsthand quotation locates work/home in Ulaanbaatar. Japan is explicitly imagined and never visited; New York label and Chicago pressing are not composition locations.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://mississippirecords.bandcamp.com/album/tokyo",
+          "support_notes": "12176view0 full13tracks/solemusiccredit/firstperson allsampleMPC1000 production; sampledvoices retained; explicit Mongolian instrumentalhiphop.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/intl-ja/artist/6H6edBGSNltgBialYci7aM",
+          "support_notes": "12170search6 full artist-profile Ulaanbaatarhiphop identity and own links; no actual performance palette inferred from profile.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://cdn.inmusicbrands.com/akai/mpc1000/mpc1000v2_operators_manual_00.pdf_055b8b24eeb101e27a2f4042c6819727.pdf",
+          "support_notes": "12193view0/1 original manufacturer manual p103/PDF112:16-bit linear,44.1kHz,32voice sampler; no inference currentMPC models match.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Mongolian Hip Hop is a national production and rap community category, not an ethnicity-based throat-singing claim. The issuing label explicitly identifies this as Mongolian instrumental hip-hop and its previous release as the first Mongolian hip-hop vinyl; the artist’s official profile identifies his Ulaanbaatar hip-hop practice. His quoted imagined Japan theme does not relocate production to Japan or turn the record into Japanese hip-hop. Existing mongolian_pop encompasses contemporary producer-led popular singles, not merely Uka; the current national hip-hop field overlaps that umbrella while positively centering hip-hop production and rap practices. Mongolian Alternative concerns a broader independent/alternative scene, not exclusively its Magnolian single; neither category is coextensive with the specifically named hip-hop network. Existing lofi_hiphop is transnational streaming-era study/sleep production aesthetics, not all instrumental sample-based hip-hop and not this national scene; jazz_rap/abstract_hip_hop are stylistic currents across communities. Mongolian Folk/LongSong/Khoomei preserve separate pastoral, song and overtone practices, none inferred here. Exact creator map read but Bodikhuu not positively reproduced there; issuer/artist national genre terminology independently establishes the selected branch, no fabricated membership.",
+      "model_policy": "Broad experimentalElec follows this complete production-led instrumental sample collage and an authored headphone-listening rendition, not a claim all Mongolian hip-hop lacks MCs or is experimental. The existing sample-based drum machine/sampler card models the positively documented constructive sampler carrying percussion, melodic and sampled-vocal layers together; its name is not a restriction to drum sounds. Source MPC-1000 is a16-bit44.1kHz sampler per original manufacturer manual, matching the selected resolution. Chopped-sample technique follows the label. Medium swing around54percent and rolling chopped-break processing are authored rhythmic organization, not measured source quantization or a claim every fragment is a jungle break. No substitute vintage MPC60/3000 model or modern MPC Live identity is asserted. Controlled live-room presentation is authored monitoring/render space, not measured studio acoustics. The source analog mastering credit is retained in provenance but no particular tape machine/console/compressor invented. Global tuning omitted because sample source pitches and resampling intervals are undocumented.",
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": []
+      },
+      "classification_evidence": "Mongolian Hip Hop is a national production and rap community category, not an ethnicity-based throat-singing claim. The issuing label explicitly identifies this as Mongolian instrumental hip-hop and its previous release as the first Mongolian hip-hop vinyl; the artist’s official profile identifies his Ulaanbaatar hip-hop practice. His quoted imagined Japan theme does not relocate production to Japan or turn the record into Japanese hip-hop. Existing mongolian_pop encompasses contemporary producer-led popular singles, not merely Uka; the current national hip-hop field overlaps that umbrella while positively centering hip-hop production and rap practices. Mongolian Alternative concerns a broader independent/alternative scene, not exclusively its Magnolian single; neither category is coextensive with the specifically named hip-hop network. Existing lofi_hiphop is transnational streaming-era study/sleep production aesthetics, not all instrumental sample-based hip-hop and not this national scene; jazz_rap/abstract_hip_hop are stylistic currents across communities. Mongolian Folk/LongSong/Khoomei preserve separate pastoral, song and overtone practices, none inferred here. Exact creator map read but Bodikhuu not positively reproduced there; issuer/artist national genre terminology independently establishes the selected branch, no fabricated membership.",
+      "vocal_count_audit": {
+        "new_live_voice_cards": 0,
+        "sampled_voices": "Positively present, source-sample identities/headcount unknown; carried in sampler construction. Instrumental album means no credited new live lead, not total absence of recorded voices."
+      },
+      "instrument_role_audit": {
+        "sampler_drum_machine": "MPC1000 source-positive complete13-track constructive sample production including drums,melody,fadedvoices; one existing generic sampler owner represents alllayers,notone opaque mixedmaster."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "sampler_drum_machine",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sample_bitdepth": "sixteen_bit",
+            "sample_swing": "mid_swing",
+            "sample_processing": "chopped_break"
+          },
+          "policy": "Broad experimentalElec follows this complete production-led instrumental sample collage and an authored headphone-listening rendition, not a claim all Mongolian hip-hop lacks MCs or is experimental. The existing sample-based drum machine/sampler card models the positively documented constructive sampler carrying percussion, melodic and sampled-vocal layers together; its name is not a restriction to drum sounds. Source MPC-1000 is a16-bit44.1kHz sampler per original manufacturer manual, matching the selected resolution. Chopped-sample technique follows the label. Medium swing around54percent and rolling chopped-break processing are authored rhythmic organization, not measured source quantization or a claim every fragment is a jungle break. No substitute vintage MPC60/3000 model or modern MPC Live identity is asserted. Controlled live-room presentation is authored monitoring/render space, not measured studio acoustics. The source analog mastering credit is retained in provenance but no particular tape machine/console/compressor invented. Global tuning omitted because sample source pitches and resampling intervals are undocumented."
+        }
+      ],
+      "verification_status": "Awaiting author mechanical and four-format original rendering then independent peer.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All4 owning controls protected."
+      },
+      "primary_retrieval_refs": [
+        "turn12176view0",
+        "turn12173search0",
+        "turn12170search6",
+        "turn12193view0",
+        "turn12193view1"
+      ],
+      "source_scope_limitation": "Bodikhuu — Tokyo, complete13-track instrumental hip-hop album FAR-002, issued24March2023 by Farsi/Mississippi Records. The issuing label reproduces the producer’s first-person account that all samples derive from city pop, J-pop, Japanese jazz and funk, with production on an MPC-1000. Full13-track programme retained, including sampled faded voices and drum/melodic material; no sampled voice is silently erased or counted as a newly hired live singer. Source-sample singer identities/headcounts are unknown. The source expressly frames the album as instrumental sample constructions, not a vocal rap session or opaque commercial master represented by a DJ. Music solely credited Bodikhuu; mastering, cutting and artwork personnel are separate technical credits, not invented live players. No personal audition, exact source sample inventory or bar-by-bar transcription claimed.",
+      "source_retrieval_caveat": "Full issuing-label album directly read12176view0 and indexed12173search0, including artist first-person production account. Full120page original Akai manufacturer manual read12193view0/1. Creator map12176view1 retrieved but no positive Bodikhuu occurrence; no asserted exact creator membership.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "mongolian_hip_hop",
+          "name": "Mongolian Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not MPC1000, artist or actual source apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet. Exact historical023bytes/visual receipt inherited; no fresh download.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

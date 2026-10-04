@@ -1,0 +1,1313 @@
+{
+  "entries": [
+    {
+      "source_label": "karbi pop",
+      "source_url": "https://everynoise.com/engenremap-karbipop.html",
+      "suggested_id": "karbi_pop",
+      "allocation_ordinal": 1762,
+      "allocation_group_id": "071",
+      "id": "karbi_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "karbi_pop",
+        "name": "Karbi Pop",
+        "family": "global",
+        "lineage": "Arak — entire six-person practice documented in the band’s firsthand1July2017 interview, not a claim about all later recordings. One named vocalist, guitarist, bassist, bamboo-flute/two-reed doubler, Karbi-drum doubler and acoustic-kit drummer. All nine sound families retained: voice, guitar, bass, acoustic drum kit, bamboo flute, Muri Tongpo, Muri Jangkek, Cheng Pi and Cheng Burup. Slashes in the role list are treated as the complete practice union, not proof that one person plays three winds simultaneously. Museum descriptions identify the two distinct reed bells and the paired Burup drums; one Burup-family card retains the pair. No other museum instruments or funeral repertoire are imported into this contemporary ensemble. Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "credited_bamboo_flute_unspecified",
+          "muri_tongpo",
+          "muri_jangkek",
+          "cheng_pi",
+          "cheng_burup"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+          "muri_tongpo_reed": "muri_tongpo_reed_idioglot",
+          "muri_tongpo_tube": "muri_tongpo_tube_bamboo",
+          "muri_tongpo_bell": "muri_tongpo_bell_wood",
+          "muri_jangkek_reed": "muri_jangkek_reed_idioglot",
+          "muri_jangkek_tube": "muri_jangkek_tube_bamboo",
+          "muri_jangkek_bell": "muri_jangkek_bell_animal_horn",
+          "cheng_pi_body": "cheng_pi_body_gmelina",
+          "cheng_pi_lacing_configuration": "cheng_pi_lacing_configuration_double_laced",
+          "cheng_pi_playing": "cheng_pi_playing_stick_hand",
+          "cheng_burup_body": "cheng_burup_body_tapered",
+          "cheng_burup_configuration": "cheng_burup_configuration_paired",
+          "cheng_burup_playing": "cheng_burup_playing_sticks"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Arak — entire six-person practice documented in the band’s firsthand1July2017 interview, not a claim about all later recordings. One named vocalist, guitarist, bassist, bamboo-flute/two-reed doubler, Karbi-drum doubler and acoustic-kit drummer. All nine sound families retained: voice, guitar, bass, acoustic drum kit, bamboo flute, Muri Tongpo, Muri Jangkek, Cheng Pi and Cheng Burup. Slashes in the role list are treated as the complete practice union, not proof that one person plays three winds simultaneously. Museum descriptions identify the two distinct reed bells and the paired Burup drums; one Burup-family card retains the pair. No other museum instruments or funeral repertoire are imported into this contemporary ensemble. Karbi Pop denotes the contemporary Karbi-language popular recording and performance community within Assam, with folk-derived and modern song forms. The exact creator playlist contains contemporary song artists, Warklung and Dhansing Teron, and is not exclusively electronic commercial pop. Arak is not found in that retrieved92-item sample, so exact band membership is not asserted. The band’s firsthand account positively describes a regional song/video/film industry and cultural awards, youth-facing modern treatment of Karbi melodies and its own place in that circulation. This supplies an independent community bridge rather than birthplace alone. Existing Assamese Pop is the Assamese-language popular field, overlapping but not equivalent to the Karbi-language community; Indian Indie and Northeast regional scenes are broader or differently situated. No claim excludes cross-language or folk-revival participation. Contemporary arrangement is the selected branch, not a universal Karbi-pop palette or a claim that traditional songs become unrelated new genres. Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed.",
+        "exemplars": [
+          "Arak — full six-person practice documented July2017"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        22.9734,
+        78.6569,
+        "India",
+        "South Asia"
+      ],
+      "geo_rationale": "Country-only editorial anchor for explicitly Karbi Anglong/Dima Hasao community practice; not a measured recording site or a claim all India is Karbi-speaking.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Karbi Pop denotes the contemporary Karbi-language popular recording and performance community within Assam, with folk-derived and modern song forms. The exact creator playlist contains contemporary song artists, Warklung and Dhansing Teron, and is not exclusively electronic commercial pop. Arak is not found in that retrieved92-item sample, so exact band membership is not asserted. The band’s firsthand account positively describes a regional song/video/film industry and cultural awards, youth-facing modern treatment of Karbi melodies and its own place in that circulation. This supplies an independent community bridge rather than birthplace alone. Existing Assamese Pop is the Assamese-language popular field, overlapping but not equivalent to the Karbi-language community; Indian Indie and Northeast regional scenes are broader or differently situated. No claim excludes cross-language or folk-revival participation. Contemporary arrangement is the selected branch, not a universal Karbi-pop palette or a claim that traditional songs become unrelated new genres.",
+      "classification_evidence": "Karbi Pop denotes the contemporary Karbi-language popular recording and performance community within Assam, with folk-derived and modern song forms. The exact creator playlist contains contemporary song artists, Warklung and Dhansing Teron, and is not exclusively electronic commercial pop. Arak is not found in that retrieved92-item sample, so exact band membership is not asserted. The band’s firsthand account positively describes a regional song/video/film industry and cultural awards, youth-facing modern treatment of Karbi melodies and its own place in that circulation. This supplies an independent community bridge rather than birthplace alone. Existing Assamese Pop is the Assamese-language popular field, overlapping but not equivalent to the Karbi-language community; Indian Indie and Northeast regional scenes are broader or differently situated. No claim excludes cross-language or folk-revival participation. Contemporary arrangement is the selected branch, not a universal Karbi-pop palette or a claim that traditional songs become unrelated new genres.",
+      "model_policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed.",
+      "source_scope_limitation": "Arak — entire six-person practice documented in the band’s firsthand1July2017 interview, not a claim about all later recordings. One named vocalist, guitarist, bassist, bamboo-flute/two-reed doubler, Karbi-drum doubler and acoustic-kit drummer. All nine sound families retained: voice, guitar, bass, acoustic drum kit, bamboo flute, Muri Tongpo, Muri Jangkek, Cheng Pi and Cheng Burup. Slashes in the role list are treated as the complete practice union, not proof that one person plays three winds simultaneously. Museum descriptions identify the two distinct reed bells and the paired Burup drums; one Burup-family card retains the pair. No other museum instruments or funeral repertoire are imported into this contemporary ensemble.",
+      "source_retrieval_caveat": "Full interview and current museum physical descriptions independently retrieved; museum webpage labels its archive ongoing and contains unfinished editorial notes outside used instrument construction sections. No source audio audition or exact maker identification. Creator92-item corpus retrieved; selected band absent, community bridge is firsthand institutional account. Interview Chenkpi/ChenkBuruk spellings are normalized to museum ChengPi/ChengBurup identities, corroborated by institutional recording names Chenkpi & Buruk; no claim source personally measured museum objects.",
+      "sources": [
+        {
+          "url": "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+          "support_notes": "782593view0 full dated six-person role union and firsthand regional film/song industry, modern treatment, youth reception."
+        },
+        {
+          "url": "https://bcf-india.org/museum/",
+          "support_notes": "682751view1/2 instrument construction: ChengPi Gmelina double head and stick/hand; Burup paired wedge-laced stick drums; Tongpo bamboo idioglot with wood bell and Jangkek animal-horn bell. No other instrument or funeral practice imported."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1j6LkgdM5WA4Gc6mjrkrE8",
+          "support_notes": "910915view2 full92-item creator programme;Warklung23/71,DhansingTeron40,Chokamkuru17/67/91. Arak absent, no exact membership claimed."
+        },
+        {
+          "url": "https://folk-music.itrhd.com/assam.html",
+          "support_notes": "Fresh798738search2 institutional original recording credits use Chenkpi & Buruk as Karbi drum names, corroborating performer spelling alongside museum ChengPi/ChengBurup. This separate recording is not imported into selected Arak roster."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn782593view0",
+        "turn682751view1",
+        "turn682751view2",
+        "turn910915view2",
+        "turn798738search2"
+      ],
+      "vocal_count_audit": {
+        "positively_named_singers": [
+          "Deuri Rongpi"
+        ],
+        "named_singer_count": 1,
+        "total_named_people": 6,
+        "unknown_extra_voices": "No other voices credited in selected practice; any uncredited source backing count unknown. Single accompanied singer is authored."
+      },
+      "instrument_role_audit": {
+        "scope": "Arak — entire six-person practice documented in the band’s firsthand1July2017 interview, not a claim about all later recordings. One named vocalist, guitarist, bassist, bamboo-flute/two-reed doubler, Karbi-drum doubler and acoustic-kit drummer. All nine sound families retained: voice, guitar, bass, acoustic drum kit, bamboo flute, Muri Tongpo, Muri Jangkek, Cheng Pi and Cheng Burup. Slashes in the role list are treated as the complete practice union, not proof that one person plays three winds simultaneously. Museum descriptions identify the two distinct reed bells and the paired Burup drums; one Burup-family card retains the pair. No other museum instruments or funeral repertoire are imported into this contemporary ensemble.",
+        "roles": {
+          "voice": "Deuri Rongpi vocals",
+          "electric_guitar_single_coil": "Daniel Engty guitars",
+          "electric_bass": "Ashok Kemprai bass guitar",
+          "drum_kit": "Sandeep Hakmaosa acoustic drums",
+          "credited_bamboo_flute_unspecified": "Dhansing Teron bamboo flute",
+          "muri_tongpo": "Dhansing Teron Muri Tongpo",
+          "muri_jangkek": "Dhansing Teron Muri Jangkek",
+          "cheng_pi": "Simanta Barman Chenkpi",
+          "cheng_burup": "Simanta Barman Chenk Buruk"
+        },
+        "authored_defaults": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "credited_bamboo_flute_unspecified",
+          "parts": {
+            "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+            "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+            "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "muri_tongpo",
+          "parts": {
+            "muri_tongpo_reed": "muri_tongpo_reed_idioglot",
+            "muri_tongpo_tube": "muri_tongpo_tube_bamboo",
+            "muri_tongpo_bell": "muri_tongpo_bell_wood"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "muri_jangkek",
+          "parts": {
+            "muri_jangkek_reed": "muri_jangkek_reed_idioglot",
+            "muri_jangkek_tube": "muri_jangkek_tube_bamboo",
+            "muri_jangkek_bell": "muri_jangkek_bell_animal_horn"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "cheng_pi",
+          "parts": {
+            "cheng_pi_body": "cheng_pi_body_gmelina",
+            "cheng_pi_lacing_configuration": "cheng_pi_lacing_configuration_double_laced",
+            "cheng_pi_playing": "cheng_pi_playing_stick_hand"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        },
+        {
+          "instrument": "cheng_burup",
+          "parts": {
+            "cheng_burup_body": "cheng_burup_body_tapered",
+            "cheng_burup_configuration": "cheng_burup_configuration_paired",
+            "cheng_burup_playing": "cheng_burup_playing_sticks"
+          },
+          "policy": "Broad functionalSong/global describes an explicitly authored popular-song rendition with verse-chorus-bridge organization over functional progressions, not a transcription of the band’s preserved traditional melodies or every original song form. All positive source families remain. Clean-strummed alder/maple single-coil guitar, picked alder split-coil bass with an explicitly authored energetic attack and thin maple acoustic kit with coated heads/B20 regularly hammered traditionally finished cymbals are coherent new band settings; source does not identify this exact equipment. Neutral voice retains one credited singer with unknown register, physiology, ornament and pitch system. The bamboo flute retains unspecified blowing geometry and ornament rather than an invented Hindustani lineage. Four Karbi instruments preserve independently documented construction and stick/hand distinctions; exact source size, reed dimensions, membrane species, tuning and source ornament remain unknown. Museum practice is construction corroboration, not a claim this band performs funeral rites. New controlled live-room rendition, brisk guitar pacing and aggressive high-gain bass affect are authored; no original room, BPM or global temperament claimed."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [
+          "credited_bamboo_flute_unspecified",
+          "muri_tongpo",
+          "muri_jangkek",
+          "cheng_pi",
+          "cheng_burup"
+        ],
+        "rationale": "Known distinct idioglot bell constructions and Karbi drum morphology cannot be replaced by unrelated clarinet/barrel presets; bare bamboo flute cannot assert bansuri named lineage/ornament. All meaningful source physical controls retained; no identity duplicate to alter preface.",
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Shared guitar/bass body wood uses common applicable alder_b; all owning controls audit required. No presumed fallback."
+      },
+      "verification_status": "Original mechanical64owning/62flat controls protected, all1638 existing owners unchanged; zero new DF tokens. Original browser/connector4formats parity,995max and all9cards retained; no final static/signature integration claim. Independent peer pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "karbi_pop",
+          "name": "Karbi Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not Arak or any instrument depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh341397view2 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn341397view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn341397view2"
+        ],
+        "fresh_rights_review": "Fresh341397view2 rights only; no fresh byte or visual inspection."
+      },
+      "authored_bass_rationale": "The picked amplified bass is an intentional new energetic band treatment: firm note onsets support the two percussion performers and maintain low-register definition under the two distinct reed sounds. Audible high-gain saturation is an explicitly chosen contemporary fusion treatment, not observed source gain/circuit/gear. Karbi instruments do not themselves imply distortion. Source bass technique remains unspecified; no source-known physical fact is changed. The earlier fingerstyle arrangement was also authored; this variant is a different legitimate rendition, not a claim about the original performance."
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "credited_bamboo_flute_unspecified",
+        "name": "Credited bamboo flute",
+        "short": "Credited bamboo flute",
+        "family": "wind",
+        "class": "credited_bamboo_flute_unspecified",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+        "sources": [
+          "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+          "https://bcf-india.org/museum/"
+        ],
+        "parts": [
+          {
+            "id": "credited_bamboo_flute_unspecified_material",
+            "name": "material",
+            "variants": [
+              {
+                "id": "credited_bamboo_flute_unspecified_material_bamboo",
+                "name": "Bamboo body; species and dimensions unspecified",
+                "default": true,
+                "descriptors": [
+                  "bamboo"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "credited_bamboo_flute_unspecified_construction",
+            "name": "construction",
+            "variants": [
+              {
+                "id": "credited_bamboo_flute_unspecified_construction_unspecified",
+                "name": "Flute; end/side blowing and holes unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "credited_bamboo_flute_unspecified_playing",
+            "name": "playing",
+            "variants": [
+              {
+                "id": "credited_bamboo_flute_unspecified_playing_unspecified",
+                "name": "Source articulation and ornament unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "credited_bamboo_flute_unspecified",
+          "name": "Credited bamboo flute",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a depiction of Credited bamboo flute.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh341397view2 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn341397view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn341397view2"
+        ],
+        "fresh_rights_review": "Fresh341397view2 rights only; no fresh byte or visual inspection."
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "credited_bamboo_flute_unspecified",
+        "name": "Credited bamboo flute",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic microphone recording context, not a depiction of Credited bamboo flute.",
+        "match_confidence": "low"
+      },
+      "sources": [
+        "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+        "https://bcf-india.org/museum/"
+      ],
+      "rationale": "Known distinct idioglot bell constructions and Karbi drum morphology cannot be replaced by unrelated clarinet/barrel presets; bare bamboo flute cannot assert bansuri named lineage/ornament. All meaningful source physical controls retained; no identity duplicate to alter preface."
+    },
+    {
+      "record": {
+        "id": "muri_tongpo",
+        "name": "Muri Tongpo",
+        "short": "Muri Tongpo",
+        "family": "wind",
+        "class": "muri_tongpo",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+        "sources": [
+          "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+          "https://bcf-india.org/museum/"
+        ],
+        "parts": [
+          {
+            "id": "muri_tongpo_reed",
+            "name": "reed",
+            "variants": [
+              {
+                "id": "muri_tongpo_reed_idioglot",
+                "name": "Idioglot bamboo reed",
+                "default": true,
+                "descriptors": [
+                  "idioglot-reed",
+                  "bamboo-reed"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "muri_tongpo_tube",
+            "name": "tube",
+            "variants": [
+              {
+                "id": "muri_tongpo_tube_bamboo",
+                "name": "Bamboo sounding tube",
+                "default": true,
+                "descriptors": [
+                  "bamboo"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "muri_tongpo_bell",
+            "name": "bell",
+            "variants": [
+              {
+                "id": "muri_tongpo_bell_wood",
+                "name": "Wooden bell",
+                "default": true,
+                "descriptors": [
+                  "wooden"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "muri_tongpo",
+          "name": "Muri Tongpo",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a depiction of Muri Tongpo.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh341397view2 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn341397view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn341397view2"
+        ],
+        "fresh_rights_review": "Fresh341397view2 rights only; no fresh byte or visual inspection."
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "muri_tongpo",
+        "name": "Muri Tongpo",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic microphone recording context, not a depiction of Muri Tongpo.",
+        "match_confidence": "low"
+      },
+      "sources": [
+        "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+        "https://bcf-india.org/museum/"
+      ],
+      "rationale": "Known distinct idioglot bell constructions and Karbi drum morphology cannot be replaced by unrelated clarinet/barrel presets; bare bamboo flute cannot assert bansuri named lineage/ornament. All meaningful source physical controls retained; no identity duplicate to alter preface."
+    },
+    {
+      "record": {
+        "id": "muri_jangkek",
+        "name": "Muri Jangkek",
+        "short": "Muri Jangkek",
+        "family": "wind",
+        "class": "muri_jangkek",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+        "sources": [
+          "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+          "https://bcf-india.org/museum/"
+        ],
+        "parts": [
+          {
+            "id": "muri_jangkek_reed",
+            "name": "reed",
+            "variants": [
+              {
+                "id": "muri_jangkek_reed_idioglot",
+                "name": "Idioglot bamboo reed",
+                "default": true,
+                "descriptors": [
+                  "idioglot-reed",
+                  "bamboo-reed"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "muri_jangkek_tube",
+            "name": "tube",
+            "variants": [
+              {
+                "id": "muri_jangkek_tube_bamboo",
+                "name": "Bamboo sounding tube",
+                "default": true,
+                "descriptors": [
+                  "bamboo"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "muri_jangkek_bell",
+            "name": "bell",
+            "variants": [
+              {
+                "id": "muri_jangkek_bell_animal_horn",
+                "name": "Animal-horn bell; species unspecified",
+                "default": true,
+                "descriptors": [
+                  "horn-bell"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "muri_jangkek",
+          "name": "Muri Jangkek",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a depiction of Muri Jangkek.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh341397view2 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn341397view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn341397view2"
+        ],
+        "fresh_rights_review": "Fresh341397view2 rights only; no fresh byte or visual inspection."
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "muri_jangkek",
+        "name": "Muri Jangkek",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic microphone recording context, not a depiction of Muri Jangkek.",
+        "match_confidence": "low"
+      },
+      "sources": [
+        "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+        "https://bcf-india.org/museum/"
+      ],
+      "rationale": "Known distinct idioglot bell constructions and Karbi drum morphology cannot be replaced by unrelated clarinet/barrel presets; bare bamboo flute cannot assert bansuri named lineage/ornament. All meaningful source physical controls retained; no identity duplicate to alter preface."
+    },
+    {
+      "record": {
+        "id": "cheng_pi",
+        "name": "Cheng Pi",
+        "short": "Cheng Pi",
+        "family": "percussion",
+        "class": "cheng_pi",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+        "sources": [
+          "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+          "https://bcf-india.org/museum/"
+        ],
+        "parts": [
+          {
+            "id": "cheng_pi_body",
+            "name": "body",
+            "variants": [
+              {
+                "id": "cheng_pi_body_gmelina",
+                "name": "Hollow Gmelina arborea trunk, unequal heads and slight central bulge",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cheng_pi_lacing_configuration",
+            "name": "lacing configuration",
+            "variants": [
+              {
+                "id": "cheng_pi_lacing_configuration_double_laced",
+                "name": "Two laced heads; skin species unspecified",
+                "default": true,
+                "descriptors": [
+                  "double-headed"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cheng_pi_playing",
+            "name": "playing",
+            "variants": [
+              {
+                "id": "cheng_pi_playing_stick_hand",
+                "name": "Curved cane stick on large head and hand on small head",
+                "default": true,
+                "descriptors": [
+                  "stick-and-hand"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "cheng_pi",
+          "name": "Cheng Pi",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a depiction of Cheng Pi.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh341397view2 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn341397view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn341397view2"
+        ],
+        "fresh_rights_review": "Fresh341397view2 rights only; no fresh byte or visual inspection."
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "cheng_pi",
+        "name": "Cheng Pi",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic microphone recording context, not a depiction of Cheng Pi.",
+        "match_confidence": "low"
+      },
+      "sources": [
+        "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+        "https://bcf-india.org/museum/"
+      ],
+      "rationale": "Known distinct idioglot bell constructions and Karbi drum morphology cannot be replaced by unrelated clarinet/barrel presets; bare bamboo flute cannot assert bansuri named lineage/ornament. All meaningful source physical controls retained; no identity duplicate to alter preface."
+    },
+    {
+      "record": {
+        "id": "cheng_burup",
+        "name": "Cheng Burup pair",
+        "short": "Cheng Burup pair",
+        "family": "percussion",
+        "class": "cheng_burup",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+        "sources": [
+          "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+          "https://bcf-india.org/museum/"
+        ],
+        "parts": [
+          {
+            "id": "cheng_burup_body",
+            "name": "body",
+            "variants": [
+              {
+                "id": "cheng_burup_body_tapered",
+                "name": "Inverted-basket taper, wedge-laced tension",
+                "default": true,
+                "descriptors": [
+                  "wedge-tensioned"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cheng_burup_configuration",
+            "name": "configuration",
+            "variants": [
+              {
+                "id": "cheng_burup_configuration_paired",
+                "name": "Paired drums",
+                "default": true,
+                "descriptors": [
+                  "paired"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cheng_burup_playing",
+            "name": "playing",
+            "variants": [
+              {
+                "id": "cheng_burup_playing_sticks",
+                "name": "Bamboo or wooden sticks, membrane species unspecified",
+                "default": true,
+                "descriptors": [
+                  "sticks"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "cheng_burup",
+          "name": "Cheng Burup pair",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a depiction of Cheng Burup pair.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh341397view2 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn341397view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn341397view2"
+        ],
+        "fresh_rights_review": "Fresh341397view2 rights only; no fresh byte or visual inspection."
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "cheng_burup",
+        "name": "Cheng Burup pair",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic microphone recording context, not a depiction of Cheng Burup pair.",
+        "match_confidence": "low"
+      },
+      "sources": [
+        "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+        "https://bcf-india.org/museum/"
+      ],
+      "rationale": "Known distinct idioglot bell constructions and Karbi drum morphology cannot be replaced by unrelated clarinet/barrel presets; bare bamboo flute cannot assert bansuri named lineage/ornament. All meaningful source physical controls retained; no identity duplicate to alter preface."
+    }
+  ],
+  "status": "READY_FOR_REVIEW"
+}

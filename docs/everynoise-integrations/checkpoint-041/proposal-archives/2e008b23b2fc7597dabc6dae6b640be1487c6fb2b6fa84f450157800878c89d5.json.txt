@@ -1,0 +1,230 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "oc_rap",
+        "name": "OC rap",
+        "family": "hip_hop",
+        "lineage": "Orange County rap developed through local MCs, home studios, independent releases and collaborations across Santa Ana, Tustin and neighboring communities. Street distribution and online promotion connected underground performers with audiences, while later artists carried these local identities into wider Southern California networks. The scene includes street rap, lyrical underground work and more commercial approaches.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.usHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Text-forward flows and producer-built beats foreground neighborhood experience, confidence and personal narrative. Freestyled passages, written verses and collaborative appearances coexist, with rhythmic delivery moving between conversational phrasing and more forceful attack. Production draws from different West Coast and contemporary hip-hop approaches.",
+        "exemplars": [
+          "Siccness",
+          "Drexthejoint",
+          "Calicokid",
+          "The Rodriguez Show"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "oc_rap",
+          "name": "OC rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13810view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn13810view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13810view0; historical image bytes/visual observation inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13810view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rhythmic MC over a producer-built beat, supported by the firsthand Siccness and Drexthejoint interviews. One unprocessed accompanied lead and dry treated studio are authored editable choices consistent with documented booth recording; not reconstruction of a named collaborative track or an assertion all artists use one singer. Original beat mechanism, instruments, tracking and tempo remain variable. No obligatory G-funk synthesizer, oldies sample or ethnic instrument is inferred from regional identity."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rhythmic MC over a producer-built beat, supported by the firsthand Siccness and Drexthejoint interviews. One unprocessed accompanied lead and dry treated studio are authored editable choices consistent with documented booth recording; not reconstruction of a named collaborative track or an assertion all artists use one singer. Original beat mechanism, instruments, tracking and tempo remain variable. No obligatory G-funk synthesizer, oldies sample or ethnic instrument is inferred from regional identity."
+        }
+      ],
+      "source_label": "oc rap",
+      "source_url": "https://everynoise.com/engenremap-ocrap.html",
+      "suggested_id": "oc_rap",
+      "allocation_ordinal": 424,
+      "allocation_group_id": "017",
+      "id": "oc_rap",
+      "status": "ready_for_independent_review",
+      "geo": [
+        33.7455,
+        -117.8677,
+        "Santa Ana",
+        "North America"
+      ],
+      "geo_rationale": "Representative Orange County rap anchor supported by firsthand Santa Ana interviews; field includes surrounding county communities.",
+      "signature_tokens": [],
+      "model_policy": "Representative rhythmic MC over a producer-built beat, supported by the firsthand Siccness and Drexthejoint interviews. One unprocessed accompanied lead and dry treated studio are authored editable choices consistent with documented booth recording; not reconstruction of a named collaborative track or an assertion all artists use one singer. Original beat mechanism, instruments, tracking and tempo remain variable. No obligatory G-funk synthesizer, oldies sample or ethnic instrument is inferred from regional identity.",
+      "neighbor_distinction": "Full Cali rap already spans California scenes and is not confined to E-40’s Bay Area example. Classic West Coast hip-hop foregrounds the late1980s/1990s Los Angeles and G-funk lineage; Chicano rap foregrounds Mexican-American cultural practice beyond any one county. OC rap overlaps all these fields but is a positively self-identified Orange County community with local collaborations, distribution and media institutions. It is not defined as a unique rhythm, solely by birthplace, or as all Chicano or all West Coast rap.",
+      "classification_evidence": "Full Cali rap already spans California scenes and is not confined to E-40’s Bay Area example. Classic West Coast hip-hop foregrounds the late1980s/1990s Los Angeles and G-funk lineage; Chicano rap foregrounds Mexican-American cultural practice beyond any one county. OC rap overlaps all these fields but is a positively self-identified Orange County community with local collaborations, distribution and media institutions. It is not defined as a unique rhythm, solely by birthplace, or as all Chicano or all West Coast rap.",
+      "source_scope_limitation": "Representative rhythmic MC over a producer-built beat, supported by the firsthand Siccness and Drexthejoint interviews. One unprocessed accompanied lead and dry treated studio are authored editable choices consistent with documented booth recording; not reconstruction of a named collaborative track or an assertion all artists use one singer. Original beat mechanism, instruments, tracking and tempo remain variable. No obligatory G-funk synthesizer, oldies sample or ethnic instrument is inferred from regional identity.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Firsthand artists describe rap flow and studio vocal practice."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Artist explicitly describes producer SinSlap supplying a beat for verses; no mechanism inferred."
+        }
+      ],
+      "vocal_count_audit": {
+        "genre_headcount": "variable",
+        "authored_default": "one accompanied MC",
+        "recording_reconstruction": false
+      },
+      "sources": [
+        {
+          "url": "https://www.ocweekly.com/aural-reports-santa-ana-hip-hops-siccness-reps-and-raps-the-oc-underground-6362465/",
+          "primary": true,
+          "evidence_ref": "turn13821view0",
+          "supports": "Original Siccness interview explicitly defines Orange County collaborations and stylistic variety, local street/online circulation and home vocal booth practice."
+        },
+        {
+          "url": "https://www.powmag.net/p/drexthejoint-interview-the-one-who-did",
+          "primary": true,
+          "evidence_ref": "turn13821view2 / turn13822view0",
+          "supports": "Original rapper interview documents Santa Ana/OC identity and producer-built beat/MC collaboration; genre practice rather than exact track reconstruction."
+        },
+        {
+          "url": "https://voyagela.com/interview/meet-cesar-rodriguez-rodriguez-show/",
+          "primary": true,
+          "evidence_ref": "turn13820search8",
+          "supports": "Indexed original organizer interview describes Orange County radio/media initiative and local rap participants. Direct open403; not claimed direct full read."
+        }
+      ],
+      "source_retrieval_caveat": "Fresh full firsthand rapper interviews retrieved; organizer interview obtained through indexed primary text, direct403 candid. No audio audition."
+    }
+  ],
+  "instrument_dependencies": []
+}

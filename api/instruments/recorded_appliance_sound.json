@@ -1,0 +1,86 @@
+{
+  "id": "recorded_appliance_sound",
+  "name": "Recorded household-appliance sound",
+  "short": "Recorded appliance sound",
+  "family": "electronic",
+  "class": "environmental_recording",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "recorded_appliance_source",
+      "name": "Documented recorded source",
+      "variants": [
+        {
+          "id": "recorded_appliance_hairdryer",
+          "name": "Recorded hairdryer operation; model and operating settings unspecified",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "recorded_appliance_envelope",
+      "name": "Documented programme ending",
+      "variants": [
+        {
+          "id": "recorded_appliance_gradual_fade",
+          "name": "Gradual fade to silence at programme end",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Actual recorded household-appliance operation, preserving source identity and positive end-fade treatment. No assumed noise synthesis, sample-keyboard performance or device specifications. Neutral authored routing coordinates. Source facts support selected hairdryer variant; other appliance types not silently generalized.",
+  "sources": [
+    "https://mommabraga.com/2016/09/05/giving-parents-and-babies-a-better-night-sleep-with-fade-away-sleep-sounds/",
+    "https://music.apple.com/us/album/hair-dryer-sounds-white-noise/841150665",
+    "https://open.spotify.com/artist/5c7VpP33FVLibHz6LKoUgZ"
+  ],
+  "_ownParts": [
+    {
+      "id": "recorded_appliance_source",
+      "name": "Documented recorded source",
+      "variants": [
+        {
+          "id": "recorded_appliance_hairdryer",
+          "name": "Recorded hairdryer operation; model and operating settings unspecified",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "recorded_appliance_envelope",
+      "name": "Documented programme ending",
+      "variants": [
+        {
+          "id": "recorded_appliance_gradual_fade",
+          "name": "Gradual fade to silence at programme end",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

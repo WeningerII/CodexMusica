@@ -1,0 +1,222 @@
+{
+  "entries": [
+    {
+      "id": "middle_eastern_traditional",
+      "source_label": "middle eastern traditional",
+      "suggested_id": "middle_eastern_traditional",
+      "allocation_ordinal": 3781,
+      "allocation_group_id": "152",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "middle_eastern_traditional",
+        "name": "Middle Eastern Traditional",
+        "family": "global",
+        "lineage": "Middle Eastern traditional music encompasses interconnected Arab, Turkish, Persian, Armenian and neighboring regional repertoires, from modal instrumental improvisation to vocal art music and communal songs.",
+        "instruments": [
+          "oud"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_iraqi",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        }
+      },
+      "extras": {
+        "parent": "improvOnFrame.persianArabImprov",
+        "description": "Modal melodies, ornamented phrases and exchanges between composed repertoire and improvisation connect many of these traditions, while their tuning systems, rhythms and forms remain regionally distinct. Oud, bowed strings, qanun, nay and percussion appear in varied ensembles; instrumental solos and singing provide contrasting settings. The Iraqi oud tradition offers one intimate expression of this wider musical world.",
+        "exemplars": [
+          "Rahim AlHaj",
+          "William & Mary Middle Eastern Music Ensemble"
+        ],
+        "axes": {
+          "improv": 2,
+          "ornament": 2,
+          "voice": -2,
+          "percussion": -1,
+          "soundTech": -1
+        }
+      },
+      "geo": [
+        33.3152,
+        44.3661,
+        "Baghdad",
+        "Middle East"
+      ],
+      "geo_rationale": "Representative Iraqi oud branch, with Baghdad learning tradition independently established by NEA; not origin claim for whole multiregional field.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.wm.edu/as/music/ensembles/meme/",
+          "support_notes": "Fresh direct13562view0 university ethnomusicology ensemble defines Arab, Turkish, Persian, Armenian and Greek traditions as its regional field and describes variable instruments/repertoire."
+        },
+        {
+          "url": "https://music.utexas.edu/ensembles/bereket",
+          "support_notes": "Fresh direct13562view2 independently documents broad Middle Eastern musical repertoire including Arabic, Turkish, Persian, Hebrew, Armenian and other languages."
+        },
+        {
+          "url": "https://www.arts.gov/honors/heritage/rahim-alhaj",
+          "support_notes": "Fresh direct13568view1 NEA traditional-arts honoree biography and firsthand interview establish Iraqi maqam foundation, Munir Bashir study, solo oud practice and broader ensemble alternatives. Supports representative Iraqi instrumental branch, not whole podcast reconstruction."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "middle_eastern_traditional",
+          "name": "Middle Eastern Traditional",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13534view1 confirms Iain Fergusson/Binksternet credit and CC BY 2.5; inherited historical download and visual receipt retained.",
+          "fresh_review_ref": "turn13534view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights review turn13534view1, 2026-10-03; historical bytes and visual receipt inherited unchanged."
+      },
+      "model_policy": "Genre-level representative Iraqi solo-oud branch. Ornamented melodic plucking, eleven strings, plastic risha, walnut ribs, spruce face and modern nylon set are a coherent authored conventional oud realization, not a measured AlHaj instrument. Iraqi school is positively justified by the selected traditional-practice source. Wider voices/ensembles described publicly are not imposed as an obligatory union or claimed absent. Global temperament omitted because regional modal tuning cannot honestly be reduced to universal twelve-tone equal temperament. Studio and chain are authored listening choices.",
+      "neighbor_distinction": "Full arab_folk is a broad Arab folk field, not merely its Bahariya guitar/oud example; this larger regional umbrella also positively includes non-Arab Persian, Turkish, Armenian and Greek traditions. Full arabic_instrumental includes Arabic instrumental practice beyond its selected taqsim, while this field includes vocal repertoire and non-Arab traditions. oud_taqsim, iraqi_maqam and arab_tarab are specific instrumental or vocal modal practices contained within/overlapping the wider field. The representative Iraqi oud rendering need not stand outside these narrower fields to represent a separately evidenced broader umbrella; no claim of disjointness or different mechanism.",
+      "classification_evidence": "improvOnFrame.persianArabImprov applies to the representative source-positive Iraqi modal oud practice, not to every tradition in the wider regional category.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "oud",
+          "part": "plucked_traditional_technique",
+          "selected_variant": "plucked_ornamented_melodic",
+          "protected": true
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_school",
+          "selected_variant": "oud_iraqi",
+          "protected": true
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_strings",
+          "selected_variant": "oud_eleven",
+          "protected": true
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_pick",
+          "selected_variant": "risha_plastic",
+          "protected": true
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_body_wood",
+          "selected_variant": "oud_walnut_body",
+          "protected": true
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_soundboard_wood",
+          "selected_variant": "oud_spruce_face",
+          "protected": true
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_string_material",
+          "selected_variant": "oud_pyramid_nylon",
+          "protected": true
+        }
+      ],
+      "instrument_role_audit": [
+        {
+          "instrument": "oud",
+          "role": "Representative modal melodic instrumental solo branch; ensemble and vocal alternatives remain part of broader genre."
+        }
+      ],
+      "vocal_count_audit": {
+        "model_voice_cards": 0,
+        "genre_singers": "Variable; many vocal branches exist."
+      },
+      "source_scope_limitation": "Genre-practice profile, not a reconstruction of AlHaj ensemble recordings, NEA podcast music inserts or university concert roster.",
+      "source_url": "https://everynoise.com/engenremap-middleeasterntraditional.html"
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

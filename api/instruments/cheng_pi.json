@@ -1,0 +1,113 @@
+{
+  "id": "cheng_pi",
+  "name": "Cheng Pi",
+  "short": "Cheng Pi",
+  "family": "percussion",
+  "class": "cheng_pi",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+  "sources": [
+    "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+    "https://bcf-india.org/museum/"
+  ],
+  "parts": [
+    {
+      "id": "cheng_pi_body",
+      "name": "body",
+      "variants": [
+        {
+          "id": "cheng_pi_body_gmelina",
+          "name": "Hollow Gmelina arborea trunk, unequal heads and slight central bulge",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_pi_lacing_configuration",
+      "name": "lacing configuration",
+      "variants": [
+        {
+          "id": "cheng_pi_lacing_configuration_double_laced",
+          "name": "Two laced heads; skin species unspecified",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_pi_playing",
+      "name": "playing",
+      "variants": [
+        {
+          "id": "cheng_pi_playing_stick_hand",
+          "name": "Curved cane stick on large head and hand on small head",
+          "default": true,
+          "descriptors": [
+            "stick-and-hand"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cheng_pi_body",
+      "name": "body",
+      "variants": [
+        {
+          "id": "cheng_pi_body_gmelina",
+          "name": "Hollow Gmelina arborea trunk, unequal heads and slight central bulge",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_pi_lacing_configuration",
+      "name": "lacing configuration",
+      "variants": [
+        {
+          "id": "cheng_pi_lacing_configuration_double_laced",
+          "name": "Two laced heads; skin species unspecified",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_pi_playing",
+      "name": "playing",
+      "variants": [
+        {
+          "id": "cheng_pi_playing_stick_hand",
+          "name": "Curved cane stick on large head and hand on small head",
+          "default": true,
+          "descriptors": [
+            "stick-and-hand"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

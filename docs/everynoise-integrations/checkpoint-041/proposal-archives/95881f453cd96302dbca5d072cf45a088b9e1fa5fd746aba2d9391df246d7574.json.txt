@@ -1,0 +1,261 @@
+{
+  "entries": [
+    {
+      "source_label": "pinoy alternative rap",
+      "source_url": "https://everynoise.com/engenremap-pinoyalternativerap.html",
+      "suggested_id": "pinoy_alternative_rap",
+      "allocation_ordinal": 442,
+      "allocation_group_id": "018",
+      "id": "pinoy_alternative_rap",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "pinoy_alternative_rap",
+        "name": "Pinoy Alternative Rap",
+        "family": "hip_hop",
+        "lineage": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed. Broad mcRhythm follows explicitly documented emcee and DJ roles. Both rappers share one live-duet voice card while retaining their separate names; rhythmic spoken flow is authored for the source-positive rap practice, with neutral physiology, ornament and pitch organization. DJ playback/mixing uses the existing medium-unspecified owner; no vinyl, sample-engine or scratch technique is inferred merely from the artist being a turntablist elsewhere. All recorded backing content remains within the actual DJ role with unknown embedded personnel. Controlled live-room presentation is authored, not measured capture equipment or venue. If the original engine emits burlesque voice, that is explicitly an authored theatrical/projected rap affect; it does not assert a burlesque genre, brass or dancers, source-measured swing or a sung chorus. Brisk DJ presentation is an authored concert rendition, not measured BPM. No global temperament or recording apparatus is inferred.",
+        "instruments": [
+          "voice",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed. Pinoy Alternative Rap is represented by a documented independent, artist-organized Philippine rap network rather than defined merely by do-it-yourself equipment or a noncommercial label. The festival issuer describes UPRISING as a self-produced grassroots network of emcees, turntablists and producers operating across Filipino, Bisaya and English, relying on its own artistic output rather than prevailing trends and industry machinery. Its shared festivals, tours, collaborative releases and online launches establish continuing community practice. The exact creator category includes named members Ilaya and Supreme Fist plus BLKD, UMPH, Illustrado, Emar Industriya, KJah and other members of this network. Kartel as a group name is absent from the inspected100-item creator sample; do not claim exact group or selected-song membership. Existing pinoy_hip_hop is a broad national/diasporic multilingual field and already embraces diverse live-band practices; Tagalog Rap already includes FlipTop and mass-market rap, and Pinoy Trap explicitly includes UPRISING among its historical collectives. These are acknowledged overlaps, not excluded populations. The proposed alternative discovery field is a narrower overlapping artist/community axis, not a claim every UPRISING recording is non-trap or that all independent rap sounds the same. Its source basis combines creator membership of actual performers with a positively self-organized alternative-to-industry network, not a different artist alone. Broad mcRhythm follows explicitly documented emcee and DJ roles. Both rappers share one live-duet voice card while retaining their separate names; rhythmic spoken flow is authored for the source-positive rap practice, with neutral physiology, ornament and pitch organization. DJ playback/mixing uses the existing medium-unspecified owner; no vinyl, sample-engine or scratch technique is inferred merely from the artist being a turntablist elsewhere. All recorded backing content remains within the actual DJ role with unknown embedded personnel. Controlled live-room presentation is authored, not measured capture equipment or venue. If the original engine emits burlesque voice, that is explicitly an authored theatrical/projected rap affect; it does not assert a burlesque genre, brass or dancers, source-measured swing or a sung chorus. Brisk DJ presentation is an authored concert rendition, not measured BPM. No global temperament or recording apparatus is inferred.",
+        "exemplars": [
+          "Kartel / Supreme Fist — complete live Alagad rendition, ASEAN Music Showcase Festival2020"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        14.676,
+        121.0437,
+        "Quezon City",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Issuer identifies Tala and Supreme Fist in Quezon City, while Ilaya is Taguig; editorial network anchor, not claimed festival recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Pinoy Alternative Rap is represented by a documented independent, artist-organized Philippine rap network rather than defined merely by do-it-yourself equipment or a noncommercial label. The festival issuer describes UPRISING as a self-produced grassroots network of emcees, turntablists and producers operating across Filipino, Bisaya and English, relying on its own artistic output rather than prevailing trends and industry machinery. Its shared festivals, tours, collaborative releases and online launches establish continuing community practice. The exact creator category includes named members Ilaya and Supreme Fist plus BLKD, UMPH, Illustrado, Emar Industriya, KJah and other members of this network. Kartel as a group name is absent from the inspected100-item creator sample; do not claim exact group or selected-song membership. Existing pinoy_hip_hop is a broad national/diasporic multilingual field and already embraces diverse live-band practices; Tagalog Rap already includes FlipTop and mass-market rap, and Pinoy Trap explicitly includes UPRISING among its historical collectives. These are acknowledged overlaps, not excluded populations. The proposed alternative discovery field is a narrower overlapping artist/community axis, not a claim every UPRISING recording is non-trap or that all independent rap sounds the same. Its source basis combines creator membership of actual performers with a positively self-organized alternative-to-industry network, not a different artist alone.",
+      "classification_evidence": "Pinoy Alternative Rap is represented by a documented independent, artist-organized Philippine rap network rather than defined merely by do-it-yourself equipment or a noncommercial label. The festival issuer describes UPRISING as a self-produced grassroots network of emcees, turntablists and producers operating across Filipino, Bisaya and English, relying on its own artistic output rather than prevailing trends and industry machinery. Its shared festivals, tours, collaborative releases and online launches establish continuing community practice. The exact creator category includes named members Ilaya and Supreme Fist plus BLKD, UMPH, Illustrado, Emar Industriya, KJah and other members of this network. Kartel as a group name is absent from the inspected100-item creator sample; do not claim exact group or selected-song membership. Existing pinoy_hip_hop is a broad national/diasporic multilingual field and already embraces diverse live-band practices; Tagalog Rap already includes FlipTop and mass-market rap, and Pinoy Trap explicitly includes UPRISING among its historical collectives. These are acknowledged overlaps, not excluded populations. The proposed alternative discovery field is a narrower overlapping artist/community axis, not a claim every UPRISING recording is non-trap or that all independent rap sounds the same. Its source basis combines creator membership of actual performers with a positively self-organized alternative-to-industry network, not a different artist alone.",
+      "model_policy": "Broad mcRhythm follows explicitly documented emcee and DJ roles. Both rappers share one live-duet voice card while retaining their separate names; rhythmic spoken flow is authored for the source-positive rap practice, with neutral physiology, ornament and pitch organization. DJ playback/mixing uses the existing medium-unspecified owner; no vinyl, sample-engine or scratch technique is inferred merely from the artist being a turntablist elsewhere. All recorded backing content remains within the actual DJ role with unknown embedded personnel. Controlled live-room presentation is authored, not measured capture equipment or venue. If the original engine emits burlesque voice, that is explicitly an authored theatrical/projected rap affect; it does not assert a burlesque genre, brass or dancers, source-measured swing or a sung chorus. Brisk DJ presentation is an authored concert rendition, not measured BPM. No global temperament or recording apparatus is inferred.",
+      "source_scope_limitation": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed.",
+      "source_retrieval_caveat": "Issuer artist pages directly retrieved complete role/programme text; linked YouTube embed throttled, no audio audition. Older issuer-hosted Squarespace page indexed original presentation/date. Festival profile independently identifies the grassroots network. Exact creator sample names Ilaya and Supreme Fist, not Kartel as a group.",
+      "vocal_count_audit": {
+        "named_rappers": [
+          "Tala",
+          "Ilaya"
+        ],
+        "live_count": 2,
+        "embedded_recording_voices": "unknown"
+      },
+      "instrument_role_audit": {
+        "voice": [
+          "Tala emcee",
+          "Ilaya emcee"
+        ],
+        "dj_playback_mixing_unspecified": [
+          "Supreme Fist DJ"
+        ],
+        "policy": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad mcRhythm follows explicitly documented emcee and DJ roles. Both rappers share one live-duet voice card while retaining their separate names; rhythmic spoken flow is authored for the source-positive rap practice, with neutral physiology, ornament and pitch organization. DJ playback/mixing uses the existing medium-unspecified owner; no vinyl, sample-engine or scratch technique is inferred merely from the artist being a turntablist elsewhere. All recorded backing content remains within the actual DJ role with unknown embedded personnel. Controlled live-room presentation is authored, not measured capture equipment or venue. If the original engine emits burlesque voice, that is explicitly an authored theatrical/projected rap affect; it does not assert a burlesque genre, brass or dancers, source-measured swing or a sung chorus. Brisk DJ presentation is an authored concert rendition, not measured BPM. No global temperament or recording apparatus is inferred."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Broad mcRhythm follows explicitly documented emcee and DJ roles. Both rappers share one live-duet voice card while retaining their separate names; rhythmic spoken flow is authored for the source-positive rap practice, with neutral physiology, ornament and pitch organization. DJ playback/mixing uses the existing medium-unspecified owner; no vinyl, sample-engine or scratch technique is inferred merely from the artist being a turntablist elsewhere. All recorded backing content remains within the actual DJ role with unknown embedded personnel. Controlled live-room presentation is authored, not measured capture equipment or venue. If the original engine emits burlesque voice, that is explicitly an authored theatrical/projected rap affect; it does not assert a burlesque genre, brass or dancers, source-measured swing or a sung chorus. Brisk DJ presentation is an authored concert rendition, not measured BPM. No global temperament or recording apparatus is inferred."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Seventeen voice controls and one medium-unspecified DJ control protected."
+      },
+      "sources": [
+        {
+          "url": "https://www.uprisingrecords.com.ph/artists/kartel",
+          "title": "Issuer complete live Alagad programme and Kartel roster",
+          "support_notes": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed.",
+          "retrieval_ref": "turn12024view0; turn12038view0"
+        },
+        {
+          "url": "https://axeanfestival.com/profile/uprising-records-artists/",
+          "title": "Festival first-party UPRISING community and performing lineup",
+          "support_notes": "Grassroots self-produced network, multilingual collaborations, independent artistic output and same festival performers.",
+          "retrieval_ref": "turn12018view1; turn12038view1"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5saZfqsqw3aREGp6oA1bs8",
+          "title": "Exact creator Pinoy Alternative Rap category",
+          "support_notes": "Ilaya17, Supreme Fist5/66; broad UPRISING artist network. Kartel group name absent; selected recording not falsely claimed indexed.",
+          "retrieval_ref": "turn12018view0; turn12022view2/3"
+        },
+        {
+          "url": "https://www.uprisingrecords.com.ph/artists/supreme-fist",
+          "title": "Issuer DJ identity and same live performance",
+          "support_notes": "Names DJ/turntablist and selected Alagad performance; no apparatus/techniques inferred from separate projects.",
+          "retrieval_ref": "turn12038search2"
+        },
+        {
+          "url": "https://caterpillar-lanternfish-shnf.squarespace.com/artists/tala",
+          "title": "Original issuer-hosted programme caption indexed",
+          "support_notes": "UPRISING Records Philippines x Power Trip Studios presents ASEAN Music Showcase Festival2020,20September2020, Kartel Alagad featSupremeFist.",
+          "retrieval_ref": "turn12038search4"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pinoy_alternative_rap",
+          "name": "Pinoy Alternative Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Kartel, Supreme Fist or their actual performance equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11976view0 confirms Iain Fergusson/Binksternet and CC BY2.5; historical bytes/visual unchanged.",
+          "fresh_review_ref": "turn11976view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11976view0"
+        ]
+      },
+      "verification_status": "Original-loader18applicable controls protected,zero fallbacks,1638old owners unchanged; exact historical image receipt and four actual browser/connector formats pass. Independent category/source peer pending; final integratedCI not claimed."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

@@ -1,0 +1,267 @@
+{
+  "entries": [
+    {
+      "source_label": "musica urbana oaxaquena",
+      "source_url": "https://everynoise.com/engenremap-musicaurbanaoaxaquena.html",
+      "suggested_id": "musica_urbana_oaxaquena",
+      "allocation_ordinal": 3930,
+      "allocation_group_id": "158",
+      "status": "frozen_for_independent_review",
+      "id": "musica_urbana_oaxaquena",
+      "tradition": {
+        "id": "musica_urbana_oaxaquena",
+        "name": "Música Urbana Oaxaqueña",
+        "family": "hip_hop",
+        "lineage": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers. Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds.",
+        "instruments": [
+          "voice",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers. The creator Música Urbana Oaxaqueña field expressly includes Juchirap alongside Verbo Ka, CC Crew951, Trippiemike808 and other regional acts. The federal festival independently identifies Juchitán, Oaxaca, bilingual Spanish/Zapotec rap, local cultural transmission and this full urban performance practice. Thus the geographic field is positively linked to regional rap communities, not birthplace alone; the selected indigenous-language group is one branch, not a rule that all members sing Zapotec. Full existing Mexican Hip Hop already encompasses varied national scenes and sampled regional materials, beyond its Control Machete example; this narrower Oaxacan community overlaps that umbrella. Existing Música Oaxaqueña is the broad state-repertoire field, not only its copla ensemble, so it also overlaps this urban subset. Oaxaca Indie is a cross-style local independent field, with a documented pop-rock branch, not every local rap network. No claim these scenes are mutually exclusive or that different instruments alone create a category. Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds.",
+        "exemplars": [
+          "Juchirap — complete2024 Cervantino three-MC and DJ programme"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        16.4333,
+        -95.0167,
+        "Juchitán",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Organizer explicitly identifies group and cultural practice as Juchitán,Oaxaca; community anchor, not Guanajuato stage coordinates.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://52.festivalcervantino.gob.mx/actividad/973/juchirap",
+          "title": "Festival primary complete programme/roster",
+          "support_notes": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11872search0"
+        },
+        {
+          "url": "https://festivalcervantino.gob.mx/boletin/625/del-bolero-apocaliptico-al-blues-pasando-por-el-rap-en-zapoteco-en-el-52-fic?lan=en",
+          "title": "Organizer after-event report",
+          "support_notes": "Confirms three Juchitán rappers at Los Pastitos and active audience. Other bands are explicitly separate acts.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11859search2"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-musicaurbanaoaxaquena.html",
+          "title": "Exact creator field",
+          "support_notes": "Juchirap line20 alongside regional urban acts; not merely national origin.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11867view1"
+        }
+      ],
+      "neighbor_distinction": "The creator Música Urbana Oaxaqueña field expressly includes Juchirap alongside Verbo Ka, CC Crew951, Trippiemike808 and other regional acts. The federal festival independently identifies Juchitán, Oaxaca, bilingual Spanish/Zapotec rap, local cultural transmission and this full urban performance practice. Thus the geographic field is positively linked to regional rap communities, not birthplace alone; the selected indigenous-language group is one branch, not a rule that all members sing Zapotec. Full existing Mexican Hip Hop already encompasses varied national scenes and sampled regional materials, beyond its Control Machete example; this narrower Oaxacan community overlaps that umbrella. Existing Música Oaxaqueña is the broad state-repertoire field, not only its copla ensemble, so it also overlaps this urban subset. Oaxaca Indie is a cross-style local independent field, with a documented pop-rock branch, not every local rap network. No claim these scenes are mutually exclusive or that different instruments alone create a category.",
+      "model_policy": "Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds.",
+      "classification_evidence": {
+        "mode": "exact_creator_plus_federal_festival_regional_rap_practice",
+        "url": "https://furia.com/everynoise_public/engenremap-musicaurbanaoaxaquena.html",
+        "matched_artist": "juchirap",
+        "note": "The creator Música Urbana Oaxaqueña field expressly includes Juchirap alongside Verbo Ka, CC Crew951, Trippiemike808 and other regional acts. The federal festival independently identifies Juchitán, Oaxaca, bilingual Spanish/Zapotec rap, local cultural transmission and this full urban performance practice. Thus the geographic field is positively linked to regional rap communities, not birthplace alone; the selected indigenous-language group is one branch, not a rule that all members sing Zapotec. Full existing Mexican Hip Hop already encompasses varied national scenes and sampled regional materials, beyond its Control Machete example; this narrower Oaxacan community overlaps that umbrella. Existing Música Oaxaqueña is the broad state-repertoire field, not only its copla ensemble, so it also overlaps this urban subset. Oaxaca Indie is a cross-style local independent field, with a documented pop-rock branch, not every local rap network. No claim these scenes are mutually exclusive or that different instruments alone create a category."
+      },
+      "vocal_count_audit": {
+        "credited_selected_singers": [
+          "Cosijopii — MC",
+          "Antonio Guadalupe — MC",
+          "Carlos Lenin — MC"
+        ],
+        "selected_count": 3,
+        "count_basis": "Complete primary roster explicitly names three MCs; embedded voices unknown.",
+        "decision": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers."
+      },
+      "instrument_role_audit": {
+        "rationale": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers.",
+        "selected_scope": "Whole60-minute announced Cervantino2024 Juchirap act",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Three named MCs",
+            "authored_realization": "Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds."
+          },
+          {
+            "instrument": "dj_playback_mixing_unspecified",
+            "source_role": "DJ Gabriel Cristiani accompaniment",
+            "authored_realization": "Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds."
+          }
+        ],
+        "omissions": "No positively announced live role omitted. General press quote of string/wind heritage is retained as unknown embedded sound, not a separate live player claim."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All eighteen original applicable voice/DJ controls explicitly pinned; no collision or fallback.",
+      "dependency_audit": "No new owners; all original1638 definitions retained.",
+      "verification_status": "Author original-loader checks PASS18protected parts,zero fallbacks,1638old owners unchanged; exact historicalphoto receipt matched and all4actual original app formats inspected. Final integrated CI not claimed.",
+      "source_scope_limitation": "Complete official Cervantino programme for Juchirap at Los Pastitos, 18 October 2024, announced duration 60 minutes. Preserve Cosijopii, Antonio Guadalupe and Carlos Lenin as three MCs, accompanied by DJ Gabriel Cristiani. Other festival acts are outside this programme. Embedded playback content and hardware remain unspecified; descriptive references to synthesizer beats and ancestral strings or winds do not establish additional live performers. No personal attendance, audio audition or measured realized duration is claimed.",
+      "primary_retrieval_refs": [
+        "turn11872search0",
+        "turn11859search2",
+        "turn11867view1"
+      ],
+      "source_retrieval_caveat": "Official Cervantino programme was recovered as full indexed primary text after direct retrieval timed out. The festival after-report independently documents the three MCs performance. The creator map was read earlier; later retrieval may fail and does not justify claiming a fresh reproduction.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_urbana_oaxaquena",
+          "name": "Música Urbana Oaxaqueña",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Juchirap, the festival stage or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11621view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11621view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11621view3"
+        ]
+      },
+      "source_access_limitation": "Official complete programme and after-event report read via indexed primary after direct programme timeout. Exact creator map directly retrieved; source audio not auditioned. Historical image bytes reused."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

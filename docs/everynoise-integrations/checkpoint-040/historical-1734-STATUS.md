@@ -1,8 +1,9 @@
 # Draft genre checkpoint 040
 
+Historical checkpoint receipt: counts below describe that frozen build, not the current catalog. The inline count exclusions preserve its original measurements.
 This candidate retains **1,734 reviewed repairs** and defers **620 proposals** from the complete 2,354-repair frozen checkpoint. The deferred source changes and their evidence remain preserved here and in commit `d63210cbe63b8d9e7edb9b52de3fa0ee1971aa25`. No proposal was discarded or silently declared incorrect.
 
-PR #481, main commit `70426a9861fe2591e66789879a6fde3082aad4f6`, is included unchanged. The original baseline cohort of 2,638 records and extras, instrument catalog, shared engine, pipeline, and regression snapshots are preserved. The catalog remains at 6,538 traditions and 1,638 instruments. The 178 reviewed additions remain evidence only; later reviews and unfinished work remain separate.
+PR #481, main commit `70426a9861fe2591e66789879a6fde3082aad4f6`, is included unchanged. The original baseline cohort of 2,638 records and extras, instrument catalog, shared engine, pipeline, and regression snapshots are preserved. The catalog remains at 6,538 traditions and 1,638 instruments. The 178 reviewed additions remain evidence only; later reviews and unfinished work remain separate. <!-- check_docs:ignore -->
 
 ## Regression qualification
 
@@ -22,7 +23,7 @@ The subset withholds repaired records read by baseline fixture scoring or possib
 
 - **1,149/1,149 recipe regressions pass**, with zero snapshot updates.
 - **104/104 complete configurations, numeric scores, and emitted outputs** match the baseline exactly.
-- The existing API builder completed with two workers: **6,538 traditions, zero failures**, valid IDs and recipes within 1,000 characters.
+- The existing API builder completed with two workers: **6,538 traditions, zero failures**, valid IDs and recipes within 1,000 characters. <!-- check_docs:ignore -->
 - Reference, lint, formatting and documentation checks pass. Of 29 supporting checks, 27 pass. The local enlarged-photo check repeats the frozen predecessor failure that passes GitHub CI; file-URL reachability remains blocked by browser administration. Exact-head CI for this subset is pending. See subset-validation.json.
 
 Containment does not fix inherited baseline mistakes. The old gospel and Methodist results already contain unsupported choir identities. Concrete original-record data proposals remove the three named mismatches in isolated tests, but remain **unapplied** under the original-record preservation constraint; their full before/after evidence and remaining limitations are retained.

@@ -1,0 +1,440 @@
+{
+  "entries": [
+    {
+      "source_label": "frafra",
+      "source_url": "https://everynoise.com/engenremap-frafra.html",
+      "suggested_id": "frafra",
+      "allocation_ordinal": 3311,
+      "allocation_group_id": "133",
+      "status": "candidate_for_independent_review",
+      "id": "frafra",
+      "tradition": {
+        "id": "frafra",
+        "name": "Frafra",
+        "family": "vernacular",
+        "lineage": "Ayuune Sule — complete Senyaane, track10 of We Have One Destiny, issued23March2018,3:46, also separately purchasable as a complete track. Artist/issuer positively specifies only his voice and sinyaka, an internally hard-berry-filled calabash struck and tossed between two hands. One credited singer; no kologo, band or guest voices from the other album tracks are imported. This is positive track-specific closure, not stripping the full album into a convenient subset. Source text and full catalogue were read; no personal audio audition, measured pitches, detailed lyric translation or source overdub count is asserted. Broad balladPoetry follows this explicitly acoustic solo voice with minimal percussion accompaniment, with an authored intimate, text-forward song rendition rather than an assertion of a particular translated story or hereditary Mande griot lineage. Neutral register, pitch organization, ornament, physiology and timbral source-unspecified controls preserve unknowns. Syllabic text-forward singing, moderate effort, neutral tract, unprocessed single-lead delivery and controlled live room are coherent authored performance/capture choices; actual syllable-to-note mapping, studio tracking, room and signal chain remain unknown. No global tuning or invented capture apparatus. The sinyaka retains positively documented calabash shell, hard-berry filling and two-hand struck/tossed gesture as three separate controls; exact dimensions, botanical species and quantity are unknown. Its neutral numeric axes are editorial scaffolding, not measurements. Lively rhythmic delivery is an authored rendition choice, not a measured source tempo; automatically derived up-tempo/bodacious affect labels describe this energetic presentation, not evidence for a source funk lineage, backbeat instrument or actual swing ratio.",
+        "instruments": [
+          "voice",
+          "sinyaka"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "sinyaka_shell": "sinyaka_calabash_shell",
+          "sinyaka_filling": "sinyaka_hard_berry_filling",
+          "sinyaka_gesture": "sinyaka_two_hand_struck_tossed"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Ayuune Sule — complete Senyaane, track10 of We Have One Destiny, issued23March2018,3:46, also separately purchasable as a complete track. Artist/issuer positively specifies only his voice and sinyaka, an internally hard-berry-filled calabash struck and tossed between two hands. One credited singer; no kologo, band or guest voices from the other album tracks are imported. This is positive track-specific closure, not stripping the full album into a convenient subset. Source text and full catalogue were read; no personal audio audition, measured pitches, detailed lyric translation or source overdub count is asserted. Frafra is represented by a positively publisher-tagged Frafra repertoire release and the same issuer community centered on Frafra-language musicians from Ghana’s Upper East region. Makkum’s firsthand later release account explicitly names Frafra as Sule’s first language and explains its Top Link/Frafra Power regional scene; that later album supplies community context only, not roles for Senyaane. Ghanaian Traditional is the broader multi-community indigenous repertoire field, explicitly encompassing Ewe, Dagomba, Akan, Dagaaba and Ga practices, not exclusively its chosen lunsi example. Frafra overlaps that national umbrella but positively identifies a narrower ethnolinguistic repertoire and living contemporary production community. Ghanaian Pop is broad popular production, not only Ata Kak; hiplife/highlife intersect this artist’s larger catalogue but are not aliases for this northern regional field. No claim all Frafra music uses only rattle and voice or that all Ghanaian music shares one ethnicity. Direct creator mirror currently403; category rests on actual issuing-label terminology and community evidence, not guessed membership. Broad balladPoetry follows this explicitly acoustic solo voice with minimal percussion accompaniment, with an authored intimate, text-forward song rendition rather than an assertion of a particular translated story or hereditary Mande griot lineage. Neutral register, pitch organization, ornament, physiology and timbral source-unspecified controls preserve unknowns. Syllabic text-forward singing, moderate effort, neutral tract, unprocessed single-lead delivery and controlled live room are coherent authored performance/capture choices; actual syllable-to-note mapping, studio tracking, room and signal chain remain unknown. No global tuning or invented capture apparatus. The sinyaka retains positively documented calabash shell, hard-berry filling and two-hand struck/tossed gesture as three separate controls; exact dimensions, botanical species and quantity are unknown. Its neutral numeric axes are editorial scaffolding, not measurements. Lively rhythmic delivery is an authored rendition choice, not a measured source tempo; automatically derived up-tempo/bodacious affect labels describe this energetic presentation, not evidence for a source funk lineage, backbeat instrument or actual swing ratio.",
+        "exemplars": [
+          "Ayuune Sule — complete Senyaane (2018),3:46"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        6.6885,
+        -1.6244,
+        "Kumasi",
+        "Africa"
+      ],
+      "geo_rationale": "Firsthand issuer identifies Sule’s active artistic base as Kumasi; artist-practice anchor, not claimed Senyaane studio address or exclusive Frafra homeland.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://ayuunesule.bandcamp.com/album/we-have-one-destiny",
+          "support_notes": "12130view0 track10 duration3:46; exact just sinyaka and his voice; construction and two-hand gesture; issuing frafra tag;2018 release.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://ayuunesule.bandcamp.com/track/senyaane",
+          "support_notes": "12130view1 separately issued complete track, artist attribution/date.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.cafeoto.co.uk/artists/ayuune-sule/",
+          "support_notes": "12136view2 presenter repeats exact Senyaane closed arrangement and sinyaka construction; no other performance roster transferred.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://makkumrecords.nl/shop/putoo-katare-yire-cd/",
+          "support_notes": "12136view1 firsthand Frafra language and regional FrafraPower/TopLink community evidence only; later2021 album roles not imported.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Frafra is represented by a positively publisher-tagged Frafra repertoire release and the same issuer community centered on Frafra-language musicians from Ghana’s Upper East region. Makkum’s firsthand later release account explicitly names Frafra as Sule’s first language and explains its Top Link/Frafra Power regional scene; that later album supplies community context only, not roles for Senyaane. Ghanaian Traditional is the broader multi-community indigenous repertoire field, explicitly encompassing Ewe, Dagomba, Akan, Dagaaba and Ga practices, not exclusively its chosen lunsi example. Frafra overlaps that national umbrella but positively identifies a narrower ethnolinguistic repertoire and living contemporary production community. Ghanaian Pop is broad popular production, not only Ata Kak; hiplife/highlife intersect this artist’s larger catalogue but are not aliases for this northern regional field. No claim all Frafra music uses only rattle and voice or that all Ghanaian music shares one ethnicity. Direct creator mirror currently403; category rests on actual issuing-label terminology and community evidence, not guessed membership.",
+      "model_policy": "Broad balladPoetry follows this explicitly acoustic solo voice with minimal percussion accompaniment, with an authored intimate, text-forward song rendition rather than an assertion of a particular translated story or hereditary Mande griot lineage. Neutral register, pitch organization, ornament, physiology and timbral source-unspecified controls preserve unknowns. Syllabic text-forward singing, moderate effort, neutral tract, unprocessed single-lead delivery and controlled live room are coherent authored performance/capture choices; actual syllable-to-note mapping, studio tracking, room and signal chain remain unknown. No global tuning or invented capture apparatus. The sinyaka retains positively documented calabash shell, hard-berry filling and two-hand struck/tossed gesture as three separate controls; exact dimensions, botanical species and quantity are unknown. Its neutral numeric axes are editorial scaffolding, not measurements. Lively rhythmic delivery is an authored rendition choice, not a measured source tempo; automatically derived up-tempo/bodacious affect labels describe this energetic presentation, not evidence for a source funk lineage, backbeat instrument or actual swing ratio.",
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [
+          "sinyaka"
+        ],
+        "distinction": "Existing maracas lacks documented two-hand sinyaka gesture and named northern Ghana identity; hosho adds Shona pairing/seed/context assumptions; shekere/axatse/wassakumba use external nets. No exact sinyaka owner found."
+      },
+      "classification_evidence": "Frafra is represented by a positively publisher-tagged Frafra repertoire release and the same issuer community centered on Frafra-language musicians from Ghana’s Upper East region. Makkum’s firsthand later release account explicitly names Frafra as Sule’s first language and explains its Top Link/Frafra Power regional scene; that later album supplies community context only, not roles for Senyaane. Ghanaian Traditional is the broader multi-community indigenous repertoire field, explicitly encompassing Ewe, Dagomba, Akan, Dagaaba and Ga practices, not exclusively its chosen lunsi example. Frafra overlaps that national umbrella but positively identifies a narrower ethnolinguistic repertoire and living contemporary production community. Ghanaian Pop is broad popular production, not only Ata Kak; hiplife/highlife intersect this artist’s larger catalogue but are not aliases for this northern regional field. No claim all Frafra music uses only rattle and voice or that all Ghanaian music shares one ethnicity. Direct creator mirror currently403; category rests on actual issuing-label terminology and community evidence, not guessed membership.",
+      "vocal_count_audit": {
+        "count": 1,
+        "basis": "Publisher explicitly his voice; only named singer Sule. Original overdub count unknown, single-lead rendition authored."
+      },
+      "instrument_role_audit": {
+        "voice": "Sule’s sole positively credited voice; neutral unknown physiology. Authored syllabic single-lead presentation, not actual tracking claim.",
+        "sinyaka": "Positive sole accompaniment: calabash with hard berries, struck and tossed between both hands. Not externally netted shekere or a pair of Shona hosho."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad balladPoetry follows this explicitly acoustic solo voice with minimal percussion accompaniment, with an authored intimate, text-forward song rendition rather than an assertion of a particular translated story or hereditary Mande griot lineage. Neutral register, pitch organization, ornament, physiology and timbral source-unspecified controls preserve unknowns. Syllabic text-forward singing, moderate effort, neutral tract, unprocessed single-lead delivery and controlled live room are coherent authored performance/capture choices; actual syllable-to-note mapping, studio tracking, room and signal chain remain unknown. No global tuning or invented capture apparatus. The sinyaka retains positively documented calabash shell, hard-berry filling and two-hand struck/tossed gesture as three separate controls; exact dimensions, botanical species and quantity are unknown. Its neutral numeric axes are editorial scaffolding, not measurements. Lively rhythmic delivery is an authored rendition choice, not a measured source tempo; automatically derived up-tempo/bodacious affect labels describe this energetic presentation, not evidence for a source funk lineage, backbeat instrument or actual swing ratio."
+        },
+        {
+          "instrument": "sinyaka",
+          "parts": {
+            "sinyaka_shell": "sinyaka_calabash_shell",
+            "sinyaka_filling": "sinyaka_hard_berry_filling",
+            "sinyaka_gesture": "sinyaka_two_hand_struck_tossed"
+          },
+          "policy": "Broad balladPoetry follows this explicitly acoustic solo voice with minimal percussion accompaniment, with an authored intimate, text-forward song rendition rather than an assertion of a particular translated story or hereditary Mande griot lineage. Neutral register, pitch organization, ornament, physiology and timbral source-unspecified controls preserve unknowns. Syllabic text-forward singing, moderate effort, neutral tract, unprocessed single-lead delivery and controlled live room are coherent authored performance/capture choices; actual syllable-to-note mapping, studio tracking, room and signal chain remain unknown. No global tuning or invented capture apparatus. The sinyaka retains positively documented calabash shell, hard-berry filling and two-hand struck/tossed gesture as three separate controls; exact dimensions, botanical species and quantity are unknown. Its neutral numeric axes are editorial scaffolding, not measurements. Lively rhythmic delivery is an authored rendition choice, not a measured source tempo; automatically derived up-tempo/bodacious affect labels describe this energetic presentation, not evidence for a source funk lineage, backbeat instrument or actual swing ratio."
+        }
+      ],
+      "verification_status": "Awaiting original full owning-part and four-format checks, then independent peer.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All source-applicable17voice+3sinyaka controls explicitly pinned; no independent-part collision."
+      },
+      "primary_retrieval_refs": [
+        "turn12130view0",
+        "turn12130view1",
+        "turn12136view1",
+        "turn12136view2"
+      ],
+      "source_scope_limitation": "Ayuune Sule — complete Senyaane, track10 of We Have One Destiny, issued23March2018,3:46, also separately purchasable as a complete track. Artist/issuer positively specifies only his voice and sinyaka, an internally hard-berry-filled calabash struck and tossed between two hands. One credited singer; no kologo, band or guest voices from the other album tracks are imported. This is positive track-specific closure, not stripping the full album into a convenient subset. Source text and full catalogue were read; no personal audio audition, measured pitches, detailed lyric translation or source overdub count is asserted.",
+      "source_retrieval_caveat": "Full artist/issuer album and track pages directly read12130view0/1; presenter repeats exact closed source12136view2. Later issuing-label community account12136view1 separately scoped. Creator direct40312136view0; no fabricated membership.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "frafra",
+          "name": "Frafra",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Sule, sinyaka or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 and Iain Fergusson/Binksternet credit. Exact023 historical preview bytes/visual receipt inherited; no fresh download.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "sinyaka",
+        "name": "Sinyaka (internally filled calabash rattle)",
+        "short": "sinyaka",
+        "family": "percussion",
+        "class": "hand_percussion",
+        "axes": {
+          "pitchFix": -2,
+          "sustain": -1,
+          "polyphony": -2,
+          "harmonicity": -2,
+          "register": 0,
+          "range": -2,
+          "articulation": 0,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "sinyaka_shell",
+            "name": "Shell",
+            "variants": [
+              {
+                "id": "sinyaka_calabash_shell",
+                "name": "Calabash gourd shell; exact dimensions unknown",
+                "default": true,
+                "descriptors": [
+                  "gourd",
+                  "calabash"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "sinyaka_filling",
+            "name": "Filling",
+            "variants": [
+              {
+                "id": "sinyaka_hard_berry_filling",
+                "name": "Internal hard berries; botanical species and count unknown",
+                "default": true,
+                "descriptors": [
+                  "organic-rattle"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "sinyaka_gesture",
+            "name": "Gesture",
+            "variants": [
+              {
+                "id": "sinyaka_two_hand_struck_tossed",
+                "name": "Struck and tossed between two hands",
+                "default": true,
+                "descriptors": [
+                  "struck",
+                  "shaken"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Source-documented northern Ghanaian calabash internally filled with hard berries and struck/tossed between two hands. Separate shell, filling and gesture controls preserve known physical facts; size, species and filling quantity unknown. Axes are neutral authored scaffold. No shared or existing instrument modifications.",
+        "sources": [
+          "https://ayuunesule.bandcamp.com/album/we-have-one-destiny",
+          "https://ayuunesule.bandcamp.com/track/senyaane",
+          "https://www.cafeoto.co.uk/artists/ayuune-sule/"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "sinyaka",
+        "name": "Sinyaka (internally filled calabash rattle)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording microphone context, not a sinyaka depiction or actual source apparatus.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "sinyaka",
+          "name": "Sinyaka (internally filled calabash rattle)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not a sinyaka depiction or actual source apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 and Iain Fergusson/Binksternet credit. Exact023 historical preview bytes/visual receipt inherited; no fresh download.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      },
+      "sources": [
+        "https://ayuunesule.bandcamp.com/album/we-have-one-destiny",
+        "https://ayuunesule.bandcamp.com/track/senyaane",
+        "https://www.cafeoto.co.uk/artists/ayuune-sule/"
+      ],
+      "rationale": "Existing maracas lacks documented two-hand sinyaka gesture and named northern Ghana identity; hosho adds Shona pairing/seed/context assumptions; shekere/axatse/wassakumba use external nets. No exact sinyaka owner found."
+    }
+  ],
+  "status": "candidate_for_independent_review"
+}

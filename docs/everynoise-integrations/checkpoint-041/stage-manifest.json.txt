@@ -1,0 +1,126 @@
+{
+  "status": "SOURCE_AND_CONFIG_QUALIFIED_PENDING_ARTIFACT_GATES",
+  "freeze_source": "/tmp/batch041/qualified-frozen194.json",
+  "freeze_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "reports": [
+    {
+      "path": "all-instrument-proposals.json",
+      "sha256": "47a803c38a2b9a15529ab19ab7d48fa4c48e0a671f3111beeee116d63d9b4b46",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "all-source-proposals.json",
+      "sha256": "78eacaf85bab516002ac8ebd284eb5e7ec130e59f1feec02810d1a48f08e1c43",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "bindings-review119.json",
+      "sha256": "32b9a2c3bdc2789ff32aaee5384162c6fe6f5291f6e28c410ea00085aa51e8e4",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "consolidated-app-preservation119.json",
+      "sha256": "35df18fb04b20599246911f2d29f02c26b3da4193e7edf8181f5a341deeb39b7",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "consolidated-config-review119.json",
+      "sha256": "35983ea6bd85ddfce80df8f33ee4286ec6dbff6923ccef1ed442481a65d120a7",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "consolidated-new-browser-preservation119.json",
+      "sha256": "ef34d652f5db349ac898cae4d40b053f52b782b362f9aa4021585455646650cd",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "consolidated-source-owning-preservation119.json",
+      "sha256": "402a43a1cdab87cf99744fc6fcec9b54d8e36f114c13bea5e067691a08c95388",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "freeze.json",
+      "sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "integration-amendment-review119.json",
+      "sha256": "d299a43001f3d174d7582952f9e10e189290f1494ddf37c445c79c49ad152179",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "pipeline-preservation119.json",
+      "sha256": "6294d89201f42bc7d377c5024a5ccc206442bb8d9abac84761341bd2856c2d0d",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualification96-final194-independent116.json",
+      "sha256": "ca357cb4ec7a7b0121bb49aef605c9e1e02c4e24019c16bdba405c7a731939fb",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualified194-app-preservation119.json",
+      "sha256": "35df18fb04b20599246911f2d29f02c26b3da4193e7edf8181f5a341deeb39b7",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualified194-config-qualification119.json",
+      "sha256": "796d4f2da0747ddcebca1a2662e4bac8a3301becbc52fbb4daa4579de274e1d6",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualified194-first98-semantic119.json",
+      "sha256": "728602971148187e030ba141aea80d369f3f472de9576225acc6bf5158d54346",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualified194-new-browser-preservation119.json",
+      "sha256": "a51f0036bb20e7d990cacb6ac0c511f62f13f8b821c4bb9af446024e083e73d7",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualified194-pipeline-preservation119.json",
+      "sha256": "f78680c0df6368eb18d909f06e0dd94cfa95dbc1d31338b62c8efd889520612d",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualified194-projection119.json",
+      "sha256": "6bc4585d79a593d211f5d9af090da0130ecc7fd01787601765cd328ad9cf86f6",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "qualified194-source-owning-preservation119.json",
+      "sha256": "a76a4a560e018c362ef0872a50ed5f573446a379889678209b81b225dbc9e563",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "regression-independent-review119.json",
+      "sha256": "e9a57bddddec508b550b54004a57aaceb3db349de6398764468bb02fc2e63567",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "runtime-controls194.json",
+      "sha256": "93d82e667d8e186c0a57e67898d98aae611de3f0c8836fc9c23478445d735922",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "semantic-review119.json",
+      "sha256": "6da48439ab925426811ff1fe4f54c941929113cb4bcd9c695c35100688e3146e",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    },
+    {
+      "path": "validation-status.json",
+      "sha256": "86596adc01db3d993e9b71e79f536a912563a13d40b67ad8c84b47faf79873e9",
+      "scope": "Use each embedded source hash/status; historical or held evidence is not final approval."
+    }
+  ],
+  "root_action": "Review exact scopes; do not relabel historical subset PASS or rejected196 as final PASS. Rerun staging after final qualification; publication is root responsibility.",
+  "counts": {
+    "selected": 194,
+    "held": 6,
+    "source_proposals_archived": 200,
+    "instrument_proposals_archived": 16,
+    "instrument_proposals_selected": 15,
+    "old_queue_holds_separate": 6
+  }
+}

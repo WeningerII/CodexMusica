@@ -1,0 +1,289 @@
+{
+  "entries": [
+    {
+      "source_label": "samba moderno",
+      "source_url": "https://everynoise.com/engenremap-sambamoderno.html",
+      "suggested_id": "samba_moderno",
+      "allocation_ordinal": 4246,
+      "allocation_group_id": "170",
+      "id": "samba_moderno",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "samba_moderno",
+        "name": "Samba Moderno",
+        "family": "vernacular",
+        "lineage": "Samba moderno follows the contemporary Rio singer-composer network nurtured by Lapa venues, Clube Renascença, Cacique de Ramos and projects such as Samba Social Clube and Festa da Raça. Artists including João Martins, Inácio Rios and Nego Álvaro carry older samba traditions into new compositions, collaborations and independent careers.",
+        "instruments": [
+          "voice",
+          "cavaquinho",
+          "pandeiro",
+          "tan_tan_drum"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_samba",
+          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_strings": "cavaquinho_steel",
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas",
+          "tan_tan_shell": "tan_tan_wood",
+          "tan_tan_technique": "tan_tan_pagode"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion.brazilian.pagode",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Melodic singing and shared refrains interlock with compact cavaquinho or banjo accompaniment, guitar and layered hand percussion. New songs about affection, everyday life and social experience circulate between neighborhood rodas, studio releases and concert stages, retaining the rhythmic conversation of samba while developing individual poetic voices.",
+        "exemplars": [
+          "João Martins",
+          "Inácio Rios",
+          "Nego Álvaro",
+          "Samba do Trabalhador"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "functionalSong.brazilianSong"
+        ]
+      },
+      "geo": [
+        -22.9068,
+        -43.1729,
+        "Rio de Janeiro",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Primary interviews and broadcaster locate the named contemporary network in Rio neighborhoods and roda institutions.",
+      "signature_tokens": [],
+      "model_policy": "Representative small-roda genre practice, not reconstruction of any named album or broadcast ensemble. Rhythmic syllabic group singing, Brazilian steel-string mahogany cavaquinho, medium goatskin pandeiro with wooden frame/brass jingles, and wooden tantã in pagode groove are practical authored choices within directly documented singing, cavaquinho/banjo and percussion practice. Guitar and other arrangements remain part of the wider field; the selected compact rendition does not claim an exhaustive fixed orchestration or exact historical gear. A lively, brisk percussion-led rendition and rhythmic vocal articulation are authored within the dance-oriented practice, not measured source-session acoustics or a universal tempo.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "staccato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative small-roda genre practice, not reconstruction of any named album or broadcast ensemble. Rhythmic syllabic group singing, Brazilian steel-string mahogany cavaquinho, medium goatskin pandeiro with wooden frame/brass jingles, and wooden tantã in pagode groove are practical authored choices within directly documented singing, cavaquinho/banjo and percussion practice. Guitar and other arrangements remain part of the wider field; the selected compact rendition does not claim an exhaustive fixed orchestration or exact historical gear. A lively, brisk percussion-led rendition and rhythmic vocal articulation are authored within the dance-oriented practice, not measured source-session acoustics or a universal tempo."
+        },
+        {
+          "instrument": "cavaquinho",
+          "parts": {
+            "plucked_traditional_technique": "plucked_folk_strummed",
+            "cavaquinho_origin": "cavaquinho_brazilian",
+            "cavaquinho_context": "cavaquinho_samba",
+            "cavaquinho_body_wood": "cavaquinho_mahogany",
+            "cavaquinho_strings": "cavaquinho_steel"
+          },
+          "policy": "Representative small-roda genre practice, not reconstruction of any named album or broadcast ensemble. Rhythmic syllabic group singing, Brazilian steel-string mahogany cavaquinho, medium goatskin pandeiro with wooden frame/brass jingles, and wooden tantã in pagode groove are practical authored choices within directly documented singing, cavaquinho/banjo and percussion practice. Guitar and other arrangements remain part of the wider field; the selected compact rendition does not claim an exhaustive fixed orchestration or exact historical gear. A lively, brisk percussion-led rendition and rhythmic vocal articulation are authored within the dance-oriented practice, not measured source-session acoustics or a universal tempo."
+        },
+        {
+          "instrument": "pandeiro",
+          "parts": {
+            "percussion_technique": "percussion_hands_layered",
+            "pandeiro_size": "pandeiro_medio",
+            "pandeiro_context": "pandeiro_samba",
+            "pandeiro_head": "pandeiro_goatskin_canonical",
+            "pandeiro_shell_wood": "pandeiro_eucalyptus",
+            "pandeiro_jingles": "pandeiro_brass_platinelas"
+          },
+          "policy": "Representative small-roda genre practice, not reconstruction of any named album or broadcast ensemble. Rhythmic syllabic group singing, Brazilian steel-string mahogany cavaquinho, medium goatskin pandeiro with wooden frame/brass jingles, and wooden tantã in pagode groove are practical authored choices within directly documented singing, cavaquinho/banjo and percussion practice. Guitar and other arrangements remain part of the wider field; the selected compact rendition does not claim an exhaustive fixed orchestration or exact historical gear. A lively, brisk percussion-led rendition and rhythmic vocal articulation are authored within the dance-oriented practice, not measured source-session acoustics or a universal tempo."
+        },
+        {
+          "instrument": "tan_tan_drum",
+          "parts": {
+            "tan_tan_shell": "tan_tan_wood",
+            "tan_tan_technique": "tan_tan_pagode"
+          },
+          "policy": "Representative small-roda genre practice, not reconstruction of any named album or broadcast ensemble. Rhythmic syllabic group singing, Brazilian steel-string mahogany cavaquinho, medium goatskin pandeiro with wooden frame/brass jingles, and wooden tantã in pagode groove are practical authored choices within directly documented singing, cavaquinho/banjo and percussion practice. Guitar and other arrangements remain part of the wider field; the selected compact rendition does not claim an exhaustive fixed orchestration or exact historical gear. A lively, brisk percussion-led rendition and rhythmic vocal articulation are authored within the dance-oriented practice, not measured source-session acoustics or a universal tempo."
+        }
+      ],
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Representative genre-practice role supported by firsthand samba musician and broadcaster community sources, not a specific performance credit reconstruction."
+        },
+        {
+          "instrument": "cavaquinho",
+          "basis": "Representative genre-practice role supported by firsthand samba musician and broadcaster community sources, not a specific performance credit reconstruction."
+        },
+        {
+          "instrument": "pandeiro",
+          "basis": "Representative genre-practice role supported by firsthand samba musician and broadcaster community sources, not a specific performance credit reconstruction."
+        },
+        {
+          "instrument": "tan_tan_drum",
+          "basis": "Representative genre-practice role supported by firsthand samba musician and broadcaster community sources, not a specific performance credit reconstruction."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "rhythmic group vocal",
+        "source_scope": "genre practice"
+      },
+      "source_scope_limitation": "Representative small-roda genre practice, not reconstruction of any named album or broadcast ensemble. Rhythmic syllabic group singing, Brazilian steel-string mahogany cavaquinho, medium goatskin pandeiro with wooden frame/brass jingles, and wooden tantã in pagode groove are practical authored choices within directly documented singing, cavaquinho/banjo and percussion practice. Guitar and other arrangements remain part of the wider field; the selected compact rendition does not claim an exhaustive fixed orchestration or exact historical gear. A lively, brisk percussion-led rendition and rhythmic vocal articulation are authored within the dance-oriented practice, not measured source-session acoustics or a universal tempo.",
+      "neighbor_distinction": "Full Pagode already includes contemporary samba revival and the same roda instrumentation: this is not asserted as a disjoint musical grammar. The narrower creator discovery field corresponds to a positively documented contemporary singer-composer network, with its own Samba Social Clube/Festa da Raça collaborations and new-author repertoire. Full Roda de Samba is a participatory session format rather than one repertoire; this network also circulates through individual recordings and concert stages. Full Samba remains the broad historical umbrella. The category does not mean bossa nova or samba-jazz simply because older sources used modern samba for those styles.",
+      "classification_evidence": "Full Pagode already includes contemporary samba revival and the same roda instrumentation: this is not asserted as a disjoint musical grammar. The narrower creator discovery field corresponds to a positively documented contemporary singer-composer network, with its own Samba Social Clube/Festa da Raça collaborations and new-author repertoire. Full Roda de Samba is a participatory session format rather than one repertoire; this network also circulates through individual recordings and concert stages. Full Samba remains the broad historical umbrella. The category does not mean bossa nova or samba-jazz simply because older sources used modern samba for those styles.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/embed/playlist/2CrjPGcldFQsIW044BLMrs",
+          "primary": true,
+          "evidence_ref": "turn13612search0",
+          "supports": "Exact creator Samba Moderno corpus includes João Martins, Inácio Rios, Nego Álvaro, Arruda and collaborators."
+        },
+        {
+          "url": "https://midianinja.org/opiniao/a-classe-media-nao-conhece-o-brasil-critica-joao-martins-icone-da-nova-geracao-do-samba/",
+          "primary": true,
+          "evidence_ref": "turn13713view0",
+          "supports": "Firsthand current composer network, new repertoire, cavaquinho/banjo/percussion and singing; individual styles deliberately overlap."
+        },
+        {
+          "url": "https://tvbrasil.ebc.com.br/samba-na-gamboa/2018/08/samba-do-trabalhador-com-mingo-silva-e-nego-alvaro",
+          "primary": true,
+          "evidence_ref": "turn13710view0",
+          "supports": "Broadcaster establishes contemporary community renewal, percussion and singing, pandeiro and the Renascença institution."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "samba_moderno",
+          "name": "Samba Moderno",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13704view0 confirms exact photographer/crop and CC BY2.5; historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn13704view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13704view0; historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13704view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

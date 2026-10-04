@@ -1,0 +1,202 @@
+{
+  "entries": [
+    {
+      "id": "reading",
+      "suggested_id": "reading",
+      "source_label": "reading",
+      "source_url": "https://everynoise.com/engenremap-reading.html",
+      "allocation_ordinal": 4200,
+      "allocation_group_id": "168",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "reading",
+        "name": "Reading",
+        "family": "global",
+        "lineage": "Music for reading is a functional listening field cultivated by composers, publishers and playlist curators. Quiet piano, ambient textures and restrained instrumental arrangements provide a continuous backdrop to books and other sustained reading.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Connected melodic phrases and unobtrusive harmony leave space around the listener’s attention. Gentle dynamics and slowly unfolding musical continuity favor immersion over abrupt changes or foreground vocal storytelling.",
+        "exemplars": [],
+        "status": "documented",
+        "crossRefs": [
+          "background_music",
+          "new_age_piano",
+          "focus_beats"
+        ]
+      },
+      "geo": [
+        60,
+        8,
+        "Norway",
+        "Europe"
+      ],
+      "geo_rationale": "Approximate Norwegian land anchor for documented composer-publisher example; reading music is international, not confined to Norway.",
+      "model_policy": "Representative quiet solo-piano branch of music made and curated for reading. Issuer explicitly identifies solo piano and reading use; standard studio upright is an authored instrument construction, connected legato/pedal-resonant phrases preserve low-interruption musical continuity. No exact original piano mechanism, measured tempo, improved comprehension or medical benefit asserted. Full three controls retained; live-room is authored. Environmental ambient parent reflects subordinate listening texture, consistent with existing acoustic new-age piano, not synthetic generation.",
+      "neighbor_distinction": "Full background_music is the broad subordinate-listening umbrella; reading is a positively marketed and curated use-context subset, not an exclusion from it. Full focus_beats specifies instrumental beat-making for concentration, while reading can use quiet nonbeat solo piano or ambient material. Queued Focus spans general concentration; reading specifically centers sustained book/text engagement. New Age Piano describes a musical-production lineage rather than this use-context across styles. Exact overlap is acknowledged; no claim the same piano music cannot serve several functions.",
+      "classification_evidence": "Spotify editorial Reading Chill Out explicitly selects calm music for reading. Composer-owned SoothingRelaxation markets its solo-piano BrightFuture specifically for reading as well as other quiet uses. These independent creator/publisher practices support the field without requiring exclusivity or health efficacy.",
+      "source_scope_limitation": "Genre-level representative practice, not original-master reconstruction or assertion that every reading playlist is instrumental/piano-only. Positive solo-piano branch from publisher; other voices/instruments in broader playlists are not silently erased from a selected specific recording.",
+      "source_retrieval_caveat": "Creator EveryNoise mirror403/timeouts this session; category supported independently by platform editorial and composer-publisher primary. BrightFuture full album metadata read, solo-piano/reading statement positively in own bundle page. No attribution of exact creator-map membership.",
+      "sources": [
+        {
+          "url": "https://soothingrelaxation.com/collections/music/products/every-relaxing-album",
+          "support": "Composer issuer explicitly BrightFuture solo piano and reading use, fresh14203search1."
+        },
+        {
+          "url": "https://soothingrelaxation.com/products/bright-future-album",
+          "support": "Full issuer album metadata10titles/2018/72:29, fresh14205view0; used as practice evidence rather than exact recording reconstruction."
+        },
+        {
+          "url": "https://soothingrelaxation.com/pages/the-story-of-soothing-relaxation",
+          "support": "Firstperson Norwegian composer/production practice, fresh14203search3."
+        },
+        {
+          "url": "https://open.spotify.com/playlist/37i9dQZF1DWXrDQedVqw6q",
+          "support": "Spotify editorial ReadingChillOut explicit reading use, indexed14202search3; direct14205view1 returns no body."
+        }
+      ],
+      "vocal_count_audit": {
+        "singers": 0,
+        "basis": "Positively instrumental solo-piano representative branch, not whole-field exclusion."
+      },
+      "instrument_role_audit": {
+        "roles": [
+          "piano"
+        ],
+        "basis": "Publisher solo-piano reading practice"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Representative quiet solo-piano branch of music made and curated for reading. Issuer explicitly identifies solo piano and reading use; standard studio upright is an authored instrument construction, connected legato/pedal-resonant phrases preserve low-interruption musical continuity. No exact original piano mechanism, measured tempo, improved comprehension or medical benefit asserted. Full three controls retained; live-room is authored. Environmental ambient parent reflects subordinate listening texture, consistent with existing acoustic new-age piano, not synthetic generation."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All three applicable controls protected."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "reading",
+          "name": "Reading",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context, not a piano depiction or exact reading-music session",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim.",
+          "fresh_review_ref": "turn14117view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14117view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

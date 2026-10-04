@@ -1,0 +1,111 @@
+{
+  "id": "japanese_vgm",
+  "name": "Japanese VGM",
+  "family": "electronic",
+  "lineage": "Japanese VGM develops through Japan’s game-production studios, composers and music audiences, from constrained early hardware to streamed and orchestral scores. Concerts, recordings and adaptations carry game themes into listening cultures beyond play.",
+  "recipe": "classic japanese vgm, experimental Elec, retro aesthetic branch. upright piano, fm analog poly synth. live tracking.",
+  "recipe_chars": 116,
+  "score": 0.882,
+  "config": {
+    "traditions": [
+      "japanese_vgm"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.1575,
+          "upright_piano_size": 0.0315
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "fm_algorithm": -0.05,
+          "fm_modulator_ratio": 0.4724999999999999,
+          "fm_polyphony": 0,
+          "fm_model_lineage": -0.035
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "poly_archetypes": 0,
+          "poly_voices": 0.546,
+          "poly_maker_lineage": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "fm_synth": [
+        "electronic_technique",
+        "fm_algorithm",
+        "fm_modulator_ratio",
+        "fm_polyphony",
+        "fm_model_lineage"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "electronic_technique": "electronic_pad_drone",
+      "fm_algorithm": "fm_classic",
+      "fm_modulator_ratio": "fm_harmonic",
+      "fm_polyphony": "fm_poly",
+      "fm_model_lineage": "fm_yamaha_dx7",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
+    },
+    "pin_parts": true
+  }
+}

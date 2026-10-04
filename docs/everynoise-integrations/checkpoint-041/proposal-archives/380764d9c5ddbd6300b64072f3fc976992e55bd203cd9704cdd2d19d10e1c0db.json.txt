@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/transfer461-lao-hiphop-general-practice.json",
+  "sha256": "31f5058d5ba8e8f34d761f41ce90fd53c7018a61b8b65eb0dca9a143a076b86a",
+  "reviewer": "research117",
+  "source_review": [
+    {
+      "url": "https://laostudies.org/molam-tan-smay/artists",
+      "ref": "turn13591view0",
+      "finding": "Full firsthand interview reproduced. General rhyme/beat and hook/verse practice at118,126 and broad concert/community network105\u2013138; khaen explicitly some work153. General rapper plus produced beat independently supported, not a mutilated account of announced full molam crossover."
+    },
+    {
+      "url": "https://asianrapworldwide.blogspot.com/2008/08/interview-with-lao-rapper-gumby-aka.html",
+      "ref": "turn13591view1",
+      "finding": "Fresh direct blocked by Google challenge; author prior retrieval retained. Not necessary for independently reproduced core practice; no false fresh read claimed."
+    }
+  ],
+  "category_review": "Full original Lao Traditional, Molam, Lao Lam Saravane and Thai Hip Hop records read. Named modern Lao/diaspora rap community is not equivalent to court/village lam or cross-border Thai scene; shared influences remain explicit. Genre-level branch is valid without compulsory khaen in all defaults.",
+  "controls": {
+    "protected": 18,
+    "invalid": 0,
+    "new_dependencies": 0,
+    "unknowns": "Beat mechanism/source gear and actual headcount remain unknown; one lead and room are authored starting arrangement."
+  },
+  "runtime": "/tmp/batch040/lao-general-runtime117.json",
+  "semantic_review": "All four original outputs independently run and fully read; spoken-flowing voice and neutral credited beat preserve documented practice. Generic frosty/studio affect no foreign cultural or false instrument identity.",
+  "photo_review": {
+    "fresh_ref": "turn13591view2",
+    "url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "finding": "CC BY2.5 Iain Fergusson/Binksternet preserved; low-confidence generic vocal-recording context truthful. Exact historical250px URL/hash33015bytes/250x720 matches established023receipt; no current download/visual claim."
+  },
+  "changes": "None; source packet and repository unchanged."
+}

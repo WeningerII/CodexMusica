@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume-sourceaudit-cristiana-ninos-immutable-metadata-corrected.json",
+  "sha256": "a52a9bed2e084b408678e5b88885bf1eb71f99b8585800b635ff52145b0e6b6e",
+  "peer_review": "/tmp/batch040/resume-sourceaudit-cristiana-ninos-immutable-independent-review117.json",
+  "checked_at": "2026-10-04T04:45:04.852021+00:00",
+  "checks": [
+    "Fresh issuer sources turn14570view0/1 explicitly Spanish Christian child-directed worship, original songs, family/church singalong. Official16-page chord-chart collection turn14570view2 supports authored chordal keyboard realization, not claim that produced DVD uses only piano.",
+    "Root read Latin Christian, CCM and Spanish rondas; broader authored Latin American children-song field independently reviewed. Distinct positive ministry/teaching purpose within overlapping language/child-song umbrellas; no exclusive-tune or fixedheadcount assertion.",
+    "Root all4 literal original browser/connector strings read,max563;20 applicable controls protected. Punctuated syllabic group unison/octaves plus piano and authored equal temperament coherent. Clapping-and-syllabicizing does not require a fabricated separate clap instrument.",
+    "Exact inherited photo URL/hash/visual receipt with current-session CC BY2.5 rights/credit/crop preserved; genericcontextcorrect. Separate accepted evidence only; integrated checks pending; frozenPR480 unchanged."
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "german_dark_minimal_techno",
+          "name": "German Dark Minimal Techno",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13648view2 confirms Iain Fergusson/Binksternet credit, existing crop and CC BY2.5. Historical byte and visual receipts unchanged.",
+          "fresh_review_ref": "Fresh rights/context checked in turn13648view2; historical receipt unchanged."
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "Fresh rights/context checked in turn13648view2; historical receipt unchanged.",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights/context checked in turn13648view2; historical receipt unchanged."
+      },
+      "source_label": "german dark minimal techno",
+      "source_url": "https://everynoise.com/engenremap-germandarkminimaltechno.html",
+      "suggested_id": "german_dark_minimal_techno",
+      "allocation_ordinal": 87,
+      "allocation_group_id": "004",
+      "id": "german_dark_minimal_techno",
+      "status": "source_ready_pending_independent_review",
+      "tradition": {
+        "id": "german_dark_minimal_techno",
+        "name": "German Dark Minimal Techno",
+        "family": "electronic",
+        "lineage": "German dark minimal techno developed through a 2010s independent-label network including Klangrecords, Darker Sounds, Subwoofer and Toxic Recordings, linking hard-minimal producers such as Timao with the darker industrial sound of Klangtronik.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.techno",
+        "axes": {
+          "harm": -1,
+          "pitch": 0,
+          "ornament": -1,
+          "meter": 2,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 2,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Heavy bass, stark repeating figures and abrasive electronic textures drive club-focused DJ sets and productions. Restrained motifs and sustained rhythmic pressure connect the style to minimal techno, while rougher textures and weightier impacts connect it to hard and industrial techno.",
+        "exemplars": [
+          "Klangtronik",
+          "Timao",
+          "Klangrecords"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.industrialNoise"
+        ]
+      },
+      "geo": [
+        51.1657,
+        10.4515,
+        "Germany",
+        "Europe"
+      ],
+      "geo_rationale": "Country-level editorial anchor for the documented German network; no studio or event location claim.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://hearthis.at/timao/",
+          "title": "Timao artist biography and releases",
+          "primary": true,
+          "evidence_ref": "turn13648view0",
+          "supports": "Artist describes Hard Minimal, DJ mixing, Ableton production and interconnected German independent labels; not a complete production architecture claim."
+        },
+        {
+          "url": "https://ra.co/dj/klangtronik/biography",
+          "title": "Klangtronik artist biography",
+          "primary": true,
+          "evidence_ref": "turn13648view1",
+          "supports": "German project from2008, dark/industrial textures and founding Klangrecords2012, with named independent-label relationships."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6S5zF06mFcNSd9JYYivCBM",
+          "title": "Exact creator German Dark Minimal Techno playlist",
+          "primary": true,
+          "evidence_ref": "turn13638view0",
+          "supports": "Klangtronik, Timao, Kai Pattenberg, Dennis Slim, Grozdanoff and other artists connect the target label to the independently documented network."
+        }
+      ],
+      "neighbor_distinction": "Full german_techno explicitly defines the1989–95 Frankfurt/Berlin rave formation, not every later German techno network. Full minimal_techno describes Detroit/Berlin reduction and a clean low-distortion mix; industrial_techno centers the2010s Perc/Downwards/Sandwell network and acknowledges parallel Berlin dark techno. This target overlaps those fields, but its exact creator cohort maps to a positively documented independent hard-minimal/dark production network around Klangrecords/Darker Sounds/Subwoofer/Toxic, not a new acoustic law or merely one resident artist. Psytech is the international psychedelic-techno institution; the separately found Music4Aliens TIMTASTE wording is not used to redefine the target as the Subios roster. No claim of exclusive geography or wholly disjoint membership.",
+      "classification_evidence": "Techno dance practice supported by first-person hard-minimal DJ/producer history and the label founder’s dark-industrial description. The representative live DJ realization retains positive selection/mixing practice without pretending it reconstructs a studio master.",
+      "model_policy": "Representative continuous DJ playback and mixing, using the existing source-unspecified DJ owner and its full applicable identity control. Live-room acoustics are authored. No inferred deck technology, MIDI protocol, synthesis architecture or live singer count. Axes describe forceful repetitive club practice supported by the sources, not measured BPM or every track. The up-tempo pacing is an authored brisk club rendition, not a measured tempo of all records.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Representative continuous DJ playback and mixing, using the existing source-unspecified DJ owner and its full applicable identity control. Live-room acoustics are authored. No inferred deck technology, MIDI protocol, synthesis architecture or live singer count. Axes describe forceful repetitive club practice supported by the sources, not measured BPM or every track. The up-tempo pacing is an authored brisk club rendition, not a measured tempo of all records."
+        }
+      ],
+      "instrument_role_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "role": "Documented DJ selection and mixing; embedded recordings remain mixed programme material, not falsely reconstructed live instrumental personnel."
+        }
+      ],
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "embedded_voice_count": "unknown and variable by programme"
+      },
+      "source_scope_limitation": "Genre-level representative DJ practice supported by first-person artist history, not a selected full studio recording or a claim that every creator track shares identical orchestration. Studio production is also documented; the present default is the independently positive DJ branch."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

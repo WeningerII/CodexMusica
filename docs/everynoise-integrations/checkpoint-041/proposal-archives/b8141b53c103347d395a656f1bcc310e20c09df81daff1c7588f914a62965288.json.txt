@@ -1,0 +1,229 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "tamaulipas_rap",
+        "name": "Tamaulipas Rap",
+        "family": "hip_hop",
+        "lineage": "Tamaulipas rap connects local MCs, independent crews, beatmakers and event networks across the northeastern Mexican state. Regional interviews document both shared scene-building and disagreement over its direction, while artists carry local experiences into wider Mexican rap circuits.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Text-forward rhythmic verses ride producer-built beats. Personal experience, regional identity, protest and everyday life supply varied lyrical material, with independent recording and live events sustaining the community. Production approaches differ across artists rather than following a single compulsory regional instrument set.",
+        "exemplars": [
+          "Eterno",
+          "Sauce",
+          "Rojas III",
+          "Rap Tamaulipeco interview network"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "tamaulipas_rap",
+          "name": "Tamaulipas Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative MC-plus-produced-beat practice. Firsthand regional interviews discuss writing to beats, recording and subsequent live delivery; the later Rojas III interview positively identifies rapper/beatmaker and producer collaboration. This is not reconstruction of his cross-style album, so no claimed bolero/salsa instrument roster is silently removed. One unprocessed rhythmic lead and controlled studio are deliberate choices; actual performer counts, producer hardware and sample sources vary and are not invented."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative MC-plus-produced-beat practice. Firsthand regional interviews discuss writing to beats, recording and subsequent live delivery; the later Rojas III interview positively identifies rapper/beatmaker and producer collaboration. This is not reconstruction of his cross-style album, so no claimed bolero/salsa instrument roster is silently removed. One unprocessed rhythmic lead and controlled studio are deliberate choices; actual performer counts, producer hardware and sample sources vary and are not invented."
+        }
+      ],
+      "source_label": "tamaulipas rap",
+      "source_url": "https://everynoise.com/engenremap-tamaulipasrap.html",
+      "suggested_id": "tamaulipas_rap",
+      "allocation_ordinal": 591,
+      "allocation_group_id": "024",
+      "id": "tamaulipas_rap",
+      "status": "ready_for_independent_review",
+      "geo": [
+        23.7369,
+        -99.1411,
+        "Ciudad Victoria",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Representative state-scene anchor corroborated by Rojas III interview, not exclusive origin.",
+      "signature_tokens": [],
+      "model_policy": "Representative MC-plus-produced-beat practice. Firsthand regional interviews discuss writing to beats, recording and subsequent live delivery; the later Rojas III interview positively identifies rapper/beatmaker and producer collaboration. This is not reconstruction of his cross-style album, so no claimed bolero/salsa instrument roster is silently removed. One unprocessed rhythmic lead and controlled studio are deliberate choices; actual performer counts, producer hardware and sample sources vary and are not invented.",
+      "neighbor_distinction": "Full Mexican Hip Hop already spans national boom-bap, regional sources and later trap, not merely its Monterrey or Mexico City examples. Trap Mexicano is a production-style intersection within that national field. Tamaulipas Rap is a narrower positively self-discussed regional community, documented in practitioner interviews addressing the state network and its collaborators; it is not justified merely by a birthplace or a different beat. Tamaulipas Indie shares geography but concerns the independent rock field. Artists may move to other cities without erasing their participation in the regional history; no exclusion of overlapping Mexican rap artists is claimed.",
+      "classification_evidence": "Full Mexican Hip Hop already spans national boom-bap, regional sources and later trap, not merely its Monterrey or Mexico City examples. Trap Mexicano is a production-style intersection within that national field. Tamaulipas Rap is a narrower positively self-discussed regional community, documented in practitioner interviews addressing the state network and its collaborators; it is not justified merely by a birthplace or a different beat. Tamaulipas Indie shares geography but concerns the independent rock field. Artists may move to other cities without erasing their participation in the regional history; no exclusion of overlapping Mexican rap artists is claimed.",
+      "source_scope_limitation": "Representative MC-plus-produced-beat practice. Firsthand regional interviews discuss writing to beats, recording and subsequent live delivery; the later Rojas III interview positively identifies rapper/beatmaker and producer collaboration. This is not reconstruction of his cross-style album, so no claimed bolero/salsa instrument roster is silently removed. One unprocessed rhythmic lead and controlled studio are deliberate choices; actual performer counts, producer hardware and sample sources vary and are not invented.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Regional MC interviews describe verse writing and rap performance."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Eterno explicitly describes adapting lyrics to a beat, recording and live delivery; Rojas III is positively a beatmaker working with another producer. No generator inferred."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored lead rapper with produced accompaniment",
+        "no_exact_recording_reconstruction": true
+      },
+      "sources": [
+        {
+          "url": "https://raptamaulipeco.blogspot.com/2011/04/entrevista-con-eterno.html",
+          "primary": true,
+          "evidence_ref": "turn13794search0",
+          "supports": "Original regional blog interview: practitioner explicitly discusses Tamaulipas scene, named peers and verse/beat/recording/live workflow. Indexed full relevant answer reproduced; direct fetch subsequently captcha-blocked."
+        },
+        {
+          "url": "https://raptamaulipeco.blogspot.com/2011/03/cyber-entrevista-con-sauce.html",
+          "primary": true,
+          "evidence_ref": "turn13794search1",
+          "supports": "Independent interview within same regional publication corroborates actual local community/events/support networks; no universal political doctrine adopted."
+        },
+        {
+          "url": "https://xibalbalibre.com/rojas-iii-y-su-matafuego-el-rap-como-extintor-de-incendios-internos/",
+          "primary": true,
+          "evidence_ref": "turn13796view1",
+          "supports": "Firsthand interview with Ciudad Victoria rapper/beatmaker discussing regional-to-national career and producer collaboration. Album specific cross-style instrumentation is not claimed reconstructed."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

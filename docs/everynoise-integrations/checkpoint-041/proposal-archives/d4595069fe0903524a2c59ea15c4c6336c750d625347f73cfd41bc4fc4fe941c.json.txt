@@ -1,0 +1,204 @@
+{
+  "entries": [
+    {
+      "source_label": "cumbia ecuatoriana",
+      "source_url": "https://everynoise.com/engenremap-cumbiaecuatoriana.html",
+      "suggested_id": "cumbia_ecuatoriana",
+      "allocation_ordinal": 3107,
+      "allocation_group_id": "125",
+      "id": "cumbia_ecuatoriana",
+      "tradition": {
+        "id": "cumbia_ecuatoriana",
+        "name": "Cumbia Ecuatoriana",
+        "family": "vernacular",
+        "lineage": "DJ TiaN — complete issued De Todo Mix: Salsa, Cumbia Ecuatoriana, Merengue y Reggaeton, duration1:13:13. The DJ expressly describes this selected set as his mixing and compiling of those four repertoires for parties. Preserve the entire mixed programme rather than extract an undocumented cumbia-only segment or pretend every recording is cumbia. All embedded instrumental and vocal recordings remain at the positive DJ-assembly layer; their player/singer counts, original studio instruments and exact selection count are unknown. No separate live vocalist or instrumentalist is credited. This is an explicitly constructed DJ rendition, not a finished studio master substituted for a musical source. No audition, exact original tempo, release day, deck or software architecture is claimed. Use the original source-unspecified DJ playback/mixing owner for the explicitly compiled whole set, keeping unknown embedded voices and instruments intact. Sole identity control avoids invented vinyl, scratching, decks, synths or studio source roles. Broad electronicDance is the authored party-mix presentation supported by the DJ stated party function, not a claim every underlying cumbia, salsa or merengue recording was electronically generated. Brisk dance presentation and controlled live room are editorial new-rendition choices, not measured original BPM or venue; no tuning or capture apparatus is inferred.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "DJ TiaN — complete issued De Todo Mix: Salsa, Cumbia Ecuatoriana, Merengue y Reggaeton, duration1:13:13. The DJ expressly describes this selected set as his mixing and compiling of those four repertoires for parties. Preserve the entire mixed programme rather than extract an undocumented cumbia-only segment or pretend every recording is cumbia. All embedded instrumental and vocal recordings remain at the positive DJ-assembly layer; their player/singer counts, original studio instruments and exact selection count are unknown. No separate live vocalist or instrumentalist is credited. This is an explicitly constructed DJ rendition, not a finished studio master substituted for a musical source. No audition, exact original tempo, release day, deck or software architecture is claimed. The DJ positively names cumbia ecuatoriana as one of the complete selected programme repertoires and separately issues an Ecuadorian-cumbia-tagged tribute to Don Medardo. Loja municipal museum own2015 tribute independently identifies the orchestra with a distinctive national cumbia practice and international circulation. That establishes community/repertoire evidence beyond a performers birthplace. The creator corpus was recovered separately and includes Juanita Burbano, Hipatia Balseca, Jaime Enrique Aymara, Gerardo Moran and Trio Colonial; it overlaps broader Ecuadorian popular music. Neither DJ TiaN nor the exact DeTodoMix is claimed as a named creator-playlist member, and no unretrieved tracklist is used to assert a matching song. Existing tecnocumbia explicitly includes both Peru and Ecuador and its1990s synth/programmed successor practice; national cumbia encompasses that development and earlier live-orchestra community, so the two overlap without being lexical equivalents. Existing cumbia_colombiana includes its original coastal practice and continental orchestral diaspora; Ecuadorian adaptation remains related rather than falsely independent of it. Peruvian/chicha and Bolivian records describe their own migration/regional-production histories, not all Andean cumbia. Ecuadorian Pop is a broader national popular-song field, not exclusively Juan Fernando Velasco or romantic songs. The full selected cross-style DJ programme is one contemporary circulation practice, not a definition that all Ecuadorian cumbia is DJ-produced or electronic. Use the original source-unspecified DJ playback/mixing owner for the explicitly compiled whole set, keeping unknown embedded voices and instruments intact. Sole identity control avoids invented vinyl, scratching, decks, synths or studio source roles. Broad electronicDance is the authored party-mix presentation supported by the DJ stated party function, not a claim every underlying cumbia, salsa or merengue recording was electronically generated. Brisk dance presentation and controlled live room are editorial new-rendition choices, not measured original BPM or venue; no tuning or capture apparatus is inferred.",
+        "exemplars": [
+          "DJ TiaN — complete De Todo Mix,1:13:13"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -3.9931,
+        -79.2042,
+        "Loja",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Municipal museum institutional repertoire-community anchor in Loja, where its2015 own tribute documents Don Medardo and national cumbia. Not DJ birthplace or selected mix recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The DJ positively names cumbia ecuatoriana as one of the complete selected programme repertoires and separately issues an Ecuadorian-cumbia-tagged tribute to Don Medardo. Loja municipal museum own2015 tribute independently identifies the orchestra with a distinctive national cumbia practice and international circulation. That establishes community/repertoire evidence beyond a performers birthplace. The creator corpus was recovered separately and includes Juanita Burbano, Hipatia Balseca, Jaime Enrique Aymara, Gerardo Moran and Trio Colonial; it overlaps broader Ecuadorian popular music. Neither DJ TiaN nor the exact DeTodoMix is claimed as a named creator-playlist member, and no unretrieved tracklist is used to assert a matching song. Existing tecnocumbia explicitly includes both Peru and Ecuador and its1990s synth/programmed successor practice; national cumbia encompasses that development and earlier live-orchestra community, so the two overlap without being lexical equivalents. Existing cumbia_colombiana includes its original coastal practice and continental orchestral diaspora; Ecuadorian adaptation remains related rather than falsely independent of it. Peruvian/chicha and Bolivian records describe their own migration/regional-production histories, not all Andean cumbia. Ecuadorian Pop is a broader national popular-song field, not exclusively Juan Fernando Velasco or romantic songs. The full selected cross-style DJ programme is one contemporary circulation practice, not a definition that all Ecuadorian cumbia is DJ-produced or electronic.",
+      "classification_evidence": "The DJ positively names cumbia ecuatoriana as one of the complete selected programme repertoires and separately issues an Ecuadorian-cumbia-tagged tribute to Don Medardo. Loja municipal museum own2015 tribute independently identifies the orchestra with a distinctive national cumbia practice and international circulation. That establishes community/repertoire evidence beyond a performers birthplace. The creator corpus was recovered separately and includes Juanita Burbano, Hipatia Balseca, Jaime Enrique Aymara, Gerardo Moran and Trio Colonial; it overlaps broader Ecuadorian popular music. Neither DJ TiaN nor the exact DeTodoMix is claimed as a named creator-playlist member, and no unretrieved tracklist is used to assert a matching song. Existing tecnocumbia explicitly includes both Peru and Ecuador and its1990s synth/programmed successor practice; national cumbia encompasses that development and earlier live-orchestra community, so the two overlap without being lexical equivalents. Existing cumbia_colombiana includes its original coastal practice and continental orchestral diaspora; Ecuadorian adaptation remains related rather than falsely independent of it. Peruvian/chicha and Bolivian records describe their own migration/regional-production histories, not all Andean cumbia. Ecuadorian Pop is a broader national popular-song field, not exclusively Juan Fernando Velasco or romantic songs. The full selected cross-style DJ programme is one contemporary circulation practice, not a definition that all Ecuadorian cumbia is DJ-produced or electronic.",
+      "model_policy": "Use the original source-unspecified DJ playback/mixing owner for the explicitly compiled whole set, keeping unknown embedded voices and instruments intact. Sole identity control avoids invented vinyl, scratching, decks, synths or studio source roles. Broad electronicDance is the authored party-mix presentation supported by the DJ stated party function, not a claim every underlying cumbia, salsa or merengue recording was electronically generated. Brisk dance presentation and controlled live room are editorial new-rendition choices, not measured original BPM or venue; no tuning or capture apparatus is inferred.",
+      "source_scope_limitation": "DJ TiaN — complete issued De Todo Mix: Salsa, Cumbia Ecuatoriana, Merengue y Reggaeton, duration1:13:13. The DJ expressly describes this selected set as his mixing and compiling of those four repertoires for parties. Preserve the entire mixed programme rather than extract an undocumented cumbia-only segment or pretend every recording is cumbia. All embedded instrumental and vocal recordings remain at the positive DJ-assembly layer; their player/singer counts, original studio instruments and exact selection count are unknown. No separate live vocalist or instrumentalist is credited. This is an explicitly constructed DJ rendition, not a finished studio master substituted for a musical source. No audition, exact original tempo, release day, deck or software architecture is claimed.",
+      "source_retrieval_caveat": "Own selected mix and municipal institution freshly directly read. Creator exact playlist recovered independently but no selected tracklist/member match asserted. No full audio audition. Separate Medardo tribute is category/practitioner support only; its material not added to selected set.",
+      "vocal_count_audit": {
+        "embedded_count": "unknown",
+        "separate_live_voice": "none positively credited",
+        "note": "Unknown recorded voices retained in full DJ mix, not zero vocal claim."
+      },
+      "instrument_role_audit": {
+        "dj_playback_mixing_unspecified": "One named DJ positively mixes/compiles the complete four-repertoire party set; all embedded sounds retained."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Use the original source-unspecified DJ playback/mixing owner for the explicitly compiled whole set, keeping unknown embedded voices and instruments intact. Sole identity control avoids invented vinyl, scratching, decks, synths or studio source roles. Broad electronicDance is the authored party-mix presentation supported by the DJ stated party function, not a claim every underlying cumbia, salsa or merengue recording was electronically generated. Brisk dance presentation and controlled live room are editorial new-rendition choices, not measured original BPM or venue; no tuning or capture apparatus is inferred."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Sole applicable meaningful identity control protected."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/DjTiaNMIX/dj-tian-de-todo-mix-salsa-cumbia-merengue-reggaeton/",
+          "title": "Own complete mixed programme and first-person construction",
+          "retrieval_ref": "turn12221view0",
+          "support_notes": "DJ TiaN — complete issued De Todo Mix: Salsa, Cumbia Ecuatoriana, Merengue y Reggaeton, duration1:13:13. The DJ expressly describes this selected set as his mixing and compiling of those four repertoires for parties. Preserve the entire mixed programme rather than extract an undocumented cumbia-only segment or pretend every recording is cumbia. All embedded instrumental and vocal recordings remain at the positive DJ-assembly layer; their player/singer counts, original studio instruments and exact selection count are unknown. No separate live vocalist or instrumentalist is credited. This is an explicitly constructed DJ rendition, not a finished studio master substituted for a musical source. No audition, exact original tempo, release day, deck or software architecture is claimed."
+        },
+        {
+          "url": "https://www.mixcloud.com/DjTiaNMIX/dj-tian-tributo-a-don-medardo-y-sus-players/",
+          "title": "Same DJ national repertoire tribute practice",
+          "retrieval_ref": "turn12214view0",
+          "support_notes": "Separate66:16 tribute explicitly tagged cumbia ecuatoriana; contextual bridge only, no roles imported."
+        },
+        {
+          "url": "https://www.loja.gob.ec/noticia/2015-07/se-rinde-homenaje-medardo-luzuriaga",
+          "title": "Municipal Music Museum own tribute and cumbia community",
+          "retrieval_ref": "turn12210view0",
+          "support_notes": "Institutional national field and Lojano artist heritage,2015; no concert lineups transferred."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1cvTdLpuq8sbNEHAATPcYL?theme=0",
+          "title": "Exact creator Ecuadorian cumbia field",
+          "retrieval_ref": "turn12217search0",
+          "support_notes": "Recovered corpus multiple Ecuadorian popular artists; no false DJ or wholemix membership assertion."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cumbia_ecuatoriana",
+          "name": "Cumbia Ecuatoriana",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not DJ TiaN, decks, orchestra or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12149view2 confirms Iain Fergusson/Binksternet CC BY2.5; exact023 historical bytes inherited without new transfer.",
+          "fresh_review_ref": "turn12149view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12149view2"
+        ]
+      },
+      "status": "ready_independent_review",
+      "verification_status": "Pending original mechanical and four-format preflight."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

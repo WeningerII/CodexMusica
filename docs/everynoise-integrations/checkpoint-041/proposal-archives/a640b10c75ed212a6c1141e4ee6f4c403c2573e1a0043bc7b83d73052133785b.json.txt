@@ -1,0 +1,434 @@
+{
+  "entries": [
+    {
+      "source_label": "lo-fi brasileiro",
+      "source_url": "https://everynoise.com/engenremap-lofibrasileiro.html",
+      "suggested_id": "lo_fi_brasileiro",
+      "allocation_ordinal": 3700,
+      "allocation_group_id": "148",
+      "status": "ready_for_independent_review",
+      "id": "lo_fi_brasileiro",
+      "tradition": {
+        "id": "lo_fi_brasileiro",
+        "name": "Lo-Fi Brasileiro",
+        "family": "electronic",
+        "lineage": "Lo-fi brasileiro connects Brazil’s independent beat producers, labels and online listening communities. Lo-Fi Brasil and Tangerina Music support varied approaches linking lo-fi hip-hop, chillhop, ambient texture and local musical experience.",
+        "instruments": [
+          "sampler_classic",
+          "acoustic_guitar_dread"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze",
+          "acoustic_technique": "acoustic_flatpicked",
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Relaxed sampled rhythms, repeating phrases and intimate instrumental recordings shape a broad beat-making field. Acoustic guitar can bring a direct melodic and harmonic layer, while deliberately rougher sample textures give the production a handmade character.",
+        "exemplars": [
+          "Seuab",
+          "Linearwave",
+          "DJ Lagoa"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -22.9068,
+        -43.1729,
+        "Rio de Janeiro",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Collective primary history explicitly identifies founding Tangerina Music creator Fabio Bittencourt with RJ; Rio de Janeiro is an approximate regional institutional anchor, not selected mix recording location or genre birthplace.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Genre practice and community evidence; no exact recording personnel, exhaustive mix repertoire or source device claim.",
+      "neighbor_distinction": "Lo-Fi Brasileiro is a positively documented Brazilian producer/label community, overlapping global lo-fi, chillhop and ambient practices. The collective own first-person history names Lo-Fi Brasil, Tangerina Music and their independent producer network and expressly describes nonhomogeneous productions rather than a universal sound recipe. The actual full old lo_fi, lofi_hiphop, lofi_beats and ambient_lo_fi already cover broad low-fidelity, study/sleep and beat practices; this adds the documented national community/repertoire axis within those umbrellas, not a claim of previously absent Brazilian musicians. Existing brazilian_lo_fi_rock is the guitar-band/rock field, broader than its Lupe de Lupe exemplar but not synonymous with this beat-producer community. No category boundary rests only on a different sample, artist or date. No selected host or all eight tracks are claimed exact EveryNoise members.",
+      "model_policy": "Authored twelve-bit SP1200-style chopped sample beat with mahogany steelstring guitar recorded close in a controlled studio. Primary creator testimony establishes beats, samples and home-recorded guitar; exact sampler, guitar build and controlled room are representative choices, not Seuab equipment or phone-recording reconstruction.",
+      "instrument_role_audit": {
+        "scope": "Authored twelve-bit SP1200-style chopped sample beat with mahogany steelstring guitar recorded close in a controlled studio. Primary creator testimony establishes beats, samples and home-recorded guitar; exact sampler, guitar build and controlled room are representative choices, not Seuab equipment or phone-recording reconstruction.",
+        "cards": 2
+      },
+      "vocal_count_audit": {
+        "policy": "Representative instrumental beat branch; no claim all Brazilian lo-fi or old DJ mix lacks voices."
+      },
+      "flat_pin_resolution": {
+        "policy": "Independent acoustic and sample controls; no shared technique conflict."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "sampler_classic",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sampler_archetypes": "emu_sp1200",
+            "sampler_bit_depth": "sampler_twelve_bit",
+            "sampler_workflow": "sampler_chopped_breaks",
+            "sampler_classic_context": "sampler_classic_hiphop"
+          },
+          "policy": "Authored twelve-bit SP1200-style chopped sample beat with mahogany steelstring guitar recorded close in a controlled studio. Primary creator testimony establishes beats, samples and home-recorded guitar; exact sampler, guitar build and controlled room are representative choices, not Seuab equipment or phone-recording reconstruction."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze",
+            "acoustic_technique": "acoustic_flatpicked"
+          },
+          "policy": "Authored twelve-bit SP1200-style chopped sample beat with mahogany steelstring guitar recorded close in a controlled studio. Primary creator testimony establishes beats, samples and home-recorded guitar; exact sampler, guitar build and controlled room are representative choices, not Seuab equipment or phone-recording reconstruction."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "sampler_classic",
+          "acoustic_guitar_dread"
+        ]
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://www.ubook.com/podcast/717053/acervo-perdido-podcast",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11038view0 full syndicated creator first-person metadata, exact episode1 23min remake explicitly without narration and full eight selections. No audition claimed."
+        },
+        {
+          "url": "https://www.lofibrasil.com.br/post/quem-%C3%A9-lo-fi-brasil",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11038view1 collective first-person2021 founding/community history and label network. Individual Seuab guitar recording is context only, not full selected music inventory."
+        },
+        {
+          "url": "https://www.lofibrasil.com.br/post/quem-%C3%A9-lo-fi-brasil",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh root turn864120view0: label primary history plus Seuab firsthand account explicitly identifies simple beats, samples and home-recorded acoustic guitar. Supports genre-level representative production, no complete source-master requirement."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lo_fi_brasileiro",
+          "name": "Lo-Fi Brasileiro",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11032view1 Commons confirms CC BY2.5 and Iain Fergusson/Binksternet crop authorship; inherited exact023 bytes and prior visual only.",
+          "fresh_review_ref": "turn11032view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11032view1 rights/context only, no new download or personal visual check.",
+        "fresh_rights_retrieval_refs": [
+          "turn11032view1"
+        ]
+      },
+      "classification_evidence": {
+        "mode": "creator_named_mix_and_firstperson_collective_field",
+        "note": "Lo-Fi Brasileiro is a positively documented Brazilian producer/label community, overlapping global lo-fi, chillhop and ambient practices. The collective own first-person history names Lo-Fi Brasil, Tangerina Music and their independent producer network and expressly describes nonhomogeneous productions rather than a universal sound recipe. The actual full old lo_fi, lofi_hiphop, lofi_beats and ambient_lo_fi already cover broad low-fidelity, study/sleep and beat practices; this adds the documented national community/repertoire axis within those umbrellas, not a claim of previously absent Brazilian musicians. Existing brazilian_lo_fi_rock is the guitar-band/rock field, broader than its Lupe de Lupe exemplar but not synonymous with this beat-producer community. No category boundary rests only on a different sample, artist or date. No selected host or all eight tracks are claimed exact EveryNoise members."
+      },
+      "primary_retrieval_refs": [
+        "turn11038view0",
+        "turn11038view1"
+      ],
+      "source_retrieval_caveat": "Actual syndicated creator description read in full; original Anchor feed currently inaccessible. No waveform audition, exact DJ hardware or source master reconstruction asserted.",
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery147-149-secondpass-4.json",
+        "before_packet_sha256": "5f6fbe97b0c18358d6da6c0478805d2f52d11817f4ce0fe66e201a1cb4cbeddd",
+        "before_entry": {
+          "source_label": "lo-fi brasileiro",
+          "source_url": "https://everynoise.com/engenremap-lofibrasileiro.html",
+          "suggested_id": "lo_fi_brasileiro",
+          "allocation_ordinal": 3700,
+          "allocation_group_id": "148",
+          "status": "ready_for_independent_review",
+          "id": "lo_fi_brasileiro",
+          "tradition": {
+            "id": "lo_fi_brasileiro",
+            "name": "Lo-Fi Brasileiro",
+            "family": "hip_hop",
+            "lineage": "Acervo Perdido — complete23-minute episode1 Lo-Fi Brasileiro mix remake, issued1February2020, all eight named selections. Creator first-person syndicated description expressly removes prior spoken narration and retains only the selected music. This is actual whole programme playback/mixing, not reconstruction of individual mastered tracks: embedded singers and production instruments remain unknown and are preserved within playback; no assertion of instrumental-only recordings. Ubook distributes the first-person feed metadata; its generic multiple-author catalogue header is not a verified participant count. Broad mcRhythm instrumental beat-production branch scopes the documented lo-fi beat repertoire. One existing medium-neutral DJ playback/mixing owner retains the complete positively identified programme, no source deck/software inference and no opaque single-master shortcut. Spacious shoebox-hall listening presentation is explicitly authored, not source venue or recorded acoustics; selected source invites tranquil enjoyment. No global tuning or recording chain imposed.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Acervo Perdido — complete23-minute episode1 Lo-Fi Brasileiro mix remake, issued1February2020, all eight named selections. Creator first-person syndicated description expressly removes prior spoken narration and retains only the selected music. This is actual whole programme playback/mixing, not reconstruction of individual mastered tracks: embedded singers and production instruments remain unknown and are preserved within playback; no assertion of instrumental-only recordings. Ubook distributes the first-person feed metadata; its generic multiple-author catalogue header is not a verified participant count. Lo-Fi Brasileiro is a positively documented Brazilian producer/label community, overlapping global lo-fi, chillhop and ambient practices. The collective own first-person history names Lo-Fi Brasil, Tangerina Music and their independent producer network and expressly describes nonhomogeneous productions rather than a universal sound recipe. The actual full old lo_fi, lofi_hiphop, lofi_beats and ambient_lo_fi already cover broad low-fidelity, study/sleep and beat practices; this adds the documented national community/repertoire axis within those umbrellas, not a claim of previously absent Brazilian musicians. Existing brazilian_lo_fi_rock is the guitar-band/rock field, broader than its Lupe de Lupe exemplar but not synonymous with this beat-producer community. No category boundary rests only on a different sample, artist or date. No selected host or all eight tracks are claimed exact EveryNoise members. Broad mcRhythm instrumental beat-production branch scopes the documented lo-fi beat repertoire. One existing medium-neutral DJ playback/mixing owner retains the complete positively identified programme, no source deck/software inference and no opaque single-master shortcut. Spacious shoebox-hall listening presentation is explicitly authored, not source venue or recorded acoustics; selected source invites tranquil enjoyment. No global tuning or recording chain imposed.",
+            "exemplars": [
+              "Acervo Perdido — Lo-Fi Brasileiro episode1 mix remake,1February2020"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            -22.9068,
+            -43.1729,
+            "Rio de Janeiro",
+            "Latin America & Caribbean"
+          ],
+          "geo_rationale": "Collective primary history explicitly identifies founding Tangerina Music creator Fabio Bittencourt with RJ; Rio de Janeiro is an approximate regional institutional anchor, not selected mix recording location or genre birthplace.",
+          "signature_tokens": [],
+          "source_scope_limitation": "Acervo Perdido — complete23-minute episode1 Lo-Fi Brasileiro mix remake, issued1February2020, all eight named selections. Creator first-person syndicated description expressly removes prior spoken narration and retains only the selected music. This is actual whole programme playback/mixing, not reconstruction of individual mastered tracks: embedded singers and production instruments remain unknown and are preserved within playback; no assertion of instrumental-only recordings. Ubook distributes the first-person feed metadata; its generic multiple-author catalogue header is not a verified participant count.",
+          "neighbor_distinction": "Lo-Fi Brasileiro is a positively documented Brazilian producer/label community, overlapping global lo-fi, chillhop and ambient practices. The collective own first-person history names Lo-Fi Brasil, Tangerina Music and their independent producer network and expressly describes nonhomogeneous productions rather than a universal sound recipe. The actual full old lo_fi, lofi_hiphop, lofi_beats and ambient_lo_fi already cover broad low-fidelity, study/sleep and beat practices; this adds the documented national community/repertoire axis within those umbrellas, not a claim of previously absent Brazilian musicians. Existing brazilian_lo_fi_rock is the guitar-band/rock field, broader than its Lupe de Lupe exemplar but not synonymous with this beat-producer community. No category boundary rests only on a different sample, artist or date. No selected host or all eight tracks are claimed exact EveryNoise members.",
+          "model_policy": "Broad mcRhythm instrumental beat-production branch scopes the documented lo-fi beat repertoire. One existing medium-neutral DJ playback/mixing owner retains the complete positively identified programme, no source deck/software inference and no opaque single-master shortcut. Spacious shoebox-hall listening presentation is explicitly authored, not source venue or recorded acoustics; selected source invites tranquil enjoyment. No global tuning or recording chain imposed.",
+          "instrument_role_audit": {
+            "rationale": "Acervo Perdido — complete23-minute episode1 Lo-Fi Brasileiro mix remake, issued1February2020, all eight named selections. Creator first-person syndicated description expressly removes prior spoken narration and retains only the selected music. This is actual whole programme playback/mixing, not reconstruction of individual mastered tracks: embedded singers and production instruments remain unknown and are preserved within playback; no assertion of instrumental-only recordings. Ubook distributes the first-person feed metadata; its generic multiple-author catalogue header is not a verified participant count.",
+            "authored_defaults": "Broad mcRhythm instrumental beat-production branch scopes the documented lo-fi beat repertoire. One existing medium-neutral DJ playback/mixing owner retains the complete positively identified programme, no source deck/software inference and no opaque single-master shortcut. Spacious shoebox-hall listening presentation is explicitly authored, not source venue or recorded acoustics; selected source invites tranquil enjoyment. No global tuning or recording chain imposed."
+          },
+          "vocal_count_audit": {
+            "embedded_music_voices": "unknown",
+            "live_or_added_narration": 0,
+            "basis": "Creator explicitly removes his narration, not embedded song voices."
+          },
+          "flat_pin_resolution": {
+            "shared_keys_reviewed": [],
+            "rule": "One applicable part pinned, no fallback."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Only one applicable control; protected. Full music retained with unknown embedded voices."
+            }
+          ],
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "dj_playback_mixing_unspecified"
+            ]
+          },
+          "verification_status": "pending_independent_review",
+          "sources": [
+            {
+              "url": "https://www.ubook.com/podcast/717053/acervo-perdido-podcast",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh11038view0 full syndicated creator first-person metadata, exact episode1 23min remake explicitly without narration and full eight selections. No audition claimed."
+            },
+            {
+              "url": "https://www.lofibrasil.com.br/post/quem-%C3%A9-lo-fi-brasil",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh11038view1 collective first-person2021 founding/community history and label network. Individual Seuab guitar recording is context only, not full selected music inventory."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "lo_fi_brasileiro",
+              "name": "Lo-Fi Brasileiro",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording microphone context, not Acervo Perdido, its DJ equipment or source music artists.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh11032view1 Commons confirms CC BY2.5 and Iain Fergusson/Binksternet crop authorship; inherited exact023 bytes and prior visual only.",
+              "fresh_review_ref": "turn11032view1"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_review": "Fresh11032view1 rights/context only, no new download or personal visual check.",
+            "fresh_rights_retrieval_refs": [
+              "turn11032view1"
+            ]
+          },
+          "classification_evidence": {
+            "mode": "creator_named_mix_and_firstperson_collective_field",
+            "note": "Lo-Fi Brasileiro is a positively documented Brazilian producer/label community, overlapping global lo-fi, chillhop and ambient practices. The collective own first-person history names Lo-Fi Brasil, Tangerina Music and their independent producer network and expressly describes nonhomogeneous productions rather than a universal sound recipe. The actual full old lo_fi, lofi_hiphop, lofi_beats and ambient_lo_fi already cover broad low-fidelity, study/sleep and beat practices; this adds the documented national community/repertoire axis within those umbrellas, not a claim of previously absent Brazilian musicians. Existing brazilian_lo_fi_rock is the guitar-band/rock field, broader than its Lupe de Lupe exemplar but not synonymous with this beat-producer community. No category boundary rests only on a different sample, artist or date. No selected host or all eight tracks are claimed exact EveryNoise members."
+          },
+          "primary_retrieval_refs": [
+            "turn11038view0",
+            "turn11038view1"
+          ],
+          "source_retrieval_caveat": "Actual syndicated creator description read in full; original Anchor feed currently inaccessible. No waveform audition, exact DJ hardware or source master reconstruction asserted."
+        },
+        "reason": "Replace complete-DJ-mix-only rendition with positively supported representative sample beat and acoustic-guitar production. Original eight-selection programme and all embedded credits remain evidence.",
+        "semantic_review": "Initial explicitly untreated-bedroom realization rendered skiffle-makeshift guitar. Preserve that draft; choose a controlled close acoustic-guitar capture while sample bit depth supplies deliberate roughness. A researched home-recording practice does not require its exact room in every representative rendition."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "ROOT_QUEUED_GENRE_DEFAULT_REPAIR_AWAITING_PEER"
+}

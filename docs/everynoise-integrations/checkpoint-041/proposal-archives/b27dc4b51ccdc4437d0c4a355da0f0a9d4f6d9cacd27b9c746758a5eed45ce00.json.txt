@@ -1,0 +1,1104 @@
+{
+  "entries": [
+    {
+      "source_label": "northeast indian hip hop",
+      "source_url": "https://everynoise.com/engenremap-northeastindianhiphop.html",
+      "suggested_id": "northeast_indian_hip_hop",
+      "allocation_ordinal": 417,
+      "allocation_group_id": "017",
+      "id": "northeast_indian_hip_hop",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "northeast_indian_hip_hop",
+        "name": "Northeast Indian Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Northeast Indian hip hop connects multilingual rap communities across India’s northeastern states. Groups such as Khasi Bloodz bring regional identity, local languages and youth experience into a shared hip-hop network.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic speech and contrasting MC voices meet programmed beats, DJ accompaniment and live-band arrangements. Guitar, bass and drums can reinforce the groove, while language, flow and lyrical perspective vary across the region.",
+        "exemplars": [
+          "Khasi Bloodz",
+          "Cryptographik Street Poets",
+          "Symphonic Movement"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        25.5788,
+        91.8933,
+        "Shillong",
+        "South Asia"
+      ],
+      "geo_rationale": "Organizer documents Shillong-based crew; editorial scene anchor, not Mumbai concert location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Northeast Indian hip hop is a multilingual regional hip-hop community within the full transnational desi_hip_hop umbrella, not excluded by its selected DIVINE model. The actual organizer identifies Khasi Bloodz as representing Northeast youth and describes the shared Anthem for the North East collaboration with Cryptographik Street Poets and Symphonic Movement. Exact creator playlist includes Khasi Bloodz item11, alongside regional rappers across language communities. Existing khasi_pop includes the Khasi-language popular field, not only Summersalt; this regional hip-hop field crosses languages and state boundaries. Existing northeast_indian_indie is likewise a broad overlapping independent regional network, not confined to LOJAL or non-rap music. Positive genre-specific hip-hop organization and regional collaboration distinguish this narrower field; neither artist difference nor live-band instrumentation supplies the boundary.",
+      "classification_evidence": "Northeast Indian hip hop is a multilingual regional hip-hop community within the full transnational desi_hip_hop umbrella, not excluded by its selected DIVINE model. The actual organizer identifies Khasi Bloodz as representing Northeast youth and describes the shared Anthem for the North East collaboration with Cryptographik Street Poets and Symphonic Movement. Exact creator playlist includes Khasi Bloodz item11, alongside regional rappers across language communities. Existing khasi_pop includes the Khasi-language popular field, not only Summersalt; this regional hip-hop field crosses languages and state boundaries. Existing northeast_indian_indie is likewise a broad overlapping independent regional network, not confined to LOJAL or non-rap music. Positive genre-specific hip-hop organization and regional collaboration distinguish this narrower field; neither artist difference nor live-band instrumentation supplies the boundary.",
+      "model_policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Retain substantial voice/guitar/bass/kit/DJ band realization as a valid representative regional hip-hop performance branch. All50 controls preserved; it does not impose one Khasi Bloodz roster on the entire region.",
+      "source_scope_limitation": "Prior named programme remains documentary evidence for the field; revised public profile and representative defaults describe the wider genre. Original exact roles and caveats preserved in repair_review.before and original packet.",
+      "source_retrieval_caveat": "Fresh indexed complete organizer sources reproduce full relevant act and contemporaneous trio. Direct fetch intermittently403; unmodified indexed raw retained. Creator track is different from selected concert songs; membership only.",
+      "primary_retrieval_refs": [
+        "turn13081search0",
+        "turn13081search1",
+        "turn13081search2"
+      ],
+      "sources": [
+        {
+          "url": "https://rollingstoneindia.com/haqsehindustan-lineup-khasi-bloodz/",
+          "title": "Organizers contemporaneous full trio and regional network",
+          "support_notes": "13081search0 independently names three rappers and regional three-crew collaboration.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rollingstoneindia.com/mumbai-unites-haqsehindustan-stellar-performances-incredible-diversity/",
+          "title": "Organizers firsthand complete concert report",
+          "support_notes": "13081search1 section9 positively names all four backing roles for Khasi Bloodz; other acts excluded.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3OB8R31OANTKUVPQOcgdkc",
+          "title": "Exact creator Northeast Indian Hip Hop playlist",
+          "support_notes": "13081search2 Khasi Bloodz item11; source performance differs.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Retain substantial voice/guitar/bass/kit/DJ band realization as a valid representative regional hip-hop performance branch. All50 controls preserved; it does not impose one Khasi Bloodz roster on the entire region."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Retain substantial voice/guitar/bass/kit/DJ band realization as a valid representative regional hip-hop performance branch. All50 controls preserved; it does not impose one Khasi Bloodz roster on the entire region."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Retain substantial voice/guitar/bass/kit/DJ band realization as a valid representative regional hip-hop performance branch. All50 controls preserved; it does not impose one Khasi Bloodz roster on the entire region."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Retain substantial voice/guitar/bass/kit/DJ band realization as a valid representative regional hip-hop performance branch. All50 controls preserved; it does not impose one Khasi Bloodz roster on the entire region."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Retain substantial voice/guitar/bass/kit/DJ band realization as a valid representative regional hip-hop performance branch. All50 controls preserved; it does not impose one Khasi Bloodz roster on the entire region."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable owning parts pinned; shared wood choices apply to guitar only, no unpinned fallback claimed."
+      },
+      "verification_status": "Original 50 owning controls/48 flat pins,1638-owner preservation and all four literal runtime outputs pass; independent peer pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "northeast_indian_hip_hop",
+          "name": "Northeast Indian Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not these performers, source concert equipment or instrument depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms original Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes unchanged.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only, no new download or visual claim."
+      },
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "northeast_indian_hip_hop",
+            "name": "Northeast Indian Hip Hop",
+            "family": "hip_hop",
+            "lineage": "Khasi Bloodz — entire separately identified act at Haq Se Hindustan, Famous Studios Mumbai,14November2019. Organizer Rolling Stone India and Qyuki own preview names three rappers D-Bok, Big Ri and D-Mon; its firsthand postconcert report names backing drummer Gideon Kom, guitarist Imti Kharkongor, bassist Jerry Nelson Ranee and DJ Knack (Duncan Kharmalki). All seven performers/five role families retained. Other festival acts, hosts and their guests are outside this selected act. Audience grooving does not establish extra singing. DJ embedded musical/vocal content remains complete with unknown internal performers/architecture, not an additional inferred live singer. No duration, complete song list, audition or exact recording-session claim. Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_rhythmic_spoken_flow",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "medium_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "hand_random_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm.intlHipHop",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Khasi Bloodz — entire separately identified act at Haq Se Hindustan, Famous Studios Mumbai,14November2019. Organizer Rolling Stone India and Qyuki own preview names three rappers D-Bok, Big Ri and D-Mon; its firsthand postconcert report names backing drummer Gideon Kom, guitarist Imti Kharkongor, bassist Jerry Nelson Ranee and DJ Knack (Duncan Kharmalki). All seven performers/five role families retained. Other festival acts, hosts and their guests are outside this selected act. Audience grooving does not establish extra singing. DJ embedded musical/vocal content remains complete with unknown internal performers/architecture, not an additional inferred live singer. No duration, complete song list, audition or exact recording-session claim. Northeast Indian hip hop is a multilingual regional hip-hop community within the full transnational desi_hip_hop umbrella, not excluded by its selected DIVINE model. The actual organizer identifies Khasi Bloodz as representing Northeast youth and describes the shared Anthem for the North East collaboration with Cryptographik Street Poets and Symphonic Movement. Exact creator playlist includes Khasi Bloodz item11, alongside regional rappers across language communities. Existing khasi_pop includes the Khasi-language popular field, not only Summersalt; this regional hip-hop field crosses languages and state boundaries. Existing northeast_indian_indie is likewise a broad overlapping independent regional network, not confined to LOJAL or non-rap music. Positive genre-specific hip-hop organization and regional collaboration distinguish this narrower field; neither artist difference nor live-band instrumentation supplies the boundary. Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported.",
+            "exemplars": [
+              "Khasi Bloodz — complete Haq Se Hindustan act,14November2019"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Retain substantial voice/guitar/bass/kit/DJ band realization as a valid representative regional hip-hop performance branch. All50 controls preserved; it does not impose one Khasi Bloodz roster on the entire region.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-19.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "scope": "Khasi Bloodz — entire separately identified act at Haq Se Hindustan, Famous Studios Mumbai,14November2019. Organizer Rolling Stone India and Qyuki own preview names three rappers D-Bok, Big Ri and D-Mon; its firsthand postconcert report names backing drummer Gideon Kom, guitarist Imti Kharkongor, bassist Jerry Nelson Ranee and DJ Knack (Duncan Kharmalki). All seven performers/five role families retained. Other festival acts, hosts and their guests are outside this selected act. Audience grooving does not establish extra singing. DJ embedded musical/vocal content remains complete with unknown internal performers/architecture, not an additional inferred live singer. No duration, complete song list, audition or exact recording-session claim.",
+          "roles": {
+            "voice": "Three named rappers",
+            "electric_guitar_humbucker": "Imti Kharkongor guitar, electric construction authored",
+            "electric_bass": "Jerry Nelson Ranee bass, construction authored",
+            "drum_kit": "Gideon Kom drums, full kit authored",
+            "dj_playback_mixing_unspecified": "DJ Knack (Duncan Kharmalki), all recorded layers retained"
+          },
+          "authored_defaults": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported."
+        },
+        "vocal_count_audit": {
+          "selected_singers": 3,
+          "people": [
+            "D-Bok (Donbok Kharkongor)",
+            "Big Ri (Ritik Roy Malngiang)",
+            "D-Mon (Lamonte Pakyntein)"
+          ],
+          "decision": "Three positively named contemporaneous rappers; embedded DJ voices unknown, not extra counted live singers."
+        },
+        "scope": "Original exact documented programme only; not the revised representative genre defaults."
+      }
+    },
+    {
+      "source_label": "pinoy alternative rap",
+      "source_url": "https://everynoise.com/engenremap-pinoyalternativerap.html",
+      "suggested_id": "pinoy_alternative_rap",
+      "allocation_ordinal": 442,
+      "allocation_group_id": "018",
+      "id": "pinoy_alternative_rap",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "pinoy_alternative_rap",
+        "name": "Pinoy Alternative Rap",
+        "family": "hip_hop",
+        "lineage": "Pinoy alternative rap develops through independent Philippine hip-hop communities that value artistic experimentation, collaboration and self-directed production. Networks such as UPRISING connect rappers and DJs across local languages and styles.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine",
+          "credited_samples_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered",
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Individual MC voices and contrasting flows interact with sampled beats, low bass and changing textures. Live performance, turntablism and collaborative production provide room for lyrical and sonic approaches outside a single mainstream formula.",
+        "exemplars": [
+          "Kartel",
+          "Ilaya",
+          "Supreme Fist"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        14.676,
+        121.0437,
+        "Quezon City",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Issuer identifies Tala and Supreme Fist in Quezon City, while Ilaya is Taguig; editorial network anchor, not claimed festival recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Pinoy Alternative Rap is represented by a documented independent, artist-organized Philippine rap network rather than defined merely by do-it-yourself equipment or a noncommercial label. The festival issuer describes UPRISING as a self-produced grassroots network of emcees, turntablists and producers operating across Filipino, Bisaya and English, relying on its own artistic output rather than prevailing trends and industry machinery. Its shared festivals, tours, collaborative releases and online launches establish continuing community practice. The exact creator category includes named members Ilaya and Supreme Fist plus BLKD, UMPH, Illustrado, Emar Industriya, KJah and other members of this network. Kartel as a group name is absent from the inspected100-item creator sample; do not claim exact group or selected-song membership. Existing pinoy_hip_hop is a broad national/diasporic multilingual field and already embraces diverse live-band practices; Tagalog Rap already includes FlipTop and mass-market rap, and Pinoy Trap explicitly includes UPRISING among its historical collectives. These are acknowledged overlaps, not excluded populations. The proposed alternative discovery field is a narrower overlapping artist/community axis, not a claim every UPRISING recording is non-trap or that all independent rap sounds the same. Its source basis combines creator membership of actual performers with a positively self-organized alternative-to-industry network, not a different artist alone.",
+      "classification_evidence": "Pinoy Alternative Rap is represented by a documented independent, artist-organized Philippine rap network rather than defined merely by do-it-yourself equipment or a noncommercial label. The festival issuer describes UPRISING as a self-produced grassroots network of emcees, turntablists and producers operating across Filipino, Bisaya and English, relying on its own artistic output rather than prevailing trends and industry machinery. Its shared festivals, tours, collaborative releases and online launches establish continuing community practice. The exact creator category includes named members Ilaya and Supreme Fist plus BLKD, UMPH, Illustrado, Emar Industriya, KJah and other members of this network. Kartel as a group name is absent from the inspected100-item creator sample; do not claim exact group or selected-song membership. Existing pinoy_hip_hop is a broad national/diasporic multilingual field and already embraces diverse live-band practices; Tagalog Rap already includes FlipTop and mass-market rap, and Pinoy Trap explicitly includes UPRISING among its historical collectives. These are acknowledged overlaps, not excluded populations. The proposed alternative discovery field is a narrower overlapping artist/community axis, not a claim every UPRISING recording is non-trap or that all independent rap sounds the same. Its source basis combines creator membership of actual performers with a positively self-organized alternative-to-industry network, not a different artist alone.",
+      "model_policy": "Representative Philippine alternative-rap production. Primary UPRISING explicitly documents boom-bap beats and classic Filipino movie samples. Seventeen human voice controls, four sampled-drum controls and one existing architecture-neutral recorded-samples control retain these distinct positive roles. Mid-swing16-bit layered one-shot drum production is an ordinary authored beat realization. Movie samples remain source-unspecified recorded content: no invented strings/orchestra, spoken speaker count or playback technology. No source supports compulsory808, so that separate assumption is withdrawn. Original Alagad live-DJ roster remains historical source evidence, not the new default. Separating rhythmic sampling from unidentified movie-recording content follows source role semantics and retains all meaningful controls; it does not create a duplicate owner or suppress any physical option.",
+      "source_scope_limitation": "Prior named programme remains documentary evidence for the field; revised public profile and representative defaults describe the wider genre. Original exact roles and caveats preserved in repair_review.before and original packet.",
+      "source_retrieval_caveat": "Issuer artist pages directly retrieved complete role/programme text; linked YouTube embed throttled, no audio audition. Older issuer-hosted Squarespace page indexed original presentation/date. Festival profile independently identifies the grassroots network. Exact creator sample names Ilaya and Supreme Fist, not Kartel as a group.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative Philippine alternative-rap production. Primary UPRISING explicitly documents boom-bap beats and classic Filipino movie samples. Seventeen human voice controls, four sampled-drum controls and one existing architecture-neutral recorded-samples control retain these distinct positive roles. Mid-swing16-bit layered one-shot drum production is an ordinary authored beat realization. Movie samples remain source-unspecified recorded content: no invented strings/orchestra, spoken speaker count or playback technology. No source supports compulsory808, so that separate assumption is withdrawn. Original Alagad live-DJ roster remains historical source evidence, not the new default. Separating rhythmic sampling from unidentified movie-recording content follows source role semantics and retains all meaningful controls; it does not create a duplicate owner or suppress any physical option."
+        },
+        {
+          "instrument": "sampler_drum_machine",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sample_bitdepth": "sixteen_bit",
+            "sample_swing": "mid_swing",
+            "sample_processing": "one_shots_layered"
+          },
+          "policy": "Representative Philippine alternative-rap production. Primary UPRISING explicitly documents boom-bap beats and classic Filipino movie samples. Seventeen human voice controls, four sampled-drum controls and one existing architecture-neutral recorded-samples control retain these distinct positive roles. Mid-swing16-bit layered one-shot drum production is an ordinary authored beat realization. Movie samples remain source-unspecified recorded content: no invented strings/orchestra, spoken speaker count or playback technology. No source supports compulsory808, so that separate assumption is withdrawn. Original Alagad live-DJ roster remains historical source evidence, not the new default. Separating rhythmic sampling from unidentified movie-recording content follows source role semantics and retains all meaningful controls; it does not create a duplicate owner or suppress any physical option."
+        },
+        {
+          "instrument": "credited_samples_unspecified",
+          "parts": {
+            "credited_samples_identity": "credited_samples_source_unspecified"
+          },
+          "policy": "Representative Philippine alternative-rap production. Primary UPRISING explicitly documents boom-bap beats and classic Filipino movie samples. Seventeen human voice controls, four sampled-drum controls and one existing architecture-neutral recorded-samples control retain these distinct positive roles. Mid-swing16-bit layered one-shot drum production is an ordinary authored beat realization. Movie samples remain source-unspecified recorded content: no invented strings/orchestra, spoken speaker count or playback technology. No source supports compulsory808, so that separate assumption is withdrawn. Original Alagad live-DJ roster remains historical source evidence, not the new default. Separating rhythmic sampling from unidentified movie-recording content follows source role semantics and retains all meaningful controls; it does not create a duplicate owner or suppress any physical option."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Seventeen voice controls and one medium-unspecified DJ control protected."
+      },
+      "sources": [
+        {
+          "url": "https://www.uprisingrecords.com.ph/artists/kartel",
+          "title": "Issuer complete live Alagad programme and Kartel roster",
+          "support_notes": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed.",
+          "retrieval_ref": "turn12024view0; turn12038view0"
+        },
+        {
+          "url": "https://axeanfestival.com/profile/uprising-records-artists/",
+          "title": "Festival first-party UPRISING community and performing lineup",
+          "support_notes": "Grassroots self-produced network, multilingual collaborations, independent artistic output and same festival performers.",
+          "retrieval_ref": "turn12018view1; turn12038view1"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5saZfqsqw3aREGp6oA1bs8",
+          "title": "Exact creator Pinoy Alternative Rap category",
+          "support_notes": "Ilaya17, Supreme Fist5/66; broad UPRISING artist network. Kartel group name absent; selected recording not falsely claimed indexed.",
+          "retrieval_ref": "turn12018view0; turn12022view2/3"
+        },
+        {
+          "url": "https://www.uprisingrecords.com.ph/artists/supreme-fist",
+          "title": "Issuer DJ identity and same live performance",
+          "support_notes": "Names DJ/turntablist and selected Alagad performance; no apparatus/techniques inferred from separate projects.",
+          "retrieval_ref": "turn12038search2"
+        },
+        {
+          "url": "https://caterpillar-lanternfish-shnf.squarespace.com/artists/tala",
+          "title": "Original issuer-hosted programme caption indexed",
+          "support_notes": "UPRISING Records Philippines x Power Trip Studios presents ASEAN Music Showcase Festival2020,20September2020, Kartel Alagad featSupremeFist.",
+          "retrieval_ref": "turn12038search4"
+        },
+        {
+          "url": "https://www.uprisingrecords.com.ph/artists/illustrado",
+          "title": "Issuer direct sampled-beat production practice",
+          "support_notes": "Fresh13660search1 explicitly ApoLerma boom-bap beats and classic Filipino movie samples. Positive wider community production, not inferred Alagad master."
+        },
+        {
+          "url": "https://www.uprisingrecords.com.ph/artists/arbie-won",
+          "title": "Issuer beat-tape and instrumental production practice",
+          "support_notes": "Fresh13660search0 beat tapes, instrumental albums and continuing UPRISING production."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pinoy_alternative_rap",
+          "name": "Pinoy Alternative Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Kartel, Supreme Fist or their actual performance equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11976view0 confirms Iain Fergusson/Binksternet and CC BY2.5; historical bytes/visual unchanged.",
+          "fresh_review_ref": "turn11976view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11976view0"
+        ]
+      },
+      "verification_status": "Original-loader18applicable controls protected,zero fallbacks,1638old owners unchanged; exact historical image receipt and four actual browser/connector formats pass. Independent category/source peer pending; final integratedCI not claimed.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "pinoy_alternative_rap",
+            "name": "Pinoy Alternative Rap",
+            "family": "hip_hop",
+            "lineage": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed. Broad mcRhythm follows explicitly documented emcee and DJ roles. Both rappers share one live-duet voice card while retaining their separate names; rhythmic spoken flow is authored for the source-positive rap practice, with neutral physiology, ornament and pitch organization. DJ playback/mixing uses the existing medium-unspecified owner; no vinyl, sample-engine or scratch technique is inferred merely from the artist being a turntablist elsewhere. All recorded backing content remains within the actual DJ role with unknown embedded personnel. Controlled live-room presentation is authored, not measured capture equipment or venue. If the original engine emits burlesque voice, that is explicitly an authored theatrical/projected rap affect; it does not assert a burlesque genre, brass or dancers, source-measured swing or a sung chorus. Brisk DJ presentation is an authored concert rendition, not measured BPM. No global temperament or recording apparatus is inferred.",
+            "instruments": [
+              "voice",
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_rhythmic_spoken_flow",
+              "voice_ensemble_config": "voice_ensemble_live_duet",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed. Pinoy Alternative Rap is represented by a documented independent, artist-organized Philippine rap network rather than defined merely by do-it-yourself equipment or a noncommercial label. The festival issuer describes UPRISING as a self-produced grassroots network of emcees, turntablists and producers operating across Filipino, Bisaya and English, relying on its own artistic output rather than prevailing trends and industry machinery. Its shared festivals, tours, collaborative releases and online launches establish continuing community practice. The exact creator category includes named members Ilaya and Supreme Fist plus BLKD, UMPH, Illustrado, Emar Industriya, KJah and other members of this network. Kartel as a group name is absent from the inspected100-item creator sample; do not claim exact group or selected-song membership. Existing pinoy_hip_hop is a broad national/diasporic multilingual field and already embraces diverse live-band practices; Tagalog Rap already includes FlipTop and mass-market rap, and Pinoy Trap explicitly includes UPRISING among its historical collectives. These are acknowledged overlaps, not excluded populations. The proposed alternative discovery field is a narrower overlapping artist/community axis, not a claim every UPRISING recording is non-trap or that all independent rap sounds the same. Its source basis combines creator membership of actual performers with a positively self-organized alternative-to-industry network, not a different artist alone. Broad mcRhythm follows explicitly documented emcee and DJ roles. Both rappers share one live-duet voice card while retaining their separate names; rhythmic spoken flow is authored for the source-positive rap practice, with neutral physiology, ornament and pitch organization. DJ playback/mixing uses the existing medium-unspecified owner; no vinyl, sample-engine or scratch technique is inferred merely from the artist being a turntablist elsewhere. All recorded backing content remains within the actual DJ role with unknown embedded personnel. Controlled live-room presentation is authored, not measured capture equipment or venue. If the original engine emits burlesque voice, that is explicitly an authored theatrical/projected rap affect; it does not assert a burlesque genre, brass or dancers, source-measured swing or a sung chorus. Brisk DJ presentation is an authored concert rendition, not measured BPM. No global temperament or recording apparatus is inferred.",
+            "exemplars": [
+              "Kartel / Supreme Fist — complete live Alagad rendition, ASEAN Music Showcase Festival2020"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Representative Philippine alternative-rap production. Primary UPRISING explicitly documents boom-bap beats and classic Filipino movie samples. Seventeen human voice controls, four sampled-drum controls and one existing architecture-neutral recorded-samples control retain these distinct positive roles. Mid-swing16-bit layered one-shot drum production is an ordinary authored beat realization. Movie samples remain source-unspecified recorded content: no invented strings/orchestra, spoken speaker count or playback technology. No source supports compulsory808, so that separate assumption is withdrawn. Original Alagad live-DJ roster remains historical source evidence, not the new default. Separating rhythmic sampling from unidentified movie-recording content follows source role semantics and retains all meaningful controls; it does not create a duplicate owner or suppress any physical option.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-7.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "voice": [
+            "Tala emcee",
+            "Ilaya emcee"
+          ],
+          "dj_playback_mixing_unspecified": [
+            "Supreme Fist DJ"
+          ],
+          "policy": "Kartel with DJ Supreme Fist — the complete separately published live Alagad rendition at ASEAN Music Showcase Festival2020, issued by UPRISING Records Philippines with Power Trip Studios. The issuer lists Kartel as Tala and Ilaya, both emcees, and explicitly identifies Supreme Fist as the DJ for this live rendition. Preserve both live rappers and the DJ sound role, including source-unspecified embedded recording content. This is the whole published Alagad performance, not a claim to model the entire festival showcase or the Kontrapunto studio album. The separately credited studio Alagad DJ Antsdru and other album guests/instruments are not transferred into this live version. Exact duration, hardware, backing-track voice inventory and realized techniques remain unknown; no personal audition is claimed."
+        },
+        "vocal_count_audit": {
+          "named_rappers": [
+            "Tala",
+            "Ilaya"
+          ],
+          "live_count": 2,
+          "embedded_recording_voices": "unknown"
+        },
+        "scope": "Original exact documented programme only; not the revised representative genre defaults."
+      }
+    },
+    {
+      "source_label": "liberian pop",
+      "source_url": "https://everynoise.com/engenremap-liberianpop.html",
+      "suggested_id": "liberian_pop",
+      "allocation_ordinal": 1785,
+      "allocation_group_id": "072",
+      "id": "liberian_pop",
+      "tradition": {
+        "id": "liberian_pop",
+        "name": "Liberian Pop",
+        "family": "pop",
+        "lineage": "Liberian pop connects a national popular-music community spanning Afropop, R&B, soul and rap. Artists such as DenG and Stunna participate in recording, performance and DJ networks that circulate music across Liberia and its diaspora.",
+        "instruments": [
+          "voice",
+          "analog_poly_synth",
+          "drum_machine_analog"
+        ],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith",
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Sung hooks, rhythmic vocal phrases and layered electronic accompaniment support accessible songs and dance-oriented grooves. Melodic synthesizers, programmed percussion and low bass coexist with acoustic and band-based approaches.",
+        "exemplars": [
+          "DenG",
+          "Stunna",
+          "Eric Geso"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.9606,
+        -83.9207,
+        "Knoxville",
+        "North America"
+      ],
+      "geo_rationale": "DJ own Mixcloud profile states Knoxville; editorial diaspora-practitioner anchor, not the national origin of the repertoire or claimed recording venue.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Exact creator Liberian Pop corpus includes DenG Kemah at4, matching the selected programme item3, with Eric Geso, TeddyRide, Togar Howard and Yung Muse also shared. DJ Chirpz is not claimed to be a creator-playlist performer. His own national record-pool/mix community and firsthand Stunna interview establish a contemporary Liberian popular-music field spanning Afropop, Afrosoul and R&B alongside rap. Stunna is creator item25; his later interview supports community scope only, not presence in this earlier mix or its performing roster. Existing hipco expressly defines Liberian colloquial-English rap and its social practice; its own selected Chief Boima mix already crosses into Gbema. This broader national popular field overlaps Hipco and does not pretend the old record excludes all sung music, but is not synonymous with the narrower rap-language practice. Existing afrobeats is the wider transnational West African pop umbrella, not an exclusive Nigerian-only field; national scene specialization overlaps it. Current queued records contain no equivalent Liberian Pop category. Artist nationality alone is not the bridge: the DJ expressly organizes a national repertoire/record pool and exact mixed composition belongs to the creator field.",
+      "classification_evidence": "Exact creator Liberian Pop corpus includes DenG Kemah at4, matching the selected programme item3, with Eric Geso, TeddyRide, Togar Howard and Yung Muse also shared. DJ Chirpz is not claimed to be a creator-playlist performer. His own national record-pool/mix community and firsthand Stunna interview establish a contemporary Liberian popular-music field spanning Afropop, Afrosoul and R&B alongside rap. Stunna is creator item25; his later interview supports community scope only, not presence in this earlier mix or its performing roster. Existing hipco expressly defines Liberian colloquial-English rap and its social practice; its own selected Chief Boima mix already crosses into Gbema. This broader national popular field overlaps Hipco and does not pretend the old record excludes all sung music, but is not synonymous with the narrower rap-language practice. Existing afrobeats is the wider transnational West African pop umbrella, not an exclusive Nigerian-only field; national scene specialization overlaps it. Current queued records contain no equivalent Liberian Pop category. Artist nationality alone is not the bridge: the DJ expressly organizes a national repertoire/record pool and exact mixed composition belongs to the creator field.",
+      "source_scope_limitation": "Prior named programme remains documentary evidence for the field; revised public profile and representative defaults describe the wider genre. Original exact roles and caveats preserved in repair_review.before and original packet.",
+      "source_retrieval_caveat": "Own full Mixcloud page and profile freshly retrieved; description itself truncates at item25. Exact playlist and firsthand interview freshly read. No full audio audition or invented publication date.",
+      "model_policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Restore a representative sung electronic-pop arrangement instead of treating a whole national scene as a single DJ playback card. All17 voice,4poly-synth and4analog-drum controls retained; melodic/arpeggiated synthesizer, drum synthesis and functional-harmonic verse–chorus–bridge form are ordinary authored choices, not a claim all Liberian songs share them or an exact mixtape reconstruction.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Restore a representative sung electronic-pop arrangement instead of treating a whole national scene as a single DJ playback card. All17 voice,4poly-synth and4analog-drum controls retained; melodic/arpeggiated synthesizer, drum synthesis and functional-harmonic verse–chorus–bridge form are ordinary authored choices, not a claim all Liberian songs share them or an exact mixtape reconstruction."
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "parts": {
+            "electronic_technique": "electronic_arpeggiated",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Restore a representative sung electronic-pop arrangement instead of treating a whole national scene as a single DJ playback card. All17 voice,4poly-synth and4analog-drum controls retained; melodic/arpeggiated synthesizer, drum synthesis and functional-harmonic verse–chorus–bridge form are ordinary authored choices, not a claim all Liberian songs share them or an exact mixtape reconstruction."
+        },
+        {
+          "instrument": "drum_machine_analog",
+          "parts": {
+            "kick_voice": "sine_burst_kick",
+            "snare_voice": "two_oscillator_snare",
+            "hat_voice": "square_summed_hat",
+            "shuffle_quantize": "straight_quantize"
+          },
+          "policy": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Restore a representative sung electronic-pop arrangement instead of treating a whole national scene as a single DJ playback card. All17 voice,4poly-synth and4analog-drum controls retained; melodic/arpeggiated synthesizer, drum synthesis and functional-harmonic verse–chorus–bridge form are ordinary authored choices, not a claim all Liberian songs share them or an exact mixtape reconstruction."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Sole applicable original identity part explicitly pinned."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/djchirpz/the-liberian-mixtape-vol-6/",
+          "title": "Own complete Liberian Mixtape vol.6",
+          "retrieval_ref": "turn12157view0",
+          "support_notes": "DJ Chirpz — complete issued The Liberian Mixtape vol.6, duration2:27:10 on his own Mixcloud. His source identifies an LIB mixtape assembled from named recordings and directs DJs to the Liberian record pool for those tracks; his own profile offers DJ bookings, receives promotional tracks and issues a continuing Liberian mix series. This is the complete DJ programme, not an opaque studio master treated as an instrument. Retrieved public description lists selections1–24 and truncates item25; no complete track count or complete textual tracklist is claimed. Embedded singers, rappers and instruments remain within the mixed recordings, with unknown total human counts and original session palette. No additional live singer, commentator or instrumentalist is positively credited in the selected programme. No audition, exact release day or deck/software architecture is asserted."
+        },
+        {
+          "url": "https://www.mixcloud.com/djchirpz/",
+          "title": "Own DJ profile and continuing national record-pool mix practice",
+          "retrieval_ref": "turn12163view1",
+          "support_notes": "Knoxville profile, bookings/promotional record pool and multi-style Liberian mix series."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2Uu1r2ra4Xjiweb2VjDkjl",
+          "title": "Exact creator Liberian Pop composition/artist bridge",
+          "retrieval_ref": "turn12159view0",
+          "support_notes": "Kemah DenG4 exact mixed composition; Stunna25 and multiple other scene artists."
+        },
+        {
+          "url": "https://theecho.substack.com/p/stunna-a-star-of-today-making-music",
+          "title": "Firsthand Liberian performer interview on broader popular community",
+          "retrieval_ref": "turn12157view1",
+          "support_notes": "Own Afrosoul/Afropop/AfroR&B identity and Liberian audience; community evidence only, not selected programme roster."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "liberian_pop",
+          "name": "Liberian Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not DJ decks, DJ Chirpz or actual programme equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12149view2 confirms Iain Fergusson/Binksternet CC BY2.5; exact023 historical bytes inherited without new transfer.",
+          "fresh_review_ref": "turn12149view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12149view2"
+        ]
+      },
+      "status": "genre_profile_pending_peer",
+      "verification_status": "Pending original mechanical and four-format preflight.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "liberian_pop",
+            "name": "Liberian Pop",
+            "family": "pop",
+            "lineage": "DJ Chirpz — complete issued The Liberian Mixtape vol.6, duration2:27:10 on his own Mixcloud. His source identifies an LIB mixtape assembled from named recordings and directs DJs to the Liberian record pool for those tracks; his own profile offers DJ bookings, receives promotional tracks and issues a continuing Liberian mix series. This is the complete DJ programme, not an opaque studio master treated as an instrument. Retrieved public description lists selections1–24 and truncates item25; no complete track count or complete textual tracklist is claimed. Embedded singers, rappers and instruments remain within the mixed recordings, with unknown total human counts and original session palette. No additional live singer, commentator or instrumentalist is positively credited in the selected programme. No audition, exact release day or deck/software architecture is asserted. The existing source-unspecified DJ playback/mixing owner retains the complete assembled recorded programme, including all unknown embedded instrumental and vocal layers. Its one meaningful identity control deliberately avoids invented turntable, vinyl, scratch, synth, sampling mechanism or equipment. Broad electronicDance is an authored rhythmic DJ-mix presentation of the mixed popular repertoire, not a claim all Liberian pop has one electronic production method. A controlled live room and brisk up-tempo presentation are editorial choices for a new DJ rendition, not measured BPM or venue of the issued programme; individual original song tempos remain unknown. No global temperament or added live voice is inferred.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "DJ Chirpz — complete issued The Liberian Mixtape vol.6, duration2:27:10 on his own Mixcloud. His source identifies an LIB mixtape assembled from named recordings and directs DJs to the Liberian record pool for those tracks; his own profile offers DJ bookings, receives promotional tracks and issues a continuing Liberian mix series. This is the complete DJ programme, not an opaque studio master treated as an instrument. Retrieved public description lists selections1–24 and truncates item25; no complete track count or complete textual tracklist is claimed. Embedded singers, rappers and instruments remain within the mixed recordings, with unknown total human counts and original session palette. No additional live singer, commentator or instrumentalist is positively credited in the selected programme. No audition, exact release day or deck/software architecture is asserted. Exact creator Liberian Pop corpus includes DenG Kemah at4, matching the selected programme item3, with Eric Geso, TeddyRide, Togar Howard and Yung Muse also shared. DJ Chirpz is not claimed to be a creator-playlist performer. His own national record-pool/mix community and firsthand Stunna interview establish a contemporary Liberian popular-music field spanning Afropop, Afrosoul and R&B alongside rap. Stunna is creator item25; his later interview supports community scope only, not presence in this earlier mix or its performing roster. Existing hipco expressly defines Liberian colloquial-English rap and its social practice; its own selected Chief Boima mix already crosses into Gbema. This broader national popular field overlaps Hipco and does not pretend the old record excludes all sung music, but is not synonymous with the narrower rap-language practice. Existing afrobeats is the wider transnational West African pop umbrella, not an exclusive Nigerian-only field; national scene specialization overlaps it. Current queued records contain no equivalent Liberian Pop category. Artist nationality alone is not the bridge: the DJ expressly organizes a national repertoire/record pool and exact mixed composition belongs to the creator field. The existing source-unspecified DJ playback/mixing owner retains the complete assembled recorded programme, including all unknown embedded instrumental and vocal layers. Its one meaningful identity control deliberately avoids invented turntable, vinyl, scratch, synth, sampling mechanism or equipment. Broad electronicDance is an authored rhythmic DJ-mix presentation of the mixed popular repertoire, not a claim all Liberian pop has one electronic production method. A controlled live room and brisk up-tempo presentation are editorial choices for a new DJ rendition, not measured BPM or venue of the issued programme; individual original song tempos remain unknown. No global temperament or added live voice is inferred.",
+            "exemplars": [
+              "DJ Chirpz — complete The Liberian Mixtape vol.6"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Remove named-performance dossier from public genre text; retain complete prior source scope in original immutable packet and this review evidence. Restore a representative sung electronic-pop arrangement instead of treating a whole national scene as a single DJ playback card. All17 voice,4poly-synth and4analog-drum controls retained; melodic/arpeggiated synthesizer, drum synthesis and functional-harmonic verse–chorus–bridge form are ordinary authored choices, not a claim all Liberian songs share them or an exact mixtape reconstruction.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-9.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "dj_playback_mixing_unspecified": "DJ Chirpz full assembled programme, all embedded sounds preserved; source hardware unspecified."
+        },
+        "vocal_count_audit": {
+          "live_vocal_count": "not independently credited",
+          "embedded_vocal_count": "unknown",
+          "decision": "All mixed-in voices retained at documented DJ assembly layer; no zero-vocal assertion."
+        },
+        "scope": "Original exact documented programme only; not the revised representative genre defaults."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

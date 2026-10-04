@@ -1,5 +1,5 @@
 {
-  "count": 1638,
+  "count": 1653,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9828,6 +9828,96 @@
       "name": "Credited beat (production mechanism unspecified)",
       "family": "electronic",
       "href": "instruments/credited_beat_unspecified.json"
+    },
+    {
+      "id": "credited_drum_machine_unspecified",
+      "name": "Credited drum machine (generator and interface unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_drum_machine_unspecified.json"
+    },
+    {
+      "id": "credited_bamboo_flute_unspecified",
+      "name": "Credited bamboo flute",
+      "family": "wind",
+      "href": "instruments/credited_bamboo_flute_unspecified.json"
+    },
+    {
+      "id": "muri_tongpo",
+      "name": "Muri Tongpo",
+      "family": "wind",
+      "href": "instruments/muri_tongpo.json"
+    },
+    {
+      "id": "muri_jangkek",
+      "name": "Muri Jangkek",
+      "family": "wind",
+      "href": "instruments/muri_jangkek.json"
+    },
+    {
+      "id": "cheng_pi",
+      "name": "Cheng Pi",
+      "family": "percussion",
+      "href": "instruments/cheng_pi.json"
+    },
+    {
+      "id": "cheng_burup",
+      "name": "Cheng Burup pair",
+      "family": "percussion",
+      "href": "instruments/cheng_burup.json"
+    },
+    {
+      "id": "hudka_uttarakhand",
+      "name": "Hudka (Uttarakhand hourglass drum)",
+      "family": "percussion",
+      "href": "instruments/hudka_uttarakhand.json"
+    },
+    {
+      "id": "binaural_spatial_renderer",
+      "name": "Binaural spatial renderer",
+      "family": "electronic",
+      "href": "instruments/binaural_spatial_renderer.json"
+    },
+    {
+      "id": "octapad_unspecified",
+      "name": "Octapad multipad percussion (model and sound routing unspecified)",
+      "family": "electronic",
+      "href": "instruments/octapad_unspecified.json"
+    },
+    {
+      "id": "arpa_peruana",
+      "name": "Arpa peruana (Peruvian folk harp)",
+      "family": "acoustic_strings",
+      "href": "instruments/arpa_peruana.json"
+    },
+    {
+      "id": "sinyaka",
+      "name": "Sinyaka (internally filled calabash rattle)",
+      "family": "percussion",
+      "href": "instruments/sinyaka.json"
+    },
+    {
+      "id": "credited_bottle",
+      "name": "Bottle percussion",
+      "family": "percussion",
+      "href": "instruments/credited_bottle.json"
+    },
+    {
+      "id": "tbal_mauritanian",
+      "name": "Tbal (Moorish hemispherical hand drum)",
+      "family": "percussion",
+      "href": "instruments/tbal_mauritanian.json"
+    },
+    {
+      "id": "lukembi_congolese",
+      "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+      "family": "plucked_traditional",
+      "href": "instruments/lukembi_congolese.json"
+    },
+    {
+      "id": "recorded_appliance_sound",
+      "name": "Recorded household-appliance sound",
+      "family": "electronic",
+      "href": "instruments/recorded_appliance_sound.json"
     }
   ]
 }

@@ -1,0 +1,269 @@
+{
+  "entries": [
+    {
+      "source_label": "musica michoacana",
+      "source_url": "https://everynoise.com/engenremap-musicamichoacana.html",
+      "suggested_id": "musica_michoacana",
+      "allocation_ordinal": 3882,
+      "allocation_group_id": "156",
+      "id": "musica_michoacana",
+      "tradition": {
+        "id": "musica_michoacana",
+        "name": "Música michoacana",
+        "family": "vernacular",
+        "lineage": "The complete current Dueto Sïrankua practice documented by the Michoacán state culture secretariat on 10 September 2026: Josué I. Corral Bribiesca and Erick Cruz Lucas each play guitar and sing. Preserve both people, both guitars and both voices. The state describes the duo’s work across the four Purépecha regions; this is a selected branch of the broader regional field. The embedded player advertises two tracks but does not expose their titles in the retrieved text; no album duration, specific recording, track list or personal audition is claimed. Authored two-singer, two-guitar rendition with recurring strophes and tonal chord support for the selected lyrical song practice. Both credited guitars share the classical-guitar card; spruce tops, Torres fan bracing, high-tension nylon strings, standard tuning, fingerpicking and rest-stroke attack are explicit coherent editorial construction and gesture choices, not measured source models or string materials. The source names guitars without subtype. Neutral voice physiology and unknown exact interval organization remain explicit; no parallel-thirds or fixed tuning measurement is inferred. Live-duet and live-ensemble controls describe an authored combined rendition, not proof that the unnamed source tracks were simultaneous or without overdubs. A treated concert hall and unprocessed voices define an authored spacious concert rendition compatible with the documented theater/festival practice, not the measured source venue or microphone. No fast tempo is imposed on the selected pirekua branch.",
+        "instruments": [
+          "voice",
+          "classical_nylon_string_guitar"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "apoyando_cl"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.mexican",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "The complete current Dueto Sïrankua practice documented by the Michoacán state culture secretariat on 10 September 2026: Josué I. Corral Bribiesca and Erick Cruz Lucas each play guitar and sing. Preserve both people, both guitars and both voices. The state describes the duo’s work across the four Purépecha regions; this is a selected branch of the broader regional field. The embedded player advertises two tracks but does not expose their titles in the retrieved text; no album duration, specific recording, track list or personal audition is claimed. Read the full existing musica_purepecha and tierra_caliente records, not only their exemplars. The selected duo directly overlaps Purépecha pirekua; it is not evidence of a newly distinct pirekua technique. The named state-wide field is broader: the exact creator playlist includes Purépecha song and chorus (Grupo Erandi, Dueto Masculino, Coro Tarasco Zezangari), arpa-grande/valona ensembles and multiple regional brass bands. The state archive independently defines its regional remit across styles, geographies and generations and explicitly includes this state-affiliated duo. This supports the regional umbrella beyond the indigenous Purépecha and Balsas Tierra Caliente fields, while acknowledging substantial overlap. No exact creator membership for Sïrankua is asserted. National Mexican music and neighboring state labels do not replace this specifically documented community. No coextensive Michoacán umbrella appears among current old or accepted queued entries. functionalSong.mexican represents the expressly authored strophic tonal rendition, not every music in the state. Authored two-singer, two-guitar rendition with recurring strophes and tonal chord support for the selected lyrical song practice. Both credited guitars share the classical-guitar card; spruce tops, Torres fan bracing, high-tension nylon strings, standard tuning, fingerpicking and rest-stroke attack are explicit coherent editorial construction and gesture choices, not measured source models or string materials. The source names guitars without subtype. Neutral voice physiology and unknown exact interval organization remain explicit; no parallel-thirds or fixed tuning measurement is inferred. Live-duet and live-ensemble controls describe an authored combined rendition, not proof that the unnamed source tracks were simultaneous or without overdubs. A treated concert hall and unprocessed voices define an authored spacious concert rendition compatible with the documented theater/festival practice, not the measured source venue or microphone. No fast tempo is imposed on the selected pirekua branch.",
+        "exemplars": [
+          "Dueto Sïrankua — complete two-person practice documented by Secretaría de Cultura de Michoacán (2026)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        19.7036,
+        -101.192,
+        "Morelia",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Approximate Morelia institutional anchor for the duo’s explicitly named state employer and issuing archive, whose address is published on the source. Not a recording site or claim that either musician was born in Morelia; source hometowns are Tiríndaro and Santa Fe de la Laguna.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://sonopedia.michoacan.gob.mx/dueto-sirankua/",
+          "title": "State-issued complete duo practice",
+          "support_notes": "Fresh turn11000view1 full two-person role roster and regional practice, current page dated 10 September 2026.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://sonopedia.michoacan.gob.mx/",
+          "title": "State regional archive scope",
+          "support_notes": "Fresh turn11007view0 explicitly all genres, styles, geographies and generations; selected duo is included.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5RF9QQP7ye1w2ijt4TzJDp",
+          "title": "Exact creator-issued regional field",
+          "support_notes": "Fresh turn11000view0 all 100 items; Purépecha 55/66/67/69, arpa grande 59/61, brass bands 29–31/37/44. Sïrankua membership not claimed.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Read the full existing musica_purepecha and tierra_caliente records, not only their exemplars. The selected duo directly overlaps Purépecha pirekua; it is not evidence of a newly distinct pirekua technique. The named state-wide field is broader: the exact creator playlist includes Purépecha song and chorus (Grupo Erandi, Dueto Masculino, Coro Tarasco Zezangari), arpa-grande/valona ensembles and multiple regional brass bands. The state archive independently defines its regional remit across styles, geographies and generations and explicitly includes this state-affiliated duo. This supports the regional umbrella beyond the indigenous Purépecha and Balsas Tierra Caliente fields, while acknowledging substantial overlap. No exact creator membership for Sïrankua is asserted. National Mexican music and neighboring state labels do not replace this specifically documented community. No coextensive Michoacán umbrella appears among current old or accepted queued entries. functionalSong.mexican represents the expressly authored strophic tonal rendition, not every music in the state.",
+      "model_policy": "Authored two-singer, two-guitar rendition with recurring strophes and tonal chord support for the selected lyrical song practice. Both credited guitars share the classical-guitar card; spruce tops, Torres fan bracing, high-tension nylon strings, standard tuning, fingerpicking and rest-stroke attack are explicit coherent editorial construction and gesture choices, not measured source models or string materials. The source names guitars without subtype. Neutral voice physiology and unknown exact interval organization remain explicit; no parallel-thirds or fixed tuning measurement is inferred. Live-duet and live-ensemble controls describe an authored combined rendition, not proof that the unnamed source tracks were simultaneous or without overdubs. A treated concert hall and unprocessed voices define an authored spacious concert rendition compatible with the documented theater/festival practice, not the measured source venue or microphone. No fast tempo is imposed on the selected pirekua branch.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "classical_nylon_string_guitar"
+        ],
+        "new_instruments": []
+      },
+      "classification_evidence": {
+        "mode": "state_institution_documented_regional_practice_and_creator_field",
+        "url": "https://sonopedia.michoacan.gob.mx/dueto-sirankua/",
+        "note": "Read the full existing musica_purepecha and tierra_caliente records, not only their exemplars. The selected duo directly overlaps Purépecha pirekua; it is not evidence of a newly distinct pirekua technique. The named state-wide field is broader: the exact creator playlist includes Purépecha song and chorus (Grupo Erandi, Dueto Masculino, Coro Tarasco Zezangari), arpa-grande/valona ensembles and multiple regional brass bands. The state archive independently defines its regional remit across styles, geographies and generations and explicitly includes this state-affiliated duo. This supports the regional umbrella beyond the indigenous Purépecha and Balsas Tierra Caliente fields, while acknowledging substantial overlap. No exact creator membership for Sïrankua is asserted. National Mexican music and neighboring state labels do not replace this specifically documented community. No coextensive Michoacán umbrella appears among current old or accepted queued entries. functionalSong.mexican represents the expressly authored strophic tonal rendition, not every music in the state."
+      },
+      "vocal_count_audit": {
+        "selected_count": 2,
+        "singers": [
+          "Josué I. Corral Bribiesca",
+          "Erick Cruz Lucas"
+        ],
+        "count_basis": "Both separately named in the complete state roster with guitar and voice; exact simultaneous voicing/recording method not specified."
+      },
+      "instrument_role_audit": {
+        "rationale": "The complete current Dueto Sïrankua practice documented by the Michoacán state culture secretariat on 10 September 2026: Josué I. Corral Bribiesca and Erick Cruz Lucas each play guitar and sing. Preserve both people, both guitars and both voices. The state describes the duo’s work across the four Purépecha regions; this is a selected branch of the broader regional field. The embedded player advertises two tracks but does not expose their titles in the retrieved text; no album duration, specific recording, track list or personal audition is claimed.",
+        "authored_defaults": "Authored two-singer, two-guitar rendition with recurring strophes and tonal chord support for the selected lyrical song practice. Both credited guitars share the classical-guitar card; spruce tops, Torres fan bracing, high-tension nylon strings, standard tuning, fingerpicking and rest-stroke attack are explicit coherent editorial construction and gesture choices, not measured source models or string materials. The source names guitars without subtype. Neutral voice physiology and unknown exact interval organization remain explicit; no parallel-thirds or fixed tuning measurement is inferred. Live-duet and live-ensemble controls describe an authored combined rendition, not proof that the unnamed source tracks were simultaneous or without overdubs. A treated concert hall and unprocessed voices define an authored spacious concert rendition compatible with the documented theater/festival practice, not the measured source venue or microphone. No fast tempo is imposed on the selected pirekua branch.",
+        "performer_count": 2,
+        "guitar_count": 2,
+        "card_count_not_performer_count": true
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All applicable merged owning parts explicitly pinned; editorial controls distinguished from source facts in model_policy."
+        },
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "parts": {
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood_classical": "spruce_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_high_cl",
+            "attack_technique_cl": "apoyando_cl"
+          },
+          "policy": "All applicable merged owning parts explicitly pinned; editorial controls distinguished from source facts in model_policy."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_michoacana",
+          "name": "Música michoacana",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Sïrankua, their guitars, their source microphone or a regional instrument.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11000view3 and turn11007view1 confirm file-specific CC BY 2.5, Iain Fergusson and Binksternet crop. Exact historical023 byte/visual receipts inherited; no new download or visual inspection.",
+          "fresh_review_ref": "turn11007view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11000view3",
+          "turn11007view1"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All 23 effective owning parts pinned with no shared-key conflict. Two guitars use one source-family card; performer counts retained separately.",
+        "fallbacks": []
+      },
+      "primary_retrieval_refs": [
+        "turn11000view0",
+        "turn11000view1",
+        "turn11007view0",
+        "turn11007view1"
+      ],
+      "source_retrieval_caveat": "Fresh complete state roster and creator playlist reproduced. Raw response saved at michoacana-secondpass-primary-raw117.json. Earlier map successful author observation10967 followed by403; fresh playlist is independently usable. Embedded two-track metadata unavailable; scope is the complete documented practice, not a guessed recording."
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "source_ready_independent_review_pending"
+}

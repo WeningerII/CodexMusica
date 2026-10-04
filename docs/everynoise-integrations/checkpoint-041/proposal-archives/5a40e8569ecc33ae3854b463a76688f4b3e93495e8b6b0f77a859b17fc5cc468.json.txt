@@ -1,0 +1,1204 @@
+{
+  "entries": [
+    {
+      "source_label": "viet edm",
+      "source_url": "https://everynoise.com/engenremap-vietedm.html",
+      "suggested_id": "viet_edm",
+      "allocation_ordinal": 2073,
+      "allocation_group_id": "083",
+      "id": "viet_edm",
+      "tradition": {
+        "id": "viet_edm",
+        "name": "Việt EDM",
+        "family": "electronic",
+        "lineage": "Việt EDM connects Vietnam’s electronic dance producers, DJs, training institutions and club audiences.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Mixed dance programmes and beat-led electronic production span several club styles, including but not limited to Vinahouse. DJ Hoàng Anh and the 88DNA network exemplify the exchange between local production and international dance repertoires.",
+        "exemplars": [
+          "DJ Hoàng Anh"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        21.028,
+        105.852,
+        "Hanoi",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Issuer explicitly locates selected complete performance at1900 Le Théâtre Hanoi; coordinate is editorial city anchor, not surveyed booth.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Exact creator Việt EDM playlist includes DJ Hoang Anh at34 and81. His own88DNA institution describes training Vietnamese dance-music DJs/producers and participation in the national DJ-competition and international electronic-dance circuit. This supplies a positive dance-production community, not nationality alone. Full existing vietnamese_electronic explicitly includes electroacoustic listening/sound-art practices and is a broader overlapping national field; its selected Sound Awakener single does not restrict the whole field to ambient music. Việt EDM focuses the dance-production/DJ community within it. Existing vinahouse already includes Hoàng Anh and Vietnamese pop-remix dance practice; this is overlapping, not an artist-based exclusion. The requested creator roster also spans progressive/trance and other electronic dance production, so it is not equated with that one local remix style. A different set alone is not the category justification. Queued national EDM entries concern other positively documented communities, not a second Vietnamese umbrella.",
+      "model_policy": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer. Current representative roles: dj_playback_mixing_unspecified. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent electronicDance describes the representative genre branch, not an exhaustive definition of every source.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 0,
+        "authored_ensemble_setting": null,
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Candidate pending mechanical, actual original four-format and independent review.",
+      "sources": [
+        {
+          "url": "https://djhoanganh.com/",
+          "title": "Artist and88DNA official website",
+          "support_notes": "Fresh indexed11637search0 explicitly whole named DJ set/Hanoi venue and national DJ-production institution; actual returned tool response saved resume116-vietedm-official-home-indexed.json. Direct502; embedded URL/duration unknown."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2ue7mRobKgve30zMintxMN?theme=0",
+          "title": "Exact creator The Sound of Việt EDM",
+          "support_notes": "Fresh274472view1 whole roster, DJHoangAnh34/81; various dance-production practitioners, no universal style claim."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "viet_edm",
+          "name": "Việt EDM",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context, not the performer, DJ hardware or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11639view0 confirms IainFergusson/Binksternet CC BY2.5 crop; historical exact bytes/visual unchanged.",
+          "fresh_review_ref": "turn11639view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11639view0; historical receipts unchanged, no fresh binary claim."
+      },
+      "source_review_refs": [
+        "turn11637search0",
+        "turn274472view1",
+        "turn11639view0"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-2.json",
+        "original_sha256": "6bfaf4cbc8f29f3f0866e5aafbb848758c90b84b5a9cf04dfc5cd604b60463fe",
+        "before": {
+          "tradition": {
+            "id": "viet_edm",
+            "name": "Việt EDM",
+            "family": "electronic",
+            "lineage": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers. Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers. Exact creator Việt EDM playlist includes DJ Hoang Anh at34 and81. His own88DNA institution describes training Vietnamese dance-music DJs/producers and participation in the national DJ-competition and international electronic-dance circuit. This supplies a positive dance-production community, not nationality alone. Full existing vietnamese_electronic explicitly includes electroacoustic listening/sound-art practices and is a broader overlapping national field; its selected Sound Awakener single does not restrict the whole field to ambient music. Việt EDM focuses the dance-production/DJ community within it. Existing vinahouse already includes Hoàng Anh and Vietnamese pop-remix dance practice; this is overlapping, not an artist-based exclusion. The requested creator roster also spans progressive/trance and other electronic dance production, so it is not equated with that one local remix style. A different set alone is not the category justification. Queued national EDM entries concern other positively documented communities, not a second Vietnamese umbrella. Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors.",
+            "exemplars": [
+              "DJ Hoàng Anh — complete Sanctuary of the Moon launch DJ set at1900 Le Théâtre, Hanoi"
+            ],
+            "crossRefs": []
+          }
+        },
+        "reason": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "dj_playback_mixing_unspecified",
+              "dj_playback_mixing_identity",
+              "dj_playback_mixing_source_unspecified"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-005-parity.json",
+          "semantic_review": "All four full strings read: brisk DJ presentation fits both dance fields. Double-drumming dark amplified branch retains substantial mahogany guitar, intentional aggressive bass and both drummer roles in genre description; no bright-cheery contradiction or vocal addition."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "rationale": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers.",
+            "roles": {
+              "dj_playback_mixing_unspecified": "DJ Hoàng Anh complete published mixed performance; all embedded layers retained"
+            },
+            "authored_defaults": "Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors."
+          },
+          "vocal_count_audit": {
+            "selected_count": null,
+            "embedded_voice_count": "unknown",
+            "separately_performed_live_voice_count": "unknown",
+            "added_live_voice_cards": 0,
+            "decision": "Whole programme retained; one credited mixer is not a singer count."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "One valid protected neutral source role; no architecture inferred."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "One owner, one protected identity, no fallback."
+          },
+          "model_policy": "Existing neutral DJ playback/mixing identity preserves the positively published whole DJ practice; it does not substitute a sampler for an undocumented studio-song palette. Controlled live-room listening presentation with authored brisk dance pacing is a new rendition, not measured source BPM or a claimed booth acoustic. Source equipment, deck count, effects and embedded voice counts remain unknown. No global tuning or recording-chain apparatus asserted. ElectronicDance/electronic is the selected dance-DJ practice, with neutral routing axes rather than measured acoustic descriptors.",
+          "source_scope_limitation": "DJ Hoàng Anh — complete Sanctuary of the Moon album-launch DJ set at1900 Le Théâtre, Hanoi, expressly presented as the whole set by his own website. This is the published mixed performance, not the separate studio album or its title single. Its indexed issuer page establishes completeness and venue; direct page retrieval fails502 and the embedded video address, programme duration, individual selections and medium remain unverified. Preserve every embedded musical, vocal and effect layer in actual DJ playback/mixing; no claim that all repertoire is Vietnamese or any original production was made with a specific synthesizer. One credited DJ does not establish the number of embedded or live singers.",
+          "classification_evidence": "Exact creator Việt EDM playlist includes DJ Hoang Anh at34 and81. His own88DNA institution describes training Vietnamese dance-music DJs/producers and participation in the national DJ-competition and international electronic-dance circuit. This supplies a positive dance-production community, not nationality alone. Full existing vietnamese_electronic explicitly includes electroacoustic listening/sound-art practices and is a broader overlapping national field; its selected Sound Awakener single does not restrict the whole field to ambient music. Việt EDM focuses the dance-production/DJ community within it. Existing vinahouse already includes Hoàng Anh and Vietnamese pop-remix dance practice; this is overlapping, not an artist-based exclusion. The requested creator roster also spans progressive/trance and other electronic dance production, so it is not equated with that one local remix style. A different set alone is not the category justification. Queued national EDM entries concern other positively documented communities, not a second Vietnamese umbrella."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "double drumming",
+      "source_url": "https://everynoise.com/engenremap-doubledrumming.html",
+      "suggested_id": "double_drumming",
+      "allocation_ordinal": 3195,
+      "allocation_group_id": "128",
+      "id": "double_drumming",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "double_drumming",
+        "name": "Double Drumming",
+        "family": "rock",
+        "lineage": "Double drumming is the use of two drummers within one ensemble, spanning experimental rock, psychedelic music, post-rock and metal.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.experimental",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Simultaneous drum parts can reinforce weight or create interacting rhythmic layers beneath guitars and bass. The Lumberjack Feedback exemplifies a heavy instrumental branch built around low riffs, sustained texture and collective rhythmic development.",
+        "exemplars": [
+          "The Lumberjack Feedback",
+          "Tortoise",
+          "Kylesa"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        50.6292,
+        3.0573,
+        "Lille",
+        "Europe"
+      ],
+      "geo_rationale": "Band-owned profile explicitly Lille, corroborating interview hometown-label context; not claimed location of every genre performer or exact recording room.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Double Drumming is the cross-band two-drummer configuration/practice field, positively named by its exact creator map across King Gizzard, Tortoise, Thee Oh Sees, Kylesa, Boredoms and the selected Lumberjack Feedback. The band’s firsthand account positively explains adopting two simultaneous drummers, rather than a single overdubbed kit or merely a drum-and-hand-percussion lineup. Existing post_metal encompasses the selected band’s long-form heavy branch but does not define every two-drummer practice: the creator field crosses metal, psychedelic rock, post-rock and experimental practices. Conversely not all post-metal uses two drummers. Existing experimental_rock describes broader formal/studio procedures, not this drummer configuration. A different artist alone is not the distinction. The selected heavy instrumental branch is nested under distortedRock.experimental for explicit lengthy jam-developed composition and texture; this is not an assertion all double-drumming music rejects pop architecture.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent distortedRock.experimental describes the representative genre branch, not an exhaustive definition of every source.",
+      "model_policy": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer. Current representative roles: electric_guitar_humbucker, electric_bass, drum_kit. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "source_retrieval_caveat": "All three primary pages freshly directly/indexedly retrieved. No audio audition, original mix reconstruction, or transfer of another release’s acoustic guitar guest roles. Full dated practice is selected.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 0,
+        "authored_ensemble_setting": null,
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "electric_guitar_humbucker": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_bass": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "drum_kit": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_fuzz_riff",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_h",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_11_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "sources": [
+        {
+          "url": "https://en.rumzine.com/the-lumberjack-feedback/",
+          "support_notes": "Fresh308462view2 full firsthand2016 bassist interview: five-person collective, two drummers since2012, instrumental since inception, jam-developed full compositions and loud/low aesthetic."
+        },
+        {
+          "url": "https://thelumberjackfeedback.bandcamp.com/music",
+          "support_notes": "Fresh184368search0 artist-owned full profile positively guitars/two drummers/bass and instrumental; Lille."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-doubledrumming.html",
+          "support_notes": "Fresh918771view0 full exact creator map, selected band line69 and wide cross-band configuration field."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn308462view2",
+        "turn184368search0",
+        "turn918771view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "double_drumming",
+          "name": "Double Drumming",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only; not the source band, drums, guitars or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh330848view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5; exact023 historical bytes/visual preserved.",
+          "fresh_review_ref": "turn330848view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh330848view0, no fresh bytes or visual inspection claim.",
+        "fresh_rights_retrieval_refs": [
+          "turn330848view0"
+        ]
+      },
+      "verification_status": "Original merged loader32owning controls allprotected, no fallback/errors;1638 priorowners unchanged; four original browser/connector outputs inspected, max981characters. Fuzzed guitar, explicitly authored aggressive/high-gain picked bass and rock kits retain source sound classes. Cheery guitar is generated brighter affect of the new rendition, not a source claim that the original band’s dark programme is cheerful. Source signatures/final static build remain integration gates.",
+      "source_review_refs": [
+        "turn308462view2",
+        "turn184368search0",
+        "turn918771view0",
+        "turn330848view0"
+      ],
+      "candidate_amendment": "Original source packet immutable. One bounded coherent authored mahogany-bodied/necked guitar and medium-gauge string realization, plus corresponding mahogany bass under shared existing material key; all source facts, roles, taxonomy, room, axes and photos unchanged. No matcher rules, new identities, or source tuning claims.",
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-14-mahogany-rendition116.json",
+        "original_sha256": "44e2db027c85347f5105b961fa5b8948d7ec2e0c6984684605cd186b426ce861",
+        "before": {
+          "tradition": {
+            "id": "double_drumming",
+            "name": "Double Drumming",
+            "family": "rock",
+            "lineage": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble. New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed.",
+            "instruments": [
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "electric_technique": "electric_fuzz_riff",
+              "amp_make": "amp_unspecified",
+              "body_wood": "mahogany_h",
+              "neck_wood": "mahogany_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_11_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "pick_aggressive",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish"
+            }
+          },
+          "extras": {
+            "parent": "distortedRock.experimental",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": -2,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble. Double Drumming is the cross-band two-drummer configuration/practice field, positively named by its exact creator map across King Gizzard, Tortoise, Thee Oh Sees, Kylesa, Boredoms and the selected Lumberjack Feedback. The band’s firsthand account positively explains adopting two simultaneous drummers, rather than a single overdubbed kit or merely a drum-and-hand-percussion lineup. Existing post_metal encompasses the selected band’s long-form heavy branch but does not define every two-drummer practice: the creator field crosses metal, psychedelic rock, post-rock and experimental practices. Conversely not all post-metal uses two drummers. Existing experimental_rock describes broader formal/studio procedures, not this drummer configuration. A different artist alone is not the distinction. The selected heavy instrumental branch is nested under distortedRock.experimental for explicit lengthy jam-developed composition and texture; this is not an assertion all double-drumming music rejects pop architecture. New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed.",
+            "exemplars": [
+              "The Lumberjack Feedback — full five-player instrumental practice, February2016 firsthand account"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "electric_guitar_humbucker",
+              "electric_technique",
+              "electric_fuzz_riff"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "body_wood",
+              "mahogany_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "neck_wood",
+              "mahogany_neck_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "fretboard",
+              "rosewood_fb_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_magnet",
+              "alnico_2_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_winding",
+              "mid_wind"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_material",
+              "pure_nickel_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "bridge",
+              "vibrato_arm"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "scale_length",
+              "scale_gibson_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_gauge",
+              "g_11_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "finish",
+              "nitro_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "electric_bass",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_bass",
+              "body_wood",
+              "mahogany_h"
+            ],
+            [
+              "electric_bass",
+              "pickup_config",
+              "soapbar"
+            ],
+            [
+              "electric_bass",
+              "string_type",
+              "roundwound_n"
+            ],
+            [
+              "electric_bass",
+              "scale_length_b",
+              "long_scale_b"
+            ],
+            [
+              "electric_bass",
+              "fretted_or_not",
+              "fretted"
+            ],
+            [
+              "electric_bass",
+              "bass_technique",
+              "pick_aggressive"
+            ],
+            [
+              "electric_bass",
+              "electric_bass_string_configuration",
+              "electric_bass_string_configuration_unspecified"
+            ],
+            [
+              "drum_kit",
+              "drum_technique",
+              "sticks_rock"
+            ],
+            [
+              "drum_kit",
+              "shell_wood",
+              "maple_shell"
+            ],
+            [
+              "drum_kit",
+              "shell_thickness",
+              "thin_shell"
+            ],
+            [
+              "drum_kit",
+              "bearing_edges",
+              "edge_45"
+            ],
+            [
+              "drum_kit",
+              "drumhead",
+              "single_coated"
+            ],
+            [
+              "drum_kit",
+              "snare_wires",
+              "wires_20"
+            ],
+            [
+              "drum_kit",
+              "drum_kit_kick_pedal",
+              "dk_kick_single_felt"
+            ],
+            [
+              "drum_kit",
+              "cymbal_alloy",
+              "b20"
+            ],
+            [
+              "drum_kit",
+              "cymbal_hammering",
+              "machine_symmetric_hammering"
+            ],
+            [
+              "drum_kit",
+              "cymbal_lathing",
+              "full_lathe_both_sides"
+            ],
+            [
+              "drum_kit",
+              "cymbal_finish",
+              "traditional_finish"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-005-parity.json",
+          "semantic_review": "All four full strings read: brisk DJ presentation fits both dance fields. Double-drumming dark amplified branch retains substantial mahogany guitar, intentional aggressive bass and both drummer roles in genre description; no bright-cheery contradiction or vocal addition."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble.",
+            "roles": {
+              "electric_guitar_humbucker": "Two guitarists; amplified heavy riffs positively described, subtype authored",
+              "electric_bass": "One bass player, interviewed Sebastien Tarridec",
+              "drum_kit": "Two simultaneous drum-kit players, not one doubled source performer"
+            },
+            "authored_defaults": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+          },
+          "vocal_count_audit": {
+            "selected_singing_roles": 0,
+            "decision": "Band explicitly instrumental; no human voice card."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "electric_guitar_humbucker",
+              "parts": {
+                "electric_technique": "electric_fuzz_riff",
+                "amp_make": "amp_unspecified",
+                "body_wood": "mahogany_h",
+                "neck_wood": "mahogany_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_11_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "mahogany_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "pick_aggressive",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "Complete applicable owner controls protected. Shared body_wood and pickup_magnet keys apply to both guitar and bass in actual merged catalog; no fallback silently claimed pinned."
+          },
+          "model_policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed.",
+          "source_scope_limitation": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble.",
+          "classification_evidence": "Double Drumming is the cross-band two-drummer configuration/practice field, positively named by its exact creator map across King Gizzard, Tortoise, Thee Oh Sees, Kylesa, Boredoms and the selected Lumberjack Feedback. The band’s firsthand account positively explains adopting two simultaneous drummers, rather than a single overdubbed kit or merely a drum-and-hand-percussion lineup. Existing post_metal encompasses the selected band’s long-form heavy branch but does not define every two-drummer practice: the creator field crosses metal, psychedelic rock, post-rock and experimental practices. Conversely not all post-metal uses two drummers. Existing experimental_rock describes broader formal/studio procedures, not this drummer configuration. A different artist alone is not the distinction. The selected heavy instrumental branch is nested under distortedRock.experimental for explicit lengthy jam-developed composition and texture; this is not an assertion all double-drumming music rejects pop architecture."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "hyperpop brasileiro",
+      "source_url": "https://everynoise.com/engenremap-hyperpopbrasileiro.html",
+      "suggested_id": "hyperpop_brasileiro",
+      "allocation_ordinal": 3447,
+      "allocation_group_id": "138",
+      "id": "hyperpop_brasileiro",
+      "tradition": {
+        "id": "hyperpop_brasileiro",
+        "name": "Hyperpop Brasileiro",
+        "family": "electronic",
+        "lineage": "Hyperpop brasileiro connects Brazilian producers, DJs and pop artists through internet circulation, collaborations and events such as the Hyperpop Festival.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Exaggerated electronic pop textures meet forceful dance rhythms and crossings with Brazilian funk, pagodão and other club styles. CyberKills exemplifies the DJ-led branch, where contrasting songs and sounds are shaped into continuous mixed programmes.",
+        "exemplars": [
+          "CyberKills",
+          "Mia Badgyal",
+          "Frimes"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        -14.235,
+        -51.925,
+        "Brazil",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Issuer explicitly identifies Brazil; country-level editorial community anchor, not a claimed common birthplace, mixing room or performance site.",
+      "signature_tokens": [],
+      "neighbor_distinction": "First-person CyberKills interviews document a Brazilian PC Music/hyperpop community, predecessors Mia Badgyal,Frimes,Léo Hainer and the duo-organized2020 Hyperpop Festival benefiting CUFA Mães da Favela. This is positive named national community evidence beyond birthplace; international festival guests do not become Brazilian by participation. The selected2025 programme is self-tagged hyperpop but openly crosses funk,pagodão baiano,Latin and electronic dance styles; no all-tracks-pure-hyperpop claim. Current creator membership of CyberKills is not independently established and is not asserted. Full existing hyperpop already spans global internet and queer production, so the Brazilian community is an overlapping regional branch rather than an excluded style. Hyperpop Rap focuses rap-form crossover and may overlap, but the national community includes broader pop/DJ and festival practice. Música Eletrônica Brasileira,Brazilian EDM and Eletrônica Underground Brasileira are wider overlapping national production/club fields; their selected KALOZIN,Pedro andCohen programmes do not delimit those entire fields. The positive hyperpop institution/community supplies the narrower boundary, not different equipment or merely a different set. Brazilian Experimental concerns a broader composition/experimentation field, not automatically all named hyperpop practice.",
+      "model_policy": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer. Current representative roles: dj_playback_mixing_unspecified. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent electronicDance describes the representative genre branch, not an exhaustive definition of every source.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 0,
+        "authored_ensemble_setting": null,
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Awaiting independent peer; author mechanical and actual four-format checks recorded separately, no final CI claim.",
+      "sources": [
+        {
+          "url": "https://cyberkills.bandcamp.com/album/dedo-no-cue",
+          "title": "Artist-owned complete mixed release",
+          "support_notes": "Full17-track sequence,2025release, explicit whole DJ set/transitions/continuous beats130–155BPM; own hyperpop tag and Brazilian DJduo profile. Actual primary11931view0.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.audiograma.com.br/?p=69183",
+          "title": "First-person CyberKills community/festival interview2020",
+          "support_notes": "Indexed full primary416174search0 names national predecessors and own Hyperpop Festival/CUFA; original raw saved. Direct timeout candid.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://jornalismojunior.com.br/hyperpop/",
+          "title": "University journalism first-person duo interview",
+          "support_notes": "Indexed416174search2 repeats own festival and Brazilian references, no single-style exclusivity.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.aqueletuim.com.br/2025/05/entrevista-cyberkills-fala-sobre.html",
+          "title": "First-person May2025 mixed practice interview",
+          "support_notes": "11940view1 distinguishes planned mixtape from studio album, acknowledges cross-style sets and present Brazilian network. June issued programme separately verified; no transfer of unrelated piano/other-song instruments.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "hyperpop_brasileiro",
+          "name": "Hyperpop Brasileiro",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not CyberKills, actual decks, embedded singers or original equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11915view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11915view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11915view3"
+        ]
+      },
+      "source_review_refs": [
+        "turn11931view0",
+        "turn416174search0",
+        "turn416174search2",
+        "turn11940view1",
+        "turn11915view3"
+      ],
+      "issued_programme": [
+        "Pica de Trem (cybiko2000)",
+        "Bota Pica",
+        "Eu vou ser Pai (Sykors,Maritza)",
+        "Vou Penetrar",
+        "Catucada",
+        "Papo Reto (RXFX)",
+        "Chupa Devagar (Brunoso)",
+        "Sunga Linda (Bia Soull)",
+        "Apetite (CARLO)",
+        "Vagabunda (Katy da Voz e as Abusadas,Jup do Bairro,PZZS)",
+        "Toda Boa (MC Erikah)",
+        "Ácido! (Golden Kong)",
+        "Penetrando",
+        "Cadê o L (Kalef Castro)",
+        "Xeque Mate (CRRDR)",
+        "Bota Tudo (Virgo Devil)",
+        "Vai DJ (RIANRIOT,MC Marsha)"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-5.json",
+        "original_sha256": "580e9f7599884f6da91c16f8d5737629b32f573a8707229731bc470e62df1d96",
+        "before": {
+          "tradition": {
+            "id": "hyperpop_brasileiro",
+            "name": "Hyperpop Brasileiro",
+            "family": "electronic",
+            "lineage": "CyberKills — complete issued DEDO NO CUE mixed programme,26June2025,all17 selections. The artist-owned release explicitly presents a full DJ set with transitions and continuous beats,130–155BPM, and identifies the act as a Brazilian DJ/producer duo. This is the issued continuous mixed rendition, not a reconstruction of the internal production palette of each studio song. All featured contributors, embedded voices, instrumental and effect layers remain in playback. Named features are not assumed to be live singers or an exhaustive voice count. Exact decks, mixing medium, timing of transitions and studio sound generators remain unknown. No claim of one-take live recording or audio audition. Existing neutral DJ playback/mixing owner represents the positively issued mixed programme, preserving all17 selections and embedded content. It is not an opaque studio-master sampler substitute. Authored controlled live-room listening and brisk dance pacing are compatible with issuer130–155BPM framing, without asserting measured room or fixed tempo for every moment. No deck hardware, original synthesis architecture, live voice count, global tuning or signal-chain apparatus inferred. Broad electronicDance/electronic places this selected dance-programme branch, not every Brazilian hyperpop recording; all routing axes are neutral authored values.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "CyberKills — complete issued DEDO NO CUE mixed programme,26June2025,all17 selections. The artist-owned release explicitly presents a full DJ set with transitions and continuous beats,130–155BPM, and identifies the act as a Brazilian DJ/producer duo. This is the issued continuous mixed rendition, not a reconstruction of the internal production palette of each studio song. All featured contributors, embedded voices, instrumental and effect layers remain in playback. Named features are not assumed to be live singers or an exhaustive voice count. Exact decks, mixing medium, timing of transitions and studio sound generators remain unknown. No claim of one-take live recording or audio audition. First-person CyberKills interviews document a Brazilian PC Music/hyperpop community, predecessors Mia Badgyal,Frimes,Léo Hainer and the duo-organized2020 Hyperpop Festival benefiting CUFA Mães da Favela. This is positive named national community evidence beyond birthplace; international festival guests do not become Brazilian by participation. The selected2025 programme is self-tagged hyperpop but openly crosses funk,pagodão baiano,Latin and electronic dance styles; no all-tracks-pure-hyperpop claim. Current creator membership of CyberKills is not independently established and is not asserted. Full existing hyperpop already spans global internet and queer production, so the Brazilian community is an overlapping regional branch rather than an excluded style. Hyperpop Rap focuses rap-form crossover and may overlap, but the national community includes broader pop/DJ and festival practice. Música Eletrônica Brasileira,Brazilian EDM and Eletrônica Underground Brasileira are wider overlapping national production/club fields; their selected KALOZIN,Pedro andCohen programmes do not delimit those entire fields. The positive hyperpop institution/community supplies the narrower boundary, not different equipment or merely a different set. Brazilian Experimental concerns a broader composition/experimentation field, not automatically all named hyperpop practice. Existing neutral DJ playback/mixing owner represents the positively issued mixed programme, preserving all17 selections and embedded content. It is not an opaque studio-master sampler substitute. Authored controlled live-room listening and brisk dance pacing are compatible with issuer130–155BPM framing, without asserting measured room or fixed tempo for every moment. No deck hardware, original synthesis architecture, live voice count, global tuning or signal-chain apparatus inferred. Broad electronicDance/electronic places this selected dance-programme branch, not every Brazilian hyperpop recording; all routing axes are neutral authored values.",
+            "exemplars": [
+              "CyberKills — DEDO NO CUE complete17-selection mixed programme (2025)"
+            ],
+            "crossRefs": []
+          }
+        },
+        "reason": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Double Drumming explicitly retains two simultaneous kit players through its ensemble profile, not two pedals or one overdubbed drummer.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "dj_playback_mixing_unspecified",
+              "dj_playback_mixing_identity",
+              "dj_playback_mixing_source_unspecified"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-005-parity.json",
+          "semantic_review": "All four full strings read: brisk DJ presentation fits both dance fields. Double-drumming dark amplified branch retains substantial mahogany guitar, intentional aggressive bass and both drummer roles in genre description; no bright-cheery contradiction or vocal addition."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "rationale": "CyberKills — complete issued DEDO NO CUE mixed programme,26June2025,all17 selections. The artist-owned release explicitly presents a full DJ set with transitions and continuous beats,130–155BPM, and identifies the act as a Brazilian DJ/producer duo. This is the issued continuous mixed rendition, not a reconstruction of the internal production palette of each studio song. All featured contributors, embedded voices, instrumental and effect layers remain in playback. Named features are not assumed to be live singers or an exhaustive voice count. Exact decks, mixing medium, timing of transitions and studio sound generators remain unknown. No claim of one-take live recording or audio audition.",
+            "roles": {
+              "dj_playback_mixing_unspecified": "Whole artist-issued continuous17-selection programme, all content retained"
+            },
+            "authored_defaults": "Existing neutral DJ playback/mixing owner represents the positively issued mixed programme, preserving all17 selections and embedded content. It is not an opaque studio-master sampler substitute. Authored controlled live-room listening and brisk dance pacing are compatible with issuer130–155BPM framing, without asserting measured room or fixed tempo for every moment. No deck hardware, original synthesis architecture, live voice count, global tuning or signal-chain apparatus inferred. Broad electronicDance/electronic places this selected dance-programme branch, not every Brazilian hyperpop recording; all routing axes are neutral authored values."
+          },
+          "vocal_count_audit": {
+            "selected_count": null,
+            "embedded_voice_count": "unknown",
+            "separately_performed_live_voice_count": "unknown",
+            "added_live_voice_cards": 0,
+            "decision": "Full17-selection playback retained with all named features; two DJs are not a voice count. Embedded and separately performed voice counts unknown; no added live voice cards."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "One applicable neutral DJ role identity explicitly protected; no unknown hardware guessed."
+            }
+          ],
+          "flat_pin_resolution": "One original applicable owning part explicitly protected; no conflicts or fallbacks.",
+          "model_policy": "Existing neutral DJ playback/mixing owner represents the positively issued mixed programme, preserving all17 selections and embedded content. It is not an opaque studio-master sampler substitute. Authored controlled live-room listening and brisk dance pacing are compatible with issuer130–155BPM framing, without asserting measured room or fixed tempo for every moment. No deck hardware, original synthesis architecture, live voice count, global tuning or signal-chain apparatus inferred. Broad electronicDance/electronic places this selected dance-programme branch, not every Brazilian hyperpop recording; all routing axes are neutral authored values.",
+          "source_scope_limitation": "CyberKills — complete issued DEDO NO CUE mixed programme,26June2025,all17 selections. The artist-owned release explicitly presents a full DJ set with transitions and continuous beats,130–155BPM, and identifies the act as a Brazilian DJ/producer duo. This is the issued continuous mixed rendition, not a reconstruction of the internal production palette of each studio song. All featured contributors, embedded voices, instrumental and effect layers remain in playback. Named features are not assumed to be live singers or an exhaustive voice count. Exact decks, mixing medium, timing of transitions and studio sound generators remain unknown. No claim of one-take live recording or audio audition.",
+          "classification_evidence": "First-person CyberKills interviews document a Brazilian PC Music/hyperpop community, predecessors Mia Badgyal,Frimes,Léo Hainer and the duo-organized2020 Hyperpop Festival benefiting CUFA Mães da Favela. This is positive named national community evidence beyond birthplace; international festival guests do not become Brazilian by participation. The selected2025 programme is self-tagged hyperpop but openly crosses funk,pagodão baiano,Latin and electronic dance styles; no all-tracks-pure-hyperpop claim. Current creator membership of CyberKills is not independently established and is not asserted. Full existing hyperpop already spans global internet and queer production, so the Brazilian community is an overlapping regional branch rather than an excluded style. Hyperpop Rap focuses rap-form crossover and may overlap, but the national community includes broader pop/DJ and festival practice. Música Eletrônica Brasileira,Brazilian EDM and Eletrônica Underground Brasileira are wider overlapping national production/club fields; their selected KALOZIN,Pedro andCohen programmes do not delimit those entire fields. The positive hyperpop institution/community supplies the narrower boundary, not different equipment or merely a different set. Brazilian Experimental concerns a broader composition/experimentation field, not automatically all named hyperpop practice."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    }
+  ]
+}

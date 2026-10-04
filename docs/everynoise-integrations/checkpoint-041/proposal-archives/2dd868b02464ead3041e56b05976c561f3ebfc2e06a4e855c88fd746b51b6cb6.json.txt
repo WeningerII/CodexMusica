@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume117-37-chinese-talent-show-axes-complete117.json",
+  "sha256": "067aa1ba4656459820c69b9e224afbd98c7bcddb2918445a1ed7cfdfe281d69e",
+  "peer_review": "/tmp/batch040/resume117-37-chinese-talent-show-axes-complete117-independent-review024.json",
+  "checks": [
+    "Rootreadoriginalfulltradition/extras and independent024 primary/category/default/rights qualification. Authoritativeprogrammefield vs broaderMandopop/idolrecords explicitly assessed.",
+    "Completenessonlyderivative independentlyrebound by024,22controls and4byteidenticaloutputs. Root independently5metadata exact/all13axes/photoidentity; integratedchecks stillrequired."
+  ],
+  "checked_at": "2026-10-04T05:14:00.401097+00:00"
+}

@@ -1,0 +1,124 @@
+{
+  "id": "dark_progressive_house",
+  "name": "Dark Progressive House",
+  "family": "electronic",
+  "lineage": "Dark progressive house — brooding, harmonically layered house associated with extended DJ development.",
+  "recipe": "classic dark progressive house, electronic Dance, house branch. wavetable analog synth, TR-909, credited samples unspecified. live tracking.",
+  "recipe_chars": 140,
+  "score": 21.773,
+  "config": {
+    "traditions": [
+      "dark_progressive_house"
+    ],
+    "instruments": [
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "wt_position": 3.6399999999999997,
+          "wt_family": 0.1365,
+          "wt_polyphony": 0
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "oscillator": 1.5119999999999998,
+          "filter_topology": 1.785,
+          "envelope": 0.21000000000000002,
+          "modulation": 0.7
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 13.5,
+          "drum_machine_909_context": 0.39,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "credited_samples_unspecified",
+        "slots": {
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        },
+        "scores": {
+          "credited_samples_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
+      ],
+      "credited_samples_unspecified": [
+        "credited_samples_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "wt_position": "wt_morphing",
+      "wt_family": "wt_analog_emul",
+      "wt_polyphony": "wt_poly",
+      "oscillator": "sine_osc",
+      "filter_topology": "transistor_ladder",
+      "envelope": "pluck_env",
+      "modulation": "no_mod",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_tr_8s_modern",
+      "credited_samples_identity": "credited_samples_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

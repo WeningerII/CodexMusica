@@ -5,7 +5,7 @@
   "lineage": "Radio-facing cumbia hybrid consolidated in Argentina, Uruguay and Mexico from the late 1990s and dominant across the Southern Cone from about 2010, codified by Los Ángeles Azules' orchestral cumbia sonidera and by Uruguayan groups such as Rombai and Márama — a bright 95-105 BPM 4/4 with güiro on every eighth, scraped-and-clicked timbal fills, a two-note synth bass or electric bass on the downbeat, sustained keyboard or accordion melody, and clean romantic tenor lead vocals with sung group choruses.",
   "recipe": "classic 1997-1999 cumbia pop, groove Percussion, Latin am branch, Latin electric electronic dance, tropical song functional song cumbia 420 freestyle. thick, full chest belt, straight onset, interlocked note trading. guiro, open slap hand drum timbales, lead open slap hand drum congas, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass, singing lead analog poly synth, accordion, pre muffled edge muffled brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 679,
-  "score": 283.198,
+  "score": 282.583,
   "config": {
     "traditions": [
       "cumbia_pop",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.56,
           "voice_articulation": 27.04,
           "voice_microtone": 25.544999999999998,
-          "voice_tradition": 9.429999999999998,
+          "voice_tradition": 9.609999999999998,
           "voice_mechanism_compound": 6.499999999999999,
           "voice_estill_quality": 5.915,
           "voice_speech_song": 28.600000000000005,
@@ -86,7 +86,7 @@
         },
         "scores": {
           "percussion_technique": 13.890000000000002,
-          "conga_set": 3.79,
+          "conga_set": 3.64,
           "conga_skin": 0.39,
           "conga_shell_wood": 0.39
         }
@@ -123,7 +123,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 11.849999999999998,
+          "electronic_technique": 11.7,
           "poly_archetypes": 1,
           "poly_voices": 1,
           "poly_maker_lineage": -0.7350000000000001
@@ -141,9 +141,9 @@
           "accordion_maker_school": "accordion_petosa_seattle"
         },
         "scores": {
-          "free_reed_technique": 2.8500000000000005,
-          "accordion_reed_material": 0.65,
-          "musette_offset": 1.495,
+          "free_reed_technique": 2.7,
+          "accordion_reed_material": 0.5,
+          "musette_offset": 1.45,
           "reed_config": 2.045,
           "bellows": 0.15,
           "voicing_chamber": 0.045,
@@ -159,7 +159,7 @@
         },
         "scores": {
           "drum_technique": 23.660000000000004,
-          "drumhead": 9.145,
+          "drumhead": 8.995,
           "drum_kit_kick_pedal": 0
         }
       }

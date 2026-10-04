@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "reviewed_subset": 98,
+  "formats": 392,
+  "new_dependencies_in_combined_runtime": 15,
+  "literal_output_changes_from_individually_reviewed_100_subset": [],
+  "runtime": "/tmp/batch041/review99-116/final/runtime-controls194.json",
+  "runtime_sha256": "93d82e667d8e186c0a57e67898d98aae611de3f0c8836fc9c23478445d735922",
+  "prior_semantic_review": "semantic-review119.json",
+  "scope": "98 retained first-subset profiles preserve exact four literal outputs and semantic conclusions. Other96 are independently reviewed by research116; this is not a claim of fresh independent119 source review of those96. Full194 integration source/owning/control and regression-configuration coverage are separate119 reports."
+}

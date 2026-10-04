@@ -1,0 +1,359 @@
+{
+  "entries": [
+    {
+      "source_label": "indie boliviano",
+      "source_url": "https://everynoise.com/engenremap-indieboliviano.html",
+      "suggested_id": "indie_boliviano",
+      "allocation_ordinal": 3467,
+      "allocation_group_id": "139",
+      "id": "indie_boliviano",
+      "tradition": {
+        "id": "indie_boliviano",
+        "name": "Indie Boliviano",
+        "family": "rock",
+        "lineage": "Ciudad Líquida — complete four-person practice enumerated in the band’s firsthand Sudtopia interview published13August2017: Álvaro Cuevas guitar/synthesizers/programming; Julie Marín voice/rhythm guitar; Daniel Prieto bass; César Lugones drums. One credited voice and six instrument families retain every named role; two guitarists share one family card. This is the complete dated practice, not an assumed full recording roster for El Gran Jardín or Frecuencias Fantasma and not a reduced four-family Bandcamp biography. Duration/setlist/source audio not inspected; no absent backing voices inferred from other releases. The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "credited_synthesizer_unspecified",
+          "credited_programming_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+          "credited_programming_unspecified_identity": "credited_programming_unspecified_generator_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Ciudad Líquida — complete four-person practice enumerated in the band’s firsthand Sudtopia interview published13August2017: Álvaro Cuevas guitar/synthesizers/programming; Julie Marín voice/rhythm guitar; Daniel Prieto bass; César Lugones drums. One credited voice and six instrument families retain every named role; two guitarists share one family card. This is the complete dated practice, not an assumed full recording roster for El Gran Jardín or Frecuencias Fantasma and not a reduced four-family Bandcamp biography. Duration/setlist/source audio not inspected; no absent backing voices inferred from other releases. Indie Boliviano denotes the independent Bolivian label/festival/creative-community field spanning rock, electronic and experimental music. Songmess’s firsthand episode307 with Alfonso and Chuntu of Nuson explicitly describes that multi-city La Paz/Santa Cruz/Cochabamba field; Ciudad Líquida’s own interview expressly identifies indie/alternative practice and its independent local network. Exact EveryNoise artist membership not asserted. Full existing bolivian_rock already covers national rock beyond its Vadik Barrón exemplar and substantially overlaps this selected rock band; indie is not claimed to exclude rock or mainstream collaboration. The independent cross-style community extends beyond a rock-only label, positively evidenced by Nuson’s electronic/experimental field. Existing cumbia_boliviana, trap_boliviano, reggae_boliviano and jazz_boliviano cover stylistic national branches, not this cross-style production/community network. Pending Pop Boliviano is not presumed equivalent or resolved. The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted.",
+        "exemplars": [
+          "Ciudad Líquida — complete dated four-person practice, Sudtopia2017"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -16.5,
+        -68.15,
+        "La Paz",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Firsthand band interview identifies La Paz origin/community; city anchor, not recording-session location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Indie Boliviano denotes the independent Bolivian label/festival/creative-community field spanning rock, electronic and experimental music. Songmess’s firsthand episode307 with Alfonso and Chuntu of Nuson explicitly describes that multi-city La Paz/Santa Cruz/Cochabamba field; Ciudad Líquida’s own interview expressly identifies indie/alternative practice and its independent local network. Exact EveryNoise artist membership not asserted. Full existing bolivian_rock already covers national rock beyond its Vadik Barrón exemplar and substantially overlaps this selected rock band; indie is not claimed to exclude rock or mainstream collaboration. The independent cross-style community extends beyond a rock-only label, positively evidenced by Nuson’s electronic/experimental field. Existing cumbia_boliviana, trap_boliviano, reggae_boliviano and jazz_boliviano cover stylistic national branches, not this cross-style production/community network. Pending Pop Boliviano is not presumed equivalent or resolved.",
+      "classification_evidence": "Indie Boliviano denotes the independent Bolivian label/festival/creative-community field spanning rock, electronic and experimental music. Songmess’s firsthand episode307 with Alfonso and Chuntu of Nuson explicitly describes that multi-city La Paz/Santa Cruz/Cochabamba field; Ciudad Líquida’s own interview expressly identifies indie/alternative practice and its independent local network. Exact EveryNoise artist membership not asserted. Full existing bolivian_rock already covers national rock beyond its Vadik Barrón exemplar and substantially overlaps this selected rock band; indie is not claimed to exclude rock or mainstream collaboration. The independent cross-style community extends beyond a rock-only label, positively evidenced by Nuson’s electronic/experimental field. Existing cumbia_boliviana, trap_boliviano, reggae_boliviano and jazz_boliviano cover stylistic national branches, not this cross-style production/community network. Pending Pop Boliviano is not presumed equivalent or resolved.",
+      "model_policy": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted.",
+      "sources": [
+        {
+          "url": "https://cooltivarte.com/portal/sudtopia-ciudad-liquida/",
+          "support_notes": "Full firsthand12390view0 roles96–102; independent practice105–112;2017 publication date not2026 page header."
+        },
+        {
+          "url": "https://www.ivoox.com/ep-307-indie-boliviano-feat-nuson-audios-mp3_rf_75397967_1.html",
+          "support_notes": "Own programme12459search1/12459view0: interviewer and Nuson members explicitly cross-style independent field. Category-only, no musical roles imported."
+        },
+        {
+          "url": "https://ciudadliquida.bandcamp.com/album/el-gran-jard-n",
+          "support_notes": "Own issuer12385view1 corroborates artist/LaPaz/indie identity; abbreviated biography does not override fuller dated interview roles."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "performer_count": 4,
+        "basis": "Full first-person roster credits Julie voice; other three roles instrumental/programming. Two guitars retained through shared family, not one-person claim."
+      },
+      "instrument_role_audit": {
+        "scope": "Ciudad Líquida — complete four-person practice enumerated in the band’s firsthand Sudtopia interview published13August2017: Álvaro Cuevas guitar/synthesizers/programming; Julie Marín voice/rhythm guitar; Daniel Prieto bass; César Lugones drums. One credited voice and six instrument families retain every named role; two guitarists share one family card. This is the complete dated practice, not an assumed full recording roster for El Gran Jardín or Frecuencias Fantasma and not a reduced four-family Bandcamp biography. Duration/setlist/source audio not inspected; no absent backing voices inferred from other releases.",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Julie voice",
+            "authored_realization": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+          },
+          {
+            "instrument": "electric_guitar_humbucker",
+            "source_role": "Álvaro guitar and Julie rhythm guitar",
+            "authored_realization": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+          },
+          {
+            "instrument": "electric_bass",
+            "source_role": "Daniel bass",
+            "authored_realization": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+          },
+          {
+            "instrument": "drum_kit",
+            "source_role": "César drums",
+            "authored_realization": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+          },
+          {
+            "instrument": "credited_synthesizer_unspecified",
+            "source_role": "Álvaro synthesizers",
+            "authored_realization": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+          },
+          {
+            "instrument": "credited_programming_unspecified",
+            "source_role": "Álvaro programming",
+            "authored_realization": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+          }
+        ],
+        "omissions": "None in full dated practice."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+        },
+        {
+          "instrument": "credited_programming_unspecified",
+          "parts": {
+            "credited_programming_unspecified_identity": "credited_programming_unspecified_generator_unspecified"
+          },
+          "policy": "The selected indie/alternative-rock ensemble is realized under broad functionalSong with explicitly authored functional-harmonic verse–chorus–bridge organization, not measured uniform source song form. Source-bare guitars and bass are realized as clean-strummed electric humbucker guitars with alder bodies/maple neck/rosewood fingerboard/nickel strings and long-scale fretted soapbar electric bass with roundwound fingerstyle; no exact source electrical architecture, wood, string count or gear is claimed. The shared alder control is coherent for both. Authored maple-shell stick-played rock drum kit with coated heads/felt single pedal/B20 traditional-finish cymbals preserves the complete drum role without claiming the original inventory. Existing architecture-unspecified synthesizer and programmed-sound owners preserve two separately credited electronic roles without guessing analog/digital synthesis, drum programming, MIDI, sampling or performance routing. Source-unspecified vocal physiology remains neutral; one accompanied lead is positively credited, while single-lead tracking and controlled live room are authored realization. Any up-tempo rendered pacing is an authored brisk band treatment, not a measured original BPM. No tuning or capture equipment asserted."
+        }
+      ],
+      "dependency_audit": "Existing positive source-unspecified synthesizer and programming owners reused; no new instrument or shared edit.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "Every applicable owning control protected; shared compatible alder body on guitar and bass. No separate hidden override or fallback claim.",
+      "primary_retrieval_refs": [
+        "turn12390view0",
+        "turn12459search1",
+        "turn12459view0",
+        "turn12385view1"
+      ],
+      "source_retrieval_caveat": "Full firsthand interview12390view0 retained as unmodified raw response; fresh direct12457view0 timed out. Own Songmess programme indexed12459search1 and direct12459view0 substantiate independent community scope. No paid material or audio audition claimed.",
+      "source_scope_limitation": "Ciudad Líquida — complete four-person practice enumerated in the band’s firsthand Sudtopia interview published13August2017: Álvaro Cuevas guitar/synthesizers/programming; Julie Marín voice/rhythm guitar; Daniel Prieto bass; César Lugones drums. One credited voice and six instrument families retain every named role; two guitarists share one family card. This is the complete dated practice, not an assumed full recording roster for El Gran Jardín or Frecuencias Fantasma and not a reduced four-family Bandcamp biography. Duration/setlist/source audio not inspected; no absent backing voices inferred from other releases.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_boliviano",
+          "name": "Indie Boliviano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Ciudad Líquida portrait or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes and visual receipt inherited; no fresh download claimed.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      },
+      "verification_status": "Author original owning preflight PASS:51 protected parts49flat,zero fallback/errors,1638 existing owners unchanged,one exact historical photo receipt. Original four browser/connector formats PASS max994 characters; independent review pending.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

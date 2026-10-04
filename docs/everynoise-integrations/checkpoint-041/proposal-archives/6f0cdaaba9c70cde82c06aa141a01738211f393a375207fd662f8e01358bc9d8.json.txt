@@ -1,0 +1,206 @@
+{
+  "entries": [
+    {
+      "source_label": "russian ccm",
+      "source_url": "https://everynoise.com/engenremap-russianccm.html",
+      "suggested_id": "russian_ccm",
+      "allocation_ordinal": 4228,
+      "allocation_group_id": "170",
+      "id": "russian_ccm",
+      "tradition": {
+        "id": "russian_ccm",
+        "name": "Russian CCM",
+        "family": "pop",
+        "lineage": "Complete separately offered Note-Store Piano.Easy edition PEA0339990 of Sharikov Family Band’s Держи меня (2022). Publisher explicitly assigns melody and accompaniment to one piano and distinguishes the separate Piano&Vocal and four-hand products. One pianist, zero scored singers in this simplified published edition; full piece rather than free first-page sample. Page count, paid notation and audio are uninspected. The original family-band album and its unknown complete personnel/production are not represented as piano-only. Artist ministry independently publishes the same named album and identifies its contemporary church mission; exact creator corpus names the family band at41. Authored standard studio upright with connected melodic touch and a controlled live room realizes the source-unspecified piano. No source instrument make, recording venue or session apparatus inferred. Existing ritualDevotional.christianGospel models the positively Christian devotional repertoire and church-ministry function, not Orthodox liturgical chant or a claim of gospel melisma/choir in this instrumental edition. No original tempo, global tuning, singer physiology or studio-master sonic fidelity claimed.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Complete separately offered Note-Store Piano.Easy edition PEA0339990 of Sharikov Family Band’s Держи меня (2022). Publisher explicitly assigns melody and accompaniment to one piano and distinguishes the separate Piano&Vocal and four-hand products. One pianist, zero scored singers in this simplified published edition; full piece rather than free first-page sample. Page count, paid notation and audio are uninspected. The original family-band album and its unknown complete personnel/production are not represented as piano-only. Artist ministry independently publishes the same named album and identifies its contemporary church mission; exact creator corpus names the family band at41. Russian CCM is a contemporary Russian-language Christian recorded-song and ministry community, including diaspora and post-Soviet church networks rather than a nationality test. Full exact creator corpus includes Russian-language church worship, Sharikov Family Band, Matfey Sharikov and other contemporary devotional artists. The family’s own bilingual ministry account documents work with churches across the United States and post-Soviet countries and its Russian devotional albums, establishing an actual community beyond one artist’s birthplace. Existing CCM already includes evangelical pop and congregational worship internationally; this is a narrower overlapping language/network branch, not a claim broad CCM excludes it. Existing Russian Orthodox chant is specifically Eastern Orthodox liturgical choral practice, not all Russian-language Christian music. Russian Pop and Russian Alt Pop are broader secular-and-popular discovery fields and their exemplars do not restrict their full scopes. Existing national CCM communities and contemporary worship overlap institutionally without being identical to this Russian-language network. Piano scoring is only the selected full issued rendition and is not the category distinction. Authored standard studio upright with connected melodic touch and a controlled live room realizes the source-unspecified piano. No source instrument make, recording venue or session apparatus inferred. Existing ritualDevotional.christianGospel models the positively Christian devotional repertoire and church-ministry function, not Orthodox liturgical chant or a claim of gospel melisma/choir in this instrumental edition. No original tempo, global tuning, singer physiology or studio-master sonic fidelity claimed.",
+        "exemplars": [
+          "Note-Store — complete Sharikov Family Band Держи меня Piano.Easy PEA0339990"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        55.75,
+        37.62,
+        "Russia",
+        "Europe"
+      ],
+      "geo_rationale": "Approximate on-land Russian-language community country anchor, not family residence or source recording city; diaspora scope explicitly retained.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Russian CCM is a contemporary Russian-language Christian recorded-song and ministry community, including diaspora and post-Soviet church networks rather than a nationality test. Full exact creator corpus includes Russian-language church worship, Sharikov Family Band, Matfey Sharikov and other contemporary devotional artists. The family’s own bilingual ministry account documents work with churches across the United States and post-Soviet countries and its Russian devotional albums, establishing an actual community beyond one artist’s birthplace. Existing CCM already includes evangelical pop and congregational worship internationally; this is a narrower overlapping language/network branch, not a claim broad CCM excludes it. Existing Russian Orthodox chant is specifically Eastern Orthodox liturgical choral practice, not all Russian-language Christian music. Russian Pop and Russian Alt Pop are broader secular-and-popular discovery fields and their exemplars do not restrict their full scopes. Existing national CCM communities and contemporary worship overlap institutionally without being identical to this Russian-language network. Piano scoring is only the selected full issued rendition and is not the category distinction.",
+      "classification_evidence": {
+        "note": "Russian CCM is a contemporary Russian-language Christian recorded-song and ministry community, including diaspora and post-Soviet church networks rather than a nationality test. Full exact creator corpus includes Russian-language church worship, Sharikov Family Band, Matfey Sharikov and other contemporary devotional artists. The family’s own bilingual ministry account documents work with churches across the United States and post-Soviet countries and its Russian devotional albums, establishing an actual community beyond one artist’s birthplace. Existing CCM already includes evangelical pop and congregational worship internationally; this is a narrower overlapping language/network branch, not a claim broad CCM excludes it. Existing Russian Orthodox chant is specifically Eastern Orthodox liturgical choral practice, not all Russian-language Christian music. Russian Pop and Russian Alt Pop are broader secular-and-popular discovery fields and their exemplars do not restrict their full scopes. Existing national CCM communities and contemporary worship overlap institutionally without being identical to this Russian-language network. Piano scoring is only the selected full issued rendition and is not the category distinction."
+      },
+      "model_policy": "Authored standard studio upright with connected melodic touch and a controlled live room realizes the source-unspecified piano. No source instrument make, recording venue or session apparatus inferred. Existing ritualDevotional.christianGospel models the positively Christian devotional repertoire and church-ministry function, not Orthodox liturgical chant or a claim of gospel melisma/choir in this instrumental edition. No original tempo, global tuning, singer physiology or studio-master sonic fidelity claimed.",
+      "source_scope_limitation": "Complete separately offered Note-Store Piano.Easy edition PEA0339990 of Sharikov Family Band’s Держи меня (2022). Publisher explicitly assigns melody and accompaniment to one piano and distinguishes the separate Piano&Vocal and four-hand products. One pianist, zero scored singers in this simplified published edition; full piece rather than free first-page sample. Page count, paid notation and audio are uninspected. The original family-band album and its unknown complete personnel/production are not represented as piano-only. Artist ministry independently publishes the same named album and identifies its contemporary church mission; exact creator corpus names the family band at41.",
+      "vocal_count_audit": {
+        "scored_singers": 0,
+        "pianists": 1,
+        "reason": "Complete selected instrumental piano edition, not asserted absence of vocals in original devotional recording."
+      },
+      "instrument_role_audit": {
+        "scope": "Complete separately offered Note-Store Piano.Easy edition PEA0339990 of Sharikov Family Band’s Держи меня (2022). Publisher explicitly assigns melody and accompaniment to one piano and distinguishes the separate Piano&Vocal and four-hand products. One pianist, zero scored singers in this simplified published edition; full piece rather than free first-page sample. Page count, paid notation and audio are uninspected. The original family-band album and its unknown complete personnel/production are not represented as piano-only. Artist ministry independently publishes the same named album and identifies its contemporary church mission; exact creator corpus names the family band at41.",
+        "roles": {
+          "upright_piano": "Complete one-player melody and accompaniment edition; actual piano subtype unknown."
+        },
+        "authored_defaults": "Authored standard studio upright with connected melodic touch and a controlled live room realizes the source-unspecified piano. No source instrument make, recording venue or session apparatus inferred. Existing ritualDevotional.christianGospel models the positively Christian devotional repertoire and church-ministry function, not Orthodox liturgical chant or a claim of gospel melisma/choir in this instrumental edition. No original tempo, global tuning, singer physiology or studio-master sonic fidelity claimed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Authored standard studio upright with connected melodic touch and a controlled live room realizes the source-unspecified piano. No source instrument make, recording venue or session apparatus inferred. Existing ritualDevotional.christianGospel models the positively Christian devotional repertoire and church-ministry function, not Orthodox liturgical chant or a claim of gospel melisma/choir in this instrumental edition. No original tempo, global tuning, singer physiology or studio-master sonic fidelity claimed."
+        }
+      ],
+      "flat_pin_resolution": "All three actual upright parts explicitly protected, no fallback or conflict.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://note-store.com/notes/sharikov-family-band/derzhi-menya/piano-easy/",
+          "support_notes": "Fresh12732search0 full primary publisher exactPEA0339990 available simplified one-piano melody/accompaniment; no separate voice. Pagecount unknown."
+        },
+        {
+          "url": "https://sharikovministries.com/about/",
+          "support_notes": "Fresh12735view0 firsthand family church-ministry work across US/post-Soviet countries, bilingual testimony and Russian-origin family history; not complete recording palette."
+        },
+        {
+          "url": "https://sharikovministries.com/%D0%B1%D0%B5%D0%B7-%D1%82%D0%B5%D0%B1%D1%8F-%D1%82%D0%B5%D0%BC%D0%BD%D0%BE-2/",
+          "support_notes": "Actual about-page album link10 resolves same-title ДЕРЖИ МЕНЯ official release page12737view1; URLslug is not title."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/19TTQtvqRkqHiIwxdHCbhS?theme=0",
+          "support_notes": "Fresh12737view0 full exact RussianCCM creator100; SharikovFamilyBand41 and Matfey47/63, selected different song disclosure."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "russian_ccm",
+          "name": "Russian CCM",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not a piano, family-band portrait, congregation or actual session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12663view3 confirms IainFergusson/Binksternet CC BY2.5 crop; historical023 bytes/visual unchanged.",
+          "fresh_review_ref": "turn12663view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12663view3"
+        ],
+        "fresh_rights_review": "Fresh12663view3 rights only; no fresh download or visual."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Complete source candidate pending independent peer; original owning-parts and four formats checked.",
+      "source_retrieval_caveat": "Fresh full indexed publisher12732search0 confirms available exact Piano.Easy SKU, separate melody/accompaniment piano scoring. Planned video tutorial is not a pending score. Paid full notation/audio uninspected. Artist primary12735view0/12737view1 and exact creator12737view0 retrieved; no original band personnel inferred."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

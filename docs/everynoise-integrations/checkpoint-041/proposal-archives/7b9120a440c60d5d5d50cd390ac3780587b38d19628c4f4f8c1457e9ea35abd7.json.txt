@@ -1,0 +1,366 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "sorani_pop",
+          "name": "Sorani Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not concert participants, instruments or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12663view3 confirms CC BY2.5 IainFergusson/Binksternet crop; exact historical023 bytes/visual inherited.",
+          "fresh_review_ref": "turn12663view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12663view3"
+        ],
+        "fresh_rights_review": "Fresh12663view3 rights only; no new byte download or visual observation."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        },
+        {
+          "instrument": "tar_persian",
+          "parts": {
+            "plucked_traditional_technique": "plucked_classical_idiom",
+            "tar_belly": "tar_lamb_skin",
+            "tar_pick": "tar_brass_mizrab",
+            "tar_body_wood": "tar_mulberry_body",
+            "tar_string_material": "tar_steel_bronze",
+            "tar_tradition": "tar_modern_concert"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        },
+        {
+          "instrument": "santur",
+          "parts": {
+            "plucked_traditional_technique": "plucked_classical_idiom",
+            "santur_school": "santur_persian",
+            "santur_technique": "santur_mizrab"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        },
+        {
+          "instrument": "kamancheh",
+          "parts": {
+            "bowed_technique": "bowed_legato_classical",
+            "kamancheh_belly": "sturgeon_kamancheh",
+            "kamancheh_use": "kamancheh_dastgah",
+            "kamancheh_body_wood": "kamancheh_walnut_body",
+            "kamancheh_strings": "kamancheh_steel_modern"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        },
+        {
+          "instrument": "tombak",
+          "parts": {
+            "tombak_wood": "tombak_mulberry",
+            "tombak_school": "tombak_tehran"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        },
+        {
+          "instrument": "oud",
+          "parts": {
+            "plucked_traditional_technique": "plucked_classical_idiom",
+            "oud_school": "oud_iraqi",
+            "oud_strings": "oud_eleven",
+            "oud_pick": "risha_plastic",
+            "oud_body_wood": "oud_walnut_body",
+            "oud_soundboard_wood": "oud_spruce_face",
+            "oud_string_material": "oud_pyramid_nylon"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_spinet"
+          },
+          "policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+        }
+      ],
+      "flat_pin_resolution": "All44 owning parts protected by42 flat keys; shared classical plucked idiom applies to tar/santur/oud. No unprotected fallback.",
+      "signature_tokens": [],
+      "source_label": "sorani pop",
+      "source_url": "https://everynoise.com/engenremap-soranipop.html",
+      "suggested_id": "sorani_pop",
+      "allocation_ordinal": 1883,
+      "allocation_group_id": "076",
+      "id": "sorani_pop",
+      "tradition": {
+        "id": "sorani_pop",
+        "name": "Sorani Pop",
+        "family": "global",
+        "lineage": "Adnan Karim and Hezaravaz Ensemble, whole concert practice announced by Konserthuset Stockholm for16May2025,19:30 to approximately21:45. Eight named people and all eight roles: Karim voice; Azad Mirzapour tar/composition; Mahyar Toreihi santur; Mehrzad Azami Kia kamancheh; Hiwa Khatib tombak; Mehrdad Mirzapour oud; Mårten Hillbom percussion; Moein Taheri piano. The venue explicitly describes Kurdish/Persian traditional melodies in a modern composed concert setting. Individual piece programme is unavailable; no audio audition, actual setlist, per-piece instrumentation or studio recording reconstruction is claimed. Scope is the complete positively documented ensemble programme, not the earlier2020 television performance or2024 concert. Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown.",
+        "instruments": [
+          "voice",
+          "tar_persian",
+          "santur",
+          "kamancheh",
+          "tombak",
+          "oud",
+          "credited_auxiliary_percussion",
+          "upright_piano"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tar_belly": "tar_lamb_skin",
+          "tar_pick": "tar_brass_mizrab",
+          "tar_body_wood": "tar_mulberry_body",
+          "tar_string_material": "tar_steel_bronze",
+          "tar_tradition": "tar_modern_concert",
+          "santur_school": "santur_persian",
+          "santur_technique": "santur_mizrab",
+          "bowed_technique": "bowed_legato_classical",
+          "kamancheh_belly": "sturgeon_kamancheh",
+          "kamancheh_use": "kamancheh_dastgah",
+          "kamancheh_body_wood": "kamancheh_walnut_body",
+          "kamancheh_strings": "kamancheh_steel_modern",
+          "tombak_wood": "tombak_mulberry",
+          "tombak_school": "tombak_tehran",
+          "oud_school": "oud_iraqi",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "pin_parts": true,
+        "room": "live_room"
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Adnan Karim and Hezaravaz Ensemble, whole concert practice announced by Konserthuset Stockholm for16May2025,19:30 to approximately21:45. Eight named people and all eight roles: Karim voice; Azad Mirzapour tar/composition; Mahyar Toreihi santur; Mehrzad Azami Kia kamancheh; Hiwa Khatib tombak; Mehrdad Mirzapour oud; Mårten Hillbom percussion; Moein Taheri piano. The venue explicitly describes Kurdish/Persian traditional melodies in a modern composed concert setting. Individual piece programme is unavailable; no audio audition, actual setlist, per-piece instrumentation or studio recording reconstruction is claimed. Scope is the complete positively documented ensemble programme, not the earlier2020 television performance or2024 concert. Exact creator Sorani Pop corpus names Adnan Karim36 and Bokan Hawrami41 within a contemporary Sorani-language recording/discovery community. Bullock’s firsthand research documents this Sorani/Hewrami television-song circulation and its traditional-song genealogy; selected artist is also explicitly Kurdish/Persian concert practice in the venue primary. Existing kurdish_pop is a broad cross-language contemporary Kurdish umbrella and includes overlapping artists; this narrower named linguistic/media repertoire does not exclude it. Kurdish folk likewise includes overlapping inherited melodies, while dengbej specifically preserves bardic recital rather than the whole contemporary recorded-song field. Kurdish rock and hiphop are distinct style branches that may also overlap the creator corpus. No category boundary rests on this eight-role example alone, nor on treating Kurdish Pop as limited to its Rewsan example. Existing Turkish makam and Persian modal traditions describe modal practice systems rather than this named Sorani discovery community. Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown.",
+        "exemplars": [
+          "Adnan Karim and Hezaravaz Ensemble — complete announced16May2025 concert ensemble"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        59.335,
+        18.063,
+        "Stockholm",
+        "Europe"
+      ],
+      "geo_rationale": "Venue-positive Stockholm anchor for this whole documented diasporic concert programme, not claimed origin of Sorani music.",
+      "neighbor_distinction": "Exact creator Sorani Pop corpus names Adnan Karim36 and Bokan Hawrami41 within a contemporary Sorani-language recording/discovery community. Bullock’s firsthand research documents this Sorani/Hewrami television-song circulation and its traditional-song genealogy; selected artist is also explicitly Kurdish/Persian concert practice in the venue primary. Existing kurdish_pop is a broad cross-language contemporary Kurdish umbrella and includes overlapping artists; this narrower named linguistic/media repertoire does not exclude it. Kurdish folk likewise includes overlapping inherited melodies, while dengbej specifically preserves bardic recital rather than the whole contemporary recorded-song field. Kurdish rock and hiphop are distinct style branches that may also overlap the creator corpus. No category boundary rests on this eight-role example alone, nor on treating Kurdish Pop as limited to its Rewsan example. Existing Turkish makam and Persian modal traditions describe modal practice systems rather than this named Sorani discovery community.",
+      "model_policy": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown.",
+      "source_scope_limitation": "Adnan Karim and Hezaravaz Ensemble, whole concert practice announced by Konserthuset Stockholm for16May2025,19:30 to approximately21:45. Eight named people and all eight roles: Karim voice; Azad Mirzapour tar/composition; Mahyar Toreihi santur; Mehrzad Azami Kia kamancheh; Hiwa Khatib tombak; Mehrdad Mirzapour oud; Mårten Hillbom percussion; Moein Taheri piano. The venue explicitly describes Kurdish/Persian traditional melodies in a modern composed concert setting. Individual piece programme is unavailable; no audio audition, actual setlist, per-piece instrumentation or studio recording reconstruction is claimed. Scope is the complete positively documented ensemble programme, not the earlier2020 television performance or2024 concert.",
+      "classification_evidence": {
+        "note": "Exact creator Sorani Pop corpus names Adnan Karim36 and Bokan Hawrami41 within a contemporary Sorani-language recording/discovery community. Bullock’s firsthand research documents this Sorani/Hewrami television-song circulation and its traditional-song genealogy; selected artist is also explicitly Kurdish/Persian concert practice in the venue primary. Existing kurdish_pop is a broad cross-language contemporary Kurdish umbrella and includes overlapping artists; this narrower named linguistic/media repertoire does not exclude it. Kurdish folk likewise includes overlapping inherited melodies, while dengbej specifically preserves bardic recital rather than the whole contemporary recorded-song field. Kurdish rock and hiphop are distinct style branches that may also overlap the creator corpus. No category boundary rests on this eight-role example alone, nor on treating Kurdish Pop as limited to its Rewsan example. Existing Turkish makam and Persian modal traditions describe modal practice systems rather than this named Sorani discovery community."
+      },
+      "vocal_count_audit": {
+        "live_singers": 1,
+        "other_named_players": 7,
+        "scope": "All named programme participants retained; composer role belongs to tar player."
+      },
+      "instrument_role_audit": {
+        "scope": "Adnan Karim and Hezaravaz Ensemble, whole concert practice announced by Konserthuset Stockholm for16May2025,19:30 to approximately21:45. Eight named people and all eight roles: Karim voice; Azad Mirzapour tar/composition; Mahyar Toreihi santur; Mehrzad Azami Kia kamancheh; Hiwa Khatib tombak; Mehrdad Mirzapour oud; Mårten Hillbom percussion; Moein Taheri piano. The venue explicitly describes Kurdish/Persian traditional melodies in a modern composed concert setting. Individual piece programme is unavailable; no audio audition, actual setlist, per-piece instrumentation or studio recording reconstruction is claimed. Scope is the complete positively documented ensemble programme, not the earlier2020 television performance or2024 concert.",
+        "roles": {
+          "voice": "Adnan Karim vocal",
+          "tar_persian": "Azad Mirzapour tar and composer",
+          "santur": "Mahyar Toreihi santur",
+          "kamancheh": "Mehrzad Azami Kia kamancheh",
+          "tombak": "Hiwa Khatib tombak",
+          "oud": "Mehrdad Mirzapour oud",
+          "credited_auxiliary_percussion": "Marten Hillbom unspecified percussion",
+          "upright_piano": "Moein Taheri piano"
+        },
+        "people": 8,
+        "families": 8,
+        "omitted_positive_roles": [],
+        "authored_defaults": "Explicit new concert rendition retains every credited role. Broad artMusic applies to this composer-led elaborated Kurdish/Persian concert-poetry arrangement, not all Sorani popular music. Brisk representative pacing is authored, not measured tempo throughout the advertised programme. Single accompanied live voice retains unspecified physiology/pitch/ornament; no actual singer training inferred. Modern-concert tar uses authored mulberry/lambskin/brass/steel-bronze construction and classical plucked phrasing. Persian santur with mizrab uses an authored vocal-contour answering idiom: tahrir-ornamenting is instrumental imitation of Persian vocal ornaments, not a claim a hammered instrument has a larynx or that the actual player used this gesture. Shafiei2019 explicitly documents instrumental responses based on vocal-radif transcriptions. Kamancheh walnut/skin/steel and sustained bowed dastgah treatment are authored within the source-positive Persian concert context. Tombak mulberry/Tehran treatment has contextual support in the named player’s documented Tehran musical study; it is not a transcription of this performance. Oud walnut/spruce/nylon11strings/plasticrisha with spacious Iraqi-style phrasing is an explicitly authored regional-art-music realization, not Mehrdad Mirzapour’s actual school or gear. Smithsonian documents Iraqi oud tradition and educational Kurdish repertoire context; it does not document this player. Generic additional percussion preserves source-unknown instruments and techniques; no kit/conga/daf guessed. Compact studio-spinet upright with connected touch realizes the source-unspecified piano; actual concert piano subtype remains unknown. Controlled live-room is a new rendition environment, not the MainHall acoustics. Global tuning and capture chain omitted as unknown."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "tar_persian",
+          "santur",
+          "kamancheh",
+          "tombak",
+          "oud",
+          "credited_auxiliary_percussion",
+          "upright_piano"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.konserthuset.se/en/programme/calendar/external-concert/2025/adnan-karim-and-hezaravaz-ensemble/",
+          "support_notes": "Fresh12681view0/12688view2 complete dated8-person roster and modern Kurdish/Persian composer-led concert; pieceprogramme missing.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0V9yTHDVtWgzJShycRhcqH",
+          "support_notes": "Fresh12688view0 exact creator full corpus; Adnan36/Bokan41.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://knowledge.uchicago.edu/record/3939/files/Bullock_uchicago_0330D_16250.pdf",
+          "support_notes": "Prior retained raw /tmp/batch038/sorani-primary-raw117.json and sorani-oud-primary-raw117.json; current indexed12681search17 reproduces contemporary Adnan/Bokan genealogy, direct12686view1 unavailable. This older programme is boundary evidence only.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.stallet.st/ar/7247-shahab-azinmehr-hiwa-khatib-the-clouds-moving-to-you-220312",
+          "support_notes": "Fresh indexed12684search5 explicitly HiwaKhatib Tehran music-school tombak1996. Direct12681view1 failed; no asserted directread.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.smc2019.uma.es/articles/P3/P3_04_SMC2019_paper.pdf",
+          "support_notes": "Fresh12697view0 Shafiei2019 pp1–3: instrumentalists use vocal-radif transcription and answer sung poetic phrases; authored santur answering interpretation, not measured performance gesture.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://folkways.si.edu/rahim-alhaj-with-souhail-kaspar/when-the-soul-is-settled-music-of-iraq/islamica-world/album/Smithsonian",
+          "support_notes": "Fresh12686view0/12688view1 positive Baghdad/MunirBashir oud lineage, MaqamKurd and linked Kurdish lesson. Lesson title is NOT a track title. Contextual authored choice only; no claim source-player affiliation.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "source_retrieval_caveat": "Whole venue programme roster retrieved; individual pieces explicitly missing and audio not inspected. Earlier six-family2020 television source remains preserved separately and is not silently trimmed.",
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Candidate complete source and authored contextual choices pending independent peer; no self-acceptance.",
+      "prior_source_preserved": "/tmp/batch038/recovery076-secondpass-5.json"
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

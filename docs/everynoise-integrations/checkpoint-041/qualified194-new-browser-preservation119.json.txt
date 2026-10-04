@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "integration_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "new_traditions": 194,
+  "cards": 582,
+  "parts": 5041,
+  "applicable_source_pins_materialized": 5041,
+  "unprotected_imported_slots": [],
+  "errors": [],
+  "method": "Actual unchanged browser importTradition materializes all source-applicable values, roster, room/tuning and declared chain including FX. Browser card objects do not carry compiler pinned maps; protected flags are checked separately in completed compiled API. Source pin_parts=true and applicable-owner membership determine compiler obligation.",
+  "no_repo_mutations": true
+}

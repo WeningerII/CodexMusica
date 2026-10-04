@@ -1,0 +1,455 @@
+{
+  "entries": [
+    {
+      "source_label": "ringtone",
+      "source_url": "https://everynoise.com/engenremap-ringtone.html",
+      "suggested_id": "ringtone",
+      "allocation_ordinal": 4212,
+      "allocation_group_id": "169",
+      "id": "ringtone",
+      "tradition": {
+        "id": "ringtone",
+        "name": "Ringtone",
+        "family": "electronic",
+        "lineage": "Ringtone music — short recognizable musical signals for telephone call alerts.",
+        "instruments": [
+          "fm_synth"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx21_dx100"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "Ringtone music uses concise, recognizable motifs to identify incoming calls. Its sound ranges from synthesized tones and compact melodies to recorded instrumental or vocal excerpts. Composers also write self-contained alert pieces that circulate as phone audio and playable arrangements.",
+        "exemplars": [
+          "Nokia Tune",
+          "Polyphonic MIDI alerts",
+          "Recorded ringtone clips"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        27.665,
+        -81.516,
+        "Florida",
+        "North America"
+      ],
+      "geo_rationale": "Artist’s own current Florida residence, regional editorial anchor; no source recording address or ringtone origin claim.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.sheetmusicplus.com/en/product/noah-s-ringtone-john-d-wattson-series-22549219.html",
+          "title": "Composer-publisher complete ringtone arrangement",
+          "support_notes": "Fresh11904view0/1 complete metadata: four-page piano-solo adaptation, composer/publisher and actual phone-audio purpose. Paidscore not inspected."
+        },
+        {
+          "url": "https://mattjohnsonmusic.com/",
+          "title": "Composer’s own publisher and practice biography",
+          "support_notes": "Fresh11923view0 confirms Dolce&Nuit is his publishing company, composed piano/ringtone media and Florida residence."
+        },
+        {
+          "url": "https://www.jwpepper.com/noahs-ringtone-john-d-wattson-series-11528961/p",
+          "title": "Same publisher-issued adaptation corroboration",
+          "support_notes": "Fresh11933search0 repeats phone-audio purpose and complete solo adaptation, distinguishes original Noah’s Theme fullscore."
+        },
+        {
+          "url": "https://blogs.windows.com/devices/2009/04/27/nokia-2110/",
+          "title": "Manufacturer history of musical telephone alerts",
+          "support_notes": "Fresh13445view0 explicitly monophonic musical alert, polyphonic melodies and recorded sound clips; guitar composition adapted to electronic telephone use."
+        },
+        {
+          "url": "https://support.apple.com/en-ie/120692",
+          "title": "Apple ringtone creation and export",
+          "support_notes": "Fresh13445view1 documents short audio clips, built-in synthesizers, musical composition and optional recorded voices. A ringtone need not use any fixed acoustic ensemble."
+        }
+      ],
+      "neighbor_distinction": "Ringtone is the telephone-call alert repertoire/function, here positively supported by the composer-publisher’s actual phone-audio offering and separately issued short ringtone composition, not its title alone. Existing library_music is production/broadcast cue licensing and sound_effects includes edited environmental collage; neither has telephone-call alerts as its defining function. Existing chiptune_8bit is sound-chip composition culture, while ringtones may also use recorded acoustic compositions. New_age_piano and background_piano overlap this artist/timbre but have different listening/ambient purposes; no claim that sharing a piano implies equivalence. Category scope is functional and cross-timbral, not a new physical instrument. The creator map currently returns403; no exact artist or track membership claim.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "fm_synth"
+        ]
+      },
+      "classification_evidence": "Ringtone is the telephone-call alert repertoire/function, here positively supported by the composer-publisher’s actual phone-audio offering and separately issued short ringtone composition, not its title alone. Existing library_music is production/broadcast cue licensing and sound_effects includes edited environmental collage; neither has telephone-call alerts as its defining function. Existing chiptune_8bit is sound-chip composition culture, while ringtones may also use recorded acoustic compositions. New_age_piano and background_piano overlap this artist/timbre but have different listening/ambient purposes; no claim that sharing a piano implies equivalence. Category scope is functional and cross-timbral, not a new physical instrument. The creator map currently returns403; no exact artist or track membership claim.",
+      "verification_status": "Pending mechanical/four-format and independent review.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ringtone",
+          "name": "Ringtone",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11612view0 confirms original Commons credit andCC BY2.5; exact historical023 bytes retained.",
+          "fresh_review_ref": "turn11612view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11612view0; no new binary or visual review claimed."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "One synthesizer with all five applicable owning controls explicitly protected; no ownership collision."
+      },
+      "source_review_refs": [
+        "turn11904view0",
+        "turn11923view0",
+        "turn11933search0",
+        "turn11612view0"
+      ],
+      "status": "READY_FOR_REVIEW",
+      "primary_retrieval_refs": [
+        "turn11904view0",
+        "turn11923view0",
+        "turn11933search0",
+        "turn11612view0"
+      ],
+      "source_retrieval_caveat": "Wholeedition metadata direct, fullpaid notation/audio not inspected; creator map403, no invented membership.",
+      "repair_evidence": {
+        "original_source": "/tmp/batch040/resume461-5.json",
+        "original_entry": {
+          "source_label": "ringtone",
+          "source_url": "https://everynoise.com/engenremap-ringtone.html",
+          "suggested_id": "ringtone",
+          "allocation_ordinal": 4212,
+          "allocation_group_id": "169",
+          "id": "ringtone",
+          "tradition": {
+            "id": "ringtone",
+            "name": "Ringtone",
+            "family": "classical",
+            "lineage": "Matt Johnson / John D. Wattson — complete separately published four-page Noah’s Ringtone piano-solo edition, Dolce & Nuit Productions859902 / ArrangeMe A0.1267261. The composer-publisher explicitly calls this a short ringtone composition and offers audio for phones. This is the whole published accessible adaptation, not a self-created excerpt of Noah’s Theme, a generic Nokia imitation, or the original full-length recording. Paid full notation/audio and phone synthesis were not inspected. Sole scored piano retained, zero scored singers; no electronic phone generator inferred. Authored new standard upright-piano rendition with connected classical keyboard phrasing and spacious recital-room presentation realizes the complete fixed instrumental teaching miniature. These physical/technique/room choices are not original composer hardware or actual handset playback. Broad artMusic/classical is limited to this composed piano performance edition; the wider ringtone field is a telephone-alert function, not universally classical. No invented verse-chorus form, source tempo, temperament or capture chain. All three existing owning controls protected.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "artMusic",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": -2,
+              "timbre": 0,
+              "percussion": -1,
+              "cyclicity": 0
+            },
+            "description": "Matt Johnson / John D. Wattson — complete separately published four-page Noah’s Ringtone piano-solo edition, Dolce & Nuit Productions859902 / ArrangeMe A0.1267261. The composer-publisher explicitly calls this a short ringtone composition and offers audio for phones. This is the whole published accessible adaptation, not a self-created excerpt of Noah’s Theme, a generic Nokia imitation, or the original full-length recording. Paid full notation/audio and phone synthesis were not inspected. Sole scored piano retained, zero scored singers; no electronic phone generator inferred. Ringtone is the telephone-call alert repertoire/function, here positively supported by the composer-publisher’s actual phone-audio offering and separately issued short ringtone composition, not its title alone. Existing library_music is production/broadcast cue licensing and sound_effects includes edited environmental collage; neither has telephone-call alerts as its defining function. Existing chiptune_8bit is sound-chip composition culture, while ringtones may also use recorded acoustic compositions. New_age_piano and background_piano overlap this artist/timbre but have different listening/ambient purposes; no claim that sharing a piano implies equivalence. Category scope is functional and cross-timbral, not a new physical instrument. The creator map currently returns403; no exact artist or track membership claim. Authored new standard upright-piano rendition with connected classical keyboard phrasing and spacious recital-room presentation realizes the complete fixed instrumental teaching miniature. These physical/technique/room choices are not original composer hardware or actual handset playback. Broad artMusic/classical is limited to this composed piano performance edition; the wider ringtone field is a telephone-alert function, not universally classical. No invented verse-chorus form, source tempo, temperament or capture chain. All three existing owning controls protected.",
+            "exemplars": [
+              "Matt Johnson / John D. Wattson — Noah’s Ringtone, complete four-page published piano-solo adaptation"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            27.665,
+            -81.516,
+            "Florida",
+            "North America"
+          ],
+          "geo_rationale": "Artist’s own current Florida residence, regional editorial anchor; no source recording address or ringtone origin claim.",
+          "signature_tokens": [],
+          "sources": [
+            {
+              "url": "https://www.sheetmusicplus.com/en/product/noah-s-ringtone-john-d-wattson-series-22549219.html",
+              "title": "Composer-publisher complete ringtone arrangement",
+              "support_notes": "Fresh11904view0/1 complete metadata: four-page piano-solo adaptation, composer/publisher and actual phone-audio purpose. Paidscore not inspected."
+            },
+            {
+              "url": "https://mattjohnsonmusic.com/",
+              "title": "Composer’s own publisher and practice biography",
+              "support_notes": "Fresh11923view0 confirms Dolce&Nuit is his publishing company, composed piano/ringtone media and Florida residence."
+            },
+            {
+              "url": "https://www.jwpepper.com/noahs-ringtone-john-d-wattson-series-11528961/p",
+              "title": "Same publisher-issued adaptation corroboration",
+              "support_notes": "Fresh11933search0 repeats phone-audio purpose and complete solo adaptation, distinguishes original Noah’s Theme fullscore."
+            }
+          ],
+          "neighbor_distinction": "Ringtone is the telephone-call alert repertoire/function, here positively supported by the composer-publisher’s actual phone-audio offering and separately issued short ringtone composition, not its title alone. Existing library_music is production/broadcast cue licensing and sound_effects includes edited environmental collage; neither has telephone-call alerts as its defining function. Existing chiptune_8bit is sound-chip composition culture, while ringtones may also use recorded acoustic compositions. New_age_piano and background_piano overlap this artist/timbre but have different listening/ambient purposes; no claim that sharing a piano implies equivalence. Category scope is functional and cross-timbral, not a new physical instrument. The creator map currently returns403; no exact artist or track membership claim.",
+          "model_policy": "Authored new standard upright-piano rendition with connected classical keyboard phrasing and spacious recital-room presentation realizes the complete fixed instrumental teaching miniature. These physical/technique/room choices are not original composer hardware or actual handset playback. Broad artMusic/classical is limited to this composed piano performance edition; the wider ringtone field is a telephone-alert function, not universally classical. No invented verse-chorus form, source tempo, temperament or capture chain. All three existing owning controls protected.",
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "upright_piano"
+            ]
+          },
+          "classification_evidence": "Ringtone is the telephone-call alert repertoire/function, here positively supported by the composer-publisher’s actual phone-audio offering and separately issued short ringtone composition, not its title alone. Existing library_music is production/broadcast cue licensing and sound_effects includes edited environmental collage; neither has telephone-call alerts as its defining function. Existing chiptune_8bit is sound-chip composition culture, while ringtones may also use recorded acoustic compositions. New_age_piano and background_piano overlap this artist/timbre but have different listening/ambient purposes; no claim that sharing a piano implies equivalence. Category scope is functional and cross-timbral, not a new physical instrument. The creator map currently returns403; no exact artist or track membership claim.",
+          "vocal_count_audit": {
+            "selected_edition_scored_voice_parts": 0,
+            "decision": "Explicit piano solo, not an unidentified original backing track."
+          },
+          "instrument_role_audit": {
+            "scope": "Matt Johnson / John D. Wattson — complete separately published four-page Noah’s Ringtone piano-solo edition, Dolce & Nuit Productions859902 / ArrangeMe A0.1267261. The composer-publisher explicitly calls this a short ringtone composition and offers audio for phones. This is the whole published accessible adaptation, not a self-created excerpt of Noah’s Theme, a generic Nokia imitation, or the original full-length recording. Paid full notation/audio and phone synthesis were not inspected. Sole scored piano retained, zero scored singers; no electronic phone generator inferred.",
+            "roles": {
+              "upright_piano": "Sole explicitly scored piano, source physical model unknown; upright authored"
+            },
+            "authored_defaults": "Authored new standard upright-piano rendition with connected classical keyboard phrasing and spacious recital-room presentation realizes the complete fixed instrumental teaching miniature. These physical/technique/room choices are not original composer hardware or actual handset playback. Broad artMusic/classical is limited to this composed piano performance edition; the wider ringtone field is a telephone-alert function, not universally classical. No invented verse-chorus form, source tempo, temperament or capture chain. All three existing owning controls protected."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_classical_legato",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "All three applicable parts protected; standard modern upright is an authored realization of source-unspecified piano construction."
+            }
+          ],
+          "verification_status": "Pending mechanical/four-format and independent review.",
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "ringtone",
+              "name": "Ringtone",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording context only; not a handset, piano, performer or actual source equipment.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh11612view0 confirms original Commons credit andCC BY2.5; exact historical023 bytes retained.",
+              "fresh_review_ref": "turn11612view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_review": "Fresh11612view0; no new binary or visual review claimed."
+          },
+          "flat_pin_conflicts": [],
+          "flat_pin_resolution": {
+            "rule": "One existing owner, all three controls deliberately protected, no shared-key conflict or fallback."
+          },
+          "source_review_refs": [
+            "turn11904view0",
+            "turn11923view0",
+            "turn11933search0",
+            "turn11612view0"
+          ],
+          "status": "READY_FOR_REVIEW",
+          "source_scope_limitation": "Matt Johnson / John D. Wattson — complete separately published four-page Noah’s Ringtone piano-solo edition, Dolce & Nuit Productions859902 / ArrangeMe A0.1267261. The composer-publisher explicitly calls this a short ringtone composition and offers audio for phones. This is the whole published accessible adaptation, not a self-created excerpt of Noah’s Theme, a generic Nokia imitation, or the original full-length recording. Paid full notation/audio and phone synthesis were not inspected. Sole scored piano retained, zero scored singers; no electronic phone generator inferred.",
+          "primary_retrieval_refs": [
+            "turn11904view0",
+            "turn11923view0",
+            "turn11933search0",
+            "turn11612view0"
+          ],
+          "source_retrieval_caveat": "Wholeedition metadata direct, fullpaid notation/audio not inspected; creator map403, no invented membership."
+        },
+        "reason": "Restore general genre profile and preserve exact recording/edition dossier separately; representative instrumental branch remains available.",
+        "default_review": "Existing coherent control choices are authored representative performance settings; exact original-session equipment and personnel not asserted.",
+        "prior_instrument_role_audit": {
+          "scope": "Matt Johnson / John D. Wattson — complete separately published four-page Noah’s Ringtone piano-solo edition, Dolce & Nuit Productions859902 / ArrangeMe A0.1267261. The composer-publisher explicitly calls this a short ringtone composition and offers audio for phones. This is the whole published accessible adaptation, not a self-created excerpt of Noah’s Theme, a generic Nokia imitation, or the original full-length recording. Paid full notation/audio and phone synthesis were not inspected. Sole scored piano retained, zero scored singers; no electronic phone generator inferred.",
+          "roles": {
+            "upright_piano": "Sole explicitly scored piano, source physical model unknown; upright authored"
+          },
+          "authored_defaults": "Authored new standard upright-piano rendition with connected classical keyboard phrasing and spacious recital-room presentation realizes the complete fixed instrumental teaching miniature. These physical/technique/room choices are not original composer hardware or actual handset playback. Broad artMusic/classical is limited to this composed piano performance edition; the wider ringtone field is a telephone-alert function, not universally classical. No invented verse-chorus form, source tempo, temperament or capture chain. All three existing owning controls protected."
+        },
+        "prior_resolved_parts_audit": [
+          {
+            "instrument": "upright_piano",
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            },
+            "policy": "All three applicable parts protected; standard modern upright is an authored realization of source-unspecified piano construction."
+          }
+        ],
+        "prior_vocal_count_audit": {
+          "selected_edition_scored_voice_parts": 0,
+          "decision": "Explicit piano solo, not an unidentified original backing track."
+        },
+        "prior_model_policy": "Authored new standard upright-piano rendition with connected classical keyboard phrasing and spacious recital-room presentation realizes the complete fixed instrumental teaching miniature. These physical/technique/room choices are not original composer hardware or actual handset playback. Broad artMusic/classical is limited to this composed piano performance edition; the wider ringtone field is a telephone-alert function, not universally classical. No invented verse-chorus form, source tempo, temperament or capture chain. All three existing owning controls protected.",
+        "prior_source_scope_limitation": "Matt Johnson / John D. Wattson — complete separately published four-page Noah’s Ringtone piano-solo edition, Dolce & Nuit Productions859902 / ArrangeMe A0.1267261. The composer-publisher explicitly calls this a short ringtone composition and offers audio for phones. This is the whole published accessible adaptation, not a self-created excerpt of Noah’s Theme, a generic Nokia imitation, or the original full-length recording. Paid full notation/audio and phone synthesis were not inspected. Sole scored piano retained, zero scored singers; no electronic phone generator inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "fm_synth",
+          "parts": {
+            "electronic_technique": "electronic_pluck_short",
+            "fm_algorithm": "fm_classic",
+            "fm_modulator_ratio": "fm_harmonic",
+            "fm_polyphony": "fm_mono",
+            "fm_model_lineage": "fm_yamaha_dx21_dx100"
+          },
+          "policy": "A concise monophonic electronic melody is the representative default, rather than the formerly selected piano publication. Short harmonic FM notes and a coherent four-operator DX21-style realization are deliberate production choices, not a claim that a Nokia or Apple handset contains that synthesizer. The wider field also includes polyphonic music and recorded clips. Broad artMusic placement describes this fixed composed miniature, not an assertion that every telephone alert is classical music. No measured tune, tempo, source handset model, or source recording reconstruction is asserted."
+        }
+      ],
+      "representative_default_rationale": "A concise monophonic electronic melody is the representative default, rather than the formerly selected piano publication. Short harmonic FM notes and a coherent four-operator DX21-style realization are deliberate production choices, not a claim that a Nokia or Apple handset contains that synthesizer. The wider field also includes polyphonic music and recorded clips. Broad artMusic placement describes this fixed composed miniature, not an assertion that every telephone alert is classical music. No measured tune, tempo, source handset model, or source recording reconstruction is asserted."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

@@ -1,0 +1,235 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "folclor_colombiano",
+        "name": "Folclor Colombiano",
+        "family": "vernacular",
+        "lineage": "Colombian folklore brings together regional song, dance and instrumental traditions transmitted through communities, performance and teaching. Andean and coastal repertoires retain distinct rhythmic identities while circulating through national anthologies and new arrangements.",
+        "instruments": [
+          "bandola_andina",
+          "tiple",
+          "classical_nylon_string_guitar"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bandola_andina_use": "bandola_pasillo",
+          "tiple_region": "tiple_colombian",
+          "tiple_context": "tiple_bambuco",
+          "tiple_body_wood": "tiple_cedar_canonical",
+          "tiple_strings": "tiple_steel_triple_octave",
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "tirando_cl"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "voice": 0,
+          "percussion": 0,
+          "soundTech": -1
+        },
+        "description": "Regional melodies and dance rhythms recur in contrasting instrumental and vocal forms. The traditional Andean string trio sets the bright bandola against ringing tiple and guitar accompaniment, one established ensemble within the country’s much wider folk heritage.",
+        "exemplars": [
+          "María del Carmen Alvarado",
+          "Juancho Polo Valencia",
+          "Rafael Escalona",
+          "José Barros",
+          "Lucho Bermúdez"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "folclor_colombiano",
+          "name": "Folclor Colombiano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "bandola_andina",
+          "parts": {
+            "plucked_traditional_technique": "plucked_folk_strummed",
+            "bandola_andina_use": "bandola_pasillo"
+          },
+          "policy": "Representative traditional Andean string-trio option within the national folk umbrella, independently documented by the Ministry cultural presenter and national instrument survey. It is not the whole historical-instrument2022 concert reconstruction: ordinary contemporary12-string tiple, bandola and nylon guitar are authored. Historical8-string tiple and alternate bandola tunings remain source history, not transferred. No singer is needed for this documented instrumental trio branch; national folk repertoire also includes singing. Bandola/tiple rhythmic strumming with lyrical pasillo lead context and guitar free-stroke fingerpicking are deliberately arranged gestures, not source-measured technique. Spruce-top/fan-braced normal-tension nylon guitar and cedar steel-course tiple are ordinary authored construction. Broad artMusic scopes the composed concert-trio practice positively documented by the venue, not a universal claim all folk music serves concert listening. Authored recital hall and responsive spruce-top nylon guitar support clear ensemble projection and dynamic contrast in this positively documented concert-trio practice, without asserting the original venue geometry or source guitar materials."
+        },
+        {
+          "instrument": "tiple",
+          "parts": {
+            "plucked_traditional_technique": "plucked_folk_strummed",
+            "tiple_region": "tiple_colombian",
+            "tiple_context": "tiple_bambuco",
+            "tiple_body_wood": "tiple_cedar_canonical",
+            "tiple_strings": "tiple_steel_triple_octave"
+          },
+          "policy": "Representative traditional Andean string-trio option within the national folk umbrella, independently documented by the Ministry cultural presenter and national instrument survey. It is not the whole historical-instrument2022 concert reconstruction: ordinary contemporary12-string tiple, bandola and nylon guitar are authored. Historical8-string tiple and alternate bandola tunings remain source history, not transferred. No singer is needed for this documented instrumental trio branch; national folk repertoire also includes singing. Bandola/tiple rhythmic strumming with lyrical pasillo lead context and guitar free-stroke fingerpicking are deliberately arranged gestures, not source-measured technique. Spruce-top/fan-braced normal-tension nylon guitar and cedar steel-course tiple are ordinary authored construction. Broad artMusic scopes the composed concert-trio practice positively documented by the venue, not a universal claim all folk music serves concert listening. Authored recital hall and responsive spruce-top nylon guitar support clear ensemble projection and dynamic contrast in this positively documented concert-trio practice, without asserting the original venue geometry or source guitar materials."
+        },
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "parts": {
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood_classical": "spruce_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_normal_cl",
+            "attack_technique_cl": "tirando_cl"
+          },
+          "policy": "Representative traditional Andean string-trio option within the national folk umbrella, independently documented by the Ministry cultural presenter and national instrument survey. It is not the whole historical-instrument2022 concert reconstruction: ordinary contemporary12-string tiple, bandola and nylon guitar are authored. Historical8-string tiple and alternate bandola tunings remain source history, not transferred. No singer is needed for this documented instrumental trio branch; national folk repertoire also includes singing. Bandola/tiple rhythmic strumming with lyrical pasillo lead context and guitar free-stroke fingerpicking are deliberately arranged gestures, not source-measured technique. Spruce-top/fan-braced normal-tension nylon guitar and cedar steel-course tiple are ordinary authored construction. Broad artMusic scopes the composed concert-trio practice positively documented by the venue, not a universal claim all folk music serves concert listening. Authored recital hall and responsive spruce-top nylon guitar support clear ensemble projection and dynamic contrast in this positively documented concert-trio practice, without asserting the original venue geometry or source guitar materials."
+        }
+      ],
+      "source_label": "folclor colombiano",
+      "source_url": "https://everynoise.com/engenremap-folclorcolombiano.html",
+      "suggested_id": "folclor_colombiano",
+      "allocation_ordinal": 3296,
+      "allocation_group_id": "132",
+      "id": "folclor_colombiano",
+      "status": "ready_for_independent_review",
+      "geo": [
+        4.711,
+        -74.0721,
+        "Bogotá",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "University publication centre, not sole origin of national repertoire.",
+      "signature_tokens": [],
+      "model_policy": "Representative traditional Andean string-trio option within the national folk umbrella, independently documented by the Ministry cultural presenter and national instrument survey. It is not the whole historical-instrument2022 concert reconstruction: ordinary contemporary12-string tiple, bandola and nylon guitar are authored. Historical8-string tiple and alternate bandola tunings remain source history, not transferred. No singer is needed for this documented instrumental trio branch; national folk repertoire also includes singing. Bandola/tiple rhythmic strumming with lyrical pasillo lead context and guitar free-stroke fingerpicking are deliberately arranged gestures, not source-measured technique. Spruce-top/fan-braced normal-tension nylon guitar and cedar steel-course tiple are ordinary authored construction. Broad artMusic scopes the composed concert-trio practice positively documented by the venue, not a universal claim all folk music serves concert listening. Authored recital hall and responsive spruce-top nylon guitar support clear ensemble projection and dynamic contrast in this positively documented concert-trio practice, without asserting the original venue geometry or source guitar materials.",
+      "neighbor_distinction": "Folclor Colombiano is the nationwide traditional-repertoire umbrella, not identical to particular bambuco, cumbia, vallenato or joropo fields. Full Folclor Afrocolombiano already spans both Pacific and Atlantic traditions, but identifies Afro-descendant traditions rather than all Colombian regional traditions. Música Andina Colombiana includes instrumental and vocal possibilities within an Andean/eastern regional scope, not all coasts. Música Colombiana Instrumental overlaps the chosen instrumental trio branch, but excludes vocal music by its defining axis and also includes instrumental compositions beyond folk repertoire. Música Popular Colombiana means the specific despecho/cantina field, not all popular or folk music. No exclusion is inferred merely from an old selected exemplar.",
+      "classification_evidence": "Folclor Colombiano is the nationwide traditional-repertoire umbrella, not identical to particular bambuco, cumbia, vallenato or joropo fields. Full Folclor Afrocolombiano already spans both Pacific and Atlantic traditions, but identifies Afro-descendant traditions rather than all Colombian regional traditions. Música Andina Colombiana includes instrumental and vocal possibilities within an Andean/eastern regional scope, not all coasts. Música Colombiana Instrumental overlaps the chosen instrumental trio branch, but excludes vocal music by its defining axis and also includes instrumental compositions beyond folk repertoire. Música Popular Colombiana means the specific despecho/cantina field, not all popular or folk music. No exclusion is inferred merely from an old selected exemplar.",
+      "source_scope_limitation": "Representative traditional Andean string-trio option within the national folk umbrella, independently documented by the Ministry cultural presenter and national instrument survey. It is not the whole historical-instrument2022 concert reconstruction: ordinary contemporary12-string tiple, bandola and nylon guitar are authored. Historical8-string tiple and alternate bandola tunings remain source history, not transferred. No singer is needed for this documented instrumental trio branch; national folk repertoire also includes singing. Bandola/tiple rhythmic strumming with lyrical pasillo lead context and guitar free-stroke fingerpicking are deliberately arranged gestures, not source-measured technique. Spruce-top/fan-braced normal-tension nylon guitar and cedar steel-course tiple are ordinary authored construction. Broad artMusic scopes the composed concert-trio practice positively documented by the venue, not a universal claim all folk music serves concert listening. Authored recital hall and responsive spruce-top nylon guitar support clear ensemble projection and dynamic contrast in this positively documented concert-trio practice, without asserting the original venue geometry or source guitar materials.",
+      "instrument_role_audit": [
+        {
+          "instrument": "bandola_andina",
+          "basis": "National cultural presenter explicitly documents traditional bandola/tiple/guitar trio and its continuing concert lineage."
+        },
+        {
+          "instrument": "tiple",
+          "basis": "National cultural presenter explicitly documents traditional bandola/tiple/guitar trio and its continuing concert lineage."
+        },
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "basis": "National cultural presenter explicitly documents traditional bandola/tiple/guitar trio and its continuing concert lineage."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "basis": "Documented instrumental trio branch, not absence of singing from national folk."
+      },
+      "sources": [
+        {
+          "url": "https://artes.upn.edu.co/svetlana-solodovnikova/",
+          "primary": true,
+          "evidence_ref": "turn13855search0",
+          "supports": "Publisher full indexed abstract identifies regional repertoire and piano arrangements with formal/rhythmic/harmonic analyses. Direct502 candid; indexed text independently available."
+        },
+        {
+          "url": "https://editorial.upn.edu.co/wp-content/uploads/2022/10/CATALOGO_2022_digital.pdf",
+          "primary": true,
+          "evidence_ref": "turn13855search12",
+          "supports": "Official publisher catalog confirms authors,2020 edition and216pages, exact four-hands Colombian-folklore title and broad regional repertoire. Full book link inaccessible; no fullscore claim."
+        },
+        {
+          "url": "https://eneldelia.gov.co/el-trio-palos-y-cuerdas-rinde-homenaje-a-un-siglo-de-musica-andina-en-el-teatro-colon/",
+          "primary": true,
+          "evidence_ref": "turn13868view0",
+          "supports": "Firsthand institutional history and practitioner quotation: traditional bandola/tiple/guitar trio, formal composed concert repertoire, historical instrument variants and all-regional Colombia al Parque context."
+        },
+        {
+          "url": "https://colombia.co/cultura-colombiana/folclor/conoce-los-instrumentos-musicales-de-cada-region-de-colombia",
+          "primary": true,
+          "evidence_ref": "turn13866search4",
+          "supports": "Official national culture survey indexed text identifies bandola/tiple/guitar traditional Andean trio within regional instrument diversity; direct fetch timed out."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

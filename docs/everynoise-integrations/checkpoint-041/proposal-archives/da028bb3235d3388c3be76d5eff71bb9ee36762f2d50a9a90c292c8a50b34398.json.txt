@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume119-23.json",
+  "packet_sha256": "da116657b71995ee05ca91707ebdd4e307ba2f328c028d68603bf7d8b2609bb5",
+  "reviewer": "research117",
+  "accepted_ids": [
+    "mizo_pop"
+  ],
+  "source_review": {
+    "url": "https://etheses.dur.ac.uk/6376/1/Thesis_Complete.pdf",
+    "fresh_refs": [
+      "turn13472search1",
+      "turn13476search13",
+      "turn13478search0"
+    ],
+    "finding": "Independently recovered full indexed primary page116: radio-era guitar-and-singer popular bands, named pioneering singer and distinction between secular love-song practice and later church adoption. This positively supports genre-level vocal/guitar arrangement; no need exact contemporary recording roster. Direct PDF inaccessible, no whole-PDF audition/read claimed."
+  },
+  "category_review": "Full current NortheastIndianIndie inspected: wider regional independent network, not coextensive with Mizo-language popular repertoire. Previously reviewed queuedZomiPop has distinct community/language; devotional Mizo practice overlaps but does not exhaust secular field. No distinction inferred merely from acoustic preset.",
+  "defaults": "All22 applicable owning controls present/valid in original loader. Authored all-mahogany phosphor-bronze flatpicked steelstring coherent representative accompaniment, count/tracking remain unspecified. Broad functionalSong valid for chordal popular-song model. No new dependency or old-owner mutations.",
+  "runtime": "Independently ran original four formats, all parity and literal outputs read. Frosty/cramped are generic authored intimate affect; no unrelated cultural label or invented source role.",
+  "photo": "Fresh Commons turn13479view0 confirms IainFergusson/Binksternet CC BY2.5. Historical exact33015byte250x720receipt/sha retained; genericLOWrecordingcontext, no new bytes/visualinspection claimed.",
+  "scope": "PASS source/data preflight only; final integrated static/regression/CI parent responsibility."
+}

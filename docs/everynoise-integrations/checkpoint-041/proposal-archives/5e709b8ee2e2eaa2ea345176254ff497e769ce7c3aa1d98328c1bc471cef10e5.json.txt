@@ -1,0 +1,220 @@
+{
+  "entries": [
+    {
+      "source_label": "hyperpop en espanol",
+      "source_url": "https://everynoise.com/engenremap-hyperpopenespanol.html",
+      "suggested_id": "hyperpop_en_espanol",
+      "allocation_ordinal": 3448,
+      "allocation_group_id": "138",
+      "id": "hyperpop_en_espanol",
+      "tradition": {
+        "id": "hyperpop_en_espanol",
+        "name": "Hyperpop en Espa\u00f1ol",
+        "family": "electronic",
+        "lineage": "Rakky Ripper \u2014 complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59\u201306:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks. Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.popExperimental",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rakky Ripper \u2014 complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59\u201306:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks. Hyperpop en Espa\u00f1ol is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Espa\u00f1ol playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop. Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+        "exemplars": [
+          "Rakky Ripper \u2014 whole announced INSULTO x KEKA DJ programme,30September2022"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        40.421,
+        -3.697,
+        "Madrid",
+        "Europe"
+      ],
+      "geo_rationale": "Promoter positively names Sala Vesta, Calle del Barquillo29,Madrid; venue-locality point, not artist birthplace or audio-session coordinates.",
+      "sources": [
+        {
+          "url": "https://ra.co/events/1595579?returnUrl=/dj/rakkyripper/past-events",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11790view0 promoter-administered event: date/venue, individual DJ roster and explicit Rakky DJ programme/style description. Announcement, not evidence actual set was recorded or went exactly as advertised."
+        },
+        {
+          "url": "https://metalmagazine.eu/es/post/rakky-ripper",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11816view0 first-person answers distinguish Spanish-language emergence from English-language PCMusic lineage; broad stylistic self-description and community purpose."
+        },
+        {
+          "url": "https://acero.metalmagazine.eu/post/rakky-ripper",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11816view1 first-person nuanced later account of hyperpop expansion and her own preferred pop-electronic label; avoid rigid or exclusive taxonomy."
+        },
+        {
+          "url": "https://lamadraza.ugr.es/evento/tecnologia-y-autenticidad-voces-con-autotune/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11796search1 full university own event/bio independently identifies Spanish hyperpop practice and international DJ programme context."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/67WXwFxh6c7BJujM1zvn25",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11807view0 full100 exact creator corpus establishes named discovery community. Rakky absent current100, so no creator-member claim for her."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Hyperpop en Espa\u00f1ol is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Espa\u00f1ol playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop.",
+      "model_policy": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+      "instrument_role_audit": {
+        "scope": "Rakky Ripper \u2014 complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59\u201306:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks.",
+        "cards": 1,
+        "roles": [
+          "Positively advertised complete Rakky DJ playback/mixing programme; all embedded content retained"
+        ],
+        "defaults": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style."
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "actual_live_singer_count": "unknown/not documented",
+        "embedded_voice_count": "unknown",
+        "reason": "Whole explicitly announced DJ practice modeled; no separate live singer positively credited. No exact personnel count inferred from absence."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style."
+        }
+      ],
+      "dependency_audit": {
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "new_instruments": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "hyperpop_en_espanol",
+          "name": "Hyperpop en Espa\u00f1ol",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not Rakky, DJ apparatus, original venue or capture hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11816view2 confirms CC BY2.5 IainFergusson/Binksternet crop. Exact historical023 bytes and visual receipts reused unchanged; no fresh download.",
+          "fresh_review_ref": "turn11816view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11816view2"
+        ]
+      },
+      "source_scope_limitation": "Rakky Ripper \u2014 complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59\u201306:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Only applicable identity part protected."
+      },
+      "classification_evidence": "Hyperpop en Espa\u00f1ol is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Espa\u00f1ol playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop.",
+      "primary_retrieval_refs": [
+        "turn11790view0",
+        "turn11816view0",
+        "turn11816view1",
+        "turn11796search1",
+        "turn11807view0"
+      ],
+      "source_retrieval_caveat": "Actual primary promoter announcement and firsthand interviews retrieved; no issued show audio, duration, tracklist or performance observation. Prior inaccessible BBC mix not used as chosen performance. Complete advertised practice is selected transparently.",
+      "verification_status": "Author source packet; mechanical and four original formats required before independent review.",
+      "authored_render_scope": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

@@ -1,0 +1,757 @@
+{
+  "entries": [
+    {
+      "source_label": "indie catala",
+      "source_url": "https://everynoise.com/engenremap-indiecatala.html",
+      "suggested_id": "indie_catala",
+      "allocation_ordinal": 3471,
+      "allocation_group_id": "139",
+      "id": "indie_catala",
+      "tradition": {
+        "id": "indie_catala",
+        "name": "Indie Català",
+        "family": "pop",
+        "lineage": "Indie Català connects independent labels, artists and festivals across Catalonia. Networks such as Bankrobber and popArb bring together pop, rock, folk, electronica and experimental approaches, with Catalan-language songwriting forming an important part of the scene.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "wurlitzer_ep",
+          "credited_synthesizer_unspecified",
+          "upright_piano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "wurlitzer_use": "wurlitzer_recorded_song",
+          "wurlitzer_ep_voice": "wurlitzer_ep_bell",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
+          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Lead singing interacts with clean electric guitar, bass and drums, while acoustic piano, keyboard and synthesizer layers broaden the harmonic color. Melodic vocal lines and contrasting instrumental textures support clear song structures within a stylistically varied independent field.",
+        "exemplars": [
+          "Selva Nua",
+          "Bankrobber",
+          "popArb"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        41.6176,
+        0.62,
+        "Lleida",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial regional city anchor for explicitly documented surrounding Lleida villages, not exact Corbins studio coordinate or assertion all members live in city.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Indie Català is the Catalan independent-production and circulation community, positively defined by the actual popArb organizer as independent pop made in Catalonia and cross-artist connections, and the Bankrobber issuer explicitly tags this album indie català. Bankrobber identifies its independent label running since2002, spanning pop, electronica, folk, rock and experimental practice. Existing rock_catala is broad Catalan-language rock, not restricted to Sopa de Cabra or a historical date; this independent cross-style network overlaps it without claiming exclusivity. Existing musica_catalana is a broader cultural field, not limited to Gemma Humet piano/voice. Spanish indie pop and Spanish indie rock already encompass Catalan artists and Barcelona production, but do not exhaust the separately organized regional network. Nova Cançó scopes the protest-song lineage and Catalan folk traditional repertoire; neither is every modern Catalan independent production. Selected album exact creator membership is not asserted: current creator map retrieval failed, while positive issuer category and organizer practice independently support the bridge.",
+      "classification_evidence": {
+        "note": "Indie Català is the Catalan independent-production and circulation community, positively defined by the actual popArb organizer as independent pop made in Catalonia and cross-artist connections, and the Bankrobber issuer explicitly tags this album indie català. Bankrobber identifies its independent label running since2002, spanning pop, electronica, folk, rock and experimental practice. Existing rock_catala is broad Catalan-language rock, not restricted to Sopa de Cabra or a historical date; this independent cross-style network overlaps it without claiming exclusivity. Existing musica_catalana is a broader cultural field, not limited to Gemma Humet piano/voice. Spanish indie pop and Spanish indie rock already encompass Catalan artists and Barcelona production, but do not exhaust the separately organized regional network. Nova Cançó scopes the protest-song lineage and Catalan folk traditional repertoire; neither is every modern Catalan independent production. Selected album exact creator membership is not asserted: current creator map retrieval failed, while positive issuer category and organizer practice independently support the bridge."
+      },
+      "model_policy": "The broad indie-pop keyboard role is authored as a reed electric-piano layer, distinct from the separately retained acoustic piano and synthesizer. Coherent Wurlitzer200A bell-like steel-reed construction and block-chord song phrasing are new representative genre settings, not a claim about Selva Nua equipment. All five owning controls remain meaningful and protected; no source-positive role removed. This existing instrument accepts the same actual chordal gesture as acoustic piano without suppressing either owner control.",
+      "source_scope_limitation": "Whole eight-track Momentani album issued by Bankrobber14October2022. Full issuer credits Joana Jové voice/guitar, Adrià Garcia bass, Gerard Català drums, Josep Maria Serra piano/keyboards, Irene Garcés guitar and Pablo Díaz additional guitar on2b/4b. Six credited performing people and one named singer; album description additionally explicitly identifies synthesizers, retained as a separate source role without inventing its player. Seven instrument families form the complete album-union palette, not a claim all perform simultaneously on every track. Later2025 drummer Pol Mitjans is not substituted. Full issuer text inspected; audio not auditioned.",
+      "vocal_count_audit": {
+        "named_singer_count": 1,
+        "named_performing_people_album_union": 6,
+        "decision": "Only Joana positively credited voice; authorship contribution by Gerard is not invented as singing. Synth player unknown."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Existing source-positive role retained; full original audit archived."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "role": "Existing source-positive role retained; full original audit archived."
+        },
+        {
+          "instrument": "electric_bass",
+          "role": "Existing source-positive role retained; full original audit archived."
+        },
+        {
+          "instrument": "drum_kit",
+          "role": "Existing source-positive role retained; full original audit archived."
+        },
+        {
+          "instrument": "wurlitzer_ep",
+          "role": "The broad indie-pop keyboard role is authored as a reed electric-piano layer, distinct from the separately retained acoustic piano and synthesizer. Coherent Wurlitzer200A bell-like steel-reed construction and block-chord song phrasing are new representative genre settings, not a claim about Selva Nua equipment. All five owning controls remain meaningful and protected; no source-positive role removed. This existing instrument accepts the same actual chordal gesture as acoustic piano without suppressing either owner control."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "role": "Existing source-positive role retained; full original audit archived."
+        },
+        {
+          "instrument": "upright_piano",
+          "role": "Existing source-positive role retained; full original audit archived."
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+        },
+        {
+          "instrument": "wurlitzer_ep",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "wurlitzer_use": "wurlitzer_recorded_song",
+            "wurlitzer_ep_voice": "wurlitzer_ep_bell",
+            "wurlitzer_model": "wurlitzer_200a_canonical",
+            "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+          },
+          "policy": "The broad indie-pop keyboard role is authored as a reed electric-piano layer, distinct from the separately retained acoustic piano and synthesizer. Coherent Wurlitzer200A bell-like steel-reed construction and block-chord song phrasing are new representative genre settings, not a claim about Selva Nua equipment. All five owning controls remain meaningful and protected; no source-positive role removed. This existing instrument accepts the same actual chordal gesture as acoustic piano without suppressing either owner control."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "Shared keyboard part pins chordal pop on upright; neutral electronic keyboard retains its imported melodic-chordal fallback, explicitly unprotected and optimizer-selectable. No false source keyboard architecture."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "credited_synthesizer_unspecified",
+          "upright_piano"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://bankrobberbcn.bandcamp.com/album/momentani",
+          "support_notes": "Fresh13090view0 full8tracks/roster lines131–165, synthesizers explicit136/141, exact indie català tag; six credited performing people, one named voice."
+        },
+        {
+          "url": "https://www.poparb.cat/2015/el-poparb/",
+          "support_notes": "Fresh13094search0 firsthand organizer description defines independent-pop Catalan production network and creative cross-artist connections; historical event not falsely claimed to feature2022 band."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_catala",
+          "name": "Indie Català",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Selva Nua, source studio or specific instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13100view2 confirms CC BY2.5, Iain Fergusson and crop by Binksternet; historical023 exact bytes and visual inspection preserved.",
+          "fresh_review_ref": "turn13100view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13100view2"
+        ],
+        "fresh_rights_review": "Fresh turn13100view2 rights/context only, not new byte verification."
+      },
+      "status": "frozen_for_independent_review",
+      "verification_status": "Complete primary scope,55 effective controls, one disclosed neutral-keyboard fallback, all four literal formats and historical exact photo/fresh rights verified.",
+      "primary_retrieval_refs": [
+        "turn13090view0",
+        "turn13094search0"
+      ],
+      "render_audit": {
+        "file": "/tmp/batch040/resume024-19-runtime024.json",
+        "four_formats": true,
+        "max_chars": 987,
+        "all_seven_roles_retained": true,
+        "editorial_affect": "Spatial hall adjectives and generic pop groove/repetitive chordal affect; no new named cultural genre or orchestra falsely added."
+      },
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-19.json",
+        "original_sha256": "047bdfb44cddb41828d992e67343c7fc3ddac29e40d2e4d5f99926cdebb6ba49",
+        "prior_entry": {
+          "source_label": "indie catala",
+          "source_url": "https://everynoise.com/engenremap-indiecatala.html",
+          "suggested_id": "indie_catala",
+          "allocation_ordinal": 3471,
+          "allocation_group_id": "139",
+          "id": "indie_catala",
+          "tradition": {
+            "id": "indie_catala",
+            "name": "Indie Català",
+            "family": "pop",
+            "lineage": "Whole eight-track Momentani album issued by Bankrobber14October2022. Full issuer credits Joana Jové voice/guitar, Adrià Garcia bass, Gerard Català drums, Josep Maria Serra piano/keyboards, Irene Garcés guitar and Pablo Díaz additional guitar on2b/4b. Six credited performing people and one named singer; album description additionally explicitly identifies synthesizers, retained as a separate source role without inventing its player. Seven instrument families form the complete album-union palette, not a claim all perform simultaneously on every track. Later2025 drummer Pol Mitjans is not substituted. Full issuer text inspected; audio not auditioned. Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified",
+              "credited_synthesizer_unspecified",
+              "upright_piano"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_syllabic_singing",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Whole eight-track Momentani album issued by Bankrobber14October2022. Full issuer credits Joana Jové voice/guitar, Adrià Garcia bass, Gerard Català drums, Josep Maria Serra piano/keyboards, Irene Garcés guitar and Pablo Díaz additional guitar on2b/4b. Six credited performing people and one named singer; album description additionally explicitly identifies synthesizers, retained as a separate source role without inventing its player. Seven instrument families form the complete album-union palette, not a claim all perform simultaneously on every track. Later2025 drummer Pol Mitjans is not substituted. Full issuer text inspected; audio not auditioned. Indie Català is the Catalan independent-production and circulation community, positively defined by the actual popArb organizer as independent pop made in Catalonia and cross-artist connections, and the Bankrobber issuer explicitly tags this album indie català. Bankrobber identifies its independent label running since2002, spanning pop, electronica, folk, rock and experimental practice. Existing rock_catala is broad Catalan-language rock, not restricted to Sopa de Cabra or a historical date; this independent cross-style network overlaps it without claiming exclusivity. Existing musica_catalana is a broader cultural field, not limited to Gemma Humet piano/voice. Spanish indie pop and Spanish indie rock already encompass Catalan artists and Barcelona production, but do not exhaust the separately organized regional network. Nova Cançó scopes the protest-song lineage and Catalan folk traditional repertoire; neither is every modern Catalan independent production. Selected album exact creator membership is not asserted: current creator map retrieval failed, while positive issuer category and organizer practice independently support the bridge. Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented.",
+            "exemplars": [
+              "Selva Nua — Momentani, complete2022 eight-track album"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            41.6176,
+            0.62,
+            "Lleida",
+            "Europe"
+          ],
+          "geo_rationale": "Editorial regional city anchor for explicitly documented surrounding Lleida villages, not exact Corbins studio coordinate or assertion all members live in city.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Indie Català is the Catalan independent-production and circulation community, positively defined by the actual popArb organizer as independent pop made in Catalonia and cross-artist connections, and the Bankrobber issuer explicitly tags this album indie català. Bankrobber identifies its independent label running since2002, spanning pop, electronica, folk, rock and experimental practice. Existing rock_catala is broad Catalan-language rock, not restricted to Sopa de Cabra or a historical date; this independent cross-style network overlaps it without claiming exclusivity. Existing musica_catalana is a broader cultural field, not limited to Gemma Humet piano/voice. Spanish indie pop and Spanish indie rock already encompass Catalan artists and Barcelona production, but do not exhaust the separately organized regional network. Nova Cançó scopes the protest-song lineage and Catalan folk traditional repertoire; neither is every modern Catalan independent production. Selected album exact creator membership is not asserted: current creator map retrieval failed, while positive issuer category and organizer practice independently support the bridge.",
+          "classification_evidence": {
+            "note": "Indie Català is the Catalan independent-production and circulation community, positively defined by the actual popArb organizer as independent pop made in Catalonia and cross-artist connections, and the Bankrobber issuer explicitly tags this album indie català. Bankrobber identifies its independent label running since2002, spanning pop, electronica, folk, rock and experimental practice. Existing rock_catala is broad Catalan-language rock, not restricted to Sopa de Cabra or a historical date; this independent cross-style network overlaps it without claiming exclusivity. Existing musica_catalana is a broader cultural field, not limited to Gemma Humet piano/voice. Spanish indie pop and Spanish indie rock already encompass Catalan artists and Barcelona production, but do not exhaust the separately organized regional network. Nova Cançó scopes the protest-song lineage and Catalan folk traditional repertoire; neither is every modern Catalan independent production. Selected album exact creator membership is not asserted: current creator map retrieval failed, while positive issuer category and organizer practice independently support the bridge."
+          },
+          "model_policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented.",
+          "source_scope_limitation": "Whole eight-track Momentani album issued by Bankrobber14October2022. Full issuer credits Joana Jové voice/guitar, Adrià Garcia bass, Gerard Català drums, Josep Maria Serra piano/keyboards, Irene Garcés guitar and Pablo Díaz additional guitar on2b/4b. Six credited performing people and one named singer; album description additionally explicitly identifies synthesizers, retained as a separate source role without inventing its player. Seven instrument families form the complete album-union palette, not a claim all perform simultaneously on every track. Later2025 drummer Pol Mitjans is not substituted. Full issuer text inspected; audio not auditioned.",
+          "vocal_count_audit": {
+            "named_singer_count": 1,
+            "named_performing_people_album_union": 6,
+            "decision": "Only Joana positively credited voice; authorship contribution by Gerard is not invented as singing. Synth player unknown."
+          },
+          "instrument_role_audit": {
+            "scope": "Whole eight-track Momentani album issued by Bankrobber14October2022. Full issuer credits Joana Jové voice/guitar, Adrià Garcia bass, Gerard Català drums, Josep Maria Serra piano/keyboards, Irene Garcés guitar and Pablo Díaz additional guitar on2b/4b. Six credited performing people and one named singer; album description additionally explicitly identifies synthesizers, retained as a separate source role without inventing its player. Seven instrument families form the complete album-union palette, not a claim all perform simultaneously on every track. Later2025 drummer Pol Mitjans is not substituted. Full issuer text inspected; audio not auditioned.",
+            "roles": {
+              "voice": "Joana",
+              "electric_guitar_humbucker": "Joana/Irene/Pablo; subtype authored",
+              "electric_bass": "Adrià",
+              "drum_kit": "Gerard",
+              "electronic_keyboard_unspecified": "Josep Maria Serra keyboards",
+              "upright_piano": "Josep Maria Serra piano; subtype authored",
+              "credited_synthesizer_unspecified": "Explicit album sound description, player unspecified"
+            },
+            "authored_defaults": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "neck_wood": "maple_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_10_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+            },
+            {
+              "instrument": "electronic_keyboard_unspecified",
+              "parts": {
+                "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+                "keyboard_technique": "electronic_keyboard_melodic_chordal"
+              },
+              "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented. Imported melodic-chordal fallback is unprotected; optimizer may select another valid variant."
+            },
+            {
+              "instrument": "credited_synthesizer_unspecified",
+              "parts": {
+                "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+              },
+              "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+            },
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Source-unspecified guitars are realized as authored moderate-humbucker electric guitars, alder body, short scale, nickel strings and clean strumming; this is not measured source hardware. Bass is authored long-scale fretted soapbar/fingerstyle; drums maple/coated heads/B20 traditionally finished cymbals. Source piano is authored standard studio upright with connected chordal song phrasing; separate keyboard and synthesizer architectures remain unknown, preserving all positively credited roles. One accompanied singer has source-unspecified physiology and neutral unprocessed single-lead rendition; no original overdub count asserted. A spacious hall-like listening rendition is authored, not album studio provenance. Broad functionalSong is an explicitly authored verse–chorus–bridge realization over functional harmonic progressions, not a claim all source tracks share that precise structure. No global tuning or capture chain invented."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "Shared keyboard part pins chordal pop on upright; neutral electronic keyboard retains its imported melodic-chordal fallback, explicitly unprotected and optimizer-selectable. No false source keyboard architecture."
+          },
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified",
+              "credited_synthesizer_unspecified",
+              "upright_piano"
+            ]
+          },
+          "sources": [
+            {
+              "url": "https://bankrobberbcn.bandcamp.com/album/momentani",
+              "support_notes": "Fresh13090view0 full8tracks/roster lines131–165, synthesizers explicit136/141, exact indie català tag; six credited performing people, one named voice."
+            },
+            {
+              "url": "https://www.poparb.cat/2015/el-poparb/",
+              "support_notes": "Fresh13094search0 firsthand organizer description defines independent-pop Catalan production network and creative cross-artist connections; historical event not falsely claimed to feature2022 band."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "indie_catala",
+              "name": "Indie Català",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic microphone recording context; not Selva Nua, source studio or specific instruments.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh turn13100view2 confirms CC BY2.5, Iain Fergusson and crop by Binksternet; historical023 exact bytes and visual inspection preserved.",
+              "fresh_review_ref": "turn13100view2"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn13100view2"
+            ],
+            "fresh_rights_review": "Fresh turn13100view2 rights/context only, not new byte verification."
+          },
+          "status": "frozen_for_independent_review",
+          "verification_status": "Complete primary scope,55 effective controls, one disclosed neutral-keyboard fallback, all four literal formats and historical exact photo/fresh rights verified.",
+          "primary_retrieval_refs": [
+            "turn13090view0",
+            "turn13094search0"
+          ],
+          "render_audit": {
+            "file": "/tmp/batch040/resume024-19-runtime024.json",
+            "four_formats": true,
+            "max_chars": 987,
+            "all_seven_roles_retained": true,
+            "editorial_affect": "Spatial hall adjectives and generic pop groove/repetitive chordal affect; no new named cultural genre or orchestra falsely added."
+          }
+        },
+        "decision": "Replace exact programme/album dossier with concise genre history and characteristic sound. Retain legitimate source-supported role palette and all original controls. Archived entry preserves complete source, personnel, policy and photo evidence.",
+        "prior_neutral_keyboard_derivative": {
+          "path": "/workspace/genre-continuation/repairs-20261003/recover024/queued-indie-catala-genre-profile.json",
+          "sha256": "431309ba4f50a99c7aaa4c9225b5d938c8ac167bbcc1bbb2ab1a3eac46772160"
+        },
+        "keyboard_realization": "The broad indie-pop keyboard role is authored as a reed electric-piano layer, distinct from the separately retained acoustic piano and synthesizer. Coherent Wurlitzer200A bell-like steel-reed construction and block-chord song phrasing are new representative genre settings, not a claim about Selva Nua equipment. All five owning controls remain meaningful and protected; no source-positive role removed. This existing instrument accepts the same actual chordal gesture as acoustic piano without suppressing either owner control."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

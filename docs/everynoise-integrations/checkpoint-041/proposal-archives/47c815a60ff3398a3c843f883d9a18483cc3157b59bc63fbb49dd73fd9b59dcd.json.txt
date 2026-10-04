@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/transfer461-hip-hop-timur-practice.json",
+  "sha256": "a6a92455624712cfb8b442af5a848b2ad8962f212bc395d121c7e1670d77730d",
+  "reviewer": "research_119",
+  "sources_independently_reproduced": [
+    "turn13587view0",
+    "turn13587view1",
+    "turn13587view2",
+    "turn13589view0"
+  ],
+  "source_review": "Fieldwork documents local-language Maumere MC and DAW beat production; firsthand Maluku interview independently establishes regional rapper collaboration networks. Representative rap-plus-produced-beat practice is supported without reconstructing a specific recording or inventing plugins.",
+  "boundary_review": "Read full Indonesian hip hop and Lagu Timur lineage/extras. National hip hop already embraces local-language work; Lagu Timur spans eastern contemporary songs. This is a positively documented regional MC/production-community branch within both overlapping umbrellas, not a claim of exclusive island timbre.",
+  "default_review": {
+    "applicable_parts": 18,
+    "protected_parts": 18,
+    "errors": [],
+    "new_dependencies": 0,
+    "semantic_review": "Rhythmic-spoken-flow and accompanied MC preserve rap practice. Neutral produced-beat identity leaves generator unknown. Generic frosty production affect does not assert a conflicting cultural technique. Solo/unprocessed defaults are representative choices, not universal ensemble or recording claims."
+  },
+  "runtime": "/tmp/batch040/hip-hop-timur-runtime119.json",
+  "formats": 4,
+  "max_chars": 322,
+  "photo_review": "Fresh Commons confirms Iain Fergusson/Binksternet CC BY 2.5. Generic microphone low-context classification is candid; exact historical served-preview byte and visual receipt explicitly inherited, no new download claimed.",
+  "repository_edits": false
+}

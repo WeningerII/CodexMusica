@@ -1,0 +1,18 @@
+{
+  "status": "PASS_ROOT_QUEUE_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002.json",
+  "packet_sha256": "df6ba201ae94c5e76d6ea8bdd967da15cc64d62b0c8c8ceef121ed15be575eac",
+  "ids": [
+    "chinese_bgm",
+    "cumbia_ecuatoriana",
+    "indie_cristao",
+    "japanese_vgm"
+  ],
+  "checked_at": "2026-10-04T00:04:34.694542+00:00",
+  "checks": [
+    "Root read every approved public profile, full representative roles and default policies; original author/category/photo evidence preserved.",
+    "Root strict current-owner/import/photo receipts and all four format parity/ceiling pass; prose outputs read. Author all12/20 literal-output review retained. CarnavalLimburg explicit klezmer-context hold excluded.",
+    "Fresh first-party UPRISING13687view0/1 supports sampled boom-bap and Filipino film samples; no unsupported separate808 role or hardware claim. Liberian sung electronic arrangement distinct from original DJ programme.",
+    "Root immutable metadata/type and existing photographic receipt comparison; final integrated checks pending."
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "turkmen_hip_hop",
+        "name": "Turkmen Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Turkmen hip-hop developed through circulated recordings, studio work and internet communities, linking local MCs with musicians living abroad. Rappers combine personal and social themes with pop-facing material.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic verses over produced accompaniment form a core of Turkmen rap, alongside melodic pop-rap and online battle practice. Local language, everyday experience and emerging independent networks shape a scene connected to wider international hip-hop.",
+        "exemplars": [
+          "XB Mawzer",
+          "Azat Orazow"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "turkmen_hip_hop",
+          "name": "Turkmen Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative accompanied MC over a newly authored produced beat, supported by the original firsthand national scene interview: verses over existing beats, emerging own music production, studio practice and online rap platforms. This is not an assertion that a particular 2015–17 battle had backing, nor that XB’s stage-name etymology proves unaccompanied performance. Beat sound generators remain unspecified; no sampler/master-playback claim. One rhythmic spoken lead and a controlled studio are ordinary authored choices. The source’s analogy to older bagshy/dutar storytelling is historical rhetoric, not evidence that every modern rap track includes a dutar; no positively described exact arrangement is being reduced. Personal criticisms/statistics in the interview are not adopted as universal facts."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative accompanied MC over a newly authored produced beat, supported by the original firsthand national scene interview: verses over existing beats, emerging own music production, studio practice and online rap platforms. This is not an assertion that a particular 2015–17 battle had backing, nor that XB’s stage-name etymology proves unaccompanied performance. Beat sound generators remain unspecified; no sampler/master-playback claim. One rhythmic spoken lead and a controlled studio are ordinary authored choices. The source’s analogy to older bagshy/dutar storytelling is historical rhetoric, not evidence that every modern rap track includes a dutar; no positively described exact arrangement is being reduced. Personal criticisms/statistics in the interview are not adopted as universal facts."
+        }
+      ],
+      "source_label": "turkmen hip hop",
+      "source_url": "https://everynoise.com/engenremap-turkmenhiphop.html",
+      "suggested_id": "turkmen_hip_hop",
+      "allocation_ordinal": 621,
+      "allocation_group_id": "025",
+      "id": "turkmen_hip_hop",
+      "status": "ready_for_independent_review",
+      "geo": [
+        37.96,
+        58.326,
+        "Ashgabat",
+        "Caucasus & Central Asia"
+      ],
+      "geo_rationale": "Named early recording circulation and practitioner home-city anchor, not Ankara-based artist current recording address.",
+      "signature_tokens": [],
+      "model_policy": "Representative accompanied MC over a newly authored produced beat, supported by the original firsthand national scene interview: verses over existing beats, emerging own music production, studio practice and online rap platforms. This is not an assertion that a particular 2015–17 battle had backing, nor that XB’s stage-name etymology proves unaccompanied performance. Beat sound generators remain unspecified; no sampler/master-playback claim. One rhythmic spoken lead and a controlled studio are ordinary authored choices. The source’s analogy to older bagshy/dutar storytelling is historical rhetoric, not evidence that every modern rap track includes a dutar; no positively described exact arrangement is being reduced. Personal criticisms/statistics in the interview are not adopted as universal facts.",
+      "neighbor_distinction": "Full TurkmenPop encompasses electronic popular songs, including crossover possibilities, but its sung mainstream field does not exhaust the positively named independent rap/battle community documented by an organizer/practitioner. TurkmenBagshy is traditional sung dutar narrative; the interview draws an analogy, not an equivalence or required modern rap instrument. Full KazakhHipHop and UzbekHipHop are neighboring national recording communities rather than interchangeable Central Asian identities. Source names actual Turkmen online platforms, local rappers and a diaspora connection, so this is more than performer nationality. Pop-rap overlap is candid and no unique national drum pattern is invented.",
+      "classification_evidence": "Full TurkmenPop encompasses electronic popular songs, including crossover possibilities, but its sung mainstream field does not exhaust the positively named independent rap/battle community documented by an organizer/practitioner. TurkmenBagshy is traditional sung dutar narrative; the interview draws an analogy, not an equivalence or required modern rap instrument. Full KazakhHipHop and UzbekHipHop are neighboring national recording communities rather than interchangeable Central Asian identities. Source names actual Turkmen online platforms, local rappers and a diaspora connection, so this is more than performer nationality. Pop-rap overlap is candid and no unique national drum pattern is invented.",
+      "source_scope_limitation": "Representative accompanied MC over a newly authored produced beat, supported by the original firsthand national scene interview: verses over existing beats, emerging own music production, studio practice and online rap platforms. This is not an assertion that a particular 2015–17 battle had backing, nor that XB’s stage-name etymology proves unaccompanied performance. Beat sound generators remain unspecified; no sampler/master-playback claim. One rhythmic spoken lead and a controlled studio are ordinary authored choices. The source’s analogy to older bagshy/dutar storytelling is historical rhetoric, not evidence that every modern rap track includes a dutar; no positively described exact arrangement is being reduced. Personal criticisms/statistics in the interview are not adopted as universal facts.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Representative accompanied MC over a newly authored produced beat, supported by the original firsthand national scene interview: verses over existing beats, emerging own music production, studio practice and online rap platforms. This is not an assertion that a particular 2015–17 battle had backing, nor that XB’s stage-name etymology proves unaccompanied performance. Beat sound generators remain unspecified; no sampler/master-playback claim. One rhythmic spoken lead and a controlled studio are ordinary authored choices. The source’s analogy to older bagshy/dutar storytelling is historical rhetoric, not evidence that every modern rap track includes a dutar; no positively described exact arrangement is being reduced. Personal criticisms/statistics in the interview are not adopted as universal facts."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Representative accompanied MC over a newly authored produced beat, supported by the original firsthand national scene interview: verses over existing beats, emerging own music production, studio practice and online rap platforms. This is not an assertion that a particular 2015–17 battle had backing, nor that XB’s stage-name etymology proves unaccompanied performance. Beat sound generators remain unspecified; no sampler/master-playback claim. One rhythmic spoken lead and a controlled studio are ordinary authored choices. The source’s analogy to older bagshy/dutar storytelling is historical rhetoric, not evidence that every modern rap track includes a dutar; no positively described exact arrangement is being reduced. Personal criticisms/statistics in the interview are not adopted as universal facts."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "authored_default": 1,
+        "basis": "Genre-level MC default, no whole-recording headcount claim."
+      },
+      "sources": [
+        {
+          "url": "https://habartm.org/archives/9214",
+          "title": "Original Alternative Turkmenistan News interview with XB Mawzer",
+          "support_notes": "Fresh13718view0 full firsthand interview, translated from Turkmen: national rap scene, studio work, verses over beats/own music, actual online organizer practice. Historical bagshy comparison not read as contemporary required dutar. 2018 perspective retained; not a current census."
+        },
+        {
+          "url": "https://novastan.org/de/turkmenistan/arslanmuhammed-nasarow-rap-ist-in-turkmenistan-noch-nicht-angekommen/",
+          "title": "Novastan attributed abridged German translation",
+          "support_notes": "Fresh13717view0 supplies provenance and direct link to original interview; corroborating translation, not an independent second witness."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

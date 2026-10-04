@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-004.json",
+  "packet_sha256": "f9e800944598f8b9c63d7a05a0c91426f7ea7c596f431e5c259feac46957e48c",
+  "reviewer": "research117",
+  "accepted_ids": [
+    "musique_traditionnelle_congolaise",
+    "polish_alternative"
+  ],
+  "review": {
+    "musique_traditionnelle_congolaise": "Concise national/regional breadth retained. Voice/lukembi is a supported intimate song branch, not a claim all Congolese practices have two roles. Falsetto/quiet delivery and meaningful seven-control historical instrument identity remain coherent. Larger communal traditions explicitly described. All four literal outputs consistent with chosen branch.",
+    "polish_alternative": "Five-family guitar/bass/drums/voice/synth configuration is a useful representative alternative-band profile. Dropping mandatory organ/electric-piano/horns/processing from album-union preset does not erase evidence: whole album roster remains separately preserved and wider colours remain in public description. Existing institutional synth-pop evidence supports breadth. Clean guitar, locked bass, backbeat and neutral synth architecture coherent; no need impose every album guest role on a general genre profile."
+  },
+  "validation": "Read both complete profiles, retained source notes and all eight original root runtime outputs; 74-control root validation reviewed. No new source retrieval, photo downloads, static build or CI asserted. Historical photo rights unchanged; matched labels generic recording context. Dependency retained.",
+  "publication": "No repository mutation; parent approval/integration separate."
+}

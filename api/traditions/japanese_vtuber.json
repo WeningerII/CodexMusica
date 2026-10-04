@@ -5,7 +5,7 @@
   "lineage": "Japanese VTuber music grows from avatar-mediated streaming performers and their production communities. Virtual idols and independent talents sing original songs and covers, collaborating with songwriters and producers across popular styles.",
   "recipe": "classic japanese vtuber, functional Song. solo with instrumental accompaniment. singing lead digital subtractive, drum machine analog. live tracking.",
   "recipe_chars": 149,
-  "score": 6.782,
+  "score": 6.88,
   "config": {
     "traditions": [
       "japanese_vtuber"
@@ -60,7 +60,7 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 3.8120000000000003,
+          "electronic_technique": 3.9095000000000004,
           "va_archetypes": 0,
           "digital_subtractive_context": -0.05
         }

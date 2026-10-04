@@ -1,0 +1,239 @@
+{
+  "entries": [
+    {
+      "source_label": "chinese bgm",
+      "source_url": "https://everynoise.com/engenremap-chinesebgm.html",
+      "suggested_id": "chinese_bgm",
+      "allocation_ordinal": 3016,
+      "allocation_group_id": "121",
+      "id": "chinese_bgm",
+      "tradition": {
+        "id": "chinese_bgm",
+        "name": "Chinese BGM",
+        "family": "pop",
+        "lineage": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge rendition of the selected popular-song piano edition; section layout and chord voicing are not a measured transcription. Standard studio upright and block-chord pop touch are coherent authored choices where the publisher leaves piano construction unspecified. A modest controlled live-room recording is authored. No global tuning or capture hardware is inferred. A printed solo edition is not automatically classical, and this specific rendition does not define the full multi-instrument background field.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording. Chinese BGM is the Chinese-language light/background listening and cover-release field: the creator programme explicitly combines cafe/study/sleep titles, Chinese popular-song piano covers and other instrumental or sound-based listening products. Noble issuer metadata independently identifies BGM for study/work and Chinese-pop relaxation covers, including piano and guitar catalog branches. Thus Chinese is a repertoire/marketing-language field, not a rule that every composition is Chinese, every performer belongs to one nation, or all sound sources are traditional Chinese instruments. Existing background_music is the broad international functional umbrella and background_piano its piano-specific subset; both already include this usage and are not restricted to their Japanese/Canadian examples. This narrower positively circulated language/repertoire market overlaps both without being their synonym. Taiwan instrumental is a broader geographic instrumental field, not just Cicada chamber music; Chinese BGM overlaps Taiwan products but also spans cross-regional Chinese-language background releases. Mandopop/C-pop cover popular song industries broadly, not specifically background-listening reinterpretation products. Chinese classical and Chinese classical piano are art/performance fields, not all piano played by Chinese musicians. Accepted Chinese Soundtrack and Chinese Electropop are screen-use and electronic-song fields, not this background-use publishing axis. No exclusive artist or musical grammar partition asserted. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge rendition of the selected popular-song piano edition; section layout and chord voicing are not a measured transcription. Standard studio upright and block-chord pop touch are coherent authored choices where the publisher leaves piano construction unspecified. A modest controlled live-room recording is authored. No global tuning or capture hardware is inferred. A printed solo edition is not automatically classical, and this specific rendition does not define the full multi-instrument background field.",
+        "exemplars": [
+          "Jay Chou — Maple, Shinko2011 complete solo-piano edition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        25.033,
+        121.5654,
+        "Taipei",
+        "East Asia"
+      ],
+      "geo_rationale": "Editorial Taiwan Chinese-pop/cover publishing anchor for this selected repertoire, not a measured score session or claim of exclusive national field.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.shinko-music.co.jp/item/pid0024427/",
+          "title": "Publisher complete piano-solo anthology",
+          "support_notes": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11585search0; turn11586view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1Kcs9JPtTzFVgBhqnlmLM3",
+          "title": "Creator Chinese BGM programme",
+          "support_notes": "Item15 Maple piano cover by Noble, item13 Rice Fragrance by Bryan Chi; broader programme includes cafe, study, sleep, jazz and instrumental listening products.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11586view1; turn11589view0"
+        },
+        {
+          "url": "https://music.apple.com/mo/album/studying-piano-music-bgm-light-music-and-pop-cover-music/1833191280",
+          "title": "Issuer-distributed Noble BGM catalog",
+          "support_notes": "Noble2025 study piano BGM/pop-cover album and same issuer Chinese-pop/guitar background and relaxation releases establish positive usage/repertoire field; not used to infer a complete piano-only recording palette.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11592view0"
+        },
+        {
+          "url": "https://www.sonymusic.co.jp/artist/Jay/info/361226",
+          "title": "Artist label announces authorized solo piano edition",
+          "support_notes": "Sony artist page announces this Jay Chou solo-piano anthology, confirming repertoire/edition association.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11585search1"
+        }
+      ],
+      "neighbor_distinction": "Chinese BGM is the Chinese-language light/background listening and cover-release field: the creator programme explicitly combines cafe/study/sleep titles, Chinese popular-song piano covers and other instrumental or sound-based listening products. Noble issuer metadata independently identifies BGM for study/work and Chinese-pop relaxation covers, including piano and guitar catalog branches. Thus Chinese is a repertoire/marketing-language field, not a rule that every composition is Chinese, every performer belongs to one nation, or all sound sources are traditional Chinese instruments. Existing background_music is the broad international functional umbrella and background_piano its piano-specific subset; both already include this usage and are not restricted to their Japanese/Canadian examples. This narrower positively circulated language/repertoire market overlaps both without being their synonym. Taiwan instrumental is a broader geographic instrumental field, not just Cicada chamber music; Chinese BGM overlaps Taiwan products but also spans cross-regional Chinese-language background releases. Mandopop/C-pop cover popular song industries broadly, not specifically background-listening reinterpretation products. Chinese classical and Chinese classical piano are art/performance fields, not all piano played by Chinese musicians. Accepted Chinese Soundtrack and Chinese Electropop are screen-use and electronic-song fields, not this background-use publishing axis. No exclusive artist or musical grammar partition asserted.",
+      "model_policy": "Broad functionalSong models an authored functional-harmonic verse-chorus-bridge rendition of the selected popular-song piano edition; section layout and chord voicing are not a measured transcription. Standard studio upright and block-chord pop touch are coherent authored choices where the publisher leaves piano construction unspecified. A modest controlled live-room recording is authored. No global tuning or capture hardware is inferred. A printed solo edition is not automatically classical, and this specific rendition does not define the full multi-instrument background field.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "upright_piano"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Only original existing upright-piano owner, with all3 merged parts explicitly pinned; no instrument dependency."
+      },
+      "classification_evidence": {
+        "mode": "creator_composition_plus_primary_issuer_background_repertoire",
+        "url": "https://open.spotify.com/embed/playlist/1Kcs9JPtTzFVgBhqnlmLM3",
+        "matched_artist": "貴族鋼琴輕音樂",
+        "note": "Chinese BGM is the Chinese-language light/background listening and cover-release field: the creator programme explicitly combines cafe/study/sleep titles, Chinese popular-song piano covers and other instrumental or sound-based listening products. Noble issuer metadata independently identifies BGM for study/work and Chinese-pop relaxation covers, including piano and guitar catalog branches. Thus Chinese is a repertoire/marketing-language field, not a rule that every composition is Chinese, every performer belongs to one nation, or all sound sources are traditional Chinese instruments. Existing background_music is the broad international functional umbrella and background_piano its piano-specific subset; both already include this usage and are not restricted to their Japanese/Canadian examples. This narrower positively circulated language/repertoire market overlaps both without being their synonym. Taiwan instrumental is a broader geographic instrumental field, not just Cicada chamber music; Chinese BGM overlaps Taiwan products but also spans cross-regional Chinese-language background releases. Mandopop/C-pop cover popular song industries broadly, not specifically background-listening reinterpretation products. Chinese classical and Chinese classical piano are art/performance fields, not all piano played by Chinese musicians. Accepted Chinese Soundtrack and Chinese Electropop are screen-use and electronic-song fields, not this background-use publishing axis. No exclusive artist or musical grammar partition asserted."
+      },
+      "vocal_count_audit": {
+        "credited_selected_singers": [],
+        "selected_count": 0,
+        "count_basis": "Whole positively published piano-solo edition, not source-master vocal deletion.",
+        "decision": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording."
+      },
+      "instrument_role_audit": {
+        "rationale": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording.",
+        "selected_scope": "Whole Maple solo-piano arrangement in Shinko2011 anthology",
+        "roles": [
+          {
+            "instrument": "upright_piano",
+            "source_role": "Complete solo piano arrangement",
+            "authored_realization": "Broad functionalSong models an authored functional-harmonic verse-chorus-bridge rendition of the selected popular-song piano edition; section layout and chord voicing are not a measured transcription. Standard studio upright and block-chord pop touch are coherent authored choices where the publisher leaves piano construction unspecified. A modest controlled live-room recording is authored. No global tuning or capture hardware is inferred. A printed solo edition is not automatically classical, and this specific rendition does not define the full multi-instrument background field."
+          }
+        ],
+        "omissions": "No positively scored family omitted. Noble cover and original Jay Chou song recording are separate versions."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "All original owning parts pinned as source-compatible authored standard studio upright with block-chord pop touch; publisher piano make/model unspecified."
+        }
+      ],
+      "verification_status": "primary_source_reviewed_complete_merged_defaults_pinned_inherited_photo_bytes_fresh_rights",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "chinese_bgm",
+          "name": "Chinese BGM",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not the pianist, piano, Noble release session or Shinko equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11604view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Historical exact023 bytes/visual receipt inherited unchanged.",
+          "fresh_review_ref": "turn11604view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        }
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "All three original merged upright-piano parts explicitly authored and pinned, no shared owner collision or fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn11585search0",
+        "turn11586view0",
+        "turn11586view1",
+        "turn11589view0",
+        "turn11592view0",
+        "turn11585search1"
+      ],
+      "source_access_limitation": "Full public publisher metadata and creator playlist read directly; paid score pages and recorded audio not inspected. Exact historical photo bytes/visual receipts reused; no new download claimed."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "pending": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}
