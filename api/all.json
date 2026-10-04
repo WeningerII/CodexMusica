@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6781,
+  "count": 6806,
   "items": [
     {
       "id": "honky_tonk",
@@ -1429,8 +1429,8 @@
       "id": "microhouse",
       "name": "Microhouse",
       "family": "electronic",
-      "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric pakistani electronic polish electronica. digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 341
+      "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric chill breakcore pakistani electronic. digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 338
     },
     {
       "id": "hardstyle",
@@ -8583,8 +8583,8 @@
       "id": "stutter_house",
       "name": "Stutter House",
       "family": "electronic",
-      "recipe": "classic European 1997-1999 stutter house, electronic Dance, house branch, tech house house, lofi house house, continental electronic dance lo-fi house outsider house. vocal fry, breath veiled tone, straight onset, interlocked note trading. field sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, analog poly synth, piercing high-gain-saturation monosynth acid bass, turntable. bedroom. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
-      "recipe_chars": 560
+      "recipe": "classic European 1997-1999 stutter house, electronic Dance, house branch, tech house house, lofi house house, continental electronic dance lo-fi house outsider house. vocal fry, breath veiled tone, straight onset, interlocked note trading. field sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, analog poly synth, monosynth acid bass, turntable. bedroom. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
+      "recipe_chars": 530
     },
     {
       "id": "lagu_jawa",
@@ -10998,8 +10998,8 @@
       "id": "raggacore",
       "name": "Raggacore",
       "family": "electronic",
-      "recipe": "classic early-2000s raggacore, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, idm glitch experimental electric industrial hardcore. vocal fry, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, sampled chopped sampler drum machine, sub bass monosynth acid bass, glitched textural wavetable synth, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 593
+      "recipe": "classic early-2000s raggacore, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, idm glitch experimental electric oldschool jungle industrial hardcore. rhythmic, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. software sample playback, sampler drum machine, low sub bass monosynth acid bass, low sub bass wavetable synth, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 596
     },
     {
       "id": "sambass",
@@ -45830,8 +45830,8 @@
       "id": "hip_hop_boliviano",
       "name": "Hip hop boliviano",
       "family": "hip_hop",
-      "recipe": "classic hip hop boliviano, mc Rhythm. group vocals. dj playback mixing unspecified. live tracking.",
-      "recipe_chars": 98
+      "recipe": "classic hip hop boliviano, mc Rhythm. group vocals, live take. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 109
     },
     {
       "id": "hip_hop_mauritanien",
@@ -46530,8 +46530,8 @@
       "id": "musica_urbana_oaxaquena",
       "name": "Música Urbana Oaxaqueña",
       "family": "hip_hop",
-      "recipe": "classic música urbana oaxaqueña, mc Rhythm. rhythmic spoken flow no pitch. dj playback mixing unspecified. live tracking.",
-      "recipe_chars": 121
+      "recipe": "classic música urbana oaxaqueña, mc Rhythm. rhythmic spoken flow no pitch, live take. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 132
     },
     {
       "id": "musique_traditionnelle_congolaise",
@@ -47470,6 +47470,181 @@
       "family": "electronic",
       "recipe": "classic underground amapiano, electronic Dance, African dance branch. dj playback mixing unspecified. shoebox concert hall.",
       "recipe_chars": 123
+    },
+    {
+      "id": "deep_tech_house",
+      "name": "Deep Tech House",
+      "family": "electronic",
+      "recipe": "classic deep tech house, electronic Dance, tech house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 108
+    },
+    {
+      "id": "deep_psytrance",
+      "name": "Deep Psytrance",
+      "family": "electronic",
+      "recipe": "classic deep psytrance, electronic Dance, trance branch. dj playback mixing unspecified, drum machine analog. live tracking.",
+      "recipe_chars": 124
+    },
+    {
+      "id": "chill_breakcore",
+      "name": "Chill Breakcore",
+      "family": "electronic",
+      "recipe": "classic chill breakcore, experimental Elec, idm glitch branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 109
+    },
+    {
+      "id": "detroit_trap_en_espanol",
+      "name": "Detroit trap en español",
+      "family": "hip_hop",
+      "recipe": "classic modern detroit trap en español, mc Rhythm. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro.",
+      "recipe_chars": 234
+    },
+    {
+      "id": "modern_jangle_pop",
+      "name": "Modern Jangle Pop",
+      "family": "pop_rock",
+      "recipe": "classic modern jangle pop, functional Song, pop rock branch. conversational, equal tempered, modern pop training. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 262
+    },
+    {
+      "id": "pop_reggaeton",
+      "name": "Pop Reggaeton",
+      "family": "pop",
+      "recipe": "classic pop reggaeton, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. credited beat unspecified. treated studio.",
+      "recipe_chars": 181
+    },
+    {
+      "id": "calming_instrumental",
+      "name": "Calming Instrumental",
+      "family": "classical",
+      "recipe": "classic calming instrumental, art Music. upright piano. parlor.",
+      "recipe_chars": 63
+    },
+    {
+      "id": "carnaval_limburg",
+      "name": "Carnaval Limburg",
+      "family": "vernacular",
+      "recipe": "classic carnaval limburg, functional Song. upright piano, electric bass, drum kit, trumpet, trombone, accordion. live tracking.",
+      "recipe_chars": 127
+    },
+    {
+      "id": "chill_lounge",
+      "name": "Chill Lounge",
+      "family": "electronic",
+      "recipe": "classic chill lounge, experimental Elec. dj playback mixing unspecified. parlor.",
+      "recipe_chars": 80
+    },
+    {
+      "id": "deep_darkpsy",
+      "name": "Deep Darkpsy",
+      "family": "electronic",
+      "recipe": "classic deep darkpsy, electronic Dance, trance branch. dj playback mixing unspecified. treated studio.",
+      "recipe_chars": 102
+    },
+    {
+      "id": "ghanaian_alternative",
+      "name": "Ghanaian Alternative",
+      "family": "global",
+      "recipe": "classic ghanaian alternative, electronic Dance. sampler. live tracking.",
+      "recipe_chars": 71
+    },
+    {
+      "id": "ghoststep",
+      "name": "Ghoststep",
+      "family": "electronic",
+      "recipe": "classic ghoststep, electronic Dance. rhythmic spoken flow no pitch, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 152
+    },
+    {
+      "id": "grimewave",
+      "name": "Grimewave",
+      "family": "electronic",
+      "recipe": "classic grimewave, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 83
+    },
+    {
+      "id": "gruperas_inmortales",
+      "name": "Gruperas Inmortales",
+      "family": "pop",
+      "recipe": "classic gruperas inmortales, functional Song, Mexican branch. one note per syllable. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "j_division",
+      "name": "J-Division",
+      "family": "pop",
+      "recipe": "classic j-division, functional Song. block chord upright piano. live tracking.",
+      "recipe_chars": 78
+    },
+    {
+      "id": "japanese_new_wave",
+      "name": "Japanese New Wave",
+      "family": "rock",
+      "recipe": "classic 1977-1979 japanese new wave, functional Song. solo with instrumental accompaniment. clean strummed humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "kizomba_antigas",
+      "name": "Kizomba Antigas",
+      "family": "global",
+      "recipe": "classic kizomba antigas, groove Percussion, Afro-diasporic electric branch. dj playback mixing unspecified. parlor.",
+      "recipe_chars": 115
+    },
+    {
+      "id": "mezmur",
+      "name": "Mezmur",
+      "family": "sacred",
+      "recipe": "classic mezmur, ritual Devotional, christian gospel branch. one note per syllable. live tracking.",
+      "recipe_chars": 97
+    },
+    {
+      "id": "modern_enka",
+      "name": "Modern Enka",
+      "family": "pop",
+      "recipe": "classic modern enka, functional Song. block chord upright piano. live tracking.",
+      "recipe_chars": 79
+    },
+    {
+      "id": "pygmy_music",
+      "name": "Pygmy music (Central African archival field)",
+      "family": "global",
+      "recipe": "classic mid-1950s pygmy music, ritual Devotional. forest clearing.",
+      "recipe_chars": 66
+    },
+    {
+      "id": "rominimal",
+      "name": "Rominimal",
+      "family": "electronic",
+      "recipe": "classic rominimal, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 97
+    },
+    {
+      "id": "russian_hyperpop",
+      "name": "Russian Hyperpop",
+      "family": "pop",
+      "recipe": "classic mid-2020s russian hyperpop, experimental Elec. solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. glitched textural wavetable synth, glitched textural sampler. live tracking.",
+      "recipe_chars": 216
+    },
+    {
+      "id": "stomp_and_whittle",
+      "name": "Stomp and Whittle",
+      "family": "folk",
+      "recipe": "classic stomp and whittle, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. ukulele. live tracking.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "viet_lo_fi",
+      "name": "Viet Lo-fi",
+      "family": "electronic",
+      "recipe": "classic viet lo-fi, experimental Elec, lofi branch. software lofi reworking. treated studio.",
+      "recipe_chars": 92
+    },
+    {
+      "id": "voetbal",
+      "name": "Voetbal",
+      "family": "vernacular",
+      "recipe": "classic voetbal, functional Song. one note per syllable, solo with instrumental accompaniment. upright piano. live tracking.",
+      "recipe_chars": 124
     }
   ]
 }

@@ -6790,6 +6790,31 @@
   <url><loc>https://codexmusica.com/api/traditions/sunset_lounge.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/swazi_traditional.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/underground_amapiano.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_tech_house.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_psytrance.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/chill_breakcore.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/detroit_trap_en_espanol.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/modern_jangle_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/pop_reggaeton.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/calming_instrumental.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/carnaval_limburg.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/chill_lounge.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_darkpsy.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ghanaian_alternative.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ghoststep.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/grimewave.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/gruperas_inmortales.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/j_division.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/japanese_new_wave.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/kizomba_antigas.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/mezmur.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/modern_enka.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/pygmy_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/rominimal.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/russian_hyperpop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/stomp_and_whittle.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/viet_lo_fi.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/voetbal.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/choir_ensemble.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/griot_voice.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/pansori_voice.json</loc></url>
@@ -8449,4 +8474,5 @@
   <url><loc>https://codexmusica.com/api/instruments/zongora_maramures.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/doba_maramures.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/cassette_pause_tape_looping.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/software_lofi_reworking.json</loc></url>
 </urlset>

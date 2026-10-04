@@ -3,9 +3,9 @@
   "name": "Música Urbana Oaxaqueña",
   "family": "hip_hop",
   "lineage": "Música Urbana Oaxaqueña develops through Oaxaca’s rap and urban-music communities, including Spanish-language and Indigenous-language expression. Groups such as Juchirap connect local experience, language and cultural memory with contemporary hip-hop performance.",
-  "recipe": "classic música urbana oaxaqueña, mc Rhythm. rhythmic spoken flow no pitch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 121,
-  "score": 8.396,
+  "recipe": "classic música urbana oaxaqueña, mc Rhythm. rhythmic spoken flow no pitch, live take. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 132,
+  "score": 8.576,
   "config": {
     "traditions": [
       "musica_urbana_oaxaquena"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.49949999999999994,
+          "voice_multitrack_stack": 0.6794999999999999,
           "voice_tessitura": 0
         }
       },

@@ -1,0 +1,58 @@
+{
+  "id": "j_division",
+  "name": "J-Division",
+  "family": "pop",
+  "lineage": "J-Division is a Japanese pop discovery field linking character-song projects, vocal units and real-world pop groups. Its repertoire crosses animated and game franchises, rap battles and dance-pop, with published arrangements extending the songs into instrumental performance.",
+  "recipe": "classic j-division, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 78,
+  "score": 10.7,
+  "config": {
+    "traditions": [
+      "j_division"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 10.7,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

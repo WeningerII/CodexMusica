@@ -1,0 +1,75 @@
+{
+  "id": "deep_psytrance",
+  "name": "Deep Psytrance",
+  "family": "electronic",
+  "lineage": "Deep psytrance emphasizes immersive, groove-led psychedelic trance rather than a single label roster. It overlaps dark progressive and Zenonesque practice, combining repetitive dance rhythms with spacious textures, detailed sound design and gradual developments across long DJ journeys.",
+  "recipe": "classic deep psytrance, electronic Dance, trance branch. dj playback mixing unspecified, drum machine analog. live tracking.",
+  "recipe_chars": 124,
+  "score": 2.888,
+  "config": {
+    "traditions": [
+      "deep_psytrance"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.1995
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 2.363,
+          "snare_voice": 0.0945,
+          "hat_voice": 0.231,
+          "shuffle_quantize": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "shuffle_low"
+    },
+    "pin_parts": true
+  }
+}
