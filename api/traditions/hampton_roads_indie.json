@@ -2,10 +2,10 @@
   "id": "hampton_roads_indie",
   "name": "Hampton Roads Indie",
   "family": "rock",
-  "lineage": "Snake Mountain Revival — Everything in Sight artist release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic hampton roads indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 371,
-  "score": 25.953,
+  "lineage": "Hampton Roads indie connects independent musicians across the coastal Virginia metropolitan region. Guitar-led bands form one strand in a varied local recording and performance scene.",
+  "recipe": "classic hampton roads indie, distorted Rock, alternative branch. one note per syllable, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 356,
+  "score": 24.924,
   "config": {
     "traditions": [
       "hampton_roads_indie"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 1.449,
+          "voice_speech_song": 1.6465,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.26,
           "amp_make": 0,
           "body_wood": 0.441,
           "neck_wood": 0.5775,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -131,7 +131,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 0.10000000000000002,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.181500000000001,
           "cymbal_lathing": 6.2865,
           "cymbal_finish": 0

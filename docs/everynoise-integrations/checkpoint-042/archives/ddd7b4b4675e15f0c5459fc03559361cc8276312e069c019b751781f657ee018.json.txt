@@ -1,0 +1,187 @@
+{
+  "entries": [
+    {
+      "source_label": "marathi balgeet",
+      "source_url": "https://everynoise.com/engenremap-marathibalgeet.html",
+      "suggested_id": "marathi_balgeet",
+      "allocation_ordinal": 3748,
+      "allocation_group_id": "150",
+      "id": "marathi_balgeet",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "marathi_balgeet",
+        "name": "Marathi Balgeet",
+        "family": "vernacular",
+        "lineage": "Marathi balgeet brings Marathi-language children’s songs into family play, classrooms and contemporary educational media. Short rhymes, memorable phrases and coordinated actions help children share language and rhythm.",
+        "instruments": [
+          "voice",
+          "hand_clap"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "clap_technique": "clap_flat_sharp",
+          "clap_capture": "clap_room_natural"
+        }
+      },
+      "extras": {
+        "parent": "nurseryRhyme.southAsian",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Voices repeat compact phrases while hand patterns mark the pulse. Clapping games can alternate song with playful spoken sounds and gestures; arranged recordings offer additional ways of circulating the repertoire.",
+        "exemplars": [
+          "Apadi Thapadi Gulachi Papdi"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        19.1075,
+        72.8263,
+        "Mumbai",
+        "Asia"
+      ],
+      "geo_rationale": "Juhu school institutional language-song practice; regional repertoire is not restricted to this representative city anchor.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "marathi_balgeet",
+          "name": "Marathi Balgeet",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn14908view2 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn14908view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14908view2"
+        ],
+        "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative participatory rhyme-and-handclap practice, not reconstruction of the animation soundtrack. Full positive vocal, hand impact and playful vocalized syllable roles retained. Unknown participant number and adult/child vocal proportions remain unspecified. Group singing, single live-ensemble take, syllabic text setting and flat natural-room claps are authored practice choices; no particular age physiology, measured mode, exact melody or equipment is asserted. Occasional spoken/onomatopoeic actions are described, with one predominantly sung realization selected. Nursery-rhyme parent follows explicit action-game/language-learning function, not notation alone. No global tuning imposed.",
+      "neighbor_distinction": "The full Marathi Traditional field already includes everyday/community and lullaby song and can overlap this repertoire. Marathi Balgeet is a positively named child-directed language-learning/play repertoire, including modern educational media, not an assertion traditional Marathi music excludes children. Marathi pop and devotional/powada have different broad functions; general nursery-rhyme fields overlap function without covering this language-specific named repertoire as an exact alias.",
+      "sources": [
+        {
+          "url": "https://www.jollytoon.com/apadi-thapadi-gulachi-papdi-song-lyrics.html",
+          "title": "JollyToons official Marathi Balgeet clapping-game teaching page",
+          "support_notes": "Producer directly names the repertoire and teaches participatory hand/voice actions; used as performance-practice source, not full animation-master inventory.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://avmschools.ac.in/marathi-diwas-celebration-in-pre-primaryavm-juhu/",
+          "title": "Arya Vidya Mandir Juhu — Marathi Diwas in pre-primary",
+          "support_notes": "School firsthand account explicitly reports Marathi Balgeet sung to enhance language; fresh indexed14929search3, direct timeout14930view0.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14930view1",
+        "turn14929search3"
+      ],
+      "source_scope_limitation": "Genre-level participatory practice, no claim specific released master is accompaniment-free. Handclaps and vocal actions are positive source roles; no missing keyboard/drum inferred from an unavailable recording.",
+      "source_retrieval_caveat": "Producer full teaching page directly reproduced; school primary indexed passage reproduced, direct page timeout candid. Older unavailable piano video no longer controls this representative practice route."
+    }
+  ],
+  "instrument_dependencies": []
+}

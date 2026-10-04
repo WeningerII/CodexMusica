@@ -5,7 +5,7 @@
   "lineage": "Steaua de Mare — documented five-member instrumental practice2013–2014. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s neo-manele, experimental Elec. electric violin, analog poly synth, electric bass, low fundamental tuning all purpose maple drum kit, credited auxiliary percussion, drum machine analog, wurlitzer ep. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 6.377,
+  "score": 5.539,
   "config": {
     "traditions": [
       "neo_manele"
@@ -33,7 +33,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.39,
           "poly_maker_lineage": 0.5499999999999999
@@ -78,12 +78,12 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 1.534,
+          "drum_technique": -0.05,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.9420000000000002,
+          "shell_wood": 1.6,
           "shell_thickness": 0,
-          "bearing_edges": 0.159,
+          "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 0.15000000000000002,
@@ -110,9 +110,9 @@
         },
         "scores": {
           "kick_voice": 0.39,
-          "snare_voice": 0.054,
+          "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0.054
+          "shuffle_quantize": 0
         }
       },
       {
@@ -128,7 +128,7 @@
           "keyboard_technique": -0.1,
           "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 0.3,
-          "wurlitzer_model": 0.604,
+          "wurlitzer_model": 0.5499999999999999,
           "wurlitzer_reed_material": 0.8999999999999999
         }
       }

@@ -2,10 +2,10 @@
   "id": "melodic_doom",
   "name": "Melodic doom",
   "family": "rock",
-  "lineage": "Hinayana — Order Divine (2018), complete label release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s melodic doom, distorted Rock, doom branch. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, melodic chordal electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 376,
-  "score": 45.14,
+  "lineage": "Doom metal emphasizing melodic lines and atmosphere alongside heavy riffs.",
+  "recipe": "classic melodic doom, distorted Rock, doom branch. power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic chordal electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 44.252,
   "config": {
     "traditions": [
       "melodic_doom"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.483,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.735,
+          "electric_technique": 10.985,
           "amp_make": 0,
           "body_wood": 0.4305,
           "neck_wood": 0.36750000000000005,
@@ -80,9 +80,9 @@
           "string_material": 0.1365,
           "bridge": 0.1365,
           "scale_length": 0.7665,
-          "string_gauge": 1.4785,
+          "string_gauge": 0.1785,
           "finish": 0,
-          "string_tuning": 1.5625
+          "string_tuning": 0.26249999999999996
         }
       },
       {
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 1.69,
+          "drumhead": 0.5354999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.69,
+          "shell_wood": 0.39899999999999997,
           "shell_thickness": 0,
           "bearing_edges": 0.2625,
           "snare_wires": 0,
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.0315,
-          "keyboard_technique": 1.8625
+          "keyboard_technique": 2.8625
         }
       }
     ],

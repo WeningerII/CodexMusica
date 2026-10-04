@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "reviewer": "recover_024",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice004-thai-viral-pop.json",
+  "sha256": "45cde2fa9aa578b2a269b8b32cebc8c5ccab2b632ce9adb8ff0b2a68864eff6d",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "fresh_primary_refs": [
+    "turn14935view1",
+    "turn14937view0",
+    "turn14937search0",
+    "turn14938youtube12",
+    "turn14938search0"
+  ],
+  "category_source_and_default_review": "Full thai_pop and thai_indie_pop read. Platform own national report and label PR with country-director remarks establish repeatable UGC/dance/discovery circulation across styles, not view-count-only genre invention. Issuer distinct Piano Version plus credited singer/song lyrics supports authored voice/piano branch; original-master sax is not dropped from an asserted exact recording because no such reconstruction claimed. Functional verse/chorus/bridge explicitly authored.",
+  "literal_output_review": "Wabi-rustic lexicon is plain soft rustic tone, affectionate warmth: compatible with intimate unprocessed singing/piano/parlor realization. Standard upright block chords are deliberate unspecified-subtype rendition, not measured source technique.",
+  "validation": {
+    "protected_owning_controls": 20,
+    "unowned_or_invalid_flat_parts": 0,
+    "axes_count": 13,
+    "browser_connector_parity_all_four_formats": true,
+    "max_chars": 416,
+    "compiled_api_only_requested_tradition": true,
+    "compiled_api_pin_errors": [],
+    "existing_instrument_records_unchanged": true,
+    "receipt": "practice004-independent-runtime024.json"
+  },
+  "photo_review": {
+    "fresh_rights_ref": "turn14925view1",
+    "license": "CC BY2.5; Iain Fergusson original/Binksternet crop",
+    "historical_source": "data-only-023-evidence.json:baps",
+    "exact_url_hash_dimensions_bytes_match": true,
+    "context": "LOW generic recording microphone, no source performer/instrument depiction claim",
+    "new_download_or_visual_claim": false
+  },
+  "immutable_review": "Original candidate read only; SHA bound, id/tradition id/photo id and thirteen axes checked. Source identity/ordinal/name/palette and all public/evidence fields unchanged by reviewer. No dependencies or registry edits.",
+  "limitations": [
+    "Primary statements about promotion and metrics remain issuer-attributed.",
+    "Representative genre-level practice qualification, not exhaustive reconstruction of any master recording."
+  ]
+}

@@ -2,10 +2,10 @@
   "id": "pop_violin",
   "name": "Pop violin",
   "family": "pop",
-  "lineage": "Lindsey Stirling — V-Pop, published violin and piano edition MN0147801. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic pop violin, functional Song. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 302,
-  "score": 33.947,
+  "lineage": "Pop violin brings the violin into popular-song and crossover performance. Instrumental melodies circulate through recordings, concerts and arrangements that connect bowed phrasing with familiar pop forms.",
+  "recipe": "classic pop violin, functional Song. violin orchestral, block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 179,
+  "score": 9.951,
   "config": {
     "traditions": [
       "pop_violin"
@@ -26,16 +26,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.5,
+          "bowed_technique": 0.25,
           "orch_strings": 0,
-          "orch_top_wood": 1.45,
-          "orch_back_wood": 2.75,
-          "orch_varnish": 1.45,
-          "orch_setup_period": 1.45,
+          "orch_top_wood": -0.1,
+          "orch_back_wood": -0.1,
+          "orch_varnish": -0.1,
+          "orch_setup_period": -0.1,
           "orch_bow": 0.1365,
-          "orch_bow_stick": 1.4,
+          "orch_bow_stick": -0.15000000000000002,
           "orch_articulation": 0,
-          "orch_rosin": 1.45
+          "orch_rosin": -0.1
         }
       },
       {
@@ -52,15 +52,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 11.949999999999996,
+          "keyboard_technique": 9.95,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
-          "piano_hammer": 1.7499999999999998,
-          "piano_rim": 1.7499999999999998,
-          "piano_soundboard": 1.5865,
-          "piano_pinblock": 2.75,
-          "piano_plate": 1.45,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],

@@ -1,0 +1,1016 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "source": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+      "archive": "archives/48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098.json.txt",
+      "sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+      "role": "302 retained and all92 full deferred repair proposals",
+      "bytes": 4453919
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-001.json",
+      "archive": "archives/090dfa78fa52fb124944e8477807ad0e1e38c71d605ae44268b1188938c72f45.json.txt",
+      "sha256": "090dfa78fa52fb124944e8477807ad0e1e38c71d605ae44268b1188938c72f45",
+      "role": "repair source packet",
+      "bytes": 144083
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-001-root-review.json",
+      "archive": "archives/ba8470a162fe714634ce9f8b55b1f46cd93d37cbcaa4c1dcb7e596cd7aeb194c.json.txt",
+      "sha256": "ba8470a162fe714634ce9f8b55b1f46cd93d37cbcaa4c1dcb7e596cd7aeb194c",
+      "role": "repair peer review",
+      "bytes": 1096
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-002.json",
+      "archive": "archives/23dfd7b1226eb35889482c068276fdf72fe947fef1b9845e5f2548ff6edea547.json.txt",
+      "sha256": "23dfd7b1226eb35889482c068276fdf72fe947fef1b9845e5f2548ff6edea547",
+      "role": "repair source packet",
+      "bytes": 117882
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-002-root-review.json",
+      "archive": "archives/d39d6a702cdd0f17e3c596f399c831d9f8a323403d8d784d1752cfcc65a19c65.json.txt",
+      "sha256": "d39d6a702cdd0f17e3c596f399c831d9f8a323403d8d784d1752cfcc65a19c65",
+      "role": "repair peer review",
+      "bytes": 1104
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-003.json",
+      "archive": "archives/5f652c148b547f3d2b96c0ecaaff82302d5229045cc282f680312de6a3640afa.json.txt",
+      "sha256": "5f652c148b547f3d2b96c0ecaaff82302d5229045cc282f680312de6a3640afa",
+      "role": "repair source packet",
+      "bytes": 114331
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-003-root-review.json",
+      "archive": "archives/42dc1b416192cda269ff4b0b09061e6c2af74cb03c1ca9db80b9f3b0bddaa6b0.json.txt",
+      "sha256": "42dc1b416192cda269ff4b0b09061e6c2af74cb03c1ca9db80b9f3b0bddaa6b0",
+      "role": "repair peer review",
+      "bytes": 1101
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-004.json",
+      "archive": "archives/cdf22728f9802aafb393e569929b83945aea977be88b52dd524e193e3fdce80e.json.txt",
+      "sha256": "cdf22728f9802aafb393e569929b83945aea977be88b52dd524e193e3fdce80e",
+      "role": "repair source packet",
+      "bytes": 123284
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-004-root-review.json",
+      "archive": "archives/477a69efed5419ab627cdc38a0407c746bc8888f248e35d069eddf961ff63c6d.json.txt",
+      "sha256": "477a69efed5419ab627cdc38a0407c746bc8888f248e35d069eddf961ff63c6d",
+      "role": "repair peer review",
+      "bytes": 1028
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-005.json",
+      "archive": "archives/8a19e984010eb13aaa6c01984c994552f9c7cfed70e9a1e621fcd93d78cd2289.json.txt",
+      "sha256": "8a19e984010eb13aaa6c01984c994552f9c7cfed70e9a1e621fcd93d78cd2289",
+      "role": "repair source packet",
+      "bytes": 116166
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-005-root-review.json",
+      "archive": "archives/62e512b8c8d35abffa968072f1820422df41f9501065027dbbb81f89e74d49b5.json.txt",
+      "sha256": "62e512b8c8d35abffa968072f1820422df41f9501065027dbbb81f89e74d49b5",
+      "role": "repair peer review",
+      "bytes": 1067
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-006.json",
+      "archive": "archives/cadba2eaf768a8fdc7aff6aa570321d35a2848f1e015c978b2e60c24d8d71adb.json.txt",
+      "sha256": "cadba2eaf768a8fdc7aff6aa570321d35a2848f1e015c978b2e60c24d8d71adb",
+      "role": "repair source packet",
+      "bytes": 127976
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-006-root-review.json",
+      "archive": "archives/e34d461309f97a1bbfcf3a05729a66dea69fa513e4d4d787f2b287ade65cbed1.json.txt",
+      "sha256": "e34d461309f97a1bbfcf3a05729a66dea69fa513e4d4d787f2b287ade65cbed1",
+      "role": "repair peer review",
+      "bytes": 1056
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-007.json",
+      "archive": "archives/7f8b0c3132e3e8aab1405c159c41a69b8230a1f202bf0de8a47cc94827ddc983.json.txt",
+      "sha256": "7f8b0c3132e3e8aab1405c159c41a69b8230a1f202bf0de8a47cc94827ddc983",
+      "role": "repair source packet",
+      "bytes": 133364
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-007-root-review.json",
+      "archive": "archives/1ddaa9d5ff8edb96adb316ab90a18f5c9d4a6056eececa3bb92c4165695bc49d.json.txt",
+      "sha256": "1ddaa9d5ff8edb96adb316ab90a18f5c9d4a6056eececa3bb92c4165695bc49d",
+      "role": "repair peer review",
+      "bytes": 1069
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-008.json",
+      "archive": "archives/c46fa25d89b56ad8fe16bb1faad952354fb0ac31a93f7b6ca58d44834dc38f75.json.txt",
+      "sha256": "c46fa25d89b56ad8fe16bb1faad952354fb0ac31a93f7b6ca58d44834dc38f75",
+      "role": "repair source packet",
+      "bytes": 137495
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-008-root-review.json",
+      "archive": "archives/61a0a4ec981a128b50a17bc55e10e985daebd7260909fb234238c4d5219b9b07.json.txt",
+      "sha256": "61a0a4ec981a128b50a17bc55e10e985daebd7260909fb234238c4d5219b9b07",
+      "role": "repair peer review",
+      "bytes": 1069
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-009.json",
+      "archive": "archives/40e5a005da07da0861d0bd75257cb626703dd95f1cbcc4ef080e5d237f265f2c.json.txt",
+      "sha256": "40e5a005da07da0861d0bd75257cb626703dd95f1cbcc4ef080e5d237f265f2c",
+      "role": "repair source packet",
+      "bytes": 121325
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-009-root-review.json",
+      "archive": "archives/35db32a965600d926ea24cba5115e989114cb6399d496d783ac8fa8ab365ed81.json.txt",
+      "sha256": "35db32a965600d926ea24cba5115e989114cb6399d496d783ac8fa8ab365ed81",
+      "role": "repair peer review",
+      "bytes": 1065
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-010.json",
+      "archive": "archives/2090fe16111972b2c06424c8dce0d0214e442144387ea2990c22445df91bd1d6.json.txt",
+      "sha256": "2090fe16111972b2c06424c8dce0d0214e442144387ea2990c22445df91bd1d6",
+      "role": "repair source packet",
+      "bytes": 112170
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-010-root-review.json",
+      "archive": "archives/897259e92d64d18883090fff0c704a9bd3fbcac71623fc784c822a49f9dc7545.json.txt",
+      "sha256": "897259e92d64d18883090fff0c704a9bd3fbcac71623fc784c822a49f9dc7545",
+      "role": "repair peer review",
+      "bytes": 1048
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-011.json",
+      "archive": "archives/e27dc424e83b0c5a09c24fa6df6d1e958bacd979eb5feae20f8ad6a10365da64.json.txt",
+      "sha256": "e27dc424e83b0c5a09c24fa6df6d1e958bacd979eb5feae20f8ad6a10365da64",
+      "role": "repair source packet",
+      "bytes": 111223
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-011-root-review.json",
+      "archive": "archives/eaa941bcff3b965044dad767e959fbc847bac6aa5169f718ff5f62a0dffa29be.json.txt",
+      "sha256": "eaa941bcff3b965044dad767e959fbc847bac6aa5169f718ff5f62a0dffa29be",
+      "role": "repair peer review",
+      "bytes": 1071
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-012.json",
+      "archive": "archives/0ad79a4ebf75f45867c9b27da9c09c13e0bc2def1eae3174dcf44a99457b2348.json.txt",
+      "sha256": "0ad79a4ebf75f45867c9b27da9c09c13e0bc2def1eae3174dcf44a99457b2348",
+      "role": "repair source packet",
+      "bytes": 154729
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-012-root-review.json",
+      "archive": "archives/4b42ba3e257840d544e798e15907c1133b3de6b622cffdf35a4ad8ed526b7192.json.txt",
+      "sha256": "4b42ba3e257840d544e798e15907c1133b3de6b622cffdf35a4ad8ed526b7192",
+      "role": "repair peer review",
+      "bytes": 1081
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-013.json",
+      "archive": "archives/fb3d17b1bbc73e1a2086a64cc7d438ed15d30b6c19f9b1e28289fa49f4b8e5d2.json.txt",
+      "sha256": "fb3d17b1bbc73e1a2086a64cc7d438ed15d30b6c19f9b1e28289fa49f4b8e5d2",
+      "role": "repair source packet",
+      "bytes": 135301
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-013-root-review.json",
+      "archive": "archives/0580306fd8556e4ef53f88e2638954394e394a8bf312969883c4bb4f27d709f0.json.txt",
+      "sha256": "0580306fd8556e4ef53f88e2638954394e394a8bf312969883c4bb4f27d709f0",
+      "role": "repair peer review",
+      "bytes": 1040
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-014.json",
+      "archive": "archives/52fa25512b4454c5b82ee1253db2dd00509dc1a54244f54b36c5df358168298c.json.txt",
+      "sha256": "52fa25512b4454c5b82ee1253db2dd00509dc1a54244f54b36c5df358168298c",
+      "role": "repair source packet",
+      "bytes": 103647
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-014-root-review.json",
+      "archive": "archives/c55b06d22392523ca03e1445292bc3cb121d0a43461726408876746a7727a705.json.txt",
+      "sha256": "c55b06d22392523ca03e1445292bc3cb121d0a43461726408876746a7727a705",
+      "role": "repair peer review",
+      "bytes": 1062
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-015.json",
+      "archive": "archives/ab25de41c7bda00b29603249b18bb1c2ce66e1710861295cbe26a1ce4ed791db.json.txt",
+      "sha256": "ab25de41c7bda00b29603249b18bb1c2ce66e1710861295cbe26a1ce4ed791db",
+      "role": "repair source packet",
+      "bytes": 19554
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/public-prose-only-015-root-review.json",
+      "archive": "archives/0e286243e4aac9eae56fe2f943b2a444565559d87a9ea57ea374c3d2fd465845.json.txt",
+      "sha256": "0e286243e4aac9eae56fe2f943b2a444565559d87a9ea57ea374c3d2fd465845",
+      "role": "repair peer review",
+      "bytes": 869
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-010.json",
+      "archive": "archives/649b9da60d02a71f4aaef65a12d93229e8e5041cd06994ecaa15efc673cc6a89.json.txt",
+      "sha256": "649b9da60d02a71f4aaef65a12d93229e8e5041cd06994ecaa15efc673cc6a89",
+      "role": "repair source packet",
+      "bytes": 42487
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-010-root-review.json",
+      "archive": "archives/0ff25bfe5af4e55db0df3e2abf7fd8fdb8a9583ff517456bd485c36a5ef745e7.json.txt",
+      "sha256": "0ff25bfe5af4e55db0df3e2abf7fd8fdb8a9583ff517456bd485c36a5ef745e7",
+      "role": "repair peer review",
+      "bytes": 1187
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-011.json",
+      "archive": "archives/fa21ef94bca914fde0ee7d705742e2b8080238d95b58c10cd33daacab0420fef.json.txt",
+      "sha256": "fa21ef94bca914fde0ee7d705742e2b8080238d95b58c10cd33daacab0420fef",
+      "role": "repair source packet",
+      "bytes": 10042
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-011-root-review.json",
+      "archive": "archives/ce43b10cc99484ab16430c049ed52d99715a1d1c8ba9e9f92a2cf0ff5e341180.json.txt",
+      "sha256": "ce43b10cc99484ab16430c049ed52d99715a1d1c8ba9e9f92a2cf0ff5e341180",
+      "role": "repair peer review",
+      "bytes": 1125
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-012.json",
+      "archive": "archives/eee8e6a82f9e461d53bef03825c6c7752284ff0c5351c10a9952103f7c91550b.json.txt",
+      "sha256": "eee8e6a82f9e461d53bef03825c6c7752284ff0c5351c10a9952103f7c91550b",
+      "role": "repair source packet",
+      "bytes": 17665
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-012-root-review.json",
+      "archive": "archives/59b1a6dd78ce59fa3d427fba645044cda62d5c19d9e97ad4b96321d1eee584ea.json.txt",
+      "sha256": "59b1a6dd78ce59fa3d427fba645044cda62d5c19d9e97ad4b96321d1eee584ea",
+      "role": "repair peer review",
+      "bytes": 1145
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-013.json",
+      "archive": "archives/b1c7cf471ea724ec8e45f0ee375feead338e36316d300ba1b490456f05dd8855.json.txt",
+      "sha256": "b1c7cf471ea724ec8e45f0ee375feead338e36316d300ba1b490456f05dd8855",
+      "role": "repair source packet",
+      "bytes": 11324
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-013-root-review.json",
+      "archive": "archives/9ca6a42997617ef7f2e215b9e6c0487c4793409d649d2ad935027ffec4988de9.json.txt",
+      "sha256": "9ca6a42997617ef7f2e215b9e6c0487c4793409d649d2ad935027ffec4988de9",
+      "role": "repair peer review",
+      "bytes": 1129
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-014.json",
+      "archive": "archives/b13df7cb561f5da34451356250882aaf01dc80b8da453dc71d56391a913fe0e8.json.txt",
+      "sha256": "b13df7cb561f5da34451356250882aaf01dc80b8da453dc71d56391a913fe0e8",
+      "role": "repair source packet",
+      "bytes": 25402
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-014-root-review.json",
+      "archive": "archives/79699871a3743b06bcf63c5695eaedbc008f393e864aa6f69a5d515a0c9ce2f0.json.txt",
+      "sha256": "79699871a3743b06bcf63c5695eaedbc008f393e864aa6f69a5d515a0c9ce2f0",
+      "role": "repair peer review",
+      "bytes": 1231
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-015.json",
+      "archive": "archives/5eb742642756891fb79a4fe46d524d7f5c0e7d2a4384fb53245e5a5c47f09934.json.txt",
+      "sha256": "5eb742642756891fb79a4fe46d524d7f5c0e7d2a4384fb53245e5a5c47f09934",
+      "role": "repair source packet",
+      "bytes": 22793
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-015-root-review.json",
+      "archive": "archives/7f71e1fcbf6d98c2fe4e45f9153df7abffc49eb913e95edbbffa8197a297f060.json.txt",
+      "sha256": "7f71e1fcbf6d98c2fe4e45f9153df7abffc49eb913e95edbbffa8197a297f060",
+      "role": "repair peer review",
+      "bytes": 1226
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016.json",
+      "archive": "archives/38e3d88832c54cd190f97821ed3eec793f58ea43a103d6aa79fcfacc1a269b55.json.txt",
+      "sha256": "38e3d88832c54cd190f97821ed3eec793f58ea43a103d6aa79fcfacc1a269b55",
+      "role": "repair source packet",
+      "bytes": 19892
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-root-review.json",
+      "archive": "archives/1ff8574f1b32ca067674311d1936a31e1aebd8084dba53bd05dd3d6c3fc194c6.json.txt",
+      "sha256": "1ff8574f1b32ca067674311d1936a31e1aebd8084dba53bd05dd3d6c3fc194c6",
+      "role": "repair peer review",
+      "bytes": 1200
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-017.json",
+      "archive": "archives/34ad8ada37d425b293c8e1bd65fbf6325e50ede0ce6a175c3e3732829ad4b860.json.txt",
+      "sha256": "34ad8ada37d425b293c8e1bd65fbf6325e50ede0ce6a175c3e3732829ad4b860",
+      "role": "repair source packet",
+      "bytes": 18534
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-017-root-review.json",
+      "archive": "archives/0ad43dabadc6a14040b33a5d8b511f7a62b3c78d707ca962753ac131dc246073.json.txt",
+      "sha256": "0ad43dabadc6a14040b33a5d8b511f7a62b3c78d707ca962753ac131dc246073",
+      "role": "repair peer review",
+      "bytes": 1224
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-071.json",
+      "archive": "archives/411e3309bb99f2a6ad2f438bf2226b149b4d3b39c15e74cd54a4f03427afde2a.json.txt",
+      "sha256": "411e3309bb99f2a6ad2f438bf2226b149b4d3b39c15e74cd54a4f03427afde2a",
+      "role": "repair source packet",
+      "bytes": 96798
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-071-root-review.json",
+      "archive": "archives/4f83cf3f3f655299fe7e5e64ccbabd8606171cee0bd79ea48b917e512c0083b4.json.txt",
+      "sha256": "4f83cf3f3f655299fe7e5e64ccbabd8606171cee0bd79ea48b917e512c0083b4",
+      "role": "repair peer review",
+      "bytes": 1143
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-072.json",
+      "archive": "archives/26f924f4623cf26157a7130b1f6bd24b153c616b1b22734854fb256240969e36.json.txt",
+      "sha256": "26f924f4623cf26157a7130b1f6bd24b153c616b1b22734854fb256240969e36",
+      "role": "repair source packet",
+      "bytes": 98002
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-072-root-review.json",
+      "archive": "archives/58a63b3a9ebb841042afae0348744fe85ec7731fb3907dd6baea974be52bfc90.json.txt",
+      "sha256": "58a63b3a9ebb841042afae0348744fe85ec7731fb3907dd6baea974be52bfc90",
+      "role": "repair peer review",
+      "bytes": 1261
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-073.json",
+      "archive": "archives/8ee5199a7f6ba302460e139b0543cf025136625c7042ab5d227cdec63c954418.json.txt",
+      "sha256": "8ee5199a7f6ba302460e139b0543cf025136625c7042ab5d227cdec63c954418",
+      "role": "repair source packet",
+      "bytes": 100179
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-073-root-review.json",
+      "archive": "archives/4f7ae610c61ce1f252983ad468a7681b3a3d42acf6f734f8df5f2fcdf2555b32.json.txt",
+      "sha256": "4f7ae610c61ce1f252983ad468a7681b3a3d42acf6f734f8df5f2fcdf2555b32",
+      "role": "repair peer review",
+      "bytes": 1342
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-074.json",
+      "archive": "archives/2974233257a64f32a8b9e87108aa393518d00b08026114c59b9b4b9dcb6c9f8c.json.txt",
+      "sha256": "2974233257a64f32a8b9e87108aa393518d00b08026114c59b9b4b9dcb6c9f8c",
+      "role": "repair source packet",
+      "bytes": 53623
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-074-root-review.json",
+      "archive": "archives/f8da84a61685f204443dff7d3062a67123738b4f61903f26f261259dededcf3e.json.txt",
+      "sha256": "f8da84a61685f204443dff7d3062a67123738b4f61903f26f261259dededcf3e",
+      "role": "repair peer review",
+      "bytes": 1156
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/v2/candidate.json",
+      "archive": "archives/ac1c4554b18870d65db379be2246d1f4cf2213cd8f32b79a8bbbbc8eb0ad46cf.json.txt",
+      "sha256": "ac1c4554b18870d65db379be2246d1f4cf2213cd8f32b79a8bbbbc8eb0ad46cf",
+      "role": "addition full proposal/freeze",
+      "bytes": 330823
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice001-sepedi-pop.json",
+      "archive": "archives/ed36b5e5b7b05b5f68b2520ea65c2494f097496aa06398bdf501659a7346293b.json.txt",
+      "sha256": "ed36b5e5b7b05b5f68b2520ea65c2494f097496aa06398bdf501659a7346293b",
+      "role": "addition source_packet",
+      "bytes": 12973
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice001-sepedi-pop-independent-review-sourceaudit.json",
+      "archive": "archives/c369c6bf013e8566324e7aa8113d8a9ff596eae0f2fbee2e730b21797edbe9d8.json.txt",
+      "sha256": "c369c6bf013e8566324e7aa8113d8a9ff596eae0f2fbee2e730b21797edbe9d8",
+      "role": "addition review",
+      "bytes": 2650
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice003-pop-romantico-chord-melody.json",
+      "archive": "archives/062905b8351c6f15d9f322596c325b23eb25bb900d3396bf834f70b9459814cb.json.txt",
+      "sha256": "062905b8351c6f15d9f322596c325b23eb25bb900d3396bf834f70b9459814cb",
+      "role": "addition source_packet",
+      "bytes": 12861
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice003-pop-romantico-independent-review024.json",
+      "archive": "archives/13fe0f1c063168bd39133034f47ddcc9bd8064f176e82a8d9b991abe80f2be4d.json.txt",
+      "sha256": "13fe0f1c063168bd39133034f47ddcc9bd8064f176e82a8d9b991abe80f2be4d",
+      "role": "addition review",
+      "bytes": 3520
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-309-source-fallback.json",
+      "archive": "archives/68d92a41fb9b5f81f5e34dc3747b4a1cb7d7d98d714b400f97d9025654c4fdef.json.txt",
+      "sha256": "68d92a41fb9b5f81f5e34dc3747b4a1cb7d7d98d714b400f97d9025654c4fdef",
+      "role": "addition source_packet",
+      "bytes": 14509
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/309-independent-review461.json",
+      "archive": "archives/1306e7b720e163802ab82927f0f18756a1f9a47a364ff3b68d78a27137f6595d.json.txt",
+      "sha256": "1306e7b720e163802ab82927f0f18756a1f9a47a364ff3b68d78a27137f6595d",
+      "role": "addition review",
+      "bytes": 5274
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-335-status-corrected.json",
+      "archive": "archives/4e13a29153d2beabb835acdf5fd12ccc5b0eb564d58bf4f14d80dd48d899bc21.json.txt",
+      "sha256": "4e13a29153d2beabb835acdf5fd12ccc5b0eb564d58bf4f14d80dd48d899bc21",
+      "role": "addition source_packet",
+      "bytes": 14151
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/335-independent-review461.json",
+      "archive": "archives/fff5c6ac1fcd15f2597af9a29034ed80ff2906922c3cc26c47ed3e938ac8f592.json.txt",
+      "sha256": "fff5c6ac1fcd15f2597af9a29034ed80ff2906922c3cc26c47ed3e938ac8f592",
+      "role": "addition review",
+      "bytes": 5528
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice001-maimouna.json",
+      "archive": "archives/a8b7d09249573500ed82468618c04b4697884a7806172d4216a3e59bed0d1bb0.json.txt",
+      "sha256": "a8b7d09249573500ed82468618c04b4697884a7806172d4216a3e59bed0d1bb0",
+      "role": "addition source_packet",
+      "bytes": 11109
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice001-maimouna-independent-review024.json",
+      "archive": "archives/2fea39714e8b748ddf0eab4c2d9dd39186082304c553908c1716ba89a7fd744e.json.txt",
+      "sha256": "2fea39714e8b748ddf0eab4c2d9dd39186082304c553908c1716ba89a7fd744e",
+      "role": "addition review",
+      "bytes": 2243
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice002-lo-fi-latino.json",
+      "archive": "archives/3421731606d032688d3c3aba22a526afab8eb10e3d6cbca97f4853a98f826f2e.json.txt",
+      "sha256": "3421731606d032688d3c3aba22a526afab8eb10e3d6cbca97f4853a98f826f2e",
+      "role": "addition source_packet",
+      "bytes": 10755
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice002-lo-fi-latino-independent-review024.json",
+      "archive": "archives/3f46b95ecbc2b4585abfba9ce129ef9761edb3cd8d2efe36eb268985bc2036bd.json.txt",
+      "sha256": "3f46b95ecbc2b4585abfba9ce129ef9761edb3cd8d2efe36eb268985bc2036bd",
+      "role": "addition review",
+      "bytes": 2484
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice004-thai-viral-pop.json",
+      "archive": "archives/45cde2fa9aa578b2a269b8b32cebc8c5ccab2b632ce9adb8ff0b2a68864eff6d.json.txt",
+      "sha256": "45cde2fa9aa578b2a269b8b32cebc8c5ccab2b632ce9adb8ff0b2a68864eff6d",
+      "role": "addition source_packet",
+      "bytes": 13046
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice004-thai-viral-pop-independent-review024.json",
+      "archive": "archives/55e9675e33da168691ed7ccac9fb14733695cd8aa4468f5c6c1074aaa48136d6.json.txt",
+      "sha256": "55e9675e33da168691ed7ccac9fb14733695cd8aa4468f5c6c1074aaa48136d6",
+      "role": "addition review",
+      "bytes": 2501
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-201.json",
+      "archive": "archives/2620342f245b25653448bd104e5b0a55de4555dfb9272cdd24d908b3e9119b8a.json.txt",
+      "sha256": "2620342f245b25653448bd104e5b0a55de4555dfb9272cdd24d908b3e9119b8a",
+      "role": "addition source_packet",
+      "bytes": 14146
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/201-independent-review461.json",
+      "archive": "archives/9f36d626ba38fbcf232b4e669ef39b74adc854f6b3af9a868150c1d4edf336ee.json.txt",
+      "sha256": "9f36d626ba38fbcf232b4e669ef39b74adc854f6b3af9a868150c1d4edf336ee",
+      "role": "addition review",
+      "bytes": 4885
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-373-final.json",
+      "archive": "archives/8ce1eb3a5f392034a8d12429269bdcbe122a81283e117b955caf8e982776bed2.json.txt",
+      "sha256": "8ce1eb3a5f392034a8d12429269bdcbe122a81283e117b955caf8e982776bed2",
+      "role": "addition source_packet",
+      "bytes": 14103
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/373-independent-review461.json",
+      "archive": "archives/752b5b404421149ff7232e71be9210959dfbbcfb152dfa0453530e4473b1801a.json.txt",
+      "sha256": "752b5b404421149ff7232e71be9210959dfbbcfb152dfa0453530e4473b1801a",
+      "role": "addition review",
+      "bytes": 4743
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-407.json",
+      "archive": "archives/189a29e0f77859f713dc0ec9a6f42e39903637bee23fc0a80fd0c44936455354.json.txt",
+      "sha256": "189a29e0f77859f713dc0ec9a6f42e39903637bee23fc0a80fd0c44936455354",
+      "role": "addition source_packet",
+      "bytes": 14115
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/407-independent-review461.json",
+      "archive": "archives/ad1d281224ea82dfe0332f16aa69f95848fd7a119297870ae1906d7f11d9ee2a.json.txt",
+      "sha256": "ad1d281224ea82dfe0332f16aa69f95848fd7a119297870ae1906d7f11d9ee2a",
+      "role": "addition review",
+      "bytes": 4740
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice003-marathi-balgeet.json",
+      "archive": "archives/ddd7b4b4675e15f0c5459fc03559361cc8276312e069c019b751781f657ee018.json.txt",
+      "sha256": "ddd7b4b4675e15f0c5459fc03559361cc8276312e069c019b751781f657ee018",
+      "role": "addition source_packet",
+      "bytes": 11065
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice003-marathi-balgeet-independent-review024.json",
+      "archive": "archives/01fd3dc9bd1c9bbb243e038705689e30a2fecdc586f638debb88d31a88a2d16a.json.txt",
+      "sha256": "01fd3dc9bd1c9bbb243e038705689e30a2fecdc586f638debb88d31a88a2d16a",
+      "role": "addition review",
+      "bytes": 2060
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-210.json",
+      "archive": "archives/60fd5d9239315567adaa5970972af61e21030b728ad2a929299179ace1be5c7b.json.txt",
+      "sha256": "60fd5d9239315567adaa5970972af61e21030b728ad2a929299179ace1be5c7b",
+      "role": "addition source_packet",
+      "bytes": 13793
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/210-independent-review461.json",
+      "archive": "archives/0ffce72a1319dd38013b0f895c50936b92c8a8bd264b9fcdcb727443a7b4cc77.json.txt",
+      "sha256": "0ffce72a1319dd38013b0f895c50936b92c8a8bd264b9fcdcb727443a7b4cc77",
+      "role": "addition review",
+      "bytes": 4324
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-562.json",
+      "archive": "archives/4a064e391f6f0e7a9782575e5dfc813a209c2bc44214088968fd702591494e52.json.txt",
+      "sha256": "4a064e391f6f0e7a9782575e5dfc813a209c2bc44214088968fd702591494e52",
+      "role": "addition source_packet",
+      "bytes": 13914
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/562-independent-review461.json",
+      "archive": "archives/899f6a911497aff9dfbcc4a1b8b4454260021f6c9d4502a583559e5f2a962976.json.txt",
+      "sha256": "899f6a911497aff9dfbcc4a1b8b4454260021f6c9d4502a583559e5f2a962976",
+      "role": "addition review",
+      "bytes": 4397
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-1707.json",
+      "archive": "archives/f0845ca09a1c411d209ed67c19a1b67ddb7f3219fa35ee3d27da385be6669a71.json.txt",
+      "sha256": "f0845ca09a1c411d209ed67c19a1b67ddb7f3219fa35ee3d27da385be6669a71",
+      "role": "addition source_packet",
+      "bytes": 14642
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/1707-independent-review461.json",
+      "archive": "archives/633698576b06758a634fd5bc8a5d643210901681457da790cd75c96a70fca9d3.json.txt",
+      "sha256": "633698576b06758a634fd5bc8a5d643210901681457da790cd75c96a70fca9d3",
+      "role": "addition review",
+      "bytes": 4541
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-622.json",
+      "archive": "archives/9435bbea88ed3bfacb6e4c0cdd2b45772f9622295062018bd7b573d7ede9c3ea.json.txt",
+      "sha256": "9435bbea88ed3bfacb6e4c0cdd2b45772f9622295062018bd7b573d7ede9c3ea",
+      "role": "addition source_packet",
+      "bytes": 14300
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/622-independent-review461.json",
+      "archive": "archives/50505461625741dbc8881cc54e1a300c46945d2551446a9437170392ad966b41.json.txt",
+      "sha256": "50505461625741dbc8881cc54e1a300c46945d2551446a9437170392ad966b41",
+      "role": "addition review",
+      "bytes": 4790
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice004-kurdish-remix.json",
+      "archive": "archives/d8164ecdcd5e9eb78efd97d8a8b81b84db8aa66a8520f68a9ad98c6a9fe25910.json.txt",
+      "sha256": "d8164ecdcd5e9eb78efd97d8a8b81b84db8aa66a8520f68a9ad98c6a9fe25910",
+      "role": "addition source_packet",
+      "bytes": 12432
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice004-kurdish-remix-independent-review024.json",
+      "archive": "archives/4ce15ae7da5aa02f4bdec9edf3fe0a5b47e3c81a65b95f7e11a526b60522b4d0.json.txt",
+      "sha256": "4ce15ae7da5aa02f4bdec9edf3fe0a5b47e3c81a65b95f7e11a526b60522b4d0",
+      "role": "addition review",
+      "bytes": 2095
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field45/practice001-deep-progressive-house.json",
+      "archive": "archives/491c99e3d2932f1ee79351a1779ff314028ca57247164835dfce9bdec44b7067.json.txt",
+      "sha256": "491c99e3d2932f1ee79351a1779ff314028ca57247164835dfce9bdec44b7067",
+      "role": "addition source_packet",
+      "bytes": 10966
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field45/practice001-deep-progressive-house-independent-review-sourceaudit.json",
+      "archive": "archives/122634dd92655a6673ef9434ecbdc23ae2fb19632ad28208cadc583eaeb8a360.json.txt",
+      "sha256": "122634dd92655a6673ef9434ecbdc23ae2fb19632ad28208cadc583eaeb8a360",
+      "role": "addition review",
+      "bytes": 2287
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-443.json",
+      "archive": "archives/0cf87a66fd5b7ca20146ab3857b42e6c412ec027b17c3215c2dae1a025ea964a.json.txt",
+      "sha256": "0cf87a66fd5b7ca20146ab3857b42e6c412ec027b17c3215c2dae1a025ea964a",
+      "role": "addition source_packet",
+      "bytes": 13729
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/443-independent-review461.json",
+      "archive": "archives/e4f5ef1a0622eb3c470fcd9a4765a345dd7526594ca62a44165b26c1c424b333.json.txt",
+      "sha256": "e4f5ef1a0622eb3c470fcd9a4765a345dd7526594ca62a44165b26c1c424b333",
+      "role": "addition review",
+      "bytes": 4444
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-598.json",
+      "archive": "archives/8eb0bbbff88cdffa7afa31b9d2bd6523ee70f1bf4f115e8411096e9f93a7f72d.json.txt",
+      "sha256": "8eb0bbbff88cdffa7afa31b9d2bd6523ee70f1bf4f115e8411096e9f93a7f72d",
+      "role": "addition source_packet",
+      "bytes": 13976
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/598-independent-review461.json",
+      "archive": "archives/19c30e49360b4e7ecab45490988318b7b9ab1f96fe6f62162179884772bb068b.json.txt",
+      "sha256": "19c30e49360b4e7ecab45490988318b7b9ab1f96fe6f62162179884772bb068b",
+      "role": "addition review",
+      "bytes": 4532
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-233.json",
+      "archive": "archives/e76e046b5413799dc272a1cf3b09fedcd74f976d0d7463644e9ae59ce5265a2f.json.txt",
+      "sha256": "e76e046b5413799dc272a1cf3b09fedcd74f976d0d7463644e9ae59ce5265a2f",
+      "role": "addition source_packet",
+      "bytes": 13823
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/233-independent-review461.json",
+      "archive": "archives/c86967f5f558661fa2ccacc2048d94d967c3ea9c2308aa5f0a03eda09d5d1c3c.json.txt",
+      "sha256": "c86967f5f558661fa2ccacc2048d94d967c3ea9c2308aa5f0a03eda09d5d1c3c",
+      "role": "addition review",
+      "bytes": 4542
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-next-2765/review024/api-taxonomy-followups/candidates.json",
+      "archive": "archives/fd974befbd4255b685644c0a772ceae70c3e950184ce083821c6f3aba485a239.json.txt",
+      "sha256": "fd974befbd4255b685644c0a772ceae70c3e950184ce083821c6f3aba485a239",
+      "role": "addition source_packet",
+      "bytes": 69177
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/taxonomy-independent-review461.json",
+      "archive": "archives/2dbe3f304aca5c24ebf78a722dd16ce18928963e75fe5f415ed6719d1f91daac.json.txt",
+      "sha256": "2dbe3f304aca5c24ebf78a722dd16ce18928963e75fe5f415ed6719d1f91daac",
+      "role": "addition review",
+      "bytes": 6923
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v2/qualified21.json",
+      "archive": "archives/8cc58e3872f0b354ff669f1848d75aa8329ee59a6c0bcae4d9f93de6a407a8c9.json.txt",
+      "sha256": "8cc58e3872f0b354ff669f1848d75aa8329ee59a6c0bcae4d9f93de6a407a8c9",
+      "role": "addition full proposal/freeze",
+      "bytes": 302480
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/repair-projection.json",
+      "archive": "archives/8afd595b3da85228912b21d4996c04251685c2a5b9f6b77a3480834750d8eb00.json.txt",
+      "sha256": "8afd595b3da85228912b21d4996c04251685c2a5b9f6b77a3480834750d8eb00",
+      "role": "evidence",
+      "bytes": 651
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/additions21-integration.json",
+      "archive": "archives/65b0fba313f2d716fd7ea39b060a758c7eb64266d3ac3926747d164646523054.json.txt",
+      "sha256": "65b0fba313f2d716fd7ea39b060a758c7eb64266d3ac3926747d164646523054",
+      "role": "evidence",
+      "bytes": 303091
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-source-config-review119.json",
+      "archive": "archives/740fc743e974113dd1c1735b3835e98b6e07666d9e0e03450cbc6be513738f34.json.txt",
+      "sha256": "740fc743e974113dd1c1735b3835e98b6e07666d9e0e03450cbc6be513738f34",
+      "role": "evidence",
+      "bytes": 2053
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-combined394-453cd119/root-qualified302-text-review.json",
+      "archive": "archives/3dfe2fec19c61564a60cce83d29e28fee40e5113b11897df536b9f0c513bc0cc.json.txt",
+      "sha256": "3dfe2fec19c61564a60cce83d29e28fee40e5113b11897df536b9f0c513bc0cc",
+      "role": "evidence",
+      "bytes": 11113
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-combined394-453cd119/root-direct143-environment-review.json",
+      "archive": "archives/9c9aa407f82ebe8d436d41d177dbaa76c8635b54fdc03204b30ae8a4ed6b98d7.json.txt",
+      "sha256": "9c9aa407f82ebe8d436d41d177dbaa76c8635b54fdc03204b30ae8a4ed6b98d7",
+      "role": "evidence",
+      "bytes": 522
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v2/qualified21-review.json",
+      "archive": "archives/b721a897d4af2e47886cd5b76a6ad64412b1af92e4c22483d97159f2d3677a31.json.txt",
+      "sha256": "b721a897d4af2e47886cd5b76a6ad64412b1af92e4c22483d97159f2d3677a31",
+      "role": "evidence",
+      "bytes": 2266
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined302-21/incremental-qualification.json",
+      "archive": "archives/0b487883b7471eb73bf1c1d5b15bed2e5592021a09703b0588f9c897933c07cb.json.txt",
+      "sha256": "0b487883b7471eb73bf1c1d5b15bed2e5592021a09703b0588f9c897933c07cb",
+      "role": "evidence",
+      "bytes": 2757
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/app_recipe_regression.log",
+      "archive": "archives/cde096bcc30612ab475fbe2ca87ec50cdb16c426066bfc6b23265f973e5ecee8.log.txt",
+      "sha256": "cde096bcc30612ab475fbe2ca87ec50cdb16c426066bfc6b23265f973e5ecee8",
+      "role": "final validation or metadata amendment",
+      "bytes": 281
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/docs-check.log",
+      "archive": "archives/fcb54e9746ac3ab8fe3e66ed041fd6902a8213b3382169f96723b359d8ec3f26.log.txt",
+      "sha256": "fcb54e9746ac3ab8fe3e66ed041fd6902a8213b3382169f96723b359d8ec3f26",
+      "role": "final validation or metadata amendment",
+      "bytes": 450
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/eval_capabilities.log",
+      "archive": "archives/7295323c454de34bcc044569fc83148a588d39f1482047aadd706c6bd8c71d1f.log.txt",
+      "sha256": "7295323c454de34bcc044569fc83148a588d39f1482047aadd706c6bd8c71d1f",
+      "role": "final validation or metadata amendment",
+      "bytes": 2406
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/build-discovery.log",
+      "archive": "archives/fd528a625083be021332b06d5f438ce7263be5232f76cf0fd2010f57f5bf8487.log.txt",
+      "sha256": "fd528a625083be021332b06d5f438ce7263be5232f76cf0fd2010f57f5bf8487",
+      "role": "final validation or metadata amendment",
+      "bytes": 137
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_connector_parity.log",
+      "archive": "archives/e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a.log.txt",
+      "sha256": "e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a",
+      "role": "final validation or metadata amendment",
+      "bytes": 1894
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check-atlas.log",
+      "archive": "archives/7bfa2c9c08c604672f20f0169d72ebfb1d8ee2aa9944de24ce81f9f72cd974ff.log.txt",
+      "sha256": "7bfa2c9c08c604672f20f0169d72ebfb1d8ee2aa9944de24ce81f9f72cd974ff",
+      "role": "final validation or metadata amendment",
+      "bytes": 2718
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/atlas-geo.log",
+      "archive": "archives/ecefa9e654c901ef10199e9d8841964a59becf16ea40cb52e9713e40b43cb150.log.txt",
+      "sha256": "ecefa9e654c901ef10199e9d8841964a59becf16ea40cb52e9713e40b43cb150",
+      "role": "final validation or metadata amendment",
+      "bytes": 145
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/audit.log",
+      "archive": "archives/9b7581fc7b4b719f59c996316d6b79f70ce48eb6e65be8f35eebffe454a5cb38.log.txt",
+      "sha256": "9b7581fc7b4b719f59c996316d6b79f70ce48eb6e65be8f35eebffe454a5cb38",
+      "role": "final validation or metadata amendment",
+      "bytes": 17891
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check-api.log",
+      "archive": "archives/bb50544bf68c300a1b506303e1a2a4a08628bc595b3c04243e65158a5e1fb2a7.log.txt",
+      "sha256": "bb50544bf68c300a1b506303e1a2a4a08628bc595b3c04243e65158a5e1fb2a7",
+      "role": "final validation or metadata amendment",
+      "bytes": 362
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_minified_equivalence.log",
+      "archive": "archives/2a3a4b0838b5d987fc0588ef91ced778720fd2f89b7b5a2b5d4d816890924cef.log.txt",
+      "sha256": "2a3a4b0838b5d987fc0588ef91ced778720fd2f89b7b5a2b5d4d816890924cef",
+      "role": "final validation or metadata amendment",
+      "bytes": 765
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_name_isolation.log",
+      "archive": "archives/b2e3c17167e9f3a9f7b8871153d02e5a66bd65c7e65a90989502b2e0f62030f0.log.txt",
+      "sha256": "b2e3c17167e9f3a9f7b8871153d02e5a66bd65c7e65a90989502b2e0f62030f0",
+      "role": "final validation or metadata amendment",
+      "bytes": 205
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/build-html.log",
+      "archive": "archives/420b41acaa25541b0576b81522f0d2cd35cbf4e685e4ecf90320901364a31c6a.log.txt",
+      "sha256": "420b41acaa25541b0576b81522f0d2cd35cbf4e685e4ecf90320901364a31c6a",
+      "role": "final validation or metadata amendment",
+      "bytes": 851
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/format-check.log",
+      "archive": "archives/eb710701ff17e579d51c53eb4e11c3457ec43fa861b0f1b5448855f0aae627c1.log.txt",
+      "sha256": "eb710701ff17e579d51c53eb4e11c3457ec43fa861b0f1b5448855f0aae627c1",
+      "role": "final validation or metadata amendment",
+      "bytes": 440
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/lint.log",
+      "archive": "archives/fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57.log.txt",
+      "sha256": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+      "role": "final validation or metadata amendment",
+      "bytes": 251
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/regression.log",
+      "archive": "archives/ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18.log.txt",
+      "sha256": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+      "role": "final validation or metadata amendment",
+      "bytes": 50
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_lazy_app.log",
+      "archive": "archives/aae9be87f39abb777d24579d325d6cff9690874bdf99d0012861cb2a42512186.log.txt",
+      "sha256": "aae9be87f39abb777d24579d325d6cff9690874bdf99d0012861cb2a42512186",
+      "role": "final validation or metadata amendment",
+      "bytes": 919
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_workspace_ops.log",
+      "archive": "archives/408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36.log.txt",
+      "sha256": "408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36",
+      "role": "final validation or metadata amendment",
+      "bytes": 3501
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_edit_differential.log",
+      "archive": "archives/40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571.log.txt",
+      "sha256": "40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571",
+      "role": "final validation or metadata amendment",
+      "bytes": 634
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_connector_contract.log",
+      "archive": "archives/24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02.log.txt",
+      "sha256": "24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02",
+      "role": "final validation or metadata amendment",
+      "bytes": 6573
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_slot_picks.log",
+      "archive": "archives/6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56.log.txt",
+      "sha256": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+      "role": "final validation or metadata amendment",
+      "bytes": 30
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_edit_parity.log",
+      "archive": "archives/a937cb71d3f3c87e9ac018b19fa0866a696ddb422e10f12b14f68947a14e15df.log.txt",
+      "sha256": "a937cb71d3f3c87e9ac018b19fa0866a696ddb422e10f12b14f68947a14e15df",
+      "role": "final validation or metadata amendment",
+      "bytes": 994
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/equivalence.log",
+      "archive": "archives/81d639b6a5498fe4a72b4bdf8a8e6907e14d3c8aa8e82f577d5219d512331395.log.txt",
+      "sha256": "81d639b6a5498fe4a72b4bdf8a8e6907e14d3c8aa8e82f577d5219d512331395",
+      "role": "final validation or metadata amendment",
+      "bytes": 338
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/validate-final.log",
+      "archive": "archives/bdcae9ba80b1c3849ede53db3eb4b60a0716b7ead8b0d0a67d5a588dae1cbc10.log.txt",
+      "sha256": "bdcae9ba80b1c3849ede53db3eb4b60a0716b7ead8b0d0a67d5a588dae1cbc10",
+      "role": "final validation or metadata amendment",
+      "bytes": 137
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_publish_guard.log",
+      "archive": "archives/3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91.log.txt",
+      "sha256": "3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91",
+      "role": "final validation or metadata amendment",
+      "bytes": 315
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/atlas-tree.log",
+      "archive": "archives/908f7b8848a062020a0362df8c45ce6109ee20b59fc43c996c4df2d706e19e4d.log.txt",
+      "sha256": "908f7b8848a062020a0362df8c45ce6109ee20b59fc43c996c4df2d706e19e4d",
+      "role": "final validation or metadata amendment",
+      "bytes": 135
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/build-api.log",
+      "archive": "archives/c0de5d74c0c195f4ec55ba4a2d90371ce448d12ab7dd9d974a60ed6d44cb5c2d.log.txt",
+      "sha256": "c0de5d74c0c195f4ec55ba4a2d90371ce448d12ab7dd9d974a60ed6d44cb5c2d",
+      "role": "final validation or metadata amendment",
+      "bytes": 1586
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/docs-fix.log",
+      "archive": "archives/3738ef2d7ed2b1c88498019c6957ca262923eb75e8106c50cb274dac2e75ba3a.log.txt",
+      "sha256": "3738ef2d7ed2b1c88498019c6957ca262923eb75e8106c50cb274dac2e75ba3a",
+      "role": "final validation or metadata amendment",
+      "bytes": 3485
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/descriptor-frequency.log",
+      "archive": "archives/6832a572ce1964276ab11996d4d946cc0a99b17c0fe1ec3eae462b3a69c645bd.log.txt",
+      "sha256": "6832a572ce1964276ab11996d4d946cc0a99b17c0fe1ec3eae462b3a69c645bd",
+      "role": "final validation or metadata amendment",
+      "bytes": 402
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/docs-check-final.log",
+      "archive": "archives/cc2ebabead0182fd38b6d551cbe0afd9fde5db1453b41c4c5186b671c97e3c16.log.txt",
+      "sha256": "cc2ebabead0182fd38b6d551cbe0afd9fde5db1453b41c4c5186b671c97e3c16",
+      "role": "final validation or metadata amendment",
+      "bytes": 450
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/format-check-final.log",
+      "archive": "archives/9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd.log.txt",
+      "sha256": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+      "role": "final validation or metadata amendment",
+      "bytes": 335
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/check_app_parity.log",
+      "archive": "archives/821e4bf19020129a69fa8abf91ec7a60048c16cf5f63e9030c52e1cb99f9eb88.log.txt",
+      "sha256": "821e4bf19020129a69fa8abf91ec7a60048c16cf5f63e9030c52e1cb99f9eb88",
+      "role": "final validation or metadata amendment",
+      "bytes": 312
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/regression_prefaces.log",
+      "archive": "archives/bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc.log.txt",
+      "sha256": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+      "role": "final validation or metadata amendment",
+      "bytes": 31
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/supporting-check-results.json",
+      "archive": "archives/5c51a62471a75a14aed73a2c9d3446d83e557c332ae179c69060e56f224ff951.json.txt",
+      "sha256": "5c51a62471a75a14aed73a2c9d3446d83e557c332ae179c69060e56f224ff951",
+      "role": "final validation or metadata amendment",
+      "bytes": 1271
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint042-combined/scope-review.json",
+      "archive": "archives/1822634f23d88bf0b4be302ef5aafad423b25e4234b875f770cd7bab07104a1c.json.txt",
+      "sha256": "1822634f23d88bf0b4be302ef5aafad423b25e4234b875f770cd7bab07104a1c",
+      "role": "final validation or metadata amendment",
+      "bytes": 690
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-combined394-453cd119/actual-combined302-21-recipe-attribution.json",
+      "archive": "archives/55fbeb71e51ddc26f0292e5c30563d26cf6d3c023b05740a997a4e26f191eb0a.json.txt",
+      "sha256": "55fbeb71e51ddc26f0292e5c30563d26cf6d3c023b05740a997a4e26f191eb0a",
+      "role": "final validation or metadata amendment",
+      "bytes": 4043903
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-combined394-453cd119/actual-combined302-21-review119.json",
+      "archive": "archives/dda8cfa11d54a19595f0e42b56af901878b081e1f7dbac8d6e9cf51ffdf964f7.json.txt",
+      "sha256": "dda8cfa11d54a19595f0e42b56af901878b081e1f7dbac8d6e9cf51ffdf964f7",
+      "role": "final validation or metadata amendment",
+      "bytes": 8666
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/atlas-metadata-review461.json",
+      "archive": "archives/77a9154adea247352477a0bbca1e762af8a3a3a9ea814f8a079f69aa5228ac84.json.txt",
+      "sha256": "77a9154adea247352477a0bbca1e762af8a3a3a9ea814f8a079f69aa5228ac84",
+      "role": "final validation or metadata amendment",
+      "bytes": 1064
+    },
+    {
+      "source": "/workspace/genre-continuation/postmerge482-mobile/final-result.json",
+      "archive": "archives/390aec7c8708cd0c499a830ad6009ef5da77c39b607cae7dc93a4b60d6d363ed.json.txt",
+      "sha256": "390aec7c8708cd0c499a830ad6009ef5da77c39b607cae7dc93a4b60d6d363ed",
+      "role": "final validation or metadata amendment",
+      "bytes": 596
+    }
+  ],
+  "unique_archives": 145,
+  "errors": [],
+  "policy": "Exact original bytes use json.txt suffix; no raw copyrighted primary page dumps copied. Source URLs, authored findings, proposals and peer receipts retained."
+}

@@ -2,10 +2,10 @@
   "id": "high_vibe",
   "name": "High Vibe",
   "family": "pop",
-  "lineage": "Geminelle — In the Loop2015 full musical roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic high vibe, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment, chopped vocal sample rhythmic bed. ukulele, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 265,
-  "score": 6.109,
+  "lineage": "High vibe connects a popular-music listening community with expressive vocal and layered song approaches. Performers can combine acoustic accompaniment with repeated recorded textures.",
+  "recipe": "classic high vibe, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, chopped vocal sample rhythmic bed. ukulele, layered sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 303,
+  "score": 13.102,
   "config": {
     "traditions": [
       "high_vibe"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.63,
-          "voice_ensemble_config": 1.4385000000000001,
+          "voice_ensemble_config": 3.9,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.1340000000000001,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 1.69,
           "voice_tessitura": 0
         }
       },
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": -0.035,
+          "electronic_technique": 1.46,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.315,
-          "sampler_workflow": -0.07,
+          "sampler_workflow": 1.41,
           "sampler_classic_context": 2.8465
         }
       }

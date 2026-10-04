@@ -2,10 +2,10 @@
   "id": "mashcore",
   "name": "Mashcore",
   "family": "electronic",
-  "lineage": "Skirtskirtskirt — Ghost Stories About Ghosts (Archival Edition), 2024. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s mashcore, experimental Elec, idm glitch branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 173,
-  "score": 15.833,
+  "lineage": "Sample-collage electronic music shaped by mashup culture and abrasive digital editing.",
+  "recipe": "classic mashcore, experimental Elec, idm glitch branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 163,
+  "score": 9.492,
   "config": {
     "traditions": [
       "mashcore"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "sampler_archetypes": 0.8235,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 8.25,
-          "sampler_classic_context": 6.109999999999999
+          "electronic_technique": -0.07,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.147,
+          "sampler_workflow": 7.5,
+          "sampler_classic_context": 1.95
         }
       }
     ],

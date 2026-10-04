@@ -5,7 +5,7 @@
   "lineage": "Basement Revolver — Tunnel Vision. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic canadian indie, distorted Rock. solo with instrumental accompaniment. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 377,
-  "score": 23.28,
+  "score": 23.753,
   "config": {
     "traditions": [
       "canadian_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6405,
+          "voice_ensemble_config": 1.0499999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.1575,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },
@@ -168,7 +168,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.0315,
+          "grand_piano_brand": 0.063,
           "piano_hammer": 2.21,
           "piano_rim": 2.21,
           "piano_soundboard": -0.1,

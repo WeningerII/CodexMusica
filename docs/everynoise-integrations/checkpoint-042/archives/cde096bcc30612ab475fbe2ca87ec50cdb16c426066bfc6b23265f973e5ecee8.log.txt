@@ -1,0 +1,4 @@
+Built /tmp/codex_appreg_493260.html (22,178,603 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+APP RECIPE REGRESSION: 56/56 PASS

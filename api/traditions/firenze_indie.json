@@ -2,10 +2,10 @@
   "id": "firenze_indie",
   "name": "Firenze indie",
   "family": "rock",
-  "lineage": "Piqued Jacks — Shyest Kindred Spirit (Acoustic Single, 2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s firenze indie, distorted Rock, alternative branch. unprocessed natural acoustic. dreadnought acoustic low mid rich spectrum cedar classical nylon-string guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, European maple bosnian source flamed figure modern setup longer neck violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 458,
-  "score": 44.526,
+  "lineage": "Firenze indie connects independent bands and songwriters around Florence. Acoustic reinterpretations and fuller rock arrangements offer different approaches within the local scene.",
+  "recipe": "classic firenze indie, distorted Rock, alternative branch. unprocessed natural acoustic. dreadnought acoustic low mid rich spectrum cedar classical nylon-string guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, modern setup longer neck longer fingerboard heavier bass bar violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 452,
+  "score": 45.736,
   "config": {
     "traditions": [
       "firenze_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.768,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 1.168,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -107,7 +107,7 @@
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 6.949999999999999,
+          "bass_technique": 8.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -127,16 +127,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
-          "drumhead": 1.4365,
+          "drum_technique": 8.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.8415000000000001,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 6.9315,
-          "cymbal_lathing": 7.336499999999999,
+          "cymbal_hammering": 8.681499999999998,
+          "cymbal_lathing": 8.786499999999998,
           "cymbal_finish": 0
         }
       },
@@ -155,12 +155,12 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.75,
+          "bowed_technique": 1.0499999999999998,
           "orch_strings": 0,
           "orch_top_wood": 0.8365,
-          "orch_back_wood": 1.9999999999999998,
+          "orch_back_wood": 0.7,
           "orch_varnish": 0.7,
-          "orch_setup_period": 1.6899999999999997,
+          "orch_setup_period": 1.2999999999999998,
           "orch_bow": 0,
           "orch_bow_stick": 0.6499999999999999,
           "orch_articulation": 0.6405000000000001,

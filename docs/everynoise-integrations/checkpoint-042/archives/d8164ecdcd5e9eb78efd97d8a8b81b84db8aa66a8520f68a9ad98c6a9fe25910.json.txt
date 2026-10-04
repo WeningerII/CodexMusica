@@ -1,0 +1,201 @@
+{
+  "entries": [
+    {
+      "source_label": "kurdish remix",
+      "source_url": "https://everynoise.com/engenremap-kurdishremix.html",
+      "suggested_id": "kurdish_remix",
+      "allocation_ordinal": 3641,
+      "allocation_group_id": "146",
+      "id": "kurdish_remix",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "kurdish_remix",
+        "name": "Kurdish Remix",
+        "family": "electronic",
+        "lineage": "Kurdish remix recasts Kurdish songs and neighboring regional melodies through contemporary electronic production. Online producers connect sung hooks and instrumental phrases with trap, drill, house and other beat styles, circulating their arrangements across Kurdish and Turkish-speaking listening networks.",
+        "instruments": [
+          "voice",
+          "electronic_keyboard_unspecified",
+          "credited_beat_unspecified",
+          "credited_flute_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified",
+          "credited_flute_identity": "credited_flute_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Sung phrases and melodic keyboard figures meet a produced rhythmic backing. Flute can answer or color the vocal line, while repeated hooks and electronically arranged beats give familiar melodies a new dance-oriented setting.",
+        "exemplars": [
+          "Kejoo Beats",
+          "Beyto Beats",
+          "SORE BEATZ",
+          "Faruk Aydın"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        37.9144,
+        40.2306,
+        "Diyarbakır",
+        "Asia"
+      ],
+      "geo_rationale": "Approximate land anchor in the Kurdish cultural region, not a claim that this transnational discovery field originated in one city or that the selected producer resides there.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "kurdish_remix",
+          "name": "Kurdish Remix",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn14908view2 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn14908view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14908view2"
+        ],
+        "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative sung-keyboard-flute remix branch with the positively documented trap-rhythm production retained as a credited produced beat. The producer describes bringing a viral traditional vocal into the studio and blending it with modern backing and trap rhythms, and explicitly credits keyboard and flute. The profile is not a transcription or complete recreation of that recording. Solo accompanied syllabic singing, moderate effort, melodic/chordal keyboard and live-room presentation are authored musical choices. Flute subtype, keyboard architecture, beat hardware and inner sound layers remain unspecified rather than invented. Every applicable existing control is protected; no master is represented as a playback instrument.",
+      "neighbor_distinction": "Full kurdish_pop already covers contemporary Kurdish song broadly, and kurdish_hip_hop includes diaspora and electronic sampled production rather than only traditional instruments. Kurdish Remix is the creator-defined remix-production discovery field spanning trap, drill and house reworkings; its corpus includes sung traditional material and neighboring Turkish repertoire, so it is neither a synonym for rap nor an exclusive Kurdish-language inventory. It overlaps both umbrellas openly. Kurdish folk and dengbêj provide repertoire resources but are not defined by this modern remix workflow. Kejoo appears in the exact creator playlist, while his own producer description positively supplies this representative musical practice.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/embed/playlist/5vLkPTGIeKJXEiesWgr7Tw",
+          "title": "The Sound of Kurdish Remix — creator playlist",
+          "support_notes": "Actual map link2 recovered the exact destination. Full corpus explicitly includes trap, drill, house and regional song remixes; Kejoo Beats is item6.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=EhwW4_QIndk",
+          "title": "Kejoo Beats — Ha Ninay, official artist description",
+          "support_notes": "First-person studio remix account names traditional vocal, modern backing and trap rhythms, plus keyboard and flute credits. Supports representative arrangement without assuming all genre works share it.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=a72rJ2Mew7o",
+          "title": "Kejoo Beats — Meryemme, official artist description",
+          "support_notes": "Independent same-producer Kurdish Remix example credits Malco Sorchi vocal and Kejoo keyboard. It corroborates sung/keyboard practice; no flute credit is transferred into this separate recording.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14974view0",
+        "turn14978view0",
+        "turn14976youtube0",
+        "turn14972youtube12"
+      ],
+      "source_scope_limitation": "Genre-level representative practice. Named examples establish positive roles, not universal personnel, an exact master reconstruction or fixed device models. No regional flute mechanism or singer physiology is inferred.",
+      "source_retrieval_caveat": "Map initially succeeded in turn14940view0; later direct403. Clicking its actual link2 recovered the creator playlist, then full embed independently rendered. Official artist YouTube indexed descriptions reproduced in full; direct YouTube fetch was throttled. Mirrored descriptions are not substituted for those primary returns."
+    }
+  ]
+}

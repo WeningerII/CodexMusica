@@ -2,10 +2,10 @@
   "id": "musica_lombarda",
   "name": "Musica Lombarda",
   "family": "vernacular",
-  "lineage": "La Cantina di Ermete — Paneroni Giovanni, astronomo (recorded2014), exact track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Lombard regional music, including dialect song and contemporary folk-oriented composition.",
   "recipe": "classic musica lombarda, ballad Poetry. electronic keyboard unspecified, bouzouki. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 0.769,
+  "score": 3.319,
   "config": {
     "traditions": [
       "musica_lombarda"
@@ -73,7 +73,7 @@
           "bouzouki_strings": "bouzouki_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": -0.05,
+          "plucked_traditional_technique": 2.5,
           "bouzouki_courses": 0,
           "bouzouki_pick": 0,
           "bouzouki_body_wood": 0,

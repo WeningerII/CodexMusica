@@ -2,10 +2,10 @@
   "id": "german_trap",
   "name": "German trap",
   "family": "hip_hop",
-  "lineage": "German trap recording scenes; selected Ufo361 / Sonus030 / AT Beatz sample-layered branch",
-  "recipe": "classic modern german trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. layered sampler, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 365,
-  "score": 29.325,
+  "lineage": "German trap developed through local rapper-and-producer networks adapting electronic trap practice. Ufo361, Sonus030 and AT Beatz exemplify a Berlin-associated strand combining layered sample material with melodic vocal processing.",
+  "recipe": "classic modern german trap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. sampler, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 326,
+  "score": 25.804,
   "config": {
     "traditions": [
       "german_trap"
@@ -19,35 +19,37 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 6.24,
+          "voice_quality": 5.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3,
+          "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.175,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.2535,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.3,
-          "voice_processing_chain": 3.6864999999999997,
-          "voice_multitrack_stack": 0.042749999999999996
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 3.0865,
+          "voice_multitrack_stack": 0.042749999999999996,
+          "voice_tessitura": 0
         }
       },
       {
@@ -63,8 +65,8 @@
           "electronic_technique": 2.2855000000000003,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.318,
-          "sampler_workflow": 1.24275,
-          "sampler_classic_context": 5.265
+          "sampler_workflow": 0.9427499999999999,
+          "sampler_classic_context": 7.084999999999999
         }
       },
       {
@@ -78,7 +80,7 @@
         "scores": {
           "electronic_technique": 2.2855000000000003,
           "sample_bitdepth": 0.159,
-          "sample_swing": -0.05,
+          "sample_swing": 2.5,
           "sample_processing": 0.105
         }
       }
@@ -100,7 +102,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "sampler_classic": [
         "electronic_technique",
@@ -127,31 +130,30 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "spoken_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_aural_relative",
-      "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",

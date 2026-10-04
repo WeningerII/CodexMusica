@@ -1,0 +1,301 @@
+{
+  "status": "PASS",
+  "reviewed_packet": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-recipe-only-review.json",
+  "reviewed_sha256": "7bcedae94c762a33628d3fda9d33d0a617d6f7022acee981808096c8ff345fae",
+  "count": 20,
+  "rows": [
+    {
+      "id": "bahai",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "+ one",
+        "+ note",
+        "+ per",
+        "+ syllable,"
+      ]
+    },
+    {
+      "id": "deathgrind",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- late-1990s",
+        "- accompaniment,",
+        "+ accompaniment.",
+        "- single",
+        "- lead",
+        "- single",
+        "- track",
+        "- no",
+        "- stacking.",
+        "- conventional",
+        "- tuning",
+        "- standard",
+        "- pitch",
+        "- maple",
+        "+ lathed",
+        "+ both",
+        "+ sides"
+      ]
+    },
+    {
+      "id": "guitarra_andina",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- spruce",
+        "- nylon",
+        "- fingerpicked"
+      ]
+    },
+    {
+      "id": "harmonikka",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- early-2020s",
+        "+ hohner",
+        "+ gola",
+        "+ canonical",
+        "+ premium",
+        "+ German",
+        "+ concert"
+      ]
+    },
+    {
+      "id": "harpsichord",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- equal",
+        "- temperament",
+        "- modern",
+        "- concert",
+        "- standard",
+        "+ bird",
+        "+ quill",
+        "+ plectra",
+        "+ canonical",
+        "+ historical",
+        "+ raven",
+        "+ crow",
+        "+ turkey"
+      ]
+    },
+    {
+      "id": "hel",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "+ one",
+        "+ note",
+        "+ per",
+        "+ syllable,",
+        "- accompaniment.",
+        "+ accompaniment,",
+        "+ unprocessed",
+        "+ natural",
+        "+ acoustic.",
+        "+ a",
+        "+ 440"
+      ]
+    },
+    {
+      "id": "humour_francais",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- mid-1980s",
+        "- no",
+        "- pitch",
+        "- organization",
+        "- speech,",
+        "- solo",
+        "- unaccompanied,",
+        "- unprocessed",
+        "- natural",
+        "- acoustic,",
+        "- single",
+        "- lead",
+        "- single",
+        "- track",
+        "- no",
+        "- stacking."
+      ]
+    },
+    {
+      "id": "indie_electropop",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- early-2020s",
+        "- accompaniment.",
+        "+ accompaniment,",
+        "+ unprocessed",
+        "+ natural",
+        "+ acoustic.",
+        "- 7",
+        "- ply"
+      ]
+    },
+    {
+      "id": "indie_napoletano",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- late-2010s",
+        "- one",
+        "- note",
+        "- per",
+        "- syllable,",
+        "- metal",
+        "- body",
+        "- three",
+        "- cone",
+        "- system",
+        "- national",
+        "- steel",
+        "- tuning",
+        "- stability",
+        "- 7",
+        "- ply",
+        "- quartersawn",
+        "- maple",
+        "- maple",
+        "- brushes-and-sticks"
+      ]
+    },
+    {
+      "id": "indie_quebecois",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- mid-2020s",
+        "+ unprocessed",
+        "+ natural",
+        "+ acoustic,"
+      ]
+    },
+    {
+      "id": "italian_mezzo_soprano",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- mid-1990s",
+        "- only,",
+        "+ only.",
+        "- solo",
+        "- with",
+        "- instrumental",
+        "- accompaniment,",
+        "- single",
+        "- lead",
+        "- single",
+        "- track",
+        "- no",
+        "- stacking."
+      ]
+    },
+    {
+      "id": "japanese_worship",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- unprocessed",
+        "- natural",
+        "- acoustic,",
+        "- mahogany",
+        "- phosphor",
+        "- bronze",
+        "- modern",
+        "- martin"
+      ]
+    },
+    {
+      "id": "massage",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- early-2010s"
+      ]
+    },
+    {
+      "id": "messianic_praise",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- late-2010s",
+        "- conventional",
+        "- tuning",
+        "- standard",
+        "- pitch"
+      ]
+    },
+    {
+      "id": "musica_alagoana",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- late-2010s"
+      ]
+    },
+    {
+      "id": "musica_brasiliense",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- early-2010s",
+        "- solo",
+        "- canonical",
+        "- chromatic",
+        "- lead",
+        "- chromatic"
+      ]
+    },
+    {
+      "id": "rhythm_game",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- block",
+        "- chord"
+      ]
+    },
+    {
+      "id": "thai_worship",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- low",
+        "- fundamental",
+        "- tuning",
+        "- maple"
+      ]
+    },
+    {
+      "id": "ugandan_traditional",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- unprocessed",
+        "- natural",
+        "- acoustic,",
+        "- resonant",
+        "- hide"
+      ]
+    },
+    {
+      "id": "uk_worship",
+      "status": "PASS_COMPATIBLE_DISCLOSURE",
+      "reason": "Full configuration unchanged. Inspected text adds/removes/compresses retained source descriptors or optional period wording without a new incompatible role/cultural mechanism. No inherited default is claimed repaired by this display change.",
+      "word_diff": [
+        "- low",
+        "- fundamental",
+        "- tuning",
+        "- maple"
+      ]
+    }
+  ],
+  "limitations": "This qualifies these exact display-only deltas, not blanket snapshot replacement or all inherited settings."
+}

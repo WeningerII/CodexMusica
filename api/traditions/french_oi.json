@@ -2,10 +2,10 @@
   "id": "french_oi",
   "name": "French Oi!",
   "family": "rock_punk",
-  "lineage": "Syndrome 81 — Prisons imaginaires (2022), core band. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s french oi!, distorted Rock, punk branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 314,
-  "score": 20.751,
+  "lineage": "French Oi! connects local punk bands and audiences through forceful songs and collective vocal energy. Repeated refrains and a direct amplified-band sound are central to many performances.",
+  "recipe": "classic french oi!, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 279,
+  "score": 15.653,
   "config": {
     "traditions": [
       "french_oi"
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 0.441,
           "neck_wood": 0.40950000000000003,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1.3,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 0.441,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.405,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,

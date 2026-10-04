@@ -2,10 +2,10 @@
   "id": "indie_game_soundtrack",
   "name": "Indie game soundtrack",
   "family": "electronic",
-  "lineage": "Jake Kaufman — Strike the Earth! (Plains of Passage), Shovel Knight OST (2014). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic mid-2010s indie game soundtrack, experimental Elec. eight channel nes apu plus vrc6 nes famicom chip system. treated studio. transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 181,
-  "score": 2.131,
+  "lineage": "Indie game soundtracks connect composers with independently developed games and their listening communities. Chip-based composition forms one branch alongside orchestral, acoustic and other electronic approaches.",
+  "recipe": "classic indie game soundtrack, experimental Elec. nes famicom chip system. treated studio. transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 139,
+  "score": 0.332,
   "config": {
     "traditions": [
       "indie_game_soundtrack"
@@ -19,9 +19,9 @@
           "nes_chip_output": "nes_chip_mono"
         },
         "scores": {
-          "nes_chip_architecture": 1.5,
+          "nes_chip_architecture": 0.3,
           "nes_chip_programming": 0.0315,
-          "nes_chip_output": 0.6
+          "nes_chip_output": 0
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "edmonton_indie",
   "name": "Edmonton indie",
   "family": "rock_punk",
-  "lineage": "The Den — Motions (2020), complete credited band palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s edmonton indie, distorted Rock, alternative branch. solo with instrumental accompaniment. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 449,
-  "score": 33.939,
+  "lineage": "Edmonton indie connects independent bands and songwriters across Edmonton’s music communities. Guitar-led rock groups and keyboard-rich arrangements form part of the city’s varied output.",
+  "recipe": "classic edmonton indie, distorted Rock, alternative branch. solo with instrumental accompaniment. mahogany rosewood humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 426,
+  "score": 32.55,
   "config": {
     "traditions": [
       "edmonton_indie"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.449,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
-          "fretboard": -0.035,
+          "body_wood": 0.39,
+          "neck_wood": 1.3,
+          "fretboard": 1.2349999999999999,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "scale_length": 1.3,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.25,
-          "drumhead": 1.4365,
+          "drum_technique": 6.25,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.1414999999999997,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 5.181500000000001,
-          "cymbal_lathing": 5.2865,
+          "cymbal_alloy": 0.7999999999999998,
+          "cymbal_hammering": 6.181500000000001,
+          "cymbal_lathing": 6.2865,
           "cymbal_finish": 0
         }
       },
@@ -153,11 +153,11 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0,
-          "piano_hammer": 2.6000000000000005,
-          "piano_rim": 2.99,
+          "grand_piano_brand": 0.3,
+          "piano_hammer": 3.1200000000000006,
+          "piano_rim": 3.1200000000000006,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.263,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
         }
@@ -173,7 +173,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0.1365,
-          "poly_voices": 0.3,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       }

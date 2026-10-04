@@ -2,10 +2,10 @@
   "id": "finnish_experimental",
   "name": "Finnish experimental",
   "family": "electronic",
-  "lineage": "Lau Nau — Puutarhassa (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s finnish experimental, experimental Elec, musique concrete branch. modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 223,
-  "score": 15.672,
+  "lineage": "Finnish experimental music brings composers, improvisers and recording artists into varied acoustic and electronic practices. Electroacoustic work can connect synthesized sound with listening to the surrounding environment.",
+  "recipe": "classic finnish experimental, experimental Elec, musique concrete branch. modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 21.872,
   "config": {
     "traditions": [
       "finnish_experimental"
@@ -20,7 +20,7 @@
           "mod_lineage": "mod_moog_east_coast"
         },
         "scores": {
-          "electronic_technique": 0.7,
+          "electronic_technique": -0.1,
           "mod_voltage_source": 0,
           "mod_patch_density": 0,
           "mod_lineage": 0.325
@@ -36,11 +36,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 6.2315000000000005,
+          "electronic_technique": 8.731499999999999,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.735,
-          "sampler_workflow": 7.325,
-          "sampler_classic_context": 0.39
+          "sampler_workflow": 10.525,
+          "sampler_classic_context": 1.69
         }
       }
     ],

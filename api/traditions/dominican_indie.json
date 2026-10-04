@@ -2,10 +2,10 @@
   "id": "dominican_indie",
   "name": "Dominican indie",
   "family": "rock",
-  "lineage": "The Living Room — Through the Window EP (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s dominican indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single performer unison double recorded take. conventional tuning standard pitch humbucker electric guitar, electric bass, tambourine orch, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 425,
-  "score": 40.989,
+  "lineage": "Dominican indie connects independent musicians in the Dominican Republic and transnational recording communities. Guitar-pop and garage-related projects form part of this varied field.",
+  "recipe": "classic dominican indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, tambourine orch, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 37.124,
   "config": {
     "traditions": [
       "dominican_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.7364999999999999,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.6179999999999999,
+          "electric_technique": 2.6180000000000003,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.39,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.8730000000000002,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -136,15 +136,15 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 1.4365,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.8415000000000001,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 7.7315000000000005,
-          "cymbal_lathing": 8.1365,
+          "cymbal_hammering": 9.0315,
+          "cymbal_lathing": 9.1365,
           "cymbal_finish": 0
         }
       }

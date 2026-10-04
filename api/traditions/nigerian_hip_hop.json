@@ -5,7 +5,7 @@
   "lineage": "Nigerian hip-hop spans home-based and diaspora rap communities, connecting local identities with international production and performance. Artists such as DEELA work within this wider field across national borders.",
   "recipe": "classic nigerian hip hop, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
   "recipe_chars": 163,
-  "score": 31.517,
+  "score": 31.736,
   "config": {
     "traditions": [
       "nigerian_hip_hop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.142,
+          "voice_speech_song": 10.247,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.33599999999999997,
+          "voice_multitrack_stack": 0.27299999999999996,
           "voice_tessitura": 0
         }
       },
@@ -61,9 +61,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 3.313,
-          "sample_bitdepth": 0.126,
-          "sample_swing": 5.413,
+          "electronic_technique": 3.376,
+          "sample_bitdepth": 0.063,
+          "sample_swing": 5.59,
           "sample_processing": 0
         }
       }

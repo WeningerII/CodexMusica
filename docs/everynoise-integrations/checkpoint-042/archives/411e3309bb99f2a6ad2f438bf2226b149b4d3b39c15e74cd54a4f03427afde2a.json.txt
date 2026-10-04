@@ -1,0 +1,1238 @@
+{
+  "owner": "sourceaudit",
+  "baseline": "2541e078c9f4326c2d75826779813d933a27f1bb",
+  "entries": [
+    {
+      "id": "glass",
+      "before": {
+        "tradition": {
+          "id": "glass",
+          "name": "Glass",
+          "family": "classical",
+          "lineage": "Thomas Bloch — Mozart Adagio K356, complete solo track6 from Music for Glass Harmonica. Source-supported Franklin-type rotating bowls and wet-finger excitation are both pinned. One complete solo work, no quartet or album singers imported. No specific historical pitch or global temperament imposed: performer reports instruments at442 and430Hz, selected session pitch unspecified. Authored spacious concert-hall listening rendition supports sustained acoustic tones; this is a source-compatible modern recital setting, not a claim about original Naxos session acoustics or apparatus. Optional signal-chain apparatus is omitted. Western common-practice parent applies to selected Mozart work, not every Glass network member.",
+          "instruments": [
+            "glass_harmonica"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "glass_harmonica_type": "glass_harmonica_spun_bowls",
+            "glass_harmonica_technique": "glass_harmonica_wetted_finger"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Selected whole Mozart Adagio K356, track6 on Thomas Bloch Music for Glass Harmonica (Naxos8.555295). Publisher explicitly credits only Bloch glass harmonica for this complete work; one performer, zero singers. Other album chamber/vocal works are separate compositions and are not claimed part of this solo work. Artist own instrument account establishes rotating glass bowls excited by wet fingers; exact creator Glass playlist includes Bloch on a different work with Rosamonde Quartet, not the selected solo recording. Glass is a glass-instrument repertoire and performance network, demonstrated by creator playlist of armonica, glass harp and verrophone performers and artist first-person glass-music practice. It is not Philip Glass composer music, reed harmonica, or a synonym for all classical/minimalist/ambient music. Selected Mozart solo illustrates its classical concert branch; broader category spans multiple glass constructions and musical settings. Existing instrument card is reused, not treated as an existing tradition duplicate. Source-supported Franklin-type rotating bowls and wet-finger excitation are both pinned. One complete solo work, no quartet or album singers imported. No specific historical pitch or global temperament imposed: performer reports instruments at442 and430Hz, selected session pitch unspecified. Authored spacious concert-hall listening rendition supports sustained acoustic tones; this is a source-compatible modern recital setting, not a claim about original Naxos session acoustics or apparatus. Optional signal-chain apparatus is omitted. Western common-practice parent applies to selected Mozart work, not every Glass network member.",
+          "exemplars": [
+            "Thomas Bloch — Mozart Adagio K356, complete solo track6 from Music for Glass Harmonica"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "glass",
+          "name": "Glass",
+          "family": "classical",
+          "lineage": "Glass music centers instruments whose vibrating glass produces sustained or struck tones. The glass harmonica forms an important branch, with repertoire ranging from historical compositions to newer concert work.",
+          "instruments": [
+            "glass_harmonica"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "glass_harmonica_type": "glass_harmonica_spun_bowls",
+            "glass_harmonica_technique": "glass_harmonica_wetted_finger"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Wet fingers set rotating glass bowls into vibration, producing connected, ringing tones. Sustained melody and changes in touch support an intimate solo texture.",
+          "exemplars": [
+            "Thomas Bloch — Mozart Adagio K356, complete solo track6 from Music for Glass Harmonica"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain a legitimate instrumental or spoken practice with all meaningful physical/delivery controls; no obligatory accompaniment is added to these source-supported branches. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain a legitimate instrumental or spoken practice with all meaningful physical/delivery controls; no obligatory accompaniment is added to these source-supported branches. ",
+        "owning_control_review": {
+          "applicable": 2,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Glass, huge glassarmonica: spun-bowls wetted-finger ethereal pure continuous singing, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Glass, huge glassarmonica, treated-concert-hall-shoebox.",
+          "tags": "Glass, huge glassarmonica: spun-bowls wetted-finger ethereal pure continuous singing, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Glass, huge glassarmonica · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "granada_indie",
+      "before": {
+        "tradition": {
+          "id": "granada_indie",
+          "name": "Granada Indie",
+          "family": "rock",
+          "lineage": "Tremendo Pinkman — complete five-member live-band practice documented by its festival presenter after the late2024 expansion. José Molero sings and plays guitar and synthesizers; Vicente Jiménez plays bass; Alexis Moreno plays drums and backing vocals. Dani Rodríguez joined as second guitarist in January2023 and Mónica Huertas joined as vocalist in late2024. All five people, three positively credited singers, two guitar players and five musical families are retained. One guitar card aggregates the two guitar roles. This is the full documented live-band configuration, not an assertion that every studio album or track has exactly these five players. Authored alternative-rock band realization: two unspecified guitar roles use one electric single-coil card with alder/maple construction and power-chord articulation; electric bass uses coherent dual-single-coil, roundwound/fingerstyle construction; standard stick drumkit retained. Source does not identify exact guitars, bass construction or performance gestures, which remain explicitly authored rather than original hardware claims. Positively named synthesizers retain architecture-neutral synthesis, not an invented analog model or bare-keyboard substitution. Three actual vocal contributors use combined live-group controls as an authored simultaneous rendition, not a claim about original harmony counts or no overdubs. Vocal physiology/pitch system remain unspecified; global temperament and optional signal-chain details omitted. Controlled live-room is representative, not measured source acoustics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "credited_synthesizer_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Tremendo Pinkman — complete five-member live-band practice documented by its festival presenter after the late2024 expansion. José Molero sings and plays guitar and synthesizers; Vicente Jiménez plays bass; Alexis Moreno plays drums and backing vocals. Dani Rodríguez joined as second guitarist in January2023 and Mónica Huertas joined as vocalist in late2024. All five people, three positively credited singers, two guitar players and five musical families are retained. One guitar card aggregates the two guitar roles. This is the full documented live-band configuration, not an assertion that every studio album or track has exactly these five players. Granada Indie is a city-based independent-rock/pop community, not a separate guitar technique or a claim that Spain-wide categories exclude Granada. The festival directly identifies this Granada band as indie/alternative rock and documents local Discos Bora-Bora plus regional venue/festival activity. The KOEL artist/agency dossier independently situates its band within Granada’s broader local indie network and venues. Existing spanish_indie_rock and spanish_indie_pop are national musical/industry umbrellas with Barcelona/Gijón examples rather than geographic exclusions. Existing spanish_modern_rock and spanish_rock overlap some repertoire; the latter also describes rock urbano/andaluz rather than exhausting every local independent scene. Granada’s positively documented city community is a nested regional axis; no semantic distinction is inferred solely from choosing a different band. No exact creator-playlist membership is claimed for this exemplar after map retrieval failure. Authored alternative-rock band realization: two unspecified guitar roles use one electric single-coil card with alder/maple construction and power-chord articulation; electric bass uses coherent dual-single-coil, roundwound/fingerstyle construction; standard stick drumkit retained. Source does not identify exact guitars, bass construction or performance gestures, which remain explicitly authored rather than original hardware claims. Positively named synthesizers retain architecture-neutral synthesis, not an invented analog model or bare-keyboard substitution. Three actual vocal contributors use combined live-group controls as an authored simultaneous rendition, not a claim about original harmony counts or no overdubs. Vocal physiology/pitch system remain unspecified; global temperament and optional signal-chain details omitted. Controlled live-room is representative, not measured source acoustics.",
+          "exemplars": [
+            "Tremendo Pinkman — complete festival-documented five-member live configuration after late2024"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "granada_indie",
+          "name": "Granada Indie",
+          "family": "rock",
+          "lineage": "Granada indie connects independent bands, releases and performance networks in Granada, Spain. Artists continue a varied local history through guitar music and newer electronic colors.",
+          "instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "credited_synthesizer_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Group and lead voices meet electric guitars, bass, drums and synthesizer layers. Strong riffs and contrasting melodic passages create a contemporary alternative-rock branch.",
+          "exemplars": [
+            "Tremendo Pinkman — complete festival-documented five-member live configuration after late2024"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain meaningful rock-band controls and supported synthesis role; energetic/high-gain bass character is an authored rock treatment, not measured source gain. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain meaningful rock-band controls and supported synthesis role; energetic/high-gain bass character is an authored rock treatment, not measured source gain. ",
+        "owning_control_review": {
+          "applicable": 50,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Granada Indie, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, happy single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced treble-rolled-off distorted breathing present taut full-bodied glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant, bodacious credited-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Granada Indie, up-tempo voice, happy single-coil-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, bodacious credited-synthesizer, treated-live-room-reflective-but-controlled.",
+          "tags": "Granada Indie, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, happy single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced treble-rolled-off distorted breathing present taut full-bodied glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant, bodacious credited-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Granada Indie, up-tempo voice · Treated live room (reflective but controlled),\nhappy single-coil solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nbodacious Credited synthesizer · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "greek_indie",
+      "before": {
+        "tradition": {
+          "id": "greek_indie",
+          "name": "Greek Indie",
+          "family": "pop",
+          "lineage": "Hume Assine — complete issued Crying, featuring Anna Paspati, track5 of The Sweetest Sound(2020). The album credits its base performers Anna Paspati(voice), Alexios Antonopoulos(drums), and Hume Assine(synthesizers, keyboards and programming). Additional guitars are expressly restricted to tracks2/6/7, brass to2, and bouzouki to8, so these are not imported into track5. All five base role families are retained. This is the complete selected song with the publisher-specified base lineup, not a reconstruction of the whole twelve-track album or a claim every base role sounds continuously. The separately titled guest performers on other songs are not inferred additional singers here. Authored contemporary song rendition: one credited singer, acoustic stick drumkit, architecture-neutral credited synthesizer, separate neutral keyboard, and source-unspecified programmed sound. Programming is positive source sound-generation/arrangement credit, not assumed MIDI, sampling, drum programming or playback of a finished master. Neutral keyboard and synth preserve separately listed roles without claiming two specific devices. Drum construction is a coherent authored modern kit, not measured source models; voice physiology, tessitura and pitch organization unspecified. Solo-accompanied/single-lead represents the sole named singer, not a claim that original recording never doubles a take. Functional-harmonic song form is explicitly authored from the published lyrical song, not an analytical claim of source harmonic transcription. Room representative; global tuning and optional chain omitted. Spacious concert-hall listening rendition is authored for the source-classified downtempo/chillout song, not a measurement of the original room or tempo.",
+          "instruments": [
+            "voice",
+            "drum_kit",
+            "credited_synthesizer_unspecified",
+            "electronic_keyboard_unspecified",
+            "credited_programming_unspecified"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal",
+            "credited_programming_unspecified_identity": "credited_programming_unspecified_generator_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Hume Assine — complete issued Crying, featuring Anna Paspati, track5 of The Sweetest Sound(2020). The album credits its base performers Anna Paspati(voice), Alexios Antonopoulos(drums), and Hume Assine(synthesizers, keyboards and programming). Additional guitars are expressly restricted to tracks2/6/7, brass to2, and bouzouki to8, so these are not imported into track5. All five base role families are retained. This is the complete selected song with the publisher-specified base lineup, not a reconstruction of the whole twelve-track album or a claim every base role sounds continuously. The separately titled guest performers on other songs are not inferred additional singers here. Greek Indie is the broader national independent-music community, including electronic, alternative-pop and rock work. The artist-owned selected release explicitly combines Greek/indie/electronic/downtempo classification. The actual creator network includes Stereo Nova, K.BHTA, Lena Platonos and guitar bands, rather than only indie-rock. Existing greek_indie_rock explicitly covers a guitar-forward Bazooka branch and does not exhaust this broader cross-instrument community. Existing greek_pop includes an overlapping electro-pop example(Σtella), not a rule excluding indie artists; this addition retains the independent-community axis rather than claiming all electronic pop sounds different. Existing greek_rock/classic_greek_rock address rock traditions, while queued Greek instrumental/electronic scopes must not be treated as aliases solely through national identity. No exact HumeAssine creator membership is asserted; primary self-classification supplies the regional example, while the playlist documents the field’s broader scope. Authored contemporary song rendition: one credited singer, acoustic stick drumkit, architecture-neutral credited synthesizer, separate neutral keyboard, and source-unspecified programmed sound. Programming is positive source sound-generation/arrangement credit, not assumed MIDI, sampling, drum programming or playback of a finished master. Neutral keyboard and synth preserve separately listed roles without claiming two specific devices. Drum construction is a coherent authored modern kit, not measured source models; voice physiology, tessitura and pitch organization unspecified. Solo-accompanied/single-lead represents the sole named singer, not a claim that original recording never doubles a take. Functional-harmonic song form is explicitly authored from the published lyrical song, not an analytical claim of source harmonic transcription. Room representative; global tuning and optional chain omitted. Spacious concert-hall listening rendition is authored for the source-classified downtempo/chillout song, not a measurement of the original room or tempo.",
+          "exemplars": [
+            "Hume Assine featuring Anna Paspati — complete Crying(2020)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "greek_indie",
+          "name": "Greek Indie",
+          "family": "pop",
+          "lineage": "Greek indie connects independent artists and creative networks in Greece across electronic and band-based styles. Songwriting, studio experimentation and local releases contribute to a varied field.",
+          "instruments": [
+            "voice",
+            "drum_kit",
+            "credited_synthesizer_unspecified",
+            "electronic_keyboard_unspecified",
+            "credited_programming_unspecified"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal",
+            "credited_programming_unspecified_identity": "credited_programming_unspecified_generator_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A singing voice can interact with drums, synthesizer textures, keyboards and programmed material. Spacious arrangements leave room for melodic phrases and changes in density.",
+          "exemplars": [
+            "Hume Assine featuring Anna Paspati — complete Crying(2020)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain source-positive electronic song branch and distinct credited synthesis/programming roles. Functional-harmonic verse–chorus–bridge organization is authored; spacious setting preserves a downtempo-compatible texture without source BPM claims. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain source-positive electronic song branch and distinct credited synthesis/programming roles. Functional-harmonic verse–chorus–bridge organization is authored; spacious setting preserves a downtempo-compatible texture without source BPM claims. ",
+        "owning_control_review": {
+          "applicable": 32,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Greek Indie, huge voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage modern dark articulate, immense credited-synthesizer, stereophonic electronic-keyboard: amplified chordal melodic, widescreen credited-programmed-sound, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Greek Indie, huge voice, trudging drum-kit, immense credited-synthesizer, stereophonic electronic-keyboard, widescreen credited-programmed-sound, treated-concert-hall-shoebox.",
+          "tags": "Greek Indie, huge voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage modern dark articulate, immense credited-synthesizer, stereophonic electronic-keyboard: amplified chordal melodic, widescreen credited-programmed-sound, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Greek Indie, huge voice · Treated concert hall (shoebox),\ntrudging drum kit · Treated concert hall (shoebox),\nimmense Credited synthesizer · Treated concert hall (shoebox),\nstereophonic Electronic keyboard · Treated concert hall (shoebox),\nwidescreen credited programmed sound · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "guadalajara_indie",
+      "before": {
+        "tradition": {
+          "id": "guadalajara_indie",
+          "name": "Guadalajara Indie",
+          "family": "jazz",
+          "lineage": "Troker — complete four-piece NPR Tiny Desk concert published19May2017, including the guest-vocal selection. Producer credits name Frankie Mares drums, Christian Jimenez keys, Diego Franco saxophone, Samo Gonzalez bass, Chay Flores trumpet, DJ Sonicko turntable and Solange Prat vocals. Seven people and all seven credited musical families retained; one separately credited live singer, with embedded turntable media voice count unspecified. The full concert includes Principe Charro, One Thousand Million Eyes, Chapala Blues and Tequila Death. This is the complete dated concert union, not a claim all seven play every moment or the same roster appears on every Troker album. Authored jazz-fusion rendition preserves generic keys with the existing architecture-neutral keyboard owner. Source bass is unspecified; a coherent alder/maple dual-single-coil electric bass with fingerstyle roundwounds is an explicitly authored physical realization, not identification of original bass construction. Tenor sax, Bb trumpet without mute and bebop articulation are compatible authored choices, not source make/register/gesture measurements. Actual turntable credit plus artist description of scratching supports the existing scratch owner; chopped sample gesture remains authored, with embedded source material unspecified. Drumkit physical controls are deliberately authored. All seventeen voice controls preserve unknown physiology; solo-accompanied configuration refers to one credited guest singer, not exclusion of unknown recorded voices. Controlled live room is an authored setting rather than NPR room measurement; no optional apparatus or global tuning asserted.",
+          "instruments": [
+            "voice",
+            "drum_kit",
+            "electronic_keyboard_unspecified",
+            "saxophone",
+            "electric_bass",
+            "trumpet",
+            "turntable"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal",
+            "wind_articulation": "wind_bebop_runs",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_bebop_runs",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_bebop_lines",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius",
+            "electronic_technique": "electronic_sample_chopped",
+            "turntable_technique": "turntable_scratch"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.americanJazz.fusion",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Troker — complete four-piece NPR Tiny Desk concert published19May2017, including the guest-vocal selection. Producer credits name Frankie Mares drums, Christian Jimenez keys, Diego Franco saxophone, Samo Gonzalez bass, Chay Flores trumpet, DJ Sonicko turntable and Solange Prat vocals. Seven people and all seven credited musical families retained; one separately credited live singer, with embedded turntable media voice count unspecified. The full concert includes Principe Charro, One Thousand Million Eyes, Chapala Blues and Tequila Death. This is the complete dated concert union, not a claim all seven play every moment or the same roster appears on every Troker album. Guadalajara Indie is a city-focused independent discovery field nested within broader Mexican independent music, not proof national categories exclude Guadalajara. The creator network positively includes Troker alongside other local performers; NPR independently anchors Troker in Guadalajara and its contemporary club/festival circulation. The selected jazz-fusion branch broadens this city network beyond a single guitar-band timbre. Existing mexican_indie is a national umbrella represented by Sadfields shoegaze, indie_rock_mexicano by El Shirota noise-rock; neither representative excludes this city. Existing mexican_rock specifically documents Rock en tu Idioma and regional guitar-band quotation practices. These substantial overlaps are acknowledged; the distinction is the creator-defined locality/community field independently anchored by the concert producer, not merely a different performer or recording. Authored jazz-fusion rendition preserves generic keys with the existing architecture-neutral keyboard owner. Source bass is unspecified; a coherent alder/maple dual-single-coil electric bass with fingerstyle roundwounds is an explicitly authored physical realization, not identification of original bass construction. Tenor sax, Bb trumpet without mute and bebop articulation are compatible authored choices, not source make/register/gesture measurements. Actual turntable credit plus artist description of scratching supports the existing scratch owner; chopped sample gesture remains authored, with embedded source material unspecified. Drumkit physical controls are deliberately authored. All seventeen voice controls preserve unknown physiology; solo-accompanied configuration refers to one credited guest singer, not exclusion of unknown recorded voices. Controlled live room is an authored setting rather than NPR room measurement; no optional apparatus or global tuning asserted.",
+          "exemplars": [
+            "Troker — complete NPR Tiny Desk2017 four-piece concert with Solange Prat"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "guadalajara_indie",
+          "name": "Guadalajara Indie",
+          "family": "jazz",
+          "lineage": "Guadalajara indie connects independent music-making and performance networks in Guadalajara, Mexico. Its range includes guitar-based songs as well as experimental, jazz-influenced and electronically informed ensembles.",
+          "instruments": [
+            "voice",
+            "drum_kit",
+            "electronic_keyboard_unspecified",
+            "saxophone",
+            "electric_bass",
+            "trumpet",
+            "turntable"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal",
+            "wind_articulation": "wind_bebop_runs",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_bebop_runs",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_bebop_lines",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius",
+            "electronic_technique": "electronic_sample_chopped",
+            "turntable_technique": "turntable_scratch"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.americanJazz.fusion",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "In a jazz-fusion branch, drums, bass and keyboards meet saxophone, trumpet and scratching. Vocal passages can join instrumental interplay, with contrasting textures and rhythmic variation linking the parts.",
+          "exemplars": [
+            "Troker — complete NPR Tiny Desk2017 four-piece concert with Solange Prat"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain source-positive jazz-fusion ensemble as one branch of a broader regional independent field, not a universal city sound. Actual scratching supports the chopped turntable vocabulary. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain source-positive jazz-fusion ensemble as one branch of a broader regional independent field, not a universal city sound. Actual scratching supports the chopped turntable vocabulary. ",
+        "owning_control_review": {
+          "applicable": 54,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Guadalajara Indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky, witty electronic-keyboard: amplified chordal, refined saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass central cu-zn-70-30 balanced-bright rubber modern-standard tenor angular low-overtone-rich, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied, cheery trumpet: yellow-brass-canonical-70-30-bach-stradivarius bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup angular undamped-resonance direct treble-extended cutting, micro-stuttering turntable: scratched sampled chopped, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Guadalajara Indie, up-tempo voice, trudging drum-kit, witty electronic-keyboard, refined saxophone, focused electric-bass, cheery trumpet, micro-stuttering turntable, treated-live-room-reflective-but-controlled.",
+          "tags": "Guadalajara Indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky, witty electronic-keyboard: amplified chordal, refined saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass central cu-zn-70-30 balanced-bright rubber modern-standard tenor angular low-overtone-rich, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied, cheery trumpet: yellow-brass-canonical-70-30-bach-stradivarius bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup angular undamped-resonance direct treble-extended cutting, micro-stuttering turntable: scratched sampled chopped, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Guadalajara Indie, up-tempo voice · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),\nrefined saxophone · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ncheery trumpet · Treated live room (reflective but controlled),\nmicro-stuttering turntable · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "guitarra_andina",
+      "before": {
+        "tradition": {
+          "id": "guitarra_andina",
+          "name": "Guitarra Andina",
+          "family": "vernacular",
+          "lineage": "Camilo Pajuelo — complete producer-issued2014 Helme solo-guitar film, adapted by Raúl García Zárate. The producer explicitly documents a continuous three-section instrumental drama: dialogue, tragedy and ayataki. One guitarist and one guitar retained, no singer or band inferred; literary characters and funeral-song origin do not constitute credited vocal roles. Producer confirms filmed Helsinki location and Andean-guitar identity. The exact composition is documented independently in research based on García Zárate testimony; its alternate-tuning practice is known, but exact strings/pitch standard of this2014 performance are not measured or asserted. Source-compatible authored six-string spruce/fan-braced nylon guitar with fingerpicked free-stroke attack, not source instrument make/material identification. Isolated owner preserves all six original meaningful control dimensions while replacing mandatory standard EADGBE with documented Andean variable tuning, exact tuning unknown. This is no arbitrary new timbre-only owner: physical string-tuning incompatibility requires a truthful slot. No existing instrument/shared part is edited. Broad artMusic reflects the expressly arranged continuous three-part instrumental narrative; no verse-chorus or improvisation invented. Spacious recital hall is an authored listening rendition, not original Helsinki building acoustics; optional chain and global temperament omitted.",
+          "instruments": [
+            "andean_scordatura_guitar"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "acoustic_technique": "acoustic_fingerpicked",
+            "andean_guitar_tuning": "andean_guitar_tuning_source_unspecified",
+            "top_wood_classical": "spruce_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_normal_cl",
+            "attack_technique_cl": "tirando_cl"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Camilo Pajuelo — complete producer-issued2014 Helme solo-guitar film, adapted by Raúl García Zárate. The producer explicitly documents a continuous three-section instrumental drama: dialogue, tragedy and ayataki. One guitarist and one guitar retained, no singer or band inferred; literary characters and funeral-song origin do not constitute credited vocal roles. Producer confirms filmed Helsinki location and Andean-guitar identity. The exact composition is documented independently in research based on García Zárate testimony; its alternate-tuning practice is known, but exact strings/pitch standard of this2014 performance are not measured or asserted. Guitarra Andina is an Andean guitar-arrangement and tuning tradition, not all Peruvian guitar music or generic classical nylon guitar. Producer explicitly names this field; first-person García Zárate discussion describes regionally differentiated temples and Andean melody/bass independence. It overlaps Peruvian folk and Andean huayno repertoires; the selected through-composed Helme adaptation is one documented instrumental narrative, not reduction of all Andean music to solo guitar. Existing guitarra_argentina and guitarra_mexicana are different national/repertoire scopes, while classical_guitar is broader concert instrument repertoire; overlap with concert practice does not establish equivalence. Source-compatible authored six-string spruce/fan-braced nylon guitar with fingerpicked free-stroke attack, not source instrument make/material identification. Isolated owner preserves all six original meaningful control dimensions while replacing mandatory standard EADGBE with documented Andean variable tuning, exact tuning unknown. This is no arbitrary new timbre-only owner: physical string-tuning incompatibility requires a truthful slot. No existing instrument/shared part is edited. Broad artMusic reflects the expressly arranged continuous three-part instrumental narrative; no verse-chorus or improvisation invented. Spacious recital hall is an authored listening rendition, not original Helsinki building acoustics; optional chain and global temperament omitted.",
+          "exemplars": [
+            "Camilo Pajuelo — complete Helme solo-guitar film2014, GarcíaZárate adaptation"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "guitarra_andina",
+          "name": "Guitarra Andina",
+          "family": "vernacular",
+          "lineage": "Guitarra andina brings Andean repertories and expressive practices into solo-guitar performance. Arrangements can connect regional melodies, dance references and instrumental narratives through distinctive tuning and phrasing approaches.",
+          "instruments": [
+            "andean_scordatura_guitar"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "acoustic_technique": "acoustic_fingerpicked",
+            "andean_guitar_tuning": "andean_guitar_tuning_source_unspecified",
+            "top_wood_classical": "spruce_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_normal_cl",
+            "attack_technique_cl": "tirando_cl"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Plucked nylon strings carry melody, accompaniment and contrasting sections within one instrument. Variable tuning and changes in articulation can shape resonance and dramatic movement.",
+          "exemplars": [
+            "Camilo Pajuelo — complete Helme solo-guitar film2014, GarcíaZárate adaptation"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain a legitimate instrumental or spoken practice with all meaningful physical/delivery controls; no obligatory accompaniment is added to these source-supported branches. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain a legitimate instrumental or spoken practice with all meaningful physical/delivery controls; no obligatory accompaniment is added to these source-supported branches. ",
+        "owning_control_review": {
+          "applicable": 6,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Guitarra Andina, huge andean-scordatura-guitar: spruce nylon dynamic-range-wide flamenco-classical pliable singing-sustain distinct-tuning fingerpicked delicate overtone-rich narrative low-mid-rich-spectrum treble-extended projecting traditional, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Guitarra Andina, huge andean-scordatura-guitar, treated-concert-hall-shoebox.",
+          "tags": "Guitarra Andina, huge andean-scordatura-guitar: spruce nylon dynamic-range-wide flamenco-classical pliable singing-sustain distinct-tuning fingerpicked delicate overtone-rich narrative low-mid-rich-spectrum treble-extended projecting traditional, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Guitarra Andina, huge Andean scordatura guitar · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "gyerekdalok",
+      "before": {
+        "tradition": {
+          "id": "gyerekdalok",
+          "name": "Gyerekdalok",
+          "family": "vernacular",
+          "lineage": "Gryllus Vilmos and arranger Koszorus Imola Dalma — complete authorized Dalok gyerekeknek, EMB20120 (2024), twenty children-song arrangements for piano four hands across48pages. The publisher explicitly identifies one piano played by child and adult/teacher; both players and the complete collection are preserved through one piano-family card. This is the whole issued instrumental score edition, not a reduction of Gryllus commercial albums, not a solo-pianist claim, and not a claim the source songs originally lacked voices. No vocal staff or separate singer is required by the publisher-stated four-hand scoring; original recorded cello/guitar/percussion are not imported into this different authorized edition. Authored standard studio upright piano is a source-compatible model of the unspecified piano, not the publisher instrument make. Block-chord touch represents a simple chordal children-song realization across the four-hand arrangement, not a transcription of every teacher or child gesture. Both players remain in the evidence though one family card cannot encode hands or player distribution. Broad functionalSong is an explicitly authored functional-harmonic song rendition of the published familiar song arrangements, not classification as art music merely because the edition is notated. Controlled live-room is authored; global tuning and optional recording apparatus omitted. No physiological child-voice assumptions arise because this selected edition is instrumental.",
+          "instruments": [
+            "upright_piano"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Gryllus Vilmos and arranger Koszorus Imola Dalma — complete authorized Dalok gyerekeknek, EMB20120 (2024), twenty children-song arrangements for piano four hands across48pages. The publisher explicitly identifies one piano played by child and adult/teacher; both players and the complete collection are preserved through one piano-family card. This is the whole issued instrumental score edition, not a reduction of Gryllus commercial albums, not a solo-pianist claim, and not a claim the source songs originally lacked voices. No vocal staff or separate singer is required by the publisher-stated four-hand scoring; original recorded cello/guitar/percussion are not imported into this different authorized edition. Gyerekdalok denotes the Hungarian-language children-song repertoire and education field, spanning originals, poetry settings and traditional material rather than only classical piano. Gryllus explicitly describes his songs as Hungarian musical mother-tongue education for preschool and primary-school participation; the authorized arrangement retains this repertoire in teaching use. Existing preschool_childrens_music overlaps the younger age group but describes a broad recorded under-six field; children_s_folk overlaps participatory songs without exhausting composed educational repertoires. Hungarian folk specifically documents village traditions and the tanchaz revival, whereas Gryllus authored poet settings establish a distinct composed children-song branch. Hungarian pop is a national popular umbrella represented by amber smith, not a claim to exclude children; Hungarian classical piano documents concert-pianist practice, not this whole children-song field. The distinction is language/repertoire and educational community, not merely an upright piano or different exemplar. Authored standard studio upright piano is a source-compatible model of the unspecified piano, not the publisher instrument make. Block-chord touch represents a simple chordal children-song realization across the four-hand arrangement, not a transcription of every teacher or child gesture. Both players remain in the evidence though one family card cannot encode hands or player distribution. Broad functionalSong is an explicitly authored functional-harmonic song rendition of the published familiar song arrangements, not classification as art music merely because the edition is notated. Controlled live-room is authored; global tuning and optional recording apparatus omitted. No physiological child-voice assumptions arise because this selected edition is instrumental.",
+          "exemplars": [
+            "Gryllus/Koszorus — whole EMB20120 twenty-song piano-four-hands edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "gyerekdalok",
+          "name": "Gyerekdalok",
+          "family": "vernacular",
+          "lineage": "Gyerekdalok encompasses Hungarian children’s songs used in family, educational and public musical settings. Familiar melodies circulate through singing, accompaniment and arranged instrumental versions.",
+          "instruments": [
+            "voice",
+            "upright_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Clear sung phrases and repeated melodies encourage shared participation. Piano can support the tune with simple harmonic patterns, while other versions use different accompaniment or voices alone.",
+          "exemplars": [
+            "Gryllus/Koszorus — whole EMB20120 twenty-song piano-four-hands edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Restore shared singing with piano instead of restricting children-song genre to one four-hand instrumental publication. No physiological child voice or numbered ensemble is invented. Functional-harmonic verse–chorus–bridge organization is an authored song arrangement. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Restore shared singing with piano instead of restricting children-song genre to one four-hand instrumental publication. No physiological child voice or numbered ensemble is invented. Functional-harmonic verse–chorus–bridge organization is an authored song arrangement. ",
+        "owning_control_review": {
+          "applicable": 20,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Gyerekdalok, huge voice: continuous-phonation plain-direct-line syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing group-vocals live-ensemble live-take connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Gyerekdalok, huge voice, immense upright-piano, treated-concert-hall-shoebox.",
+          "tags": "Gyerekdalok, huge voice: continuous-phonation plain-direct-line syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing group-vocals live-ensemble live-take connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Gyerekdalok, huge voice · Treated concert hall (shoebox),\nimmense upright piano · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "hipco",
+      "before": {
+        "tradition": {
+          "id": "hipco",
+          "name": "Hipco",
+          "family": "hip_hop",
+          "lineage": "Akwaaba issues Chief Boima’s complete Lone Stars Mix (2011): a sixteen-selection sequence assembled from Liberian Hipco and Gbema recordings, distinct from the fifteen-track compilation it previews. The issuer positively describes Boima piecing the recordings together; his firsthand notes separately document his DJ work. This preserves all mixed-in voices and instruments at the DJ-performance layer, not a reconstruction of the constituent studio sessions. Embedded voice counts, original instruments and deck/software architecture are unknown; no separate live vocalist is asserted. Authored complete issued-mix rendition uses the existing source-unspecified DJ playback/mixing owner. It models the documented assembling/mixing practice, not a generic sampler substituted for an opaque produced master. One DJ role retains all embedded recorded layers and unknown vocal cardinality. No vinyl, scratch gesture, named decks, synthesis architecture, original gear, measured tuning or source instrumental personnel are invented. Neutral numeric axes and controlled live room are editorial recording choices.",
+          "instruments": [
+            "dj_playback_mixing_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.afroDiasporic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Akwaaba issues Chief Boima’s complete Lone Stars Mix (2011): a sixteen-selection sequence assembled from Liberian Hipco and Gbema recordings, distinct from the fifteen-track compilation it previews. The issuer positively describes Boima piecing the recordings together; his firsthand notes separately document his DJ work. This preserves all mixed-in voices and instruments at the DJ-performance layer, not a reconstruction of the constituent studio sessions. Embedded voice counts, original instruments and deck/software architecture are unknown; no separate live vocalist is asserted. Hipco is positively defined by the issuing label as rap in Liberia’s colloquial English, with its own local social and performance culture. The selected programme deliberately crosses into Gbema and related local popular recordings; this does not redefine all its selections as pure Hipco or equate the two fields. Existing hiplife explicitly centers Ghanaian highlife-derived rap and contemporary crossover, azonto its named Ghanaian dance practice, afrobeats a broader contemporary West African pop umbrella, and hip_hop the global rap/DJ parent. Hipco overlaps these influences without being equivalent to their full fields. Current accepted queue contains no equivalent Liberian Hipco category. Placement in African/diasporic MCing follows the documented Hipco-led repertoire and DJ practice rather than guessing a uniform tempo or production technology. Authored complete issued-mix rendition uses the existing source-unspecified DJ playback/mixing owner. It models the documented assembling/mixing practice, not a generic sampler substituted for an opaque produced master. One DJ role retains all embedded recorded layers and unknown vocal cardinality. No vinyl, scratch gesture, named decks, synthesis architecture, original gear, measured tuning or source instrumental personnel are invented. Neutral numeric axes and controlled live room are editorial recording choices.",
+          "exemplars": [
+            "Chief Boima — complete Lone Stars Mix (Akwaaba,2011)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hipco",
+          "name": "Hipco",
+          "family": "hip_hop",
+          "lineage": "Hipco connects Liberian rap with local language, social expression and popular-music production. Artists and audiences develop songs through recordings, performance and independent networks.",
+          "instruments": [
+            "voice",
+            "sampler_classic"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "akai_mpc",
+            "sampler_bit_depth": "sampler_twelve_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_hiphop"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.afroDiasporic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Rhythmic words and repeated hooks meet sampled accompaniment and beat patterns. Changes in flow and vocal emphasis bring lyrics forward over layered musical material.",
+          "exemplars": [
+            "Chief Boima — complete Lone Stars Mix (Akwaaba,2011)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Restore rap voice and sampled beat production instead of DJ-only performance identity. Full voice and sampler controls are authored representative production, not reconstruction of every mixed track or fixed actual hardware. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Restore rap voice and sampled beat production instead of DJ-only performance identity. Full voice and sampler controls are authored representative production, not reconstruction of every mixed track or fixed actual hardware. ",
+        "owning_control_review": {
+          "applicable": 22,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Hipco, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syncopated-speech-rhythm unprocessed-natural-acoustic forward conversational, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Hipco, spoken-flowing voice, concrete-precise sampler, treated-live-room-reflective-but-controlled.",
+          "tags": "Hipco, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syncopated-speech-rhythm unprocessed-natural-acoustic forward conversational, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Hipco, spoken-flowing voice · Treated live room (reflective but controlled),\nconcrete-precise sampler · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "humour_francais",
+      "before": {
+        "tradition": {
+          "id": "humour_francais",
+          "name": "Humour français",
+          "family": "global",
+          "lineage": "Fernand Raynaud — Le22 à Asnières / Le Plombier / C’est étudié pour (complete Philips8188224 issue,1984). Authored complete solo spoken rendition. One actual performer is represented as solo unaccompanied voice with one editorial lead layer, not a measured take count or claim every character has identical delivery. Pure speech is source-supported; register, training, ornament, pitch organization and mechanism remain source-unspecified controls. Neutral effort/tract and unprocessed voice are editorial settings, not measured physiology. Controlled live room is authored, not reconstructed venue acoustics; capture apparatus and global temperament omitted.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.stagePerformance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "The national deposit catalogue records this entire issued public-performance comedy programme with Fernand Raynaud as spoken voice, with no instrumental scoring. The1984 cassette reproduces1966 phonograms; neither date is silently treated as the date of every original routine. One named human performer speaks the different comic characters; no additional character actors inferred. Humour français is the French-language sketch and comic spoken-performance repertoire field positively represented by the exact creator collection and INA’s account of cabaret/music-hall, television and record circulation. Existing standup_comedy specifically describes American solo club-monologue history; this field overlaps stand-up but also includes acted sketches, dialogue partnerships and comic monologues. Existing British, Australian, Canadian, Danish and Latino comedy fields are other linguistic/institutional repertoires, not coextensive categories; generic spoken_word/audiobook fields are broader without a comic-language remit. Current accepted queue has no equivalent French humour field. Selected complete solo spoken issue supports spokenWord.stagePerformance rather than inventing a musical backing, and does not imply every item in the broader category has one performer. Authored complete solo spoken rendition. One actual performer is represented as solo unaccompanied voice with one editorial lead layer, not a measured take count or claim every character has identical delivery. Pure speech is source-supported; register, training, ornament, pitch organization and mechanism remain source-unspecified controls. Neutral effort/tract and unprocessed voice are editorial settings, not measured physiology. Controlled live room is authored, not reconstructed venue acoustics; capture apparatus and global temperament omitted.",
+          "exemplars": [
+            "Fernand Raynaud — Le22 à Asnières / Le Plombier / C’est étudié pour (complete Philips8188224 issue,1984)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "humour_francais",
+          "name": "Humour français",
+          "family": "global",
+          "lineage": "Humour français connects French-language comic performance with stage, broadcast and recorded traditions. Monologues, character voices and narrated situations give performers varied ways to shape an audience’s response.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.stagePerformance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Spoken delivery, timing and pauses carry the humor. Changes in emphasis and character can build contrast without requiring sung melody or instrumental accompaniment.",
+          "exemplars": [
+            "Fernand Raynaud — Le22 à Asnières / Le Plombier / C’est étudié pour (complete Philips8188224 issue,1984)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain a legitimate instrumental or spoken practice with all meaningful physical/delivery controls; no obligatory accompaniment is added to these source-supported branches. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original institutional, issuer, artist and practice evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific edition/performance and audit dossier with concise positive genre history and style. Full original source evidence remains in before. Representative branches do not imply universal instrumentation or measured artist gear. Retain a legitimate instrumental or spoken practice with all meaningful physical/delivery controls; no obligatory accompaniment is added to these source-supported branches. ",
+        "owning_control_review": {
+          "applicable": 17,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Humour français, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Humour français, up-tempo voice, treated-live-room-reflective-but-controlled.",
+          "tags": "Humour français, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Humour français, up-tempo voice · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    }
+  ]
+}

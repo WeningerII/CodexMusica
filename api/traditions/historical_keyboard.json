@@ -2,10 +2,10 @@
   "id": "historical_keyboard",
   "name": "Historical keyboard",
   "family": "classical",
-  "lineage": "Peter Sykes — The Master's Legacy: Couperin to Bach, Ravensong, September 25, 2026. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s historical keyboard, art Music, western common practice branch. flemish ruckers antwerp canonical late 16th 17th century bird quill plectra canonical historical raven crow turkey harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 308,
-  "score": 11.393,
+  "lineage": "Historical keyboard performance explores repertoire through instruments such as harpsichord, fortepiano and clavichord. Concert series and performers connect distinctive keyboard mechanisms with older and renewed interpretive practices.",
+  "recipe": "classic historical keyboard, art Music, western common practice branch. flemish ruckers antwerp canonical late 16th 17th century bird quill plectra canonical historical raven crow turkey equal temperament modern concert standard harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 340,
+  "score": 12.313,
   "config": {
     "traditions": [
       "historical_keyboard"
@@ -26,8 +26,8 @@
           "harpsichord_register": 1.3,
           "harpsichord_context": 3.9,
           "harpsichord_maker_school": 1.0394999999999999,
-          "harpsichord_plectrum": 1.8730000000000002,
-          "harpsichord_temperament": 0.78
+          "harpsichord_plectrum": 2.273,
+          "harpsichord_temperament": 1.3
         }
       }
     ],

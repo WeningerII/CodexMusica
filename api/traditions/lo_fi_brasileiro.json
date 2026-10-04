@@ -5,7 +5,7 @@
   "lineage": "Lo-fi brasileiro connects Brazil’s independent beat producers, labels and online listening communities. Lo-Fi Brasil and Tangerina Music support varied approaches linking lo-fi hip-hop, chillhop, ambient texture and local musical experience.",
   "recipe": "classic lo-fi brasileiro, mc Rhythm. chopped sampler, dreadnought acoustic guitar. treated studio.",
   "recipe_chars": 98,
-  "score": 18.932,
+  "score": 19.415,
   "config": {
     "traditions": [
       "lo_fi_brasileiro"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 1.813,
-          "sampler_archetypes": 9.113,
+          "electronic_technique": 1.876,
+          "sampler_archetypes": 9.533,
           "sampler_bit_depth": -0.05,
-          "sampler_workflow": 1.4,
+          "sampler_workflow": 1.4629999999999999,
           "sampler_classic_context": 6.629999999999999
         }
       },
@@ -42,7 +42,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
-          "string_acoustic": 0.126
+          "string_acoustic": 0.063
         }
       }
     ],

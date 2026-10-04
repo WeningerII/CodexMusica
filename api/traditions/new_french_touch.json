@@ -2,10 +2,10 @@
   "id": "new_french_touch",
   "name": "New French Touch",
   "family": "electronic",
-  "lineage": "Fakear — first-person documented 2014 solo sample-pad live practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s new french touch, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 162,
-  "score": 7.033,
+  "lineage": "A newer generation of French electronic music shaped by sampling and exploratory production.",
+  "recipe": "classic new french touch, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 152,
+  "score": 4.271,
   "config": {
     "traditions": [
       "new_french_touch"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "electronic_technique": 0.2315,
-          "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.3,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
           "sampler_workflow": 3.7,
-          "sampler_classic_context": 2.0515
+          "sampler_classic_context": 0.39
         }
       }
     ],

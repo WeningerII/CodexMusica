@@ -2,10 +2,10 @@
   "id": "swiss_pop",
   "name": "Swiss pop",
   "family": "pop",
-  "lineage": "Hemlock Smith — I can only see the Darkness_DEMO. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic swiss pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. 7 ply quartersawn maple block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 259,
-  "score": 11.225,
+  "lineage": "Swiss pop connects popular-song communities across Switzerland’s varied musical scenes. Songwriters move between intimate accompaniment, band arrangements and electronic production.",
+  "recipe": "classic swiss pop, functional Song. solo with instrumental accompaniment. block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 197,
+  "score": 9.015,
   "config": {
     "traditions": [
       "swiss_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.6,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 7.199999999999999,
+          "keyboard_technique": 7.45,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
           "piano_hammer": -0.1,
           "piano_rim": -0.1,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_pitch_standard": 0.325
         }
       }
     ],

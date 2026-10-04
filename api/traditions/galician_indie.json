@@ -2,10 +2,10 @@
   "id": "galician_indie",
   "name": "Galician Indie",
   "family": "pop_rock",
-  "lineage": "Esposa — December2016 interview quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Galician indie connects independent bands and audiences in Galicia. Guitar and synthesizer groups form part of a scene that overlaps with wider Galician-language musical activity.",
   "recipe": "classic galician indie, distorted Rock, alternative branch. humbucker electric guitar, analog poly synth, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 294,
-  "score": 16.368,
+  "score": 16.706,
   "config": {
     "traditions": [
       "galician_indie"
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.868,
           "amp_make": 0,
           "body_wood": 0.5775,
           "neck_wood": 0.5775,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -123,9 +123,9 @@
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": 0.7999999999999998,
           "cymbal_hammering": 3.6815,
-          "cymbal_lathing": 4.0865,
+          "cymbal_lathing": 3.7865,
           "cymbal_finish": 0
         }
       }

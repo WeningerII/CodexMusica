@@ -2,10 +2,10 @@
   "id": "hindi_indie",
   "name": "Hindi Indie",
   "family": "pop",
-  "lineage": "Anuv Jain — Husn2023 credited performing roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic hindi indie, functional Song, south Asian pop branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 326,
-  "score": 9.426,
+  "lineage": "Hindi indie connects independent Hindi-language songwriters and listeners through recordings and live performance. Intimate acoustic writing forms one strand alongside fuller band and electronic arrangements.",
+  "recipe": "classic hindi indie, functional Song, south Asian pop branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 318,
+  "score": 10.267,
   "config": {
     "traditions": [
       "hindi_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8400000000000001,
-          "voice_ensemble_config": 1.5225000000000002,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.5670000000000001,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 6.2,
+          "acoustic_technique": 6.5,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,

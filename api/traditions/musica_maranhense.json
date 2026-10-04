@@ -2,10 +2,10 @@
   "id": "musica_maranhense",
   "name": "Música maranhense",
   "family": "global",
-  "lineage": "Adler São Luís — Ganga Zumba (2024 performance, 2025 release). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s música maranhense, functional Song, Brazilian song branch. solo with instrumental accompaniment, unprocessed natural acoustic. low mid rich spectrum cedar classical nylon-string guitar, congas. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 310,
-  "score": 6.596,
+  "lineage": "Music of Maranhão, connecting regional songwriting, MPB, samba and Afro-Maranhão influences.",
+  "recipe": "classic música maranhense, functional Song, Brazilian song branch. solo with instrumental accompaniment. classical nylon-string guitar, congas. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 6.64,
   "config": {
     "traditions": [
       "musica_maranhense"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 1.4385000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.17,
+          "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0.2415,
           "voice_tessitura": 0
         }
@@ -63,9 +63,9 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.25,
+          "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
-          "top_wood_classical": 1.7745000000000002,
+          "top_wood_classical": 0.39,
           "bracing_classical": 0.5145,
           "string_classical": 0.1365,
           "attack_technique_cl": 0
@@ -80,7 +80,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.7,
+          "percussion_technique": 2.45,
           "conga_set": 0,
           "conga_skin": 0.5145,
           "conga_shell_wood": 0.5145

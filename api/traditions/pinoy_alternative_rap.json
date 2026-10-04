@@ -5,7 +5,7 @@
   "lineage": "Pinoy alternative rap develops through independent Philippine hip-hop communities that value artistic experimentation, collaboration and self-directed production. Networks such as UPRISING connect rappers and DJs across local languages and styles.",
   "recipe": "classic pinoy alternative rap, mc Rhythm. rhythmic spoken flow no pitch. sampler drum machine, credited samples unspecified. live tracking.",
   "recipe_chars": 139,
-  "score": 15.707,
+  "score": 15.793,
   "config": {
     "traditions": [
       "pinoy_alternative_rap"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.092,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 10.197000000000001,
+          "voice_ensemble_config": 0.363,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.813,
-          "sample_bitdepth": 0.39,
+          "electronic_technique": 1.876,
+          "sample_bitdepth": 0.363,
           "sample_swing": 2.6,
           "sample_processing": 0
         }

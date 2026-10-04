@@ -5,7 +5,7 @@
   "lineage": "Latvian hip-hop connects Latvian-language rap, independent releases and live performance. Artists such as Skutelis place detailed lyrical delivery at the center of a scene that includes solo MC work, collaboration and DJ-led concert practice.",
   "recipe": "classic latvian hip hop, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 151,
-  "score": 12.457,
+  "score": 12.394,
   "config": {
     "traditions": [
       "latvian_hip_hop"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.33599999999999997,
+          "voice_multitrack_stack": 0.27299999999999996,
           "voice_tessitura": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Danish folk includes inherited dance tunes and contemporary roots ensembles. Trio Mio’s documented Scandinavian practice supplies this selected modern branch: fiddle, piano and guitar working between composed tunes and improvisation.",
   "recipe": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 384,
-  "score": 28.323,
+  "score": 28.061,
   "config": {
     "traditions": [
       "danish_folk"
@@ -25,7 +25,7 @@
           "bowed_technique": 0.39,
           "fiddle_strings": 1.063,
           "fiddle_bow": 2.5945,
-          "fiddle_mute": 0.8925000000000001,
+          "fiddle_mute": 0.756,
           "fiddle_articulation": 0.102,
           "fiddle_string_configuration": 0
         }
@@ -50,8 +50,8 @@
           "piano_hammer": 2.765,
           "piano_rim": 2.8445,
           "piano_soundboard": 3.185,
-          "piano_pinblock": 3.185,
-          "piano_plate": 2.5445,
+          "piano_pinblock": 3.0905000000000005,
+          "piano_plate": 2.5130000000000003,
           "piano_pitch_standard": 3.4930000000000003
         }
       },

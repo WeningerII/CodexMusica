@@ -2,10 +2,10 @@
   "id": "musica_alagoana",
   "name": "Música alagoana",
   "family": "classical",
-  "lineage": "Endi Almeida — Piano Solo EP (2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s música alagoana, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 219,
-  "score": 30.496,
+  "lineage": "Music of Alagoas, spanning regional popular traditions, contemporary songwriting and instrumental composition.",
+  "recipe": "classic música alagoana, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 208,
+  "score": 15.306,
   "config": {
     "traditions": [
       "musica_alagoana"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 4.75,
+          "keyboard_technique": 2.5,
           "grand_piano_size": 0.0315,
           "grand_piano_brand": 0.105,
-          "piano_hammer": 4.7,
-          "piano_rim": 4.7945,
-          "piano_soundboard": 4.7,
-          "piano_pinblock": 6.000000000000001,
-          "piano_plate": 4.7,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_hammer": 2.45,
+          "piano_rim": 2.5445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 0.325
         }
       }
     ],

@@ -1,0 +1,325 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 positions551–560; genre/data only",
+  "entries": [
+    {
+      "id": "hollywood",
+      "before": {
+        "tradition": {
+          "id": "hollywood",
+          "name": "Hollywood",
+          "family": "pop",
+          "lineage": "Slipping Through My Fingers — Barrie Carson Turner published piano-solo arrangement, Really Easy Piano: Musicals. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Creator Hollywood playlist item1 identifies Slipping Through My Fingers from the Mamma Mia! film soundtrack. Official publisher catalog lists the same composition in Barrie Carson Turner’s Piano Solo Songbook Really Easy Piano: Musicals (HL14060073). Selected published instrumental arrangement of a composition mapped by the creator to Hollywood film-musical repertoire. This is not a reconstruction of the Streep/Seyfried vocal duet or film orchestration. Category concerns film-performer musical repertoire rather than all film scores or a regional indie scene. Zero singers applies only to the published piano-solo arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Slipping Through My Fingers — Barrie Carson Turner published piano-solo arrangement, Really Easy Piano: Musicals"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hollywood",
+          "name": "Hollywood",
+          "family": "pop",
+          "lineage": "Hollywood repertoire connects film-related songs and musical-theatre adaptations with popular listening. Familiar melodies circulate beyond their original productions through new vocal and instrumental arrangements.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Solo piano can carry a song melody over chordal accompaniment. Returning phrases and changes in register preserve the melodic outline, while screen versions and other arrangements use fuller ensembles.",
+          "exemplars": [
+            "ABBA"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore concise genre profiles and examine meaningful representative instrument/pitch settings.",
+      "sources": [
+        {
+          "url": "https://www.halleonard.com/product/14060073/really-easy-piano-musicals",
+          "title": "Slipping Through My Fingers — Barrie Carson Turner published piano-solo arrangement, Really Easy Piano: Musicals",
+          "support_notes": "Official publisher identifies arranger Barrie Carson Turner, piano solo format and Slipping Through My Fingers in the song list.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0V1QibeEirHFpZ68S37kGy",
+          "title": "Corroborating primary source",
+          "support_notes": "Creator Hollywood playlist item1 exact composition from Mamma Mia! original film soundtrack; category bridge is repertoire, not claiming this arrangement is the film recording.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed primary practice sources and instrument-owning controls. Public genre profile replaces session/personnel dossiers, preserved in before and evidence. Settings are a representative authored realization, not measured historical equipment or a universal genre definition. FunctionalSong is an authored functional-harmonic recurring verse/refrain/bridge treatment of the song repertoire, not a claim measured from notation alone.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "rationale": "Creator Hollywood playlist item1 identifies Slipping Through My Fingers from the Mamma Mia! film soundtrack. Official publisher catalog lists the same composition in Barrie Carson Turner’s Piano Solo Songbook Really Easy Piano: Musicals (HL14060073). Selected published instrumental arrangement of a composition mapped by the creator to Hollywood film-musical repertoire. This is not a reconstruction of the Streep/Seyfried vocal duet or film orchestration. Category concerns film-performer musical repertoire rather than all film scores or a regional indie scene. Zero singers applies only to the published piano-solo arrangement.",
+          "instrumental_evidence": "https://www.halleonard.com/product/14060073/really-easy-piano-musicals",
+          "photo_context": "Grand-piano context for published solo arrangement; not a film set, source performer, or original soundtrack instrument."
+        }
+      }
+    },
+    {
+      "id": "icelandic_experimental",
+      "before": {
+        "tradition": {
+          "id": "icelandic_experimental",
+          "name": "Icelandic experimental",
+          "family": "electronic",
+          "lineage": "Hekla — documented solo theremin-and-voice practice, Athens Epidaurus Festival 2023. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "theremin"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_lead_line",
+            "theremin_model": "theremin_etherwave",
+            "theremin_technique": "theremin_aerial",
+            "theremin_lineage": "theremin_moog_etherwave"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "The presenting festival documents Icelandic Hekla Magnúsdóttir performing solo theremin and soft singing, and distinguishes that sound from an imagined chorus: theremin is described metaphorically as a second voice, not an additional human singer. Artist release Á identifies experimental theremin music and Reykjavík; the exact Icelandic Experimental playlist includes Hekla. Icelandic experimental scene, broader than a universal theremin style. Selected complete documented solo performance practice includes human voice and theremin; the electronic instrument generates both high and low layers. The festival discussion of a ghostly chorus is a simile, not evidence of additional singers. No separate bass instrument is invented. Later album Turnar has an explicitly credited organ guest and is outside this actual 2023 solo-practice scope. Modern Etherwave construction is authored, not identified source equipment. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Hekla — documented solo theremin-and-voice practice, Athens Epidaurus Festival 2023"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "icelandic_experimental",
+          "name": "Icelandic experimental",
+          "family": "electronic",
+          "lineage": "Icelandic experimental music connects performers exploring unusual combinations of sound, instruments and production. Voice and theremin provide one intimate approach within a much wider creative field.",
+          "instruments": [
+            "voice",
+            "theremin"
+          ],
+          "room": "concert_hall_shoebox",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_lead_line",
+            "theremin_model": "theremin_etherwave",
+            "theremin_technique": "theremin_aerial",
+            "theremin_lineage": "theremin_moog_etherwave"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Soft singing can interact with the theremin’s continuously shaped electronic pitch. Contrasts in register, breath and sustained tone allow the two sources to respond without requiring a larger ensemble.",
+          "exemplars": [
+            "Hekla"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore concise genre profiles and examine meaningful representative instrument/pitch settings.",
+      "sources": [
+        {
+          "url": "https://aefestival.gr/hekla/?lang=en",
+          "title": "Hekla — documented solo theremin-and-voice practice, Athens Epidaurus Festival 2023",
+          "support_notes": "The presenting festival documents Icelandic Hekla Magnúsdóttir performing solo theremin and soft singing, and distinguishes that sound from an imagined chorus: theremin is described metaphorically as a second voice, not an additional human singer. Artist release Á identifies experimental theremin music and Reykjavík; the exact Icelandic Experimental playlist includes Hekla.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://hekla.bandcamp.com/album/-",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Artist release Á: experimental theremin; artist profile Reykjavík, Iceland.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3lLXYcLaUynh40EobqkiV7",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "The Sound of Icelandic Experimental includes Hekla, Hatur.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed primary practice sources and instrument-owning controls. Public genre profile replaces session/personnel dossiers, preserved in before and evidence. Settings are a representative authored realization, not measured historical equipment or a universal genre definition. Do not impose global12TET on continuous theremin pitch or drone-based wheel-bowed practice; source-specific pitch evidence is not claimed. A coherent authored live/concert listening setting retains all source-positive families and physical controls, without claims about historical session room.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "rationale": "The presenting festival documents Icelandic Hekla Magnúsdóttir performing solo theremin and soft singing, and distinguishes that sound from an imagined chorus: theremin is described metaphorically as a second voice, not an additional human singer. Artist release Á identifies experimental theremin music and Reykjavík; the exact Icelandic Experimental playlist includes Hekla. Icelandic experimental scene, broader than a universal theremin style. Selected complete documented solo performance practice includes human voice and theremin; the electronic instrument generates both high and low layers. The festival discussion of a ghostly chorus is a simile, not evidence of additional singers. No separate bass instrument is invented. Later album Turnar has an explicitly credited organ guest and is outside this actual 2023 solo-practice scope. Modern Etherwave construction is authored, not identified source equipment.",
+          "instrumental_evidence": "https://aefestival.gr/hekla/?lang=en",
+          "photo_context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1977 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 held entries; exact-current public prose only; musical/output holds explicitly retained",
+  "entries": [
+    {
+      "id": "irish_accordion",
+      "before": {
+        "tradition": {
+          "id": "irish_accordion",
+          "name": "Irish accordion",
+          "family": "vernacular",
+          "lineage": "Paddy O’Brien — The lord of Ballinaleck. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "accordion"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "free_reed_technique": "free_reed_bellows_articulated",
+            "accordion_reed_material": "steel_reeds",
+            "musette_offset": "demi_swing",
+            "reed_config": "lmm",
+            "bellows": "cardboard_leather",
+            "voicing_chamber": "no_cassotto",
+            "accordion_maker_school": "accordion_maker_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "ITMA identifies the Offaly-born Irish tune composer and credits the selected reel to Paddy O’Brien on accordion alone. The archive locates this in his collection of traditional dance tunes. A source-scoped instrumental practice branch: the named archive track, one credited instrumentalist, zero credited singers. This is not a general Irish session ensemble or a claim that all Irish music uses this roster. Construction, equal-tempered tuning, room and chain are authored recording choices, not measured archive equipment. Demi-swing LMM steel reeds with no cassotto are a coherent authored folk box; maker remains unspecified. Neither a B/C keyboard nor an exact source make is asserted. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Paddy O’Brien — The lord of Ballinaleck"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "irish_accordion",
+          "name": "Irish accordion",
+          "family": "vernacular",
+          "lineage": "Irish accordion playing is a prominent instrumental strand of Irish traditional music. Players carry dance tunes through solo performance and shared sessions.",
+          "instruments": [
+            "accordion"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "free_reed_technique": "free_reed_bellows_articulated",
+            "accordion_reed_material": "steel_reeds",
+            "musette_offset": "demi_swing",
+            "reed_config": "lmm",
+            "bellows": "cardboard_leather",
+            "voicing_chamber": "no_cassotto",
+            "accordion_maker_school": "accordion_maker_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Bellows-driven melody, repeated strains and rhythmic articulation give reels and other tune types their motion. Ornament and phrasing vary among players and regional approaches.",
+          "exemplars": [
+            "Paddy O’Brien"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.itma.ie/playlists/paddy-obrien-compositions/",
+          "title": "Paddy O’Brien — The lord of Ballinaleck",
+          "support_notes": "ITMA identifies the Offaly-born Irish tune composer and credits the selected reel to Paddy O’Brien on accordion alone. The archive locates this in his collection of traditional dance tunes.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated klezmer-dancing label on Irish traditional dance-tune branch.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-candidate.json",
+        "proposal_sha256": "274f9846fd839b9741535669178d8a76c0e32d84f248707d8d3aa00d6c6142f8",
+        "current_before_sha256": "b1bbd90918025ff7f418a9c1ef0bf7f089198118d7252c8f50f7e60e5b2a56cc",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "ITMA identifies the Offaly-born Irish tune composer and credits the selected reel to Paddy O’Brien on accordion alone. The archive locates this in his collection of traditional dance tunes. A source-scoped instrumental practice branch: the named archive track, one credited instrumentalist, zero credited singers. This is not a general Irish session ensemble or a claim that all Irish music uses this roster. Construction, equal-tempered tuning, room and chain are authored recording choices, not measured archive equipment. Demi-swing LMM steel reeds with no cassotto are a coherent authored folk box; maker remains unspecified. Neither a B/C keyboard nor an exact source make is asserted.",
+            "instrumental_evidence": "https://www.itma.ie/playlists/paddy-obrien-compositions/",
+            "photo_context": "Button-accordion family context only; pictured chromatic Hohner in Tokyo is not O’Brien, an Irish B/C box, or source equipment."
+          }
+        }
+      }
+    },
+    {
+      "id": "irish_experimental",
+      "before": {
+        "tradition": {
+          "id": "irish_experimental",
+          "name": "Irish experimental",
+          "family": "rock",
+          "lineage": "Percolator — Sestra (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "analog_mono_synth",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_feedback_drone",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_lead_line",
+            "mono_oscillator": "mono_voltage_controlled",
+            "mono_filter": "moog_ladder",
+            "mono_archetypes": "minimoog",
+            "mono_maker_lineage": "mono_moog_robert",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "The band’s primary page calls Percolator an Irish experimental rock group. Sestra credits Eleanor Myler drums/voice, Ian Chestnutt guitar/voice and John Murphy bass/Moog/Juno. The complete album role union is retained: two singers plus guitar, bass, drums and both synth roles. This is the experimental-rock branch of the regional category, not a template for every Irish experimental practice. Moog is realized with an authored monophonic analog card and Juno with an authored polyphonic analog card. Precise synth models/oscillators and guitar pickups are recipe choices, not claimed source hardware details. One card per instrument family can represent overdubbed layers; the two synth cards preserve separately credited roles. Two humans sing; live-group texture is authored without assuming specific contrapuntal voicing. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Percolator — Sestra (2017)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "irish_experimental",
+          "name": "Irish experimental",
+          "family": "rock",
+          "lineage": "Irish experimental music connects performers exploring unconventional composition, timbre and ensemble interaction. Experimental rock is one strand within the broader field.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "analog_mono_synth",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_feedback_drone",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_lead_line",
+            "mono_oscillator": "mono_voltage_controlled",
+            "mono_filter": "moog_ladder",
+            "mono_archetypes": "minimoog",
+            "mono_maker_lineage": "mono_moog_robert",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voices, guitar, bass and drums can interact with monophonic and polyphonic synthesizers. Changing layers and contrasts between repeated patterns and less settled textures shape the arrangement.",
+          "exemplars": [
+            "Percolator"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://percolator.bandcamp.com/album/sestra-lp",
+          "title": "Percolator — Sestra (2017)",
+          "support_notes": "Primary credits list all three players and six instrument/vocal roles; own profile explicitly Irish experimental rock and Dublin.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated kora-cascading guitar; specific psy-pulsing synth context also not established by experimental-rock evidence.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-candidate.json",
+        "proposal_sha256": "274f9846fd839b9741535669178d8a76c0e32d84f248707d8d3aa00d6c6142f8",
+        "current_before_sha256": "d589c4bd3dcc01883ea1754306394efd4e21c899a951bce43dfaa92fcb6a1c13",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "The band’s primary page calls Percolator an Irish experimental rock group. Sestra credits Eleanor Myler drums/voice, Ian Chestnutt guitar/voice and John Murphy bass/Moog/Juno. The complete album role union is retained: two singers plus guitar, bass, drums and both synth roles. This is the experimental-rock branch of the regional category, not a template for every Irish experimental practice. Moog is realized with an authored monophonic analog card and Juno with an authored polyphonic analog card. Precise synth models/oscillators and guitar pickups are recipe choices, not claimed source hardware details. One card per instrument family can represent overdubbed layers; the two synth cards preserve separately credited roles. Two humans sing; live-group texture is authored without assuming specific contrapuntal voicing.",
+            "instrumental_evidence": "https://percolator.bandcamp.com/album/sestra-lp",
+            "photo_context": "Electric guitar family context only; photographed Les Paul is not Chestnutt’s actual guitar, the band or its studio."
+          }
+        }
+      }
+    },
+    {
+      "id": "irish_fiddle",
+      "before": {
+        "tradition": {
+          "id": "irish_fiddle",
+          "name": "Irish fiddle",
+          "family": "vernacular",
+          "lineage": "John McEvoy — The cave of the cats. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "fiddle"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "bowed_technique": "bowed_celtic_session",
+            "fiddle_strings": "synthetic_core",
+            "fiddle_bow": "light_rosin",
+            "fiddle_mute": "no_mute",
+            "fiddle_articulation": "arco",
+            "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "ITMA identifies McEvoy with Roscommon traditional music and explicitly credits his selected reel to John McEvoy on fiddle alone. A source-scoped instrumental practice branch: the named archive track, one credited instrumentalist, zero credited singers. This is not a general Irish session ensemble or a claim that all Irish music uses this roster. Construction, equal-tempered tuning, room and chain are authored recording choices, not measured archive equipment.  Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "John McEvoy — The cave of the cats"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "irish_fiddle",
+          "name": "Irish fiddle",
+          "family": "vernacular",
+          "lineage": "Irish fiddle playing carries dance tunes through solo performance, ensembles and sessions. Regional and individual approaches shape a shared instrumental repertoire.",
+          "instruments": [
+            "fiddle"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "bowed_technique": "bowed_celtic_session",
+            "fiddle_strings": "synthetic_core",
+            "fiddle_bow": "light_rosin",
+            "fiddle_mute": "no_mute",
+            "fiddle_articulation": "arco",
+            "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Bowed melody develops through repeated strains, rhythmic emphasis and ornament. A solo fiddle can make the tune’s contour and changing articulations especially clear.",
+          "exemplars": [
+            "John McEvoy"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.itma.ie/saothar/john-mcevoy/",
+          "title": "John McEvoy — The cave of the cats",
+          "support_notes": "ITMA identifies McEvoy with Roscommon traditional music and explicitly credits his selected reel to John McEvoy on fiddle alone.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated erhuang fiddle identity.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-candidate.json",
+        "proposal_sha256": "274f9846fd839b9741535669178d8a76c0e32d84f248707d8d3aa00d6c6142f8",
+        "current_before_sha256": "f3dcf2fafe24162e1b422a1c99e6303269c0521443a47d8555307d918217e017",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "ITMA identifies McEvoy with Roscommon traditional music and explicitly credits his selected reel to John McEvoy on fiddle alone. A source-scoped instrumental practice branch: the named archive track, one credited instrumentalist, zero credited singers. This is not a general Irish session ensemble or a claim that all Irish music uses this roster. Construction, equal-tempered tuning, room and chain are authored recording choices, not measured archive equipment. ",
+            "instrumental_evidence": "https://www.itma.ie/saothar/john-mcevoy/",
+            "photo_context": "Acoustic violin/fiddle instrument context; not McEvoy, Roscommon, or the instrument used in the archive recording."
+          }
+        }
+      }
+    },
+    {
+      "id": "irish_flute",
+      "before": {
+        "tradition": {
+          "id": "irish_flute",
+          "name": "Irish flute",
+          "family": "vernacular",
+          "lineage": "Áine Heslin — A tribute to Michael Tubridy. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "irish_wooden_flute"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "irish_wooden_flute_pattern": "irish_wooden_flute_modern_copy",
+            "irish_wooden_flute_keys": "irish_wooden_flute_keyless_six",
+            "irish_wooden_flute_idiom": "irish_wooden_flute_sligo",
+            "irish_wooden_flute_material": "irish_wooden_flute_blackwood"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "ITMA identifies Heslin as a County Clare flute and whistle player. The selected jig specifically credits flute alone; whistle tracks elsewhere in the collection are outside this selection. A source-scoped instrumental practice branch: the named archive track, one credited instrumentalist, zero credited singers. This is not a general Irish session ensemble or a claim that all Irish music uses this roster. Construction, equal-tempered tuning, room and chain are authored recording choices, not measured archive equipment. A keyless D modern-copy blackwood flute with dance-driving ornamented phrasing is the authored realization; the catalog Sligo idiom is a recipe choice, not a claim about Heslin’s regional style or maker. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Áine Heslin — A tribute to Michael Tubridy"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "irish_flute",
+          "name": "Irish flute",
+          "family": "vernacular",
+          "lineage": "Irish flute playing carries dance tunes and melodic repertoire through solo performance and sessions. Breath, ornament and articulation give repeated strains their individual character.",
+          "instruments": [
+            "irish_wooden_flute"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "irish_wooden_flute_pattern": "irish_wooden_flute_modern_copy",
+            "irish_wooden_flute_keys": "irish_wooden_flute_keyless_six",
+            "irish_wooden_flute_idiom": "irish_wooden_flute_sligo",
+            "irish_wooden_flute_material": "irish_wooden_flute_blackwood"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A wooden transverse flute can combine flowing phrases with rhythmic accents in jigs and other tune types. Regional approaches and individual players vary the balance of ornament and pulse.",
+          "exemplars": [
+            "Áine Heslin"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.itma.ie/saothar/aine-heslin/",
+          "title": "Áine Heslin — A tribute to Michael Tubridy",
+          "support_notes": "ITMA identifies Heslin as a County Clare flute and whistle player. The selected jig specifically credits flute alone; whistle tracks elsewhere in the collection are outside this selection.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Source establishes Clare player and Irish dance-tune field but not selected Sligo-specific idiom; retain precise lineage support gap, not a claim dance-driving flute is itself invalid.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-candidate.json",
+        "proposal_sha256": "274f9846fd839b9741535669178d8a76c0e32d84f248707d8d3aa00d6c6142f8",
+        "current_before_sha256": "b2ade50f2f88b61c68892cbee7f7a02060280d2e9eb4c263c189d7d2dffdb73b",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "ITMA identifies Heslin as a County Clare flute and whistle player. The selected jig specifically credits flute alone; whistle tracks elsewhere in the collection are outside this selection. A source-scoped instrumental practice branch: the named archive track, one credited instrumentalist, zero credited singers. This is not a general Irish session ensemble or a claim that all Irish music uses this roster. Construction, equal-tempered tuning, room and chain are authored recording choices, not measured archive equipment. A keyless D modern-copy blackwood flute with dance-driving ornamented phrasing is the authored realization; the catalog Sligo idiom is a recipe choice, not a claim about Heslin’s regional style or maker.",
+            "instrumental_evidence": "https://www.itma.ie/saothar/aine-heslin/",
+            "photo_context": "Generic microphone recording context only, not the instrument, performer, Irish location or source-session equipment."
+          }
+        }
+      }
+    },
+    {
+      "id": "irish_indie",
+      "before": {
+        "tradition": {
+          "id": "irish_indie",
+          "name": "Irish Indie",
+          "family": "rock",
+          "lineage": "Dead Assets — Dream Town (2026 single). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_arpeggiated_clean",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist explicitly identifies the selected single as Irish indie and names its complete vocals/guitar/bass/drums personnel. Track credits, not broader current band biography, set the selected one-singer count. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Dead Assets — Dream Town (2026 single)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "irish_indie",
+          "name": "Irish Indie",
+          "family": "rock",
+          "lineage": "Irish indie connects independent bands, songwriters and audiences in Ireland. Guitar-driven songwriting forms one strand among its varied contemporary approaches.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_arpeggiated_clean",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voice, electric guitar, bass and drums can form a compact band. Melodic phrases and instrumental responses develop through repeated figures and changes in intensity.",
+          "exemplars": [
+            "Dead Assets"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://deadassets.bandcamp.com/album/dream-town",
+          "title": "Dead Assets — Dream Town (2026 single)",
+          "support_notes": "Artist explicitly identifies the selected single as Irish indie and names its complete vocals/guitar/bass/drums personnel. Track credits, not broader current band biography, set the selected one-singer count.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+          "title": "Exact contextual image file rights",
+          "support_notes": "Fresh rights/context checked2026-10-02. Original verified023 exact URL/hash/byte/dimension/visual receipt inherited without asserting fresh download.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated samul bass and synthetic natural-voice context.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-019-candidate.json",
+        "proposal_sha256": "274f9846fd839b9741535669178d8a76c0e32d84f248707d8d3aa00d6c6142f8",
+        "current_before_sha256": "666e56d8195bd0d19e83e9dcaf535485e7751f3a4ccaf94d42006256aa3744ae",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Ann-Marie Murray is the singer in exact single credits. Later/general profile lists two additional vocalists, but these roles are not claimed on this recording."
+              },
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "Shane Flynn guitar; electric humbucker construction authored."
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Ann-Marie Murray bass."
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Peter McMahon drums."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+          }
+        }
+      }
+    },
+    {
+      "id": "italian_alternative",
+      "before": {
+        "tradition": {
+          "id": "italian_alternative",
+          "name": "Italian Alternative",
+          "family": "rock",
+          "lineage": "I-Taki Maki — A Place to Leave (2017 recordings,2026 restoration). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "drum_kit",
+            "glockenspiel",
+            "melodica",
+            "grand_piano",
+            "sampler_classic",
+            "wurlitzer_ep",
+            "credited_auxiliary_percussion"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "wurlitzer_use": "wurlitzer_supertramp",
+            "wurlitzer_ep_voice": "wurlitzer_ep_bell",
+            "wurlitzer_model": "wurlitzer_200a_canonical",
+            "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "percussion_technique": "percussion_mallets_orchestral",
+            "glockenspiel_size": "glockenspiel_orch_25",
+            "glockenspiel_mallet": "glockenspiel_brass",
+            "melodica_use": "melodica_dub",
+            "melodica_pitch": "melodica_soprano",
+            "melodica_maker_school": "melodica_hohner_canonical",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_post",
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist positively identifies Italian alternative indie duo based in Berlin; complete selected2017 album credits retain both vocalists and all instruments including melodica, glockenspiel, percussion, keyboards and loops. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits. Guest Antonio Tortorello Wurlitzer on The Grey Side of the Sky is retained; album-union arrangement is not claimed simultaneous on every track.",
+          "exemplars": [
+            "I-Taki Maki — A Place to Leave (2017 recordings,2026 restoration)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "italian_alternative",
+          "name": "Italian Alternative",
+          "family": "rock",
+          "lineage": "Italian alternative music connects independent performers using varied rock, pop and experimental approaches. Collaborative bands can combine electric instruments with acoustic and electronic colours.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "drum_kit",
+            "glockenspiel",
+            "melodica",
+            "grand_piano",
+            "sampler_classic",
+            "wurlitzer_ep",
+            "credited_auxiliary_percussion"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "wurlitzer_use": "wurlitzer_supertramp",
+            "wurlitzer_ep_voice": "wurlitzer_ep_bell",
+            "wurlitzer_model": "wurlitzer_200a_canonical",
+            "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "percussion_technique": "percussion_mallets_orchestral",
+            "glockenspiel_size": "glockenspiel_orch_25",
+            "glockenspiel_mallet": "glockenspiel_brass",
+            "melodica_use": "melodica_dub",
+            "melodica_pitch": "melodica_soprano",
+            "melodica_maker_school": "melodica_hohner_canonical",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_post",
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voices and guitar can meet drums, glockenspiel, melodica, keyboards, loops and auxiliary percussion. Different colours enter individual passages and arrangements rather than defining a fixed national ensemble.",
+          "exemplars": [
+            "I-Taki Maki"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://i-takimaki.bandcamp.com/album/a-place-to-leave",
+          "title": "I-Taki Maki — A Place to Leave (2017 recordings,2026 restoration)",
+          "support_notes": "Artist positively identifies Italian alternative indie duo based in Berlin; complete selected2017 album credits retain both vocalists and all instruments including melodica, glockenspiel, percussion, keyboards and loops.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+          "title": "Exact contextual image file rights",
+          "support_notes": "Fresh rights/context checked2026-10-02. Original verified023 exact URL/hash/byte/dimension/visual receipt inherited without asserting fresh download.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated kora/dunun instrument identities and synthetic natural voice/acoustic melodica context.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-candidate.json",
+        "proposal_sha256": "8e0aee1cc9d6182ac01a4c0097dc9fa69220e02b0a1a861b5ceaff507c593af9",
+        "current_before_sha256": "783c819b9aaa08801aeadccca38948c4967e0b12c1bca8803435eec39bc10e66",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Mimmi and strAw both explicitly credited vocals."
+              },
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "strAw guitars, aggregated; electric construction authored from artist-described garage-rock practice."
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Mimmi drums."
+              },
+              {
+                "instrument": "glockenspiel",
+                "source_role": "Mimmi glockenspiel."
+              },
+              {
+                "instrument": "melodica",
+                "source_role": "Mimmi melodica."
+              },
+              {
+                "instrument": "grand_piano",
+                "source_role": "strAw keyboards; grand piano is authored timbral realization of unspecified keyboard role, not acoustic-piano source claim."
+              },
+              {
+                "instrument": "sampler_classic",
+                "source_role": "strAw loops; sustained sample-layering card models recorded loop role, not claimed source hardware."
+              },
+              {
+                "instrument": "wurlitzer_ep",
+                "source_role": "Antonio Tortorello explicitly Wurlitzer on The Grey Side of the Sky; guest retained in complete album-union roster."
+              },
+              {
+                "instrument": "credited_auxiliary_percussion",
+                "source_role": "Mimmi additional percussion credited without identifying instrument; retained with neutral source-unspecified data owner, no physical subtype inferred."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+          }
+        }
+      }
+    },
+    {
+      "id": "italian_baritone",
+      "before": {
+        "tradition": {
+          "id": "italian_baritone",
+          "name": "Italian Baritone",
+          "family": "classical",
+          "lineage": "Leo Nucci — Thirty Years at La Scala, musical recital (January 2007). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Label-distributor catalog700109 explicitly names Nucci baritone and Vaughan piano for the Scala2007 recital. Musical recital selected; separately identified bonus interviews are excluded. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Leo Nucci — Thirty Years at La Scala, musical recital (January 2007)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "italian_baritone",
+          "name": "Italian Baritone",
+          "family": "classical",
+          "lineage": "Italian baritone repertoire connects operatic and recital traditions with the expressive lower male voice. Piano-accompanied song and aria performances form an intimate branch beside orchestral settings.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A featured baritone can shape sustained melodic phrases over responsive piano accompaniment. Breath, text and contrasting dynamics guide the musical line.",
+          "exemplars": [
+            "Leo Nucci"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.naxos.com/CatalogueDetail/?id=700109",
+          "title": "Leo Nucci — Thirty Years at La Scala, musical recital (January 2007)",
+          "support_notes": "Label-distributor catalog700109 explicitly names Nucci baritone and Vaughan piano for the Scala2007 recital. Musical recital selected; separately identified bonus interviews are excluded.",
+          "checked_date": "2026-10-02",
+          "read_mode": "Direct primary catalog search-index full text; direct browser fetch403. Reproducible query site:naxos.com \"700109\" \"Vaughan\"; retrieval turn235650search0."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4zvEtjP1Ou5sGBVL9Z91y0",
+          "title": "The Sound of Italian Baritone",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+          "title": "Exact contextual image file rights",
+          "support_notes": "Fresh rights/context checked2026-10-02. Original verified023 exact URL/hash/byte/dimension/visual receipt inherited without asserting fresh download.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Original conductor/ensemble-leadership piano context; bounded recital alternative instead gives tube/mouth breath-coloring piano. No exact baritone tessitura enum in existing voice owner; do not substitute bass-baritone.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-candidate.json",
+        "proposal_sha256": "8e0aee1cc9d6182ac01a4c0097dc9fa69220e02b0a1a861b5ceaff507c593af9",
+        "current_before_sha256": "0654649b8cd79bfc06bb4c22d39fd9862d43f3d0d53d3b57fdc941db13e9f32c",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Leo Nucci explicitly baritone, sole selected recital singer."
+              },
+              {
+                "instrument": "grand_piano",
+                "source_role": "James Vaughan explicitly piano; complete recital accompaniment."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+          }
+        }
+      }
+    },
+    {
+      "id": "italian_experimental",
+      "before": {
+        "tradition": {
+          "id": "italian_experimental",
+          "name": "Italian Experimental",
+          "family": "electronic",
+          "lineage": "A Quiet Guy — S.1 e.2 Sapere tutto, conoscere nulla (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "electric_guitar_humbucker"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electric_technique": "electric_feedback_drone",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec.ambient",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist describes himself as Italian experimental guitarist; selected instrumental track is explicitly built from just two guitars. No invented synthesizer or vocal layer. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "A Quiet Guy — S.1 e.2 Sapere tutto, conoscere nulla (2024)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "italian_experimental",
+          "name": "Italian Experimental",
+          "family": "electronic",
+          "lineage": "Italian experimental music connects artists exploring unconventional composition and sound. Guitar-based ambient work forms one branch within a broader field of approaches.",
+          "instruments": [
+            "electric_guitar_humbucker"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electric_technique": "electric_feedback_drone",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec.ambient",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Layered electric guitars can develop sustained textures, feedback and slowly changing timbres. Repetition and subtle shifts in density can take the place of a regular verse-and-chorus structure.",
+          "exemplars": [
+            "A Quiet Guy"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://aquietguy.bandcamp.com/track/s-1-e-2-sapere-tutto-conoscere-nulla-2",
+          "title": "A Quiet Guy — S.1 e.2 Sapere tutto, conoscere nulla (2024)",
+          "support_notes": "Artist describes himself as Italian experimental guitarist; selected instrumental track is explicitly built from just two guitars. No invented synthesizer or vocal layer.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+          "title": "Exact contextual image file rights",
+          "support_notes": "Fresh rights/context checked2026-10-02. Original verified023 exact URL/hash/byte/dimension/visual receipt inherited without asserting fresh download.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated kora-cascading guitar.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-candidate.json",
+        "proposal_sha256": "8e0aee1cc9d6182ac01a4c0097dc9fa69220e02b0a1a861b5ceaff507c593af9",
+        "current_before_sha256": "b589fd597a0afc23461689601d1cb9069ceffcd279780e5b4142cd722ed96f97",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "Artist release explicitly describes just two guitars, aggregated into one timbral card. Electric humbucker with ambient feedback is authored realization, not a documented hardware model."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+          }
+        }
+      }
+    },
+    {
+      "id": "italian_mezzo_soprano",
+      "before": {
+        "tradition": {
+          "id": "italian_mezzo_soprano",
+          "name": "Italian Mezzo-Soprano",
+          "family": "classical",
+          "lineage": "Cecilia Bartoli — Ravel Vocalise-étude en forme de Habanera, Chant d’Amour (1996). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_vocalise",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Béjart’s production references identify exact Ravel track and its mezzo-soprano/piano performers; Decca documents release and Bartoli’s Roman training and origin. Scope is this track, not all unrelated ballet music. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Cecilia Bartoli — Ravel Vocalise-étude en forme de Habanera, Chant d’Amour (1996)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "italian_mezzo_soprano",
+          "name": "Italian Mezzo-Soprano",
+          "family": "classical",
+          "lineage": "Italian mezzo-soprano performance connects operatic, recital and recorded vocal traditions. Piano-accompanied repertoire offers a chamber setting for the voice’s melodic and expressive range.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_vocalise",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A mezzo-soprano line can unfold over piano accompaniment through sustained phrases, ornament and dynamic contrast. Wordless vocalises provide another approach alongside texted song and opera.",
+          "exemplars": [
+            "Cecilia Bartoli"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.bejart.ch/en/ballet/kyodai/",
+          "title": "Cecilia Bartoli — Ravel Vocalise-étude en forme de Habanera, Chant d’Amour (1996)",
+          "support_notes": "Béjart’s production references identify exact Ravel track and its mezzo-soprano/piano performers; Decca documents release and Bartoli’s Roman training and origin. Scope is this track, not all unrelated ballet music.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.deccaclassics.com/en/artists/ceciliabartoli",
+          "title": "Decca artist biography",
+          "support_notes": "Roman origin, Santa Cecilia training, opera repertoire and mezzo identity establish selected Italian performer lineage.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.deccaclassics.com/en/catalogue/products/cecilia-bartoli-chant-damour-232",
+          "title": "Chant d’Amour label catalog",
+          "support_notes": "1996 release credited Bartoli and Chung.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+          "title": "Exact contextual image file rights",
+          "support_notes": "Fresh rights/context checked2026-10-02. Original verified023 exact URL/hash/byte/dimension/visual receipt inherited without asserting fresh download.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Original conductor/ensemble-leadership piano context; bounded recital alternative gives tube/mouth breath-coloring piano. Existing tessitura enum does not provide mezzo-soprano; no fabricated physiology.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-candidate.json",
+        "proposal_sha256": "8e0aee1cc9d6182ac01a4c0097dc9fa69220e02b0a1a861b5ceaff507c593af9",
+        "current_before_sha256": "0dc4ccae5340dcfd01cf5cd98ac48830059553ff8bad13ef3535001c6abf141f",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Performing institution explicitly identifies Bartoli mezzo-soprano on selected Ravel vocalise."
+              },
+              {
+                "instrument": "grand_piano",
+                "source_role": "Same selected recorded track explicitly credits Myung-Whun Chung piano."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+          }
+        }
+      }
+    },
+    {
+      "id": "italian_romanticism",
+      "before": {
+        "tradition": {
+          "id": "italian_romanticism",
+          "name": "Italian Romanticism",
+          "family": "classical",
+          "lineage": "Giuseppe Martucci — 6 Piano Pieces, Novella, Fantasia, 2 Nocturnes; Alberto Miodini (94800). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Record label explicitly identifies Martucci as a late Romantic Italian composer and this release as Miodini piano alone. Original solo-piano scope retains all roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Giuseppe Martucci — 6 Piano Pieces, Novella, Fantasia, 2 Nocturnes; Alberto Miodini (94800)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "italian_romanticism",
+          "name": "Italian Romanticism",
+          "family": "classical",
+          "lineage": "Italian Romanticism includes nineteenth-century and later Romantic concert repertoire alongside the better-known operatic tradition. Piano works offer a solo branch with lyrical themes and expressive development.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Solo piano can balance singing melodic lines, supporting harmonies and contrasting textures. Changes of register, dynamics and pacing shape the return and transformation of themes.",
+          "exemplars": [
+            "Giuseppe Martucci"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.brilliantclassics.com/articles/m/martucci-6-piano-pieces-novella-fantasia-2-nocturnes",
+          "title": "Giuseppe Martucci — 6 Piano Pieces, Novella, Fantasia, 2 Nocturnes; Alberto Miodini (94800)",
+          "support_notes": "Record label explicitly identifies Martucci as a late Romantic Italian composer and this release as Miodini piano alone. Original solo-piano scope retains all roles.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+          "title": "Exact contextual image file rights",
+          "support_notes": "Fresh rights/context checked2026-10-02. Original verified023 exact URL/hash/byte/dimension/visual receipt inherited without asserting fresh download.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Original conductor/ensemble-leadership solo-piano context; bounded concert alternative gives tube/mouth breath-coloring. Romantic-orchestra physical token alone is not the objection.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-candidate.json",
+        "proposal_sha256": "8e0aee1cc9d6182ac01a4c0097dc9fa69220e02b0a1a861b5ceaff507c593af9",
+        "current_before_sha256": "dd13910be7bc2c6336a831651f5c424645fcf91e627a016bef0750683eae22a5",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "grand_piano",
+                "source_role": "Alberto Miodini sole pianist in this explicitly piano-only release; no voices or orchestra."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "entries": [
+    {
+      "source_label": "lo-fi latino",
+      "source_url": "https://everynoise.com/engenremap-lofilatino.html",
+      "suggested_id": "lo_fi_latino",
+      "allocation_ordinal": 3705,
+      "allocation_group_id": "149",
+      "id": "lo_fi_latino",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "lo_fi_latino",
+        "name": "Lo-Fi Latino",
+        "family": "electronic",
+        "lineage": "Lo-fi latino connects producers across Latin America, Spain and the diaspora through relaxed instrumental beat making. Latin melodies, rhythms and recorded fragments meet the intimate textures of lo-fi hip-hop.",
+        "instruments": [
+          "sampler_classic"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Layered sample phrases bring melodic fragments, bass and percussion into repeating grooves. Soft-edged recording textures and unhurried pacing leave room for regional musical references, with sampled voices appearing alongside instrumental material.",
+        "exemplars": [
+          "Flora Vida",
+          "Palmasur",
+          "Brimlo"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        34.0522,
+        -118.2437,
+        "Los Angeles",
+        "North America"
+      ],
+      "geo_rationale": "Explicit Acrylic label headquarters and Brimlo Boyle Heights production hub; representative transnational network anchor, not origin of every Latin lo-fi practice.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lo_fi_latino",
+          "name": "Lo-Fi Latino",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic audio recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn14908view2 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn14908view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14908view2"
+        ],
+        "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative sample-based production branch supported by the issuer/management and production-library evidence, not a reconstruction of a finished Brimlo track or compilation. One sampler retains all positively listed sampled guitar, bass, drums, piano, synth and vocal loops as sample-source roles; no live acoustic players or singer headcount is asserted. E-mu SP-1200-style12-bit grain, sample slicing and layered phrase workflow are coherent authored hardware/technique choices, not identified artist equipment. Loops include melodic as well as percussive sound; no claim purely rhythmic or beat-free. Downtempo listening rendition, controlled studio and no global tuning are deliberate.",
+      "neighbor_distinction": "Full lo_fi/chill_beats already include relaxed sample-based production; Latin hip hop includes Latin American rap and instruments; lo_fi_brasileiro describes an overlapping Brazilian producer field. The issuer explicitly organizes a transnational Latin lo-fi field across Latin America, Spain and USA, not exclusively Spanish-speaking or excluding Brazil. This regional-cultural production network is narrower than general lo-fi beats and broader than Brazilian-only practice, with a sampled Latin repertoire axis supported by management. No sonic exclusivity or playlist-only distinction claimed.",
+      "sources": [
+        {
+          "url": "https://acryliclabel.bandcamp.com/album/el-d-a-m-s-largo-the-longest-day",
+          "title": "Acrylic Label — El Día Más Largo",
+          "support_notes": "Issuer defines transnational Latin lo-fi compilation/producer network and instrumental hip-hop lens; multiple regional musical references, not fixed universal palette.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://picoblvdgroup.com/brimlo-latin-lo-fi",
+          "title": "Pico Blvd Group — Brimlo Latin Lo-Fi",
+          "support_notes": "Management/rights provider explicitly supplies Latin samples for Brimlo compositions, names downtempo beats and Latin repertoire remixes.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://www.producerloops.com/Download-Toolbox-Samples-Latin-Lo-Fi.html",
+          "title": "Toolbox Samples — Latin & Lo-Fi production resources",
+          "support_notes": "Issuer product description explicitly combines chilled melodies and Latin/reggaeton rhythms; positive sample-source families guitar,bass,drums,piano,synth,vocal loops. Represents production practice; does not prove all resources appear in any one demo.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14927view0",
+        "turn14922view0",
+        "turn14927view1"
+      ],
+      "source_scope_limitation": "An authored production arrangement from positively documented sample practices. It is not claimed as a full mastered-recording transcription. Sampled-vocal presence retained; performer counts and live/digital generation behind source samples remain unspecified.",
+      "source_retrieval_caveat": "All three cited primary pages freshly read. Exact creator membership not newly claimed; named field supported directly by issuer and producer-management practice."
+    }
+  ],
+  "instrument_dependencies": []
+}

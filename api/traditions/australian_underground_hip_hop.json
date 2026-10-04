@@ -5,7 +5,7 @@
   "lineage": "Australian independent MC/DJ networks; selected Hilltop Hoods traditional two-MC-and-DJ branch",
   "recipe": "classic modern australian underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, duet. sampled chopped sampler, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 318,
-  "score": 39.788,
+  "score": 39.68,
   "config": {
     "traditions": [
       "australian_underground_hip_hop"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.108
+          "voice_multitrack_stack": 0
         }
       },
       {

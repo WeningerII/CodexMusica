@@ -2,10 +2,10 @@
   "id": "dc_indie",
   "name": "DC indie",
   "family": "rock_punk",
-  "lineage": "Hammered Hulls — Careening (2022), Boilermaker's Notch branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s dc indie, distorted Rock, punk branch. solo with instrumental accompaniment. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 350,
-  "score": 24.159,
+  "lineage": "DC indie connects Washington, D.C.’s independent musicians, labels and performance communities. Punk and post-punk form important strands within a wider field of independently made music.",
+  "recipe": "classic dc indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 277,
+  "score": 15.938,
   "config": {
     "traditions": [
       "dc_indie"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6405000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.99,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.441,
           "neck_wood": 0.40950000000000003,
@@ -80,9 +80,9 @@
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1.3,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -125,14 +125,14 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.005,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 4.923,
+          "cymbal_hammering": 3.9230000000000005,
           "cymbal_lathing": 3.6500000000000004,
           "cymbal_finish": 0
         }

@@ -1,0 +1,170 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 positions501–510; genre/data only",
+  "entries": [
+    {
+      "id": "romanian_pop",
+      "before": {
+        "tradition": {
+          "id": "romanian_pop",
+          "name": "Romanian pop",
+          "family": "pop",
+          "lineage": "Simona Radu — LLA (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "rompler_workstation"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_arpeggiated",
+            "rompler_preset_bank": "rompler_preset_gm_combo",
+            "rompler_context": "rompler_context_pop_workstation",
+            "rompler_lineage": "rompler_korg_m1_canonical"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "The artist identifies herself as a Romanian singer-songwriter in Bucharest and tags this release alternative pop and indie pop. Credits name Simona Radu for vocals, keyboards and programming. One workstation card combines the credited keyboard and programmed accompaniment roles; its GM palette and Korg lineage are authored implementation choices, not identified studio hardware. Contemporary Romanian pop category, illustrated by a solo programmed alternative-pop branch. Distinct selected practice from existing classic_romanian_pop's Voltaj band arrangement; no claim that national pop is categorically equivalent to that historical allocation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Simona Radu — LLA (2013)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "romanian_pop",
+          "name": "Romanian pop",
+          "family": "pop",
+          "lineage": "Romanian pop brings together popular-song writers, performers and listeners across acoustic, band-based and electronic approaches. Independent artists contribute their own melodic and production styles to this broad field.",
+          "instruments": [
+            "voice",
+            "rompler_workstation"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_arpeggiated",
+            "rompler_preset_bank": "rompler_preset_gm_combo",
+            "rompler_context": "rompler_context_pop_workstation",
+            "rompler_lineage": "rompler_korg_m1_canonical"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Voice and electronic keyboard can form a compact pop arrangement. Repeating patterns, chordal support and changing instrumental colours frame sung hooks and contrasting sections.",
+          "exemplars": [
+            "Simona Radu"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered public prose and assess meaningful default choices.",
+      "sources": [
+        {
+          "url": "https://simonaradu.bandcamp.com/album/lla",
+          "title": "Simona Radu — LLA (2013)",
+          "support_notes": "The artist identifies herself as a Romanian singer-songwriter in Bucharest and tags this release alternative pop and indie pop. Credits name Simona Radu for vocals, keyboards and programming. One workstation card combines the credited keyboard and programmed accompaniment roles; its GM palette and Korg lineage are authored implementation choices, not identified studio hardware.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and owning parts. Public genre history/style replaces detailed source-session text, with all former evidence preserved. Instrument roles form a source-positive representative branch; physical settings are authored rather than measured source gear. Where functionalSong applies, functional harmony and recurring verse/refrain/bridge form are an authored representative realization, not a measured claim about every source track.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "rationale": "The artist identifies herself as a Romanian singer-songwriter in Bucharest and tags this release alternative pop and indie pop. Credits name Simona Radu for vocals, keyboards and programming. One workstation card combines the credited keyboard and programmed accompaniment roles; its GM palette and Korg lineage are authored implementation choices, not identified studio hardware. Contemporary Romanian pop category, illustrated by a solo programmed alternative-pop branch. Distinct selected practice from existing classic_romanian_pop's Voltaj band arrangement; no claim that national pop is categorically equivalent to that historical allocation.",
+          "instrumental_evidence": "https://simonaradu.bandcamp.com/album/lla",
+          "photo_context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+        }
+      }
+    }
+  ]
+}

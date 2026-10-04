@@ -3,9 +3,9 @@
   "name": "Czech metal",
   "family": "rock_punk",
   "lineage": "Czech metal encompasses long-running heavy-metal bands and varied later styles. Prague’s Arakain exemplify a guitar-riff-led approach that combines forceful rhythm playing with melodic singing.",
-  "recipe": "classic modern czech metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 544,
-  "score": 46.539,
+  "recipe": "classic modern czech metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 506,
+  "score": 45.945,
   "config": {
     "traditions": [
       "czech_metal"
@@ -91,8 +91,8 @@
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.0205,
+          "cymbal_hammering": 3.8405000000000005,
+          "cymbal_lathing": 3.7865,
           "cymbal_finish": 0
         }
       },
@@ -133,7 +133,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.39,
           "voice_processing_chain": 0.26,
-          "voice_multitrack_stack": 0.7319999999999999,
+          "voice_multitrack_stack": 0.318,
           "voice_tessitura": 0
         }
       }

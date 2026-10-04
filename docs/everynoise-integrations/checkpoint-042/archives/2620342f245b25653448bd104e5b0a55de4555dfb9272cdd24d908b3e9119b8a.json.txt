@@ -1,0 +1,231 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "assamese_hip_hop",
+        "name": "Assamese Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Assamese hip-hop connects local language, urban experience and independent production in Assam. Guwahati and other regional communities adapt rap to Assamese expression while maintaining exchanges with English, Hindi and wider Indian hip-hop.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic verses, personal stories and locally inflected language meet producer-made backing. Flows can emphasize direct speech, punchlines and recurring hooks, while electronic beats leave room for the voice.",
+        "exemplars": [
+          "J’97",
+          "Minimi"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "assamese_hip_hop",
+          "name": "Assamese Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14889view2 confirms CC BY2.5 and crop credit; exact historical023 receipt retained.",
+          "fresh_review_ref": "turn14889view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14889view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
+      },
+      "source_label": "assamese hip hop",
+      "source_url": "https://everynoise.com/engenremap-assamesehiphop.html",
+      "suggested_id": "assamese_hip_hop",
+      "allocation_ordinal": 201,
+      "allocation_group_id": "009",
+      "id": "assamese_hip_hop",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "geo": [
+        26.1445,
+        91.7362,
+        "Guwahati",
+        "South Asia"
+      ],
+      "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
+      "sources": [
+        {
+          "url": "https://nenow.in/north-east-news/assam/interview-my-sole-aim-is-to-put-my-city-on-global-hip-hop-map-says-j97.html",
+          "support_notes": "Primary community/practitioner evidence, general genre-practice scope."
+        },
+        {
+          "url": "https://minimiofficial.wordpress.com/about/",
+          "support_notes": "Primary community/practitioner evidence, general genre-practice scope."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14889view0",
+        "turn14911view0"
+      ],
+      "neighbor_distinction": "Firsthand J’97 account establishes Guwahati rap and deliberate Assamese-language work; Minimi official biography establishes original Assamese verses and continuing producer partnership. This is a genre-level accompanied rap branch, not an assertion of the exact J’97 album or a reconstruction of any Minimi recording. The full desi_hip_hop umbrella is transnational and multilingual, not only its Mumbai exemplar. Assamese hip-hop is a positively documented regional-language community within that umbrella, distinct from Assamese pop and borgeet devotional repertoire without claiming language purity.",
+      "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "authored_render_scope": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "source_retrieval_caveat": "Fresh primary text retrieved; no audio audition or exact master reconstruction claimed.",
+      "instrument_role_audit": {
+        "voice": "Rhythmic rap lead.",
+        "credited_beat_unspecified": "Produced rhythmic backing, including bass and other supplied elements; mechanism unspecified."
+      },
+      "vocal_count_audit": {
+        "representative_lead_cards": 1,
+        "actual_recording_headcount": "not asserted"
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

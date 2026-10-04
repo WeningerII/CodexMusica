@@ -2,10 +2,10 @@
   "id": "greek_downtempo",
   "name": "Greek downtempo",
   "family": "electronic",
-  "lineage": "Mononome — Sherán (2018), documented sample-built instrumental program. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s greek downtempo, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 162,
-  "score": 5.669,
+  "lineage": "Greek downtempo connects producers working with relaxed electronic grooves and sample-based instrumental music. Record fragments and programmed rhythm provide one approach within this wider production scene.",
+  "recipe": "classic greek downtempo, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 151,
+  "score": 3.809,
   "config": {
     "traditions": [
       "greek_downtempo"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 0.5315,
+          "electronic_technique": 0.2315,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
           "sampler_workflow": 0.313,
-          "sampler_classic_context": 4.874999999999999
+          "sampler_classic_context": 3.3149999999999995
         }
       }
     ],

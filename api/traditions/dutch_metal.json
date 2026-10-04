@@ -5,7 +5,7 @@
   "lineage": "The Dutch metal field includes Within Temptation’s melodic, guitar-and-keyboard-based symphonic branch. Hydra-era interviews describe a more guitar-oriented record and a varied set of guest voices, while Ruud Jolie explains home guitar recording and amplifier profiling. This authored five-role reduction keeps lead voice, guitar, bass, drums and a piano/orchestral keyboard layer. Guest rap, duet partners and expanded orchestral forces are documented alternatives rather than mandatory ingredients of every Dutch metal recording.",
   "recipe": "classic modern dutch metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. power chord humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 463,
-  "score": 49.535,
+  "score": 48.622,
   "config": {
     "traditions": [
       "dutch_metal"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": 17.1235,
-          "amp_make": 1.434,
+          "amp_make": 1.2,
           "body_wood": 0.62025,
           "neck_wood": 0.105,
           "fretboard": 0.21075,
@@ -57,7 +57,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.434,
+          "amp_make": 1.2,
           "body_wood": 0.62025,
           "pickup_config": 0,
           "string_type": 0.105,
@@ -120,19 +120,19 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.08549999999999999,
+          "voice_effort": 0.1395,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 3.685250000000001,
+          "voice_microtone": 3.500000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.224,
-          "voice_ensemble_config": 1.395,
+          "voice_speech_song": 0.7649999999999999,
+          "voice_ensemble_config": 1.6342500000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5572499999999999,
           "voice_processing_chain": -0.07,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 1.5955
         }
       },
       {

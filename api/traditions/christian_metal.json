@@ -5,7 +5,7 @@
   "lineage": "Christian metal is a lyrical and community field spanning multiple metal styles. Southern California’s Stryper exemplify a melodic heavy-metal approach with Christian texts, twin-guitar arrangements and strong vocal harmonies.",
   "recipe": "classic modern christian metal, distorted Rock, metal branch. aurally tuned, plate reverb medium decay vocal classic. distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 417,
-  "score": 44.158,
+  "score": 43.87,
   "config": {
     "traditions": [
       "christian_metal"
@@ -91,8 +91,8 @@
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 4.5365,
-          "cymbal_lathing": 4.7705,
+          "cymbal_hammering": 4.5905000000000005,
+          "cymbal_lathing": 4.5365,
           "cymbal_finish": 0
         }
       },
@@ -129,11 +129,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.37049999999999994,
+          "voice_ensemble_config": 0.3165,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5684999999999999,
           "voice_processing_chain": 1.17,
-          "voice_multitrack_stack": 0.23399999999999999,
+          "voice_multitrack_stack": 0.18,
           "voice_tessitura": 0
         }
       }

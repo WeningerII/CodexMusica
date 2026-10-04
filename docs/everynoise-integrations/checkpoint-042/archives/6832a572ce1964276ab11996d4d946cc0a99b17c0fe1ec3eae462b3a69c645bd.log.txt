@@ -1,0 +1,8 @@
+DESCRIPTOR-DF: PASS — app.js block ≡ references/_descriptor_df.json.
+  frozen tokens      9742
+  live catalog tokens 9948
+  unknown to table   298 (fall back to df 999)
+  orphaned in table  92 (no longer in the catalog; harmless, never looked up)
+  counts drifted     1213 (token known but its live count moved since the freeze)
+  token coverage     97.00%  (floor 97%)
+  occurrence cover   98.57%

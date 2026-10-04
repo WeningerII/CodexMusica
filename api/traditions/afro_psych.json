@@ -5,7 +5,7 @@
   "lineage": "Afro psych connects African popular music with psychedelic rock, funk and experimental studio approaches. Lagos was an important centre during the 1970s, with artists such as the Lijadu Sisters and releases on Afrodisia contributing to a wider network of hybrid sounds.",
   "recipe": "classic mid-1970s afro psych, distorted Rock. humbucker electric guitar, pocket fingerstyle locked electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 212,
-  "score": 6.218,
+  "score": 6.249,
   "config": {
     "traditions": [
       "afro_psych"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.0315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.4095,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 2.5865,
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0.063,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.9870000000000001,
+          "string_gauge": 0.714,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

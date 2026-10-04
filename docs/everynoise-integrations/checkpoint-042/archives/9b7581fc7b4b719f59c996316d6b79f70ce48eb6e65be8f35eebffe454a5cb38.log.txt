@@ -1,0 +1,182 @@
+AUDIT — 17101 warning(s):
+
+[dead_canonical] 303
+  chain.mic.electret_condenser  canonical_tag 'camcorder' has no matching tradition context
+  chain.mic.mems_phone  canonical_tag 'smartphone' has no matching tradition context
+  chain.mic.mems_phone  canonical_tag 'voice-memo' has no matching tradition context
+  chain.mic.laryngophone_throat  canonical_tag 'comms' has no matching tradition context
+  chain.mic.optical_laser_mic  canonical_tag 'high-spl' has no matching tradition context
+  chain.mic.mic_ambisonic_soundfield  canonical_tag 'vr' has no matching tradition context
+  chain.mic.parabolic_reflector  canonical_tag 'surveillance' has no matching tradition context
+  instruments.voice.voice_register.strohbass_register  canonical_tag 'oktavist' has no matching tradition context
+  instruments.voice.voice_register.strohbass_register  canonical_tag 'basso-profondo' has no matching tradition context
+  instruments.voice.voice_register.oktavist_sub_bass_register  canonical_tag 'basso-profondo' has no matching tradition context
+  instruments.voice.voice_quality.ingenue_childlike_voice  canonical_tag 'musical-theater-ingenue' has no matching tradition context
+  instruments.voice.voice_vocal_tract.larynx_raised_brassy  canonical_tag 'broadway-soubrette' has no matching tradition context
+  instruments.voice.voice_vibrato.bleat_caprino_vibrato  canonical_tag 'early-music-caution' has no matching tradition context
+  instruments.voice.voice_articulation.vocable_syllabic_drum_voice  canonical_tag 'carnatic-konnakol' has no matching tradition context
+  instruments.voice.voice_articulation.vocable_syllabic_drum_voice  canonical_tag 'scat' has no matching tradition context
+  instruments.voice.voice_mechanism_compound.voice_mechanism_diplophonic_biphonation  canonical_tag 'biphonic' has no matching tradition context
+  instruments.voice.voice_ensemble_config.voice_ensemble_antiphonal_double_choir  canonical_tag 'venetian-polychoral' has no matching tradition context
+  instruments.voice.voice_ensemble_config.voice_ensemble_antiphonal_double_choir  canonical_tag 'cori-spezzati' has no matching tradition context
+  instruments.voice.voice_ensemble_config.voice_ensemble_round_canon  canonical_tag 'medieval-rota' has no matching tradition context
+  instruments.voice.voice_multitrack_stack.voice_multitrack_late_1970s_thirds_fifths_octaves  canonical_tag 'elo-bee-gees-era' has no matching tradition context
+  ... +283 more
+
+[parent_top_branch_overlap] 1306
+  gengetone  crossRef 'mcRhythm.afroDiasporic' shares top-level branch with parent 'mcRhythm.intlHipHop' — verify this is intentional
+  gengetone  crossRef 'mcRhythm.usHipHop' shares top-level branch with parent 'mcRhythm.intlHipHop' — verify this is intentional
+  manele  crossRef 'functionalSong.midEastNAfricanPop' shares top-level branch with parent 'functionalSong.europop' — verify this is intentional
+  chalga  crossRef 'functionalSong.midEastNAfricanPop' shares top-level branch with parent 'functionalSong.europop' — verify this is intentional
+  shangaan_electro  crossRef 'electronicDance.footwork' shares top-level branch with parent 'electronicDance.africanDance' — verify this is intentional
+  homeric_rhapsode  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.mediterraneanBallad' — verify this is intentional
+  old_norse_skaldic  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.slavicBard' — verify this is intentional
+  anglo_saxon_scop  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.angloSingerSong' — verify this is intentional
+  irish_fili_bardic  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.celticBalladic' — verify this is intentional
+  welsh_eisteddfod_cerdd_dafod  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.celticBalladic' — verify this is intentional
+  serbian_guslar_epic  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.slavicBard' — verify this is intentional
+  turkish_meddah  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.medEastPoetic' — verify this is intentional
+  persian_naqqali  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.medEastPoetic' — verify this is intentional
+  arabic_hakawati  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.medEastPoetic' — verify this is intentional
+  japanese_rakugo  crossRef 'artMusic' shares top-level branch with parent 'artMusic.eastAsian' — verify this is intentional
+  japanese_kodan  crossRef 'artMusic' shares top-level branch with parent 'artMusic.eastAsian' — verify this is intentional
+  chinese_pingshu  crossRef 'artMusic' shares top-level branch with parent 'artMusic.eastAsian' — verify this is intentional
+  chinese_xiangsheng  crossRef 'artMusic' shares top-level branch with parent 'artMusic.eastAsian' — verify this is intentional
+  japanese_kamishibai  crossRef 'artMusic' shares top-level branch with parent 'artMusic.eastAsian' — verify this is intentional
+  somali_gabay  crossRef 'balladPoetry' shares top-level branch with parent 'balladPoetry.medEastPoetic' — verify this is intentional
+  ... +1286 more
+
+[empty_crossrefs] 4144
+  vanuatu_water_drumming  crossRefs is empty — no graph connectivity beyond parent
+  pop  crossRefs is empty — no graph connectivity beyond parent
+  rock  crossRefs is empty — no graph connectivity beyond parent
+  metal  crossRefs is empty — no graph connectivity beyond parent
+  country  crossRefs is empty — no graph connectivity beyond parent
+  lo_fi  crossRefs is empty — no graph connectivity beyond parent
+  jazz  crossRefs is empty — no graph connectivity beyond parent
+  blues  crossRefs is empty — no graph connectivity beyond parent
+  folk  crossRefs is empty — no graph connectivity beyond parent
+  soul  crossRefs is empty — no graph connectivity beyond parent
+  hip_hop  crossRefs is empty — no graph connectivity beyond parent
+  rnb  crossRefs is empty — no graph connectivity beyond parent
+  gospel  crossRefs is empty — no graph connectivity beyond parent
+  classical  crossRefs is empty — no graph connectivity beyond parent
+  electronic  crossRefs is empty — no graph connectivity beyond parent
+  house  crossRefs is empty — no graph connectivity beyond parent
+  techno  crossRefs is empty — no graph connectivity beyond parent
+  trap  crossRefs is empty — no graph connectivity beyond parent
+  dubstep  crossRefs is empty — no graph connectivity beyond parent
+  kpop  crossRefs is empty — no graph connectivity beyond parent
+  ... +4124 more
+
+[family_parts_coverage] 1005
+  instruments.upright_bass  instrument is in family 'acoustic_strings' (which has 2 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.akonting  instrument is in family 'plucked_traditional' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.cuatro_venezolano  instrument is in family 'plucked_traditional' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.banjo_5_string  instrument is in family 'plucked_traditional' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.gayageum  instrument is in family 'plucked_traditional' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.djembe  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.bass_drum  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.drum_kit  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.harmonica  instrument is in family 'free_reed' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.melanesian_panpipes  instrument is in family 'wind' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.hand_clap  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.finger_snap  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.foot_stomp  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.foot_tap  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.spoons  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.rhythm_bones  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.hambone_body  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.stomp_box  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.handbells  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  instruments.tubular_bells  instrument is in family 'percussion' (which has 1 shared part(s)) but inherits NONE — verify the override-by-id is intentional
+  ... +985 more
+
+[bare_genre_descriptors] 4
+  instruments.kora.kora_lineage.kora_modern_concert  bare genre token 'fusion' in descriptors — should likely be in canonical_tags
+  instruments.lap_steel.lap_steel_tuning.lap_steel_c6  bare genre token 'western-swing' in descriptors — should likely be in canonical_tags
+  instruments.lap_steel.lap_steel_style.lap_steel_western_swing  bare genre token 'western-swing' in descriptors — should likely be in canonical_tags
+  instruments.candombe_tamboriles.candombe_tamboriles_context.candombe_tamboriles_cancion  bare genre token 'fusion' in descriptors — should likely be in canonical_tags
+
+[unsurfaceable_variants] 2
+  instruments.thappu.thappu_head.thappu_slack  no descriptor can surface (none iconic, none whitelisted, none in any tradition context): thuddy, dull
+  instruments.paamonim.paam_form.paam_hem  no descriptor can surface (none iconic, none whitelisted, none in any tradition context): tinkling, glinting
+
+[redundant_descriptors_in_part] 7
+  instruments.dubbeldackare.dubbeldackare_sympathetics  descriptor 'sympathetic-halo' appears in 3/3 variants — not distinguishing
+  instruments.psalmodikon.psalmodikon_form  descriptor 'plain' appears in 3/3 variants — not distinguishing
+  instruments.kokyu.kokyu_skin  descriptor 'hide' appears in 3/4 variants — not distinguishing
+  instruments.octobass.octobass_tuning  descriptor 'sub-bass' appears in 3/3 variants — not distinguishing
+  instruments.syrinx_greek.syrinx_greek_form  descriptor 'archaic' appears in 3/3 variants — not distinguishing
+  instruments.stritch.stritch_form  descriptor 'straight' appears in 3/4 variants — not distinguishing
+  instruments.sneng.sneng_setting  descriptor 'outdoor' appears in 3/4 variants — not distinguishing
+
+[description_instrument_mismatch] 7376
+  western_swing  description mentions 'hybrid' (uniquely identifies hybrid_groovebox_electribe2) but tradition.instruments[] does not include it
+  outlaw_country  description mentions 'system' (uniquely identifies nes_famicom_chip_system) but tradition.instruments[] does not include it
+  bluegrass  description mentions 'finger' (uniquely identifies finger_snap) but tradition.instruments[] does not include it
+  old_time  description mentions 'finger' (uniquely identifies finger_snap) but tradition.instruments[] does not include it
+  old_time  description mentions 'square' (uniquely identifies square_piano) but tradition.instruments[] does not include it
+  old_time  description mentions 'tonal' (uniquely identifies igbo_tonal_skin_drum_ensemble) but tradition.instruments[] does not include it
+  texas_conjunto  description mentions 'tololoche' (uniquely identifies tololoche) but tradition.instruments[] does not include it
+  mariachi  description mentions 'trumpets' (uniquely identifies bigwala_trumpets) but tradition.instruments[] does not include it
+  ranchera  description mentions 'macho' (uniquely identifies gaita_macho_corta) but tradition.instruments[] does not include it
+  ranchera  description mentions 'trumpets' (uniquely identifies bigwala_trumpets) but tradition.instruments[] does not include it
+  ranchera  description mentions 'accompaniment' (uniquely identifies janggu_concert_accompaniment) but tradition.instruments[] does not include it
+  corrido  description mentions 'border' (uniquely identifies border_pipes) but tradition.instruments[] does not include it
+  corrido  description mentions 'contemporary' (uniquely identifies dung_chen_contemporary) but tradition.instruments[] does not include it
+  corrido  description mentions 'accompaniment' (uniquely identifies janggu_concert_accompaniment) but tradition.instruments[] does not include it
+  corrido  description mentions 'dramatic' (uniquely identifies spoken_dramatic_cast) but tradition.instruments[] does not include it
+  corrido  description mentions 'recorded' (uniquely identifies recorded_appliance_sound) but tradition.instruments[] does not include it
+  polish_village_fiddle  description mentions 'spinning' (uniquely identifies spinning_wheel) but tradition.instruments[] does not include it
+  polish_village_fiddle  description mentions 'accompaniment' (uniquely identifies janggu_concert_accompaniment) but tradition.instruments[] does not include it
+  polish_village_fiddle  description mentions 'scordatura' (uniquely identifies andean_scordatura_guitar) but tradition.instruments[] does not include it
+  celtic_irish_trad  description mentions 'wooden' (uniquely identifies irish_wooden_flute) but tradition.instruments[] does not include it
+  ... +7356 more
+
+[duplicate_axes_signature] 2913
+  dubstep  same 13-axis signature as tradition.tropical_bass
+  arabic_hakawati  same 13-axis signature as tradition.turkish_meddah
+  onmyodo_incantation  same 13-axis signature as tradition.norse_galdr
+  maori_whaikorero_oratory  same 13-axis signature as tradition.icelandic_rimur
+  reggaeton_colombiano  same 13-axis signature as tradition.urbano_latino
+  trap_boricua  same 13-axis signature as tradition.trap_argentino
+  j_poprock  same 13-axis signature as tradition.anison_anime_song
+  rap_belge  same 13-axis signature as tradition.trap_triste
+  trancecore  same 13-axis signature as tradition.uk_metalcore
+  hawaiian_hip_hop  same 13-axis signature as tradition.piseiro
+  desi_trap  same 13-axis signature as tradition.turkce_drill
+  mexican_hip_hop  same 13-axis signature as tradition.colombian_hip_hop
+  oakland_hip_hop  same 13-axis signature as tradition.houston_rap
+  hard_dance  same 13-axis signature as tradition.makina
+  raboday  same 13-axis signature as tradition.funk_150_bpm
+  trot_revival  same 13-axis signature as tradition.boy_band
+  freestyle  same 13-axis signature as tradition.rap_cristiano
+  nepali_pop  same 13-axis signature as tradition.christian_country
+  variete_francaise  same 13-axis signature as tradition.eurovision_pop
+  hitech_psytrance  same 13-axis signature as tradition.forest_psy
+  ... +2893 more
+
+[function_branch_shape] 41
+  folk  protestSong-branch entry: crossRefs 0 (< 2)
+  xhosa_iimbongi  praiseSong-branch entry: exemplars 0 (< 3); crossRefs 1 (< 2)
+  american_political_stump_oratory  protestSong-branch entry: exemplars 0 (< 3); crossRefs 1 (< 2)
+  maori_whaikorero_oratory  praiseSong-branch entry: exemplars 0 (< 3); crossRefs 1 (< 2)
+  hawaiian_haa_ancestral_chant  praiseSong-branch entry: exemplars 0 (< 3); crossRefs 1 (< 2)
+  kindermusik  nurseryRhyme-branch entry: crossRefs 1 (< 2)
+  musique_peule  praiseSong-branch entry: crossRefs 1 (< 2)
+  dinka_song_traditions  praiseSong-branch entry: description 150 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  north_udmurt_krez  funeralLament-branch entry: description 150 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  selknam_shamanic_laments  funeralLament-branch entry: description 129 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  bosavi_sung_weeping  funeralLament-branch entry: description 73 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  mohobelo  praiseSong-branch entry: description 114 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  litolobonya  domesticRhythm-branch entry: description 92 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  intore_music  praiseSong-branch entry: description 148 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  tchiloli_music  carnivalProcessional-branch entry: description 181 chars (< 300); exemplars 2 (< 3); crossRefs 0 (< 2)
+  palauan_ruk  praiseSong-branch entry: description 203 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  horehronie_multipart_singing  fieldWork-branch entry: description 140 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  haida_welcome_song  praiseSong-branch entry: description 196 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  al_ayyala  praiseSong-branch entry: description 166 chars (< 300); exemplars 2 (< 3); crossRefs 0 (< 2)
+  protest_folk  protestSong-branch entry: description 243 chars (< 300); exemplars 1 (< 3); crossRefs 0 (< 2)
+  ... +21 more
+

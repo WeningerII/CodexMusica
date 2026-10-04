@@ -5,7 +5,7 @@
   "lineage": "Hidalgo indie connects independent rock and pop practice in the Mexican state, including artists working in Pachuca. Dream pop, shoegaze and alternative-rock influences meet within a regional branch of the broader Mexican independent field.",
   "recipe": "classic indie hidalguense, distorted Rock. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 242,
-  "score": 50.325,
+  "score": 50.944,
   "config": {
     "traditions": [
       "indie_hidalguense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6405,
+          "voice_ensemble_config": 1.0499999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 0.1575,
+          "voice_processing_chain": 0.4095,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },

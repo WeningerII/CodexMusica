@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ROOT_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-017.json",
+  "packet_sha256": "34ad8ada37d425b293c8e1bd65fbf6325e50ede0ce6a175c3e3732829ad4b860",
+  "ids": [
+    "indian_percussion",
+    "indie_game_soundtrack"
+  ],
+  "checked_at": "2026-10-04T02:59:13.403650+00:00",
+  "checks": [
+    "Root individually read public profiles, source-practice rationale, default changes and all four actual outputs or byte-identical prior bodies. Fresh parity/ceiling and owning-control checks pass with zero gaps/orphans.",
+    "Handbells and harp concert resonance preserved; orchestral harp is instrument use/class, no additional ensemble. Audiobooks/motivation pure speech lose forced12TET. Basque child song keeps syllabic natural solo branch. HighTechMinimal corrects source-positive DJ practice without guessed hardware. Icelandic voice/theremin and Indian tabla/sarangi lose unsupported tuning and retain continuous pitches. NES/VRC6 instrumental soundtrack architecture retained. Hollywood excluded pending explicit romantic-orchestra descriptor ruling.",
+    "Separate continuation branch only, after frozen2354 build; final integrated checks pending."
+  ]
+}

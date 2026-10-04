@@ -5,7 +5,7 @@
   "lineage": "Alessio Bondì — Rimmillu ru voti (2015). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2010s indie siciliano, ballad Poetry, chanson fado branch. solo with instrumental accompaniment, single lead single track no stacking. classical nylon-string guitar, harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 287,
-  "score": 10.775,
+  "score": 10.954,
   "config": {
     "traditions": [
       "indie_siciliano"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.56,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.273,
           "voice_multitrack_stack": 0.78,
           "voice_tessitura": 0
         }
@@ -63,7 +63,7 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 2.8499999999999996,
+          "acoustic_technique": 2.8814999999999995,
           "string_tuning": 0,
           "top_wood_classical": 0.39,
           "bracing_classical": 0.39,
@@ -83,8 +83,8 @@
         },
         "scores": {
           "harmonica_type": 0,
-          "harmonica_comb": 0.8539999999999999,
-          "harmonica_reed": 0.254,
+          "harmonica_comb": 0.8224999999999998,
+          "harmonica_reed": 0.2225,
           "harmonica_technique": 1.0864999999999998,
           "harmonica_maker_school": 0.6499999999999999,
           "harmonica_tuning": 0.39

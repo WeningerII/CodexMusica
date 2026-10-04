@@ -1,0 +1,15 @@
+{
+  "status": "PASS_EXACT_DATA_PROJECTION",
+  "packet": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+  "packet_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+  "base_source": "current guarded worktree",
+  "applied": 302,
+  "total": 6746,
+  "other_records_exactly_preserved": 6444,
+  "source_hashes": {
+    "references/05_traditions.js": "8a9b0c310a50174edd54d19970f6a14440e46d37fc4bb6989078689f6789ce6f",
+    "references/06_extras.js": "a4a0552c2ff1ad37fe67ead2c8e93b695475af272587ea59bd11bf07f211c3f6"
+  },
+  "engine_schema_snapshots": "not edited",
+  "api_build": "NOT RUN"
+}

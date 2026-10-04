@@ -2,10 +2,10 @@
   "id": "irish_flute",
   "name": "Irish flute",
   "family": "vernacular",
-  "lineage": "Áine Heslin — A tribute to Michael Tubridy. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic irish flute, improv On Frame, Celtic traditional branch. ornamented breathy dance driving irish wooden flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 216,
-  "score": 2.185,
+  "lineage": "Irish flute playing carries dance tunes and melodic repertoire through solo performance and sessions. Breath, ornament and articulation give repeated strains their individual character.",
+  "recipe": "classic irish flute, improv On Frame, Celtic traditional branch. breathy dance driving irish wooden flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 205,
+  "score": 2.88,
   "config": {
     "traditions": [
       "irish_flute"
@@ -20,9 +20,9 @@
           "irish_wooden_flute_material": "irish_wooden_flute_blackwood"
         },
         "scores": {
-          "irish_wooden_flute_pattern": 0.7,
+          "irish_wooden_flute_pattern": -0.1,
           "irish_wooden_flute_keys": -0.07,
-          "irish_wooden_flute_idiom": 1.6249999999999998,
+          "irish_wooden_flute_idiom": 3.12,
           "irish_wooden_flute_material": -0.07
         }
       }

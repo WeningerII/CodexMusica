@@ -2,10 +2,10 @@
   "id": "grand_rapids_indie",
   "name": "Grand Rapids indie",
   "family": "rock",
-  "lineage": "The Crane Wives — artist-documented contemporary live quartet palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic grand rapids indie, distorted Rock, alternative branch. group vocals, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 342,
-  "score": 32.158,
+  "lineage": "Grand Rapids indie connects independent musicians and audiences in the Michigan city. Guitar-led bands combine melodic songwriting with contrasting ensemble and vocal approaches.",
+  "recipe": "classic grand rapids indie, distorted Rock, alternative branch. group vocals, live take. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 319,
+  "score": 24.558,
   "config": {
     "traditions": [
       "grand_rapids_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.173,
+          "voice_ensemble_config": 1.2730000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 1.9000000000000001,
+          "voice_multitrack_stack": 1,
           "voice_tessitura": 0
         }
       },
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 1.4365,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.8415000000000001,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.181500000000001,
-          "cymbal_lathing": 6.5865,
+          "cymbal_lathing": 6.2865,
           "cymbal_finish": 0
         }
       }

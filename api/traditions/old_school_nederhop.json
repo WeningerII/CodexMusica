@@ -5,7 +5,7 @@
   "lineage": "Old School Nederhop connects the pioneers of Dutch-language hip-hop with an enduring community of MCs, DJs and listeners. Acts such as Extince and Osdorp Posse helped establish local language, storytelling and identity within hip-hop’s international circulation.",
   "recipe": "classic old school nederhop, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped turntable. live tracking.",
   "recipe_chars": 150,
-  "score": 15.083,
+  "score": 15.114,
   "config": {
     "traditions": [
       "old_school_nederhop"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.33599999999999997,
+          "voice_multitrack_stack": 0.27299999999999996,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 3.2815,
-          "turntable_technique": 3.634
+          "electronic_technique": 3.3445,
+          "turntable_technique": 3.6654999999999998
         }
       }
     ],

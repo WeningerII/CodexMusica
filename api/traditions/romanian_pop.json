@@ -2,10 +2,10 @@
   "id": "romanian_pop",
   "name": "Romanian pop",
   "family": "pop",
-  "lineage": "Simona Radu — LLA (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s romanian pop, functional Song. solo with instrumental accompaniment. korg m1 canonical 1988 1995 first mass market workstation 4mb pcm rom universal preset canon rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 301,
-  "score": 11.93,
+  "lineage": "Romanian pop brings together popular-song writers, performers and listeners across acoustic, band-based and electronic approaches. Independent artists contribute their own melodic and production styles to this broad field.",
+  "recipe": "classic romanian pop, functional Song. unprocessed natural acoustic. rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 188,
+  "score": 9.54,
   "config": {
     "traditions": [
       "romanian_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": -0.05,
-          "rompler_preset_bank": 0.3,
-          "rompler_context": 8.749999999999996,
-          "rompler_lineage": 1.8499999999999999
+          "rompler_preset_bank": 0,
+          "rompler_context": 8.25,
+          "rompler_lineage": -0.05
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "italian_mezzo_soprano",
   "name": "Italian Mezzo-Soprano",
   "family": "classical",
-  "lineage": "Cecilia Bartoli — Ravel Vocalise-étude en forme de Habanera, Chant d’Amour (1996). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-1990s italian mezzo-soprano, art Music. pure vocalise no text vowel only, solo with instrumental accompaniment, single lead single track no stacking. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 334,
-  "score": 18.038,
+  "lineage": "Italian mezzo-soprano performance connects operatic, recital and recorded vocal traditions. Piano-accompanied repertoire offers a chamber setting for the voice’s melodic and expressive range.",
+  "recipe": "classic italian mezzo-soprano, art Music. pure vocalise no text vowel only. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 18.893,
   "config": {
     "traditions": [
       "italian_mezzo_soprano"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.0945,
-          "voice_ensemble_config": 1.1550000000000002,
+          "voice_speech_song": 1.6945000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.78,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -74,7 +74,7 @@
           "piano_soundboard": 2.45,
           "piano_pinblock": 2.45,
           "piano_plate": 2.45,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 1.4915
         }
       }
     ],

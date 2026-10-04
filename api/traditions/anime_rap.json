@@ -5,7 +5,7 @@
   "lineage": "Anime rap — fan-created hip-hop interpreting anime characters, stories and worlds.",
   "recipe": "classic anime rap, mc Rhythm. rhythmic spoken flow no pitch human voice ensemble unspecified, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 18.982,
+  "score": 19.087,
   "config": {
     "traditions": [
       "anime_rap"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.091999999999999,
+          "voice_speech_song": 13.197,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -61,8 +61,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.963,
-          "sample_bitdepth": 0.126,
+          "electronic_technique": 2.0260000000000002,
+          "sample_bitdepth": 0.063,
           "sample_swing": 3.38,
           "sample_processing": 0
         }

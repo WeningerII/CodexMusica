@@ -2,10 +2,10 @@
   "id": "combos_nacionales",
   "name": "Combos Nacionales",
   "family": "vernacular",
-  "lineage": "The Beachers — Guataca Nights first set (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s combos nacionales, functional Song. tonewheel organ, saxophone, humbucker electric guitar, electric bass, drum kit, congas, cencerro, guira dominicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 269,
-  "score": 1.576,
+  "lineage": "Combos nacionales developed within Panama’s popular dance-band culture, connecting Afro-Caribbean rhythms with local song and instrumental traditions. Performers combine voices, electric instruments and interlocking percussion.",
+  "recipe": "classic combos nacionales, functional Song. tonewheel organ, saxophone, humbucker electric guitar, electric bass, drum kit, congas, cencerro, band guira dominicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 263,
+  "score": 6.436,
   "config": {
     "traditions": [
       "combos_nacionales"
@@ -120,7 +120,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.08,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -171,9 +171,9 @@
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": 0.13000000000000003,
           "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": 0.15000000000000002,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
         }
       },
@@ -186,7 +186,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": -0.1,
+          "percussion_technique": 2.45,
           "conga_set": 0,
           "conga_skin": 0,
           "conga_shell_wood": 0
@@ -213,7 +213,7 @@
           "guira_dominicana_sheet": "guira_dominicana_steel"
         },
         "scores": {
-          "guira_dominicana_form": 0.254,
+          "guira_dominicana_form": 3.504,
           "guira_dominicana_pattern": -0.1,
           "guira_dominicana_sheet": -0.05
         }

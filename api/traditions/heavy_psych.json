@@ -5,7 +5,7 @@
   "lineage": "High Mountain — Wasted Tales complete album roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits. Source credits specify only keyboard: the selected grand_piano is an authored timbral realization of that unspecified keyboard role, not evidence of acoustic piano or of the original session hardware.",
   "recipe": "classic heavy psych, distorted Rock. solo with instrumental accompaniment, unprocessed natural acoustic. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 396,
-  "score": 28.11,
+  "score": 29.002,
   "config": {
     "traditions": [
       "heavy_psych"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.126,
-          "voice_ensemble_config": 0.6405,
+          "voice_speech_song": 0.36749999999999994,
+          "voice_ensemble_config": 1.0499999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3945,
-          "voice_multitrack_stack": 0.1575,
+          "voice_processing_chain": 1.573,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },
@@ -153,7 +153,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.0315,
+          "grand_piano_brand": 0.063,
           "piano_hammer": 3.1200000000000006,
           "piano_rim": 3.1200000000000006,
           "piano_soundboard": -0.1,

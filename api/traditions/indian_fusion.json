@@ -5,7 +5,7 @@
   "lineage": "Shakti — This Moment (2023 studio album). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s indian fusion, improv On Frame. group vocals. conventional tuning standard pitch humbucker electric guitar, fm synth, indian rosewood rosewood brass tabla, violin carnatic, jackwood frame canonical carnatic kanjira, mridangam, ghatam. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 353,
-  "score": 26.495,
+  "score": 26.527,
   "config": {
     "traditions": [
       "indian_fusion"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

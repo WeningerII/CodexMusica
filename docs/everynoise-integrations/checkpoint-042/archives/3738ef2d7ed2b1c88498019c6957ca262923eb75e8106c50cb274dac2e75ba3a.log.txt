@@ -1,0 +1,47 @@
+=== Documentation verification ===
+(182 active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)
+
+[NUMERIC CLAIMS]  (22 count types)
+  ✗ AGENTS.md:4 — claims 6725 traditions (actual: 6746)
+      "**recipes** for **6725 recorded-music traditions** and data for **1653 instruments**."
+  ✗ AGENTS.md:22 — claims 6725 traditions (actual: 6746)
+      "**Fastest path — one fetch for everything:** `…/api/all.json` returns all 6725"
+  ✗ README.md:6 — claims 6725 traditions (actual: 6746)
+      "**6,725 traditions** and **1653 instruments** (with per-part variant decomposition),"
+  ✗ SKILL.md:3 — claims 6725 traditions (actual: 6746)
+      "description: Query, compose, validate, and mutate the Codex Musica dataset — 6725 recorded-music traditions (in a 317-no"
+  ✗ SKILL.md:857 — claims 6725 traditions (actual: 6746)
+      "(1653 instruments / 6725 traditions — a lot of tokens)."
+  ✗ SKILL.md:60 — claims 6725 traditions_table (actual: 6746)
+      "| traditions | 6725 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |"
+  ✗ SKILL.md:61 — claims 6725 tradition_extras_table (actual: 6746)
+      "| tradition extras | 6725 | keyed by tradition id | `TRADITION_EXTRAS` (object) |"
+  ✗ SKILL.md:182 — claims 6725 trads_short (actual: 6746)
+      "# → loaded: 1653 insts, 6725 trads"
+  ✗ SKILL.md:133 — claims 1483 global_family_count (actual: 1485)
+      "pop_rock`; `global` dominates at 1483/6725) — a top-level genre bucket, NOT an"
+  ✗ SKILL.md:133 — claims 6725 global_family_total (actual: 6746)
+      "pop_rock`; `global` dominates at 1483/6725) — a top-level genre bucket, NOT an"
+  ✗ docs/connector-directory-submission.md:47 — claims 6725 traditions (actual: 6746)
+      "structured catalog spanning 6725 traditions and 1653 instruments, plus a"
+  ✗ docs/connector-directory-submission.md:54 — claims 6725 traditions (actual: 6746)
+      "catalog places **6725 recorded-music traditions** in a 13-dimensional parameter"
+  ✗ docs/connector.md:11 — claims 6725 traditions (actual: 6746)
+      "- **Catalog:** 6725 traditions · 1653 instruments (with per-part variants) ·"
+  ✗ docs/everynoise-integrations/checkpoint-041/STATUS.md:5 — claims 6725 traditions (actual: 6746)
+      "The original pipeline rebuilt **6,725 traditions and 1,653 instruments**, zero failures, with two workers in 707.5 secon"
+  ✗ index.html:9 — claims 6725 traditions (actual: 6746)
+      "content="Codex Musica — recording recipes for 6725 music traditions and 1653 instruments. Human app at codex.html; machi"
+  ✗ index.html:68 — claims 6725 traditions (actual: 6746)
+      "<p>Recording recipes for <strong>6725 music traditions</strong> and 1653 instruments.</p>"
+  ✗ atlas.html:9 — claims 6725 traditions (actual: 6746)
+      "content="An atlas of 6725 music traditions, coloured by the catalog's own taxonomy rather than by geography. Every pin o"
+  ✗ atlas.html:22 — claims 6725 traditions (actual: 6746)
+      "<meta property="og:description" content="6725 music traditions, mapped by sound rather than by border." />"
+  ✗ package.json:5 — claims 6725 traditions_adj (actual: 6746)
+      ""description": "Compressed song-recipe descriptor engine over a 6725-tradition / 1653-instrument music codex. Generates "
+
+[SCRIPT REFERENCES]  (95 unique refs across active docs)
+  ✓ All script refs resolve to existing files.
+
+FAIL — 19 drift issue(s) above.

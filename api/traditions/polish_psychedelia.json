@@ -5,7 +5,7 @@
   "lineage": "Dreamless Night — Lot i Upadek Ikara (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s polish psychedelia, distorted Rock. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, conventional tuning standard pitch riff driven humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 426,
-  "score": 53.344,
+  "score": 54.026,
   "config": {
     "traditions": [
       "polish_psychedelia"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6405,
+          "voice_ensemble_config": 1.0499999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
+          "voice_processing_chain": 0.4095,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0,
+          "grand_piano_brand": 0.0315,
           "piano_hammer": 5.329999999999999,
           "piano_rim": 5.719999999999999,
           "piano_soundboard": 0.7,
@@ -97,7 +97,7 @@
         "scores": {
           "electric_technique": 3.2815,
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.0315,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -124,7 +124,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.0315,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

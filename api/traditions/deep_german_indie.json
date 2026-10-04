@@ -2,10 +2,10 @@
   "id": "deep_german_indie",
   "name": "Deep German Indie",
   "family": "pop_rock",
-  "lineage": "BROKOF — official Berlin quartet lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic deep german indie, functional Song. group vocals. humbucker electric guitar, electric bass, drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 227,
-  "score": 1.842,
+  "lineage": "Deep German indie gathers less widely circulated independent bands and songwriters in Germany. Local musical networks connect guitar-pop, rock and other approaches to song.",
+  "recipe": "classic deep german indie, functional Song. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 293,
+  "score": 18.111,
   "config": {
     "traditions": [
       "deep_german_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.507,
+          "voice_speech_song": 0.2445,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.18,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.1,
+          "electric_technique": 2.45,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": 2.6365,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_alloy": 0.9799999999999998,
+          "cymbal_hammering": 4.95,
+          "cymbal_lathing": 4.95,
           "cymbal_finish": 0
         }
       },
@@ -146,7 +146,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 0.2,
           "poly_archetypes": 0,
           "poly_voices": 0,
           "poly_maker_lineage": -0.05

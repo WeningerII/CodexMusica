@@ -2,10 +2,10 @@
   "id": "japanese_worship",
   "name": "Japanese worship",
   "family": "blues_gospel",
-  "lineage": "Takahiro Tone Nakamine — Ai No Iro, documented regular solo-acoustic performance practice. The artist’s self-written discography explicitly states that Ai No Iro is regularly performed at Tone’s solo acoustic shows. The official Heroes EP notes identify this particular work as an acoustic worship song in Japanese, and its complete published lyrics address Jesus and the cross. Select the complete documented solo-acoustic rendition practice: one singer accompanying himself on acoustic guitar. This is not an asserted transcription of the2013 studio master or an arbitrary stripping of the full band EP. Bass, drums and backing singers credited to other versions/full EP are not attributed to the explicitly solo performance. Japanese worship is a Japanese-language/local Christian devotional repertoire and community, overlapping global contemporary worship without being identical to its codified evangelical congregational rock-band practice. The artist documents ongoing church/community activity around Tokyo and Yokohama and explicitly identifies Japanese acoustic worship repertoire. Existing christian_rock traces an American evangelical/CCM rock industry; this named regional-language sacred field also contains a positively documented solo acoustic branch. No claim that American churches exclude acoustic music, or that one performer proves a unique national timbre. Broad ritualDevotional captures the actual praise/prayer function without assuming a Pentecostal denomination or metal sound from the artist’s broader identity. All-mahogany steel-string dreadnought construction and flatpicked note articulation are authored modern acoustic realization choices, not source guitar model or measured gestures. One real singer remains one voice with source-unspecified physiology and no invented choir. Controlled live-room acoustics and omitted apparatus/global tuning are authored rather than claimed session facts.",
-  "recipe": "classic japanese worship, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze modern martin dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 233,
-  "score": 34.205,
+  "lineage": "Japanese worship connects Japanese-language Christian songs with local church and devotional communities. Artists use solo, group and recorded settings to circulate praise and reflective repertoire.",
+  "recipe": "classic japanese worship, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 164,
+  "score": 4.125,
   "config": {
     "traditions": [
       "japanese_worship"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 8.539499999999999,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 11.494500000000006,
-          "voice_multitrack_stack": 6.1075,
+          "voice_processing_chain": 0.363,
+          "voice_multitrack_stack": 0.8085,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 1.2,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 4.262999999999999
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.063
         }
       }
     ],

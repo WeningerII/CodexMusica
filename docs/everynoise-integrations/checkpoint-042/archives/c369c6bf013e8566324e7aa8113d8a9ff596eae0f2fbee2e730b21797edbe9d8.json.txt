@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice001-sepedi-pop.json",
+  "packet_sha256": "ed36b5e5b7b05b5f68b2520ea65c2494f097496aa06398bdf501659a7346293b",
+  "reviewer": "source_audit",
+  "baseline": "/workspace/CodexMusica-qualified041 @453cd0f1",
+  "source_review": {
+    "refs": [
+      "turn14908view1",
+      "turn14909search0",
+      "turn14916search0"
+    ],
+    "finding": "Firsthand producer interview positively joins Sepedi/Afro-pop recognition with singer and keyboard beatmaking. Own artist awards and promoter live-keyboard programme confirm a broader Northern Sotho popular-song field and overlapping Manyalo branch. Source-unspecified beat generation is retained separately without asserting another hardware device. Representative solo staffing/form/room are candid authored choices, not a named recording reconstruction.",
+    "retrieval": "Pleasure direct timeout; full exact indexed own-site biography/awards successfully reproduced."
+  },
+  "boundary_review": {
+    "actual_full_records": [
+      "mbaqanga",
+      "south_african_pop",
+      "south_african_pop_dance",
+      "sesotho_hip_hop",
+      "lesotho_traditional",
+      "famo",
+      "mohobelo",
+      "litolobonya"
+    ],
+    "finding": "Sepedi language/local network crosses Manyalo and Afro-pop; overlapping South African pop does not erase this source-positive language field. No exclusive roster or new sonic invention asserted."
+  },
+  "immutable_five_fields": "Exact match ordinal1870 against immutable-entries.json",
+  "photo_review": {
+    "fresh_ref": "turn14908view2",
+    "finding": "CC BY2.5 original Iain Fergusson and Binksternet crop confirmed; inherited exact requested image/thumb URL, SHA/bytes/dimensions retained honestly, no new download claimed."
+  },
+  "runtime_review": {
+    "artifact": "../sourceaudit/sepedi-independent-runtime.json",
+    "browser_connector_formats": 4,
+    "max_chars": 352,
+    "owning_controls": 20,
+    "compiled_api_context": [
+      "sepedi_pop"
+    ],
+    "compiled_pin_errors": 0,
+    "owners_preserved": 1653,
+    "finding": "All actual formats coherent lively sung keyboard/beat practice. Original API retains only Sepedi context and all20 pins; output functional Song is supported by explicitly authored verse–chorus–bridge. No added tuning or foreign cultural mechanism. Instrument overlay changes no old owner; original runtime private caches excluded from source-mutation assertion."
+  },
+  "limitations": "Task-local data-only qualification; root integration/full regression remains separate. No production or registry mutation."
+}

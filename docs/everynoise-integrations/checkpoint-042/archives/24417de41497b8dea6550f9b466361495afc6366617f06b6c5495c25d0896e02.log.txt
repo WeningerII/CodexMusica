@@ -1,0 +1,119 @@
+
+=== Advertised tool surface ===
+  ✓ exactly 18 tools advertised
+  ✓ start_recipe: annotations describe mutation and no external calls
+  ✓ edit_recipe: annotations describe mutation and no external calls
+  ✓ render_recipe: annotations describe mutation and no external calls
+  ✓ search_catalog: annotations describe mutation and no external calls
+  ✓ search_prefaces: annotations describe mutation and no external calls
+  ✓ get_instrument: annotations describe mutation and no external calls
+  ✓ get_tradition: annotations describe mutation and no external calls
+  ✓ list_traditions: annotations describe mutation and no external calls
+  ✓ list_options: annotations describe mutation and no external calls
+  ✓ lyric_screen: annotations describe mutation and no external calls
+  ✓ lyric_plan: annotations describe mutation and no external calls
+  ✓ lyric_grade: annotations describe mutation and no external calls
+  ✓ lyric_revise: annotations describe mutation and no external calls
+  ✓ lyric_sweep: annotations describe mutation and no external calls
+  ✓ lyric_verify: annotations describe mutation and no external calls
+  ✓ lyric_recover: annotations describe mutation and no external calls
+  ✓ lyric_check: annotations describe mutation and no external calls
+  ✓ lyric_types: annotations describe mutation and no external calls
+
+=== Published schema subset (live listTools, draft-07) ===
+  ✓ no unexempted structural keywords
+  ✓ all 8 exemptions still apply
+
+=== Response shape ===
+  ✓ start_recipe returns a text block
+  ✓ result is single-line JSON (no pretty-print indent)
+  ✓ result parses as JSON
+  ✓ a clean seed carries no `changed` noise
+  ✓ start_recipe: the main description does not describe threading a workspace
+  ✓ edit_recipe: the main description does not describe threading a workspace
+  ✓ render_recipe: the main description does not describe threading a workspace
+
+=== Edit visibility ===
+  ✓ set_environment room is reported in `changed`
+  ✓ set_environment chain stage is reported in `changed`
+  ✓ a multi-select chain stage is reported as a list, with the added id beside the seeded one
+  ✓ clear is visible in `changed` (room null, fx empty)
+  ✓ an untouched added card carries no `changed` (bare)
+  ✓ an untouched added card carries no `changed` (guest)
+  ✓ a non-default variant exists to exercise set_variant
+  ✓ set_variant is reported in `changed.parts`
+  ✓ search_prefaces yields a preface id to set
+  ✓ set_preface is reported in `changed`
+
+=== Derived Gemini function declarations ===
+  ✓ all 18 tools become declarations
+  ✓ no keyword Gemini rejects survives into the declarations
+  ✓ no declaration exposes `workspace`
+  ✓ every workspace-taking tool is flagged for injection
+  ✓ no declaration exposes `state`
+  ✓ every state-taking tool is flagged for state carriage
+
+=== Every other connector surface: effects, schema subset, Gemini legality ===
+  ✓ raw /mcp/recipe: advertises exactly its 9 tools
+  ✓ raw /mcp/recipe: annotations say what each tool touches, and none reaches outside
+  ✓ raw /mcp/recipe: no unexempted structural keywords
+  ✓ raw /mcp/recipe: derived Gemini declarations are legal and carry no workspace or state
+  ✓ raw /mcp/lyrics: advertises exactly its 9 tools
+  ✓ raw /mcp/lyrics: annotations say what each tool touches, and none reaches outside
+  ✓ raw /mcp/lyrics: no unexempted structural keywords
+  ✓ raw /mcp/lyrics: derived Gemini declarations are legal and carry no workspace or state
+  ✓ /mcp: advertises exactly its 21 tools
+  ✓ /mcp: annotations say what each tool touches, and none reaches outside
+  ✓ /mcp: no unexempted structural keywords
+  ✓ /mcp: derived Gemini declarations are legal and carry no workspace or state
+  ✓ /mcp/chatgpt: advertises exactly its 21 tools
+  ✓ /mcp/chatgpt: annotations say what each tool touches, and none reaches outside
+  ✓ /mcp/chatgpt: no unexempted structural keywords
+  ✓ /mcp/chatgpt: derived Gemini declarations are legal and carry no workspace or state
+  ✓ /mcp/chatgpt/recipe: advertises exactly its 11 tools
+  ✓ /mcp/chatgpt/recipe: annotations say what each tool touches, and none reaches outside
+  ✓ /mcp/chatgpt/recipe: no unexempted structural keywords
+  ✓ /mcp/chatgpt/recipe: derived Gemini declarations are legal and carry no workspace or state
+  ✓ /mcp/chatgpt/lyrics: advertises exactly its 12 tools
+  ✓ /mcp/chatgpt/lyrics: annotations say what each tool touches, and none reaches outside
+  ✓ /mcp/chatgpt/lyrics: no unexempted structural keywords
+  ✓ /mcp/chatgpt/lyrics: derived Gemini declarations are legal and carry no workspace or state
+  ✓ website chat's server: derived Gemini declarations are legal and carry no workspace or state
+  ✓ website chat's server: only its lyric_revise reaches a model provider
+
+=== Chain ids carry the stage that accepts them ===
+  ✓ search_catalog returns chain hits to check
+  ✓ every chain hit names a real stage
+  ✓ the stage a hit names is the stage that takes the id
+  ✓ a misfiled chain id could be exercised at all
+  ✓ a real id in the wrong stage is refused with the stage that would take it
+  ✓ an unknown chain stage is refused with the stages that exist
+
+=== Variant hits are distinct and carry their parts ===
+  ✓ search_catalog returns variant hits to check
+  ✓ no duplicate variant ids on a page
+  ✓ every variant hit says how many parts accept it
+  ✓ an enumerated parts list is complete, never a truncated sample
+
+=== The material palette is not guitar-shaped ===
+  ✓ djembe can take a material edit
+  ✓ congas can take a material edit
+  ✓ drum_kit can take a material edit
+  ✓ atabaque can take a material edit
+  ✓ bodhran can take a material edit
+  ✓ aulos can take a material edit
+  ✓ phorminx can take a material edit
+  ✓ the string material pool is populated
+  ✓ the wood material pool is populated
+  ✓ the membrane material pool is populated
+  ✓ the metal material pool is populated
+  ✓ the material palette reaches at least 600 instruments
+
+=== A borrowed variant is marked as one ===
+  ✓ the part reports how many variants are curated for this instrument
+  ✓ curated variants are listed before borrowed ones
+  ✓ the borrowed ones carry the flag and the curated ones do not
+  ✓ a search hit separates where it is OFFERED from where it is AUTHORED
+  ✓ cards nobody edited carry no `changed` key
+
+CONNECTOR CONTRACT: PASS — surface, annotations, schema subset and edit visibility all hold.

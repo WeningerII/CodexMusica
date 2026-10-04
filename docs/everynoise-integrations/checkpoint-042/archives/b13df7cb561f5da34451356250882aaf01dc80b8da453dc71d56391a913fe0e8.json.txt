@@ -1,0 +1,486 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 positions531–540; genre/data only",
+  "entries": [
+    {
+      "id": "handbells",
+      "before": {
+        "tradition": {
+          "id": "handbells",
+          "name": "Handbells",
+          "family": "classical",
+          "lineage": "William B. Bradbury / Jason W. Krug — The Solid Rock handbells-and-piano score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "handbells",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "handbells_set": "handbells_chromatic_extended",
+            "handbells_technique": "handbells_rung",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Hope/Agape publisher catalog specifies The Solid Rock for3–6 octave handbells and piano, with exactthree-octave33bell alternative. No voices or optional handchimes imported from adjacent America the Beautiful listing. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "William B. Bradbury / Jason W. Krug — The Solid Rock handbells-and-piano score"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "handbells",
+          "name": "Handbells",
+          "family": "classical",
+          "lineage": "Handbell repertoire develops pitched ensemble ringing through concert, devotional and community performance. Arrangers distribute melodic and harmonic material across players and bell ranges.",
+          "instruments": [
+            "handbells",
+            "grand_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "handbells_set": "handbells_chromatic_extended",
+            "handbells_technique": "handbells_rung",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Chromatic handbells can sound coordinated chords and melodic lines, with piano providing additional support. Contrasts in ringing, damping and ensemble timing shape the musical phrases.",
+          "exemplars": [
+            "Jason W. Krug"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Replace recording dossiers with concise genre profiles and review representative defaults.",
+      "sources": [
+        {
+          "url": "https://handbellworld.com/pdfs/1773.pdf",
+          "title": "William B. Bradbury / Jason W. Krug — The Solid Rock handbells-and-piano score",
+          "support_notes": "Publisher catalog printed page12 shows The Solid Rock, William B. Bradbury arranged Jason W. Krug,3–6 octave handbells and piano, three-octave33bells. Publisher address Carol Stream Illinois. Adjacent America the Beautiful optional handchimes do not belong to selected score.",
+          "checked_date": "2026-10-02",
+          "retrieval_ref": "turn777656search0",
+          "read_mode": "publisher_catalog_pdf_search_index"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed primary practice evidence and each current owning control. Restore broad genre/history and describe a source-positive representative branch. Named source repertoire and exact personnel remain archived; physical choices and recording treatment are authored rather than source measurements. Authored controlled concert/listening room reflects sustained bell ensemble or expressive narration, retaining every original source role and instrument control.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "handbells",
+              "source_role": "Publisher MHP2908 expressly specifies3–6 octave handbells; selected three-octave33-bell option is a pitched bell ensemble, not33singers."
+            },
+            {
+              "instrument": "grand_piano",
+              "source_role": "Publisher explicitly piano accompaniment and separate Director/Piano Score MHP2908D."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "hangoskonyvek",
+      "before": {
+        "tradition": {
+          "id": "hangoskonyvek",
+          "name": "Hangoskonyvek",
+          "family": "vernacular",
+          "lineage": "Rejtő Jenő — A tizennégy karátos autó, Rudolf Péter2006 audiobook. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Kossuth/Mojzer publisher identifies this Hungarian-language audiobook with one named narrator. Selected narration scope, no invented musical accompaniment. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Rejtő Jenő — A tizennégy karátos autó, Rudolf Péter2006 audiobook"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hangoskonyvek",
+          "name": "Hangoskonyvek",
+          "family": "vernacular",
+          "lineage": "Hangoskönyvek brings Hungarian-language books into narrated listening. Publishers and readers adapt literary works for sustained spoken performance.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A speaking voice can shape narration through pacing, pauses and characterful emphasis. Musical accompaniment is optional rather than necessary to the audiobook form.",
+          "exemplars": [
+            "Rejtő Jenő",
+            "Rudolf Péter"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Replace recording dossiers with concise genre profiles and review representative defaults.",
+      "sources": [
+        {
+          "url": "https://www.kossuth.hu/A-tizennegy-karatos-auto-hangoskonyv",
+          "title": "Rejtő Jenő — A tizennégy karátos autó, Rudolf Péter2006 audiobook",
+          "support_notes": "Kossuth/Mojzer publisher identifies this Hungarian-language audiobook with one named narrator. Selected narration scope, no invented musical accompaniment.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed primary practice evidence and each current owning control. Restore broad genre/history and describe a source-positive representative branch. Named source repertoire and exact personnel remain archived; physical choices and recording treatment are authored rather than source measurements. Remove global equal temperament for unpitched spoken delivery. Solo voice card represents a speaking passage, not a claim only one narrator exists throughout every work.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Publisher explicitly names Rudolf Péter as narrator of selected418-minute Hungarian audiobook edition."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "hard_motivation",
+      "before": {
+        "tradition": {
+          "id": "hard_motivation",
+          "name": "Hard Motivation",
+          "family": "vernacular",
+          "lineage": "Jocko Willink and Leif Babin — Extreme Ownership author-read audiobook. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Publisher identifies two-author narrated leadership/self-development audiobook. Creator hard-motivation playlist includes Jocko Willink. Selected author-read motivational leadership branch has two spoken performers and no invented musical accompaniment. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Jocko Willink and Leif Babin — Extreme Ownership author-read audiobook"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hard_motivation",
+          "name": "Hard Motivation",
+          "family": "vernacular",
+          "lineage": "Hard motivation connects forceful motivational speech with self-development and leadership listening. Speakers use direct language and personal accounts to sustain attention and encourage action.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "An unaccompanied speaking voice can carry the message through emphatic phrasing, pauses and changing intensity. Music and edited productions offer other settings, but are not required for the spoken branch.",
+          "exemplars": [
+            "Jocko Willink",
+            "Leif Babin"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Replace recording dossiers with concise genre profiles and review representative defaults.",
+      "sources": [
+        {
+          "url": "https://us.macmillan.com/books/9781427264305/extremeownership/",
+          "title": "Jocko Willink and Leif Babin — Extreme Ownership author-read audiobook",
+          "support_notes": "Publisher identifies two-author narrated leadership/self-development audiobook. Creator hard-motivation playlist includes Jocko Willink. Selected author-read motivational leadership branch has two spoken performers and no invented musical accompaniment.",
+          "checked_date": "2026-10-02",
+          "retrieval_ref": "turn175270view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7c5F5HnMg6HCmYQSV6cxc8",
+          "title": "The Sound of Hard Motivation",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed primary practice evidence and each current owning control. Restore broad genre/history and describe a source-positive representative branch. Named source repertoire and exact personnel remain archived; physical choices and recording treatment are authored rather than source measurements. Remove global equal temperament for unpitched spoken delivery. Solo voice card represents a speaking passage, not a claim only one narrator exists throughout every work.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Publisher explicitly names Jocko Willink and Leif Babin and states read by the authors; two narrators retained, not a solo-Jocko recording."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices. Voice ensemble and stack describe sequential solo passages; the two credited narrators are retained in audit across whole audiobook.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    }
+  ]
+}

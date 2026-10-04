@@ -2,10 +2,10 @@
   "id": "singer_songwriter_pop",
   "name": "Singer-songwriter pop",
   "family": "pop",
-  "lineage": "Solo — Love Always Hopes (2008). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2000s singer-songwriter pop, functional Song. strummed open chord ringing overtones dreadnought acoustic guitar, 7 ply quartersawn maple block chord grand piano, korg m1 canonical 1988 1995 first mass market workstation 4mb pcm rom universal preset canon rompler workstation, maple machine hammered symmetric pattern organized rows full lathed drum kit, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 480,
-  "score": 42.151,
+  "lineage": "Singer-songwriter pop connects personal songwriting and expressive vocal delivery with accessible popular-song arrangements. Intimate performances and fuller band treatments offer different settings for the same melodic focus.",
+  "recipe": "classic singer-songwriter pop, functional Song. strummed open chord ringing overtones dreadnought acoustic guitar, block chord grand piano, rompler workstation, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 364,
+  "score": 40.721,
   "config": {
     "traditions": [
       "singer_songwriter_pop"
@@ -62,9 +62,9 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 6.449999999999999,
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
-          "top_wood": 0,
+          "top_wood": 0.3,
           "back_sides": -0.05,
           "string_acoustic": 0.054
         }
@@ -83,13 +83,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 8.899999999999999,
+          "keyboard_technique": 10.5,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.1905,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }
@@ -105,8 +105,8 @@
         "scores": {
           "electronic_technique": -0.1,
           "rompler_preset_bank": 0,
-          "rompler_context": 6.499999999999999,
-          "rompler_lineage": 2.7950000000000004
+          "rompler_context": 7.5,
+          "rompler_lineage": -0.035
         }
       },
       {
@@ -126,15 +126,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.954,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 6.454,
-          "cymbal_lathing": 6.3999999999999995,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
         }
       },

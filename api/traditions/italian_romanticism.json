@@ -2,10 +2,10 @@
   "id": "italian_romanticism",
   "name": "Italian Romanticism",
   "family": "classical",
-  "lineage": "Giuseppe Martucci — 6 Piano Pieces, Novella, Fantasia, 2 Nocturnes; Alberto Miodini (94800). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Italian Romanticism includes nineteenth-century and later Romantic concert repertoire alongside the better-known operatic tradition. Piano works offer a solo branch with lyrical themes and expressive development.",
   "recipe": "classic italian romanticism, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 16.672,
+  "score": 18.883,
   "config": {
     "traditions": [
       "italian_romanticism"
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": 2.5,
           "grand_piano_size": 0.84,
-          "grand_piano_brand": 0.39,
+          "grand_piano_brand": 1.69,
           "piano_hammer": 2.5865,
           "piano_rim": 2.6180000000000003,
           "piano_soundboard": 2.45,
           "piano_pinblock": 2.45,
           "piano_plate": 2.5130000000000003,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": 1.2349999999999999
         }
       }
     ],

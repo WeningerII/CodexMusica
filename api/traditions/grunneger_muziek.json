@@ -2,10 +2,10 @@
   "id": "grunneger_muziek",
   "name": "Grunneger muziek",
   "family": "vernacular",
-  "lineage": "Jan Henk de Groot and Reinout Douma — Tiepelzinneg, announced2027 duo program. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic grunneger muziek, ballad Poetry. solo with instrumental accompaniment. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 245,
-  "score": 8.764,
+  "lineage": "Grunneger muziek connects Groningen regional-language songwriters and listeners. Troubadour and song-poetry traditions continue through concerts, recordings and renewed arrangements.",
+  "recipe": "classic grunneger muziek, ballad Poetry. solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 1.304,
   "config": {
     "traditions": [
       "grunneger_muziek"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.8190000000000002,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.7,
+          "keyboard_technique": -0.1,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 0.7,
-          "piano_rim": 0.7,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 2,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.3649999999999998
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],

@@ -2,9 +2,9 @@
   "id": "jaw_harp",
   "name": "Jaw harp",
   "family": "vernacular",
-  "lineage": "Áron Szilágyi — Owa (Live in Khampa). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic jaw harp, drone Modal. doromb hungarian. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 147,
+  "lineage": "Jaw-harp traditions shape a vibrating tongue through the performer’s oral resonator. Hungarian doromb playing is one regional branch within this widespread family of musical practices.",
+  "recipe": "classic jaw harp, drone Modal. doromb hungarian. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 153,
   "score": 1.026,
   "config": {
     "traditions": [
@@ -19,8 +19,8 @@
           "doromb_resonator": "doromb_oral_formant_breath"
         },
         "scores": {
-          "doromb_construction": 0.363,
-          "doromb_excitation": 0.6315,
+          "doromb_construction": 0.063,
+          "doromb_excitation": 0.9314999999999999,
           "doromb_resonator": 0.0315
         }
       }
@@ -32,7 +32,7 @@
         "doromb_resonator"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "transformerless",
@@ -42,14 +42,12 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "doromb_construction": "doromb_high_carbon_steel",
       "doromb_excitation": "doromb_inward_finger_pluck",

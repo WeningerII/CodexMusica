@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward metal and alternative-rock crossover, represented here by Faith No More and the 1989 album The Real Thing. Heavy guitar riffing shares the arrangement with a rhythmically active bass, keyboards and an elastic sung vocal. The selected model emphasizes contrasts of riff, keyboard color and vocal register; funk bass and rap delivery are possible influences, not requirements of the entire genre.",
   "recipe": "classic 1987-1989 alternative metal, distorted Rock, alternative branch, metal distorted rock, funk percussive groove percussion drone metal mathcore. balanced, register break ornamental, interlocked note trading, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
   "recipe_chars": 654,
-  "score": 172.502,
+  "score": 171.995,
   "config": {
     "traditions": [
       "alternative_metal",
@@ -125,14 +125,14 @@
           "voice_vibrato": 0,
           "voice_articulation": 16.119999999999997,
           "voice_microtone": 18.999999999999996,
-          "voice_tradition": 2.3725,
+          "voice_tradition": 2.145,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.785,
           "voice_ensemble_config": 3.3149999999999995,
           "voice_ornament_system": 1.3,
           "voice_pitch_organization": 0.195,
-          "voice_processing_chain": 0.45500000000000007,
+          "voice_processing_chain": 0.17500000000000002,
           "voice_multitrack_stack": 0.78
         }
       }

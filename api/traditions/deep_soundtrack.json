@@ -2,10 +2,10 @@
   "id": "deep_soundtrack",
   "name": "Deep Soundtrack",
   "family": "classical",
-  "lineage": "Jérôme Lemonnier — Piano Works #1. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Deep soundtrack connects screen composers and film-music repertoire beyond the most familiar themes. Instrumental pieces sustain melodic ideas, atmosphere and dramatic movement in both screen and independent listening contexts.",
   "recipe": "classic deep soundtrack, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 231,
-  "score": 39.603,
+  "score": 40.013,
   "config": {
     "traditions": [
       "deep_soundtrack"
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": 2.5,
           "grand_piano_size": 0.588,
-          "grand_piano_brand": 0.39,
+          "grand_piano_brand": 0.4095,
           "piano_hammer": 6.25,
           "piano_rim": 6.25,
           "piano_soundboard": 6.25,
           "piano_pinblock": 6.25,
           "piano_plate": 6.25,
-          "piano_pitch_standard": 4.875
+          "piano_pitch_standard": 5.265
         }
       }
     ],

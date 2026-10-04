@@ -2,10 +2,10 @@
   "id": "french_romanticism",
   "name": "French romanticism",
   "family": "classical",
-  "lineage": "Camille Saint-Saëns — Piano Trio No.2, Op.92. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "French Romanticism encompasses nineteenth-century concert repertoire shaped by expressive melody and expanding instrumental possibilities. Chamber music offers an intimate setting alongside larger orchestral and vocal works.",
   "recipe": "classic french romanticism, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 417,
-  "score": 76.352,
+  "score": 62.092,
   "config": {
     "traditions": [
       "french_romanticism"
@@ -29,13 +29,13 @@
           "bowed_technique": 2.5,
           "orch_strings": 0.819,
           "orch_top_wood": 2.8595,
-          "orch_back_wood": 4.1595,
-          "orch_varnish": 3.25,
-          "orch_setup_period": 3.754,
-          "orch_bow": 0.78,
-          "orch_bow_stick": 4.16,
-          "orch_articulation": 0.6405000000000001,
-          "orch_rosin": 3.859
+          "orch_back_wood": 2.8595,
+          "orch_varnish": 2.45,
+          "orch_setup_period": 2.954,
+          "orch_bow": 1.69,
+          "orch_bow_stick": 3.1200000000000006,
+          "orch_articulation": 0.39,
+          "orch_rosin": 3.059
         }
       },
       {
@@ -53,14 +53,14 @@
         },
         "scores": {
           "bowed_technique": 2.5,
-          "cello_strings": 0.39,
+          "cello_strings": 0.9765,
           "cello_top_wood": 2.8595,
-          "cello_back_wood": 4.1595,
-          "cello_varnish": 3.25,
-          "cello_setup_period": 3.754,
+          "cello_back_wood": 2.8595,
+          "cello_varnish": 2.45,
+          "cello_setup_period": 2.954,
           "cello_bow_grip": 1.3,
-          "cello_rosin": 3.8545,
-          "cello_bow_stick": 4.16
+          "cello_rosin": 3.0545,
+          "cello_bow_stick": 3.1200000000000006
         }
       },
       {
@@ -78,14 +78,14 @@
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.78,
-          "piano_hammer": 3.3865,
-          "piano_rim": 3.418,
-          "piano_soundboard": 3.25,
-          "piano_pinblock": 4.55,
-          "piano_plate": 3.313,
-          "piano_pitch_standard": 1.755
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 0.9345000000000001,
+          "piano_hammer": 2.5865,
+          "piano_rim": 2.6180000000000003,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.5130000000000003,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

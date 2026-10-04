@@ -2,10 +2,10 @@
   "id": "italian_alternative",
   "name": "Italian Alternative",
   "family": "rock",
-  "lineage": "I-Taki Maki — A Place to Leave (2017 recordings,2026 restoration). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s italian alternative, distorted Rock, alternative branch. humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, glockenspiel, melodica, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, sampler, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon wurlitzer ep, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 499,
-  "score": 36.278,
+  "lineage": "Italian alternative music connects independent performers using varied rock, pop and experimental approaches. Collaborative bands can combine electric instruments with acoustic and electronic colours.",
+  "recipe": "classic italian alternative, distorted Rock, alternative branch. unprocessed natural acoustic. humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, glockenspiel, melodica, soft felt lacquer voiced 17 ply hard rock maple grand piano, sampler, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing wurlitzer ep, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 570,
+  "score": 62.611,
   "config": {
     "traditions": [
       "italian_alternative"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 1.168,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 2.6180000000000003,
           "amp_make": 0,
           "body_wood": 0.5775,
           "neck_wood": 0.5775,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -101,16 +101,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.25,
+          "drum_technique": 8.75,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 6.181500000000001,
-          "cymbal_lathing": 6.5865,
+          "cymbal_hammering": 11.231499999999999,
+          "cymbal_lathing": 11.3365,
           "cymbal_finish": 0
         }
       },
@@ -136,7 +136,7 @@
           "melodica_maker_school": "melodica_hohner_canonical"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 2.45,
           "melodica_use": -0.05,
           "melodica_pitch": 0,
           "melodica_maker_school": 0.325
@@ -156,15 +156,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 2.45,
           "grand_piano_size": 0.1365,
           "grand_piano_brand": 0,
-          "piano_hammer": 3.1200000000000006,
-          "piano_rim": 3.1200000000000006,
+          "piano_hammer": 4.42,
+          "piano_rim": 4.42,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
           "piano_plate": -0.07,
-          "piano_pitch_standard": 1.2349999999999999
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -194,11 +194,11 @@
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 2.45,
           "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 0.2415,
-          "wurlitzer_model": 3.575,
-          "wurlitzer_reed_material": 0.39
+          "wurlitzer_model": 4.485,
+          "wurlitzer_reed_material": 1.3335
         }
       },
       {
