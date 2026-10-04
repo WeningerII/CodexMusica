@@ -239,7 +239,7 @@ SONG_DIR = os.path.join(ROOT, "corpus", "song")
 #: learn to skip), so the RESULTS documents need a predicate that can tell a
 #: repo path from a foreign one before they can join. `--prose` prints the
 #: population this actually reads.
-PROSE_DOCS = ("CLAUDE.md", "README.md", "quality/METHOD.md")
+PROSE_DOCS = ("HANDBOOK.md", "README.md", "quality/METHOD.md")
 
 TRUE = "TRUE"
 FALSE = "FALSE"

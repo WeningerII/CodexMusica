@@ -129,7 +129,7 @@ module.exports = [
     // probe_gemini.mjs was linted against the bare recommended config with no
     // Node globals at all, which reports every `process` and `console` as
     // undefined. Same environment as the CJS scripts, different module system.
-    files: ['scripts/**/*.mjs'],
+    files: ['scripts/**/*.mjs', 'lyric-harness/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: 'module',

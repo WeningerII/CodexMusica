@@ -9,7 +9,7 @@ THE CLAIMS UNDER AUDIT
       scrambled sonnet 3   9.7%      6   1.4%
                                     MEAN 5.4%   against a declared alpha of 5.0%
       "The within-item null delivers the rate it advertises."
-  CLAUDE.md doctrine 4 carries it forward: "false-event rate measured at 5.4%
+  HANDBOOK.md doctrine 4 carries it forward: "false-event rate measured at 5.4%
   against a declared 5.0%".
   RESULTS_FWER.md P1 table, the same instrument on REAL text at theta 0.80 /
   window 32: sonnet 1 8%, sonnet 2 11%, lyric sheet 8%, rap 13%.
@@ -482,7 +482,7 @@ PINNED = {
     "candidate_pairs": (7665, 13466),
     #    (min, median, max) of each item's MEDIAN family size. To 2026-09-14
     #    the min and max were RESULTS_FWER.md's own published "156-282 across
-    #    24 sonnets", to the integer, and doctrine 4 in CLAUDE.md still
+    #    24 sonnets", to the integer, and doctrine 4 in HANDBOOK.md still
     #    carries that dated pair; the 203 both documents quote was SONNET 1's
     #    median family under the old identity, item 0 here, which now
     #    measures 292. 295 is the median OVER the twenty per-item medians and
