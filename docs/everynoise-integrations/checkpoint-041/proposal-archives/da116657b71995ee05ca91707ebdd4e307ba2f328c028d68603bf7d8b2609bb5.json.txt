@@ -1,0 +1,235 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "mizo_pop",
+        "name": "Mizo pop",
+        "family": "pop",
+        "lineage": "Mizo pop centres on popular song in the Mizo language, connecting local poetry and melodic expression with the influence of radio, guitar bands and contemporary recording. Love songs form an important strand, while singers move between secular popular music and the region’s strong gospel traditions.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "acoustic_guitar_dread"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze",
+          "acoustic_technique": "acoustic_flatpicked"
+        }
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "mizo_pop",
+          "name": "Mizo pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13435view2 Commons author/crop/CCBY2.5 verified; original byte and visual receipt retained.",
+          "fresh_review_ref": "turn13435view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13435view2"
+        ],
+        "fresh_rights_review": "Fresh turn13435view2 rights only; no new byte/visual claim."
+      },
+      "id": "mizo_pop",
+      "source_label": "mizo pop",
+      "suggested_id": "mizo_pop",
+      "allocation_ordinal": 1804,
+      "allocation_group_id": "073",
+      "source_url": "https://everynoise.com/engenremap-mizopop.html",
+      "status": "ready_for_independent_review",
+      "extras": {
+        "parent": "functionalSong",
+        "description": "Melodic singing and guitar accompaniment have a long-established place in Mizo popular music. Intimate acoustic songs coexist with fuller band and electronic productions, carrying themes of affection, everyday life and regional identity through a growing recorded repertoire.",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "exemplars": [
+          "Lalsangzuali Sailo",
+          "Rpa Ralte"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://etheses.durham.ac.uk/id/eprint/6376/",
+          "title": "Joanna Heath (2013), Lengkhawm Zai: A Singing Tradition of Mizo Christianity in Northeast India",
+          "checked_date": "2026-10-03",
+          "support_notes": "Original university research metadata freshly indexed13452search0; page116 original PDF freshly indexed13450search13 documents guitar-and-singer bands, radio dissemination and guitar in secular popular love songs. Direct PDF requests failed; indexed primary excerpt is the actual retrieval basis."
+        },
+        {
+          "url": "https://etheses.dur.ac.uk/6376/1/Thesis_Complete.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Original thesis page116, exact indexed query Mizo guitar6376. Distinguishes popular/love-song practice from Christian congregational style, rather than transferring church instrumentation into pop."
+        },
+        {
+          "url": "https://music.apple.com/us/album/tudang-ka-ngai-tawh-long-acoustic-version-single/1516710189",
+          "checked_date": "2026-10-03",
+          "support_notes": "Licensed contemporary RpaRalte pop acoustic edition fresh13453search2 corroborates continuing acoustic strand; not used to claim complete studio personnel or exact instruments."
+        }
+      ],
+      "geo": [
+        23.7271,
+        92.7176,
+        "Aizawl",
+        "South Asia"
+      ],
+      "geo_rationale": "Regional cultural centre in Mizoram; editorial field anchor rather than measured recording venue.",
+      "signature_tokens": [],
+      "model_policy": "Genre-level guitar-and-voice practice positively documented in original ethnographic research. Existing all-mahogany steel-string dreadnought and flatpicked accompaniment are representative authored construction/gesture, not measurements of a named Mizo performer. Headcount and tracking remain variable; one voice owner covers vocal contribution, one guitar owner covers the guitar ensemble. Functional harmonic song accompaniment is an authored representative setting; no exact meter, full song transcription or universal chord sequence claimed. Optional global tuning and recording gear omitted.",
+      "neighbor_distinction": "Mizo-language popular-song repertoire is a linguistic/regional field, overlapping Northeast Indian indie and Indian pop without being identical to their larger geographical or industry scopes. Mizo gospel is a devotional purpose subset; original research explicitly distinguishes secular popular love-song practice while acknowledging musical exchange. Zomi pop and other Northeast-language scenes have separate linguistic/community fields; no category distinction inferred from the acoustic preset alone.",
+      "classification_evidence": "Original ethnographic research identifies Mizo secular popular/love songs and their local radio/guitar-band practice; current licensed Mizo pop acoustic releases corroborate continuity. No exact creator membership claimed.",
+      "instrument_role_audit": {
+        "human_voice_ensemble_unspecified": "Sung Mizo popular-song voice contribution, variable headcount",
+        "acoustic_guitar_dread": "Representative acoustic guitar ensemble accompaniment"
+      },
+      "vocal_count_audit": {
+        "headcount": "Variable/unspecified",
+        "additional_voice_cards": 1
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Genre-level guitar-and-voice practice positively documented in original ethnographic research. Existing all-mahogany steel-string dreadnought and flatpicked accompaniment are representative authored construction/gesture, not measurements of a named Mizo performer. Headcount and tracking remain variable; one voice owner covers vocal contribution, one guitar owner covers the guitar ensemble. Functional harmonic song accompaniment is an authored representative setting; no exact meter, full song transcription or universal chord sequence claimed. Optional global tuning and recording gear omitted."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze",
+            "acoustic_technique": "acoustic_flatpicked"
+          },
+          "policy": "Genre-level guitar-and-voice practice positively documented in original ethnographic research. Existing all-mahogany steel-string dreadnought and flatpicked accompaniment are representative authored construction/gesture, not measurements of a named Mizo performer. Headcount and tracking remain variable; one voice owner covers vocal contribution, one guitar owner covers the guitar ensemble. Functional harmonic song accompaniment is an authored representative setting; no exact meter, full song transcription or universal chord sequence claimed. Optional global tuning and recording gear omitted."
+        }
+      ],
+      "prior_scope_hold_preserved": "/tmp/batch040/priority119-ledger.json: exact KirLehRawh TV recording palette remains unknown; this independent genre-practice profile does not reconstruct that master."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -1,0 +1,474 @@
+{
+  "entries": [
+    {
+      "source_label": "merida indie",
+      "source_url": "https://everynoise.com/engenremap-meridaindie.html",
+      "suggested_id": "merida_indie",
+      "allocation_ordinal": 3772,
+      "allocation_group_id": "151",
+      "id": "merida_indie",
+      "tradition": {
+        "id": "merida_indie",
+        "name": "Mérida Indie",
+        "family": "rock",
+        "lineage": "Mérida indie is the independent-music community of Mérida, Yucatán, built through local bands, DIY production, labels and regional festivals. Its varied approaches connect alternative rock, melodic pop and electronic textures within a shared local network.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "credited_synthesizer_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.alternative",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Layered singing and clean electric-guitar figures meet a firm bass-and-drum foundation, with keyboards and synthesizers adding harmonic colour. Clear melodic hooks, contrasting textures and dynamic changes connect intimate songwriting with energetic ensemble playing.",
+        "exemplars": [
+          "Princesa Cereza — Bugambilias"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        20.9674,
+        -89.5926,
+        "Mérida",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Actual organizer artist biography establishes Mérida, Yucatán; editorial city anchor, not inferred studio location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Mérida Indie is the locally organized independent-music community of Mérida, Yucatán, Mexico. First-person scene essay by musician, independent-label founder and festival organizer Alejandro J. Castilla documents several local generations, DIY production and regional touring; organizer Indie Fest biography explicitly locates Princesa Cereza in Mérida and its independent festival network. Exact creator playlist establishes the broad city corpus with Elviaje, Twin Machine-related community and numerous other acts; the selected band is not claimed present in its returned100 tracks. Positive first-party local practice and official album identity, not nationality alone, bridge the selected source. Existing Mexican Indie is a national field despite its representative Sadfields shoegaze trio; this local community overlaps and sits within it rather than replacing it. Mexican Rock expressly describes the historical Rock en tu Idioma lineage; that broader neighboring rock culture overlaps, but is not the same locally organized DIY network. Mérida here is neither the Spanish nor Venezuelan city. Different instrumentation, dates or a new artist do not establish the category; the independent local organizing/production history does.",
+      "classification_evidence": {
+        "note": "Mérida Indie is the locally organized independent-music community of Mérida, Yucatán, Mexico. First-person scene essay by musician, independent-label founder and festival organizer Alejandro J. Castilla documents several local generations, DIY production and regional touring; organizer Indie Fest biography explicitly locates Princesa Cereza in Mérida and its independent festival network. Exact creator playlist establishes the broad city corpus with Elviaje, Twin Machine-related community and numerous other acts; the selected band is not claimed present in its returned100 tracks. Positive first-party local practice and official album identity, not nationality alone, bridge the selected source. Existing Mexican Indie is a national field despite its representative Sadfields shoegaze trio; this local community overlaps and sits within it rather than replacing it. Mexican Rock expressly describes the historical Rock en tu Idioma lineage; that broader neighboring rock culture overlaps, but is not the same locally organized DIY network. Mérida here is neither the Spanish nor Venezuelan city. Different instrumentation, dates or a new artist do not establish the category; the independent local organizing/production history does."
+      },
+      "model_policy": "Genre-level melodic independent-band realization with layered group singing, guitar, bass, drums, keyboards and synthesizers. Physical defaults are retained coherent choices; no exact performer count, recorded gear or overdub configuration is asserted. A controlled reflective live room supplies a general recording environment.",
+      "source_scope_limitation": "Genre practice is supported by firsthand local-scene and organizer evidence, with the retained complete album credits documenting one relevant ensemble branch. Album-specific personnel and limits remain research evidence rather than a restriction of the whole genre.",
+      "vocal_count_audit": {
+        "named_singer_count": 3,
+        "named_performing_people_album_union": 5,
+        "decision": "Julio, Uriel and Ángel all explicitly credited voice in full official album; Christian guest bass/guitar retained; producer not counted as performer."
+      },
+      "instrument_role_audit": {
+        "scope": "Whole nine-track Bugambilias official artist-channel album upload published7July2022, not the earlier Ricardo Alcaraz source or later2025 lineup. Full issuer credits Julio César Vidaña Chay voice/guitar/synthesizers; Uriel Lechuga Rodríguez bass/guitar/voice; Ángel Nexticapan Belman keyboards/synthesizers/voice; Héctor de la Victoria Granados drums; Christian Cervera guest bass/guitar tracks1–5. Five credited performing people, three named vocal contributors and six instrument families retained as album-union palette, not claim all play on every track. Producer Víctor Rivas Durán is not invented as an extra performer. Full official upload description independently inspected; audio not auditioned.",
+        "roles": {
+          "voice": "Julio, Uriel, Ángel",
+          "electric_guitar_humbucker": "Julio, Uriel, guest Christian; guitar subtype authored",
+          "electric_bass": "Uriel, guest Christian",
+          "drum_kit": "Héctor",
+          "electronic_keyboard_unspecified": "Ángel keyboards, mechanism unknown",
+          "credited_synthesizer_unspecified": "Julio and Ángel synthesizers, mechanism unknown"
+        },
+        "authored_defaults": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation."
+        }
+      ],
+      "flat_pin_resolution": "All applicable owning parts checked through original family merger; any flat shared-key incompatibility must remain explicitly disclosed rather than pretend protected.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "credited_synthesizer_unspecified"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=pHu5C9ZPcBs",
+          "support_notes": "Fresh indexed official artist description13011youtube12/13015youtube0 full9tracks/five performers/three voices/six roles. Actual unmodified successful response saved merida-full-roster-primary-raw024.json. No audio audition."
+        },
+        {
+          "url": "https://www.lajornadamaya.mx/opinion/216395/la-escena-indie-en-merida-indie-fest-yucatan-2023",
+          "support_notes": "Fresh full13025view0 signed firsthand essay, author festival organizer/label founder/local musician, history/generations and broad DIY community; explicit Princesa Cereza festival participation."
+        },
+        {
+          "url": "https://indiefest.lacaverna.net/team-member/princesa-cereza/",
+          "support_notes": "Fresh13028view0 actual festival organizer biography: band origin Mérida, four-person core; not a replacement for fuller album guest/voice credits."
+        },
+        {
+          "url": "https://marvin.com.mx/princesa-cereza-entrega-su-album-bugambilias/",
+          "support_notes": "Fresh13013view0 artist direct quotes regarding indie-rock influences, firstMérida show and exact fullalbum link8."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2X8MrKHJ9IwS4nIg2K4NTl",
+          "support_notes": "Fresh13015view0 exact creator full100 city corpus recovered from actual older map link2. Selected artist membership not claimed; positive local primary practice is independent."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "merida_indie",
+          "name": "Mérida Indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Princesa Cereza, the album session or specific instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12951view0 confirms CC BY2.5 Iain Fergusson/Binksternet; historical023 bytes/visual unchanged.",
+          "fresh_review_ref": "turn12951view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12951view0"
+        ],
+        "fresh_rights_review": "Fresh12951view0 rights/context only, no new byte download."
+      },
+      "status": "genre_repair_pending_independent_review",
+      "verification_status": "New complete official album route verified; actual original importing/rendering pending.",
+      "primary_retrieval_refs": [
+        "turn13015youtube0",
+        "turn13025view0",
+        "turn13028view0",
+        "turn13013view0",
+        "turn13015view0"
+      ],
+      "render_audit": {
+        "runtime": "/workspace/genre-continuation/repairs-20261003/recover024/queued-merida-indie-runtime.json",
+        "controls": "/workspace/genre-continuation/repairs-20261003/recover024/queued-merida-indie-controls.json",
+        "review": "All four actual formats read, parity and1000-character ceiling pass. Generic rhythmic/vocal descriptors suit the energetic indie-band realization; no measured source BPM or exact album acoustics asserted."
+      },
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-18.json",
+        "original_sha256": "60ea817d92c2f90b01c196801615b85e29cea55dd9ab6ea0a220b6d118fdfe17",
+        "before": {
+          "tradition": {
+            "id": "merida_indie",
+            "name": "Mérida Indie",
+            "family": "rock",
+            "lineage": "Whole nine-track Bugambilias official artist-channel album upload published7July2022, not the earlier Ricardo Alcaraz source or later2025 lineup. Full issuer credits Julio César Vidaña Chay voice/guitar/synthesizers; Uriel Lechuga Rodríguez bass/guitar/voice; Ángel Nexticapan Belman keyboards/synthesizers/voice; Héctor de la Victoria Granados drums; Christian Cervera guest bass/guitar tracks1–5. Five credited performing people, three named vocal contributors and six instrument families retained as album-union palette, not claim all play on every track. Producer Víctor Rivas Durán is not invented as an extra performer. Full official upload description independently inspected; audio not auditioned. A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified",
+              "credited_synthesizer_unspecified"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_syllabic_singing",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal",
+              "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "distortedRock.alternative",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Whole nine-track Bugambilias official artist-channel album upload published7July2022, not the earlier Ricardo Alcaraz source or later2025 lineup. Full issuer credits Julio César Vidaña Chay voice/guitar/synthesizers; Uriel Lechuga Rodríguez bass/guitar/voice; Ángel Nexticapan Belman keyboards/synthesizers/voice; Héctor de la Victoria Granados drums; Christian Cervera guest bass/guitar tracks1–5. Five credited performing people, three named vocal contributors and six instrument families retained as album-union palette, not claim all play on every track. Producer Víctor Rivas Durán is not invented as an extra performer. Full official upload description independently inspected; audio not auditioned. Mérida Indie is the locally organized independent-music community of Mérida, Yucatán, Mexico. First-person scene essay by musician, independent-label founder and festival organizer Alejandro J. Castilla documents several local generations, DIY production and regional touring; organizer Indie Fest biography explicitly locates Princesa Cereza in Mérida and its independent festival network. Exact creator playlist establishes the broad city corpus with Elviaje, Twin Machine-related community and numerous other acts; the selected band is not claimed present in its returned100 tracks. Positive first-party local practice and official album identity, not nationality alone, bridge the selected source. Existing Mexican Indie is a national field despite its representative Sadfields shoegaze trio; this local community overlaps and sits within it rather than replacing it. Mexican Rock expressly describes the historical Rock en tu Idioma lineage; that broader neighboring rock culture overlaps, but is not the same locally organized DIY network. Mérida here is neither the Spanish nor Venezuelan city. Different instrumentation, dates or a new artist do not establish the category; the independent local organizing/production history does. A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation.",
+            "exemplars": [
+              "Princesa Cereza — Bugambilias, complete nine-track2022 artist-issued album"
+            ],
+            "crossRefs": []
+          }
+        },
+        "reason": "User-authorized genre-level repair: move album/personnel/gear/audit prose to evidence; retain supported characteristic voice, guitar, bass, drums, keyboard and synthesizer roles. Neutral keyboard/synth controls remain honest editable roles, not mandatory exact equipment. General controlled live room replaces studio-album-specific hall reinterpretation.",
+        "default_review": "All existing physical and vocal controls retained; modern moderate-gain guitar/bass/drum and neutral keyboard/synth palette suits source-supported regional independent band practice. No fixed five-person or exact overdub requirement.",
+        "prior_model_policy": "A coherent authored modern electric-guitar rendition represents the generic credited guitars; electric subtype, alder construction, short scale, moderate humbuckers, nickel strings and clean strumming are not claimed measured source gear. Fretted long-scale soapbar bass with locked fingerstyle and maple drum kit with coated heads, single felt pedal and traditionally finished B20 cymbals are authored. Source keyboard and synthesizer architectures remain neutral and separate rather than inventing piano/organ/analog circuitry. Three named vocal contributors are retained in an authored group ensemble and ensemble stack; exact original overdub counts and physiological traits unspecified. A spacious hall-like concert rendition is authored in keeping with documented festival performance practice; it does not claim that this studio album was recorded in a hall, or measure the original tempo. Alternative/indie-rock parent follows the band’s own rock-indie influences and its alternative festival practice, not merely the availability of notation.",
+        "prior_source_scope_limitation": "Whole nine-track Bugambilias official artist-channel album upload published7July2022, not the earlier Ricardo Alcaraz source or later2025 lineup. Full issuer credits Julio César Vidaña Chay voice/guitar/synthesizers; Uriel Lechuga Rodríguez bass/guitar/voice; Ángel Nexticapan Belman keyboards/synthesizers/voice; Héctor de la Victoria Granados drums; Christian Cervera guest bass/guitar tracks1–5. Five credited performing people, three named vocal contributors and six instrument families retained as album-union palette, not claim all play on every track. Producer Víctor Rivas Durán is not invented as an extra performer. Full official upload description independently inspected; audio not auditioned.",
+        "prior_render_audit": {
+          "formats": [
+            "rich",
+            "prose",
+            "tags",
+            "compact"
+          ],
+          "source_palette_retained": true,
+          "editorial_room": "Source-supported festival practice permits a candid authored hall-like rendition; not a claim about studio recording location. Original physical pins unchanged.",
+          "literal_review": "Spatial huge/immense/stereophonic/widescreen and generic rock gesture/affect labels retain all six families; no nursery-rhyme or unrelated cultural identity.",
+          "runtime_file": "/tmp/batch040/resume024-18-runtime024.json"
+        }
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "genre_repair_pending_independent_review"
+}

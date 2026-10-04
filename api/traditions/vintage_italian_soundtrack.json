@@ -1,0 +1,225 @@
+{
+  "id": "vintage_italian_soundtrack",
+  "name": "Vintage Italian Soundtrack",
+  "family": "global",
+  "lineage": "Vintage Italian soundtrack music draws on the film and studio archives of the 1960s–80s, where jazz, orchestral writing, pop, funk and psychedelic textures served comedy, crime, horror and other screen genres. Reissue and licensing communities around CAM Sugar and Sonor Music Editions have renewed circulation of this repertoire. Alongside orchestral scores, studio groups such as I Marc 4 supplied compact, groove-led themes built from guitar, organ, bass and drums.",
+  "recipe": "classic mid-1960s vintage italian soundtrack, groove Percussion, funk percussive branch, art music khmer pinpeat royal-court ensemble canadian contemporary classical. alnico nickel clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato tonewheel organ. treated studio.",
+  "recipe_chars": 491,
+  "score": 71.765,
+  "config": {
+    "traditions": [
+      "vintage_italian_soundtrack",
+      "khmer_pinpeat",
+      "canadian_contemporary_classical"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 3.625,
+          "amp_make": 0,
+          "body_wood": 0.75,
+          "neck_wood": 0.135,
+          "fretboard": 0.78,
+          "pickup_magnet": 2.65,
+          "string_material": 2.045,
+          "string_gauge": 1.2599999999999998,
+          "bridge": 1.8199999999999998,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.845,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.75,
+          "pickup_config": 0,
+          "string_type": 0.42,
+          "scale_length_b": 0.8300000000000001,
+          "fretted_or_not": 1.59,
+          "bass_technique": 6.8999999999999995,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 3.78,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 1.69,
+          "shell_thickness": 0.51,
+          "bearing_edges": 0.975,
+          "snare_wires": 0.42,
+          "cymbal_alloy": 4.260000000000001,
+          "cymbal_hammering": 4.5200000000000005,
+          "cymbal_lathing": 4.505,
+          "cymbal_finish": 2
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 6.994999999999999,
+          "drawbar_setting": 4.335000000000001,
+          "rotary_speed": -0.07,
+          "percussion_setting": 3.25,
+          "tonewheel_model": 9.695,
+          "leslie_cabinet_model": 5.65
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning",
+        "single_coil_pickup_construction"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "tonewheel_organ": [
+        "keyboard_technique",
+        "drawbar_setting",
+        "rotary_speed",
+        "percussion_setting",
+        "tonewheel_model",
+        "leslie_cabinet_model"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning",
+      "single_coil_pickup_construction": "single_coil_construction_unspecified",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "keyboard_technique": "keyboard_ostinato_groove",
+      "drawbar_setting": "jazz_drawbars",
+      "rotary_speed": "slow_chorale",
+      "percussion_setting": "percussion_on_short",
+      "tonewheel_model": "tonewheel_hammond_b3",
+      "leslie_cabinet_model": "leslie_122_canonical"
+    },
+    "pin_parts": true
+  }
+}

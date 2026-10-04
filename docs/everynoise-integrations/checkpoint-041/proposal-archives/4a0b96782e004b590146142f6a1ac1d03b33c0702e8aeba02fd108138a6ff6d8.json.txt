@@ -1,0 +1,228 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "drill_chileno",
+        "name": "Drill Chileno",
+        "family": "hip_hop",
+        "lineage": "Chilean drill developed within the country’s rap and urban-music networks as artists adapted an international hip-hop style to local voices and stories. Musicians move between drill, trap and other approaches, with independent beatmakers and online releases connecting the scene.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rapped phrases work against producer-built drill beats, giving rhythm, delivery and personal narrative a central role. Chilean vocabulary and local experience shape the verses, while collaborative studio production links performers to a wider urban scene.",
+        "exemplars": [
+          "Sirena DLR",
+          "Cooking Flow",
+          "DAYTONA03"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "drill_chileno",
+          "name": "Drill Chileno",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rapped-verse and produced-beat practice, not reconstruction of the earlier held compilation or any complete commercial recording. Sirena DLR directly identifies her move from rap into drill; a producer-issued Chilean-drill type beat supplies independent positive production-role evidence. Neutral beat preserves unknown hardware and sample/synthesis architecture; no live band, DJ mechanism or fixed source headcount invented. One unprocessed rapper and controlled dry studio are editable authored choices, not a universal rule or an assertion that all Chilean drill excludes singing."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rapped-verse and produced-beat practice, not reconstruction of the earlier held compilation or any complete commercial recording. Sirena DLR directly identifies her move from rap into drill; a producer-issued Chilean-drill type beat supplies independent positive production-role evidence. Neutral beat preserves unknown hardware and sample/synthesis architecture; no live band, DJ mechanism or fixed source headcount invented. One unprocessed rapper and controlled dry studio are editable authored choices, not a universal rule or an assertion that all Chilean drill excludes singing."
+        }
+      ],
+      "source_label": "drill chileno",
+      "source_url": "https://everynoise.com/engenremap-drillchileno.html",
+      "suggested_id": "drill_chileno",
+      "allocation_ordinal": 272,
+      "allocation_group_id": "011",
+      "id": "drill_chileno",
+      "status": "ready_for_independent_review",
+      "geo": [
+        -33.4489,
+        -70.6693,
+        "Santiago",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Representative Chilean urban-scene anchor, not an exclusive origin or exact source studio.",
+      "signature_tokens": [],
+      "model_policy": "Representative rapped-verse and produced-beat practice, not reconstruction of the earlier held compilation or any complete commercial recording. Sirena DLR directly identifies her move from rap into drill; a producer-issued Chilean-drill type beat supplies independent positive production-role evidence. Neutral beat preserves unknown hardware and sample/synthesis architecture; no live band, DJ mechanism or fixed source headcount invented. One unprocessed rapper and controlled dry studio are editable authored choices, not a universal rule or an assertion that all Chilean drill excludes singing.",
+      "neighbor_distinction": "Full Rap Chileno is the national rap umbrella and is not restricted to DJ Raff’s selected 1990s performance. Full Trap Chileno includes dark sparse production, local slang, melodic delivery and urban networks; those shared traits alone do not distinguish this entry. The narrower drill intersection is positively named by the Chilean practitioner as a separate rhythm/style she adopted, and separately published by a beatmaker as drill chileno. It overlaps trap and transnational drill without equating either entire field with this regional branch or claiming unique hardware. Broader Latin/Spanish drill scopes do not erase the documented Chilean intersection.",
+      "classification_evidence": "Full Rap Chileno is the national rap umbrella and is not restricted to DJ Raff’s selected 1990s performance. Full Trap Chileno includes dark sparse production, local slang, melodic delivery and urban networks; those shared traits alone do not distinguish this entry. The narrower drill intersection is positively named by the Chilean practitioner as a separate rhythm/style she adopted, and separately published by a beatmaker as drill chileno. It overlaps trap and transnational drill without equating either entire field with this regional branch or claiming unique hardware. Broader Latin/Spanish drill scopes do not erase the documented Chilean intersection.",
+      "source_scope_limitation": "Representative rapped-verse and produced-beat practice, not reconstruction of the earlier held compilation or any complete commercial recording. Sirena DLR directly identifies her move from rap into drill; a producer-issued Chilean-drill type beat supplies independent positive production-role evidence. Neutral beat preserves unknown hardware and sample/synthesis architecture; no live band, DJ mechanism or fixed source headcount invented. One unprocessed rapper and controlled dry studio are editable authored choices, not a universal rule or an assertion that all Chilean drill excludes singing.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Firsthand Sirena DLR discusses rapping and subsequent drill practice; representative rapped branch."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "DAYTONA03 own publisher indexed Chilean sample-drill type-beat release; broader local producer interviews corroborate separately produced beats for rappers. Unknown mechanism retained."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored lead rapper with produced accompaniment",
+        "no_exact_recording_reconstruction": true
+      },
+      "sources": [
+        {
+          "url": "https://www.puroperiodismo.cl/sirena-dlr-y-el-dificil-posicionamiento-femenino-en-la-escena-urbana-chilena-nosotras-nos-hemos-ganado-nuestro-puesto-y-se-ha-notado-con-el-tiempo/",
+          "primary": true,
+          "evidence_ref": "turn13758view1 / turn13759view0",
+          "supports": "Firsthand Chilean practitioner explicitly discusses rap and moving into trap and drill at a local studio; national urban community context."
+        },
+        {
+          "url": "https://soundcloud.com/daytona03/salvaje",
+          "primary": true,
+          "evidence_ref": "turn13756search6",
+          "supports": "Own producer-issued sample drill chileno type beat; full indexed title and tags reproduced. Direct open later restricted, no audio audition or exact original instrument reconstruction claimed."
+        },
+        {
+          "url": "https://drill2day.webnode.cl/",
+          "primary": true,
+          "evidence_ref": "turn13756view0 / turn13758view0",
+          "supports": "Firsthand Chilean beatmakers and rappers describe independent beat production and recording. Site title does not prove every interviewed artist is drill; used only for broader local production practice."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

@@ -1,0 +1,252 @@
+{
+  "entries": [
+    {
+      "source_label": "indie cristao",
+      "source_url": "https://everynoise.com/engenremap-indiecristao.html",
+      "suggested_id": "indie_cristao",
+      "allocation_ordinal": 3474,
+      "allocation_group_id": "139",
+      "id": "indie_cristao",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "indie_cristao",
+        "name": "Indie Cristão",
+        "family": "vernacular",
+        "lineage": "Paulo Nazareth — complete Na Casa episode32, issued21March2023 by O Canto das Igrejas. The producer lists all three songs (Motivos Sem Fim Pra Cantar, Não É Mais Segredo, Boa Companhia) and credits Paulo alone for voice and acoustic guitar. One person, one singer, two musical families across the complete programme. Capture/mix and directing personnel are production credits, not additional performers. This is the separately issued complete voice-and-guitar programme, not a reduced reconstruction of the studio songs or the multi-artist playlist recording. The last chapter begins11:09; no unsupported total duration is asserted. Broad functionalSong represents a newly authored functional-harmonic verse-chorus-bridge song realization, not a measured transcription of all three performances. Complete source voice and violão are retained. Source-unspecified guitar construction is realized as an Engelmann-spruce/rosewood steel-string dreadnought with80/20bronze strings, standard tuning and open chordal strumming; these are editorial physical choices, not identified Paulo equipment. One accompanied singer uses neutral source-unspecified physiology/training and explicitly authored small-note-groups per syllable. Controlled live-room acoustics are authored; no global tuning, capture apparatus, additional singers or backing instruments are inferred. Rendered up-tempo and cheery cues describe a deliberately brisk, light authored rendition, not measured original tempo or the entire scene.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Paulo Nazareth — complete Na Casa episode32, issued21March2023 by O Canto das Igrejas. The producer lists all three songs (Motivos Sem Fim Pra Cantar, Não É Mais Segredo, Boa Companhia) and credits Paulo alone for voice and acoustic guitar. One person, one singer, two musical families across the complete programme. Capture/mix and directing personnel are production credits, not additional performers. This is the separately issued complete voice-and-guitar programme, not a reduced reconstruction of the studio songs or the multi-artist playlist recording. The last chapter begins11:09; no unsupported total duration is asserted. Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made. Broad functionalSong represents a newly authored functional-harmonic verse-chorus-bridge song realization, not a measured transcription of all three performances. Complete source voice and violão are retained. Source-unspecified guitar construction is realized as an Engelmann-spruce/rosewood steel-string dreadnought with80/20bronze strings, standard tuning and open chordal strumming; these are editorial physical choices, not identified Paulo equipment. One accompanied singer uses neutral source-unspecified physiology/training and explicitly authored small-note-groups per syllable. Controlled live-room acoustics are authored; no global tuning, capture apparatus, additional singers or backing instruments are inferred. Rendered up-tempo and cheery cues describe a deliberately brisk, light authored rendition, not measured original tempo or the entire scene.",
+        "exemplars": [
+          "Paulo Nazareth — Na Casa32 complete three-song programme"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -22.8833,
+        -43.1036,
+        "Niterói",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Artist own Spotify biography explicitly identifies Niterói origin; editorial artist-origin anchor, not claimed programme recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made.",
+      "classification_evidence": "Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made.",
+      "model_policy": "Broad functionalSong represents a newly authored functional-harmonic verse-chorus-bridge song realization, not a measured transcription of all three performances. Complete source voice and violão are retained. Source-unspecified guitar construction is realized as an Engelmann-spruce/rosewood steel-string dreadnought with80/20bronze strings, standard tuning and open chordal strumming; these are editorial physical choices, not identified Paulo equipment. One accompanied singer uses neutral source-unspecified physiology/training and explicitly authored small-note-groups per syllable. Controlled live-room acoustics are authored; no global tuning, capture apparatus, additional singers or backing instruments are inferred. Rendered up-tempo and cheery cues describe a deliberately brisk, light authored rendition, not measured original tempo or the entire scene.",
+      "source_scope_limitation": "Paulo Nazareth — complete Na Casa episode32, issued21March2023 by O Canto das Igrejas. The producer lists all three songs (Motivos Sem Fim Pra Cantar, Não É Mais Segredo, Boa Companhia) and credits Paulo alone for voice and acoustic guitar. One person, one singer, two musical families across the complete programme. Capture/mix and directing personnel are production credits, not additional performers. This is the separately issued complete voice-and-guitar programme, not a reduced reconstruction of the studio songs or the multi-artist playlist recording. The last chapter begins11:09; no unsupported total duration is asserted.",
+      "source_retrieval_caveat": "Complete official producer YouTube description independently reproduced through native indexed title query; direct video fetch unavailable and no audio audition claimed. Creator full100 playlist and firsthand interview retrieved directly. Artist own biography indexed; printed credit closure, not inferred visual instrumentation.",
+      "vocal_count_audit": {
+        "count": 1,
+        "basis": "Producer explicitly credits Paulo Nazareth alone for voice and guitar across the whole three-song episode."
+      },
+      "instrument_role_audit": {
+        "voice": "Paulo Nazareth sole credited singer.",
+        "acoustic_guitar_dread": "Paulo Nazareth violão; exact dreadnought construction and strumming authored, not measured."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad functionalSong represents a newly authored functional-harmonic verse-chorus-bridge song realization, not a measured transcription of all three performances. Complete source voice and violão are retained. Source-unspecified guitar construction is realized as an Engelmann-spruce/rosewood steel-string dreadnought with80/20bronze strings, standard tuning and open chordal strumming; these are editorial physical choices, not identified Paulo equipment. One accompanied singer uses neutral source-unspecified physiology/training and explicitly authored small-note-groups per syllable. Controlled live-room acoustics are authored; no global tuning, capture apparatus, additional singers or backing instruments are inferred. Rendered up-tempo and cheery cues describe a deliberately brisk, light authored rendition, not measured original tempo or the entire scene."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Broad functionalSong represents a newly authored functional-harmonic verse-chorus-bridge song realization, not a measured transcription of all three performances. Complete source voice and violão are retained. Source-unspecified guitar construction is realized as an Engelmann-spruce/rosewood steel-string dreadnought with80/20bronze strings, standard tuning and open chordal strumming; these are editorial physical choices, not identified Paulo equipment. One accompanied singer uses neutral source-unspecified physiology/training and explicitly authored small-note-groups per syllable. Controlled live-room acoustics are authored; no global tuning, capture apparatus, additional singers or backing instruments are inferred. Rendered up-tempo and cheery cues describe a deliberately brisk, light authored rendition, not measured original tempo or the entire scene."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "note": "Existing voice and acoustic guitar owners only; no shared definitions changed."
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable voice and guitar parts explicitly pinned; no shared-key conflict or unpinned fallback."
+      },
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=GZ5qlz8N8BE",
+          "title": "Official producer whole Na Casa32",
+          "support_notes": "Paulo Nazareth — complete Na Casa episode32, issued21March2023 by O Canto das Igrejas. The producer lists all three songs (Motivos Sem Fim Pra Cantar, Não É Mais Segredo, Boa Companhia) and credits Paulo alone for voice and acoustic guitar. One person, one singer, two musical families across the complete programme. Capture/mix and directing personnel are production credits, not additional performers. This is the separately issued complete voice-and-guitar programme, not a reduced reconstruction of the studio songs or the multi-artist playlist recording. The last chapter begins11:09; no unsupported total duration is asserted.",
+          "retrieval_ref": "turn12475youtube12"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5Ly1Hq4HqgMOtjLjjzOgXO?theme=0",
+          "title": "Creator Indie Cristão full playlist",
+          "support_notes": "Paulo item3 and Eli19; selected same composition in a different one-person rendition, no transfer of studio guest singers.",
+          "retrieval_ref": "turn12467view1"
+        },
+        {
+          "url": "https://cristaodiferentao.wordpress.com/2019/01/02/entrevista-poeta-demais-para-os-crentes-crente-demais-para-os-poetas/",
+          "title": "Eli Abraham firsthand community interview",
+          "support_notes": "Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made.",
+          "retrieval_ref": "turn12467view0"
+        },
+        {
+          "url": "https://open.spotify.com/artist/7n7vXH3wFK9kCqV0m5KA40",
+          "title": "Artist own biography",
+          "support_notes": "Explicit Niterói origin and poetic lived-experience songwriting; indexed full biography.",
+          "retrieval_ref": "turn12484search0"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_cristao",
+          "name": "Indie Cristão",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Paulo Nazareth, a guitar depiction or actual Na Casa equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12477view0 confirms Iain Fergusson/Binksternet CC BY2.5 and existing crop; exact023 historical bytes/visual receipt retained.",
+          "fresh_review_ref": "turn12477view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12477view0"
+        ]
+      },
+      "verification_status": "Original author preflight:22 applicable protected parts, zero fallbacks,1638 original owners unchanged, four browser/connector formats identical and within1000 characters; independent review pending."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

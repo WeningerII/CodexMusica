@@ -1,0 +1,229 @@
+{
+  "entries": [
+    {
+      "source_label": "hip hop mauritanien",
+      "source_url": "https://everynoise.com/engenremap-hiphopmauritanien.html",
+      "suggested_id": "hip_hop_mauritanien",
+      "allocation_ordinal": 316,
+      "allocation_group_id": "013",
+      "id": "hip_hop_mauritanien",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "hip_hop_mauritanien",
+        "name": "Hip Hop Mauritanien",
+        "family": "hip_hop",
+        "lineage": "Mauritanian hip hop \u2014 a multilingual urban movement shaped by Senegalese and international rap from the 1990s, local production networks and the Assalamalekoum festival.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Mauritanian hip hop developed through youth networks linking Nouakchott with Senegal and wider international rap. Rhythmic spoken delivery and produced beats carry social commentary, local identity and contemporary concerns across the country\u2019s languages. Independent studios, discovery competitions and Assalamalekoum have helped connect performers, producers and audiences across regional communities.",
+        "exemplars": [
+          "Monza",
+          "La Rue Publik",
+          "Adviser"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        18.08,
+        -15.98,
+        "Nouakchott",
+        "Africa"
+      ],
+      "geo_rationale": "Documented national production and festival hub, not sole musical origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://africultures.com/le-vrai-debat-cest-daccepter-lidentite-nationale-dans-sa-diversite-12478/",
+          "title": "Firsthand interview with rapper/producer Monza",
+          "support_notes": "Fresh13520view2 founder describes 1990s national rap history, Senegalese influence, contemporary rapping over beats and his four-time rhythmic approach with Mauritanian musical identity."
+        },
+        {
+          "url": "https://assalamalekoum.com/programme.pdf",
+          "title": "Assalamalekoum original2016 programme",
+          "support_notes": "Fresh13520view1 original organizer identifies national hip-hop network across six cities, recording/preproduction workshops and computer-assisted music workshops with DJ Nash. Guest-country musicians are not falsely counted as a Mauritanian recording lineup."
+        }
+      ],
+      "neighbor_distinction": "This is Mauritania\u2019s national hip-hop community, not the whole national Musique Mauritanienne field, whose existing entry represents azawan-derived popular ensemble music. Senegalese rap is an acknowledged foundational influence, while local production institutions, multilingual communities and national networks establish a distinct regional field. Maghreb\u2019s older popular-music umbrella is not identical to this rap movement; no claim of unique physical instrumentation or sonic isolation.",
+      "model_policy": "Representative rapper-over-produced-beat practice from the founder\u2019s explicit account of rapping over beats and the original national festival\u2019s music-production training. Retains both rap and the backing production role. Existing credited beat owner deliberately leaves production mechanism unspecified: no invented sampler, synthesizer, drum-machine model, sample inventory or complete-master playback shortcut. One lead MC and moderate rhythmic spoken delivery are authored representative choices, not an exact concert headcount or source physiology; controlled studio capture is authored. This is not a reconstruction of Monza\u2019s full discography or the multi-act festival.",
+      "source_scope_limitation": "Genre-level practice. Backing production architecture, exact sound layers and player/singer headcount are unknown and not invented. Additional singing, acoustic fusions and DJ configurations can occur elsewhere in the genre.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "count_basis": "Authored representative lead rapper, not exact source concert count."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Rhythmic rap lead"
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "role": "Produced beat backing, mechanism unspecified"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rapper-over-produced-beat practice from the founder\u2019s explicit account of rapping over beats and the original national festival\u2019s music-production training. Retains both rap and the backing production role. Existing credited beat owner deliberately leaves production mechanism unspecified: no invented sampler, synthesizer, drum-machine model, sample inventory or complete-master playback shortcut. One lead MC and moderate rhythmic spoken delivery are authored representative choices, not an exact concert headcount or source physiology; controlled studio capture is authored. This is not a reconstruction of Monza\u2019s full discography or the multi-act festival."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rapper-over-produced-beat practice from the founder\u2019s explicit account of rapping over beats and the original national festival\u2019s music-production training. Retains both rap and the backing production role. Existing credited beat owner deliberately leaves production mechanism unspecified: no invented sampler, synthesizer, drum-machine model, sample inventory or complete-master playback shortcut. One lead MC and moderate rhythmic spoken delivery are authored representative choices, not an exact concert headcount or source physiology; controlled studio capture is authored. This is not a reconstruction of Monza\u2019s full discography or the multi-act festival."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable owning controls protected; no shared key conflicts."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "hip_hop_mauritanien",
+          "name": "Hip Hop Mauritanien",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13451view0 confirms file-specific CC BY2.5 and Iain Fergusson/Binksternet attribution. Exact inherited historical byte/dimension/visual receipt retained; no fresh transfer claimed.",
+          "fresh_review_ref": "turn13451view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh Commons turn9713view1 confirms attribution and CC BY 2.5; LOW generic recording context only.",
+        "fresh_rights_retrieval_refs": [
+          "turn13451view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

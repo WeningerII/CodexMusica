@@ -1,0 +1,381 @@
+{
+  "entries": [
+    {
+      "source_label": "sambalpuri pop",
+      "source_url": "https://everynoise.com/engenremap-sambalpuripop.html",
+      "suggested_id": "sambalpuri_pop",
+      "allocation_ordinal": 1867,
+      "allocation_group_id": "075",
+      "id": "sambalpuri_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "sambalpuri_pop",
+        "name": "Sambalpuri Pop",
+        "family": "pop",
+        "lineage": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified. Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified. Sambalpuri Pop is the western-Odisha Sambalpuri-language popular recording field, with both older recorded folk hits and contemporary digital song releases. Exact creator100-track roster positively includes the original Rangabati by Jitendriya Haripal and Krishna Patel at35 and61 alongside newer regional artists. The verified adaptation issuer explicitly identifies that original recording and its Sambalpur origin, closing the repertoire bridge without claiming the remake artists themselves occur in the current creator roster. Existing odia_pop already spans Odisha broadcasting, films, cassette albums and contemporary videos; Sambalpuri is an overlapping narrower regional-language community, not a claim the broader Odia field excludes it. The narrower regional institutional presence is independently documented by All India Radio Sambalpur maintaining an expressly Sambalpuri music artist category. Existing desi_pop describes the broader national non-film market, and odia_bhajan the specifically devotional-purpose field; neither is synonymous with this regional popular-song field. The chosen mixed-language contemporary arrangement is one branch, not evidence all Sambalpuri pop uses Tamil rap or this instrumentation. Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem.",
+        "exemplars": [
+          "Rangabati — complete Coke Studio India2015 bilingual performance"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        21.4669,
+        83.9812,
+        "Sambalpur",
+        "South Asia"
+      ],
+      "geo_rationale": "Editorial regional-repertoire anchor explicitly named by issuer and AIR Sambalpur; original mixing/mastering took place in Mumbai, not a claimed Sambalpur session.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Sambalpuri Pop is the western-Odisha Sambalpuri-language popular recording field, with both older recorded folk hits and contemporary digital song releases. Exact creator100-track roster positively includes the original Rangabati by Jitendriya Haripal and Krishna Patel at35 and61 alongside newer regional artists. The verified adaptation issuer explicitly identifies that original recording and its Sambalpur origin, closing the repertoire bridge without claiming the remake artists themselves occur in the current creator roster. Existing odia_pop already spans Odisha broadcasting, films, cassette albums and contemporary videos; Sambalpuri is an overlapping narrower regional-language community, not a claim the broader Odia field excludes it. The narrower regional institutional presence is independently documented by All India Radio Sambalpur maintaining an expressly Sambalpuri music artist category. Existing desi_pop describes the broader national non-film market, and odia_bhajan the specifically devotional-purpose field; neither is synonymous with this regional popular-song field. The chosen mixed-language contemporary arrangement is one branch, not evidence all Sambalpuri pop uses Tamil rap or this instrumentation.",
+      "classification_evidence": "Sambalpuri Pop is the western-Odisha Sambalpuri-language popular recording field, with both older recorded folk hits and contemporary digital song releases. Exact creator100-track roster positively includes the original Rangabati by Jitendriya Haripal and Krishna Patel at35 and61 alongside newer regional artists. The verified adaptation issuer explicitly identifies that original recording and its Sambalpur origin, closing the repertoire bridge without claiming the remake artists themselves occur in the current creator roster. Existing odia_pop already spans Odisha broadcasting, films, cassette albums and contemporary videos; Sambalpuri is an overlapping narrower regional-language community, not a claim the broader Odia field excludes it. The narrower regional institutional presence is independently documented by All India Radio Sambalpur maintaining an expressly Sambalpuri music artist category. Existing desi_pop describes the broader national non-film market, and odia_bhajan the specifically devotional-purpose field; neither is synonymous with this regional popular-song field. The chosen mixed-language contemporary arrangement is one branch, not evidence all Sambalpuri pop uses Tamil rap or this instrumentation.",
+      "model_policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem.",
+      "source_scope_limitation": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified.",
+      "source_retrieval_caveat": "Complete verified issuer descriptions retrieved through indexed primary YouTube results and saved verbatim tool response; direct YouTube retrieval fails. Creator playlist directly retrieved. No audio audition or measured source transcription asserted.",
+      "vocal_count_audit": {
+        "named_leads": [
+          "Sona Mohapatra",
+          "Rituraj Mohanty"
+        ],
+        "named_rappers": [
+          "Tony Sebastian",
+          "Rajesh Radhakrishnan"
+        ],
+        "named_chorus": [
+          "Roshni Saha",
+          "Chaandni R M W"
+        ],
+        "count": 6,
+        "count_basis": "Six distinct positively credited humans; aliases not additional singers. Original tracking unknown."
+      },
+      "instrument_role_audit": {
+        "voice": {
+          "named_leads": [
+            "Sona Mohapatra",
+            "Rituraj Mohanty"
+          ],
+          "named_rappers": [
+            "Tony Sebastian",
+            "Rajesh Radhakrishnan"
+          ],
+          "named_chorus": [
+            "Roshni Saha",
+            "Chaandni R M W"
+          ],
+          "count": 6,
+          "count_basis": "Six distinct positively credited humans; aliases not additional singers. Original tracking unknown."
+        },
+        "electric_guitar_humbucker": [
+          "Sanjoy Das lead guitars",
+          "Hitesh Dhutia rhythm guitar"
+        ],
+        "electric_bass": [
+          "Keshav Iyengar"
+        ],
+        "drum_kit": [
+          "Darshan Doshi"
+        ],
+        "electronic_keyboard_unspecified": [
+          "Ram Sampath"
+        ],
+        "policy": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified. Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Every applicable owning control explicitly pinned; shared guitar/bass body wood is the applicable alder variant on both."
+      },
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=LY_rMXXuJp8",
+          "title": "Coke Studio India verified complete2015 performance credits",
+          "support_notes": "Fresh274297youtube12 full11-person roster and original-recording bridge; raw resume116-rangabati-primary-raw.json. Neither engineer nor producer title alone adds a sound role."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=IMUKoJpG3Nk",
+          "title": "Verified KaanPhod2023 reissue of same complete performance",
+          "support_notes": "Fresh274297youtube13 same complete credits corroborate; not a different2023 ensemble."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/63vYFIQmxTKK0k5hrc2xsS",
+          "title": "Exact creator Sambalpuri Pop repertoire",
+          "support_notes": "Fresh12125view0/12126view1 original Rangabati items35/61, contemporary and historical regional field; no remake-artist membership assertion."
+        },
+        {
+          "url": "https://prasarbharati.gov.in/wp-content/uploads/music_artists/airsambalpur.pdf",
+          "title": "All India Radio Sambalpur regional music categories",
+          "support_notes": "Fresh196204search42/12124search18 expressly Sambalpuri music instrumental artist category; institutional regional field, not selected performance roster."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn274297youtube12",
+        "turn274297youtube13",
+        "turn12126view1",
+        "turn12124search18",
+        "turn12096view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "sambalpuri_pop",
+          "name": "Sambalpuri Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not CokeStudio performers, source instruments or recording equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12096view2 confirms Iain Fergusson and crop by Binksternet, CC BY2.5. Exact023 historical byte/visual receipts inherited honestly.",
+          "fresh_review_ref": "turn12096view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh12096view2; no fresh binary or visual inspection claimed.",
+        "fresh_rights_retrieval_refs": [
+          "turn12096view2"
+        ]
+      },
+      "verification_status": "51 applicable owning controls protected, zero errors/fallbacks, all1638 pre-existing owners unchanged. All four original browser/connector strings independently inspected and parity passed, max987; full five-card palette preserved with candid authored brisk live-room treatment, no unrelated cultural label. Geography validator passes. Independent peer pending.",
+      "source_review_refs": [
+        "turn274297youtube12",
+        "turn274297youtube13",
+        "turn12126view1",
+        "turn12124search18",
+        "turn12096view2"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

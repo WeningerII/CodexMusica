@@ -1,0 +1,221 @@
+{
+  "entries": [
+    {
+      "source_label": "ethnotronica",
+      "source_url": "https://everynoise.com/engenremap-ethnotronica.html",
+      "suggested_id": "ethnotronica",
+      "allocation_ordinal": 3256,
+      "allocation_group_id": "131",
+      "id": "ethnotronica",
+      "tradition": {
+        "id": "ethnotronica",
+        "name": "Ethnotronica",
+        "family": "electronic",
+        "lineage": "DJ Rafadelic \u2014 whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition. Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "DJ Rafadelic \u2014 whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition. Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification. Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+        "exemplars": [
+          "DJ Rafadelic \u2014 Symetry, whole21-selection Concertzender programme,1December2017"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.0907,
+        5.1214,
+        "Utrecht",
+        "Europe"
+      ],
+      "geo_rationale": "Artist own biography identifies Utrecht base; scene/practitioner anchor, not claimed original broadcast studio or programme recording coordinates.",
+      "sources": [
+        {
+          "url": "https://www.concertzender.nl/programma/solta_a_franga_422374/",
+          "support_notes": "Fresh full12703view2: broadcaster complete21-selection dated programme; explicit ethnotronica mix creditedDJRafadelic, cultural/style breadth and exclusive re-edits.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rafadelic.wordpress.com/",
+          "support_notes": "Fresh12701view0 own Symmetry section links exact broadcast and confirms ethnotronica/multi-label DJ mix. Other shows not imported.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rafadelic.wordpress.com/biography/",
+          "support_notes": "Fresh12703view3 artist identifies DJ/producer fromUtrecht and cross-cultural dancefloor practice. General historical equipment not asserted for selected programme.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.indiearth.com/filter-coffee-with-a-spoonful-of-bass/",
+          "support_notes": "Fresh12700view0 presenter and firsthand2014 artist interview: Indian-classical/electronic duo adopts ethnotronica terminology; category-only corroboration, none of their palette transferred.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification.",
+      "model_policy": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+      "instrument_role_audit": {
+        "scope": "DJ Rafadelic \u2014 whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition.",
+        "cards": 1,
+        "roles": [
+          "Whole issued DJ mix with all21 selections and re-edits"
+        ],
+        "defaults": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred."
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "actual_live_singer_count": "unknown/not documented",
+        "embedded_voice_count": "unknown",
+        "reason": "Complete credited DJ mix retains all underlying recorded voices; no separately documented live-vocal performance. No count inferred from source silence."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred."
+        }
+      ],
+      "dependency_audit": {
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "new_instruments": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ethnotronica",
+          "name": "Ethnotronica",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not Rafadelic, source DJ equipment, venue or culturally specific depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12710view0 Commons CC BY2.5 IainFergusson/Binksternet crop verified; exact historical023 bytes/visual receipt inherited, not freshdownload.",
+          "fresh_review_ref": "turn12710view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12710view0"
+        ],
+        "fresh_rights_review": "Fresh12710view0 rights only; exact023 historicalbyte/visual evidence retained."
+      },
+      "source_scope_limitation": "DJ Rafadelic \u2014 whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Only applicable identity part protected."
+      },
+      "classification_evidence": "Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification.",
+      "primary_retrieval_refs": [
+        "turn12703view2",
+        "turn12701view0",
+        "turn12703view3",
+        "turn12700view0"
+      ],
+      "source_retrieval_caveat": "Full broadcaster and artist text independently accessible. Actual map403 and embedded Mixcloud player inaccessible; neither needed to infer an unobserved audio roster. No auditory inspection or measured duration claimed. Original raw broadcaster/biography tool receipt saved ethnotronica-primary-raw117.json, including failed map/player requests honestly.",
+      "verification_status": "Author complete-primary candidate; original mechanics/four formats and independent peer required.",
+      "authored_render_scope": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+      "source_review_refs": [
+        "turn12703view2",
+        "turn12701view0",
+        "turn12703view3",
+        "turn12700view0"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

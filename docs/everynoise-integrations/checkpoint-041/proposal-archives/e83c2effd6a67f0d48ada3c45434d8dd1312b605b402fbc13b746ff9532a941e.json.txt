@@ -1,0 +1,1320 @@
+{
+  "entries": [
+    {
+      "source_label": "botswana hip hop",
+      "source_url": "https://everynoise.com/engenremap-botswanahiphop.html",
+      "suggested_id": "botswana_hip_hop",
+      "allocation_ordinal": 223,
+      "allocation_group_id": "009",
+      "id": "botswana_hip_hop",
+      "tradition": {
+        "id": "botswana_hip_hop",
+        "name": "Botswana Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Botswana hip hop connects local rappers, producers and DJs through national recording, radio and club networks, with close exchanges across southern Africa.",
+        "instruments": [
+          "voice",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic rap and sung hooks meet beat-led accompaniment and DJ mixing. Setswana-English Motswako intersects this wider national field, while club programmes also cross into electro and house. ATI and DJ Fauz exemplify its vocal and DJ-led branches.",
+        "exemplars": [
+          "ATI",
+          "DJ Fauz",
+          "Sasa Klaas"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        -24.6282,
+        25.9231,
+        "Gaborone",
+        "Africa"
+      ],
+      "geo_rationale": "First-person itinerary explicitly announces Gaborone launch at Chez Nicolas. Editorial community/announced launch anchor, not proof a specific performance occurred or a recording-room location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "BOPA first-person2014 event-organizer interview explicitly distinguishes Botswana hip-hop artists and DJs from visiting South African artists and names Fauz in the national hip-hop network alongside ATI and Sasa Klaas. Exact creator Botswana Hip Hop playlist independently contains ATI and Sasa Klaas, bridging that community; selected Fauz or Groove Cartel creator membership is not claimed. First-person2016 Urban Soul interview also positively identifies Fauz as a local hip-hop DJ, not just a person born in Botswana. Existing Motswako explicitly includes Botswana/Gaborone as well as South Africa and therefore overlaps: its Setswana-English mixture lineage is not the entire national institution/DJ/artist field, whose mixed hip-hop programmes are documented here. South African Hip Hop remains the neighboring national scene with reciprocal participation, not a subset excluded by guest nationality. Botswana Pop overlaps as the broader national popular-song field; its Jordan MoOzy exemplar is also present in this creator corpus and is not an exclusion. No distinction rests on a different DJ or equipment. Full current and accepted-ready scopes inspected; no additional Botswana Hip Hop owner found.",
+      "model_policy": "Restore representative vocal/DJ genre practice rather than defining the national field solely by one announced touring unit. Neutral voice controls preserve rap/song flexibility; solo lead is an authored staffing choice, not an exact concert headcount. Original neutral DJ role, room and photographic context retained. Current representative roles: voice, dj_playback_mixing_unspecified. Unknown source construction and performer physiology remain unspecified. The actual current owning-control audit governs this new genre model; historical exact edition claims do not.",
+      "source_scope_limitation": "Earlier exact performance/edition scope is preserved in format_repair.historical_source_audits and before. The current defaults represent the documented genre branch, not a transcription or exhaustive personnel count of that object.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish the category. Current parent mcRhythm.intlHipHop places the representative genre practice; earlier narrow-edition placement is historical evidence only.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_solo_accompanied",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "dj_playback_mixing_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Restore representative vocal/DJ genre practice rather than defining the national field solely by one announced touring unit. Neutral voice controls preserve rap/song flexibility; solo lead is an authored staffing choice, not an exact concert headcount. Original neutral DJ role, room and photographic context retained."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Author original merge1owning control protected, all1638 existing owners unchanged, four original browser/connector formats141max and atlas pass; no final static integration/CI claim. Independent review pending.",
+      "sources": [
+        {
+          "url": "https://www.mmegi.bw/ampArticle/199671",
+          "title": "First-person DJ Fauz national-tour interview2016",
+          "support_notes": "Fresh12355view1 full three-DJ main-unit membership/mixed genres/itinerary; announced practice not independently confirmed occurred. Separate local opening acts expressly differentiated."
+        },
+        {
+          "url": "https://dailynews.gov.bw/news-detail/13153",
+          "title": "BOPA first-person Botswana hip-hop event-organizer interview2014",
+          "support_notes": "Fresh12355view2 positively national hip-hop community and same Fauz, ATI,SasaKlaas; this other event entire palette is not imported into2016 main unit."
+        },
+        {
+          "url": "https://www.thegazette.news/uncategorized/fauz-and-petula-appointed-urban-soul-ambassadors/",
+          "title": "First-person local hip-hop community interview2016",
+          "support_notes": "Fresh12360search1 explicitly identifies Fauz as hip-hop DJ and locally institutional clothing/culture network; no new instrument or vocal role."
+        },
+        {
+          "url": "https://embed.spotify.com/?uri=spotify%3Aplaylist%3A1wtr5dUZ2Fwc4D3Iu1DCdp",
+          "title": "Exact creator Botswana Hip Hop repertoire",
+          "support_notes": "Fresh12362view0 full national field includes SasaKlaas13,ATI18 andA.T.I19, linking2014 community. No selected-DJ exact membership asserted."
+        },
+        {
+          "url": "https://www.mmegi.bw/arts-culture/meet-the-talented-ati-a-star-in-the-making/news",
+          "title": "First-person ATI profile",
+          "support_notes": "Fresh turn13653search1 independently establishes rapping and singing; representative vocal role, not added to the announced DJ tour."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "botswana_hip_hop",
+          "name": "Botswana Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not named DJs, actual decks, embedded singers or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12330view3 confirms CC BY2.5 original/crop credit; exact historical023 byte and visual receipt retained, no fresh download.",
+          "fresh_review_ref": "turn12330view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12330view3"
+        ],
+        "fresh_rights_review": "Fresh12330view3 rights read; inherited023 bytes/visual, no current download claimed."
+      },
+      "primary_retrieval_refs": [
+        "turn12355view1",
+        "turn12355view2",
+        "turn12360search1",
+        "turn12362view0"
+      ],
+      "source_review_refs": [
+        "turn12355view1",
+        "turn12355view2",
+        "turn12360search1",
+        "turn12362view0"
+      ],
+      "source_retrieval_caveat": "Primary2016 interview describes announced main touring unit, not audio audition or retrospective confirmation; no exact soundtrack/tracklist closure claimed beyond entire declared DJ practice.",
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-11.json",
+        "original_sha256": "6bbc06841ad56edded4bf833ddedbdf4cd4978fc2d87fd4eed173b24a0386585",
+        "before": {
+          "tradition": {
+            "id": "botswana_hip_hop",
+            "name": "Botswana Hip Hop",
+            "family": "hip_hop",
+            "lineage": "Complete announced2016 Shapa Ma Get Down main touring DJ unit: DJ Fauz plus Groove Cartel members German Dollar and TCM. First-person organizer interview specifies their hip-hop,electro and soulful-house mixing practice and national itinerary, with Gaborone launch20October2016. This models the entire three-DJ main practice, not an unobserved exact recorded set or a hip-hop-only excerpt. Local opening artists/DJs are expressly separate acts and are not falsely declared absent from each full evening. Actual realization of the announced dates is not independently verified. Individual set order, durations, tracklists, mixing medium, specific equipment and embedded vocal counts are unknown. All programme layers remain within actual DJ playback/mixing; no decomposition of an opaque produced song into guessed source instruments. Original neutral DJ playback/mixing owner retains the three positively announced performers as a role-family aggregate without implying one operator or three simultaneous decks. Hardware, live medium and internal sample/synthesis mechanisms stay unspecified. Authored controlled live-room presentation and brisk dance pacing are compatible with the announced club-dance purpose, not a measured source BPM or actual launch-room measurement. No live singer or MC role is invented from embedded recordings. International hip-hop parent places this national community DJ branch; cross-style house/electro content remains explicitly included rather than claiming the whole programme is pure hip-hop. All numeric axes are neutral authored settings; no global tuning or signal-chain apparatus inferred.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm.intlHipHop",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Complete announced2016 Shapa Ma Get Down main touring DJ unit: DJ Fauz plus Groove Cartel members German Dollar and TCM. First-person organizer interview specifies their hip-hop,electro and soulful-house mixing practice and national itinerary, with Gaborone launch20October2016. This models the entire three-DJ main practice, not an unobserved exact recorded set or a hip-hop-only excerpt. Local opening artists/DJs are expressly separate acts and are not falsely declared absent from each full evening. Actual realization of the announced dates is not independently verified. Individual set order, durations, tracklists, mixing medium, specific equipment and embedded vocal counts are unknown. All programme layers remain within actual DJ playback/mixing; no decomposition of an opaque produced song into guessed source instruments. BOPA first-person2014 event-organizer interview explicitly distinguishes Botswana hip-hop artists and DJs from visiting South African artists and names Fauz in the national hip-hop network alongside ATI and Sasa Klaas. Exact creator Botswana Hip Hop playlist independently contains ATI and Sasa Klaas, bridging that community; selected Fauz or Groove Cartel creator membership is not claimed. First-person2016 Urban Soul interview also positively identifies Fauz as a local hip-hop DJ, not just a person born in Botswana. Existing Motswako explicitly includes Botswana/Gaborone as well as South Africa and therefore overlaps: its Setswana-English mixture lineage is not the entire national institution/DJ/artist field, whose mixed hip-hop programmes are documented here. South African Hip Hop remains the neighboring national scene with reciprocal participation, not a subset excluded by guest nationality. Botswana Pop overlaps as the broader national popular-song field; its Jordan MoOzy exemplar is also present in this creator corpus and is not an exclusion. No distinction rests on a different DJ or equipment. Full current and accepted-ready scopes inspected; no additional Botswana Hip Hop owner found. Original neutral DJ playback/mixing owner retains the three positively announced performers as a role-family aggregate without implying one operator or three simultaneous decks. Hardware, live medium and internal sample/synthesis mechanisms stay unspecified. Authored controlled live-room presentation and brisk dance pacing are compatible with the announced club-dance purpose, not a measured source BPM or actual launch-room measurement. No live singer or MC role is invented from embedded recordings. International hip-hop parent places this national community DJ branch; cross-style house/electro content remains explicitly included rather than claiming the whole programme is pure hip-hop. All numeric axes are neutral authored settings; no global tuning or signal-chain apparatus inferred.",
+            "exemplars": [
+              "DJ Fauz / Groove Cartel — complete announced Shapa Ma Get Down main DJ unit (2016)"
+            ],
+            "crossRefs": []
+          }
+        },
+        "reason": "Restore representative vocal/DJ genre practice rather than defining the national field solely by one announced touring unit. Neutral voice controls preserve rap/song flexibility; solo lead is an authored staffing choice, not an exact concert headcount. Original neutral DJ role, room and photographic context retained.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "spoken_voice"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_solo_accompanied"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_single_lead"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "dj_playback_mixing_unspecified",
+              "dj_playback_mixing_identity",
+              "dj_playback_mixing_source_unspecified"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-001-parity.json",
+          "semantic_review": "All four literal outputs read. Botswana forward conversational smug voice is an explicitly authored relaxed, self-assured rhythmic delivery (original lexicon), not a claim about ATI personality or exact recording; brisk DJ presentation retained. Icelandic brisk vocals, rhythmically rocking guitar, focused bass, block-chord piano and bright electronics fit the documented lively band-backed branch. No unrelated named cultural style or additional source mechanism inferred."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Complete announced2016 Shapa Ma Get Down main touring DJ unit: DJ Fauz plus Groove Cartel members German Dollar and TCM. First-person organizer interview specifies their hip-hop,electro and soulful-house mixing practice and national itinerary, with Gaborone launch20October2016. This models the entire three-DJ main practice, not an unobserved exact recorded set or a hip-hop-only excerpt. Local opening artists/DJs are expressly separate acts and are not falsely declared absent from each full evening. Actual realization of the announced dates is not independently verified. Individual set order, durations, tracklists, mixing medium, specific equipment and embedded vocal counts are unknown. All programme layers remain within actual DJ playback/mixing; no decomposition of an opaque produced song into guessed source instruments.",
+            "roles": {
+              "dj_playback_mixing_unspecified": "Whole three-person main DJ practice, including all hip-hop/electro/house playback layers"
+            },
+            "performers": [
+              "DJ Fauz",
+              "German Dollar",
+              "TCM"
+            ],
+            "authored_defaults": "Original neutral DJ playback/mixing owner retains the three positively announced performers as a role-family aggregate without implying one operator or three simultaneous decks. Hardware, live medium and internal sample/synthesis mechanisms stay unspecified. Authored controlled live-room presentation and brisk dance pacing are compatible with the announced club-dance purpose, not a measured source BPM or actual launch-room measurement. No live singer or MC role is invented from embedded recordings. International hip-hop parent places this national community DJ branch; cross-style house/electro content remains explicitly included rather than claiming the whole programme is pure hip-hop. All numeric axes are neutral authored settings; no global tuning or signal-chain apparatus inferred."
+          },
+          "vocal_count_audit": {
+            "selected_count": null,
+            "embedded_voice_count": "unknown",
+            "separately_performed_live_voice_count": "unknown",
+            "added_live_voice_cards": 0,
+            "decision": "Three named DJs are not three voices; full announced main-unit mixing practice retained, separate unspecified opening acts not merged into it."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "One neutral DJ owner aggregates all three source-confirmed DJs, no hardware or count encoded as source controls."
+            }
+          ],
+          "flat_pin_resolution": "Sole existing DJ-role identity explicitly protected; no fallback, no unknown hardware controls fabricated.",
+          "model_policy": "Original neutral DJ playback/mixing owner retains the three positively announced performers as a role-family aggregate without implying one operator or three simultaneous decks. Hardware, live medium and internal sample/synthesis mechanisms stay unspecified. Authored controlled live-room presentation and brisk dance pacing are compatible with the announced club-dance purpose, not a measured source BPM or actual launch-room measurement. No live singer or MC role is invented from embedded recordings. International hip-hop parent places this national community DJ branch; cross-style house/electro content remains explicitly included rather than claiming the whole programme is pure hip-hop. All numeric axes are neutral authored settings; no global tuning or signal-chain apparatus inferred.",
+          "source_scope_limitation": "Complete announced2016 Shapa Ma Get Down main touring DJ unit: DJ Fauz plus Groove Cartel members German Dollar and TCM. First-person organizer interview specifies their hip-hop,electro and soulful-house mixing practice and national itinerary, with Gaborone launch20October2016. This models the entire three-DJ main practice, not an unobserved exact recorded set or a hip-hop-only excerpt. Local opening artists/DJs are expressly separate acts and are not falsely declared absent from each full evening. Actual realization of the announced dates is not independently verified. Individual set order, durations, tracklists, mixing medium, specific equipment and embedded vocal counts are unknown. All programme layers remain within actual DJ playback/mixing; no decomposition of an opaque produced song into guessed source instruments.",
+          "classification_evidence": "BOPA first-person2014 event-organizer interview explicitly distinguishes Botswana hip-hop artists and DJs from visiting South African artists and names Fauz in the national hip-hop network alongside ATI and Sasa Klaas. Exact creator Botswana Hip Hop playlist independently contains ATI and Sasa Klaas, bridging that community; selected Fauz or Groove Cartel creator membership is not claimed. First-person2016 Urban Soul interview also positively identifies Fauz as a local hip-hop DJ, not just a person born in Botswana. Existing Motswako explicitly includes Botswana/Gaborone as well as South Africa and therefore overlaps: its Setswana-English mixture lineage is not the entire national institution/DJ/artist field, whose mixed hip-hop programmes are documented here. South African Hip Hop remains the neighboring national scene with reciprocal participation, not a subset excluded by guest nationality. Botswana Pop overlaps as the broader national popular-song field; its Jordan MoOzy exemplar is also present in this creator corpus and is not an exclusion. No distinction rests on a different DJ or equipment. Full current and accepted-ready scopes inspected; no additional Botswana Hip Hop owner found."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "icelandic hip hop",
+      "source_url": "https://everynoise.com/engenremap-icelandichiphop.html",
+      "suggested_id": "icelandic_hip_hop",
+      "allocation_ordinal": 325,
+      "allocation_group_id": "013",
+      "id": "icelandic_hip_hop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "icelandic_hip_hop",
+        "name": "Icelandic Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Icelandic hip hop developed through an Iceland-based rap recording and live-performance community, with Reykjavík festivals connecting local artists and audiences.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "upright_piano",
+          "dj_playback_mixing_unspecified",
+          "credited_electronics_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
+          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "MC-led verses and melodic hooks combine with DJ and electronic production. Live-band branches can add guitar, bass, drums and piano, as heard in Úlfur Úlfur’s performances. Multiple voices and contrasting acoustic and electronic textures broaden the concert sound.",
+        "exemplars": [
+          "Úlfur Úlfur",
+          "Kött Grá Pjé"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        64.1466,
+        -21.9426,
+        "Reykjavík",
+        "Europe"
+      ],
+      "geo_rationale": "Actual named Harpa venue in Reykjavík; approximate city anchor, not exact stage coordinates.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Icelandic Hip Hop is the Iceland-based rap recording and performance community, positively named by the presenting Secret Solstice festival and contemporary firsthand interviews, not Icelandic nationality alone. Exact creator playlist includes Úlfur Úlfur at36. Existing icelandic_indie models independent popular-song practice and icelandic_experimental a broader experimental field; they can overlap this hip-hop community but neither names the rap scene. Broad hip-hop and international hip-hop lineages include this community without making its national language, artist networks and institutions synonymous with every rap scene. The selected rock-band-backed set is one positively documented branch; it does not assert all Icelandic hip-hop uses acoustic drums or piano.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish the category. Current parent mcRhythm.intlHipHop places the representative genre practice; earlier narrow-edition placement is historical evidence only.",
+      "model_policy": "Retain the positively documented band-backed branch and all seven instrument families as representative concert defaults. Group voice does not fix a human headcount. Existing coherent instrument controls unchanged; remove concert dates/personnel and physical-model dossier from public profile. Current representative roles: voice, electric_guitar_humbucker, electric_bass, drum_kit, upright_piano, dj_playback_mixing_unspecified, credited_electronics_unspecified. Unknown source construction and performer physiology remain unspecified. The actual current owning-control audit governs this new genre model; historical exact edition claims do not.",
+      "source_scope_limitation": "Earlier exact performance/edition scope is preserved in format_repair.historical_source_audits and before. The current defaults represent the documented genre branch, not a transcription or exhaustive personnel count of that object.",
+      "source_retrieval_caveat": "Fresh direct primary eyewitness report, presenting-festival scene account and exact creator playlist read. No audio audition, exact source hardware identification, waveform-layer count or measured score transcription claimed.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_live_group",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_guitar_humbucker": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_bass": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "drum_kit": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "upright_piano": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "dj_playback_mixing_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "credited_electronics_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Retain the positively documented band-backed branch and all seven instrument families as representative concert defaults. Group voice does not fix a human headcount. Existing coherent instrument controls unchanged; remove concert dates/personnel and physical-model dossier from public profile."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "credited_electronics_unspecified",
+          "parts": {
+            "credited_electronics_identity": "credited_electronics_generator_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "upright_piano",
+          "dj_playback_mixing_unspecified",
+          "credited_electronics_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "sources": [
+        {
+          "url": "https://columbiacoversicelandairwaves.wordpress.com/2015/11/06/iceland-airwaves-day-two-115-audur-russian-girls-ulfur-ulfur-review/",
+          "title": "Columbia College Chicago original eyewitness report of complete Harpa set",
+          "support_notes": "Fresh12231view0 lines54–62 full seven-role palette, named DJ/two core vocalists and closing guest. Heading day2Nov5 versus Wednesday discrepancy disclosed; other acts excluded."
+        },
+        {
+          "url": "https://secretsolstice.is/the-icelandic-hip-hop-cocktail-will-be-oozing-with-haunting-beats-at-secret-solstice-this-year/",
+          "title": "Presenting festival names Icelandic hip-hop scene and Úlfur Úlfur",
+          "support_notes": "Fresh12235view1 positive national practice and institutional community; not selected2015 roster."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/15pJWT8MLMla86nhINzNYr",
+          "title": "Exact creator Icelandic Hip Hop playlist",
+          "support_notes": "Fresh12235view0 item36 Úlfur Úlfur; repertoire membership not a claim selected full set is on playlist."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn12231view0",
+        "turn12235view1",
+        "turn12235view0",
+        "turn12201view1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "icelandic_hip_hop",
+          "name": "Icelandic Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not Harpa performers, source instruments or actual gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12201view1 confirms CC BY2.5 credit/crop; historical exact023 receipts retained.",
+          "fresh_review_ref": "turn12201view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh12201view1; no current binary or visual inspection claimed.",
+        "fresh_rights_retrieval_refs": [
+          "turn12201view1"
+        ]
+      },
+      "verification_status": "54 owning controls protected, no fallback, all1638 existing owners unchanged; four actual original browser/connector formats preserve all seven cards, maximum981 characters, parity PASS. All outputs individually read: brisk voice, hip-rocking guitar, confident bass, trudging kit, refined piano, bodacious DJ and cheery electronics are compatible authored concert affects, not source measurements or foreign genre assertions. Independent peer pending.",
+      "source_review_refs": [
+        "turn12231view0",
+        "turn12235view1",
+        "turn12235view0",
+        "turn12201view1"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-9-rights-ref-corrected116.json",
+        "original_sha256": "3cb1488e07d2156b35216ce0b3548e9b0b1b57a4a6eefd0366593c691e59f29f",
+        "before": {
+          "tradition": {
+            "id": "icelandic_hip_hop",
+            "name": "Icelandic Hip Hop",
+            "family": "hip_hop",
+            "lineage": "Úlfur Úlfur — complete Harpa Kaldalón Iceland Airwaves2015 set as witnessed by Columbia College Chicago correspondent Laura Kondourajian. The report names core rappers Arnar Freyr and Helgi Sæmundur, DJ Þorbjörn Einar, a live backing band with guitar, bass, organic drums, piano and electronic textures, and closing guest rapper Kött Grá Pjé. Retain all seven role families and three positively identified human vocal performers across the full set. Backing players and any doubling are not individually named; no total human headcount is invented. This is the report’s third complete act, not a combined AUÐUR/russian.girls/Úlfur programme or the different KEXP November7 set. Report heading dates day two November5 while one sentence says Wednesday; preserve that internal date discrepancy rather than manufacture a corrected exact day. No exact duration or complete song list claimed. Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "upright_piano",
+              "dj_playback_mixing_unspecified",
+              "credited_electronics_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard",
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
+              "credited_electronics_identity": "credited_electronics_generator_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm.intlHipHop",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Úlfur Úlfur — complete Harpa Kaldalón Iceland Airwaves2015 set as witnessed by Columbia College Chicago correspondent Laura Kondourajian. The report names core rappers Arnar Freyr and Helgi Sæmundur, DJ Þorbjörn Einar, a live backing band with guitar, bass, organic drums, piano and electronic textures, and closing guest rapper Kött Grá Pjé. Retain all seven role families and three positively identified human vocal performers across the full set. Backing players and any doubling are not individually named; no total human headcount is invented. This is the report’s third complete act, not a combined AUÐUR/russian.girls/Úlfur programme or the different KEXP November7 set. Report heading dates day two November5 while one sentence says Wednesday; preserve that internal date discrepancy rather than manufacture a corrected exact day. No exact duration or complete song list claimed. Icelandic Hip Hop is the Iceland-based rap recording and performance community, positively named by the presenting Secret Solstice festival and contemporary firsthand interviews, not Icelandic nationality alone. Exact creator playlist includes Úlfur Úlfur at36. Existing icelandic_indie models independent popular-song practice and icelandic_experimental a broader experimental field; they can overlap this hip-hop community but neither names the rap scene. Broad hip-hop and international hip-hop lineages include this community without making its national language, artist networks and institutions synonymous with every rap scene. The selected rock-band-backed set is one positively documented branch; it does not assert all Icelandic hip-hop uses acoustic drums or piano. Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production.",
+            "exemplars": [
+              "Úlfur Úlfur — full witnessed Harpa Kaldalón Airwaves2015 set"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Retain the positively documented band-backed branch and all seven instrument families as representative concert defaults. Group voice does not fix a human headcount. Existing coherent instrument controls unchanged; remove concert dates/personnel and physical-model dossier from public profile.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "voice_articulation_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_live_group"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_live_ensemble"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "electric_technique",
+              "electric_clean_strummed"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "neck_wood",
+              "maple_neck_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "fretboard",
+              "rosewood_fb_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_magnet",
+              "alnico_2_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_winding",
+              "mid_wind"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_material",
+              "pure_nickel_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "bridge",
+              "vibrato_arm"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "scale_length",
+              "scale_gibson_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_gauge",
+              "g_10_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "finish",
+              "nitro_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "electric_bass",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_bass",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_bass",
+              "pickup_config",
+              "soapbar"
+            ],
+            [
+              "electric_bass",
+              "string_type",
+              "roundwound_n"
+            ],
+            [
+              "electric_bass",
+              "scale_length_b",
+              "long_scale_b"
+            ],
+            [
+              "electric_bass",
+              "fretted_or_not",
+              "fretted"
+            ],
+            [
+              "electric_bass",
+              "bass_technique",
+              "fingerstyle_locked"
+            ],
+            [
+              "electric_bass",
+              "electric_bass_string_configuration",
+              "electric_bass_string_configuration_unspecified"
+            ],
+            [
+              "drum_kit",
+              "drum_technique",
+              "sticks_rock"
+            ],
+            [
+              "drum_kit",
+              "shell_wood",
+              "maple_shell"
+            ],
+            [
+              "drum_kit",
+              "shell_thickness",
+              "thin_shell"
+            ],
+            [
+              "drum_kit",
+              "bearing_edges",
+              "edge_45"
+            ],
+            [
+              "drum_kit",
+              "drumhead",
+              "single_coated"
+            ],
+            [
+              "drum_kit",
+              "snare_wires",
+              "wires_20"
+            ],
+            [
+              "drum_kit",
+              "drum_kit_kick_pedal",
+              "dk_kick_single_felt"
+            ],
+            [
+              "drum_kit",
+              "cymbal_alloy",
+              "b20"
+            ],
+            [
+              "drum_kit",
+              "cymbal_hammering",
+              "machine_symmetric_hammering"
+            ],
+            [
+              "drum_kit",
+              "cymbal_lathing",
+              "full_lathe_both_sides"
+            ],
+            [
+              "drum_kit",
+              "cymbal_finish",
+              "traditional_finish"
+            ],
+            [
+              "upright_piano",
+              "keyboard_technique",
+              "keyboard_block_chord_pop"
+            ],
+            [
+              "upright_piano",
+              "upright_use",
+              "upright_studio"
+            ],
+            [
+              "upright_piano",
+              "upright_piano_size",
+              "upright_piano_standard"
+            ],
+            [
+              "dj_playback_mixing_unspecified",
+              "dj_playback_mixing_identity",
+              "dj_playback_mixing_source_unspecified"
+            ],
+            [
+              "credited_electronics_unspecified",
+              "credited_electronics_identity",
+              "credited_electronics_generator_unspecified"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-001-parity.json",
+          "semantic_review": "All four literal outputs read. Botswana forward conversational smug voice is an explicitly authored relaxed, self-assured rhythmic delivery (original lexicon), not a claim about ATI personality or exact recording; brisk DJ presentation retained. Icelandic brisk vocals, rhythmically rocking guitar, focused bass, block-chord piano and bright electronics fit the documented lively band-backed branch. No unrelated named cultural style or additional source mechanism inferred."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Úlfur Úlfur — complete Harpa Kaldalón Iceland Airwaves2015 set as witnessed by Columbia College Chicago correspondent Laura Kondourajian. The report names core rappers Arnar Freyr and Helgi Sæmundur, DJ Þorbjörn Einar, a live backing band with guitar, bass, organic drums, piano and electronic textures, and closing guest rapper Kött Grá Pjé. Retain all seven role families and three positively identified human vocal performers across the full set. Backing players and any doubling are not individually named; no total human headcount is invented. This is the report’s third complete act, not a combined AUÐUR/russian.girls/Úlfur programme or the different KEXP November7 set. Report heading dates day two November5 while one sentence says Wednesday; preserve that internal date discrepancy rather than manufacture a corrected exact day. No exact duration or complete song list claimed.",
+            "roles": {
+              "voice": "Two named core MCs plus closing guest",
+              "electric_guitar_humbucker": "Source guitar; authored electric humbucker realization of amplified rap-band role",
+              "electric_bass": "Source live-band bass; authored electric realization",
+              "drum_kit": "Explicit organic drums",
+              "upright_piano": "Explicit piano; authored upright subtype",
+              "dj_playback_mixing_unspecified": "Named DJ Þorbjörn Einar, no medium or hardware specified",
+              "credited_electronics_unspecified": "Explicit electronic textures; architecture and doubling unknown"
+            },
+            "authored_defaults": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+          },
+          "vocal_count_audit": {
+            "named_core": [
+              "Arnar Freyr",
+              "Helgi Sæmundur"
+            ],
+            "named_guest": [
+              "Kött Grá Pjé"
+            ],
+            "selected_count": 3,
+            "count_basis": "Two named core vocalists plus positively witnessed closing guest; no audience musical contribution asserted by this report. Unknown backing-player vocal roles not invented."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "neck_wood": "maple_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_10_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+            },
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+            },
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+            },
+            {
+              "instrument": "credited_electronics_unspecified",
+              "parts": {
+                "credited_electronics_identity": "credited_electronics_generator_unspecified"
+              },
+              "policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All applicable owning parts explicitly authored and checked; shared guitar/bass material keys must be validated for both owners, no hidden default claim."
+          },
+          "model_policy": "Full seven-family authored concert rendition retains the two core MCs, closing guest and named DJ, all backing roles and unspecified electronic textures. Neutral credited-electronics owner preserves positive electronic sound without guessing synthesizer, sample, DAW or patch architecture; neutral DJ owner preserves actual DJ practice without assigning vinyl or decks. These roles may overlap in source production, but neither sound role is silently discarded. Generic piano is realized as a standard modern upright with block-chord articulation, explicitly authored rather than identified source subtype. Source-unspecified vocal physiology, pitch, ornament and speech/song balance remain neutral; group ensemble models the documented rap and melodic-pop practice including guest participation, not all three continuously simultaneous. Alder/maple/rosewood humbucker guitar, AlnicoII pickup, pure-nickel10-gauge strings, short scale, vibrato bridge and clean strum are authored. Alder soapbar bass with nickel roundwounds and locked fingerstyle, maple thin-shell kit/coated heads/45-degree edges/20 wires/single felt pedal/B20 traditional-finish fully lathed machine-hammered cymbals with rock sticks are coherent new physical realizations, not observed gear. Controlled live-room acoustics and brisk amplified concert energy are authored; no fixed measured BPM or original room acoustics are asserted. No global temperament or source amp is invented. International hip-hop parent describes the MC-led national scene without requiring newly invented harmony or drill production.",
+          "source_scope_limitation": "Úlfur Úlfur — complete Harpa Kaldalón Iceland Airwaves2015 set as witnessed by Columbia College Chicago correspondent Laura Kondourajian. The report names core rappers Arnar Freyr and Helgi Sæmundur, DJ Þorbjörn Einar, a live backing band with guitar, bass, organic drums, piano and electronic textures, and closing guest rapper Kött Grá Pjé. Retain all seven role families and three positively identified human vocal performers across the full set. Backing players and any doubling are not individually named; no total human headcount is invented. This is the report’s third complete act, not a combined AUÐUR/russian.girls/Úlfur programme or the different KEXP November7 set. Report heading dates day two November5 while one sentence says Wednesday; preserve that internal date discrepancy rather than manufacture a corrected exact day. No exact duration or complete song list claimed.",
+          "classification_evidence": "Icelandic Hip Hop is the Iceland-based rap recording and performance community, positively named by the presenting Secret Solstice festival and contemporary firsthand interviews, not Icelandic nationality alone. Exact creator playlist includes Úlfur Úlfur at36. Existing icelandic_indie models independent popular-song practice and icelandic_experimental a broader experimental field; they can overlap this hip-hop community but neither names the rap scene. Broad hip-hop and international hip-hop lineages include this community without making its national language, artist networks and institutions synonymous with every rap scene. The selected rock-band-backed set is one positively documented branch; it does not assert all Icelandic hip-hop uses acoustic drums or piano."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    }
+  ]
+}

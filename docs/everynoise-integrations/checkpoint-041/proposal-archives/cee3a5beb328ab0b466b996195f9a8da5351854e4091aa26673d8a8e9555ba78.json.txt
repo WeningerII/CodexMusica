@@ -1,0 +1,259 @@
+{
+  "entries": [
+    {
+      "source_label": "persian underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-persianundergroundhiphop.html",
+      "suggested_id": "persian_underground_hip_hop",
+      "allocation_ordinal": 438,
+      "allocation_group_id": "018",
+      "id": "persian_underground_hip_hop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "persian_underground_hip_hop",
+        "name": "Persian Underground Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Hichkas — Hanooz Kheili Moonde (Acapella), the complete separately issued Moltafet upload naming a Melbourne December2012 live performance, published11January2013. The selected object is the entire issued acappella video, not an assertion that it contains the complete concert or an unabridged longer studio composition. Source metadata positively identifies Hichkas and unaccompanied vocal delivery. Exact duration is not claimed from secondary mirrors. Audio was not auditioned; additional audience or backing voices, original processing and edit boundaries within the issued object remain unknown, not certified absent. No instruments, beats or concert personnel are imported from unrelated Hichkas performances. One voice-family card retains the positively identified rapper and any vocal material in the issued acappella edition. A single-lead unaccompanied rendition is authored as an arrangement choice, not a forensic count of every person audible in the live source. Rhythmic spoken flow and clear spoken articulation realize the positive rap classification; register, anatomy, cultural ornament, pitch system and vocal mechanism remain unspecified. Moderate effort, unprocessed single lead and controlled studio capture describe a new rendition, not source equipment, original postproduction or Melbourne acoustics. No global tuning or original BPM is inferred. Broad spokenWord places this selected unaccompanied rap rendition under delivery and cadence rather than a beat/back-line node; hip_hop family preserves its community identity. Any rendered brisk pacing is an authored energetic rap presentation, not a measured tempo of the2012 performance.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Hichkas — Hanooz Kheili Moonde (Acapella), the complete separately issued Moltafet upload naming a Melbourne December2012 live performance, published11January2013. The selected object is the entire issued acappella video, not an assertion that it contains the complete concert or an unabridged longer studio composition. Source metadata positively identifies Hichkas and unaccompanied vocal delivery. Exact duration is not claimed from secondary mirrors. Audio was not auditioned; additional audience or backing voices, original processing and edit boundaries within the issued object remain unknown, not certified absent. No instruments, beats or concert personnel are imported from unrelated Hichkas performances. Persian Underground Hip Hop is an overlapping independently circulated Iranian/Persian rap community, not merely all Persian-language rap or a claim that every listed artist remains commercially obscure. The exact creator map includes Hichkas, Bahram, Fadaei, Quf and other participants. In his firsthand2014 Index on Censorship interview Hichkas describes unauthorized physical circulation, alternative internet distribution, blocked domestic performances and diaspora-supported appearances; Moltafet own catalogue positively links the selected issuer and artist network. This supports a particular independent distribution and performance community within the broader Persian-language field. Full existing persian_hip_hop already includes Iran and diaspora and does not exclude underground artists; overlap is explicit, and its Bahman short freestyle is not treated as a definition limiting that umbrella. The proposed narrower institutional practice is not established by a different vocal edition alone. Persian electronic and Persian alternative describe other overlapping musical practices; naqqali is a narrative tradition rather than the contemporary MC distribution community. No membership or political position is inferred for every Persian rapper. One voice-family card retains the positively identified rapper and any vocal material in the issued acappella edition. A single-lead unaccompanied rendition is authored as an arrangement choice, not a forensic count of every person audible in the live source. Rhythmic spoken flow and clear spoken articulation realize the positive rap classification; register, anatomy, cultural ornament, pitch system and vocal mechanism remain unspecified. Moderate effort, unprocessed single lead and controlled studio capture describe a new rendition, not source equipment, original postproduction or Melbourne acoustics. No global tuning or original BPM is inferred. Broad spokenWord places this selected unaccompanied rap rendition under delivery and cadence rather than a beat/back-line node; hip_hop family preserves its community identity. Any rendered brisk pacing is an authored energetic rap presentation, not a measured tempo of the2012 performance.",
+        "exemplars": [
+          "Hichkas — full issued Melbourne December2012 Hanooz Kheili Moonde acappella video"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -37.8136,
+        144.9631,
+        "Melbourne",
+        "Oceania & Pacific"
+      ],
+      "geo_rationale": "The issued performance title explicitly names Melbourne. This is the selected performance anchor, not the birthplace or national extent of the Persian underground community.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Persian Underground Hip Hop is an overlapping independently circulated Iranian/Persian rap community, not merely all Persian-language rap or a claim that every listed artist remains commercially obscure. The exact creator map includes Hichkas, Bahram, Fadaei, Quf and other participants. In his firsthand2014 Index on Censorship interview Hichkas describes unauthorized physical circulation, alternative internet distribution, blocked domestic performances and diaspora-supported appearances; Moltafet own catalogue positively links the selected issuer and artist network. This supports a particular independent distribution and performance community within the broader Persian-language field. Full existing persian_hip_hop already includes Iran and diaspora and does not exclude underground artists; overlap is explicit, and its Bahman short freestyle is not treated as a definition limiting that umbrella. The proposed narrower institutional practice is not established by a different vocal edition alone. Persian electronic and Persian alternative describe other overlapping musical practices; naqqali is a narrative tradition rather than the contemporary MC distribution community. No membership or political position is inferred for every Persian rapper.",
+      "classification_evidence": "Persian Underground Hip Hop is an overlapping independently circulated Iranian/Persian rap community, not merely all Persian-language rap or a claim that every listed artist remains commercially obscure. The exact creator map includes Hichkas, Bahram, Fadaei, Quf and other participants. In his firsthand2014 Index on Censorship interview Hichkas describes unauthorized physical circulation, alternative internet distribution, blocked domestic performances and diaspora-supported appearances; Moltafet own catalogue positively links the selected issuer and artist network. This supports a particular independent distribution and performance community within the broader Persian-language field. Full existing persian_hip_hop already includes Iran and diaspora and does not exclude underground artists; overlap is explicit, and its Bahman short freestyle is not treated as a definition limiting that umbrella. The proposed narrower institutional practice is not established by a different vocal edition alone. Persian electronic and Persian alternative describe other overlapping musical practices; naqqali is a narrative tradition rather than the contemporary MC distribution community. No membership or political position is inferred for every Persian rapper.",
+      "model_policy": "One voice-family card retains the positively identified rapper and any vocal material in the issued acappella edition. A single-lead unaccompanied rendition is authored as an arrangement choice, not a forensic count of every person audible in the live source. Rhythmic spoken flow and clear spoken articulation realize the positive rap classification; register, anatomy, cultural ornament, pitch system and vocal mechanism remain unspecified. Moderate effort, unprocessed single lead and controlled studio capture describe a new rendition, not source equipment, original postproduction or Melbourne acoustics. No global tuning or original BPM is inferred. Broad spokenWord places this selected unaccompanied rap rendition under delivery and cadence rather than a beat/back-line node; hip_hop family preserves its community identity. Any rendered brisk pacing is an authored energetic rap presentation, not a measured tempo of the2012 performance.",
+      "source_scope_limitation": "Hichkas — Hanooz Kheili Moonde (Acapella), the complete separately issued Moltafet upload naming a Melbourne December2012 live performance, published11January2013. The selected object is the entire issued acappella video, not an assertion that it contains the complete concert or an unabridged longer studio composition. Source metadata positively identifies Hichkas and unaccompanied vocal delivery. Exact duration is not claimed from secondary mirrors. Audio was not auditioned; additional audience or backing voices, original processing and edit boundaries within the issued object remain unknown, not certified absent. No instruments, beats or concert personnel are imported from unrelated Hichkas performances.",
+      "source_retrieval_caveat": "Fresh indexed video object reproduced twice; direct YouTube audio unavailable and no audition claimed. Index on Censorship full interview independently returned in indexed primary response; direct page403. Moltafet own catalogue indexed full text associates artist and issuer; direct homepage timed out. Upload channel displays Moltafet, not a verified badge claim. Original unmodified responses retained in resume116-persian-closure-primary-raw.json and resume116-persian-rights-primary-raw.json.",
+      "vocal_count_audit": {
+        "positively_named_performers": [
+          "Hichkas"
+        ],
+        "known_named_count": 1,
+        "actual_total_people": "unknown beyond named rapper; crowd/backing voices not independently counted",
+        "decision": "Full issued acappella material retained by voice family; one lead is authored arrangement, not source headcount certification."
+      },
+      "instrument_role_audit": {
+        "scope": "Hichkas — Hanooz Kheili Moonde (Acapella), the complete separately issued Moltafet upload naming a Melbourne December2012 live performance, published11January2013. The selected object is the entire issued acappella video, not an assertion that it contains the complete concert or an unabridged longer studio composition. Source metadata positively identifies Hichkas and unaccompanied vocal delivery. Exact duration is not claimed from secondary mirrors. Audio was not auditioned; additional audience or backing voices, original processing and edit boundaries within the issued object remain unknown, not certified absent. No instruments, beats or concert personnel are imported from unrelated Hichkas performances.",
+        "roles": {
+          "voice": "Named Hichkas rap performance in whole separately issued acappella object; any source vocal material retained, unknown extra voices disclosed."
+        },
+        "authored_defaults": "One voice-family card retains the positively identified rapper and any vocal material in the issued acappella edition. A single-lead unaccompanied rendition is authored as an arrangement choice, not a forensic count of every person audible in the live source. Rhythmic spoken flow and clear spoken articulation realize the positive rap classification; register, anatomy, cultural ornament, pitch system and vocal mechanism remain unspecified. Moderate effort, unprocessed single lead and controlled studio capture describe a new rendition, not source equipment, original postproduction or Melbourne acoustics. No global tuning or original BPM is inferred. Broad spokenWord places this selected unaccompanied rap rendition under delivery and cadence rather than a beat/back-line node; hip_hop family preserves its community identity. Any rendered brisk pacing is an authored energetic rap presentation, not a measured tempo of the2012 performance."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "One voice-family card retains the positively identified rapper and any vocal material in the issued acappella edition. A single-lead unaccompanied rendition is authored as an arrangement choice, not a forensic count of every person audible in the live source. Rhythmic spoken flow and clear spoken articulation realize the positive rap classification; register, anatomy, cultural ornament, pitch system and vocal mechanism remain unspecified. Moderate effort, unprocessed single lead and controlled studio capture describe a new rendition, not source equipment, original postproduction or Melbourne acoustics. No global tuning or original BPM is inferred. Broad spokenWord places this selected unaccompanied rap rendition under delivery and cadence rather than a beat/back-line node; hip_hop family preserves its community identity. Any rendered brisk pacing is an authored energetic rap presentation, not a measured tempo of the2012 performance."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All17 applicable owning voice controls explicitly pinned; no shared-key collision or fallback."
+      },
+      "verification_status": "Pending independent peer and original four-format inspection.",
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=YS5PoloN0lM",
+          "title": "Moltafet issued full acappella performance object",
+          "support_notes": "Fresh143306youtube6 and341397youtube11 identify Hichkas, acappella, MelbourneDecember2012 and upload11January2013. Entire published object selected; duration not independently primary-confirmed.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.indexoncensorship.org/2014/09/iran-tehran-hichkas-hip-hop-music/",
+          "title": "Firsthand Hichkas independent-circulation interview",
+          "support_notes": "Fresh143306search0 full primary interview; restrictions, independent circulation and diaspora-supported performances positively documented. Historical2014 account, not assertion of unchanged current law.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://moltafet.com/",
+          "title": "Collective own catalogue",
+          "support_notes": "Fresh143306search3 full own catalogue names Hichkas and describes listed releases as Moltafet artists works. Direct page timeout disclosed.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-persianundergroundhiphop.html",
+          "title": "Exact creator field",
+          "support_notes": "Fresh143306view1 full map Hichkas line26 plus other independent network members. Selected artist membership positive; exact live edition not claimed playlist track.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn143306youtube6",
+        "turn341397youtube11",
+        "turn143306search0",
+        "turn143306search3",
+        "turn143306view1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "persian_underground_hip_hop",
+          "name": "Persian Underground Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Hichkas, Melbourne venue or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh341397view2 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn341397view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn341397view2"
+        ],
+        "fresh_rights_review": "Fresh341397view2 rights only; no fresh byte or visual inspection."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

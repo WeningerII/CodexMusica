@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ROOT_QUEUE_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-otacore-production-realization.json",
+  "packet_sha256": "27c42742699d8a5b9bc0de01a4560a7e7b85c8ce31c0f82dc514e6b4ac255558",
+  "ids": [
+    "otacore"
+  ],
+  "checked_at": "2026-10-04T00:37:53.673259+00:00",
+  "checks": [
+    "Root read concise genre profile, source-role/default rationale and all four literal outputs. Actual FM, piano, sample arrangement, voice and vocoder roles retained with29 meaningful controls.",
+    "Original four-format parity/ceiling, strict owning/import/photo audit pass. Authored DX7 versus firsthand software hardware distinction explicit.",
+    "Final combined integration pending."
+  ]
+}

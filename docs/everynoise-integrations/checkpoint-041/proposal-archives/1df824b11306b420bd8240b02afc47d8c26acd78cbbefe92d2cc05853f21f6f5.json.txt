@@ -1,0 +1,207 @@
+{
+  "entries": [
+    {
+      "source_label": "cumbia cristiana",
+      "source_url": "https://everynoise.com/engenremap-cumbiacristiana.html",
+      "suggested_id": "cumbia_cristiana",
+      "allocation_ordinal": 3105,
+      "allocation_group_id": "125",
+      "id": "cumbia_cristiana",
+      "tradition": {
+        "id": "cumbia_cristiana",
+        "name": "Cumbia Cristiana",
+        "family": "vernacular",
+        "lineage": "Lucho Dee Jay — complete artist-issued Mix Remix CRISTIANOS / Cumbia WORSHIP programme, YouTube _Weu4cGqayE, published May 24, 2024. Current title contains DJ 2025, which is not its upload date. Official artist channel supplies eighteen timestamped remix sections through the final Salmo 22 RKT section beginning at 28:45; total running time is unverified. This selects the entire issued DJ/remix programme, including the mixed RKT ending, not an excerpt or a reconstruction of any constituent studio master. Embedded singers and instrumental layers remain in the playback role; their counts, decks/software and live versus edited mixing method are unknown. No separately live singer is documented, not proof of no voices. No audio audition or video inspection claimed. Existing neutral DJ playback and mixing role retains the whole issued mix and embedded layers without claiming a source synthesizer, band or deck model. The one actual owning control is explicitly protected. Brisk dance-compatible presentation and controlled live room are authored rendition choices, not measured programme tempo or venue. ritualDevotional.christianGospel represents the explicitly Christian worship purpose rather than imposing choir, Black gospel technique or unheard song form. No global tuning or recording apparatus asserted.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Lucho Dee Jay — complete artist-issued Mix Remix CRISTIANOS / Cumbia WORSHIP programme, YouTube _Weu4cGqayE, published May 24, 2024. Current title contains DJ 2025, which is not its upload date. Official artist channel supplies eighteen timestamped remix sections through the final Salmo 22 RKT section beginning at 28:45; total running time is unverified. This selects the entire issued DJ/remix programme, including the mixed RKT ending, not an excerpt or a reconstruction of any constituent studio master. Embedded singers and instrumental layers remain in the playback role; their counts, decks/software and live versus edited mixing method are unknown. No separately live singer is documented, not proof of no voices. No audio audition or video inspection claimed. Cumbia Cristiana is a positively documented Christian devotional cumbia repertoire and community, spanning live groups and DJ-remix circulation. Direct municipal Nueva Adoracion profile identifies self-composed worship music and Christian cumbia, independently corroborating the selected artist own exact field label. Full Cumbia Argentina and other national cumbia fields overlap but do not specify this devotional purpose. Full Christian Dance is not treated as excluding cumbia merely because its example is Finnish Eurodance; it is a broader functional overlap, while this positively named field is cumbia-specific. Broad CCM and Christian Pop also overlap; neither is defined solely by its chosen ensemble. No difference is inferred from this DJ source alone, and no exclusive roster or genre purity claimed. Existing neutral DJ playback and mixing role retains the whole issued mix and embedded layers without claiming a source synthesizer, band or deck model. The one actual owning control is explicitly protected. Brisk dance-compatible presentation and controlled live room are authored rendition choices, not measured programme tempo or venue. ritualDevotional.christianGospel represents the explicitly Christian worship purpose rather than imposing choir, Black gospel technique or unheard song form. No global tuning or recording apparatus asserted.",
+        "exemplars": [
+          "Lucho Dee Jay — complete Mix Remix CRISTIANOS / Cumbia WORSHIP programme, May 24, 2024"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        -38.4161,
+        -63.6167,
+        "Argentina",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Country-level community anchor supported by direct Argentine municipal Christian-cumbia profile; not claimed as the DJ recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Cumbia Cristiana is a positively documented Christian devotional cumbia repertoire and community, spanning live groups and DJ-remix circulation. Direct municipal Nueva Adoracion profile identifies self-composed worship music and Christian cumbia, independently corroborating the selected artist own exact field label. Full Cumbia Argentina and other national cumbia fields overlap but do not specify this devotional purpose. Full Christian Dance is not treated as excluding cumbia merely because its example is Finnish Eurodance; it is a broader functional overlap, while this positively named field is cumbia-specific. Broad CCM and Christian Pop also overlap; neither is defined solely by its chosen ensemble. No difference is inferred from this DJ source alone, and no exclusive roster or genre purity claimed.",
+      "model_policy": "Existing neutral DJ playback and mixing role retains the whole issued mix and embedded layers without claiming a source synthesizer, band or deck model. The one actual owning control is explicitly protected. Brisk dance-compatible presentation and controlled live room are authored rendition choices, not measured programme tempo or venue. ritualDevotional.christianGospel represents the explicitly Christian worship purpose rather than imposing choir, Black gospel technique or unheard song form. No global tuning or recording apparatus asserted.",
+      "source_scope_limitation": "Lucho Dee Jay — complete artist-issued Mix Remix CRISTIANOS / Cumbia WORSHIP programme, YouTube _Weu4cGqayE, published May 24, 2024. Current title contains DJ 2025, which is not its upload date. Official artist channel supplies eighteen timestamped remix sections through the final Salmo 22 RKT section beginning at 28:45; total running time is unverified. This selects the entire issued DJ/remix programme, including the mixed RKT ending, not an excerpt or a reconstruction of any constituent studio master. Embedded singers and instrumental layers remain in the playback role; their counts, decks/software and live versus edited mixing method are unknown. No separately live singer is documented, not proof of no voices. No audio audition or video inspection claimed.",
+      "classification_evidence": "Cumbia Cristiana is a positively documented Christian devotional cumbia repertoire and community, spanning live groups and DJ-remix circulation. Direct municipal Nueva Adoracion profile identifies self-composed worship music and Christian cumbia, independently corroborating the selected artist own exact field label. Full Cumbia Argentina and other national cumbia fields overlap but do not specify this devotional purpose. Full Christian Dance is not treated as excluding cumbia merely because its example is Finnish Eurodance; it is a broader functional overlap, while this positively named field is cumbia-specific. Broad CCM and Christian Pop also overlap; neither is defined solely by its chosen ensemble. No difference is inferred from this DJ source alone, and no exclusive roster or genre purity claimed.",
+      "vocal_count_audit": {
+        "embedded_voice_count": "unknown; named remix credits include singers, retained in full playback",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0,
+        "decision": "No voice absence claim; entire programme retained."
+      },
+      "instrument_role_audit": {
+        "scope": "Lucho Dee Jay — complete artist-issued Mix Remix CRISTIANOS / Cumbia WORSHIP programme, YouTube _Weu4cGqayE, published May 24, 2024. Current title contains DJ 2025, which is not its upload date. Official artist channel supplies eighteen timestamped remix sections through the final Salmo 22 RKT section beginning at 28:45; total running time is unverified. This selects the entire issued DJ/remix programme, including the mixed RKT ending, not an excerpt or a reconstruction of any constituent studio master. Embedded singers and instrumental layers remain in the playback role; their counts, decks/software and live versus edited mixing method are unknown. No separately live singer is documented, not proof of no voices. No audio audition or video inspection claimed.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Whole artist-issued eighteen-section DJ/remix programme with all embedded voices and instrumental layers retained"
+        },
+        "performers": [
+          "Lucho Dee Jay"
+        ],
+        "authored_defaults": "Existing neutral DJ playback and mixing role retains the whole issued mix and embedded layers without claiming a source synthesizer, band or deck model. The one actual owning control is explicitly protected. Brisk dance-compatible presentation and controlled live room are authored rendition choices, not measured programme tempo or venue. ritualDevotional.christianGospel represents the explicitly Christian worship purpose rather than imposing choir, Black gospel technique or unheard song form. No global tuning or recording apparatus asserted."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Existing neutral DJ playback and mixing role retains the whole issued mix and embedded layers without claiming a source synthesizer, band or deck model. The one actual owning control is explicitly protected. Brisk dance-compatible presentation and controlled live room are authored rendition choices, not measured programme tempo or venue. ritualDevotional.christianGospel represents the explicitly Christian worship purpose rather than imposing choir, Black gospel technique or unheard song form. No global tuning or recording apparatus asserted."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "One actual merged owning identity control, explicitly pinned; all source hardware details remain unknown."
+      },
+      "status": "source_ready",
+      "verification_status": "One applicable owning identity control protected, zero errors/fallbacks; all1638 old owners unchanged. Four original outputs independently read: neutral DJ identity and controlled room, only authored up-tempo pacing, no invented gear/voices/culture. Maximum147chars. Independent boundary peer and final integrated checks pending.",
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=_Weu4cGqayE",
+          "title": "Official artist-issued whole Cumbia WORSHIP DJ/remix programme",
+          "support_notes": "Fresh turn246080youtube15: official artist channel, upload2024-05-24 and all18 timestamped sections; current2025title does not override upload date.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://trenquelauquen.gov.ar/musica/project/nueva-adoracion/",
+          "title": "Direct municipal artist profile",
+          "support_notes": "Fresh turn773777view1: Christian cumbia devotional composition practice and separate complete band. Category only; no band roles mixed into DJ programme.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cumbia_cristiana",
+          "name": "Cumbia Cristiana",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Lucho Dee Jay or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn571802view1 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Historical023 bytes and visual receipt inherited, no fresh download.",
+          "fresh_review_ref": "turn571802view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn571802view1"
+        ],
+        "fresh_rights_review": "Fresh turn571802view1 rights only; historical exact bytes and visual provenance retained."
+      },
+      "primary_retrieval_refs": [
+        "turn246080youtube15",
+        "turn773777view1"
+      ],
+      "source_review_refs": [],
+      "source_retrieval_caveat": "Official YouTube indexed artist description retrieved in full; direct video opens failed. No playback/visual inspection. Timestamp list establishes whole issued programme sequence, not measured end time or original track instrumentation. Prior Esek complete live-band packet remains separately held; none of its roles were removed to create this different issued DJ programme."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "Source-only whole new DJ programme; original Esek source preserved separately; pending independent review."
+}

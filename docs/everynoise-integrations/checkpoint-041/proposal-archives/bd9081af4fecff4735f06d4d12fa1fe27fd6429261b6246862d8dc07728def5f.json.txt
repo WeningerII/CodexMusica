@@ -1,0 +1,300 @@
+{
+  "entries": [
+    {
+      "source_label": "latvian hip hop",
+      "source_url": "https://everynoise.com/engenremap-latvianhiphop.html",
+      "suggested_id": "latvian_hip_hop",
+      "allocation_ordinal": 378,
+      "allocation_group_id": "016",
+      "status": "frozen_for_independent_review",
+      "id": "latvian_hip_hop",
+      "tradition": {
+        "id": "latvian_hip_hop",
+        "name": "Latvian hip hop",
+        "family": "hip_hop",
+        "lineage": "Latvian hip-hop connects Latvian-language rap, independent releases and live performance. Artists such as Skutelis place detailed lyrical delivery at the center of a scene that includes solo MC work, collaboration and DJ-led concert practice.",
+        "instruments": [
+          "voice",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "A foreground rap voice shapes phrases against recurring beats and recorded textures. DJ selection and mixing support the changing emphasis of the lyrics, with clear rhythmic articulation and space for pauses, accents and refrains.",
+        "exemplars": [
+          "Skutelis"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        56.5047,
+        21.0108,
+        "Liepāja",
+        "Europe"
+      ],
+      "geo_rationale": "Exact announced programme city; broader field not confined to this venue.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://ticketshop.lv/en/events/5683",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11770view0 full artist-organized119-minute programme explicitly names Skutelis+DJVinvins and first-person Latvian hip-hop/rap repertoire history; exact date/venue and programme scope."
+        }
+      ],
+      "neighbor_distinction": "The artist-organized primary explicitly identifies the programme with Latvian hip-hop/underground history and Latvian rap listeners. The national-language and local performance field is narrower than broad international hip-hop but broader than particular Latvian trap, underground or individual artist catalogues. Source identification is institutional and first-person practice, not mere birthplace. Actual source is a new complete live edition, distinct from the prior unverified Wiesulis acapella upload; no original studio roles removed. Latvian hip-hop intersects Baltic and other European scenes without being all Baltic electronic music or Latvian pop. No exact creator playlist membership claim absent reproduction.",
+      "model_policy": "One credited live rapper is realized as solo-accompanied rhythmic spoken voice with a single authored live lead, not a claim source recording has no doubles or processing. Unknown physiology,pitch,training remain neutral. DJ role retains embedded backing and voices without guessing sampler architecture. Controlled live-room acoustic space and neutral unprocessed delivery are new-rendition choices, not measured venue or historical session facts. No global tuning or undocumented instruments. Any up-tempo/spoken-flowing output denotes authored rap presentation, not recovered BPM. The original renderer uses burlesque as a generic projected/playful theatrical delivery metaphor through rhythmic speech tokens, not a claim of burlesque-stage genre, brass instruments, measured swing or historical source arrangement. This expressive presentation is expressly authored; the original programme text does not establish actual delivery in that metaphor.",
+      "classification_evidence": {
+        "mode": "artist_organized_primary_programme",
+        "note": "The artist-organized primary explicitly identifies the programme with Latvian hip-hop/underground history and Latvian rap listeners. The national-language and local performance field is narrower than broad international hip-hop but broader than particular Latvian trap, underground or individual artist catalogues. Source identification is institutional and first-person practice, not mere birthplace. Actual source is a new complete live edition, distinct from the prior unverified Wiesulis acapella upload; no original studio roles removed. Latvian hip-hop intersects Baltic and other European scenes without being all Baltic electronic music or Latvian pop. No exact creator playlist membership claim absent reproduction."
+      },
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "named_live_rapper": "Arturs Skutelis",
+        "embedded_playback_voices": "unknown",
+        "reason": "Only one live rapper named in complete announced duo; source layering unknown."
+      },
+      "instrument_role_audit": {
+        "scope": "Arturs Skutelis with DJ Vinvins — complete artist-organized Gardēžu concert programme announced for Kultūras nams Wiktorija,Liepāja,1March2024,21:00–22:59. Artist-owned ticket listing explicitly names both performers and describes the repertoire spanning Manī mīt through recent work, developed from their Riga programme and adapted for this tour. Retain one named rapper and DJ playback/mixing, without importing his separate live band Tvērumi or guessed studio track instrumentation. This models the complete announced119-minute stage practice, not a personally auditioned recording, verified exact realized duration, or a selective vocal excerpt. Actual DJ medium and embedded playback voice count remain unknown.",
+        "roles": {
+          "voice": "ArtursSkutelis rap performance",
+          "dj_playback_mixing_unspecified": "DJVinvins complete stage accompaniment"
+        },
+        "authored_defaults": "One credited live rapper is realized as solo-accompanied rhythmic spoken voice with a single authored live lead, not a claim source recording has no doubles or processing. Unknown physiology,pitch,training remain neutral. DJ role retains embedded backing and voices without guessing sampler architecture. Controlled live-room acoustic space and neutral unprocessed delivery are new-rendition choices, not measured venue or historical session facts. No global tuning or undocumented instruments. Any up-tempo/spoken-flowing output denotes authored rap presentation, not recovered BPM."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "One credited live rapper is realized as solo-accompanied rhythmic spoken voice with a single authored live lead, not a claim source recording has no doubles or processing. Unknown physiology,pitch,training remain neutral. DJ role retains embedded backing and voices without guessing sampler architecture. Controlled live-room acoustic space and neutral unprocessed delivery are new-rendition choices, not measured venue or historical session facts. No global tuning or undocumented instruments. Any up-tempo/spoken-flowing output denotes authored rap presentation, not recovered BPM."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "One credited live rapper is realized as solo-accompanied rhythmic spoken voice with a single authored live lead, not a claim source recording has no doubles or processing. Unknown physiology,pitch,training remain neutral. DJ role retains embedded backing and voices without guessing sampler architecture. Controlled live-room acoustic space and neutral unprocessed delivery are new-rendition choices, not measured venue or historical session facts. No global tuning or undocumented instruments. Any up-tempo/spoken-flowing output denotes authored rap presentation, not recovered BPM."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All18 owning controls explicitly protected,no fallback; livelead separate from embedded playback voices."
+      },
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638
+      },
+      "verification_status": "Author original-loader18protectedparts,1638unchanged,exacthistoricalphoto and fouractualappformats PASS; editorial affect disclosed for independent judgment. No final integrated CI claim.",
+      "source_scope_limitation": "Arturs Skutelis with DJ Vinvins — complete artist-organized Gardēžu concert programme announced for Kultūras nams Wiktorija,Liepāja,1March2024,21:00–22:59. Artist-owned ticket listing explicitly names both performers and describes the repertoire spanning Manī mīt through recent work, developed from their Riga programme and adapted for this tour. Retain one named rapper and DJ playback/mixing, without importing his separate live band Tvērumi or guessed studio track instrumentation. This models the complete announced119-minute stage practice, not a personally auditioned recording, verified exact realized duration, or a selective vocal excerpt. Actual DJ medium and embedded playback voice count remain unknown.",
+      "primary_retrieval_refs": [
+        "turn11770view0"
+      ],
+      "source_retrieval_caveat": "Complete ticket programme published under artist himself as organizer, with first-person statement. Announced programme, not actual attendance/audio inspection. No separately named guests inferred.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "latvian_hip_hop",
+          "name": "Latvian hip hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not Skutelis,Vinvins or actual venue apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11621view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11621view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11621view3"
+        ]
+      },
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-5.json",
+        "original_sha256": "194d4c184e6c7d5fb812c9fdde7f13b47a5797fc34381d65e5fae7d5fdc92538",
+        "prior_tradition": {
+          "id": "latvian_hip_hop",
+          "name": "Latvian hip hop",
+          "family": "hip_hop",
+          "lineage": "Arturs Skutelis with DJ Vinvins — complete artist-organized Gardēžu concert programme announced for Kultūras nams Wiktorija,Liepāja,1March2024,21:00–22:59. Artist-owned ticket listing explicitly names both performers and describes the repertoire spanning Manī mīt through recent work, developed from their Riga programme and adapted for this tour. Retain one named rapper and DJ playback/mixing, without importing his separate live band Tvērumi or guessed studio track instrumentation. This models the complete announced119-minute stage practice, not a personally auditioned recording, verified exact realized duration, or a selective vocal excerpt. Actual DJ medium and embedded playback voice count remain unknown. One credited live rapper is realized as solo-accompanied rhythmic spoken voice with a single authored live lead, not a claim source recording has no doubles or processing. Unknown physiology,pitch,training remain neutral. DJ role retains embedded backing and voices without guessing sampler architecture. Controlled live-room acoustic space and neutral unprocessed delivery are new-rendition choices, not measured venue or historical session facts. No global tuning or undocumented instruments. Any up-tempo/spoken-flowing output denotes authored rap presentation, not recovered BPM. The original renderer uses burlesque as a generic projected/playful theatrical delivery metaphor through rhythmic speech tokens, not a claim of burlesque-stage genre, brass instruments, measured swing or historical source arrangement. This expressive presentation is expressly authored; the original programme text does not establish actual delivery in that metaphor.",
+          "instruments": [
+            "voice",
+            "dj_playback_mixing_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "prior_extras": {
+          "parent": "mcRhythm",
+          "axes": {
+            "harm": 0,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 1,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 1
+          },
+          "description": "Arturs Skutelis with DJ Vinvins — complete artist-organized Gardēžu concert programme announced for Kultūras nams Wiktorija,Liepāja,1March2024,21:00–22:59. Artist-owned ticket listing explicitly names both performers and describes the repertoire spanning Manī mīt through recent work, developed from their Riga programme and adapted for this tour. Retain one named rapper and DJ playback/mixing, without importing his separate live band Tvērumi or guessed studio track instrumentation. This models the complete announced119-minute stage practice, not a personally auditioned recording, verified exact realized duration, or a selective vocal excerpt. Actual DJ medium and embedded playback voice count remain unknown. The artist-organized primary explicitly identifies the programme with Latvian hip-hop/underground history and Latvian rap listeners. The national-language and local performance field is narrower than broad international hip-hop but broader than particular Latvian trap, underground or individual artist catalogues. Source identification is institutional and first-person practice, not mere birthplace. Actual source is a new complete live edition, distinct from the prior unverified Wiesulis acapella upload; no original studio roles removed. Latvian hip-hop intersects Baltic and other European scenes without being all Baltic electronic music or Latvian pop. No exact creator playlist membership claim absent reproduction. One credited live rapper is realized as solo-accompanied rhythmic spoken voice with a single authored live lead, not a claim source recording has no doubles or processing. Unknown physiology,pitch,training remain neutral. DJ role retains embedded backing and voices without guessing sampler architecture. Controlled live-room acoustic space and neutral unprocessed delivery are new-rendition choices, not measured venue or historical session facts. No global tuning or undocumented instruments. Any up-tempo/spoken-flowing output denotes authored rap presentation, not recovered BPM. The original renderer uses burlesque as a generic projected/playful theatrical delivery metaphor through rhythmic speech tokens, not a claim of burlesque-stage genre, brass instruments, measured swing or historical source arrangement. This expressive presentation is expressly authored; the original programme text does not establish actual delivery in that metaphor.",
+          "exemplars": [
+            "Arturs Skutelis and DJ Vinvins — Gardēžu concert,Liepāja2024"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "decision": "Restore genre history/style public profile, retain documented live performance architecture as a representative controllable branch. No whole-event reproduction or universal source-personnel claim. Studio production remains within the wider genre, not falsely decomposed from an opaque master. All existing roles/controls retained; no new dependency.",
+        "default_review": "Existing live MC/DJ or MC/turntable/drum/percussion practice is positively documented and fits a representative performance. Exact human count is not a genre rule; voice grouping is an authored ensemble choice, not universal category definition. Current resolved_parts_audit remains valid because musical controls are unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume461-norwegian-trap-practice.json",
+  "sha256": "cc1f994d1105ea4056a498c61884ae1a360fc5c8cedca5671280fe3c8655c04d",
+  "source_review": {
+    "refs": [
+      "turn13658view0",
+      "turn13658view1"
+    ],
+    "finding": "Firsthand Norwegian beatmaker interview positively establishes trap production in Norway, FL Studio and international rapper collaboration. Independent Vaular interview establishes local Norwegian-language rap networks and explicitly trap among varied styles. Representative MC plus produced beat is supported without reducing an entire mixed-style album to two roles."
+  },
+  "category_review": "Full Norwegian hip hop, Nordnorsk rap, Norwegian pop and Trap records read. Target is the positively attested Norwegian intersection of trap production and local/international rapper networks, overlapping national hip hop and global trap; no unique national rhythm or exclusive artist roster asserted.",
+  "default_review": {
+    "owning_parts": 18,
+    "all_protected": true,
+    "errors": [],
+    "parts": [
+      {
+        "instrument": "voice",
+        "part": "voice_register",
+        "variant": "voice_register_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_quality",
+        "variant": "voice_quality_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_vocal_tract",
+        "variant": "tract_neutral",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_effort",
+        "variant": "effort_moderate",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_vibrato",
+        "variant": "voice_vibrato_local_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_articulation",
+        "variant": "spoken_voice",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_microtone",
+        "variant": "voice_microtone_local_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_tradition",
+        "variant": "voice_tradition_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_mechanism_compound",
+        "variant": "voice_mechanism_compound_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_estill_quality",
+        "variant": "voice_estill_quality_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_speech_song",
+        "variant": "voice_rhythmic_spoken_flow",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_ensemble_config",
+        "variant": "voice_ensemble_solo_accompanied",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_ornament_system",
+        "variant": "voice_ornament_system_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_pitch_organization",
+        "variant": "voice_pitch_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_processing_chain",
+        "variant": "voice_processing_unprocessed",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_multitrack_stack",
+        "variant": "voice_multitrack_single_lead",
+        "protected": true
+      },
+      {
+        "instrument": "voice",
+        "part": "voice_tessitura",
+        "variant": "voice_tessitura_source_unspecified",
+        "protected": true
+      },
+      {
+        "instrument": "credited_beat_unspecified",
+        "part": "credited_beat_identity",
+        "variant": "credited_beat_mechanism_unspecified",
+        "protected": true
+      }
+    ]
+  },
+  "semantic_review": "All four original outputs inspected: rhythmic spoken solo MC with instrumental accompaniment, clean/cold produced beat and authored dry studio. No unrelated cultural technique, new orchestration or original performer physiology claim. Beat remains a production role rather than an opaque completed-master substitute.",
+  "runtime": "/tmp/batch040/norwegian-trap-runtime119.json",
+  "formats": 4,
+  "max_chars": 323,
+  "photo_review": "Fresh independent Commons turn13648view2 confirms exact Iain Fergusson/Binksternet source/crop and CC BY2.5. Packet preserves historical250px receipt; generic microphone context accurately low-confidence and not artist/equipment attribution.",
+  "dependencies": 0,
+  "repository_edits": false
+}

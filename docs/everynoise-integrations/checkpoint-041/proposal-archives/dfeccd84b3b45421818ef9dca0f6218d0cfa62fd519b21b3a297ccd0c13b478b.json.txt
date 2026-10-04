@@ -1,0 +1,249 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "talentkonkurrence",
+          "name": "Talentkonkurrence",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only; not Emma Pi, the piano, TV equipment or a documented session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12096view2 confirms Iain Fergusson and crop by Binksternet, CC BY2.5. Exact023 historical byte/visual receipts inherited honestly.",
+          "fresh_review_ref": "turn12096view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh12096view2; no fresh binary or visual inspection claimed.",
+        "fresh_rights_retrieval_refs": [
+          "turn12096view2"
+        ]
+      },
+      "source_label": "talentkonkurrence",
+      "source_url": "https://everynoise.com/engenremap-talentkonkurrence.html",
+      "suggested_id": "talentkonkurrence",
+      "allocation_ordinal": 4391,
+      "allocation_group_id": "176",
+      "id": "talentkonkurrence",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "talentkonkurrence",
+        "name": "Talentkonkurrence",
+        "family": "pop",
+        "lineage": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together. One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together. Talentkonkurrence identifies the Danish televised talent-competition recording pathway, positively represented by Danish MGP winner Emma Pi and the exact creator playlist containing this song at61 among a large Danish MGP field. Publisher collaboration explicitly identifies her2014 winning song and Danish child audience. Existing talentkonkurranse is expressly the Norwegian competition community; national television institutions overlap Nordic popular music but are not one Norwegian-only field. Existing idol is a broader competition discovery category, not restricted to its Casey Abrams exemplar; this Danish institutional field overlaps it without claiming sonic disjointness. Existing Danish Pop already covers a broad national recording scene, not only Aqua dance-pop. This narrower competition pathway is not the whole national pop or children-song repertoire. Eurovision Pop is the pan-European televised contest field; Danish youth MGP has its own repertoire and national participation context, even where competition audiences overlap. A different piano arrangement is not the category distinction. One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted.",
+        "exemplars": [
+          "Emma Pi — Du ser den anden vej, complete Stepnote voice-and-piano version"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        56.2639,
+        9.5018,
+        "Denmark",
+        "Europe"
+      ],
+      "geo_rationale": "Country-only editorial anchor for the Danish MGP institutional repertoire; no publisher office, recording location or performance venue inferred.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.stepnote.dk/produkter/72-klavernoder/125911-emma-pi-spil-og-syng-du-ser-den-anden-vej/",
+          "title": "Artist-collaborating publisher complete voice-and-piano version",
+          "support_notes": "Fresh12109search0 complete indexed metadata: MGP2014 winner, arranged accompaniment while singing, alternative guitar and teaching options separately listed; publisher Stepnote, arranger Rasmus Hansen. Full paid score uninspected."
+        },
+        {
+          "url": "https://embed.spotify.com/?uri=spotify%3Aplaylist%3A6k6r5MC3SdPxmpEGv91qVF",
+          "title": "Exact creator Talentkonkurrence roster",
+          "support_notes": "Fresh12109view0 item61 selected Emma Pi song and broad Danish MGP roster, not a guessed artist bridge."
+        }
+      ],
+      "neighbor_distinction": "Talentkonkurrence identifies the Danish televised talent-competition recording pathway, positively represented by Danish MGP winner Emma Pi and the exact creator playlist containing this song at61 among a large Danish MGP field. Publisher collaboration explicitly identifies her2014 winning song and Danish child audience. Existing talentkonkurranse is expressly the Norwegian competition community; national television institutions overlap Nordic popular music but are not one Norwegian-only field. Existing idol is a broader competition discovery category, not restricted to its Casey Abrams exemplar; this Danish institutional field overlaps it without claiming sonic disjointness. Existing Danish Pop already covers a broad national recording scene, not only Aqua dance-pop. This narrower competition pathway is not the whole national pop or children-song repertoire. Eurovision Pop is the pan-European televised contest field; Danish youth MGP has its own repertoire and national participation context, even where competition audiences overlap. A different piano arrangement is not the category distinction.",
+      "model_policy": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted.",
+      "classification_evidence": "Talentkonkurrence identifies the Danish televised talent-competition recording pathway, positively represented by Danish MGP winner Emma Pi and the exact creator playlist containing this song at61 among a large Danish MGP field. Publisher collaboration explicitly identifies her2014 winning song and Danish child audience. Existing talentkonkurranse is expressly the Norwegian competition community; national television institutions overlap Nordic popular music but are not one Norwegian-only field. Existing idol is a broader competition discovery category, not restricted to its Casey Abrams exemplar; this Danish institutional field overlaps it without claiming sonic disjointness. Existing Danish Pop already covers a broad national recording scene, not only Aqua dance-pop. This narrower competition pathway is not the whole national pop or children-song repertoire. Eurovision Pop is the pan-European televised contest field; Danish youth MGP has its own repertoire and national participation context, even where competition audiences overlap. A different piano arrangement is not the category distinction.",
+      "vocal_count_audit": {
+        "scored_singing_roles": 1,
+        "actual_performer_count": "unknown; publisher explicitly permits self-accompanied singing",
+        "decision": "One authored accompanied lead, not original TV headcount or assumed extra singers."
+      },
+      "instrument_role_audit": {
+        "scope": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together.",
+        "roles": {
+          "voice": "One scored singing line, accompanied",
+          "upright_piano": "Complete expressly published piano accompaniment; upright subtype authored"
+        },
+        "authored_defaults": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "upright_piano"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All20 applicable owning controls protected, no shared-key conflict or fallback."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted."
+        }
+      ],
+      "verification_status": "20 applicable controls protected, zero errors/fallbacks, all1638 existing owners unchanged. Original browser/connector four-format parity passed, longest416; all full strings inspected, spatial huge/immense consistent with authored recital hall. No unrelated cultural or extra instrumental role rendered. Independent review pending.",
+      "source_scope_limitation": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together.",
+      "source_review_refs": [
+        "turn12109search0",
+        "turn12109view0",
+        "turn12096view2"
+      ],
+      "source_retrieval_caveat": "Publisher full scoring description independently indexed; direct product access intermittently fails. Paid book not accessed. Creator roster directly retrieved. Stored original successful publisher response resume116-emma-publisher-primary-raw.json."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

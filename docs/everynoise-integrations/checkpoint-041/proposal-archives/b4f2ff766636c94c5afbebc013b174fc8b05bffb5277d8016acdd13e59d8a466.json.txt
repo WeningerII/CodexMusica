@@ -1,0 +1,1957 @@
+{
+  "entries": [
+    {
+      "source_label": "musica aguascalentense",
+      "source_url": "https://everynoise.com/engenremap-musicaaguascalentense.html",
+      "suggested_id": "musica_aguascalentense",
+      "allocation_ordinal": 3824,
+      "allocation_group_id": "153",
+      "id": "musica_aguascalentense",
+      "tradition": {
+        "id": "musica_aguascalentense",
+        "name": "Música Aguascalentense",
+        "family": "global",
+        "lineage": "Música Aguascalentense brings together the regional music communities of Aguascalientes, from northern and tropical dance styles to independent rock and hybrid ensembles. Local festivals and musicians such as La Santísima Voladora connect regional identity with wider Mexican popular music.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "trumpet",
+          "trombone",
+          "credited_auxiliary_percussion",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.regional",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Driving guitar and bass, drums, percussion, brass responses and keyboards meet expressive singing in the region’s rock–tropical fusion. Other branches draw on mariachi, norteño and cumbia traditions.",
+        "exemplars": [
+          "La Santísima Voladora"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        21.8853,
+        -102.2916,
+        "Aguascalientes",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Producer address and named regional formation/circulation; not the Madrid institutional presentation site.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.lukinmusic.com/la-santisima/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11310view1 complete producer credit block lines48–57 and regional circulation. Embeddedvideo not auditioned; credits are scoped to explicitly published producer ensemble."
+        },
+        {
+          "url": "https://www.casademexico.es/noticia/musica-la-santisima-voladora-frecuencia-sonora-rock-eme-equis-2025/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11310view0 institution identifies Aguascalientes roots and tropimetal/Latinrock practice; later roster not used as source credits."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7Fh0u1Wv41GsgM4kCw8Cxf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11311view0 and11313view1 exact creator item75; artist bridge not selected credited production."
+        },
+        {
+          "url": "https://culturaags.blogspot.com/2014/02/anunciados-los-grupos-locales.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11290search4 own cultural institution crossstyle regional selection; Bleak Boys not substituted for the exact creator artist."
+        }
+      ],
+      "neighbor_distinction": "Música Aguascalentense is a regional circulation field crossing cumbia, norteño, mariachi and hybrid rock/tropical practices, not an equivalence to one national style. Exact creator playlist7Fh0u1Wv41GsgM4kCw8Cxf includes La Santísima Voladora with other local acts at item75. Its producer documents formation and repeated local festival participation in Aguascalientes, while Casa de México describes its distinctive regional tropimetal fusion. The Instituto Cultural de Aguascalientes independently publishes a crossstyle local festival field. Existing latin_rock already includes broad Latin American rhythmic rock beyond Santana, and mexican_indie includes national independent bands beyond Sadfields; both can overlap this regional subset. Existing mexican_pop defines the balada recording industry, while full cumbia_sonidera describes a sound-system/dedication practice and its studio extensions. None is an alternative name for this regional network. Do not universalize the selected metal/cumbia hybrid across all regional music.",
+      "model_policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "trumpet",
+          "trombone",
+          "credited_auxiliary_percussion",
+          "electronic_keyboard_unspecified"
+        ],
+        "baseline_existing_instruments": 1638
+      },
+      "classification_evidence": {
+        "mode": "exact_creator_and_firsthand_producer_regional_practice",
+        "note": "Música Aguascalentense is a regional circulation field crossing cumbia, norteño, mariachi and hybrid rock/tropical practices, not an equivalence to one national style. Exact creator playlist7Fh0u1Wv41GsgM4kCw8Cxf includes La Santísima Voladora with other local acts at item75. Its producer documents formation and repeated local festival participation in Aguascalientes, while Casa de México describes its distinctive regional tropimetal fusion. The Instituto Cultural de Aguascalientes independently publishes a crossstyle local festival field. Existing latin_rock already includes broad Latin American rhythmic rock beyond Santana, and mexican_indie includes national independent bands beyond Sadfields; both can overlap this regional subset. Existing mexican_pop defines the balada recording industry, while full cumbia_sonidera describes a sound-system/dedication practice and its studio extensions. None is an alternative name for this regional network. Do not universalize the selected metal/cumbia hybrid across all regional music."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        },
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        },
+        {
+          "instrument": "trombone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "trombone_type": "tenor_trombone",
+            "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+            "trombone_mute": "no_mute_trb",
+            "trombone_technique": "big_band_punch",
+            "trombone_bell_metal": "trombone_yellow_brass",
+            "trombone_maker_school": "trombone_bach_42"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_aguascalentense",
+          "name": "Música Aguascalentense",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not La Santísima Voladora or the original producer hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11260view1 confirms the exact Commons CC BY2.5 credit and permitted crop; inherited023 binary/visual receipt remains historical, no new transfer.",
+          "fresh_review_ref": "turn11260view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11260view1"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [
+          "amp_make",
+          "body_wood",
+          "wind_articulation"
+        ],
+        "rule": "Shared pin applicability checked against each owning part; all effective controls protected without fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn11310view1",
+        "turn11310view0",
+        "turn11311view0",
+        "turn11313view1",
+        "turn11290search4"
+      ],
+      "source_retrieval_caveat": "Producer and cultural institution directly read; no audition or unsupported linkage of credit block to a particular embedded title. Regional festival source indexed; direct monthly archive failed.",
+      "source_scope_limitation": "Historical programme evidence is preserved separately; current public profile and defaults describe the broader genre.",
+      "status": "genre_profile_pending_peer",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "musica_aguascalentense",
+            "name": "Música Aguascalentense",
+            "family": "global",
+            "lineage": "La Santísima Voladora — complete eight-person ensemble credited by its producer Lukin Music under its2018production statement: Jorge Velazco voice, Pity Raygoza drums, Toro Fierros bass, Lalo Rogero electric guitar/backing voice, Obed Armin trombone, Christian de Anda trumpet, Ficho Hernández percussion, and special guest Jano Jazz keyboards. All eight sound families and both explicit singers retained, including guest keyboard. Selected scope is this full producer-published ensemble practice, not a claim that its credits apply to every album or later tour. Named guests in the separate historical first-album paragraph and the2025eight-or-nine-member profile are not transferred into this bounded roster. No source audio audition or specific hardware inference. Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "trumpet",
+              "trombone",
+              "credited_auxiliary_percussion",
+              "electronic_keyboard_unspecified"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_neumatic_singing",
+              "voice_ensemble_config": "voice_ensemble_live_duet",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_power_chord",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "mahogany_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "split_coil",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "pick_aggressive",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "wind_articulation": "wind_punchy_ensemble",
+              "brass_size": "trumpet_b_flat",
+              "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+              "brass_mute": "no_mute_brass",
+              "trumpet_technique": "trumpet_punchy_ensemble",
+              "trumpet_bell_metal": "trumpet_yellow_brass",
+              "trumpet_maker_school": "trumpet_bach_stradivarius",
+              "trombone_type": "tenor_trombone",
+              "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+              "trombone_mute": "no_mute_trb",
+              "trombone_technique": "big_band_punch",
+              "trombone_bell_metal": "trombone_yellow_brass",
+              "trombone_maker_school": "trombone_bach_42",
+              "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal"
+            }
+          },
+          "extras": {
+            "parent": "distortedRock.regional",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "La Santísima Voladora — complete eight-person ensemble credited by its producer Lukin Music under its2018production statement: Jorge Velazco voice, Pity Raygoza drums, Toro Fierros bass, Lalo Rogero electric guitar/backing voice, Obed Armin trombone, Christian de Anda trumpet, Ficho Hernández percussion, and special guest Jano Jazz keyboards. All eight sound families and both explicit singers retained, including guest keyboard. Selected scope is this full producer-published ensemble practice, not a claim that its credits apply to every album or later tour. Named guests in the separate historical first-album paragraph and the2025eight-or-nine-member profile are not transferred into this bounded roster. No source audio audition or specific hardware inference. Música Aguascalentense is a regional circulation field crossing cumbia, norteño, mariachi and hybrid rock/tropical practices, not an equivalence to one national style. Exact creator playlist7Fh0u1Wv41GsgM4kCw8Cxf includes La Santísima Voladora with other local acts at item75. Its producer documents formation and repeated local festival participation in Aguascalientes, while Casa de México describes its distinctive regional tropimetal fusion. The Instituto Cultural de Aguascalientes independently publishes a crossstyle local festival field. Existing latin_rock already includes broad Latin American rhythmic rock beyond Santana, and mexican_indie includes national independent bands beyond Sadfields; both can overlap this regional subset. Existing mexican_pop defines the balada recording industry, while full cumbia_sonidera describes a sound-system/dedication practice and its studio extensions. None is an alternative name for this regional network. Do not universalize the selected metal/cumbia hybrid across all regional music. Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones.",
+            "exemplars": [
+              "La Santísima Voladora — complete Lukin Music credited eight-person ensemble"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all eight meaningful band families and sixty-six owning controls for a representative regional rock–tropical branch. Firm guitar/bass and punchy brass are authored energetic choices; held keyboard harmony under the active band explains its sustained/beat-free affect locally, not the ensemble tempo. No claim all regional music is metal/cumbia.",
+        "original_packet": "/tmp/batch038/recovery153-155-secondpass-2-keyboard-clarified-sourceaudit.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "rationale": "La Santísima Voladora — complete eight-person ensemble credited by its producer Lukin Music under its2018production statement: Jorge Velazco voice, Pity Raygoza drums, Toro Fierros bass, Lalo Rogero electric guitar/backing voice, Obed Armin trombone, Christian de Anda trumpet, Ficho Hernández percussion, and special guest Jano Jazz keyboards. All eight sound families and both explicit singers retained, including guest keyboard. Selected scope is this full producer-published ensemble practice, not a claim that its credits apply to every album or later tour. Named guests in the separate historical first-album paragraph and the2025eight-or-nine-member profile are not transferred into this bounded roster. No source audio audition or specific hardware inference.",
+          "authored_defaults": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained."
+        },
+        "vocal_count_audit": {
+          "singers": 2,
+          "source": "Jorge voice plus Lalo backingvoice in bounded eight-person credits; guest keyboard retained, no uncredited singers."
+        },
+        "scope": "Original source programme only, not the revised representative default."
+      }
+    },
+    {
+      "source_label": "musica bautista",
+      "source_url": "https://everynoise.com/engenremap-musicabautista.html",
+      "suggested_id": "musica_bautista",
+      "allocation_ordinal": 3833,
+      "allocation_group_id": "154",
+      "id": "musica_bautista",
+      "tradition": {
+        "id": "musica_bautista",
+        "name": "Música Bautista",
+        "family": "blues_gospel",
+        "lineage": "Música Bautista encompasses Spanish-language Baptist hymnody, congregational singing and devotional recordings. Shared hymnals, church ministries, choirs and small vocal groups connect local congregations across Latin America and the diaspora.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "upright_piano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Clear melodies and collective singing carry devotional texts, often supported by piano, organ or strummed instruments. Unaccompanied harmony, solo testimony and fuller worship arrangements coexist within the tradition.",
+        "exemplars": [
+          "Himnario Bautista",
+          "Cánticos de Alabanza"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        15,
+        -90,
+        "Latin America",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Explicitly approximate regional editorial land anchor for the Spanish-speaking Latin American Baptist circulation field, not artist birthplace, residence or recording location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=CJAKD4n7Nec",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh official issuer11399youtube12 whole named acapella2020 edition; original unmodified result saved bautista-acapella-primary-sourceaudit.json."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4HQZD4l64PzfulJAncOXgF",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11398view0/11399search2 exact edition item67, broader named Baptist rondalla/devotional network."
+        },
+        {
+          "url": "https://ministerioalabanzapv.com/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Prior direct11220view0 firsthand Iglesia Cristiana Bautista Palabra de Verdad ministry demonstrates ongoing multi-instrument and vocal Baptist worship practice; its roster is not transferred into the selected edition."
+        },
+        {
+          "url": "https://salmosehimnos.com/",
+          "title": "Iglesia Bautista Reformada de Temuco hymn resource",
+          "support_notes": "Fresh indexed turn13686search3 explicitly identifies church authorship and solo-piano accompaniment recorded by congregants."
+        },
+        {
+          "url": "https://www.ebi-bmm.org/products/show/id%3A309114/",
+          "title": "Editorial Bautista Independiente: Himnario Vida Eterna",
+          "support_notes": "Fresh turn13686search5 Spanish congregational repertoire, traditional/new and translated/original hymns."
+        }
+      ],
+      "neighbor_distinction": "Música Bautista is a Spanish-language Baptist congregational and devotional circulation field, not a synonym for every Christian recording or every unaccompanied hymn. The exact creator corpus includes this exact edition at item67 alongside named Baptist rondallas, small vocal groups and solo devotional acts. Existing black gospel and southern_gospel include Baptist churches within specific African-American or white Southern-US historical practices; they do not exhaust Spanish-speaking Baptist circulation. Full contemporary_worship and praise_and_worship are broader functional and band-production fields and can include Baptist participants; the denominational community axis overlaps them rather than excluding them. Existing methodist_hymnody is explicitly Wesleyan/English historical practice, not every shared Protestant tune. Existing latin_christian explicitly covers the broader transnational Spanish-language Christian commercial and ministry field, including gospel, rap, rock and worship; the Baptist congregational network is an overlapping denominational subset, not absent from that umbrella. Full deep_latin_christian stores a selected OCP setting; the independently documented Catholic institutional concentration discussed in latin_christian is not a definition of every Christian ministry. The acapella edition is a complete source realization, not an assertion all Baptist music is unaccompanied.",
+      "model_policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Restore piano-supported congregational hymn singing instead of making one acapella edition the whole default. Existing complete seventeen-control unknown-count human ensemble is retained; modest neumatic word setting and chordal studio upright are representative authored choices, not a reconstruction of the historical recording. The church-owned Salmos & Himnos resource explicitly provides congregation-recorded piano accompaniments.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "baseline_existing_instruments": 1638
+      },
+      "classification_evidence": {
+        "mode": "exact_creator_and_firsthand_denomination",
+        "note": "Música Bautista is a Spanish-language Baptist congregational and devotional circulation field, not a synonym for every Christian recording or every unaccompanied hymn. The exact creator corpus includes this exact edition at item67 alongside named Baptist rondallas, small vocal groups and solo devotional acts. Existing black gospel and southern_gospel include Baptist churches within specific African-American or white Southern-US historical practices; they do not exhaust Spanish-speaking Baptist circulation. Full contemporary_worship and praise_and_worship are broader functional and band-production fields and can include Baptist participants; the denominational community axis overlaps them rather than excluding them. Existing methodist_hymnody is explicitly Wesleyan/English historical practice, not every shared Protestant tune. Existing latin_christian explicitly covers the broader transnational Spanish-language Christian commercial and ministry field, including gospel, rap, rock and worship; the Baptist congregational network is an overlapping denominational subset, not absent from that umbrella. Full deep_latin_christian stores a selected OCP setting; the independently documented Catholic institutional concentration discussed in latin_christian is not a definition of every Christian ministry. The acapella edition is a complete source realization, not an assertion all Baptist music is unaccompanied."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Restore piano-supported congregational hymn singing instead of making one acapella edition the whole default. Existing complete seventeen-control unknown-count human ensemble is retained; modest neumatic word setting and chordal studio upright are representative authored choices, not a reconstruction of the historical recording. The church-owned Salmos & Himnos resource explicitly provides congregation-recorded piano accompaniments."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Restore piano-supported congregational hymn singing instead of making one acapella edition the whole default. Existing complete seventeen-control unknown-count human ensemble is retained; modest neumatic word setting and chordal studio upright are representative authored choices, not a reconstruction of the historical recording. The church-owned Salmos & Himnos resource explicitly provides congregation-recorded piano accompaniments."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_bautista",
+          "name": "Música Bautista",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not Cánticos de Alabanza or its actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11260view1 confirms the exact Commons CC BY2.5 credit and permitted crop; inherited023 binary/visual receipt remains historical, no new transfer.",
+          "fresh_review_ref": "turn11260view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11260view1"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 owning controls protected, no shared collision."
+      },
+      "primary_retrieval_refs": [
+        "turn11399youtube12",
+        "turn11398view0",
+        "turn11399search2",
+        "turn11220view0"
+      ],
+      "source_retrieval_caveat": "Actual issuer indexed full description retained; no audio audition or unknown ensemble count invented.",
+      "source_scope_limitation": "Historical programme evidence is preserved separately; current public profile and defaults describe the broader genre.",
+      "status": "genre_profile_pending_peer",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "musica_bautista",
+            "name": "Música Bautista",
+            "family": "blues_gospel",
+            "lineage": "Cánticos de Alabanza — complete separately issued Digno de Honor (Versión Acapella),2:11, from Himnos Majestuosos Vol.1, released9November2020. Official issuer Routenote artist channel explicitly identifies the acapella edition; whole human vocal palette retained with unknown singer count, voice parts and overdub stack. No instruments imported from other versions, and displayed lyrics are not a second spoken role. No audio audition or measured production claims. Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed.",
+            "instruments": [
+              "human_voice_ensemble_unspecified"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_neumatic_singing",
+              "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+              "voice_tessitura": "voice_tessitura_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "ritualDevotional.christianGospel",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Cánticos de Alabanza — complete separately issued Digno de Honor (Versión Acapella),2:11, from Himnos Majestuosos Vol.1, released9November2020. Official issuer Routenote artist channel explicitly identifies the acapella edition; whole human vocal palette retained with unknown singer count, voice parts and overdub stack. No instruments imported from other versions, and displayed lyrics are not a second spoken role. No audio audition or measured production claims. Música Bautista is a Spanish-language Baptist congregational and devotional circulation field, not a synonym for every Christian recording or every unaccompanied hymn. The exact creator corpus includes this exact edition at item67 alongside named Baptist rondallas, small vocal groups and solo devotional acts. Existing black gospel and southern_gospel include Baptist churches within specific African-American or white Southern-US historical practices; they do not exhaust Spanish-speaking Baptist circulation. Full contemporary_worship and praise_and_worship are broader functional and band-production fields and can include Baptist participants; the denominational community axis overlaps them rather than excluding them. Existing methodist_hymnody is explicitly Wesleyan/English historical practice, not every shared Protestant tune. Existing latin_christian explicitly covers the broader transnational Spanish-language Christian commercial and ministry field, including gospel, rap, rock and worship; the Baptist congregational network is an overlapping denominational subset, not absent from that umbrella. Full deep_latin_christian stores a selected OCP setting; the independently documented Catholic institutional concentration discussed in latin_christian is not a definition of every Christian ministry. The acapella edition is a complete source realization, not an assertion all Baptist music is unaccompanied. Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed.",
+            "exemplars": [
+              "Cánticos de Alabanza — Digno de Honor, complete acapella2020"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Restore piano-supported congregational hymn singing instead of making one acapella edition the whole default. Existing complete seventeen-control unknown-count human ensemble is retained; modest neumatic word setting and chordal studio upright are representative authored choices, not a reconstruction of the historical recording. The church-owned Salmos & Himnos resource explicitly provides congregation-recorded piano accompaniments.",
+        "original_packet": "/tmp/batch038/recovery153-155-secondpass-4-boundary-clarified-sourceaudit.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "scope": "Cánticos de Alabanza — complete separately issued Digno de Honor (Versión Acapella),2:11, from Himnos Majestuosos Vol.1, released9November2020. Official issuer Routenote artist channel explicitly identifies the acapella edition; whole human vocal palette retained with unknown singer count, voice parts and overdub stack. No instruments imported from other versions, and displayed lyrics are not a second spoken role. No audio audition or measured production claims.",
+          "roles": {
+            "human_voice_ensemble_unspecified": "Entire issued vocal palette, count unknown"
+          },
+          "authored_defaults": "Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed."
+        },
+        "vocal_count_audit": {
+          "selected_count": null,
+          "decision": "Complete acapella edition positively vocal; precise singer count and stack unspecified."
+        },
+        "scope": "Original source programme only, not the revised representative default."
+      }
+    },
+    {
+      "source_label": "musica coahuilense",
+      "source_url": "https://everynoise.com/engenremap-musicacoahuilense.html",
+      "suggested_id": "musica_coahuilense",
+      "allocation_ordinal": 3848,
+      "allocation_group_id": "154",
+      "id": "musica_coahuilense",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "musica_coahuilense",
+        "name": "Música Coahuilense",
+        "family": "global",
+        "lineage": "Música Coahuilense connects regional repertoires and popular-music communities across Coahuila. Northern dance traditions, tropical bands and contemporary ensembles circulate through local celebrations, recording networks and migration.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "saxophone"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "wind_articulation": "wind_honking_attack",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_yamaha_custom"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion.latinAm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Singing, rhythmic bass and drums meet guitar, keyboards and melodic wind responses in tropical dance settings. Cumbia grooves and northern regional styles offer contrasting approaches within this wider musical landscape.",
+        "exemplars": [
+          "Erick y Su Grupo Massore"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        27.9297,
+        -101.2181,
+        "Nueva Rosita",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "All six performers explicitly identified as from Nueva Rosita; editorial regional-community anchor, not a claimed recording studio.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The creator category expressly spans Coahuila regional popular-music groups: Massore, Tropicalisimo Apache, Chicos de Barrio and northern conjuntos from Acuna, Sabinas and Nueva Rosita. This is not a birthplace-only invention: the federal cultural funding register independently names Musica coahuilense de antano con jovenes and Difusion de la musica nortena de compositores coahuilenses as regional repertoire projects. Those projects substantiate regional cultural organization, not participation by Massore. Existing cumbia_lagunera is the full Comarca Lagunera cumbia scene including Apache/Chicos de Barrio, not merely its electronic Cumbia Xillers exemplar; Coahuilense overlaps that scene but also includes Coahuila northern-border conjunto and Nueva Rosita repertoire outside that subregion. Existing norteno explicitly includes Coahuila and remains overlapping, while its accordion/bajo-sexto lineage is not the entire regional field. Existing grupera and tropical encompass this selected tropical dance branch; musica_mexicana remains a broad modern national umbrella. Neither different personnel nor source saxophone supplies the category boundary.",
+      "classification_evidence": "The creator category expressly spans Coahuila regional popular-music groups: Massore, Tropicalisimo Apache, Chicos de Barrio and northern conjuntos from Acuna, Sabinas and Nueva Rosita. This is not a birthplace-only invention: the federal cultural funding register independently names Musica coahuilense de antano con jovenes and Difusion de la musica nortena de compositores coahuilenses as regional repertoire projects. Those projects substantiate regional cultural organization, not participation by Massore. Existing cumbia_lagunera is the full Comarca Lagunera cumbia scene including Apache/Chicos de Barrio, not merely its electronic Cumbia Xillers exemplar; Coahuilense overlaps that scene but also includes Coahuila northern-border conjunto and Nueva Rosita repertoire outside that subregion. Existing norteno explicitly includes Coahuila and remains overlapping, while its accordion/bajo-sexto lineage is not the entire regional field. Existing grupera and tropical encompass this selected tropical dance branch; musica_mexicana remains a broad modern national umbrella. Neither different personnel nor source saxophone supplies the category boundary.",
+      "model_policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices.",
+      "source_scope_limitation": "Historical programme evidence is preserved separately; current public profile and defaults describe the broader genre.",
+      "source_retrieval_caveat": "Fresh full indexed interview profile13170search0 reproduces complete published roster and direct founder quotations; roster is journalist-attributed within the firsthand interview, not falsely marked a direct founder quotation. Creator map13166view0 directly read. Federal grant register13175search9 corroborates regional cultural category, not this band membership.",
+      "primary_retrieval_refs": [
+        "turn13170search0",
+        "turn13166view0",
+        "turn13175search9"
+      ],
+      "sources": [
+        {
+          "url": "https://esnoticiahoy.com/2018/10/19/erick-y-grupo-massore-suenan-con-la-gozadera/",
+          "title": "Firsthand Massore interview profile and full contemporaneous roster",
+          "support_notes": "Indexed13170search0: six complete named roles, Nueva Rosita origin, cumbia tropical; source separates guests and childhood instrument.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-musicacoahuilense.html",
+          "title": "Exact creator Musica Coahuilense field",
+          "support_notes": "Fresh13166view0 Massore29, broad regional network including northern conjuntos and Comarca Lagunera.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://sic.cultura.gob.mx/ficha.php?disciplina=&table=estimulo_pacmyc&table_id=33477",
+          "title": "Federal cultural programme: Musica coahuilense de antano con jovenes",
+          "support_notes": "13175search9 positive2012 regional repertoire project; not claimed Massore participation.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://sic.cultura.gob.mx/resultado.php?busquedaavanzada=%28sic%29&disciplina=&estado_id=5&t=m&table=estimulo_pacmyc",
+          "title": "Federal regional cultural funding inventory",
+          "support_notes": "13175search0 additionally documents northern music by Coahuila composers.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices."
+        },
+        {
+          "instrument": "saxophone",
+          "parts": {
+            "wind_articulation": "wind_honking_attack",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_honking_attack",
+            "sax_maker_school": "sax_yamaha_custom"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "saxophone"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Every applicable owning part protected by an applicable flat pin; same-key guitar wood does not invent applicability to bass. Original imports and compiled outputs independently checked."
+      },
+      "verification_status": "58 applicable controls, 56 flat keys, no fallback or original-owner changes; all four actual outputs verified. Independent review pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_coahuilense",
+          "name": "Música Coahuilense",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Massore, Nueva Rosita or source equipment depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes preserved.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only; no fresh download or visual receipt claimed."
+      },
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "musica_coahuilense",
+            "name": "Música Coahuilense",
+            "family": "global",
+            "lineage": "Erick y Su Grupo Massore — complete six-member performing formation published in the October2018 firsthand interview profile. Erick Sanchez vocals, Luis Reyes electric bass, Joel Cordova guitar, Angel Pena keyboards, Armando Barbosa drums and Agustin Garcia saxophone. Source identifies all six as from Nueva Rosita, Coahuila. This is the whole documented performing formation, not the forthcoming Original Cumbia Power Music album or La Gozadera guest collaboration with El Gran Silencio. Childhood guiro playing in the retrospective is not asserted part of this dated formation. Only Erick is positively credited as singer; no invented backing singers or claim that these musicians played every historical recording. Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified",
+              "saxophone"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_neumatic_singing",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "medium_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "hand_random_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal",
+              "wind_articulation": "wind_honking_attack",
+              "sax_size": "tenor_sax",
+              "sax_reed": "medium_reed",
+              "sax_body_alloy": "yellow_brass_sax",
+              "sax_mouthpiece": "hard_rubber_mp",
+              "sax_technique": "sax_honking_attack",
+              "sax_maker_school": "sax_yamaha_custom"
+            }
+          },
+          "extras": {
+            "parent": "groovePercussion.latinAm",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Erick y Su Grupo Massore — complete six-member performing formation published in the October2018 firsthand interview profile. Erick Sanchez vocals, Luis Reyes electric bass, Joel Cordova guitar, Angel Pena keyboards, Armando Barbosa drums and Agustin Garcia saxophone. Source identifies all six as from Nueva Rosita, Coahuila. This is the whole documented performing formation, not the forthcoming Original Cumbia Power Music album or La Gozadera guest collaboration with El Gran Silencio. Childhood guiro playing in the retrospective is not asserted part of this dated formation. Only Erick is positively credited as singer; no invented backing singers or claim that these musicians played every historical recording. The creator category expressly spans Coahuila regional popular-music groups: Massore, Tropicalisimo Apache, Chicos de Barrio and northern conjuntos from Acuna, Sabinas and Nueva Rosita. This is not a birthplace-only invention: the federal cultural funding register independently names Musica coahuilense de antano con jovenes and Difusion de la musica nortena de compositores coahuilenses as regional repertoire projects. Those projects substantiate regional cultural organization, not participation by Massore. Existing cumbia_lagunera is the full Comarca Lagunera cumbia scene including Apache/Chicos de Barrio, not merely its electronic Cumbia Xillers exemplar; Coahuilense overlaps that scene but also includes Coahuila northern-border conjunto and Nueva Rosita repertoire outside that subregion. Existing norteno explicitly includes Coahuila and remains overlapping, while its accordion/bajo-sexto lineage is not the entire regional field. Existing grupera and tropical encompass this selected tropical dance branch; musica_mexicana remains a broad modern national umbrella. Neither different personnel nor source saxophone supplies the category boundary. Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed.",
+            "exemplars": [
+              "Erick y Su Grupo Massore — complete documented six-person formation,October2018"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain all six meaningful band families and full owning controls for a representative tropical regional branch, rather than treating the source’s six dated musicians as a fixed genre headcount. Existing active band gestures and source-unspecified keyboard architecture remain coherent authored choices.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-21.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "scope": "Erick y Su Grupo Massore — complete six-member performing formation published in the October2018 firsthand interview profile. Erick Sanchez vocals, Luis Reyes electric bass, Joel Cordova guitar, Angel Pena keyboards, Armando Barbosa drums and Agustin Garcia saxophone. Source identifies all six as from Nueva Rosita, Coahuila. This is the whole documented performing formation, not the forthcoming Original Cumbia Power Music album or La Gozadera guest collaboration with El Gran Silencio. Childhood guiro playing in the retrospective is not asserted part of this dated formation. Only Erick is positively credited as singer; no invented backing singers or claim that these musicians played every historical recording.",
+          "roles": {
+            "voice": "Erick Sanchez vocals",
+            "electric_guitar_humbucker": "Joel Cordova guitar",
+            "electric_bass": "Luis Reyes electric bass",
+            "drum_kit": "Armando Barbosa drums",
+            "electronic_keyboard_unspecified": "Angel Pena keyboards",
+            "saxophone": "Agustin Garcia saxophone"
+          },
+          "authored_defaults": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+        },
+        "vocal_count_audit": {
+          "selected_singers": 1,
+          "people": [
+            "Erick Sanchez"
+          ],
+          "decision": "Only positively named vocalist; no uncredited backing voices guessed."
+        },
+        "scope": "Original source programme only, not the revised representative default."
+      }
+    },
+    {
+      "source_label": "musica urbana oaxaquena",
+      "source_url": "https://everynoise.com/engenremap-musicaurbanaoaxaquena.html",
+      "suggested_id": "musica_urbana_oaxaquena",
+      "allocation_ordinal": 3930,
+      "allocation_group_id": "158",
+      "status": "genre_profile_pending_peer",
+      "id": "musica_urbana_oaxaquena",
+      "tradition": {
+        "id": "musica_urbana_oaxaquena",
+        "name": "Música Urbana Oaxaqueña",
+        "family": "hip_hop",
+        "lineage": "Música Urbana Oaxaqueña develops through Oaxaca’s rap and urban-music communities, including Spanish-language and Indigenous-language expression. Groups such as Juchirap connect local experience, language and cultural memory with contemporary hip-hop performance.",
+        "instruments": [
+          "voice",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Rhythmic vocal delivery, recurring hooks and beat-driven accompaniment support storytelling, social commentary and collective identity. DJs, electronic production and regional musical references provide varied settings for individual and group voices.",
+        "exemplars": [
+          "Juchirap",
+          "Verbo Ka",
+          "CC Crew951"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        16.4333,
+        -95.0167,
+        "Juchitán",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Organizer explicitly identifies group and cultural practice as Juchitán,Oaxaca; community anchor, not Guanajuato stage coordinates.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://52.festivalcervantino.gob.mx/actividad/973/juchirap",
+          "title": "Festival primary complete programme/roster",
+          "support_notes": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11872search0"
+        },
+        {
+          "url": "https://festivalcervantino.gob.mx/boletin/625/del-bolero-apocaliptico-al-blues-pasando-por-el-rap-en-zapoteco-en-el-52-fic?lan=en",
+          "title": "Organizer after-event report",
+          "support_notes": "Confirms three Juchitán rappers at Los Pastitos and active audience. Other bands are explicitly separate acts.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11859search2"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-musicaurbanaoaxaquena.html",
+          "title": "Exact creator field",
+          "support_notes": "Juchirap line20 alongside regional urban acts; not merely national origin.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11867view1"
+        }
+      ],
+      "neighbor_distinction": "The creator Música Urbana Oaxaqueña field expressly includes Juchirap alongside Verbo Ka, CC Crew951, Trippiemike808 and other regional acts. The federal festival independently identifies Juchitán, Oaxaca, bilingual Spanish/Zapotec rap, local cultural transmission and this full urban performance practice. Thus the geographic field is positively linked to regional rap communities, not birthplace alone; the selected indigenous-language group is one branch, not a rule that all members sing Zapotec. Full existing Mexican Hip Hop already encompasses varied national scenes and sampled regional materials, beyond its Control Machete example; this narrower Oaxacan community overlaps that umbrella. Existing Música Oaxaqueña is the broad state-repertoire field, not only its copla ensemble, so it also overlaps this urban subset. Oaxaca Indie is a cross-style local independent field, with a documented pop-rock branch, not every local rap network. No claim these scenes are mutually exclusive or that different instruments alone create a category.",
+      "model_policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain the meaningful MC-group plus DJ accompaniment as a representative live hip-hop practice, supported by the institution’s group performance evidence. This does not exclude broader studio beat production or imply every regional artist uses this exact arrangement. Theatrical projected rap affect is authored; no burlesque genre or hidden brass/dancer role inferred.",
+      "classification_evidence": {
+        "mode": "exact_creator_plus_federal_festival_regional_rap_practice",
+        "url": "https://furia.com/everynoise_public/engenremap-musicaurbanaoaxaquena.html",
+        "matched_artist": "juchirap",
+        "note": "The creator Música Urbana Oaxaqueña field expressly includes Juchirap alongside Verbo Ka, CC Crew951, Trippiemike808 and other regional acts. The federal festival independently identifies Juchitán, Oaxaca, bilingual Spanish/Zapotec rap, local cultural transmission and this full urban performance practice. Thus the geographic field is positively linked to regional rap communities, not birthplace alone; the selected indigenous-language group is one branch, not a rule that all members sing Zapotec. Full existing Mexican Hip Hop already encompasses varied national scenes and sampled regional materials, beyond its Control Machete example; this narrower Oaxacan community overlaps that umbrella. Existing Música Oaxaqueña is the broad state-repertoire field, not only its copla ensemble, so it also overlaps this urban subset. Oaxaca Indie is a cross-style local independent field, with a documented pop-rock branch, not every local rap network. No claim these scenes are mutually exclusive or that different instruments alone create a category."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain the meaningful MC-group plus DJ accompaniment as a representative live hip-hop practice, supported by the institution’s group performance evidence. This does not exclude broader studio beat production or imply every regional artist uses this exact arrangement. Theatrical projected rap affect is authored; no burlesque genre or hidden brass/dancer role inferred."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain the meaningful MC-group plus DJ accompaniment as a representative live hip-hop practice, supported by the institution’s group performance evidence. This does not exclude broader studio beat production or imply every regional artist uses this exact arrangement. Theatrical projected rap affect is authored; no burlesque genre or hidden brass/dancer role inferred."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All eighteen original applicable voice/DJ controls explicitly pinned; no collision or fallback.",
+      "dependency_audit": "No new owners; all original1638 definitions retained.",
+      "verification_status": "Author original-loader checks PASS18protected parts,zero fallbacks,1638old owners unchanged; exact historicalphoto receipt matched and all4actual original app formats inspected. Final integrated CI not claimed.",
+      "source_scope_limitation": "Historical programme evidence is preserved separately; current public profile and defaults describe the broader genre.",
+      "primary_retrieval_refs": [
+        "turn11872search0",
+        "turn11859search2",
+        "turn11867view1"
+      ],
+      "source_retrieval_caveat": "Official Cervantino programme was recovered as full indexed primary text after direct retrieval timed out. The festival after-report independently documents the three MCs performance. The creator map was read earlier; later retrieval may fail and does not justify claiming a fresh reproduction.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_urbana_oaxaquena",
+          "name": "Música Urbana Oaxaqueña",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Juchirap, the festival stage or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11621view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11621view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11621view3"
+        ]
+      },
+      "source_access_limitation": "Official complete programme and after-event report read via indexed primary after direct programme timeout. Exact creator map directly retrieved; source audio not auditioned. Historical image bytes reused.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "musica_urbana_oaxaquena",
+            "name": "Música Urbana Oaxaqueña",
+            "family": "hip_hop",
+            "lineage": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers. Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds.",
+            "instruments": [
+              "voice",
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_rhythmic_spoken_flow",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm",
+            "axes": {
+              "harm": 0,
+              "pitch": -1,
+              "ornament": 0,
+              "meter": 1,
+              "density": 1,
+              "transmission": 0,
+              "improv": 1,
+              "soundTech": 1,
+              "intensity": 1,
+              "voice": 2,
+              "timbre": 0,
+              "percussion": 2,
+              "cyclicity": 1
+            },
+            "description": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers. The creator Música Urbana Oaxaqueña field expressly includes Juchirap alongside Verbo Ka, CC Crew951, Trippiemike808 and other regional acts. The federal festival independently identifies Juchitán, Oaxaca, bilingual Spanish/Zapotec rap, local cultural transmission and this full urban performance practice. Thus the geographic field is positively linked to regional rap communities, not birthplace alone; the selected indigenous-language group is one branch, not a rule that all members sing Zapotec. Full existing Mexican Hip Hop already encompasses varied national scenes and sampled regional materials, beyond its Control Machete example; this narrower Oaxacan community overlaps that umbrella. Existing Música Oaxaqueña is the broad state-repertoire field, not only its copla ensemble, so it also overlaps this urban subset. Oaxaca Indie is a cross-style local independent field, with a documented pop-rock branch, not every local rap network. No claim these scenes are mutually exclusive or that different instruments alone create a category. Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds.",
+            "exemplars": [
+              "Juchirap — complete2024 Cervantino three-MC and DJ programme"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Retain the meaningful MC-group plus DJ accompaniment as a representative live hip-hop practice, supported by the institution’s group performance evidence. This does not exclude broader studio beat production or imply every regional artist uses this exact arrangement. Theatrical projected rap affect is authored; no burlesque genre or hidden brass/dancer role inferred.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-5-metadata-corrected.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "rationale": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers.",
+          "selected_scope": "Whole60-minute announced Cervantino2024 Juchirap act",
+          "roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Three named MCs",
+              "authored_realization": "Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds."
+            },
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "source_role": "DJ Gabriel Cristiani accompaniment",
+              "authored_realization": "Broad mcRhythm follows explicitly stated rap practice. Three named MCs aggregate in a live group with neutral source-unspecified physiology/training/pitch and authored rhythmic spoken delivery; no claim each person raps every phrase or that there are no embedded recorded singers. Neutral DJ playback/mixing retains the entire backing role without guessing deck medium, sampling mechanism or hardware. Controlled live room and unprocessed vocal delivery are authored listening choices. Any up-tempo group-voice/playback affect is an authored energetic rendition compatible with organizer-described lively audience interaction, not measured source tempo. Literal burlesque voice is an authored projected/theatrical rap affect, not a claim of burlesque genre, cabaret, brass or dancers; hidden lexicon associations are not source facts. No global tuning or invented live synth/strings/winds."
+            }
+          ],
+          "omissions": "No positively announced live role omitted. General press quote of string/wind heritage is retained as unknown embedded sound, not a separate live player claim."
+        },
+        "vocal_count_audit": {
+          "credited_selected_singers": [
+            "Cosijopii — MC",
+            "Antonio Guadalupe — MC",
+            "Carlos Lenin — MC"
+          ],
+          "selected_count": 3,
+          "count_basis": "Complete primary roster explicitly names three MCs; embedded voices unknown.",
+          "decision": "Juchirap — complete announced60-minute Festival Internacional Cervantino programme at Los Pastitos,18October2024,22:00. The organizer explicitly identifies Cosijopii, Antonio Guadalupe and Carlos Lenin as the three MCs rapping accompanied by DJ Gabriel Cristiani. All four people and two live-role families retained; other festival bands are separate acts. A subsequent organizer bulletin confirms the three rappers performed. The scheduled60minutes is not a personally measured duration, and audio was not auditioned. The webpage separately quotes a general press description mentioning synthesized beats and ancestral string/wind identity; this is not a roster of additional live instrumentalists in the expressly described MC/DJ programme. Embedded playback may contain those or other recorded instruments/voices, whose source mechanisms and counts remain unknown rather than erased or invented as live performers."
+        },
+        "scope": "Original source programme only, not the revised representative default."
+      }
+    },
+    {
+      "source_label": "nasheed",
+      "source_url": "https://everynoise.com/engenremap-nasheed.html",
+      "suggested_id": "nasheed",
+      "allocation_ordinal": 3970,
+      "allocation_group_id": "159",
+      "id": "nasheed",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "nasheed",
+        "name": "Nasheed",
+        "family": "global",
+        "lineage": "Nasheed is a broad Islamic devotional-song tradition and contemporary recording field. Sung poetry, praise and religious reflection circulate through community performance and international media, with both voices-only and instrumentally accompanied approaches.",
+        "instruments": [
+          "voice",
+          "tar_frame_drum"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_large",
+          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_goat_skin"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.islamic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Melodic declamation, repeated invocations and responsive phrases place devotional words at the center. Solo and group voices may stand alone, move with frame-drum pulses or join more elaborate contemporary arrangements.",
+        "exemplars": [
+          "Ali Elsayed",
+          "Sami Yusuf",
+          "Mesut Kurtis"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.6532,
+        -79.3832,
+        "Toronto",
+        "North America"
+      ],
+      "geo_rationale": "Artist-issued Bandcamp header labels Toronto, Ontario. This is the release-platform editorial anchor; prose says artist originally Lebanon and now USA, so Toronto is not asserted as present residence or recording studio.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Nasheed is the broad Islamic devotional-song and contemporary production field, including both instrumental music versions and voices-only editions. Existing islamic_anasheed explicitly names the same singular/plural term and canonical artists but its full name and definition restrict the modeled field to voices/frame drums; that narrow explicit scope is preserved rather than silently broadened. The new broad production field includes that existing vocal-only branch, so this selected edition deliberately overlaps it. The distinction is the documented wider field, not Ali Elsayed being a different singer, a spelling change, a newer date or an assertion that old examples exhaust the old category. Otterbeck and Skjelbo original2019 study explicitly analyzes music versions and vocals-only production within the same pop-nasheed market. Creator exact Nasheed corpus independently includes Ali Elsayed at19 as well as Kurtis/Yusuf/Zain. Quranic recitation/adhan, khutbah sermons, naat praise poetry, Sufi devotional practice and Islamic hiphop overlap or neighbor this field but are not equated with its whole song-production institution.",
+      "classification_evidence": "Nasheed is the broad Islamic devotional-song and contemporary production field, including both instrumental music versions and voices-only editions. Existing islamic_anasheed explicitly names the same singular/plural term and canonical artists but its full name and definition restrict the modeled field to voices/frame drums; that narrow explicit scope is preserved rather than silently broadened. The new broad production field includes that existing vocal-only branch, so this selected edition deliberately overlaps it. The distinction is the documented wider field, not Ali Elsayed being a different singer, a spelling change, a newer date or an assertion that old examples exhaust the old category. Otterbeck and Skjelbo original2019 study explicitly analyzes music versions and vocals-only production within the same pop-nasheed market. Creator exact Nasheed corpus independently includes Ali Elsayed at19 as well as Kurtis/Yusuf/Zain. Quranic recitation/adhan, khutbah sermons, naat praise poetry, Sufi devotional practice and Islamic hiphop overlap or neighbor this field but are not equated with its whole song-production institution.",
+      "model_policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Broaden the default beyond the earlier vocal-only mix through a representative voice-and-frame-drum devotional arrangement. The artist expressly also publishes a with-duff edition. Use the existing full five-control Middle Eastern frame-drum owner: large walnut frame, goatskin and layered hand strokes in its devotional context are authored physical defaults, not measured source construction or a claim every nasheed uses this drum. Modest melodic word-setting replaces an obligatory ametrical solo setting; vocal physiology remains unmeasured. All voice and drum controls retained.",
+      "source_scope_limitation": "Historical programme evidence is preserved separately; current public profile and defaults describe the broader genre.",
+      "source_retrieval_caveat": "Full artist-issued album and selected edition read directly; original researcher article indexed full abstract/terminology, creator full playlist read directly. No audition or purchased master analysis claimed.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Broaden the default beyond the earlier vocal-only mix through a representative voice-and-frame-drum devotional arrangement. The artist expressly also publishes a with-duff edition. Use the existing full five-control Middle Eastern frame-drum owner: large walnut frame, goatskin and layered hand strokes in its devotional context are authored physical defaults, not measured source construction or a claim every nasheed uses this drum. Modest melodic word-setting replaces an obligatory ametrical solo setting; vocal physiology remains unmeasured. All voice and drum controls retained."
+        },
+        {
+          "instrument": "tar_frame_drum",
+          "parts": {
+            "percussion_technique": "percussion_hands_layered",
+            "tar_size": "tar_large",
+            "tar_frame_drum_context": "tar_frame_drum_sufi",
+            "tar_frame_shell_wood": "tar_frame_walnut",
+            "tar_frame_head": "tar_frame_goat_skin"
+          },
+          "policy": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Broaden the default beyond the earlier vocal-only mix through a representative voice-and-frame-drum devotional arrangement. The artist expressly also publishes a with-duff edition. Use the existing full five-control Middle Eastern frame-drum owner: large walnut frame, goatskin and layered hand strokes in its devotional context are authored physical defaults, not measured source construction or a claim every nasheed uses this drum. Modest melodic word-setting replaces an obligatory ametrical solo setting; vocal physiology remains unmeasured. All voice and drum controls retained."
+        }
+      ],
+      "dependency_audit": "Existing original voice owner only, all controls retained; no new dependency or shared edit.",
+      "flat_pin_resolution": "All17 applicable voice controls pinned and protected; no shared-owner collisions or unpinned fallback.",
+      "sources": [
+        {
+          "url": "https://alielsayed.bandcamp.com/album/201-names-of-prophet-muhammad",
+          "support_notes": "Ali Elsayed — 201 Names of Prophet Muhammad, complete21:23 vocals-only edition issued21September2020. The artist expressly distinguishes the separate with-duff edition from this vocal-only mix and credits all vocals and production to himself. One credited singer, one voice family; actual overdub count and vocal layering remain unknown. All201 named invocations and intervening salawat belong to the complete selected edition. No duff or other instruments from the alternate mix are transferred, and no health/spiritual-effect claim is adopted. Artist self-identifies nasheed songwriter and defines spiritually based sung poetry.",
+          "retrieval_ref": "turn12637view0"
+        },
+        {
+          "url": "https://alielsayed.bandcamp.com/track/201-names-of-prophet-muhammad-vocals-only",
+          "support_notes": "Exact separately issued full vocals-only edition, not arbitrary removal of accompaniment.",
+          "retrieval_ref": "turn12637view1"
+        },
+        {
+          "url": "https://www.tandfonline.com/doi/pdf/10.1080/03007766.2019.1581335",
+          "support_notes": "Original research Music Version versus Vocals-Only analyzes both production approaches within broad contemporary Islamic pop/nasheed; supports candid broader field beyond explicit old vocal-only definition.",
+          "retrieval_ref": "turn12622search15"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4w35rvp0TynUWuQH8yL52d",
+          "support_notes": "Exact creator Nasheed field includes Ali Elsayed item19, different song; only artist membership transferred, not that song roles.",
+          "retrieval_ref": "turn12637view2"
+        },
+        {
+          "url": "https://alielsayed.bandcamp.com/track/201-names-of-prophet-muhammad-with-duff",
+          "title": "Artist-issued voice and duff edition",
+          "support_notes": "Fresh turn13686search2 positively establishes accompanied practice; not importing accompaniment into the historical vocals-only recording."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "nasheed",
+          "name": "Nasheed",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Ali Elsayed, devotional event, source microphone or actual session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12593view0 confirms Iain Fergusson/Binksternet CC BY2.5 and prior crop; exact023 historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn12593view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12593view0"
+        ]
+      },
+      "verification_status": "Author original fullmerge17 protected owning parts,1638 existing owners unchanged, four browser/connector formats identical and clean; max309characters. Pending independent source/category review, no integrated-build claim.",
+      "primary_retrieval_refs": [
+        "turn12637view0",
+        "turn12637view1",
+        "turn12622search15",
+        "turn12637view2"
+      ],
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "nasheed",
+            "name": "Nasheed",
+            "family": "global",
+            "lineage": "Ali Elsayed — 201 Names of Prophet Muhammad, complete21:23 vocals-only edition issued21September2020. The artist expressly distinguishes the separate with-duff edition from this vocal-only mix and credits all vocals and production to himself. One credited singer, one voice family; actual overdub count and vocal layering remain unknown. All201 named invocations and intervening salawat belong to the complete selected edition. No duff or other instruments from the alternate mix are transferred, and no health/spiritual-effect claim is adopted. RitualDevotional.islamic reflects the positive full devotional names-and-salawat programme. The complete single credited human voice is retained with all17 existing physical/technique controls; physiology, register, pitch system, ornament school and training remain source-unspecified. A newly authored unmetered melodic-chant rendition and single-lead vocal presentation are chosen without claiming measured meter, actual stack count or a particular Arabic maqam. Spacious shoebox-hall acoustics are an authored recital presentation, not original venue or reverb measurement. No global tuning, instrumental accompaniment or capture apparatus is inferred. Rendered huge voice denotes the explicitly authored spacious presentation; single-track/no-stacking is a new single-lead realization, not a claim about original production layering.",
+            "instruments": [
+              "voice"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_ametrical_chant",
+              "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "ritualDevotional.islamic",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": -2,
+              "density": -2,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 2,
+              "timbre": 0,
+              "percussion": -2,
+              "cyclicity": 0
+            },
+            "description": "Ali Elsayed — 201 Names of Prophet Muhammad, complete21:23 vocals-only edition issued21September2020. The artist expressly distinguishes the separate with-duff edition from this vocal-only mix and credits all vocals and production to himself. One credited singer, one voice family; actual overdub count and vocal layering remain unknown. All201 named invocations and intervening salawat belong to the complete selected edition. No duff or other instruments from the alternate mix are transferred, and no health/spiritual-effect claim is adopted. Nasheed is the broad Islamic devotional-song and contemporary production field, including both instrumental music versions and voices-only editions. Existing islamic_anasheed explicitly names the same singular/plural term and canonical artists but its full name and definition restrict the modeled field to voices/frame drums; that narrow explicit scope is preserved rather than silently broadened. The new broad production field includes that existing vocal-only branch, so this selected edition deliberately overlaps it. The distinction is the documented wider field, not Ali Elsayed being a different singer, a spelling change, a newer date or an assertion that old examples exhaust the old category. Otterbeck and Skjelbo original2019 study explicitly analyzes music versions and vocals-only production within the same pop-nasheed market. Creator exact Nasheed corpus independently includes Ali Elsayed at19 as well as Kurtis/Yusuf/Zain. Quranic recitation/adhan, khutbah sermons, naat praise poetry, Sufi devotional practice and Islamic hiphop overlap or neighbor this field but are not equated with its whole song-production institution. RitualDevotional.islamic reflects the positive full devotional names-and-salawat programme. The complete single credited human voice is retained with all17 existing physical/technique controls; physiology, register, pitch system, ornament school and training remain source-unspecified. A newly authored unmetered melodic-chant rendition and single-lead vocal presentation are chosen without claiming measured meter, actual stack count or a particular Arabic maqam. Spacious shoebox-hall acoustics are an authored recital presentation, not original venue or reverb measurement. No global tuning, instrumental accompaniment or capture apparatus is inferred. Rendered huge voice denotes the explicitly authored spacious presentation; single-track/no-stacking is a new single-lead realization, not a claim about original production layering.",
+            "exemplars": [
+              "Ali Elsayed — 201 Names of Prophet Muhammad (2020 complete vocals-only edition)"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace named-programme dossier with concise positive genre history and style. Original sources, complete programme roles and dated credits remain evidence rather than universal genre requirements. Broaden the default beyond the earlier vocal-only mix through a representative voice-and-frame-drum devotional arrangement. The artist expressly also publishes a with-duff edition. Use the existing full five-control Middle Eastern frame-drum owner: large walnut frame, goatskin and layered hand strokes in its devotional context are authored physical defaults, not measured source construction or a claim every nasheed uses this drum. Modest melodic word-setting replaces an obligatory ametrical solo setting; vocal physiology remains unmeasured. All voice and drum controls retained.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-15.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "voice": "All source-positive vocal material by one credited singer; no duff transferred from separately issued alternate mix."
+        },
+        "vocal_count_audit": {
+          "count": 1,
+          "basis": "Album vocals and production credited solely Ali Elsayed; selected edition explicitly vocals only. Stack count unknown."
+        },
+        "scope": "Original source programme only, not the revised representative default."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

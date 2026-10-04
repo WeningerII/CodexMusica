@@ -1,0 +1,1040 @@
+{
+  "status": "HOLD",
+  "frozen_sha256": "4d98c32a27b853b347a67d89e9499d34b7ba592b02293fa464f26d19d38e04ea",
+  "entries": 196,
+  "new_dependencies": 15,
+  "baseline": "2765a5e5e1dc1523ff9180625b089af3f04089b2",
+  "graph_scope": {
+    "source_definitions": 1174,
+    "snapshot_ids": 1149,
+    "affected_definitions_replayed": 78,
+    "affected_snapshot_ids": 74
+  },
+  "musical_config_equal": 70,
+  "musical_config_changed": 8,
+  "hidden_changes_with_equal_output": [
+    "gagaku",
+    "tibetan_thodrol_lama_praise"
+  ],
+  "changed_slot_count": 28,
+  "whole_proposal_counterfactual_holds": [
+    "japanese_buddhist_chant",
+    "samba_moderno"
+  ],
+  "all_eight_full_config_restored": true,
+  "scope_limit": "Graph-unaffected definitions have unchanged source/context inputs and old merged owners. Original complete serial regression still required. Numeric per-slot scores alone are excluded from musical equivalence; all other config fields compared. No snapshots or source files edited.",
+  "content_verdict": "Material hidden cultural/physiological, instrument-material and setup drift is not authorized merely by unchanged printed text or successful source review. Preserve individual proposal evidence, withhold the two complete proposals for safe integration qualification. Baseline questionable defaults remain containment targets, not newly endorsed source facts.",
+  "rows": [
+    {
+      "id": "chicago_blues",
+      "fixture_index": 12,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "aor",
+      "fixture_index": 27,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "beijing_opera",
+      "fixture_index": 29,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "vietnamese_traditional",
+      "fixture_index": 38,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "japanese_taiko_ensemble",
+      "fixture_index": 48,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "american_drumline",
+      "fixture_index": 54,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "candomble_ceremonial",
+      "fixture_index": 66,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "tibetan_yang_chant",
+      "fixture_index": 74,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "tuvan_throat",
+      "fixture_index": 88,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "shomyo_japanese",
+      "fixture_index": 98,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "algerian_rap",
+      "fixture_index": 99,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "pansori",
+      "fixture_index": 106,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "persian_dastgah",
+      "fixture_index": 135,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "choro",
+      "fixture_index": 154,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "javanese_gamelan",
+      "fixture_index": 158,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_gagaku_ambient",
+      "fixture_index": 196,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_pansori_blues",
+      "fixture_index": 216,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_taiko_metal",
+      "fixture_index": 217,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_tuvan_sami",
+      "fixture_index": 226,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_javanese_balinese",
+      "fixture_index": 228,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_jingju_cantonese_opera",
+      "fixture_index": 229,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_thai_classical_thai_luk",
+      "fixture_index": 230,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "blend_ambient_dub_techno",
+      "fixture_index": 246,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "lullaby_japanese_komoriuta",
+      "fixture_index": 256,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "wedding_indian_baraat",
+      "fixture_index": 262,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "protest_hip_hop",
+      "fixture_index": 266,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "nursery_handgame_pair",
+      "fixture_index": 273,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "carnival_trinidad_road",
+      "fixture_index": 280,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "thai_classical",
+      "fixture_index": 366,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "gagaku",
+      "fixture_index": 369,
+      "musical_config_equal": false,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/instruments/4/slots/ryuteki_material",
+          "before": "ryuteki_bark_wrapped",
+          "after": "ryuteki_susudake"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "beijing_opera",
+      "fixture_index": 370,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "cantonese_opera",
+      "fixture_index": 371,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "ambient",
+      "fixture_index": 392,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "capoeira_music",
+      "fixture_index": 409,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "japanese_noh_utai",
+      "fixture_index": 461,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "japanese_nagauta_kabuki",
+      "fixture_index": 462,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "powwow",
+      "fixture_index": 480,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "maya_marimba",
+      "fixture_index": 485,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "jongo",
+      "fixture_index": 490,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "tarantella_napoletana",
+      "fixture_index": 503,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "pizzica_salentina",
+      "fixture_index": 504,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "beompae_korean",
+      "fixture_index": 516,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "vajrayana_broader",
+      "fixture_index": 518,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "umbanda_brazilian",
+      "fixture_index": 520,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "juke_chicago",
+      "fixture_index": 535,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "samul_nori",
+      "fixture_index": 551,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "tibetan_yang_chant",
+      "fixture_index": 557,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "burmese_mahagita",
+      "fixture_index": 567,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "minneapolis_synth_funk_pop",
+      "fixture_index": 607,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "brazilian_samba_de_roda",
+      "fixture_index": 610,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "samba_jazz",
+      "fixture_index": 633,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "korean_kok",
+      "fixture_index": 654,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "korean_jajanga",
+      "fixture_index": 681,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "tibetan_ache_lhamo",
+      "fixture_index": 712,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "chinese_xiqing_wedding",
+      "fixture_index": 714,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "japanese_matsuri_taiko",
+      "fixture_index": 735,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "frevo",
+      "fixture_index": 739,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "forro_brasileiro",
+      "fixture_index": 776,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "pure_land_buddhist",
+      "fixture_index": 828,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "son_istmeno",
+      "fixture_index": 904,
+      "musical_config_equal": false,
+      "output_equal": false,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/traditions/1",
+          "before": "pagode",
+          "after": "baiao"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "baiao",
+          "after": "bloco"
+        },
+        {
+          "path": "/instruments/0/slots/voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "path": "/instruments/0/slots/voice_vibrato",
+          "before": "delayed_vibrato",
+          "after": "diaphragm_vibrato"
+        },
+        {
+          "path": "/instruments/0/slots/voice_tradition",
+          "before": "chinese_classical_vocal_tradition",
+          "after": "scottish_gaelic_taladh_tradition"
+        },
+        {
+          "path": "/instruments/1/slots/marimba_centroamericana_material",
+          "before": "marimba_centroamericana_hormigo",
+          "after": "marimba_centroamericana_granadillo"
+        },
+        {
+          "path": "/instruments/2/slots/string_acoustic_parlor",
+          "before": "coated_nano_p",
+          "after": "silk_steel_p"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "festejo_afroperuano",
+      "fixture_index": 922,
+      "musical_config_equal": false,
+      "output_equal": false,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/traditions/2",
+          "before": "pagode",
+          "after": "baiao"
+        },
+        {
+          "path": "/instruments/0/slots/voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_vedic_three_tone"
+        },
+        {
+          "path": "/instruments/0/slots/voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_single_lead"
+        },
+        {
+          "path": "/instruments/0/slots/voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "yoruba_tonal_vocal_tradition"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "lando_afroperuano",
+      "fixture_index": 923,
+      "musical_config_equal": false,
+      "output_equal": false,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/traditions/1",
+          "before": "pagode",
+          "after": "baiao"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "baiao",
+          "after": "bloco"
+        },
+        {
+          "path": "/instruments/0/slots/voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "path": "/instruments/0/slots/voice_register",
+          "before": "chest_voice",
+          "after": "vocal_fry"
+        },
+        {
+          "path": "/instruments/0/slots/voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "path": "/instruments/0/slots/voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_none"
+        },
+        {
+          "path": "/instruments/0/slots/voice_tradition",
+          "before": "beatboxing_tradition",
+          "after": "scottish_gaelic_taladh_tradition"
+        },
+        {
+          "path": "/instruments/2/slots/string_acoustic_parlor",
+          "before": "coated_nano_p",
+          "after": "silk_steel_p"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "currulao_pacifico",
+      "fixture_index": 924,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "forro_pe_de_serra",
+      "fixture_index": 926,
+      "musical_config_equal": false,
+      "output_equal": false,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/traditions/2",
+          "before": "pagode",
+          "after": "baiao"
+        },
+        {
+          "path": "/instruments/0/slots/voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_mid_1960s_double_tracking_era"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "lambada_carimbo",
+      "fixture_index": 930,
+      "musical_config_equal": false,
+      "output_equal": false,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/traditions/2",
+          "before": "pagode",
+          "after": "samba_rock"
+        },
+        {
+          "path": "/instruments/0/slots/voice_register",
+          "before": "extended_whistle_register",
+          "after": "chest_voice"
+        },
+        {
+          "path": "/instruments/1/slots/neck_wood",
+          "before": "mahogany_neck",
+          "after": "wenge_neck"
+        },
+        {
+          "path": "/instruments/1/slots/string_tuning",
+          "before": "open_g",
+          "after": "drop_d"
+        },
+        {
+          "path": "/instruments/1/slots/amp_make",
+          "before": "amp_roland_jc120",
+          "after": "amp_american_fender_blackface"
+        },
+        {
+          "path": "/instruments/1/slots/pickup_magnet",
+          "before": "alnico_2",
+          "after": "alnico_5"
+        },
+        {
+          "path": "/instruments/1/slots/bridge",
+          "before": "hardtail",
+          "after": "locking_trem"
+        },
+        {
+          "path": "/instruments/1/slots/fretboard",
+          "before": "pau_ferro_fb",
+          "after": "ebony_fb"
+        },
+        {
+          "path": "/instruments/1/slots/string_gauge",
+          "before": "g_10",
+          "after": "g_11"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "coco_brasileiro",
+      "fixture_index": 931,
+      "musical_config_equal": false,
+      "output_equal": false,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/traditions/2",
+          "before": "pagode",
+          "after": "carimbo"
+        },
+        {
+          "path": "/instruments/0/slots/voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_stutter_edit"
+        },
+        {
+          "path": "/instruments/1/slots/tambourine_orch_jingle",
+          "before": "tambourine_orch_brass",
+          "after": "tambourine_orch_nickel"
+        },
+        {
+          "path": "/instruments/1/slots/tambourine_orch_context",
+          "before": "tambourine_orch_pop",
+          "after": "tambourine_orch_orch"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "maya_marimba",
+      "fixture_index": 933,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "slap_house",
+      "fixture_index": 1011,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "sambass_brazilian_dnb",
+      "fixture_index": 1020,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "mandarin_yaolanqu",
+      "fixture_index": 1065,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "japanese_komoriuta",
+      "fixture_index": 1066,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "indian_baraat",
+      "fixture_index": 1085,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "javanese_gamelan",
+      "fixture_index": 1086,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "ethiopian_eskista_wedding",
+      "fixture_index": 1087,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "american_political_hip_hop",
+      "fixture_index": 1096,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "tibetan_thodrol_lama_praise",
+      "fixture_index": 1104,
+      "musical_config_equal": false,
+      "output_equal": true,
+      "seed_equal": false,
+      "full_config_equal": false,
+      "differences": [
+        {
+          "path": "/instruments/0/slots/voice_mechanism_compound",
+          "before": "voice_mechanism_overtone_isolation_F2",
+          "after": "voice_mechanism_ventricular_subharmonic"
+        }
+      ],
+      "counterfactual_remove_two": {
+        "full_config_equal": true,
+        "output_equal": true,
+        "score_equal": true
+      }
+    },
+    {
+      "id": "american_handgame_clapping",
+      "fixture_index": 1121,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    },
+    {
+      "id": "trinidad_road_march",
+      "fixture_index": 1144,
+      "musical_config_equal": true,
+      "output_equal": true,
+      "seed_equal": true,
+      "full_config_equal": true,
+      "differences": [],
+      "counterfactual_remove_two": null
+    }
+  ],
+  "artifacts": {
+    "baseline-all1149-graph119.json": "7ac788eab07869401302a0a8cdd215d190afea5568a09f4ca08e0039aefa1d25",
+    "consolidated-all1149-graph119.json": "fcd0a65dc43d469f00e995e63b61cf3e05c72330a2177110ddfb1f97fd8e66eb",
+    "consolidated-graph-risk119.json": "73e7a7128d8365cfc8ffff5cebfc7cbb4a22f94125301f82dcab56ea1cd8f1e9",
+    "subset100-risk-baseline119.json": "bfd53ad0a7baddf516a90d0d0a0cbc74d49ebe2e6156ade8ee8cd89be42239ed",
+    "consolidated-missing-baseline119.json": "98ea2a9fc6c175a4197d6e5547b4a0a993a3ca18ee09f5c92924353c9503d044",
+    "consolidated-risk-current119.json": "d73e6afd0bea32ca9cc7cc1204e035b173a9fb516284acc4e2886d0f02201334",
+    "consolidated-counterfactual2-spec119.json": "43ac6cd047b26a1372ad51fc3ab1b3f28c4ba412eb275cf7bb3c59ace3312b5e",
+    "consolidated-counterfactual2-result119.json": "7ef689f280f4eb86503b78225a1e2cd364e4e8a824af970ed7e1b383a27afd36"
+  },
+  "snapshot_updates_authorized": false
+}

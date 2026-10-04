@@ -1,0 +1,254 @@
+{
+  "entries": [
+    {
+      "source_label": "indie curitibano",
+      "source_url": "https://everynoise.com/engenremap-indiecuritibano.html",
+      "suggested_id": "indie_curitibano",
+      "allocation_ordinal": 3475,
+      "allocation_group_id": "139",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "id": "indie_curitibano",
+      "tradition": {
+        "id": "indie_curitibano",
+        "name": "Indie Curitibano",
+        "family": "pop",
+        "lineage": "Curitiba’s independent music scene connects local songwriters, bands and producers through collaborative releases, cultural spaces and festivals. Its author-led repertoire spans alternative rock, intimate Brazilian song, folk-inflected pop and electronic or hip-hop production.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": -1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Personal melodies and distinctive vocal phrasing move between intimate acoustic textures, guitar-band arrangements and electronically shaped pop. This gentle song branch pairs a singing lead with chordal piano, leaving space around the words and melody.",
+        "exemplars": [
+          "Klüber",
+          "Tuyo",
+          "Karol Conká"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -25.4284,
+        -49.2733,
+        "Curitiba",
+        "South America"
+      ],
+      "geo_rationale": "Documented local independent community, not a claimed recording room.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://guia.curitiba.pr.gov.br/evento/mostra-e-daqui-kluber/3297",
+          "support_notes": "Fresh14335view0 municipal organizer: singing/piano/songwriting practice, named underground collaborators, local authorial programming without genre restriction."
+        },
+        {
+          "url": "https://repositorio.utfpr.edu.br/jspui/bitstream/1/13854/1/CT_CODEG_2019_1_15.pdf",
+          "support_notes": "Fresh14334search16 institutional original research abstract identifies cooperative Curitiba independent field and five bands including Tuyo; direct14335view1 failed403, no claimed direct PDF read."
+        },
+        {
+          "url": "https://educapes.capes.gov.br/handle/capes/1089337?mode=full",
+          "support_notes": "Fresh14334search4 institutional metadata reproduces original researcher abstract and study scope."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2fs6wwDi3xEmYOAdOBeIpG",
+          "support_notes": "Fresh14318view1 complete creator list includes Tuyo3, Klüber11/93, KarolConká13/95, demonstrating broader cross-style field; playlist not instrumentation credits."
+        },
+        {
+          "url": "https://deckdisc.com.br/discos/batuk-freak/",
+          "support_notes": "Fresh14335view2 issuing label explicitly identifies Curitiba rap artist and sample/digital-beat production; category-only non-rock corroboration, no album palette transferred to this piano branch."
+        }
+      ],
+      "neighbor_distinction": "The entire existing rock_curitibano record covers the city’s rock-band field, not only one exemplar. This independent community positively spans author-song, electronic folk-pop and rap as well as rock: the exact creator includes Tuyo, Klüber and Karol Conká; municipal and university evidence describes cross-style cooperation. The entire musica_paranaense field covers statewide varied practices, within which this city-based independent production network is a narrower overlapping community. These are not exclusive artist lists or a new category inferred merely from a piano arrangement.",
+      "model_policy": "Genre-level representative singing-pianist branch, supported by the municipal presenter’s positive description of Klüber as singer, songwriter and pianist active in the collaborative underground community. Not a reconstruction of the named Mostra event or any issued recording: no claim that its actual full personnel was voice and piano only. The separate large-band Paiol concert is not selected or silently stripped. Authored single accompanied melodic lead, restrained upright-piano block chords and furnished parlor support an intimate popular-song realization. Authored verse–chorus–bridge organization and functional chord movement justify functionalSong; these are not measured score-form claims. Actual instrument size, playing method, physiology and source headcount remain unknown; broader bands, rap and electronic branches remain explicitly part of the field.",
+      "classification_evidence": "The entire existing rock_curitibano record covers the city’s rock-band field, not only one exemplar. This independent community positively spans author-song, electronic folk-pop and rap as well as rock: the exact creator includes Tuyo, Klüber and Karol Conká; municipal and university evidence describes cross-style cooperation. The entire musica_paranaense field covers statewide varied practices, within which this city-based independent production network is a narrower overlapping community. These are not exclusive artist lists or a new category inferred merely from a piano arrangement.",
+      "vocal_count_audit": {
+        "representative_voice_cards": 1,
+        "basis": "Authored single singing-pianist branch, no exact performance count or universal genre headcount asserted."
+      },
+      "instrument_role_audit": {
+        "voice": "Melodic popular-song lead",
+        "upright_piano": "Authored intimate chordal support for positively documented pianist-songwriter practice"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative singing-pianist branch, supported by the municipal presenter’s positive description of Klüber as singer, songwriter and pianist active in the collaborative underground community. Not a reconstruction of the named Mostra event or any issued recording: no claim that its actual full personnel was voice and piano only. The separate large-band Paiol concert is not selected or silently stripped. Authored single accompanied melodic lead, restrained upright-piano block chords and furnished parlor support an intimate popular-song realization. Authored verse–chorus–bridge organization and functional chord movement justify functionalSong; these are not measured score-form claims. Actual instrument size, playing method, physiology and source headcount remain unknown; broader bands, rap and electronic branches remain explicitly part of the field."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Genre-level representative singing-pianist branch, supported by the municipal presenter’s positive description of Klüber as singer, songwriter and pianist active in the collaborative underground community. Not a reconstruction of the named Mostra event or any issued recording: no claim that its actual full personnel was voice and piano only. The separate large-band Paiol concert is not selected or silently stripped. Authored single accompanied melodic lead, restrained upright-piano block chords and furnished parlor support an intimate popular-song realization. Authored verse–chorus–bridge organization and functional chord movement justify functionalSong; these are not measured score-form claims. Actual instrument size, playing method, physiology and source headcount remain unknown; broader bands, rap and electronic branches remain explicitly part of the field."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "primary_retrieval_refs": [
+        "turn14335view0",
+        "turn14334search16",
+        "turn14334search4",
+        "turn14318view1",
+        "turn14335view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_curitibano",
+          "name": "Indie Curitibano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14313view1 confirms CC BY2.5 Fergusson/Binksternet credit and crop. Exact historical023 bytes and visual receipt retained; no fresh download claimed.",
+          "fresh_review_ref": "turn14313view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14313view1"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim."
+      },
+      "authored_render_scope": "Genre-level representative singing-pianist branch, supported by the municipal presenter’s positive description of Klüber as singer, songwriter and pianist active in the collaborative underground community. Not a reconstruction of the named Mostra event or any issued recording: no claim that its actual full personnel was voice and piano only. The separate large-band Paiol concert is not selected or silently stripped. Authored single accompanied melodic lead, restrained upright-piano block chords and furnished parlor support an intimate popular-song realization. Authored verse–chorus–bridge organization and functional chord movement justify functionalSong; these are not measured score-form claims. Actual instrument size, playing method, physiology and source headcount remain unknown; broader bands, rap and electronic branches remain explicitly part of the field. All four original outputs inspected: wabi-rustic is a plain, softly textured vocal affect here, not a claim of Japanese repertoire; affectionate upright piano supplies the authored chordal support.",
+      "source_review_refs": [
+        "turn14335view0",
+        "turn14334search16",
+        "turn14334search4",
+        "turn14318view1",
+        "turn14335view2"
+      ],
+      "source_scope_limitation": "Genre-level representative singing-pianist branch, supported by the municipal presenter’s positive description of Klüber as singer, songwriter and pianist active in the collaborative underground community. Not a reconstruction of the named Mostra event or any issued recording: no claim that its actual full personnel was voice and piano only. The separate large-band Paiol concert is not selected or silently stripped. Authored single accompanied melodic lead, restrained upright-piano block chords and furnished parlor support an intimate popular-song realization. Authored verse–chorus–bridge organization and functional chord movement justify functionalSong; these are not measured score-form claims. Actual instrument size, playing method, physiology and source headcount remain unknown; broader bands, rap and electronic branches remain explicitly part of the field."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

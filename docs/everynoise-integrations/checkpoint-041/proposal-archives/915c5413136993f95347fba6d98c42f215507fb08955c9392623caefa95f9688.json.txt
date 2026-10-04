@@ -1,0 +1,200 @@
+{
+  "entries": [
+    {
+      "source_label": "polish old school hip hop",
+      "source_url": "https://everynoise.com/engenremap-polisholdschoolhiphop.html",
+      "suggested_id": "polish_old_school_hip_hop",
+      "allocation_ordinal": 448,
+      "allocation_group_id": "018",
+      "id": "polish_old_school_hip_hop",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "polish_old_school_hip_hop",
+        "name": "Polish old school hip hop",
+        "family": "hip_hop",
+        "lineage": "Polish old school hip hop — Decó, complete BLE vol1 (BreakS, LoopS & EditS), all33 issued tracks, originally dated23March2012 by the artist. His2013 firsthand interview states this preceding album was cut exclusively from Eastern European music. The selected source is a complete sample-built bboy programme, not the later Szpilersi album, an imagined instrumental reduction, or playback of an undocumented finished master. The existing credited sample-performance owner preserves the positive cut-sample construction and all sampled musical layers; source hardware, source-record instruments, embedded voices and their count remain unspecified. No separately recorded live singer or instrumentalist is positively identified for this album, so no extra performer cards are added; this is not a claim that no voices can be heard. Hardware mentioned for the later Szpilersi album and later MPC purchases is not transferred. A dry treated-studio listening rendition is authored, with no capture chain or global pitch system inferred.",
+        "instruments": [
+          "credited_samples_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Polish old school hip hop — Decó, complete BLE vol1 (BreakS, LoopS & EditS), all33 issued tracks, originally dated23March2012 by the artist. His2013 firsthand interview states this preceding album was cut exclusively from Eastern European music. The selected source is a complete sample-built bboy programme, not the later Szpilersi album, an imagined instrumental reduction, or playback of an undocumented finished master. The firsthand interview places Decó in the Polish old-school hip-hop community, with Stylowa Spółka Społem spanning bboy practice since1992 and rap since2005, while the actual artist release labels this programme true school/bboy. This is the historical and continuing foundational Polish hip-hop practice within the broad Polish hip-hop umbrella, not a claim that the umbrella excludes old-school music. Existing Polish Hip Hop is broader than its current EL AXO trio exemplar; existing boom_bap describes a transnational production aesthetic rooted in East-Coast sampling and later revival, not this Polish practitioner/community lineage. The instrumental bboy-production branch is explicitly one realization, not a claim all Polish old-school hip-hop omits rappers. The existing credited sample-performance owner preserves the positive cut-sample construction and all sampled musical layers; source hardware, source-record instruments, embedded voices and their count remain unspecified. No separately recorded live singer or instrumentalist is positively identified for this album, so no extra performer cards are added; this is not a claim that no voices can be heard. Hardware mentioned for the later Szpilersi album and later MPC purchases is not transferred. A dry treated-studio listening rendition is authored, with no capture chain or global pitch system inferred. Broad electronicDance is scoped to this explicitly bboy-oriented cut-and-loop dance programme, not to the full rap category or an invented house/techno affiliation.",
+        "exemplars": [
+          "Decó — BLE vol1, complete33-track programme"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "mcRhythm.intlHipHop"
+        ]
+      },
+      "geo": [
+        50.06,
+        19.94,
+        "Kraków",
+        "Europe"
+      ],
+      "geo_rationale": "Artist-owned profile gives Kraków as working base; not an asserted recording location.",
+      "sources": [
+        {
+          "url": "https://ssspecmusic.bandcamp.com/album/ble-vol1",
+          "title": "Artist-issued complete BLE vol1",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full primary turn11581view0:33tracks, original2012date, EasternEuropean bboy programme, true-school tag, Kraków and SSS/rap history. Current MPC4000 tag is not dated source hardware evidence."
+        },
+        {
+          "url": "https://undertonmusic.com/en/elemenele-definitely-yes-interview/",
+          "title": "Firsthand Decó interview,12December2013",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full turn11579view0; lines142–149 distinguish previous BLE exclusively Eastern-European cut material from later Szpilersi sampler/live drums/bass/cello album; lines186–188 establish Polish old-school practitioner community. Later live roles are retained as separate evidence, not imported into BLE."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "The firsthand interview places Decó in the Polish old-school hip-hop community, with Stylowa Spółka Społem spanning bboy practice since1992 and rap since2005, while the actual artist release labels this programme true school/bboy. This is the historical and continuing foundational Polish hip-hop practice within the broad Polish hip-hop umbrella, not a claim that the umbrella excludes old-school music. Existing Polish Hip Hop is broader than its current EL AXO trio exemplar; existing boom_bap describes a transnational production aesthetic rooted in East-Coast sampling and later revival, not this Polish practitioner/community lineage. The instrumental bboy-production branch is explicitly one realization, not a claim all Polish old-school hip-hop omits rappers.",
+      "classification_evidence": "The firsthand interview places Decó in the Polish old-school hip-hop community, with Stylowa Spółka Społem spanning bboy practice since1992 and rap since2005, while the actual artist release labels this programme true school/bboy. This is the historical and continuing foundational Polish hip-hop practice within the broad Polish hip-hop umbrella, not a claim that the umbrella excludes old-school music. Existing Polish Hip Hop is broader than its current EL AXO trio exemplar; existing boom_bap describes a transnational production aesthetic rooted in East-Coast sampling and later revival, not this Polish practitioner/community lineage. The instrumental bboy-production branch is explicitly one realization, not a claim all Polish old-school hip-hop omits rappers.",
+      "model_policy": "The existing credited sample-performance owner preserves the positive cut-sample construction and all sampled musical layers; source hardware, source-record instruments, embedded voices and their count remain unspecified. No separately recorded live singer or instrumentalist is positively identified for this album, so no extra performer cards are added; this is not a claim that no voices can be heard. Hardware mentioned for the later Szpilersi album and later MPC purchases is not transferred. A dry treated-studio listening rendition is authored, with no capture chain or global pitch system inferred.",
+      "source_scope_limitation": "Polish old school hip hop — Decó, complete BLE vol1 (BreakS, LoopS & EditS), all33 issued tracks, originally dated23March2012 by the artist. His2013 firsthand interview states this preceding album was cut exclusively from Eastern European music. The selected source is a complete sample-built bboy programme, not the later Szpilersi album, an imagined instrumental reduction, or playback of an undocumented finished master.",
+      "source_retrieval_caveat": "Actual full issuer and firsthand interview text inspected; no audio audition claimed. Artist re-posted album in2026 community feed but album itself retains2012 release date.",
+      "instrument_role_audit": {
+        "complete_scope": "All33 BLE vol1 tracks",
+        "positive_construction": "Exclusive cutting of EasternEuropean music, artist own retrospective account",
+        "source_families": [
+          "recorded samples"
+        ],
+        "other_album_exclusion": "Szpilersi zDECydowanie20tracks separately has Decó voice, DJ SadMan, Panda drums, bass, one cello, and Gracjan skit. Those credits refer explicitly to the later album, not BLE."
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "embedded_sample_voice_count": "unknown",
+        "separately_recorded_live_voice_count": "unknown/not documented"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "credited_samples_unspecified",
+          "parts": {
+            "credited_samples_identity": "credited_samples_source_unspecified"
+          },
+          "policy": "Sole owning control explicitly pinned; no device architecture inferred."
+        }
+      ],
+      "dependency_audit": {
+        "reused_instruments": [
+          "credited_samples_unspecified"
+        ],
+        "new_instruments": []
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "One applicable control protected."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "polish_old_school_hip_hop",
+          "name": "Polish old school hip hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not Decó, Polish community, sampling device or album session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11591view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn11591view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11591view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

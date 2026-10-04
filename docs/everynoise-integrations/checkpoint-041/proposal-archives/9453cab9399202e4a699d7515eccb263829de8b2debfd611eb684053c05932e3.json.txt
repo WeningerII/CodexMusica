@@ -1,0 +1,231 @@
+{
+  "entries": [
+    {
+      "source_label": "nasheed",
+      "source_url": "https://everynoise.com/engenremap-nasheed.html",
+      "suggested_id": "nasheed",
+      "allocation_ordinal": 3970,
+      "allocation_group_id": "159",
+      "id": "nasheed",
+      "status": "candidate_pending_independent_review",
+      "tradition": {
+        "id": "nasheed",
+        "name": "Nasheed",
+        "family": "global",
+        "lineage": "Ali Elsayed — 201 Names of Prophet Muhammad, complete21:23 vocals-only edition issued21September2020. The artist expressly distinguishes the separate with-duff edition from this vocal-only mix and credits all vocals and production to himself. One credited singer, one voice family; actual overdub count and vocal layering remain unknown. All201 named invocations and intervening salawat belong to the complete selected edition. No duff or other instruments from the alternate mix are transferred, and no health/spiritual-effect claim is adopted. RitualDevotional.islamic reflects the positive full devotional names-and-salawat programme. The complete single credited human voice is retained with all17 existing physical/technique controls; physiology, register, pitch system, ornament school and training remain source-unspecified. A newly authored unmetered melodic-chant rendition and single-lead vocal presentation are chosen without claiming measured meter, actual stack count or a particular Arabic maqam. Spacious shoebox-hall acoustics are an authored recital presentation, not original venue or reverb measurement. No global tuning, instrumental accompaniment or capture apparatus is inferred. Rendered huge voice denotes the explicitly authored spacious presentation; single-track/no-stacking is a new single-lead realization, not a claim about original production layering.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_ametrical_chant",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.islamic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": -2,
+          "density": -2,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": -2,
+          "cyclicity": 0
+        },
+        "description": "Ali Elsayed — 201 Names of Prophet Muhammad, complete21:23 vocals-only edition issued21September2020. The artist expressly distinguishes the separate with-duff edition from this vocal-only mix and credits all vocals and production to himself. One credited singer, one voice family; actual overdub count and vocal layering remain unknown. All201 named invocations and intervening salawat belong to the complete selected edition. No duff or other instruments from the alternate mix are transferred, and no health/spiritual-effect claim is adopted. Nasheed is the broad Islamic devotional-song and contemporary production field, including both instrumental music versions and voices-only editions. Existing islamic_anasheed explicitly names the same singular/plural term and canonical artists but its full name and definition restrict the modeled field to voices/frame drums; that narrow explicit scope is preserved rather than silently broadened. The new broad production field includes that existing vocal-only branch, so this selected edition deliberately overlaps it. The distinction is the documented wider field, not Ali Elsayed being a different singer, a spelling change, a newer date or an assertion that old examples exhaust the old category. Otterbeck and Skjelbo original2019 study explicitly analyzes music versions and vocals-only production within the same pop-nasheed market. Creator exact Nasheed corpus independently includes Ali Elsayed at19 as well as Kurtis/Yusuf/Zain. Quranic recitation/adhan, khutbah sermons, naat praise poetry, Sufi devotional practice and Islamic hiphop overlap or neighbor this field but are not equated with its whole song-production institution. RitualDevotional.islamic reflects the positive full devotional names-and-salawat programme. The complete single credited human voice is retained with all17 existing physical/technique controls; physiology, register, pitch system, ornament school and training remain source-unspecified. A newly authored unmetered melodic-chant rendition and single-lead vocal presentation are chosen without claiming measured meter, actual stack count or a particular Arabic maqam. Spacious shoebox-hall acoustics are an authored recital presentation, not original venue or reverb measurement. No global tuning, instrumental accompaniment or capture apparatus is inferred. Rendered huge voice denotes the explicitly authored spacious presentation; single-track/no-stacking is a new single-lead realization, not a claim about original production layering.",
+        "exemplars": [
+          "Ali Elsayed — 201 Names of Prophet Muhammad (2020 complete vocals-only edition)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.6532,
+        -79.3832,
+        "Toronto",
+        "North America"
+      ],
+      "geo_rationale": "Artist-issued Bandcamp header labels Toronto, Ontario. This is the release-platform editorial anchor; prose says artist originally Lebanon and now USA, so Toronto is not asserted as present residence or recording studio.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Nasheed is the broad Islamic devotional-song and contemporary production field, including both instrumental music versions and voices-only editions. Existing islamic_anasheed explicitly names the same singular/plural term and canonical artists but its full name and definition restrict the modeled field to voices/frame drums; that narrow explicit scope is preserved rather than silently broadened. The new broad production field includes that existing vocal-only branch, so this selected edition deliberately overlaps it. The distinction is the documented wider field, not Ali Elsayed being a different singer, a spelling change, a newer date or an assertion that old examples exhaust the old category. Otterbeck and Skjelbo original2019 study explicitly analyzes music versions and vocals-only production within the same pop-nasheed market. Creator exact Nasheed corpus independently includes Ali Elsayed at19 as well as Kurtis/Yusuf/Zain. Quranic recitation/adhan, khutbah sermons, naat praise poetry, Sufi devotional practice and Islamic hiphop overlap or neighbor this field but are not equated with its whole song-production institution.",
+      "classification_evidence": "Nasheed is the broad Islamic devotional-song and contemporary production field, including both instrumental music versions and voices-only editions. Existing islamic_anasheed explicitly names the same singular/plural term and canonical artists but its full name and definition restrict the modeled field to voices/frame drums; that narrow explicit scope is preserved rather than silently broadened. The new broad production field includes that existing vocal-only branch, so this selected edition deliberately overlaps it. The distinction is the documented wider field, not Ali Elsayed being a different singer, a spelling change, a newer date or an assertion that old examples exhaust the old category. Otterbeck and Skjelbo original2019 study explicitly analyzes music versions and vocals-only production within the same pop-nasheed market. Creator exact Nasheed corpus independently includes Ali Elsayed at19 as well as Kurtis/Yusuf/Zain. Quranic recitation/adhan, khutbah sermons, naat praise poetry, Sufi devotional practice and Islamic hiphop overlap or neighbor this field but are not equated with its whole song-production institution.",
+      "model_policy": "RitualDevotional.islamic reflects the positive full devotional names-and-salawat programme. The complete single credited human voice is retained with all17 existing physical/technique controls; physiology, register, pitch system, ornament school and training remain source-unspecified. A newly authored unmetered melodic-chant rendition and single-lead vocal presentation are chosen without claiming measured meter, actual stack count or a particular Arabic maqam. Spacious shoebox-hall acoustics are an authored recital presentation, not original venue or reverb measurement. No global tuning, instrumental accompaniment or capture apparatus is inferred. Rendered huge voice denotes the explicitly authored spacious presentation; single-track/no-stacking is a new single-lead realization, not a claim about original production layering.",
+      "source_scope_limitation": "Ali Elsayed — 201 Names of Prophet Muhammad, complete21:23 vocals-only edition issued21September2020. The artist expressly distinguishes the separate with-duff edition from this vocal-only mix and credits all vocals and production to himself. One credited singer, one voice family; actual overdub count and vocal layering remain unknown. All201 named invocations and intervening salawat belong to the complete selected edition. No duff or other instruments from the alternate mix are transferred, and no health/spiritual-effect claim is adopted.",
+      "source_retrieval_caveat": "Full artist-issued album and selected edition read directly; original researcher article indexed full abstract/terminology, creator full playlist read directly. No audition or purchased master analysis claimed.",
+      "vocal_count_audit": {
+        "count": 1,
+        "basis": "Album vocals and production credited solely Ali Elsayed; selected edition explicitly vocals only. Stack count unknown."
+      },
+      "instrument_role_audit": {
+        "voice": "All source-positive vocal material by one credited singer; no duff transferred from separately issued alternate mix."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_ametrical_chant",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "RitualDevotional.islamic reflects the positive full devotional names-and-salawat programme. The complete single credited human voice is retained with all17 existing physical/technique controls; physiology, register, pitch system, ornament school and training remain source-unspecified. A newly authored unmetered melodic-chant rendition and single-lead vocal presentation are chosen without claiming measured meter, actual stack count or a particular Arabic maqam. Spacious shoebox-hall acoustics are an authored recital presentation, not original venue or reverb measurement. No global tuning, instrumental accompaniment or capture apparatus is inferred. Rendered huge voice denotes the explicitly authored spacious presentation; single-track/no-stacking is a new single-lead realization, not a claim about original production layering."
+        }
+      ],
+      "dependency_audit": "Existing original voice owner only, all controls retained; no new dependency or shared edit.",
+      "flat_pin_resolution": "All17 applicable voice controls pinned and protected; no shared-owner collisions or unpinned fallback.",
+      "sources": [
+        {
+          "url": "https://alielsayed.bandcamp.com/album/201-names-of-prophet-muhammad",
+          "support_notes": "Ali Elsayed — 201 Names of Prophet Muhammad, complete21:23 vocals-only edition issued21September2020. The artist expressly distinguishes the separate with-duff edition from this vocal-only mix and credits all vocals and production to himself. One credited singer, one voice family; actual overdub count and vocal layering remain unknown. All201 named invocations and intervening salawat belong to the complete selected edition. No duff or other instruments from the alternate mix are transferred, and no health/spiritual-effect claim is adopted. Artist self-identifies nasheed songwriter and defines spiritually based sung poetry.",
+          "retrieval_ref": "turn12637view0"
+        },
+        {
+          "url": "https://alielsayed.bandcamp.com/track/201-names-of-prophet-muhammad-vocals-only",
+          "support_notes": "Exact separately issued full vocals-only edition, not arbitrary removal of accompaniment.",
+          "retrieval_ref": "turn12637view1"
+        },
+        {
+          "url": "https://www.tandfonline.com/doi/pdf/10.1080/03007766.2019.1581335",
+          "support_notes": "Original research Music Version versus Vocals-Only analyzes both production approaches within broad contemporary Islamic pop/nasheed; supports candid broader field beyond explicit old vocal-only definition.",
+          "retrieval_ref": "turn12622search15"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4w35rvp0TynUWuQH8yL52d",
+          "support_notes": "Exact creator Nasheed field includes Ali Elsayed item19, different song; only artist membership transferred, not that song roles.",
+          "retrieval_ref": "turn12637view2"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "nasheed",
+          "name": "Nasheed",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Ali Elsayed, devotional event, source microphone or actual session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12593view0 confirms Iain Fergusson/Binksternet CC BY2.5 and prior crop; exact023 historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn12593view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12593view0"
+        ]
+      },
+      "verification_status": "Author original fullmerge17 protected owning parts,1638 existing owners unchanged, four browser/connector formats identical and clean; max309characters. Pending independent source/category review, no integrated-build claim.",
+      "primary_retrieval_refs": [
+        "turn12637view0",
+        "turn12637view1",
+        "turn12622search15",
+        "turn12637view2"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

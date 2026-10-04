@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ROOT_QUEUE_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-polish-viral-pop-metadata-corrected-root.json",
+  "packet_sha256": "f8394457ef6e15160f65f91938fcc32b9cdff75817934569248182be456a9960",
+  "ids": [
+    "polish_viral_pop"
+  ],
+  "checked_at": "2026-10-04T00:43:42.564782+00:00",
+  "checks": [
+    "Root read positive creator-pop profile and production rationale; four original engine outputs retain sung/rapped group and produced beat,18 owning controls.",
+    "Only stale manifest display identity, dependency list and verification prose corrected from tested source; tradition/extras/defaults unchanged.",
+    "Clapping-and-syllabicizing represents punctuated group refrain, not mandatory physical handclaps. Source practices support production; historical original piano branch retained. Final combined integration pending."
+  ]
+}

@@ -1,0 +1,1975 @@
+{
+  "new_rows": [
+    {
+      "id": "dark_progressive_house",
+      "instruments": [
+        "wavetable_synth",
+        "analog_synth",
+        "drum_machine_909",
+        "credited_samples_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "anime_rap",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "sampler_drum_machine"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "armenian_hip_hop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "botswana_hip_hop",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "classical_drill",
+      "instruments": [
+        "grand_piano",
+        "credited_strings_unspecified",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "detroit_trap_brasileiro",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "grand_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "ethiopian_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "german_viral_rap",
+      "instruments": [
+        "voice",
+        "drum_machine_analog",
+        "analog_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "hip_hop_boliviano",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "hip_hop_mauritanien",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "hip_hop_timur",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "hong_kong_hip_hop",
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "icelandic_hip_hop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "upright_piano",
+        "dj_playback_mixing_unspecified",
+        "credited_electronics_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "israelite_hip_hop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "sampler_classic"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "korean_drill",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "korean_underground_rap",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lao_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "latvian_hip_hop",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "magyar_trap",
+      "instruments": [
+        "voice",
+        "drum_machine_808"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "maltese_hip_hop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "turntable",
+        "credited_drum_machine_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "military_rap",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "mongolian_hip_hop",
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "northeast_indian_hip_hop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "norwegian_trap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "persian_underground_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "pinoy_alternative_rap",
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "credited_samples_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "polish_drill",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "polish_old_school_hip_hop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "sampler_classic",
+        "turntable"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "polish_underground_rap",
+      "instruments": [
+        "voice",
+        "turntable",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "rap_geek",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "surinamese_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_auxiliary_percussion",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "swedish_drill",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "kamba_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "karbi_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "credited_bamboo_flute_unspecified",
+        "muri_tongpo",
+        "muri_jangkek",
+        "cheng_pi",
+        "cheng_burup"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "karen_pop",
+      "instruments": [
+        "voice",
+        "credited_drums_unspecified",
+        "electric_bass",
+        "credited_synthesizer_unspecified",
+        "upright_piano",
+        "credited_strings_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "kumaoni_pop",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_parlor",
+        "upright_piano",
+        "hudka_uttarakhand"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "ladakhi_pop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lao_pop",
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "credited_auxiliary_percussion"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "liberian_pop",
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "drum_machine_analog"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "maluku_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_auxiliary_percussion",
+        "electronic_keyboard_unspecified",
+        "saxophone",
+        "flute"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "mising_pop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "mizo_pop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "oromo_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "pahadi_pop",
+      "instruments": [
+        "voice",
+        "credited_flute_unspecified",
+        "upright_piano",
+        "congas",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "palestinian_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "bass_drum",
+        "darbuka",
+        "credited_synthesizer_unspecified",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "png_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "electronic_keyboard_unspecified",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "polish_viral_pop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "pop_flamenco",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "pop_urbaine",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "sambalpuri_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "santali_pop",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_parlor",
+        "ukulele",
+        "cajon_peruano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "sorani_pop",
+      "instruments": [
+        "voice",
+        "tar_persian",
+        "santur",
+        "kamancheh",
+        "tombak",
+        "oud",
+        "credited_auxiliary_percussion",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "thai_indie_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "underground_power_pop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "zomi_pop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "viet_edm",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "myanmar_gospel",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "8d",
+      "instruments": [
+        "binaural_spatial_renderer"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cantaditas",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cantonese_worship",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cartoni_animati",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "chinese_bgm",
+      "instruments": [
+        "upright_piano",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "chinese_drama_ost",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "classic_bhangra",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "hand_pumped_harmonium",
+        "dhol",
+        "dholak"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cumbia_cristiana",
+      "instruments": [
+        "voice",
+        "electronic_keyboard_unspecified",
+        "electric_bass",
+        "timbales_stick_played",
+        "guiro"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cumbia_ecuatoriana",
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "electric_bass",
+        "trumpet",
+        "trombone",
+        "saxophone",
+        "congas",
+        "timbales_stick_played",
+        "guiro"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cumbia_santafesina",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "timbales_stick_played",
+        "congas",
+        "octapad_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "double_drumming",
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "ethnotronica",
+      "instruments": [
+        "bansuri",
+        "tabla",
+        "sampler_classic"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "experimental_big_band",
+      "instruments": [
+        "saxophone_section_tenor_baritone",
+        "bass_clarinet",
+        "upright_piano",
+        "double_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "festigal",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "focus",
+      "instruments": [
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "folklore_peruano",
+      "instruments": [
+        "voice",
+        "arpa_peruana"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "frafra",
+      "instruments": [
+        "voice",
+        "sinyaka"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "french_movie_tunes",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "grupero_romantico",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "electronic_keyboard_unspecified",
+        "credited_synthesizer_unspecified",
+        "electronic_drum_kit_unspecified",
+        "credited_auxiliary_percussion"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "gumbe",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_auxiliary_percussion",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "hyperpop_brasileiro",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "ilahiler",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_boliviano",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_synthesizer_unspecified",
+        "credited_programming_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_catala",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "wurlitzer_ep",
+        "credited_synthesizer_unspecified",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_cristao",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_liguria",
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_nica",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "japanese_psychedelic",
+      "instruments": [
+        "credited_synthesizer_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "japanese_vgm",
+      "instruments": [
+        "upright_piano",
+        "fm_synth",
+        "analog_poly_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "kabyle_moderne",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "credited_auxiliary_percussion",
+        "darbuka"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "korean_soundtrack",
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "acoustic_guitar_dread",
+        "credited_strings_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "korean_talent_show",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lagu_iban",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lagu_jambi",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_bass"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lagu_maluku",
+      "instruments": [
+        "voice",
+        "ukulele"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lagu_tarling",
+      "instruments": [
+        "voice",
+        "rompler_workstation"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lo_fi_brasileiro",
+      "instruments": [
+        "sampler_classic",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "louvores_pentecostais",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "magyar_kabare",
+      "instruments": [
+        "voice"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "mapouka",
+      "instruments": [
+        "voice",
+        "hand_drum_source_unspecified",
+        "credited_bottle"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "merida_indie",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "credited_synthesizer_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "middle_eastern_traditional",
+      "instruments": [
+        "oud"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "moorish_traditional",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "ardin",
+        "tidinit",
+        "electric_guitar_single_coil",
+        "tbal_mauritanian"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_aguascalentense",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "trombone",
+        "credited_auxiliary_percussion",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_bautista",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_coahuilense",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "saxophone"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_evangelica_instrumental",
+      "instruments": [
+        "saxophone",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_michoacana",
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_nayarita",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_otavalena",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "sampler_classic"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_timor_leste",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_tlaxcalteca",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "saxophone",
+        "trombone"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_triste_brasileira",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musica_urbana_oaxaquena",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musique_traditionnelle_congolaise",
+      "instruments": [
+        "voice",
+        "lukembi_congolese"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musique_urbaine_brazzaville",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 1
+    },
+    {
+      "id": "nasheed",
+      "instruments": [
+        "voice",
+        "tar_frame_drum"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "new_hampshire_indie",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "norrbotten_indie",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "drum_kit",
+        "credited_synthesizer_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "ny_roots",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "oeteldonk",
+      "instruments": [
+        "voice",
+        "trumpet",
+        "trombone",
+        "saxophone_section_alto_tenor",
+        "baritone_horn_bb",
+        "tuba",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "old_school_nederhop",
+      "instruments": [
+        "voice",
+        "turntable"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "oldschool_deutschrap",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "sampler_classic",
+        "turntable"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "otacore",
+      "instruments": [
+        "voice",
+        "fm_synth",
+        "software_sample_playback",
+        "vocoder",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "pinoy_praise",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "polish_alternative",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_synthesizer_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "polish_indie",
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_synthesizer_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "portuguese_indie",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electronic_keyboard_unspecified",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "prank",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "psybass",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "puerto_rican_indie",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "quebec_indie",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "raspe",
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "drum_machine_analog"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "ringtone",
+      "instruments": [
+        "fm_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "ritmo_kombina",
+      "instruments": [
+        "voice",
+        "congas",
+        "drum_kit",
+        "electric_bass",
+        "rompler_workstation"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "rumba",
+      "instruments": [
+        "voice",
+        "flamenco_guitar"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "russian_ccm",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "russian_indie",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "russian_plugg",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "russian_rave",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "sound",
+      "instruments": [
+        "recorded_appliance_sound"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "spa",
+      "instruments": [
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "spanish_new_wave",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "credited_organ_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "taiwan_graduation_song",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "talent_show",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "talentkonkurrence",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "talentos_brasileiros",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "telugu_indie",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "telugu_remix",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "vintage_hollywood",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "vintage_italian_soundtrack",
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ"
+      ],
+      "source_pin_parts": true,
+      "error_count": 1
+    },
+    {
+      "id": "violao_classico",
+      "instruments": [
+        "classical_nylon_string_guitar"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "volkstumliche_musik",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "german_dark_minimal_techno",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "malaysian_tamil_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cloud_rap_francais",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indian_underground_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "turkmen_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "bouzouki",
+      "instruments": [
+        "bouzouki"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "drill_chileno",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indonesian_emo_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "medimeisterschaften",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "tamaulipas_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "north_moroccan_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_campechano",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "malawian_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "oc_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "flint_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "rap_angolano",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "polish_alternative_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "fan_chant",
+      "instruments": [
+        "voice",
+        "hand_clap",
+        "credited_drums_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "folclor_colombiano",
+      "instruments": [
+        "bandola_andina",
+        "tiple",
+        "classical_nylon_string_guitar"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "czsk_emo_rap",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "musik_anak_anak",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "tibetan_folk_pop",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "telugu_devotional",
+      "instruments": [
+        "voice",
+        "violin_carnatic",
+        "mridangam",
+        "tanpura"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "jain_bhajan",
+      "instruments": [
+        "voice",
+        "tabla",
+        "tanpura"
+      ],
+      "source_pin_parts": true,
+      "error_count": 1
+    },
+    {
+      "id": "pop_boliviano",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cantautor_catala",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "lagu_bugis",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "reading",
+      "instruments": [
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 1
+    },
+    {
+      "id": "finnish_trap",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_poly_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "greek_drill",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "iowa_hip_hop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "irish_drill",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "swiss_trap",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_poly_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "persian_drill",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_curitibano",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "classic_ukrainian_pop",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "cristiana_para_ninos",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "plugg_en_espanol",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_poly_synth"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "brockton_hip_hop",
+      "instruments": [
+        "voice"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "louange",
+      "instruments": [
+        "voice"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "dicsoites",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "pop_dance",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified",
+        "credited_electronics_unspecified"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "indie_catracho",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    },
+    {
+      "id": "chinese_talent_show",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "source_pin_parts": true,
+      "error_count": 0
+    }
+  ],
+  "new_count": 194,
+  "new_slots_checked": 5041,
+  "new_source_pins_checked": 5041,
+  "new_errors": [
+    {
+      "id": "musique_urbaine_brazzaville",
+      "errors": [
+        "unexpected staple"
+      ]
+    },
+    {
+      "id": "vintage_italian_soundtrack",
+      "errors": [
+        "unexpected staple"
+      ]
+    },
+    {
+      "id": "jain_bhajan",
+      "errors": [
+        "unexpected staple"
+      ]
+    },
+    {
+      "id": "reading",
+      "errors": [
+        "unexpected staple"
+      ]
+    }
+  ],
+  "old_changed_slots_checked": 643,
+  "old_variant_errors": []
+}

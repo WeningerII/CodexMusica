@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/transfer461-from116-oromo-general-profile.json",
+  "sha256": "4fa86af856e4f7385907bcb115add623bdd4c98281999752f7257a96e209fa3e",
+  "reviewer": "research_116",
+  "sources": [
+    {
+      "url": "https://shebasound.com/2015/01/jimma-oromo/",
+      "ref": "turn13426view0",
+      "finding": "Fresh complete issuer firsthand page supports contemporary electric Oromo band practice, all five musical role families, and a separate traditional-instrument afternoon. Cultural-office interview supports the regional popular-song context."
+    }
+  ],
+  "category_review": "Narrow modern Oromo-language popular band practice legitimately overlaps the broad Oromo heritage and Ethiopian national popular fields. Existing umbrella is not falsely limited to ancient music. Representative practice does not require exact simultaneous source singer counts.",
+  "profile_review": "Concise sound/history replace research dossier; detailed source and authored choices remain outside public profile. Seven credited vocal contributors represented as an authored group, not a measured simultaneous chorus.",
+  "controls": {
+    "owning_parts": 51,
+    "invalid_or_unpinned": [],
+    "method": "Independently traversed current original merged owner parts and checked each selected variant. Guitar alnico2/10s/two-point/25.5 construction, locked roundwound bass, coherent machine-hammered traditional-finish cymbals and architecture-neutral keyboard are valid authored choices."
+  },
+  "runtime": "/tmp/batch040/oromo-peer-runtime116.json",
+  "runtime_review": "Independently reran unchanged original browser/connector all four formats; parity and <=1000 pass. All five families retained. Huge/immense/stereophonic are compatible authored hall scale; cutting guitar and trudging backbeat impose no unsupported national style.",
+  "rights_review": "Fresh Commons turn13428view0 confirms CC BY2.5, original author and crop. LOW generic microphone context honestly labeled; inherited023 bytes and visual receipt are not claimed fresh.",
+  "limitations": [
+    "Source-only original runtime preflight; final integrated API/regression gates remain root responsibility."
+  ]
+}

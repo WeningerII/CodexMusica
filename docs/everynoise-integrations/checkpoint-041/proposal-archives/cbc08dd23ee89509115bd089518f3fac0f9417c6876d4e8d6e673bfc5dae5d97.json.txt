@@ -1,0 +1,248 @@
+{
+  "entries": [
+    {
+      "source_label": "volkstumliche musik",
+      "source_url": "https://everynoise.com/engenremap-volkstumlichemusik.html",
+      "suggested_id": "volkstumliche_musik",
+      "allocation_ordinal": 4532,
+      "allocation_group_id": "182",
+      "id": "volkstumliche_musik",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "volkstumliche_musik",
+        "name": "Volkstümliche Musik",
+        "family": "pop",
+        "lineage": "Volkstümliche Musik — complete Gerhard Hildner Musikantentreff songbook MVH1000414, 130 popular-folk hits. Publisher specifies one melodic line, chord symbols and text, with tempo/rhythm indications; the catalogue labels a melody instrument in C and mentions keyboard, guitar and vocal accompaniment as uses. This is a lead-sheet publication, not three separately notated mandatory ensemble parts. The complete book is realized here through one singing lead and piano chordal accompaniment, preserving all published melody, harmony and text. This is explicitly an authored realization of the lead sheets, not a publisher-issued fully notated piano arrangement, an inspected score transcription, or a reconstruction of the original artists recordings. The publisher does not expressly say keyboard OR guitar, and that wording is not invented. No actual positively credited performance personnel are omitted: the earlier simultaneous three-family model was an editorial interpretation of possible uses, not a documented session roster. All 130 titles remain the scope. Authored functional-harmonic verse–chorus–bridge popular-song treatment follows the positive melody/chord/lyric publication; it does not assert identical form or tempo for every title. One natural singing lead and a standard-size modern upright piano with block-chord popular accompaniment are editorial performance choices. Brisk representative vocal pacing, piano construction and chordal gesture are not measured original tempo, publisher hardware or personal playing lineage. No universal temperament or recording apparatus is asserted. Controlled live-room presentation is authored.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.europop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Volkstümliche Musik — complete Gerhard Hildner Musikantentreff songbook MVH1000414, 130 popular-folk hits. Publisher specifies one melodic line, chord symbols and text, with tempo/rhythm indications; the catalogue labels a melody instrument in C and mentions keyboard, guitar and vocal accompaniment as uses. This is a lead-sheet publication, not three separately notated mandatory ensemble parts. The complete book is realized here through one singing lead and piano chordal accompaniment, preserving all published melody, harmony and text. This is explicitly an authored realization of the lead sheets, not a publisher-issued fully notated piano arrangement, an inspected score transcription, or a reconstruction of the original artists recordings. The publisher does not expressly say keyboard OR guitar, and that wording is not invented. No actual positively credited performance personnel are omitted: the earlier simultaneous three-family model was an editorial interpretation of possible uses, not a documented session roster. All 130 titles remain the scope. Chorverband Tirol publishes firsthand specialist Thomas Nußbaumer interview explicitly defining modern volkstümliche Musik as a media-oriented popular-music field mixing folk models, march and international pop, with historical Schlager/Heimatfilm roots and fluid borders. Full existing volksmusik already includes television standardization, Musikantenstadl and Kastelruther Spatzen; that overlap is acknowledged rather than claiming an untouched rural-only old record. The new focus is the named popular-mediated repertoire branch, not all Alpine folk or merely a different exemplar. Full schlager_german already includes sentimental Heimat topics and televised entertainment: overlap remains, while the positively defined folk-model popular repertoire focus is narrower than all Schlager. The selected publisher popular-song realization fits functionalSong.europop; no concert-art or drinking-purpose claim is inferred from notation. This does not claim stylistic disjointness or a newly invented acoustic signature. Authored functional-harmonic verse–chorus–bridge popular-song treatment follows the positive melody/chord/lyric publication; it does not assert identical form or tempo for every title. One natural singing lead and a standard-size modern upright piano with block-chord popular accompaniment are editorial performance choices. Brisk representative vocal pacing, piano construction and chordal gesture are not measured original tempo, publisher hardware or personal playing lineage. No universal temperament or recording apparatus is asserted. Controlled live-room presentation is authored.",
+        "exemplars": [
+          "Gerhard Hildner — complete Musikantentreff130-title songbook MVH1000414"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        50.11,
+        8.68,
+        "Germany",
+        "Europe"
+      ],
+      "geo_rationale": "Approximate German-language repertoire land anchor; transnational German-speaking field not restricted to Germany, and no source recording location asserted.",
+      "sources": [
+        {
+          "url": "https://www.schott-music.com/fr/musikantentreff-no343983.html",
+          "title": "Publisher Musikantentreff complete songbook",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12317view0 lines281–313 explicitly melody-in-C / songbook / single melody line with chords and text, keyboard/guitar/vocal usage. Exact wording retained in scope clarification; score pages not visually inspected."
+        },
+        {
+          "url": "https://www.chorverband.tirol/sites/default/files/chor_tirol_pdfs/chorverband_Chor_Tirol_2024_Ag1_WEB.pdf",
+          "title": "Chor Tirol2024 interview with Thomas Nußbaumer",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12251view0/1 pp8–10 institutional firsthand specialist defines mediated-pop field and explicitly fluid borders; old Volksmusik overlap not denied."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Chorverband Tirol publishes firsthand specialist Thomas Nußbaumer interview explicitly defining modern volkstümliche Musik as a media-oriented popular-music field mixing folk models, march and international pop, with historical Schlager/Heimatfilm roots and fluid borders. Full existing volksmusik already includes television standardization, Musikantenstadl and Kastelruther Spatzen; that overlap is acknowledged rather than claiming an untouched rural-only old record. The new focus is the named popular-mediated repertoire branch, not all Alpine folk or merely a different exemplar. Full schlager_german already includes sentimental Heimat topics and televised entertainment: overlap remains, while the positively defined folk-model popular repertoire focus is narrower than all Schlager. The selected publisher popular-song realization fits functionalSong.europop; no concert-art or drinking-purpose claim is inferred from notation. This does not claim stylistic disjointness or a newly invented acoustic signature.",
+      "classification_evidence": "Chorverband Tirol publishes firsthand specialist Thomas Nußbaumer interview explicitly defining modern volkstümliche Musik as a media-oriented popular-music field mixing folk models, march and international pop, with historical Schlager/Heimatfilm roots and fluid borders. Full existing volksmusik already includes television standardization, Musikantenstadl and Kastelruther Spatzen; that overlap is acknowledged rather than claiming an untouched rural-only old record. The new focus is the named popular-mediated repertoire branch, not all Alpine folk or merely a different exemplar. Full schlager_german already includes sentimental Heimat topics and televised entertainment: overlap remains, while the positively defined folk-model popular repertoire focus is narrower than all Schlager. The selected publisher popular-song realization fits functionalSong.europop; no concert-art or drinking-purpose claim is inferred from notation. This does not claim stylistic disjointness or a newly invented acoustic signature.",
+      "model_policy": "Authored functional-harmonic verse–chorus–bridge popular-song treatment follows the positive melody/chord/lyric publication; it does not assert identical form or tempo for every title. One natural singing lead and a standard-size modern upright piano with block-chord popular accompaniment are editorial performance choices. Brisk representative vocal pacing, piano construction and chordal gesture are not measured original tempo, publisher hardware or personal playing lineage. No universal temperament or recording apparatus is asserted. Controlled live-room presentation is authored.",
+      "source_scope_limitation": "Volkstümliche Musik — complete Gerhard Hildner Musikantentreff songbook MVH1000414, 130 popular-folk hits. Publisher specifies one melodic line, chord symbols and text, with tempo/rhythm indications; the catalogue labels a melody instrument in C and mentions keyboard, guitar and vocal accompaniment as uses. This is a lead-sheet publication, not three separately notated mandatory ensemble parts. The complete book is realized here through one singing lead and piano chordal accompaniment, preserving all published melody, harmony and text. This is explicitly an authored realization of the lead sheets, not a publisher-issued fully notated piano arrangement, an inspected score transcription, or a reconstruction of the original artists recordings. The publisher does not expressly say keyboard OR guitar, and that wording is not invented. No actual positively credited performance personnel are omitted: the earlier simultaneous three-family model was an editorial interpretation of possible uses, not a documented session roster. All 130 titles remain the scope.",
+      "source_retrieval_caveat": "Publisher metadata and complete contents plus institutional interview read. Physical score pages and source recordings not inspected. Lead-sheet interpretation is explicit; no fully notated piano arrangement asserted.",
+      "instrument_role_audit": {
+        "whole_scope": "All130 lead sheets in published Musikantentreff",
+        "positive_notated_material": [
+          "single melodic line",
+          "chord symbols",
+          "lyrics",
+          "tempo/rhythm indications"
+        ],
+        "authored_rendition": "Singing lead and upright piano chordal accompaniment; complete lead-sheet realization. No assertion of three mandatory independent instrument parts or explicit publisher OR wording.",
+        "omitted_positive_performance_personnel": []
+      },
+      "vocal_count_audit": {
+        "scored_melodic_lines": 1,
+        "original_performer_count": "unknown/not relevant to publication realization",
+        "authored_rendition": "One natural singing lead"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All applicable owning parts deliberately pinned; shared guitar/bass parts use compatible authored values."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Authored complete lead-sheet voice/piano realization; no published fully notated piano edition asserted."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "upright_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All owning control choices compatible and protected; no flat-key competition."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "volkstumliche_musik",
+          "name": "Volkstümliche Musik",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not the named performers, original recordings or publisher score depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn12134view1 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn12134view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12134view1"
+        ]
+      },
+      "verification_status": "Independent peer required; authored voice/piano lead-sheet realization supersedes original optional simultaneous voice/keyboard/guitar interpretation only if source-scope review accepts it."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -1,0 +1,195 @@
+{
+  "entries": [
+    {
+      "source_label": "ritmo kombina",
+      "source_url": "https://everynoise.com/engenremap-ritmokombina.html",
+      "suggested_id": "ritmo_kombina",
+      "allocation_ordinal": 4214,
+      "allocation_group_id": "169",
+      "status": "frozen_pending_independent_review",
+      "id": "ritmo_kombina",
+      "tradition": {
+        "id": "ritmo_kombina",
+        "name": "Ritmo Kombina",
+        "family": "global",
+        "lineage": "Caribbeanvibe — whole announced Akil programme for Saturday30March2024, explicitly marked PRE-RECORDED by the issuer despite Live Session title. This models the complete announced DJ practice, not an auditioned waveform or verified surviving recording. Duration, tracklist, source media, exact mixing workflow and embedded vocal counts are unknown. Own station history positively identifies Akil Quirindongo as its DJ and broadcaster; all embedded repertoire remains within the one medium-neutral playback/mixing role. No arbitrary mastered-song proxy, additional live singers or instrumental reconstruction. One protected existing medium-neutral DJ playback/mixing identity preserves the source-announced programme practice without asserting hardware, software, live timing, vocals or sample mechanisms. Broad groovePercussion placement is an authored percussion-led dance presentation of the issuer explicitly dance-rhythm-framed programme, not a measured universal rhythmic grammar. Family global scopes this Caribbean field. Controlled live-room listening environment and neutral axes authored; not an actual venue claim. No global tuning or capture apparatus.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Caribbeanvibe — whole announced Akil programme for Saturday30March2024, explicitly marked PRE-RECORDED by the issuer despite Live Session title. This models the complete announced DJ practice, not an auditioned waveform or verified surviving recording. Duration, tracklist, source media, exact mixing workflow and embedded vocal counts are unknown. Own station history positively identifies Akil Quirindongo as its DJ and broadcaster; all embedded repertoire remains within the one medium-neutral playback/mixing role. No arbitrary mastered-song proxy, additional live singers or instrumental reconstruction. The station first-person history documents a Curaçaoan and island-diaspora listener community cultivated through RadioFruz from2003, renamed Fruzitime in2011 and now Caribbeanvibe, with an explicit Ritmo Kombina mission and continuing DJs/programmes. This is a positively named contemporary dance-repertoire community, not all Caribbean music. Existing kompa is Haitian compas lineage, zouk the Guadeloupe/Martinique studio field, kaseko Surinamese Creole dance practice; influence and audience overlap do not make the institutional Curaçaoan field identical. Existing antilliaanse_folklore is broader Netherlands-Antillean folklore with Palm dance-piano selected branch; not restricted to that exemplar, but the contemporary named radio/dance community is an additional axis. No exact EveryNoise performer membership reproduced or claimed. The website genre-history paragraph attributed to Wikipedia is not used as primary historical proof. One protected existing medium-neutral DJ playback/mixing identity preserves the source-announced programme practice without asserting hardware, software, live timing, vocals or sample mechanisms. Broad groovePercussion placement is an authored percussion-led dance presentation of the issuer explicitly dance-rhythm-framed programme, not a measured universal rhythmic grammar. Family global scopes this Caribbean field. Controlled live-room listening environment and neutral axes authored; not an actual venue claim. No global tuning or capture apparatus.",
+        "exemplars": [
+          "Caribbeanvibe — Akil, announced pre-recorded30March2024 programme"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        12.1696,
+        -68.99,
+        "Curaçao",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Editorial on-island Curaçao community anchor supported by issuer history, not DJ residence, recording venue or birthplace.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Caribbeanvibe — whole announced Akil programme for Saturday30March2024, explicitly marked PRE-RECORDED by the issuer despite Live Session title. This models the complete announced DJ practice, not an auditioned waveform or verified surviving recording. Duration, tracklist, source media, exact mixing workflow and embedded vocal counts are unknown. Own station history positively identifies Akil Quirindongo as its DJ and broadcaster; all embedded repertoire remains within the one medium-neutral playback/mixing role. No arbitrary mastered-song proxy, additional live singers or instrumental reconstruction.",
+      "neighbor_distinction": "The station first-person history documents a Curaçaoan and island-diaspora listener community cultivated through RadioFruz from2003, renamed Fruzitime in2011 and now Caribbeanvibe, with an explicit Ritmo Kombina mission and continuing DJs/programmes. This is a positively named contemporary dance-repertoire community, not all Caribbean music. Existing kompa is Haitian compas lineage, zouk the Guadeloupe/Martinique studio field, kaseko Surinamese Creole dance practice; influence and audience overlap do not make the institutional Curaçaoan field identical. Existing antilliaanse_folklore is broader Netherlands-Antillean folklore with Palm dance-piano selected branch; not restricted to that exemplar, but the contemporary named radio/dance community is an additional axis. No exact EveryNoise performer membership reproduced or claimed. The website genre-history paragraph attributed to Wikipedia is not used as primary historical proof.",
+      "model_policy": "One protected existing medium-neutral DJ playback/mixing identity preserves the source-announced programme practice without asserting hardware, software, live timing, vocals or sample mechanisms. Broad groovePercussion placement is an authored percussion-led dance presentation of the issuer explicitly dance-rhythm-framed programme, not a measured universal rhythmic grammar. Family global scopes this Caribbean field. Controlled live-room listening environment and neutral axes authored; not an actual venue claim. No global tuning or capture apparatus.",
+      "instrument_role_audit": {
+        "scope": "Caribbeanvibe — whole announced Akil programme for Saturday30March2024, explicitly marked PRE-RECORDED by the issuer despite Live Session title. This models the complete announced DJ practice, not an auditioned waveform or verified surviving recording. Duration, tracklist, source media, exact mixing workflow and embedded vocal counts are unknown. Own station history positively identifies Akil Quirindongo as its DJ and broadcaster; all embedded repertoire remains within the one medium-neutral playback/mixing role. No arbitrary mastered-song proxy, additional live singers or instrumental reconstruction.",
+        "positive_sound_source_classes": [
+          "recorded-program playback and DJ mixing"
+        ],
+        "authored_defaults": "One protected existing medium-neutral DJ playback/mixing identity preserves the source-announced programme practice without asserting hardware, software, live timing, vocals or sample mechanisms. Broad groovePercussion placement is an authored percussion-led dance presentation of the issuer explicitly dance-rhythm-framed programme, not a measured universal rhythmic grammar. Family global scopes this Caribbean field. Controlled live-room listening environment and neutral axes authored; not an actual venue claim. No global tuning or capture apparatus."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "embedded_voice_count": "unknown",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0
+      },
+      "flat_pin_resolution": {
+        "rule": "One neutral DJ owner and one protected identity part; no shared-key conflicts."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Complete mixed programme preserved; no invented component sound mechanism."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://caribbeanvibe.com/podcast/live-session-with-akil-saturday-march-30th/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11100view0 exact dated complete announcement, PRE-RECORDED and requested RitmoKombina. No playable-file closure or duration inferred."
+        },
+        {
+          "url": "https://caribbeanvibe.com/about/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11100view1 own institutional history, Akil actual DJ/broadcast role, Curaçaoan listener community and named genre mission."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ritmo_kombina",
+          "name": "Ritmo Kombina",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not DJ Akil hardware, source singer, Curaçaoan instrument or source location.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10920view3/10921view1 confirms original Iain Fergusson/Binksternet crop and CC BY2.5; historical exact bytes/visual retained without new download claim.",
+          "fresh_review_ref": "turn10920view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn10920view3",
+          "turn10921view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

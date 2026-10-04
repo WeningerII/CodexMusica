@@ -1,0 +1,912 @@
+{
+  "status": "PASS",
+  "reviewer": "research116",
+  "timestamp_utc": "2026-10-04T05:34:46.614368+00:00",
+  "scope": "Final96 additional entries, excluding original first100. This binds prior full independent source, rights, controls and literal semantic reading to final194 subset. Other98 belong research119. Not API/regression/publication approval.",
+  "frozen_packet": "/tmp/batch041/qualified-frozen194.json",
+  "frozen_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "prior_report": "/tmp/batch041/review99-116/final/qualification97-independent116.json",
+  "prior_report_sha256": "d835c7a6f431b9ce2579183eadacdcac874eadf69eb887f4e158690576d3f850",
+  "counts": {
+    "independent_entries": 96,
+    "independent_formats": 384,
+    "independent_owning_parts": 2343,
+    "full_runtime_entries": 194,
+    "full_runtime_formats": 776,
+    "full_runtime_owning_parts": 5041,
+    "fallbacks": 0,
+    "errors": 0,
+    "new_dependencies": 15,
+    "preserved_old_owners": 1638
+  },
+  "delta_review": {
+    "removed": [
+      "samba_moderno",
+      "japanese_buddhist_chant"
+    ],
+    "removed_from_my_scope": [
+      "samba_moderno"
+    ],
+    "retained_source_objects_in_my_scope": "All96 exact object equality against prior196 freeze",
+    "changed_metadata_in_other_reviewer_scope": [
+      "png_pop",
+      "zomi_pop"
+    ],
+    "dependencies": "All15 exact equality to prior196 freeze",
+    "actual_outputs": "All194 surviving rows/all776 strings byte-identical to corresponding196 captures; no ranking change",
+    "source_rights_bindings": "All96 exact unchanged source and rights metadata, prior independently inspected binding artifacts retained"
+  },
+  "runtime": "/tmp/batch041/review99-116/final/runtime-controls194.json",
+  "runtime_sha256": "93d82e667d8e186c0a57e67898d98aae611de3f0c8836fc9c23478445d735922",
+  "rows": [
+    {
+      "id": "maltese_hip_hop",
+      "status": "PASS",
+      "literal_rationale": "Group rap/sung hook role remains unspecified in global speech/singing axis; cut turntable/guitar/drum-machine palette retained. Brisk theatrical delivery compatible with rap performance.",
+      "controls": 35,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "karbi_pop",
+      "status": "PASS",
+      "literal_rationale": "Full nine-family amplified fusion includes four physically differentiated Karbi instruments and neutral bamboo flute; picked saturated bass explicitly authored in accepted rationale, not original hardware.",
+      "controls": 64,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "kumaoni_pop",
+      "status": "PASS",
+      "literal_rationale": "Hudka and voice/guitar/piano folk-pop roles retained. Large room spatial prefixes do not alter source instrumentation.",
+      "controls": 30,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "8d",
+      "status": "PASS",
+      "literal_rationale": "Headphone HRTF processing preserves complete stereo input; ten process controls remain operative without inventing constituent instruments.",
+      "controls": 10,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "cumbia_santafesina",
+      "status": "PASS",
+      "literal_rationale": "Guitar-led cumbia branch retains singing/bass/timbales/congas/eight-pad percussion; melodic accordion belongs alternate branch, not secretly omitted selected recording.",
+      "controls": 48,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "folklore_peruano",
+      "status": "PASS",
+      "literal_rationale": "Documented voice/Peruvian-harp branch retained; harp finger gesture and regional diatonic layout coexist with intimate vocal realization.",
+      "controls": 22,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "frafra",
+      "status": "PASS",
+      "literal_rationale": "Text-led singing and struck/tossed sinyaka retained; single rattle identity does not imply drum or kologo omission from selected branch.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "mapouka",
+      "status": "PASS",
+      "literal_rationale": "Lively mixed vocal-group/hand-drum/bottle branch coherent; source-unspecified vocal roles allow singing and toasting without forcing all voices to speech.",
+      "controls": 27,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "moorish_traditional",
+      "status": "PASS",
+      "literal_rationale": "Codified modal singer/ardin/tidinit/tbal/electric-guitar practice remains full. Reverberant spatial presentation is authored, not a source venue claim.",
+      "controls": 38,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "musica_otavalena",
+      "status": "PASS",
+      "literal_rationale": "Fresh originalartist/municipal source supports singing,guitar,field-recorded electronic hybrid. Picked80/20 guitar gives clearly separated attack around manipulated samples; all3families retained. Lively voice/cheerful guitar/micro-stuttering sampler are explicitly authored celebration/dance gestures, not source hardware claims. All4newcombined outputs read.",
+      "controls": 27,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "musica_tlaxcalteca",
+      "status": "PASS",
+      "literal_rationale": "Seven-family amplified song/brass branch retains collective singer evidence and coherent short wind attacks; picked bass affect is arrangement treatment.",
+      "controls": 70,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "musica_triste_brasileira",
+      "status": "PASS",
+      "literal_rationale": "Reflective connected singing/acoustic/keyboard rendition coherent; large room is spatial not emotional cheer. Remove stale unsupported DJ sentence in model_policy.",
+      "controls": 24,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "musica_urbana_oaxaquena",
+      "status": "PASS",
+      "literal_rationale": "Rhythmic group rap plus actual DJ mixing preserved. Burlesque label interpreted through theatrical projected syncopated speech, not an added brass instrument or genre ancestry.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "musique_traditionnelle_congolaise",
+      "status": "PASS",
+      "literal_rationale": "Quiet falsetto singer and ten-key lukembi practice retained. Absence of room is intentional; no false studio or fixed temperament.",
+      "controls": 24,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "musique_urbaine_brazzaville",
+      "status": "PASS",
+      "literal_rationale": "Rhythmic MC and produced accompaniment branch coherent; canonical region correction required.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "nasheed",
+      "status": "PASS",
+      "literal_rationale": "Sung devotional phrases plus hand-played frame drum fit scoped branch; modal/ritual card context does not assert all modern nasheed accompaniment.",
+      "controls": 22,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "new_hampshire_indie",
+      "status": "PASS",
+      "literal_rationale": "Lyric-led singing and flatpicked OM guitar retain source role union. Callous means dry/detached authored timbre, not abusive subject matter.",
+      "controls": 22,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "norrbotten_indie",
+      "status": "PASS",
+      "literal_rationale": "Acoustic narrative band retains kit/synth/guitar/voice; controlled dry guitar and full kit attack compatible with authored sparse alternative arrangement.",
+      "controls": 34,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "ny_roots",
+      "status": "PASS",
+      "literal_rationale": "Roots storyteller with picked acoustic guitar coherent; remove stale DJ-role model sentence unsupported by present evidence.",
+      "controls": 22,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "oeteldonk",
+      "status": "PASS",
+      "literal_rationale": "Collective carnival voices and full horn/drum palette retained; short brass gestures coherent across wind owners.",
+      "controls": 50,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "old_school_nederhop",
+      "status": "PASS",
+      "literal_rationale": "MC/turntable live branch preserves rhythmic speech and scratching. Projected theatrical vocal affect source-compatible.",
+      "controls": 19,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "oldschool_deutschrap",
+      "status": "PASS",
+      "literal_rationale": "Rap plus sliced sampler and scratched turntable retain beat/sample roles. Concrete precision and fragmented turntable affect are compatible authored boom-bap textures.",
+      "controls": 24,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "otacore",
+      "status": "PASS",
+      "literal_rationale": "Full electronic fan-song production replaces piano-only reduction: voices/FM/samples/vocoder/piano. Bright percussive synth and legato piano coherent.",
+      "controls": 29,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "pinoy_praise",
+      "status": "PASS",
+      "literal_rationale": "Syllabic human ensemble singing remains count-unspecified; concert room supplies spatial character, not fabricated choir headcount.",
+      "controls": 17,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "polish_alternative",
+      "status": "PASS",
+      "literal_rationale": "Representative sung electric band/synth core coherent; optional broader arrangement colors remain genre prose.",
+      "controls": 50,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "polish_indie",
+      "status": "PASS",
+      "literal_rationale": "Instrumental guitar/bass/kit/synth branch remains expressly instrumental, not a falsely missing singer.",
+      "controls": 33,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "portuguese_indie",
+      "status": "PASS",
+      "literal_rationale": "Natural voice/electric guitar/chordal keyboard/bass/kit are a documented representative band arrangement.",
+      "controls": 51,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "prank",
+      "status": "PASS",
+      "literal_rationale": "Valid treated_studio now creates explicit dry controlled-room presentation. All4outputs read anew: frosty unpitched dialogue remains speech, no false singing or extra instruments. Former absent-room fallback rejected and corrected.",
+      "controls": 17,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "psybass",
+      "status": "PASS",
+      "literal_rationale": "Actual mixed-programme DJ field, brisk layered bass presentation compatible; no inferred original synth hardware.",
+      "controls": 1,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "puerto_rican_indie",
+      "status": "PASS",
+      "literal_rationale": "Indie-punk/emo guitar-band branch and roomy concert presentation coherent; bass growl is editable authored treatment.",
+      "controls": 49,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "quebec_indie",
+      "status": "PASS",
+      "literal_rationale": "Natural indie-pop singer with clean guitar/keyboard/rhythm coherent; no claim all Quebec indie has this five-family ensemble.",
+      "controls": 51,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "raspe",
+      "status": "PASS",
+      "literal_rationale": "Rhythmic sung electronic dance branch includes synth and complete drum machine; singing lead synth and analog drum patterns coherent.",
+      "controls": 25,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "ringtone",
+      "status": "PASS",
+      "literal_rationale": "Short bright four-operator FM motif is a meaningful synthesized-alert representative; no attempt to represent every recorded ringtone.",
+      "controls": 5,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "ritmo_kombina",
+      "status": "PASS",
+      "literal_rationale": "Voice/conga/kit/bass/workstation dance core complete; plucked keyboard patch adds rhythmic articulation without claiming historical preset.",
+      "controls": 44,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "rumba",
+      "status": "PASS",
+      "literal_rationale": "Spanish popular/flamenco-rumba voice and flamenco-guitar practice supports rasgueado/golpe/picado vocabulary; not Cuban rumba conflation.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "russian_ccm",
+      "status": "PASS",
+      "literal_rationale": "Devotional singer/piano branch retains actual singing restored from instrumental adaptation; brisk group-song-compatible rendition is authored.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "russian_indie",
+      "status": "PASS",
+      "literal_rationale": "Duet/kit/guitar/bass branch preserves melodic vocals and actual alternate cymbal texture; no unintended electronic layer omitted.",
+      "controls": 49,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "russian_plugg",
+      "status": "PASS",
+      "literal_rationale": "Rap/808/soft sustained synthesis preserved with neutral clean recording chain; electronic low end and pad texture coherent with relaxed plugg production.",
+      "controls": 25,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "russian_rave",
+      "status": "PASS",
+      "literal_rationale": "Broad human vocal role over DJ accompaniment permits sung/rap delivery; source count unknown remains explicit.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "sound",
+      "status": "PASS",
+      "literal_rationale": "Environmental recording owner preserves hairdryer source and gradual fade; no pitched instrument invented.",
+      "controls": 2,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "spa",
+      "status": "PASS",
+      "literal_rationale": "Gentle connected solo piano remains low-intensity; refined prefix does not imply rapid beat or orchestral layer.",
+      "controls": 3,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "spanish_new_wave",
+      "status": "PASS",
+      "literal_rationale": "Brisk punk/pop band includes neutral organ sustained role; no guessed organ construction.",
+      "controls": 50,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "taiwan_graduation_song",
+      "status": "PASS",
+      "literal_rationale": "Communal syllabic singing and piano support fit student song practice; spacious hall is authored.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "talent_show",
+      "status": "PASS",
+      "literal_rationale": "Voice/piano interpretation is a documented performance branch, retaining singing instead of solo-score reduction.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "talentkonkurrence",
+      "status": "PASS",
+      "literal_rationale": "Connected singer/piano concert branch with unknown source physiology; actual output preserves pitch and accompaniment.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "talentos_brasileiros",
+      "status": "PASS",
+      "literal_rationale": "Vocal group/full electric band and keyboard retained; syllabic rhythmic vocal label introduces no separate clap instrument.",
+      "controls": 51,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "telugu_indie",
+      "status": "PASS",
+      "literal_rationale": "Duet/electric band/keyboard palette retained; functional song form and amplified bass intensity explicitly authored.",
+      "controls": 51,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "telugu_remix",
+      "status": "PASS",
+      "literal_rationale": "Brisk actual DJ programme role retained; no original-track tempo measurement or hidden live ensemble claim.",
+      "controls": 1,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "vintage_hollywood",
+      "status": "PASS",
+      "literal_rationale": "Expressive slightly ornamented singing and connected piano give valid historical popular-song rendition without claiming full film orchestra.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "vintage_italian_soundtrack",
+      "status": "PASS",
+      "literal_rationale": "Instrumental guitar/bass/kit/tonewheel combo keeps concrete groove colors; childlike organ is gentle articulation, not a child performer.",
+      "controls": 38,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "violao_classico",
+      "status": "PASS",
+      "literal_rationale": "Fingerplayed nylon concert guitar retains full physical construction and musical role; expansive room compatible recital realization.",
+      "controls": 6,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "volkstumliche_musik",
+      "status": "PASS",
+      "literal_rationale": "Singer/piano branch remains pitched popular-song practice with clear chords; larger folk-pop instrumentation remains outside this representative choice.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "german_dark_minimal_techno",
+      "status": "PASS",
+      "literal_rationale": "Actual DJ mix retains all embedded music; brisk dance presentation compatible with techno field.",
+      "controls": 1,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "malaysian_tamil_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "cloud_rap_francais",
+      "status": "PASS",
+      "literal_rationale": "Rapped-verse branch with long vocal reverb and produced beat coherent; no false claim all cloud rap is unpitched.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "indian_underground_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "turkmen_hip_hop",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "bouzouki",
+      "status": "PASS",
+      "literal_rationale": "Greek three-course plucked solo/melodic practice supports modal ornament and rebetiko construction; broader instrument field remains candid.",
+      "controls": 5,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "drill_chileno",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "indonesian_emo_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "medimeisterschaften",
+      "status": "PASS",
+      "literal_rationale": "Sung student slogans and producer beat preserved; repeated syllabic delivery is not pitchless speech.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "tamaulipas_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "north_moroccan_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "indie_campechano",
+      "status": "PASS",
+      "literal_rationale": "Sung guitar/bass/drums/keyboard community branch coherent, with contemporary pop/funk textures.",
+      "controls": 51,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "malawian_hip_hop",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "oc_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "flint_hip_hop",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "rap_angolano",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "polish_alternative_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "fan_chant",
+      "status": "PASS",
+      "literal_rationale": "Explicitly pitched metrical group chant retains clap and drum timing; no false hidden instrument from vocal preface.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "folclor_colombiano",
+      "status": "PASS",
+      "literal_rationale": "Traditional bandola/tiple/guitar trio physically complete; room-derived width does not add an orchestra.",
+      "controls": 13,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "czsk_emo_rap",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "musik_anak_anak",
+      "status": "PASS",
+      "literal_rationale": "Soft intimate children-song voice/piano branch coherent. Actual wabi-rustic lexicon is plain soft rustic affect, not a Japanese vocal-technique requirement.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "tibetan_folk_pop",
+      "status": "PASS",
+      "literal_rationale": "Documented singing/piano branch retains Tibetan text/folk melody context. Soft plain parlor affect introduces no claimed foreign tuning.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "telugu_devotional",
+      "status": "PASS",
+      "literal_rationale": "Carnatic sung devotional branch retains violin/mridangam/drone. Mind-numbing descriptor tokens refer to sustained drone foundation, not changed religious content.",
+      "controls": 33,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "jain_bhajan",
+      "status": "PASS",
+      "literal_rationale": "Sung devotional art-music branch with tabla/drone retains melody and percussion; neutral spatial hall valid. Crossrefs/region/signature schema requires correction.",
+      "controls": 26,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "pop_boliviano",
+      "status": "PASS",
+      "literal_rationale": "Intimate sung keyboard-supported branch coherent; soft plain parlor vocal affect compatible source practice.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "cantautor_catala",
+      "status": "PASS",
+      "literal_rationale": "Text-led pitched voice/piano author-song branch coherent; no guitar-only universal claim.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "lagu_bugis",
+      "status": "PASS",
+      "literal_rationale": "Count-unspecified pitched vocal-ensemble branch retained with connected syllabic articulation; no forced Western temperament.",
+      "controls": 17,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "reading",
+      "status": "PASS",
+      "literal_rationale": "Quiet solo piano and connected harmony match reading use; invalid crossrefs/missing signature need correction.",
+      "controls": 3,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "finnish_trap",
+      "status": "PASS",
+      "literal_rationale": "Rap, 808-derived full rhythm owner and synthesized melodic lead retained; authored modern digital drum recreation not source vintage-hardware claim.",
+      "controls": 24,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "greek_drill",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "iowa_hip_hop",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "irish_drill",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "swiss_trap",
+      "status": "PASS",
+      "literal_rationale": "Rap/808-derived rhythm/synth motif reflects produced trap practice; sparse loop arrangement remains source-compatible.",
+      "controls": 24,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "persian_drill",
+      "status": "PASS",
+      "literal_rationale": "Read specific regional/language/community profile and representative rapped-verse policy: rhythmic MC plus positive producer-built beat retained. Spoken-flowing voice matches explicitly chosen rap branch; cold clean beat is an authored mix affect, not an inferred synthesis mechanism.",
+      "controls": 18,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "indie_curitibano",
+      "status": "PASS",
+      "literal_rationale": "Municipal documented singing-pianist branch supports intimate plain singing; canonical geography label correction needed.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "classic_ukrainian_pop",
+      "status": "PASS",
+      "literal_rationale": "Source voice/piano manuscripts support intimate rendition. Plain soft vocal affect valid; geo shape normalization required.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "cristiana_para_ninos",
+      "status": "PASS",
+      "literal_rationale": "Unison/octave pitched child-purpose singing and simple piano support coherent; vocal syllabic label does not manufacture handclaps.",
+      "controls": 20,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "plugg_en_espanol",
+      "status": "PASS",
+      "literal_rationale": "Rapped plugg branch keeps soft synth melody and 808 rhythm; sung R&B alternatives remain in wider field.",
+      "controls": 24,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "brockton_hip_hop",
+      "status": "PASS",
+      "literal_rationale": "Two alternating unaccompanied battle participants retain rhythmic spoken delivery and clean chain; live duet denotes participant configuration, not simultaneous harmony.",
+      "controls": 17,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "louange",
+      "status": "PASS",
+      "literal_rationale": "Unaccompanied praise voices include vocal instrumental imitations; no physical instruments falsely added.",
+      "controls": 17,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "dicsoites",
+      "status": "PASS",
+      "literal_rationale": "Hungarian guitar-led worship branch retains pitched syllabic singing and coherent picked acoustic construction.",
+      "controls": 22,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "pop_dance",
+      "status": "PASS",
+      "literal_rationale": "Vocal hooks plus beat/electronics match cross-era dance-pop field; punctuated sung articulation, brisk beat and bright electronic affect explicitly authored.",
+      "controls": 19,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "indie_catracho",
+      "status": "PASS",
+      "literal_rationale": "Honduran indie guitar-band branch preserves pitched voice and full rhythm section.",
+      "controls": 49,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    },
+    {
+      "id": "chinese_talent_show",
+      "status": "PASS",
+      "literal_rationale": "Singer/guitar representative talent-performance branch coherent with all acoustic controls; source does not require named programme reconstruction.",
+      "controls": 22,
+      "all_controls_protected": true,
+      "formats": 4,
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "Primaryscope relies on actual retained hash-bound sourcebibliographies and previous independentreviews plus fullpresentprofiles/policies; not a claim99newnetworkretrievals.",
+    "Standalone/preflight originalengine output not final staticAPI build or globalregression.",
+    "Combined196atlas check reports PNGPop Oceania/ZomiPop Washington,D.C. outside this97; sentto119/root for correction."
+  ]
+}

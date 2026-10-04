@@ -1,0 +1,316 @@
+{
+  "entries": [
+    {
+      "source_label": "bouzouki",
+      "source_url": "https://everynoise.com/engenremap-bouzouki.html",
+      "suggested_id": "bouzouki",
+      "allocation_ordinal": 2906,
+      "allocation_group_id": "117",
+      "id": "bouzouki",
+      "tradition": {
+        "id": "bouzouki",
+        "name": "Bouzouki",
+        "family": "vernacular",
+        "lineage": "Bouzouki repertoire connects Greek instrumental performance, dance music and song adaptation with generations of players, composers and teachers. Recordings and published instrumental collections carry this practice beyond its rebetiko and laïkó roots into concert and international settings.",
+        "instruments": [
+          "bouzouki"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_medium",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_steel_modern"
+        }
+      },
+      "extras": {
+        "parent": "improvOnFrame",
+        "axes": {
+          "ornament": 2,
+          "improv": 1,
+          "voice": -2,
+          "soundTech": -1
+        },
+        "description": "Bright picked melodies, ringing paired strings and ornamented phrases lead the music. Free introductory taximia coexist with shaped dance tunes and instrumental versions of songs. Solo playing, small ensembles and larger arrangements provide different settings for the bouzouki’s melodic voice.",
+        "exemplars": [
+          "Manolis Pappos",
+          "Giorgos Zambetas",
+          "Vangelis Trigas"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "balladPoetry.mediterraneanBallad"
+        ]
+      },
+      "geo": [
+        37.9838,
+        23.7275,
+        "Athens",
+        "Europe"
+      ],
+      "geo_rationale": "Greek instrumental repertoire institutional hub, not precise recording location; linked Athens/Piraeus urban song histories and contemporary national performer/teacher networks.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/embed/playlist/3FD61seVkp8ZlSde7haVlh",
+          "support_notes": "Fresh exact creator13763/13764:100 tracks, strongly Greek instrumental repertoire with taximia, dance forms, song transcriptions; Pappos8/55, Zambetas1/10/48. Irish player Alec Finn crossover at43 means not absolute geographic exclusivity.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://www.trigas.gr/en/viografiko/",
+          "support_notes": "Fresh artist-owned13767view0: instrumental compositions for three-string bouzouki,48 score collections including bouzouki instrumentals and curriculum, ensemble extending Greek/Mediterranean songs. Supports repertoire/community, not exact master closure.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://www.womex.com/virtual/chieli_andrea/manolis_pappos",
+          "support_notes": "Fresh artist representative13769view0: Greek bouzouki composer/player, instrumental and vocal repertoire and ensemble roles, broad recording/concert collaborations. Instruments doubled by player not mandatory simultaneous lineup.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://folkways.si.edu/elenis-and-athanasiou/greek-folk-dances/world/music/album/smithsonian",
+          "support_notes": "Fresh issuer13757view1: instrumental bouzouki-led dances across Greek regions and Greek-American circulation; not an assertion all listed ensemble roles are known or required.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "neighbor_distinction": "Full Rebetiko is an urban vocal-song/history category; full Laiko is postwar popular song and expanded band arrangement. Both already feature ornamental bouzouki and overlap this field. The creator instrument-centered repertoire and artist-owned instrumental curriculum/collections positively include solo taximia, dance instrumentals and transcriptions spanning those traditions; this is a repertoire field rather than a synonym for one vocal genre or simply a claim about player nationality. Full Greek Folk contains many regional instrument traditions beyond bouzouki. Irish bouzouki is a different adaptation with some crossover participants; Greek-led repertoire is the representative branch here.",
+      "model_policy": "Representative solo melodic instrumental practice, supported by bouzouki instrumental curriculum and taxim repertoire. Three-course Greek bouzouki, walnut bowl, paired modern steel strings and medium plectrum with ornamented melodic picking are explicit authored settings, not a claim about one player’s precise instrument or a complete released master. No singer required for this instrumental branch; song accompaniment and larger ensembles remain part of the public field. Controlled live room is editable contemporary capture. Broader improvisation frame reflects melodic taxim realization without declaring all repertoire free improvisation. All five meaningful construction/performance controls retained.",
+      "signature_tokens": [],
+      "classification_evidence": {
+        "primary_refs": [
+          "turn13763view0",
+          "turn13764view0",
+          "turn13767view0",
+          "turn13769view0",
+          "turn13757view1"
+        ],
+        "scope": "Instrumental repertoire/teaching and performer network, overlapping existing vocal-song genres."
+      },
+      "vocal_count_audit": {
+        "count": 0,
+        "rationale": "Authored instrumental solo branch, no denial of sung repertoire."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "bouzouki",
+          "role": "Ornamented melodic solo; explicit genre-practice realization, not exact master."
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "bouzouki",
+          "parts": {
+            "plucked_traditional_technique": "plucked_ornamented_melodic",
+            "bouzouki_courses": "trichordo",
+            "bouzouki_pick": "bouzouki_medium",
+            "bouzouki_body_wood": "bouzouki_walnut_bowl",
+            "bouzouki_strings": "bouzouki_steel_modern"
+          },
+          "policy": "All five meaningful controls pinned, no collision."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "Single owner, all meaningful parts protected.",
+      "dependency_audit": {
+        "new_instruments": 0,
+        "policy": "Existing Greek bouzouki owner; original catalog preserved."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "bouzouki",
+          "name": "Bouzouki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not a bouzouki, performer, geographical scene or claimed source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13777view0 confirms original Iain Fergusson and crop Binksternet,CC BY2.5; historical023 exact image/byte/visual receipt retained, no new transfer or visual claim."
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_context_note": "Fresh Commons13777view0 confirms original Iain Fergusson and crop Binksternet,CC BY2.5; historical023 exact image/byte/visual receipt retained, no new transfer or visual claim."
+      },
+      "verification_status": "awaiting_original_runtime_and_independent_review",
+      "previous_source_dossier": {
+        "source_label": "bouzouki",
+        "source_url": "https://everynoise.com/engenremap-bouzouki.html",
+        "suggested_id": "bouzouki",
+        "allocation_ordinal": 2906,
+        "allocation_group_id": "117",
+        "id": "bouzouki",
+        "tradition": {
+          "id": "bouzouki",
+          "name": "Bouzouki",
+          "family": "vernacular",
+          "lineage": "Tim Panaretos, complete seven-track Long-Necked & Blue(2016): artist explicitly states every sound improvised on acoustic six-string Greek bouzouki, no overdubs or edits. One instrumental performer, zero singers; full album rather than an instrument spotlight within a larger arrangement. All tracks recorded2012 at The House on the Hill,Hobart except Solitary Slow Dance2011. Later electric/duo projects and former keyboard/drum bands are biographical context, not roles in this complete acoustic album. Parent improvOnFrame.jamFree represents the positively explicit free improvisation of this selected complete album, not all bouzouki repertoire. Existing Greek trichordo owner realizes the documented six strings as three paired courses; walnut bowl, modern steel and medium plectrum with ornamented melodic picking are candid authored realization, not measured source construction or exhaustive technique. No source session microphone, room acoustics or temperament are specified; neutral treated recording setting is editorial, not historical studio identification.",
+          "instruments": [
+            "bouzouki"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "plucked_traditional_technique": "plucked_ornamented_melodic",
+            "bouzouki_courses": "trichordo",
+            "bouzouki_pick": "bouzouki_thin",
+            "bouzouki_body_wood": "bouzouki_maple_bowl",
+            "bouzouki_strings": "bouzouki_steel_modern"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.jamFree",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 1,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 2,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -2,
+            "cyclicity": 0
+          },
+          "description": "Tim Panaretos, complete seven-track Long-Necked & Blue(2016): artist explicitly states every sound improvised on acoustic six-string Greek bouzouki, no overdubs or edits. One instrumental performer, zero singers; full album rather than an instrument spotlight within a larger arrangement. All tracks recorded2012 at The House on the Hill,Hobart except Solitary Slow Dance2011. Later electric/duo projects and former keyboard/drum bands are biographical context, not roles in this complete acoustic album. Bouzouki is an instrument-centered repertoire category broader than the existing Greek rebetiko and laiko vocal-song traditions. Here the player expressly identifies Greek bouzouki and rebetika influence while explaining free-folk, American-primitive and free-improvisation transformations very different from the early-twentieth-century source forms. This positive instrumental solo practice establishes a branch beyond those existing song categories, not a renamed rebetiko performance or an Irish-bouzouki backing category. Exact EveryNoise artist membership is not asserted. Parent improvOnFrame.jamFree represents the positively explicit free improvisation of this selected complete album, not all bouzouki repertoire. Existing Greek trichordo owner realizes the documented six strings as three paired courses; walnut bowl, modern steel and medium plectrum with ornamented melodic picking are candid authored realization, not measured source construction or exhaustive technique. No source session microphone, room acoustics or temperament are specified; neutral treated recording setting is editorial, not historical studio identification.",
+          "exemplars": [
+            "Tim Panaretos — complete Long-Necked & Blue(2016)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [
+          -42.8821,
+          147.3272,
+          "Hobart",
+          "Oceania & Pacific"
+        ],
+        "geo_rationale": "Artist explicitly names complete album recording location Hobart,2011/2012; not current-residence inference.",
+        "sources": [
+          {
+            "url": "https://timpanaretos.bandcamp.com/album/long-necked-blue",
+            "title": "Tim Panaretos own complete album and sound-source statement",
+            "support_notes": "Fresh7255view0 lines100–109 explicitly instrumental, all sounds acoustic6-string bouzouki/no overdubs/edits, complete seven tracks; lines101–103 free-improvisation transformation of Greek rebetika.",
+            "checked_date": "2026-10-03"
+          },
+          {
+            "url": "https://frustrationjazz.bandcamp.com/album/long-necked-blue",
+            "title": "Artist-owned Frustration Jazz issuer edition",
+            "support_notes": "Fresh7255view1 confirms same complete seven-track issue, first-person notes, recording place and dates. Label belongs to artist; not independent corroboration falsely asserted.",
+            "checked_date": "2026-10-03"
+          }
+        ],
+        "neighbor_distinction": "Bouzouki is an instrument-centered repertoire category broader than the existing Greek rebetiko and laiko vocal-song traditions. Here the player expressly identifies Greek bouzouki and rebetika influence while explaining free-folk, American-primitive and free-improvisation transformations very different from the early-twentieth-century source forms. This positive instrumental solo practice establishes a branch beyond those existing song categories, not a renamed rebetiko performance or an Irish-bouzouki backing category. Exact EveryNoise artist membership is not asserted.",
+        "model_policy": "Parent improvOnFrame.jamFree represents the positively explicit free improvisation of this selected complete album, not all bouzouki repertoire. Existing Greek trichordo owner realizes the documented six strings as three paired courses; walnut bowl, modern steel and medium plectrum with ornamented melodic picking are candid authored realization, not measured source construction or exhaustive technique. No source session microphone, room acoustics or temperament are specified; neutral treated recording setting is editorial, not historical studio identification.",
+        "signature_tokens": [],
+        "classification_evidence": {
+          "mode": "artist_explicit_instrument_centered_practice",
+          "url": "https://timpanaretos.bandcamp.com/album/long-necked-blue",
+          "note": "Bouzouki is an instrument-centered repertoire category broader than the existing Greek rebetiko and laiko vocal-song traditions. Here the player expressly identifies Greek bouzouki and rebetika influence while explaining free-folk, American-primitive and free-improvisation transformations very different from the early-twentieth-century source forms. This positive instrumental solo practice establishes a branch beyond those existing song categories, not a renamed rebetiko performance or an Irish-bouzouki backing category. Exact EveryNoise artist membership is not asserted."
+        },
+        "vocal_count_audit": {
+          "selected_count": 0,
+          "count_basis": "Explicit instrumentals and ALL sounds improvised on one acousticbouzouki without overdubs."
+        },
+        "instrument_role_audit": {
+          "rationale": "Tim Panaretos, complete seven-track Long-Necked & Blue(2016): artist explicitly states every sound improvised on acoustic six-string Greek bouzouki, no overdubs or edits. One instrumental performer, zero singers; full album rather than an instrument spotlight within a larger arrangement. All tracks recorded2012 at The House on the Hill,Hobart except Solitary Slow Dance2011. Later electric/duo projects and former keyboard/drum bands are biographical context, not roles in this complete acoustic album.",
+          "authored_defaults": "Parent improvOnFrame.jamFree represents the positively explicit free improvisation of this selected complete album, not all bouzouki repertoire. Existing Greek trichordo owner realizes the documented six strings as three paired courses; walnut bowl, modern steel and medium plectrum with ornamented melodic picking are candid authored realization, not measured source construction or exhaustive technique. No source session microphone, room acoustics or temperament are specified; neutral treated recording setting is editorial, not historical studio identification."
+        },
+        "resolved_parts_audit": [
+          {
+            "instrument": "bouzouki",
+            "parts": {
+              "plucked_traditional_technique": "plucked_ornamented_melodic",
+              "bouzouki_courses": "trichordo",
+              "bouzouki_pick": "bouzouki_thin",
+              "bouzouki_body_wood": "bouzouki_maple_bowl",
+              "bouzouki_strings": "bouzouki_steel_modern"
+            },
+            "policy": "All5applicable parts protected; no shared-key collision."
+          }
+        ],
+        "flat_pin_conflicts": [],
+        "flat_pin_resolution": {
+          "rule": "One owner,5applicable protected pins; no foreign-key fallback.",
+          "fallbacks": []
+        },
+        "dependency_audit": {
+          "reused_instruments": [
+            "bouzouki"
+          ],
+          "new_instruments": []
+        },
+        "verification_status": "full_primary_album_pending_peer"
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

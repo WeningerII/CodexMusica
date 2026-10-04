@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "baseline": "2765a5e5e1dc1523ff9180625b089af3f04089b2",
+  "frozen_sha256": "29b2355724a90f715e61f64d5f0045491bfc63dd36834499c03fa2282190edb2",
+  "files_checked": 213,
+  "changes": [],
+  "scope": "Exact bytes: scripts/tests/workflows, all references/*.js except new tradition/extras append, and SKILL.md; includes actual room/chain/tuning and taxonomy filenames. Generated source shell excluded."
+}

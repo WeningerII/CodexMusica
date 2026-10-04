@@ -1,0 +1,309 @@
+{
+  "entries": [
+    {
+      "source_label": "russian hyperpop",
+      "source_url": "https://everynoise.com/engenremap-russianhyperpop.html",
+      "suggested_id": "russian_hyperpop",
+      "allocation_ordinal": 4230,
+      "allocation_group_id": "170",
+      "id": "russian_hyperpop",
+      "tradition": {
+        "id": "russian_hyperpop",
+        "name": "Russian Hyperpop",
+        "family": "pop",
+        "lineage": "Russian hyperpop developed through online youth music communities around the turn of the 2020s, combining pop songwriting with exaggerated electronic production and the circulation of short-form video. Sqwore, 17Seventeen, rizza, treepside and Midix form part of its varied scene.",
+        "instruments": [
+          "voice",
+          "wavetable_synth",
+          "sampler_classic"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Strongly altered voices, synthetic bass, fragmented samples and abrupt shifts in texture give familiar pop gestures an unstable digital character. Singing and rap mingle with pitched vocal effects, glitches and dense electronic beats.",
+        "exemplars": [
+          "Note-Store — Sqwore Пластиковые воспоминания, complete Piano.Easy PEA0334385"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        55.75,
+        37.62,
+        "Russia",
+        "Europe"
+      ],
+      "geo_rationale": "Approximate on-land country anchor for positively documented Russian scene, not source recording city, artist residence or arranger location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Russian Hyperpop is a positively documented Russian youth/internet production and listening scene within the broad international hyperpop field. Antipova2026 original research examines a Russian corpus including Sqwore,17Seventeen,rizza,treepside and Midix, its online circulation and specific repertory; it directly analyzes the selected song on Eve. This is evidence of an actual regional scene, not a category inferred only from artist nationality. The paper’s broad psychological or political interpretations are not adopted as factual attributes of listeners. Full existing hyperpop already spans international internet/Discord/SoundCloud/TikTok maximalist pop; Russian Hyperpop overlaps it as a narrower scene, not an absent technical invention. Full hyperpop_rap preserves rap-led crossover rather than all sung/electronic hyperpop, and may overlap. Existing russian_pop, russian_alt_pop and russian_electronic remain broader national fields, not restricted to their selected Neriberry/OQJAV/Kedr examples. The exact creator map and playlist positively identify a Russian hyperpop corpus; selected Sqwore membership is supported by original research, not falsely claimed in the first100 playlist positions. The piano arrangement does not itself establish category distinctness.",
+      "classification_evidence": "Replaced unrepresentative solo-piano adaptation with genre-supported processed singing, synthetic textures/bass and fragmented sampled beats. Original Antipova research directly documents altered voice, glitches, samples and electronic bass. Existing wavetable/MPC controls are authored production choices, not claims all scene artists use those specific architectures. No exact song master reconstructed.",
+      "model_policy": "Replaced unrepresentative solo-piano adaptation with genre-supported processed singing, synthetic textures/bass and fragmented sampled beats. Original Antipova research directly documents altered voice, glitches, samples and electronic bass. Existing wavetable/MPC controls are authored production choices, not claims all scene artists use those specific architectures. No exact song master reconstructed.",
+      "source_scope_limitation": "Genre-level profile; prior selected-edition scope preserved in genre_profile_repair_evidence. Representative settings are not claims about every recording.",
+      "vocal_count_audit": {
+        "genre_wide_headcount": "Variable, not fixed by one edition",
+        "preset": "Accompanied singing or rhythmic rap representative setting"
+      },
+      "instrument_role_audit": {
+        "voice": "Representative genre-practice role; original selected-edition personnel retained separately in evidence.",
+        "wavetable_synth": "Representative genre-practice role; original selected-edition personnel retained separately in evidence.",
+        "sampler_classic": "Representative genre-practice role; original selected-edition personnel retained separately in evidence."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+            "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replaced unrepresentative solo-piano adaptation with genre-supported processed singing, synthetic textures/bass and fragmented sampled beats. Original Antipova research directly documents altered voice, glitches, samples and electronic bass. Existing wavetable/MPC controls are authored production choices, not claims all scene artists use those specific architectures. No exact song master reconstructed."
+        },
+        {
+          "instrument": "wavetable_synth",
+          "parts": {
+            "electronic_technique": "electronic_glitch_textural",
+            "wt_position": "wt_chaotic",
+            "wt_family": "wt_industrial",
+            "wt_polyphony": "wt_poly"
+          },
+          "policy": "Replaced unrepresentative solo-piano adaptation with genre-supported processed singing, synthetic textures/bass and fragmented sampled beats. Original Antipova research directly documents altered voice, glitches, samples and electronic bass. Existing wavetable/MPC controls are authored production choices, not claims all scene artists use those specific architectures. No exact song master reconstructed."
+        },
+        {
+          "instrument": "sampler_classic",
+          "parts": {
+            "electronic_technique": "electronic_glitch_textural",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_sixteen_bit",
+            "sampler_workflow": "sampler_chopped_breaks",
+            "sampler_classic_context": "sampler_classic_hiphop"
+          },
+          "policy": "Replaced unrepresentative solo-piano adaptation with genre-supported processed singing, synthetic textures/bass and fragmented sampled beats. Original Antipova research directly documents altered voice, glitches, samples and electronic bass. Existing wavetable/MPC controls are authored production choices, not claims all scene artists use those specific architectures. No exact song master reconstructed."
+        }
+      ],
+      "flat_pin_resolution": "All three actual upright parts explicitly protected, no fallback or conflict.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://note-store.es/notes/sqwore/plastikovye-vospominaniya/piano-easy/",
+          "support_notes": "Fresh full indexed12711search1 SKU/one-player melody+accompaniment/no separate sung role; direct12711view0 timeout. Free preview distinct from full product."
+        },
+        {
+          "url": "https://note-store.de/notes/sqwore/plastikovye-vospominaniya/piano-easy/",
+          "support_notes": "Publisher localized same exactSKU fresh12711search0 full available piano edition; video tutorial separately not yet available."
+        },
+        {
+          "url": "https://www.researchgate.net/publication/401298099_Russian_hyperpop_music_as_a_postmodern_phenomenon",
+          "support_notes": "Fresh full original research12711view1/12712view2, Antipova2026 DOI10.30853/mns20260026, identifies Russian scene and Sqwore Eve/selected song. Not adopting speculative psychological generalizations."
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-russianhyperpop.html",
+          "support_notes": "Full12712view0 actual source map; later12714view0 failed403, raw failure preserved candidly. Actual click2 yielded creator playlist12715view0."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5YzvReYSHL8Vm1VHaSMr0X",
+          "support_notes": "Fresh12717view0 full100 positions preserved raw russian-hyperpop-playlist-raw119.json. Confirms exact named discovery corpus; no selectedartist presence asserted."
+        },
+        {
+          "url": "https://manuscript-journal.ru/en/article/mns20260026/fulltext",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13444search1 original research; full article13444view0/13444search3 details Russian scene, altered singing, glitch samples and synthetic bass. Musical analysis used without adopting speculative claims about listeners."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "russian_hyperpop",
+          "name": "Russian Hyperpop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic music-making context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12663view3 confirms IainFergusson/Binksternet CC BY2.5 crop; historical023 bytes/visual unchanged.",
+          "fresh_review_ref": "turn12663view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12663view3"
+        ],
+        "fresh_rights_review": "Fresh12663view3 rights only; no fresh download or visual."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Complete independent piano edition with positive original-research field bridge; pending independent review.",
+      "source_retrieval_caveat": "Direct Spanish product page timed out; fresh full indexed exact SKU12711search1 and German publisher12711search0 reproduced edition/scoring/available purchase, not a pending video tutorial. Paid score uninspected. Original research fulltext12711view1/12712view2. Creator map12712view0 succeeded then403 on fresh reopen; actual link2 recovered playlist5YzvReYSHL8Vm1VHaSMr0X and full raw12717view0 saved. No Sqwore first100 membership assertion.",
+      "genre_profile_repair_evidence": {
+        "before_lineage": "Whole separately offered Note-Store Piano.Easy arrangement PEA0334385 of Sqwore’s Пластиковые воспоминания (2021). Publisher specifies piano melody and accompaniment together, distinguishing this edition from Piano&Vocal and four-hand editions. One pianist and zero separately scored singers in this published simplified edition. The full arrangement is selected, not its free first-page preview. Page count and paid notation/audio remain uninspected. No original electronic recording palette, vocal processing, samples or drum programming is reconstructed or collapsed into a piano card; those source-master roles remain unknown. Research independently includes the original song within the Russian hyperpop corpus. Source-unspecified piano is realized as a standard studio upright with connected melodic touch in a controlled live room. These are explicit authored performance choices, not Sqwore’s studio gear. Broad functionalSong represents an authored functional-harmonic verse–chorus–bridge piano rendition of the popular composition, not a transcription of unseen score form/harmony or a claim that hyperpop universally has that structure. The piano edition is a separate repertoire realization, not a claim that electronic genre production consists of acoustic piano. No tempo, global tuning or original capture chain is asserted.",
+        "before_description": "Whole separately offered Note-Store Piano.Easy arrangement PEA0334385 of Sqwore’s Пластиковые воспоминания (2021). Publisher specifies piano melody and accompaniment together, distinguishing this edition from Piano&Vocal and four-hand editions. One pianist and zero separately scored singers in this published simplified edition. The full arrangement is selected, not its free first-page preview. Page count and paid notation/audio remain uninspected. No original electronic recording palette, vocal processing, samples or drum programming is reconstructed or collapsed into a piano card; those source-master roles remain unknown. Research independently includes the original song within the Russian hyperpop corpus. Russian Hyperpop is a positively documented Russian youth/internet production and listening scene within the broad international hyperpop field. Antipova2026 original research examines a Russian corpus including Sqwore,17Seventeen,rizza,treepside and Midix, its online circulation and specific repertory; it directly analyzes the selected song on Eve. This is evidence of an actual regional scene, not a category inferred only from artist nationality. The paper’s broad psychological or political interpretations are not adopted as factual attributes of listeners. Full existing hyperpop already spans international internet/Discord/SoundCloud/TikTok maximalist pop; Russian Hyperpop overlaps it as a narrower scene, not an absent technical invention. Full hyperpop_rap preserves rap-led crossover rather than all sung/electronic hyperpop, and may overlap. Existing russian_pop, russian_alt_pop and russian_electronic remain broader national fields, not restricted to their selected Neriberry/OQJAV/Kedr examples. The exact creator map and playlist positively identify a Russian hyperpop corpus; selected Sqwore membership is supported by original research, not falsely claimed in the first100 playlist positions. The piano arrangement does not itself establish category distinctness. Source-unspecified piano is realized as a standard studio upright with connected melodic touch in a controlled live room. These are explicit authored performance choices, not Sqwore’s studio gear. Broad functionalSong represents an authored functional-harmonic verse–chorus–bridge piano rendition of the popular composition, not a transcription of unseen score form/harmony or a claim that hyperpop universally has that structure. The piano edition is a separate repertoire realization, not a claim that electronic genre production consists of acoustic piano. No tempo, global tuning or original capture chain is asserted.",
+        "before_tradition": {
+          "id": "russian_hyperpop",
+          "name": "Russian Hyperpop",
+          "family": "pop",
+          "lineage": "Whole separately offered Note-Store Piano.Easy arrangement PEA0334385 of Sqwore’s Пластиковые воспоминания (2021). Publisher specifies piano melody and accompaniment together, distinguishing this edition from Piano&Vocal and four-hand editions. One pianist and zero separately scored singers in this published simplified edition. The full arrangement is selected, not its free first-page preview. Page count and paid notation/audio remain uninspected. No original electronic recording palette, vocal processing, samples or drum programming is reconstructed or collapsed into a piano card; those source-master roles remain unknown. Research independently includes the original song within the Russian hyperpop corpus. Source-unspecified piano is realized as a standard studio upright with connected melodic touch in a controlled live room. These are explicit authored performance choices, not Sqwore’s studio gear. Broad functionalSong represents an authored functional-harmonic verse–chorus–bridge piano rendition of the popular composition, not a transcription of unseen score form/harmony or a claim that hyperpop universally has that structure. The piano edition is a separate repertoire realization, not a claim that electronic genre production consists of acoustic piano. No tempo, global tuning or original capture chain is asserted.",
+          "instruments": [
+            "upright_piano"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          }
+        },
+        "before_model_policy": "Source-unspecified piano is realized as a standard studio upright with connected melodic touch in a controlled live room. These are explicit authored performance choices, not Sqwore’s studio gear. Broad functionalSong represents an authored functional-harmonic verse–chorus–bridge piano rendition of the popular composition, not a transcription of unseen score form/harmony or a claim that hyperpop universally has that structure. The piano edition is a separate repertoire realization, not a claim that electronic genre production consists of acoustic piano. No tempo, global tuning or original capture chain is asserted.",
+        "reason": "Restore genre history/style and representative defaults; keep publication/session details as source evidence.",
+        "default_review": "Replaced unrepresentative solo-piano adaptation with genre-supported processed singing, synthetic textures/bass and fragmented sampled beats. Original Antipova research directly documents altered voice, glitches, samples and electronic bass. Existing wavetable/MPC controls are authored production choices, not claims all scene artists use those specific architectures. No exact song master reconstructed.",
+        "prior_role_and_vocal_audits": {
+          "instrument_role_audit": {
+            "scope": "Whole separately offered Note-Store Piano.Easy arrangement PEA0334385 of Sqwore’s Пластиковые воспоминания (2021). Publisher specifies piano melody and accompaniment together, distinguishing this edition from Piano&Vocal and four-hand editions. One pianist and zero separately scored singers in this published simplified edition. The full arrangement is selected, not its free first-page preview. Page count and paid notation/audio remain uninspected. No original electronic recording palette, vocal processing, samples or drum programming is reconstructed or collapsed into a piano card; those source-master roles remain unknown. Research independently includes the original song within the Russian hyperpop corpus.",
+            "roles": {
+              "upright_piano": "Whole issued Piano.Easy melody-and-accompaniment realization for one player; subtype authored."
+            },
+            "authored_defaults": "Source-unspecified piano is realized as a standard studio upright with connected melodic touch in a controlled live room. These are explicit authored performance choices, not Sqwore’s studio gear. Broad functionalSong represents an authored functional-harmonic verse–chorus–bridge piano rendition of the popular composition, not a transcription of unseen score form/harmony or a claim that hyperpop universally has that structure. The piano edition is a separate repertoire realization, not a claim that electronic genre production consists of acoustic piano. No tempo, global tuning or original capture chain is asserted."
+          },
+          "vocal_count_audit": {
+            "scored_singers": 0,
+            "pianists": 1,
+            "reason": "Exact Piano.Easy edition melody and accompaniment assigned to piano, distinct from separate Piano&Vocal edition."
+          },
+          "classification_evidence": {
+            "note": "Russian Hyperpop is a positively documented Russian youth/internet production and listening scene within the broad international hyperpop field. Antipova2026 original research examines a Russian corpus including Sqwore,17Seventeen,rizza,treepside and Midix, its online circulation and specific repertory; it directly analyzes the selected song on Eve. This is evidence of an actual regional scene, not a category inferred only from artist nationality. The paper’s broad psychological or political interpretations are not adopted as factual attributes of listeners. Full existing hyperpop already spans international internet/Discord/SoundCloud/TikTok maximalist pop; Russian Hyperpop overlaps it as a narrower scene, not an absent technical invention. Full hyperpop_rap preserves rap-led crossover rather than all sung/electronic hyperpop, and may overlap. Existing russian_pop, russian_alt_pop and russian_electronic remain broader national fields, not restricted to their selected Neriberry/OQJAV/Kedr examples. The exact creator map and playlist positively identify a Russian hyperpop corpus; selected Sqwore membership is supported by original research, not falsely claimed in the first100 playlist positions. The piano arrangement does not itself establish category distinctness."
+          }
+        }
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

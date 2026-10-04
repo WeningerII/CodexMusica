@@ -1,0 +1,749 @@
+{
+  "entries": [
+    {
+      "source_label": "underground power pop",
+      "source_url": "https://everynoise.com/engenremap-undergroundpowerpop.html",
+      "suggested_id": "underground_power_pop",
+      "allocation_ordinal": 1923,
+      "allocation_group_id": "077",
+      "id": "underground_power_pop",
+      "status": "READY_FOR_REVIEW",
+      "signature_tokens": [],
+      "tradition": {
+        "id": "underground_power_pop",
+        "name": "Underground Power Pop",
+        "family": "rock",
+        "lineage": "Independent power-pop communities linked by small labels, fanzines, mail-order distribution and festivals, including the International Pop Overthrow network.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Melodic guitar songs combine bright chordal hooks, lead and harmony vocals, electric bass and a firm drum backbeat. Keyboards can add colour to the compact band sound. The underground field connects independent artists and listeners across countries through specialist labels, publications and shared bills, continuing the wider power-pop tradition.",
+        "exemplars": [
+          "Shoes",
+          "The Posies",
+          "Material Issue",
+          "The Speedways"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        51.5074,
+        -0.1278,
+        "London",
+        "Europe"
+      ],
+      "geo_rationale": "Exact artist track names London recording/base, an editorial source anchor not universal category origin.",
+      "neighbor_distinction": "Underground Power Pop is the independent fan, fanzine, mail-order-label and festival network within continuing power pop. IPO founder David Bash firsthand describes Yellow Pills, Audities, Not Lame, Poptopia and IPO as an interconnected international grassroots community; his own2020 festival-site list includes the selected Speedways album. Exact creator corpus includes Material Issue, The Rooks, Shoes and The Posies, positively connected in that firsthand history. Speedways is absent from the retrieved creator sample and is not claimed a playlist member or verified IPO live performer. Full existing power_pop already includes independent Big Star/Badfinger and present continuation: neither obscurity, date nor the chosen band creates the distinction. This is an overlapping institution/community axis, not a new harmonic style or exclusive artist roster. Existing jangle_pop overlaps artists and guitars but describes a timbral/historical style rather than this cross-style independent power-pop network.",
+      "classification_evidence": "Underground Power Pop is the independent fan, fanzine, mail-order-label and festival network within continuing power pop. IPO founder David Bash firsthand describes Yellow Pills, Audities, Not Lame, Poptopia and IPO as an interconnected international grassroots community; his own2020 festival-site list includes the selected Speedways album. Exact creator corpus includes Material Issue, The Rooks, Shoes and The Posies, positively connected in that firsthand history. Speedways is absent from the retrieved creator sample and is not claimed a playlist member or verified IPO live performer. Full existing power_pop already includes independent Big Star/Badfinger and present continuation: neither obscurity, date nor the chosen band creates the distinction. This is an overlapping institution/community axis, not a new harmonic style or exclusive artist roster. Existing jangle_pop overlaps artists and guitars but describes a timbral/historical style rather than this cross-style independent power-pop network.",
+      "model_policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed.",
+      "source_scope_limitation": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed.",
+      "source_retrieval_caveat": "Public complete track credits and firsthand network sources retrieved; no audio audition. Exact creator sample supports network bridge, not Speedways membership.",
+      "vocal_count_audit": {
+        "named_singers": 3,
+        "names": [
+          "Matt Julian",
+          "Mauro Venegas",
+          "Adrian Alfonso"
+        ],
+        "decision": "All retained; actual overdub count unknown; live group is authored."
+      },
+      "instrument_role_audit": {
+        "scope": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed.",
+        "performers": [
+          "Matt Julian",
+          "Mauro Venegas",
+          "Adrian Alfonso",
+          "Kris Hood"
+        ],
+        "roles": {
+          "voice": "one lead and two backing singers",
+          "electric_guitar_humbucker": "Both guitarists, source architecture unspecified",
+          "electric_bass": "Adrian Alfonso bass guitar",
+          "drum_kit": "Kris Hood complete drum role",
+          "electronic_keyboard_unspecified": "Matt Julian keyboard, engine unknown"
+        },
+        "authored_defaults": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Every actual owning control protected; shared alder control coherent for bass and guitar."
+      },
+      "verification_status": "Pending independent review.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://thespeedways.bandcamp.com/track/this-aint-a-radio-sound",
+          "title": "Artist exact whole single",
+          "support_notes": "turn777042view0; complete four-person three-voice five-family track",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rememberthelightning.substack.com/p/interview-david-bash",
+          "title": "Firsthand founder interview",
+          "support_notes": "turn330017view0; concrete grassroots network with named creator artists",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://internationalpopoverthrow.com/about/",
+          "title": "Institution own community history",
+          "support_notes": "turn223289view1; international shared independent bills",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://internationalpopoverthrow.com/david-bashs-best-of-2020-lists/",
+          "title": "Founder own circulation list",
+          "support_notes": "turn364056view0; Speedways Radio Sounds78; not evidence of live IPO performance",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5gKcYetENCc1TBkgcTiOA8",
+          "title": "Exact creator corpus",
+          "support_notes": "turn601263view0/777042view2; network artists, no Speedways sample membership",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn777042view0",
+        "turn330017view0",
+        "turn223289view1",
+        "turn364056view0",
+        "turn601263view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "underground_power_pop",
+          "name": "Underground Power Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn571802view1 CC BY2.5 Iain Fergusson/Binksternet crop; inherited023 bytes and visual evidence only.",
+          "fresh_review_ref": "turn571802view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights only; no fresh download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn571802view1"
+        ]
+      },
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume-root-underground-power-pop.json",
+        "before_packet_sha256": "50ec47074d45cb258fa52e678ea2fcd8ff43e156136b7dba13639cf9740dbce3",
+        "before_public_fields": {
+          "lineage": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed. Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed.",
+          "description": "The Speedways — complete separately issued This Aint A Radio Sound single, released May 4, 2020. Exact artist track credits name Matt Julian lead vocals, rhythm and lead guitars and keyboard; Mauro Venegas rhythm and lead guitars and backing vocals; Adrian Alfonso bass guitar and backing vocals; Kris Hood drums. Four performers, three singers, two guitarists and five instrument families retained. This selects the whole issued single, not the complete Radio Sounds album or its other tracks and guests. Keyboard engine, guitar construction, overdubs and performance settings are unknown; no audio audition claimed. Underground Power Pop is the independent fan, fanzine, mail-order-label and festival network within continuing power pop. IPO founder David Bash firsthand describes Yellow Pills, Audities, Not Lame, Poptopia and IPO as an interconnected international grassroots community; his own2020 festival-site list includes the selected Speedways album. Exact creator corpus includes Material Issue, The Rooks, Shoes and The Posies, positively connected in that firsthand history. Speedways is absent from the retrieved creator sample and is not claimed a playlist member or verified IPO live performer. Full existing power_pop already includes independent Big Star/Badfinger and present continuation: neither obscurity, date nor the chosen band creates the distinction. This is an overlapping institution/community axis, not a new harmonic style or exclusive artist roster. Existing jangle_pop overlaps artists and guitars but describes a timbral/historical style rather than this cross-style independent power-pop network. Whole band is realized as a newly authored functional-harmonic verse-chorus-bridge arrangement, not a source transcription. Two guitarists share a full guitar-family card; three singers share the vocal-group card. Live-group tracking is an authored simultaneous rendition, not documented original takes. Source-unspecified vocal physiology remains neutral. Guitars are authored clean-strummed alder/maple/rosewood humbucker builds with nickel strings; bass is authored alder long-scale fretted soapbar with roundwounds and locked fingerstyle. Shared alder control applies to both. Authored thin maple stick-played kit, coated heads, felt pedal and traditional-finish B20 cymbals retain the complete drum role. Neutral keyboard architecture preserves the credited keyboard without guessing a synthesizer or piano; melodic/chordal support is authored. Controlled live room and brisk band presentation are new choices, not measured source venue/BPM. No global tuning or recording apparatus imposed.",
+          "exemplars": [
+            "The Speedways — complete This Aint A Radio Sound single, May 4, 2020"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain full prior source and recording provenance in this evidence object.",
+        "default_review": "Retain the conventional guitar/bass/kit/vocal/keyboard band default; it is a supported representative power-pop arrangement, now separated from the particular Speedways recording. The three source singers no longer define a required personnel count; group harmony remains a valid stylistic choice.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    },
+    {
+      "source_label": "grupero romantico",
+      "source_url": "https://everynoise.com/engenremap-gruperoromantico.html",
+      "suggested_id": "grupero_romantico",
+      "allocation_ordinal": 3379,
+      "allocation_group_id": "136",
+      "id": "grupero_romantico",
+      "tradition": {
+        "id": "grupero_romantico",
+        "name": "Grupero Romántico",
+        "family": "pop",
+        "lineage": "The romantic-song strand of Mexican grupera, developed through electric groups, radio and dance-concert circuits and continued by acts such as Los Acosta and Grupo Libra.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "electronic_keyboard_unspecified",
+          "credited_synthesizer_unspecified",
+          "electronic_drum_kit_unspecified",
+          "credited_auxiliary_percussion"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+          "electronic_drum_kit_unspecified_identity": "electronic_drum_kit_unspecified_source_identity"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Sentimental lead melodies and memorable refrains sit over electric guitar, bass, keyboards and percussion. Ballads alternate with rhythmic dance songs; synthesizer colours and electronic drums are part of the electric-group sound. Romantic lyrics and the group-performance circuit link this repertoire across differing tempos and arrangements.",
+        "exemplars": [
+          "Los Acosta",
+          "Grupo Libra"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        22.16,
+        -100.98,
+        "San Luis Potosí",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Presenter identifies San Luis Potosí formation and group anchor; announced concert is Mexico City, not conflated.",
+      "sources": [
+        {
+          "url": "https://www.auditorio.com.mx/assets/files/prensa/boletines/2024/marzo/los-acosta/BOLETIN_LosAcosta_13marzo2024.pdf",
+          "support_notes": "Fresh full turn226415view1 official presenter complete6roles/no guests, announced2.5h and synth/electronicdrum identity.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://vanguardia.com.mx/show/breves-hoy-chismes-de-los-acosta-belinda-y-danna-paola-PH10718610",
+          "support_notes": "Fresh full indexed turn665704search0 artist press remarks on named romantic-grupero bookings; direct request timeout candid.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://imparcialoaxaca.mx/en-escena/grupo-libra-una-banda-romantica-para-la-eternidad/",
+          "support_notes": "Fresh turn665044view0 firsthand named romantic style and circulation history; conflicting guitar/drummer credits mean not used as selected instrumentation.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3Zg3EpfSWqezkcQdxse8sk",
+          "support_notes": "Fresh exact creator turn665704view0, GrupoLibra28 and broad romantic ensemble corpus, not selectedLosAcosta membership.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Grupero Romántico is the explicitly named romantic-production and booking strand inside overlapping grupera. Full existing Grupera already includes romantic ballads, sentimental vocals and dance music; this is not a newly discovered romantic quality or a claim that old Grupera excludes ballads. The Acosta brothers identify their romantic grupero circuit and its displacement in promoter bookings by duranguense, providing actual artist testimony of a named programming segment. Grupo Libra independently describes maintaining this romantic style and its media-distribution history. The exact creator collection includes Grupo Libra and many other romantic groups, but Los Acosta are not claimed among its returned tracks. The six-member announced practice is positively linked to the named field by artist testimony, not nationality or instrumental difference alone. Considerable repertoire and artist overlap with Grupera is intentional; neither norteño nor banda nor bolero alone exhausts this electric-group romantic circuit.",
+      "model_policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain.",
+      "instrument_role_audit": {
+        "scope": "Los Acosta — whole six-member concert practice announced by Auditorio Nacional on 13 March 2024 for its 17 March show. Presenter names Ricardo Acosta voice, Ernesto Acosta bass, Carlos Acosta drums, Sergio Acosta keyboards, Germán Soler percussion and Francisco Cossio guitar, and explicitly says no special guests were planned. Announced duration is two and a half hours, not verified elapsed performance. Same presenter positively identifies synthesizers and electronic drums in the group practice; these are retained with the keyboard role, without claiming separate keyboard players or exact simultaneous devices. This selects the complete announced band practice, not an excerpt, studio album, or claim the concert occurred exactly as announced. Only one singer is explicitly credited; no backing singer is inferred. Instrument models, percussion inventory, original tuning and recording technology remain unknown.",
+        "cards": 7,
+        "roles": [
+          "one credited singer",
+          "guitar",
+          "bass",
+          "keyboard",
+          "positively named synthesizer",
+          "electronic drum kit",
+          "unspecified percussion"
+        ],
+        "defaults": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+      },
+      "vocal_count_audit": {
+        "source_credited_singers": 1,
+        "additional_voice_cards": 1,
+        "role": "RicardoAcosta; one accompanied vocal rendition, no extra singer inferred"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+        },
+        {
+          "instrument": "electronic_drum_kit_unspecified",
+          "parts": {
+            "electronic_drum_kit_unspecified_identity": "electronic_drum_kit_unspecified_source_identity"
+          },
+          "policy": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain."
+        }
+      ],
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "electronic_keyboard_unspecified",
+          "credited_synthesizer_unspecified",
+          "electronic_drum_kit_unspecified",
+          "credited_auxiliary_percussion"
+        ],
+        "new_instruments": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "grupero_romantico",
+          "name": "Grupero Romántico",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn883201view1 confirms CC BY2.5 attribution and crop. Original023 exact historical bytes/visual receipt retained, no fresh download.",
+          "fresh_review_ref": "turn883201view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn883201view1"
+        ],
+        "fresh_rights_review": "Fresh turn883201view1 confirms CC BY2.5 attribution and crop. Original023 exact historical bytes/visual receipt retained, no fresh download."
+      },
+      "source_scope_limitation": "Los Acosta — whole six-member concert practice announced by Auditorio Nacional on 13 March 2024 for its 17 March show. Presenter names Ricardo Acosta voice, Ernesto Acosta bass, Carlos Acosta drums, Sergio Acosta keyboards, Germán Soler percussion and Francisco Cossio guitar, and explicitly says no special guests were planned. Announced duration is two and a half hours, not verified elapsed performance. Same presenter positively identifies synthesizers and electronic drums in the group practice; these are retained with the keyboard role, without claiming separate keyboard players or exact simultaneous devices. This selects the complete announced band practice, not an excerpt, studio album, or claim the concert occurred exactly as announced. Only one singer is explicitly credited; no backing singer is inferred. Instrument models, percussion inventory, original tuning and recording technology remain unknown.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All applicable owning parts protected; sharedguitar/bass alder and amp choices agree."
+      },
+      "classification_evidence": "Grupero Romántico is the explicitly named romantic-production and booking strand inside overlapping grupera. Full existing Grupera already includes romantic ballads, sentimental vocals and dance music; this is not a newly discovered romantic quality or a claim that old Grupera excludes ballads. The Acosta brothers identify their romantic grupero circuit and its displacement in promoter bookings by duranguense, providing actual artist testimony of a named programming segment. Grupo Libra independently describes maintaining this romantic style and its media-distribution history. The exact creator collection includes Grupo Libra and many other romantic groups, but Los Acosta are not claimed among its returned tracks. The six-member announced practice is positively linked to the named field by artist testimony, not nationality or instrumental difference alone. Considerable repertoire and artist overlap with Grupera is intentional; neither norteño nor banda nor bolero alone exhausts this electric-group romantic circuit.",
+      "primary_retrieval_refs": [
+        "turn226415view1",
+        "turn665704search0",
+        "turn665044view0",
+        "turn665704view0"
+      ],
+      "source_retrieval_caveat": "Full official presenter document and actual artist comments retained; announced practice only, no concert audition or actual-show verification. Exact creator selected artist membership not asserted.",
+      "verification_status": "Complete primary candidate; independent peer required.",
+      "authored_render_scope": "Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain.",
+      "source_review_refs": [
+        "turn226415view1",
+        "turn665704search0",
+        "turn665044view0",
+        "turn665704view0"
+      ],
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume-root-grupero-romantico-structure.json",
+        "before_packet_sha256": "e63781174c66c2bc7639e2478f7f2507f854db04b6792776a81b6d035ddc67a5",
+        "before_public_fields": {
+          "lineage": "Los Acosta — whole six-member concert practice announced by Auditorio Nacional on 13 March 2024 for its 17 March show. Presenter names Ricardo Acosta voice, Ernesto Acosta bass, Carlos Acosta drums, Sergio Acosta keyboards, Germán Soler percussion and Francisco Cossio guitar, and explicitly says no special guests were planned. Announced duration is two and a half hours, not verified elapsed performance. Same presenter positively identifies synthesizers and electronic drums in the group practice; these are retained with the keyboard role, without claiming separate keyboard players or exact simultaneous devices. This selects the complete announced band practice, not an excerpt, studio album, or claim the concert occurred exactly as announced. Only one singer is explicitly credited; no backing singer is inferred. Instrument models, percussion inventory, original tuning and recording technology remain unknown. Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain.",
+          "description": "Los Acosta — whole six-member concert practice announced by Auditorio Nacional on 13 March 2024 for its 17 March show. Presenter names Ricardo Acosta voice, Ernesto Acosta bass, Carlos Acosta drums, Sergio Acosta keyboards, Germán Soler percussion and Francisco Cossio guitar, and explicitly says no special guests were planned. Announced duration is two and a half hours, not verified elapsed performance. Same presenter positively identifies synthesizers and electronic drums in the group practice; these are retained with the keyboard role, without claiming separate keyboard players or exact simultaneous devices. This selects the complete announced band practice, not an excerpt, studio album, or claim the concert occurred exactly as announced. Only one singer is explicitly credited; no backing singer is inferred. Instrument models, percussion inventory, original tuning and recording technology remain unknown. Grupero Romántico is the explicitly named romantic-production and booking strand inside overlapping grupera. Full existing Grupera already includes romantic ballads, sentimental vocals and dance music; this is not a newly discovered romantic quality or a claim that old Grupera excludes ballads. The Acosta brothers identify their romantic grupero circuit and its displacement in promoter bookings by duranguense, providing actual artist testimony of a named programming segment. Grupo Libra independently describes maintaining this romantic style and its media-distribution history. The exact creator collection includes Grupo Libra and many other romantic groups, but Los Acosta are not claimed among its returned tracks. The six-member announced practice is positively linked to the named field by artist testimony, not nationality or instrumental difference alone. Considerable repertoire and artist overlap with Grupera is intentional; neither norteño nor banda nor bolero alone exhausts this electric-group romantic circuit. Authored present-day band rendition retains every documented sound role. Guitar is realized as clean-strummed alder/maple/rosewood humbucker with nickel strings; bass as alder fretted long-scale soapbar with roundwounds and locked fingerstyle, shared alder control coherent. These constructions and playing gestures are editorial choices for a melodic romantic band, not documented artist gear. Keyboard support remains melodic/chordal without an invented architecture; explicitly named synth and electronic drums use existing neutral owners, and auxiliary percussion stays source-unspecified. One accompanied singer is an authored rendition of the one credited vocal role; physiology, pitch system and ornament remain unspecified, with neutral tract/moderate effort and unprocessed single-lead presentation. Brisk controlled-live-room listening and verse–chorus–bridge structure over functional harmonic progressions are authored for the presenter’s romantic-and-rhythmic programme, not a measured source BPM, physical concert room or transcription. No forced cultural preface, global tuning or recording chain.",
+          "exemplars": [
+            "Los Acosta — complete six-member practice announced for Auditorio Nacional, March 2024"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain full prior source and recording provenance in this evidence object.",
+        "default_review": "Retain an electric grupero band with lead voice, guitar/bass, keyboard/synth and electronic drums/auxiliary percussion. These are positive documented band-practice roles and a representative genre configuration, not an obligation to reproduce one concert. No new made-up typical instrument is introduced; source personnel/duration/gear limitations remain in evidence.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "genre_level_repair_candidate_not_integrated"
+}

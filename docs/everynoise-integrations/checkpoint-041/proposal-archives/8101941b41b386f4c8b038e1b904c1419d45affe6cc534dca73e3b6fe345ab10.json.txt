@@ -1,0 +1,252 @@
+{
+  "entries": [
+    {
+      "source_label": "prank",
+      "source_url": "https://everynoise.com/engenremap-prank.html",
+      "suggested_id": "prank",
+      "allocation_ordinal": 4162,
+      "allocation_group_id": "167",
+      "id": "prank",
+      "tradition": {
+        "id": "prank",
+        "name": "Prank",
+        "family": "global",
+        "lineage": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim. Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "studio_treated_deadbooth",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim. Prank is the recorded prank-call comedy practice positively described by the producing label: in-character callers converse with unsuspecting recipients rather than presenting a prepared monologue to a knowing club audience. Exact creator map lists The Jerky Boys alongside Tom Mabe, Jim Florentine, Longmont Potion Castle and Crank Yankers. Full existing standup_comedy centers solo comic audience address; new_comedy is an overlapping discovery subset of stand-up, and national comedy fields classify broad communities rather than this interaction method. Full radio_drama_golden_age and queued Drama include performed dramatic dialogue, but do not define deceptive caller/recipient improvisation as their category axis. These practices may overlap; the positive call-interaction method, not a different artist, profanity or release date, distinguishes this field. Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+        "exemplars": [
+          "The Jerky Boys — complete14-call Comedy Dynamics2020 album"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        34.1808,
+        -118.309,
+        "Burbank",
+        "North America"
+      ],
+      "geo_rationale": "Issuer Comedy Dynamics identifies Burbank, California on its own album page; editorial issuing anchor, not a claim of call recording locations or category origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://comedydynamics.bandcamp.com/album/the-jerky-boys",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11014view0 complete14-track issuer page, release26November2020, whole character-call collection; publisher Burbank anchor. No audition claimed."
+        },
+        {
+          "url": "https://www.comedydynamics.com/catalog/the-jerky-boys/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11014view1 official publisher synopsis and Johnny Brennan star/writer. Producer names are not additional performer roles."
+        },
+        {
+          "url": "https://www.comedydynamics.com/press/comedy-dynamics-will-produce-and-release-the-first-new-jerky-boys-album-in-almost-25-years/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11014view2 producer firsthand announcement describes in-character improvisational calls with unsuspecting recipients. Its anticipated early2019 date is not substituted for actual selected2020 edition."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-prank.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh10992view1 exact creator map lists Jerky Boys first, alongside Jim Florentine, Longmont Potion Castle, Tom Mabe and Crank Yankers."
+        }
+      ],
+      "neighbor_distinction": "Prank is the recorded prank-call comedy practice positively described by the producing label: in-character callers converse with unsuspecting recipients rather than presenting a prepared monologue to a knowing club audience. Exact creator map lists The Jerky Boys alongside Tom Mabe, Jim Florentine, Longmont Potion Castle and Crank Yankers. Full existing standup_comedy centers solo comic audience address; new_comedy is an overlapping discovery subset of stand-up, and national comedy fields classify broad communities rather than this interaction method. Full radio_drama_golden_age and queued Drama include performed dramatic dialogue, but do not define deceptive caller/recipient improvisation as their category axis. These practices may overlap; the positive call-interaction method, not a different artist, profanity or release date, distinguishes this field.",
+      "model_policy": "Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified"
+        ]
+      },
+      "classification_evidence": {
+        "mode": "exact_creator_artist_plus_publisher_practice",
+        "note": "Prank is the recorded prank-call comedy practice positively described by the producing label: in-character callers converse with unsuspecting recipients rather than presenting a prepared monologue to a knowing club audience. Exact creator map lists The Jerky Boys alongside Tom Mabe, Jim Florentine, Longmont Potion Castle and Crank Yankers. Full existing standup_comedy centers solo comic audience address; new_comedy is an overlapping discovery subset of stand-up, and national comedy fields classify broad communities rather than this interaction method. Full radio_drama_golden_age and queued Drama include performed dramatic dialogue, but do not define deceptive caller/recipient improvisation as their category axis. These practices may overlap; the positive call-interaction method, not a different artist, profanity or release date, distinguishes this field."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "named_performer": "Johnny Brennan",
+        "total_people": "unknown",
+        "recipient_voices": "retained within human-vocal ensemble",
+        "tracking": "unknown",
+        "reason": "Star credit is not proof of sole voice in caller/recipient conversations."
+      },
+      "instrument_role_audit": {
+        "rationale": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim.",
+        "authored_defaults": "Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+        "positive_sound_source_classes": [
+          "spoken human voices: caller characters and recipients"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "All17 applicable controls protected, unknown ensemble headcount and track stacking preserved."
+        }
+      ],
+      "verification_status": "Original merged loader17/17 protected parts, zero errors; all1628 existing owners preserved, no dependency. Actual four formats personally inspected: nagging human-voice-count-unspecified is authored comic vocal affect, no added musical role or named culture. Unknown count retained. Historical exact023 microphone photo retained; fresh Commons10917view0.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "prank",
+          "name": "Prank",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not Johnny Brennan, telephone apparatus or actual album equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10917view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical exact byte/visual receipts retained without a new download claim.",
+          "fresh_review_ref": "turn10917view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn10917view0"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 applicable human-vocal controls protected; unknown headcount and track stack retained by exact existing owner. No fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn9814youtube5",
+        "turn9820youtube12",
+        "turn9820search1",
+        "turn9744view0",
+        "turn9814search0",
+        "turn9820search19"
+      ],
+      "source_retrieval_caveat": "Issuer and artist metadata read through primary indexed results; direct video/PDF inaccessible. No audible analysis or new visual inspection.",
+      "source_scope_limitation": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW"
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_for_independent_review"
+}

@@ -1,0 +1,283 @@
+{
+  "entries": [
+    {
+      "source_label": "louvores pentecostais",
+      "source_url": "https://everynoise.com/engenremap-louvorespentecostais.html",
+      "suggested_id": "louvores_pentecostais",
+      "allocation_ordinal": 3718,
+      "allocation_group_id": "149",
+      "status": "candidate_for_independent_review",
+      "id": "louvores_pentecostais",
+      "tradition": {
+        "id": "louvores_pentecostais",
+        "name": "Louvores Pentecostais",
+        "family": "vernacular",
+        "lineage": "Amanda Wanessa featuring Eula Cris — O Maior Troféu, whole separately issued Voz e Piano video number43, official artist YouTube -7RqrghhSDc. The exact edition names both singers and positively credits Denilson Santos on piano. Full two-singer/piano arrangement retained; no instrumental roles from the original Damares recording or unrelated full-band Amanda releases transferred. Original recording duration, overdub process, piano construction and actual vocal intervals are not independently measured; no personal audition claimed. The broad ritualDevotional.christianGospel parent follows this explicitly devotional Christian song rendition; no ecstatic shouting, glossolalia or US Black-gospel vocal mechanism is inferred. Source-unknown physiology, register, pitch organization and ornaments remain unspecified. Two live singers with no overdub stack and unprocessed neumatic singing in small note groups are an authored combined rendition of the two positive singer credits, not a claim that the original video was recorded simultaneously without edits. Upright standard studio piano and block-chord support are explicit authored choices for source-unspecified piano type/technique, not Denilson’s documented equipment. Neutral axes and controlled live room are authored scaffolding; optional signal apparatus and global temperament are omitted. No extra congregation or backing singers inferred. Brisk vocal pacing in the generated rendition is authored, not a measured original tempo; small neumatic groups are a plausible newly arranged gospel gesture, not an exact transcription.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Amanda Wanessa featuring Eula Cris — O Maior Troféu, whole separately issued Voz e Piano video number43, official artist YouTube -7RqrghhSDc. The exact edition names both singers and positively credits Denilson Santos on piano. Full two-singer/piano arrangement retained; no instrumental roles from the original Damares recording or unrelated full-band Amanda releases transferred. Original recording duration, overdub process, piano construction and actual vocal intervals are not independently measured; no personal audition claimed. Louvores Pentecostais is a named Brazilian Pentecostal praise repertoire and label/community segment within, and substantially overlapping, Brazilian Gospel. It is not defined by a piano duet or by being newer. The actual Brazilian Gospel record already includes Pentecostal and neo-Pentecostal worship; it is not restricted to its arena-band example. Positive narrower industry organization is MK Music’s separate Explosão Pentecostal programming alongside its wider Gospel and Louvor e Adoração/Worship catalog, Todah’s explicit Pentecostal style category and named Pentecostal ministry artists, and Apple Music’s dedicated Pentecostal editorial field. MK identifies Eula Cris specifically with this segment; the exact creator corpus includes her at70. Broad Gospel also encompasses the catalog’s other stylistic/denominational gospel practices. Black Pentecostal Gospel is explicitly the Black US COGIC lineage, not all Pentecostal music; Spanish Adoración Pentecostal belongs to its Spanish-speaking repertoire field. Coral Gospel describes Brazilian choral practice, Sertanejo Gospel a country-derived practice, Hinos CCB a specific denominational hymn corpus. Overlap is candid, not an assertion of disjoint performers, doctrine or sound. The broad ritualDevotional.christianGospel parent follows this explicitly devotional Christian song rendition; no ecstatic shouting, glossolalia or US Black-gospel vocal mechanism is inferred. Source-unknown physiology, register, pitch organization and ornaments remain unspecified. Two live singers with no overdub stack and unprocessed neumatic singing in small note groups are an authored combined rendition of the two positive singer credits, not a claim that the original video was recorded simultaneously without edits. Upright standard studio piano and block-chord support are explicit authored choices for source-unspecified piano type/technique, not Denilson’s documented equipment. Neutral axes and controlled live room are authored scaffolding; optional signal apparatus and global temperament are omitted. No extra congregation or backing singers inferred. Brisk vocal pacing in the generated rendition is authored, not a measured original tempo; small neumatic groups are a plausible newly arranged gospel gesture, not an exact transcription.",
+        "exemplars": [
+          "Amanda Wanessa feat. Eula Cris — O Maior Troféu, Voz e Piano43"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -8.0476,
+        -34.877,
+        "Recife",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Approximate source-community anchor: MK explicitly identifies Eula Cris with Recife, her hometown. Not an assertion that the selected earlier video was recorded at this coordinate.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=-7RqrghhSDc",
+          "support_notes": "12937youtube12 exact original edition, both named singers and piano Denilson Santos. Raw indexed response saved; direct retrieval failed candidly.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.mkmusic.com.br/cast/eula-cris/",
+          "support_notes": "12940view1 first-party explicit Pentecostal segment, Recife/community; later album roles not transferred.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1oC4g0U51Xk1Xu9VeGqJqD",
+          "support_notes": "12948view0 Eula Cris70; her different song Foi Livramento, not claim selected duet is in playlist.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-louvorespentecostais.html",
+          "support_notes": "12934view0 full creator map including Eula and extensive named network.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://music.apple.com/br/curator/mk-music/1229803661",
+          "support_notes": "12946view0 issuing label separately programs Pentecostal, broad Gospel and Worship.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://music.apple.com/br/playlist/m%C3%BAsica-pentecostal/pl.28f7ecc63a8044508b08c52788056936",
+          "support_notes": "12940view2 dedicated Pentecostal editorial repertoire, not universal boundary.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.todah.com.br/estilos/pentecostal",
+          "support_notes": "12942search6 first-party explicit stylistic segment.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://todah.com.br/casting/cancao-louvor",
+          "support_notes": "12942search1 first-party longer-standing Pentecostal segment within Brazilian gospel; no roles imported.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Louvores Pentecostais is a named Brazilian Pentecostal praise repertoire and label/community segment within, and substantially overlapping, Brazilian Gospel. It is not defined by a piano duet or by being newer. The actual Brazilian Gospel record already includes Pentecostal and neo-Pentecostal worship; it is not restricted to its arena-band example. Positive narrower industry organization is MK Music’s separate Explosão Pentecostal programming alongside its wider Gospel and Louvor e Adoração/Worship catalog, Todah’s explicit Pentecostal style category and named Pentecostal ministry artists, and Apple Music’s dedicated Pentecostal editorial field. MK identifies Eula Cris specifically with this segment; the exact creator corpus includes her at70. Broad Gospel also encompasses the catalog’s other stylistic/denominational gospel practices. Black Pentecostal Gospel is explicitly the Black US COGIC lineage, not all Pentecostal music; Spanish Adoración Pentecostal belongs to its Spanish-speaking repertoire field. Coral Gospel describes Brazilian choral practice, Sertanejo Gospel a country-derived practice, Hinos CCB a specific denominational hymn corpus. Overlap is candid, not an assertion of disjoint performers, doctrine or sound.",
+      "model_policy": "The broad ritualDevotional.christianGospel parent follows this explicitly devotional Christian song rendition; no ecstatic shouting, glossolalia or US Black-gospel vocal mechanism is inferred. Source-unknown physiology, register, pitch organization and ornaments remain unspecified. Two live singers with no overdub stack and unprocessed neumatic singing in small note groups are an authored combined rendition of the two positive singer credits, not a claim that the original video was recorded simultaneously without edits. Upright standard studio piano and block-chord support are explicit authored choices for source-unspecified piano type/technique, not Denilson’s documented equipment. Neutral axes and controlled live room are authored scaffolding; optional signal apparatus and global temperament are omitted. No extra congregation or backing singers inferred. Brisk vocal pacing in the generated rendition is authored, not a measured original tempo; small neumatic groups are a plausible newly arranged gospel gesture, not an exact transcription.",
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [],
+        "distinction": "Existing voice and upright piano used; no instrument identity change."
+      },
+      "classification_evidence": "Louvores Pentecostais is a named Brazilian Pentecostal praise repertoire and label/community segment within, and substantially overlapping, Brazilian Gospel. It is not defined by a piano duet or by being newer. The actual Brazilian Gospel record already includes Pentecostal and neo-Pentecostal worship; it is not restricted to its arena-band example. Positive narrower industry organization is MK Music’s separate Explosão Pentecostal programming alongside its wider Gospel and Louvor e Adoração/Worship catalog, Todah’s explicit Pentecostal style category and named Pentecostal ministry artists, and Apple Music’s dedicated Pentecostal editorial field. MK identifies Eula Cris specifically with this segment; the exact creator corpus includes her at70. Broad Gospel also encompasses the catalog’s other stylistic/denominational gospel practices. Black Pentecostal Gospel is explicitly the Black US COGIC lineage, not all Pentecostal music; Spanish Adoración Pentecostal belongs to its Spanish-speaking repertoire field. Coral Gospel describes Brazilian choral practice, Sertanejo Gospel a country-derived practice, Hinos CCB a specific denominational hymn corpus. Overlap is candid, not an assertion of disjoint performers, doctrine or sound.",
+      "vocal_count_audit": {
+        "count": 2,
+        "performers": [
+          "Amanda Wanessa",
+          "Eula Cris"
+        ],
+        "basis": "Both singers named on this exact separately issued voice-and-piano edition; no extra choir. Actual tracking unknown, live duet is authored realization."
+      },
+      "instrument_role_audit": {
+        "scope": "Amanda Wanessa featuring Eula Cris — O Maior Troféu, whole separately issued Voz e Piano video number43, official artist YouTube -7RqrghhSDc. The exact edition names both singers and positively credits Denilson Santos on piano. Full two-singer/piano arrangement retained; no instrumental roles from the original Damares recording or unrelated full-band Amanda releases transferred. Original recording duration, overdub process, piano construction and actual vocal intervals are not independently measured; no personal audition claimed.",
+        "voice": "Two named singers; both retained, actual interval/physiology unspecified.",
+        "upright_piano": "Denilson Santos positively credited piano; upright standard/block chords authored."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "The broad ritualDevotional.christianGospel parent follows this explicitly devotional Christian song rendition; no ecstatic shouting, glossolalia or US Black-gospel vocal mechanism is inferred. Source-unknown physiology, register, pitch organization and ornaments remain unspecified. Two live singers with no overdub stack and unprocessed neumatic singing in small note groups are an authored combined rendition of the two positive singer credits, not a claim that the original video was recorded simultaneously without edits. Upright standard studio piano and block-chord support are explicit authored choices for source-unspecified piano type/technique, not Denilson’s documented equipment. Neutral axes and controlled live room are authored scaffolding; optional signal apparatus and global temperament are omitted. No extra congregation or backing singers inferred. Brisk vocal pacing in the generated rendition is authored, not a measured original tempo; small neumatic groups are a plausible newly arranged gospel gesture, not an exact transcription."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "The broad ritualDevotional.christianGospel parent follows this explicitly devotional Christian song rendition; no ecstatic shouting, glossolalia or US Black-gospel vocal mechanism is inferred. Source-unknown physiology, register, pitch organization and ornaments remain unspecified. Two live singers with no overdub stack and unprocessed neumatic singing in small note groups are an authored combined rendition of the two positive singer credits, not a claim that the original video was recorded simultaneously without edits. Upright standard studio piano and block-chord support are explicit authored choices for source-unspecified piano type/technique, not Denilson’s documented equipment. Neutral axes and controlled live room are authored scaffolding; optional signal apparatus and global temperament are omitted. No extra congregation or backing singers inferred. Brisk vocal pacing in the generated rendition is authored, not a measured original tempo; small neumatic groups are a plausible newly arranged gospel gesture, not an exact transcription."
+        }
+      ],
+      "verification_status": "Author preflight pending independent review; no new dependency.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All17 voice and3 piano controls protected, no shared key collision."
+      },
+      "primary_retrieval_refs": [
+        "turn12937youtube12",
+        "turn12940view1",
+        "turn12948view0",
+        "turn12934view0",
+        "turn12946view0",
+        "turn12940view2",
+        "turn12942search6",
+        "turn12942search1"
+      ],
+      "source_scope_limitation": "Amanda Wanessa featuring Eula Cris — O Maior Troféu, whole separately issued Voz e Piano video number43, official artist YouTube -7RqrghhSDc. The exact edition names both singers and positively credits Denilson Santos on piano. Full two-singer/piano arrangement retained; no instrumental roles from the original Damares recording or unrelated full-band Amanda releases transferred. Original recording duration, overdub process, piano construction and actual vocal intervals are not independently measured; no personal audition claimed.",
+      "source_retrieval_caveat": "Official YouTube indexed12937youtube12 positively reproduces edition title, named piano credit and Assembléia de Deus affiliation; direct video body throttles. No mirror-only additional credit imported, no audio audition. Full MK bio12940view1, Apple editorial12940view2 and MK curator12946view0 directly read; creator map12934view0 and embed12948view0 Eula70. Nicoli Francini alternate voice/piano source not used because exact category membership was not demonstrated.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "louvores_pentecostais",
+          "name": "Louvores Pentecostais",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not the performers, piano, exact recording equipment or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12802view1 confirms historical IainFergusson/Binksternet CC BY2.5 image rights. Exact inherited023bytes/visual remain historical.",
+          "fresh_review_ref": "turn12802view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12802view1"
+        ],
+        "fresh_rights_review": "Fresh12802view1 rights only; historical023 bytes/visual retained, no new download."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

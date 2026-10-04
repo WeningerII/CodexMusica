@@ -1,0 +1,248 @@
+{
+  "entries": [
+    {
+      "source_label": "chinese talent show",
+      "source_url": "https://everynoise.com/engenremap-chinesetalentshow.html",
+      "suggested_id": "chinese_talent_show",
+      "allocation_ordinal": 3023,
+      "allocation_group_id": "121",
+      "id": "chinese_talent_show",
+      "status": "source_ready_pending_independent_review",
+      "tradition": {
+        "id": "chinese_talent_show",
+        "name": "Chinese Talent Show",
+        "family": "pop",
+        "lineage": "Chinese talent-show music circulates through televised and streamed competitions, contestant performances and programme-linked releases. Shows such as CHUANG and The Coming One connect developing singers with production teams, music platforms and fan communities.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Vocal presentation and memorable melodies lead arrangements ranging from intimate guitar accompaniment to elaborate ensemble productions. Contrasting verses and refrains support expressive performances, covers and original songs.",
+        "exemplars": [
+          "Mika",
+          "Liao Juntao"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.86,
+        104.19,
+        "China",
+        "East Asia"
+      ],
+      "geo_rationale": "Approximate inland national point for the Chinese programme industry, not the performers’ birthplaces or a claimed recording site.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://filecache.investorroom.com/mr5ir_tencentmusic/306/download/TME%20Transcript%202Q20.pdf",
+          "support_notes": "Fresh14650view0 full8-page first-person TME2020 conference transcript pp2: distinct music copyright/distribution vertical for CHUANG2020,YouthWithYou2,SistersWhoMakeWaves. Institutional programme field, not all national pop."
+        },
+        {
+          "url": "https://wetv.vip/en/play/h5jbz4uxxr4fgi1/p0036q8lkcv-Mika%27s_Vlog%3A_Listen_to_My_Singing_and_Guitar_Playing._This_is_how_I_Get_My_Kiwi-like_Haircut",
+          "support_notes": "Fresh14650view1 official CHUANG2021 Mika profile explicitly singing and guitar playing. General positive performer practice; no claim complete vlog soundtrack has only these roles."
+        },
+        {
+          "url": "https://wetv.vip/en/play/bk292wof6nvawww/y0034d0ypuu-Liao_Juntao_Sings_%22Who%22_with_Guitar",
+          "support_notes": "Fresh14647view1 issuer TheComingOne profile explicitly singing with guitar and broader guitar/song practice. Corroborates representative branch, not an audited master reconstruction."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2Ar7fmPoKFxWbUV4YGAe84",
+          "support_notes": "Fresh14650view2 exact creator corpus includes Mika/米卡 in DreamLive item7 and other CHUANG programme performances. No claim Liao belongs this exact classifier playlist."
+        }
+      ],
+      "neighbor_distinction": "Full mainland_chinese_pop and mandopop_modern already include televised contestants; their scope is broader national/language popular music. Full chinese_idol_pop also includes contest alumni and fan communities. This overlapping field is specifically the programme-performance/copyright/discovery network positively identified by TME and issuer show catalogues, including contestant performances before and beyond later idol careers. Neither national origin, acoustic palette nor performer difference alone establishes the boundary. Exact creator corpus positively includes CHUANG grouped performances and Mika; it is not asserted all talent-show music is stylistically separate from idol pop.",
+      "classification_evidence": "Creator programme corpus plus first-party programme distribution and performance practice, independently read; not generated third-party genre description.",
+      "model_policy": "General singer-and-guitar representative rendition supported by official performer practice, not reconstruction or reduction of a particular audiovisual master. All-mahogany steel-string dreadnought,80/20strings, standard tuning and flatpicked articulation are coherent authored construction/gesture choices; original guitar model/material unspecified. One accompanied unprocessed lead, direct syllabic singing and controlled live room are editable authored defaults; no anatomical/training inference. Brisk melodic phrasing is authored, not measured clip tempo. Functional-harmonic verse–chorus–bridge organization is an authored pop rendition, not a measured universal programme form. Other performances use larger groups/electronics; those broader branches remain in public style prose.",
+      "source_scope_limitation": "No audio audition, no exact clip duration/complete backing inventory claim. General positive genre-practice standard; two source-positive role classes represented without pretending a selected complete recording.",
+      "source_retrieval_caveat": "Issuer pages and exact creator playlist fetched fresh; original classifier map timed out. No fabricated successful map receipt.",
+      "vocal_count_audit": {
+        "default_lead_count": 1,
+        "source_actual_master_headcount": "not asserted; representative genre rendition"
+      },
+      "instrument_role_audit": {
+        "voice": "Positive issuer singing practice.",
+        "acoustic_guitar_dread": "Positive guitar practice; steel-string dreadnought construction is authored, source exact instrument unspecified."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "General singer-and-guitar representative rendition supported by official performer practice, not reconstruction or reduction of a particular audiovisual master. All-mahogany steel-string dreadnought,80/20strings, standard tuning and flatpicked articulation are coherent authored construction/gesture choices; original guitar model/material unspecified. One accompanied unprocessed lead, direct syllabic singing and controlled live room are editable authored defaults; no anatomical/training inference. Brisk melodic phrasing is authored, not measured clip tempo. Functional-harmonic verse–chorus–bridge organization is an authored pop rendition, not a measured universal programme form. Other performances use larger groups/electronics; those broader branches remain in public style prose."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "General singer-and-guitar representative rendition supported by official performer practice, not reconstruction or reduction of a particular audiovisual master. All-mahogany steel-string dreadnought,80/20strings, standard tuning and flatpicked articulation are coherent authored construction/gesture choices; original guitar model/material unspecified. One accompanied unprocessed lead, direct syllabic singing and controlled live room are editable authored defaults; no anatomical/training inference. Brisk melodic phrasing is authored, not measured clip tempo. Functional-harmonic verse–chorus–bridge organization is an authored pop rendition, not a measured universal programme form. Other performances use larger groups/electronics; those broader branches remain in public style prose."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All22 owning parts authored; no owner collisions."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "chinese_talent_show",
+          "name": "Chinese Talent Show",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic microphone recording context, not source programme performers or equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons14562view1 confirms credit/crop CC BY2.5; exact inherited023 byte/visual receipts retained.",
+          "fresh_review_ref": "turn14562view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14562view1"
+        ],
+        "fresh_rights_review": "Fresh rights only, no new byte or visual review."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "pending_independent_review"
+}

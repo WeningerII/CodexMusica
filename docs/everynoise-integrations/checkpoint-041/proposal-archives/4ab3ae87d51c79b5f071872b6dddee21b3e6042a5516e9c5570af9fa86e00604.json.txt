@@ -1,0 +1,1916 @@
+{
+  "entries": [
+    {
+      "source_label": "kabyle moderne",
+      "source_url": "https://everynoise.com/engenremap-kabylemoderne.html",
+      "suggested_id": "kabyle_moderne",
+      "allocation_ordinal": 3587,
+      "allocation_group_id": "144",
+      "id": "kabyle_moderne",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "kabyle_moderne",
+        "name": "Kabyle Moderne",
+        "family": "global",
+        "lineage": "Kabyle Moderne connects contemporary Kabyle songwriting with international popular styles, including rock, reggae, blues and folk. Artists such as Akli D. and Iness Mezel extend inherited song traditions through new arrangements and transnational performance networks.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "credited_auxiliary_percussion",
+          "darbuka"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "percussion_technique": "percussion_hands_layered",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Voices and guitar-led songs meet bass, keyboards, drums and hand percussion. Melodic phrasing, rhythmic contrast and layered accompaniment create a flexible sound that retains Kabyle expression while drawing on varied musical influences.",
+        "exemplars": [
+          "Akli D.",
+          "Iness Mezel"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        48.889,
+        2.393,
+        "Paris",
+        "Europe"
+      ],
+      "geo_rationale": "Presenting institution programme gives Cité de la musique,221avenueJeanJaurès75019Paris. Dated event anchor, not genre’s exclusive origin.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The creator Kabyle Moderne playlist positively includes Akli D. at17/24/75/82 alongside AmZik, newer singer-songwriters and crossstyle acts. The presenting institution explicitly frames a crossstyle contemporary Kabyle field that opens the inherited song tradition toward reggae, blues, folk-country and other international practices, naming Akli and Iness Mezel; this is a positive artistic-network boundary rather than merely a later date or different exemplar. Full existing kabyle and kabyle_music_algerian already include modern Paris exile chanson, Idir and Matoub, so this field overlaps both and does not claim modernity was absent. The narrower crossstyle popular-song discovery network is not the entire Kabyle ethnic tradition, not all Amazigh music and not an alias for one of the source’s reggae or folk influences. No claim every listed artist uses this particular ensemble.",
+      "classification_evidence": "The creator Kabyle Moderne playlist positively includes Akli D. at17/24/75/82 alongside AmZik, newer singer-songwriters and crossstyle acts. The presenting institution explicitly frames a crossstyle contemporary Kabyle field that opens the inherited song tradition toward reggae, blues, folk-country and other international practices, naming Akli and Iness Mezel; this is a positive artistic-network boundary rather than merely a later date or different exemplar. Full existing kabyle and kabyle_music_algerian already include modern Paris exile chanson, Idir and Matoub, so this field overlaps both and does not claim modernity was absent. The narrower crossstyle popular-song discovery network is not the entire Kabyle ethnic tradition, not all Amazigh music and not an alias for one of the source’s reggae or folk influences. No claim every listed artist uses this particular ensemble.",
+      "model_policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored.",
+      "source_scope_limitation": "Original named-source programme remains historical evidence; current profile and defaults describe the wider genre.",
+      "source_retrieval_caveat": "Whole seven-page institutional PDF freshly read at12314view0 via EXPLOITATION endpoint after CIMU endpoint failed; exact full creator100 freshly12310view1. No audition or verified actual attendance claimed.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "darbuka",
+          "parts": {
+            "percussion_technique": "percussion_hands_layered",
+            "darbuka_material": "darbuka_aluminum_sombaty",
+            "darbuka_skin": "darbuka_synthetic_mylar",
+            "darbuka_regional_style": "darbuka_egyptian_sombaty"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Every applicable owning control explicitly pinned; shared guitar/bass body wood is the applicable alder variant on both."
+      },
+      "sources": [
+        {
+          "url": "https://pad.philharmoniedeparis.fr/EXPLOITATION/ermes/player.aspx?id=0784440",
+          "support_notes": "Fresh12314view0 whole institutional programme: pages0/3 date/full third-act roster; pages1/4 positive crossstyle field and Akli practice; page6 Paris institutional address.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3HUr4QyGI5W6iuK9enJBRq",
+          "support_notes": "Fresh12310view1 full100 exact creator community; AkliD17/24/75/82. Not a claim selected concert songs match named playlist recordings.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn12314view0",
+        "turn12310view1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "kabyle_moderne",
+          "name": "Kabyle Moderne",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Akli D., the2006stage, any instrument depiction or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12281view4/12287view3 confirms Iain Fergusson/Binksternet cropped SM58 CC BY2.5. Exact inherited023 preview bytes unchanged; no fresh download claimed.",
+          "fresh_review_ref": "turn12287view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12287view3"
+        ]
+      },
+      "verification_status": "Original loader56 applicable controls54flatpins all protected,1638 old owners unchanged, exact023 photo receipt and four browser/connector outputs all pass; maximum995characters retains all seven family names. Independent peer pending; no integrated CI claim.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "kabyle_moderne",
+            "name": "Kabyle Moderne",
+            "family": "global",
+            "lineage": "Akli D. — the complete announced fifty-minute third act on 8 April 2006 at Cité de la musique, Paris, from the presenting institution’s full Métissages Chanteurs Kabyles programme. Eight named performers: Akli voice/guitar; Patrick Piazza bass/voice; Michel Piétry drums; Malik Kerrouch guitar/voice; David Aubaile keyboard/voice; Hicham Moumine and Karim Touré each percussion/voice; Adhil Mirghni percussion/darbuka. Retain all six singers, both guitarists, bass, kit, keyboard, all three unspecified percussion credits and the separately named darbuka. Do not import the first two acts, next-day Idir ensemble, biographical childhood bendirs, earlier albums or their guests. The selected source is the whole dated announced practice, not an audition or claimed transcription. Exact guitar construction, keyboard architecture, auxiliary instruments and vocal intervals remain unspecified. Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified",
+              "credited_auxiliary_percussion",
+              "darbuka"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal",
+              "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+              "percussion_technique": "percussion_hands_layered",
+              "darbuka_material": "darbuka_aluminum_sombaty",
+              "darbuka_skin": "darbuka_synthetic_mylar",
+              "darbuka_regional_style": "darbuka_egyptian_sombaty"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 1,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Akli D. — the complete announced fifty-minute third act on 8 April 2006 at Cité de la musique, Paris, from the presenting institution’s full Métissages Chanteurs Kabyles programme. Eight named performers: Akli voice/guitar; Patrick Piazza bass/voice; Michel Piétry drums; Malik Kerrouch guitar/voice; David Aubaile keyboard/voice; Hicham Moumine and Karim Touré each percussion/voice; Adhil Mirghni percussion/darbuka. Retain all six singers, both guitarists, bass, kit, keyboard, all three unspecified percussion credits and the separately named darbuka. Do not import the first two acts, next-day Idir ensemble, biographical childhood bendirs, earlier albums or their guests. The selected source is the whole dated announced practice, not an audition or claimed transcription. Exact guitar construction, keyboard architecture, auxiliary instruments and vocal intervals remain unspecified. The creator Kabyle Moderne playlist positively includes Akli D. at17/24/75/82 alongside AmZik, newer singer-songwriters and crossstyle acts. The presenting institution explicitly frames a crossstyle contemporary Kabyle field that opens the inherited song tradition toward reggae, blues, folk-country and other international practices, naming Akli and Iness Mezel; this is a positive artistic-network boundary rather than merely a later date or different exemplar. Full existing kabyle and kabyle_music_algerian already include modern Paris exile chanson, Idir and Matoub, so this field overlaps both and does not claim modernity was absent. The narrower crossstyle popular-song discovery network is not the entire Kabyle ethnic tradition, not all Amazigh music and not an alias for one of the source’s reggae or folk influences. No claim every listed artist uses this particular ensemble. Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning.",
+            "exemplars": [
+              "Akli D. — complete Cité de la musique third act,8April2006,50minutes"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-11.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "scope": "Akli D. — the complete announced fifty-minute third act on 8 April 2006 at Cité de la musique, Paris, from the presenting institution’s full Métissages Chanteurs Kabyles programme. Eight named performers: Akli voice/guitar; Patrick Piazza bass/voice; Michel Piétry drums; Malik Kerrouch guitar/voice; David Aubaile keyboard/voice; Hicham Moumine and Karim Touré each percussion/voice; Adhil Mirghni percussion/darbuka. Retain all six singers, both guitarists, bass, kit, keyboard, all three unspecified percussion credits and the separately named darbuka. Do not import the first two acts, next-day Idir ensemble, biographical childhood bendirs, earlier albums or their guests. The selected source is the whole dated announced practice, not an audition or claimed transcription. Exact guitar construction, keyboard architecture, auxiliary instruments and vocal intervals remain unspecified.",
+          "roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Six named singers",
+              "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "source_role": "Akli D. and Malik Kerrouch: source-generic guitars, authored electric realization",
+              "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+            },
+            {
+              "instrument": "electric_bass",
+              "source_role": "Patrick Piazza: bass guitar",
+              "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+            },
+            {
+              "instrument": "drum_kit",
+              "source_role": "Michel Piétry: drums",
+              "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+            },
+            {
+              "instrument": "electronic_keyboard_unspecified",
+              "source_role": "David Aubaile: keyboard",
+              "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+            },
+            {
+              "instrument": "credited_auxiliary_percussion",
+              "source_role": "Hicham Moumine,Karim Touré,Adhil Mirghni: all unspecified percussion retained",
+              "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+            },
+            {
+              "instrument": "darbuka",
+              "source_role": "Adhil Mirghni: separately named derbouka",
+              "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+            }
+          ],
+          "omissions": "None from the full third-act roster; distinct first/second acts and other days are outside selected scope."
+        },
+        "vocal_count_audit": {
+          "selected_count": 6,
+          "basis": "Six expressly credited voices in the complete eight-person third-act roster; unspecified intervals/tracking remain unknown in source, authored live group realization."
+        },
+        "scope": "Original documentary programme only, not the revised representative genre default."
+      }
+    },
+    {
+      "source_label": "korean soundtrack",
+      "source_url": "https://everynoise.com/engenremap-koreansoundtrack.html",
+      "suggested_id": "korean_soundtrack",
+      "allocation_ordinal": 3631,
+      "allocation_group_id": "146",
+      "id": "korean_soundtrack",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "korean_soundtrack",
+        "name": "Korean Soundtrack",
+        "family": "pop",
+        "lineage": "Korean soundtrack music brings original songs and dramatic scores together across film and television production. Composers, singers and studio musicians shape themes that connect characters, settings and emotion, with recordings and arrangements extending their life beyond the screen.",
+        "instruments": [
+          "voice",
+          "upright_piano",
+          "acoustic_guitar_dread",
+          "credited_strings_unspecified"
+        ],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Expressive vocal melodies, piano, guitar and string textures support themes and transitions. Electronic production and acoustic performance coexist, ranging from intimate song settings to expansive dramatic writing.",
+        "exemplars": [
+          "Kim Jun-seok",
+          "Nam Hye-seung"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        37.5665,
+        126.978,
+        "Seoul",
+        "East Asia"
+      ],
+      "geo_rationale": "Score-platform Seoul Yongsan address and Music&NEW Seoul Gangnam issuer address support an editorial publication-industry anchor, not performer residence or source recording place.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Broad Korean screen soundtrack field includes both original songs and instrumental dramatic scoring; Korean OST is not defined here as song-only, nor Korean Soundtrack as score-only. Creator Korean Soundtrack playlist includes Kim Jun-seok at1/86 and other screen composers; exact selected Itaewon Class rendition is not claimed playlist-listed. Music&NEW own Hi-Five Original Score issue explicitly categorizes OST and credits MovieCloser scoring plus a separate original vocal song, positively demonstrating the full song-and-score umbrella. KOFIC documents the selected composer film-music practice. Existing korean_instrumental covers broader instrumental originals/interpretations beyond screen production, while korean_bl_ost is a narrower Boys Love franchise subset within this screen field. Existing korean_classical_piano, korean_classical_performance and korean_contemporary_classical concern performance/composition traditions that overlap people or instruments but do not define the screen-production institution. No exclusion of screen music from broad Korean pop or instrumental categories is asserted. Korean OST3630 remains a separate pending independent equivalence review after this target is accepted; it is not a second proposed addition.",
+      "classification_evidence": "Broad Korean screen soundtrack field includes both original songs and instrumental dramatic scoring; Korean OST is not defined here as song-only, nor Korean Soundtrack as score-only. Creator Korean Soundtrack playlist includes Kim Jun-seok at1/86 and other screen composers; exact selected Itaewon Class rendition is not claimed playlist-listed. Music&NEW own Hi-Five Original Score issue explicitly categorizes OST and credits MovieCloser scoring plus a separate original vocal song, positively demonstrating the full song-and-score umbrella. KOFIC documents the selected composer film-music practice. Existing korean_instrumental covers broader instrumental originals/interpretations beyond screen production, while korean_bl_ost is a narrower Boys Love franchise subset within this screen field. Existing korean_classical_piano, korean_classical_performance and korean_contemporary_classical concern performance/composition traditions that overlap people or instruments but do not define the screen-production institution. No exclusion of screen music from broad Korean pop or instrumental categories is asserted. Korean OST3630 remains a separate pending independent equivalence review after this target is accepted; it is not a second proposed addition.",
+      "model_policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung screen-theme and acoustic scoring palette instead of compulsory solo-piano cover. Voice17,piano3,guitar5 and existing strings-identity1 preserve meaningful known roles. String section composition/live-vs-sample specifics are not invented. Functional-harmonic verse–chorus–bridge applies to the representative song branch, not all instrumental screen cues.",
+      "source_scope_limitation": "Original named-source programme remains historical evidence; current profile and defaults describe the wider genre.",
+      "source_retrieval_caveat": "Own arranger catalogue, complete creator playlist and issuer screen-score page freshly retrieved directly; own piano-cover description freshly indexed. Paid full score/audio not accessed. Catalogue empty lyric/instrumentation fields are not invented positive statements.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung screen-theme and acoustic scoring palette instead of compulsory solo-piano cover. Voice17,piano3,guitar5 and existing strings-identity1 preserve meaningful known roles. String section composition/live-vs-sample specifics are not invented. Functional-harmonic verse–chorus–bridge applies to the representative song branch, not all instrumental screen cues."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung screen-theme and acoustic scoring palette instead of compulsory solo-piano cover. Voice17,piano3,guitar5 and existing strings-identity1 preserve meaningful known roles. String section composition/live-vs-sample specifics are not invented. Functional-harmonic verse–chorus–bridge applies to the representative song branch, not all instrumental screen cues."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung screen-theme and acoustic scoring palette instead of compulsory solo-piano cover. Voice17,piano3,guitar5 and existing strings-identity1 preserve meaningful known roles. String section composition/live-vs-sample specifics are not invented. Functional-harmonic verse–chorus–bridge applies to the representative song branch, not all instrumental screen cues."
+        },
+        {
+          "instrument": "credited_strings_unspecified",
+          "parts": {
+            "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung screen-theme and acoustic scoring palette instead of compulsory solo-piano cover. Voice17,piano3,guitar5 and existing strings-identity1 preserve meaningful known roles. String section composition/live-vs-sample specifics are not invented. Functional-harmonic verse–chorus–bridge applies to the representative song branch, not all instrumental screen cues."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All three applicable original upright controls explicitly pinned."
+      },
+      "sources": [
+        {
+          "url": "https://www.mymusic5.com/swanpiano/9237",
+          "title": "Arranger own complete piano edition",
+          "support_notes": "Itaewon Class (PIANO COVER), Kim Jun-seok composition, complete SweetPiano self-issued four-page piano arrangement9237 and its linked own piano-cover performance. Catalogue identifies one piano instrument,99measures,E major,4/4 and tempo110; the Instrumentation and Lyrics fields are blank, not an explicit catalogue statement of instrumental-solo status. The arranger own performance title and complete one-piano edition together support the selected piano-only rendition with zero sung roles. Paid full notation and audio were not auditioned; no exact voicing or original television recording roster is asserted. Original television score ensembles and soundtrack singers are not removed from a reconstruction: this is a distinct complete arranger-issued piano edition, not the original master or an official original-score publication.",
+          "retrieval_ref": "turn12354view0"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=2EXCfT3-R5A",
+          "title": "SweetPiano own complete piano-cover presentation",
+          "support_notes": "Own title identifies piano cover of Kim Jun-seok Itaewon Class BGM and links own arrangement; not original studio master credits.",
+          "retrieval_ref": "turn12354youtube0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1kRWLtBz2L8PM8iTdvngqo",
+          "title": "Creator Korean Soundtrack full100",
+          "support_notes": "Exact composer Kim Jun-seok1/86; no claim selected arrangement or composition occurs in playlist.",
+          "retrieval_ref": "turn12354view1"
+        },
+        {
+          "url": "https://m.its-new.co.kr/music/library_detail.aspx?lang=kr&pageNum=1&seq=2748&type=&year=",
+          "title": "Music&NEW primary screen soundtrack production field",
+          "support_notes": "Own OST-tagged Hi-Five Original Score credits MovieCloser,34tracks,score musicians and separate original-song musicians; category context only, no roles transferred to piano edition.",
+          "retrieval_ref": "turn12354view2"
+        },
+        {
+          "url": "https://www.koreanfilm.or.kr/eng/films/index/peopleView.jsp?peopleCd=10005770",
+          "title": "KOFIC composer industry profile",
+          "support_notes": "Kim Jun-seok film-music production practice and institutional Korean screen context.",
+          "retrieval_ref": "turn12292view2"
+        },
+        {
+          "url": "https://www.bandwagon.asia/articles/music-director-nam-hye-seung-kdrama-korean-drama-record-of-youth-its-okay-to-not-be-okay-soundtrack-ost-bgm-interview-2020",
+          "title": "Firsthand Korean drama composer interview",
+          "support_notes": "Fresh13672search0: NamHyeSeung describes song/singer planning and live strings/guitar alongside MIDI composition. Genre-level production practice, not exact selected piano cover."
+        },
+        {
+          "url": "https://outloudculture.com/2023/06/16/exclusive-interview-with-jina-hyojin-an-and-shirley-song-composers-of-the-highly-popular-netflix-series-xo-kitty/",
+          "title": "Firsthand scoring-composer interview",
+          "support_notes": "Fresh13672search1 explicitly piano, acoustic guitar, strings and occasional vocals within K-drama-informed scoring."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "korean_soundtrack",
+          "name": "Korean Soundtrack",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not a piano depiction, SweetPiano portrait or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12287view3 confirms Iain Fergusson/Binksternet CC BY2.5; exact023 byte and visual receipts inherited.",
+          "fresh_review_ref": "turn12287view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12287view3"
+        ]
+      },
+      "verification_status": "Original mechanical preflight PASS: three applicable protected controls, no fallback/errors, all1638 original owners unchanged. Original browser/connector four formats PASS, refined upright piano maximum194 characters; independent review pending.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "korean_soundtrack",
+            "name": "Korean Soundtrack",
+            "family": "pop",
+            "lineage": "Itaewon Class (PIANO COVER), Kim Jun-seok composition, complete SweetPiano self-issued four-page piano arrangement9237 and its linked own piano-cover performance. Catalogue identifies one piano instrument,99measures,E major,4/4 and tempo110; the Instrumentation and Lyrics fields are blank, not an explicit catalogue statement of instrumental-solo status. The arranger own performance title and complete one-piano edition together support the selected piano-only rendition with zero sung roles. Paid full notation and audio were not auditioned; no exact voicing or original television recording roster is asserted. Original television score ensembles and soundtrack singers are not removed from a reconstruction: this is a distinct complete arranger-issued piano edition, not the original master or an official original-score publication. Existing broad functionalSong represents an explicitly authored functional-harmonic verse-chorus-bridge piano rendition of this screen theme, not a claim that all99 source measures or the original television cue follow that form. Source-unspecified piano construction is realized as a standard studio upright with block-chord pop touch and a controlled live room; these are authored physical and performance choices, not measured original equipment. Preserve the whole melody/harmonic piano role, zero singers and no invented orchestra, conductor or electronic backing. No global tuning/capture apparatus is imposed, and printed notation alone is not grounds for artMusic classification.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Itaewon Class (PIANO COVER), Kim Jun-seok composition, complete SweetPiano self-issued four-page piano arrangement9237 and its linked own piano-cover performance. Catalogue identifies one piano instrument,99measures,E major,4/4 and tempo110; the Instrumentation and Lyrics fields are blank, not an explicit catalogue statement of instrumental-solo status. The arranger own performance title and complete one-piano edition together support the selected piano-only rendition with zero sung roles. Paid full notation and audio were not auditioned; no exact voicing or original television recording roster is asserted. Original television score ensembles and soundtrack singers are not removed from a reconstruction: this is a distinct complete arranger-issued piano edition, not the original master or an official original-score publication. Broad Korean screen soundtrack field includes both original songs and instrumental dramatic scoring; Korean OST is not defined here as song-only, nor Korean Soundtrack as score-only. Creator Korean Soundtrack playlist includes Kim Jun-seok at1/86 and other screen composers; exact selected Itaewon Class rendition is not claimed playlist-listed. Music&NEW own Hi-Five Original Score issue explicitly categorizes OST and credits MovieCloser scoring plus a separate original vocal song, positively demonstrating the full song-and-score umbrella. KOFIC documents the selected composer film-music practice. Existing korean_instrumental covers broader instrumental originals/interpretations beyond screen production, while korean_bl_ost is a narrower Boys Love franchise subset within this screen field. Existing korean_classical_piano, korean_classical_performance and korean_contemporary_classical concern performance/composition traditions that overlap people or instruments but do not define the screen-production institution. No exclusion of screen music from broad Korean pop or instrumental categories is asserted. Korean OST3630 remains a separate pending independent equivalence review after this target is accepted; it is not a second proposed addition. Existing broad functionalSong represents an explicitly authored functional-harmonic verse-chorus-bridge piano rendition of this screen theme, not a claim that all99 source measures or the original television cue follow that form. Source-unspecified piano construction is realized as a standard studio upright with block-chord pop touch and a controlled live room; these are authored physical and performance choices, not measured original equipment. Preserve the whole melody/harmonic piano role, zero singers and no invented orchestra, conductor or electronic backing. No global tuning/capture apparatus is imposed, and printed notation alone is not grounds for artMusic classification.",
+            "exemplars": [
+              "Itaewon Class — SweetPiano complete four-page piano-cover edition9237"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung screen-theme and acoustic scoring palette instead of compulsory solo-piano cover. Voice17,piano3,guitar5 and existing strings-identity1 preserve meaningful known roles. String section composition/live-vs-sample specifics are not invented. Functional-harmonic verse–chorus–bridge applies to the representative song branch, not all instrumental screen cues.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-12.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "upright_piano": "Whole self-issued piano edition; standard upright and block-chord realization authored where subtype unspecified."
+        },
+        "vocal_count_audit": {
+          "count": 0,
+          "basis": "Complete one-instrument piano edition plus arranger own piano-cover performance, not blank metadata alone and not original soundtrack ensemble."
+        },
+        "scope": "Original documentary programme only, not the revised representative genre default."
+      }
+    },
+    {
+      "source_label": "lagu iban",
+      "source_url": "https://everynoise.com/engenremap-laguiban.html",
+      "suggested_id": "lagu_iban",
+      "allocation_ordinal": 3649,
+      "allocation_group_id": "146",
+      "id": "lagu_iban",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "lagu_iban",
+        "name": "Lagu Iban",
+        "family": "rock",
+        "lineage": "Lagu Iban encompasses Iban-language songs and recording communities in Sarawak and their wider circulation. Artists such as Masterpiece connect local language and identity with contemporary rock, pop and other popular forms.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Sung melodies and recurring refrains meet guitar, keyboards, bass and drums. Contrasting lead and backing voices, instrumental responses and changing band textures support songs about relationships, experience and community.",
+        "exemplars": [
+          "Masterpiece"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        2.2873,
+        111.8305,
+        "Sibu",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Firsthand interview explicitly identifies the seven band members and Iban rock practice with Sibu; editorial band-community anchor, not claimed recording site.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Lagu Iban is the Iban-language song and recording community of Sarawak, including contemporary rock as well as other popular-song branches. The artist explicitly discusses the Iban/Dayak music industry, its local labels, audiences and distribution in a firsthand interview; this is positive community evidence, not birthplace alone. Exact creator playlist includes Masterpiece at positions51 and62 among a much broader Iban-language artist field. Existing malaysian_pop and classic_malaysian_pop already cover broad popular recording histories; their full scopes are acknowledged, not reduced to exemplars. The narrower Iban linguistic recording community differs from Malay-language mainstream pop without asserting that national fields exclude Iban artists. Existing malaysian_indie, malaysian_traditional and borneo_traditional also overlap geography and heritage: the first is an independent-production scene, the latter two broad traditional-repertoire fields, neither synonymous with the entire Iban-language contemporary recording network. This rock band is one complete branch, not a universal Iban ensemble or an equation between Iban and all Dayak peoples.",
+      "classification_evidence": "Lagu Iban is the Iban-language song and recording community of Sarawak, including contemporary rock as well as other popular-song branches. The artist explicitly discusses the Iban/Dayak music industry, its local labels, audiences and distribution in a firsthand interview; this is positive community evidence, not birthplace alone. Exact creator playlist includes Masterpiece at positions51 and62 among a much broader Iban-language artist field. Existing malaysian_pop and classic_malaysian_pop already cover broad popular recording histories; their full scopes are acknowledged, not reduced to exemplars. The narrower Iban linguistic recording community differs from Malay-language mainstream pop without asserting that national fields exclude Iban artists. Existing malaysian_indie, malaysian_traditional and borneo_traditional also overlap geography and heritage: the first is an independent-production scene, the latter two broad traditional-repertoire fields, neither synonymous with the entire Iban-language contemporary recording network. This rock band is one complete branch, not a universal Iban ensemble or an equation between Iban and all Dayak peoples.",
+      "model_policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored.",
+      "source_scope_limitation": "Original named-source programme remains historical evidence; current profile and defaults describe the wider genre.",
+      "source_retrieval_caveat": "Firsthand interview directly retrieved in full. Dated roster is reported by the interviewer; direct artist quotations establish the Iban recording community. Exact creator playlist independently retrieved. No album audition or guest-free studio reconstruction claimed.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Every applicable owning control explicitly pinned; shared guitar/bass body wood is the applicable alder variant on both."
+      },
+      "sources": [
+        {
+          "url": "https://www.utusanborneo.com.my/2018/01/12/album-baharu-masterpiece-ensera-paragon-akan-dijual-secara-digital",
+          "title": "Firsthand Depha interview and dated complete Masterpiece roster",
+          "support_notes": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown.",
+          "retrieval_ref": "turn11974view0; turn11985view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7y00fhiUdviML8AhwU7NUL",
+          "title": "Exact creator Lagu Iban category",
+          "support_notes": "Masterpiece positions51 and62; membership of artist, not proof selected dated roster plays every indexed recording.",
+          "retrieval_ref": "turn11985view1; turn11987view0"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn11985view0",
+        "turn11985view1",
+        "turn11987view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_iban",
+          "name": "Lagu Iban",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not Masterpiece, its instruments or a documented source recording setup.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11976view0 confirms Iain Fergusson/Binksternet and CC BY2.5; historical byte and visual receipts remain inherited.",
+          "fresh_review_ref": "turn11976view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11976view0"
+        ]
+      },
+      "verification_status": "Original-loader preflight PASS51 applicable controls/49 flat pins with no fallbacks, zero changes to1638 existing owners, exact historical photo receipt and all four actual browser/connector formats; longest output996characters. Independent peer pending; no final integrated CI claim.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "lagu_iban",
+            "name": "Lagu Iban",
+            "family": "rock",
+            "lineage": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown. Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_duet",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown. Lagu Iban is the Iban-language song and recording community of Sarawak, including contemporary rock as well as other popular-song branches. The artist explicitly discusses the Iban/Dayak music industry, its local labels, audiences and distribution in a firsthand interview; this is positive community evidence, not birthplace alone. Exact creator playlist includes Masterpiece at positions51 and62 among a much broader Iban-language artist field. Existing malaysian_pop and classic_malaysian_pop already cover broad popular recording histories; their full scopes are acknowledged, not reduced to exemplars. The narrower Iban linguistic recording community differs from Malay-language mainstream pop without asserting that national fields exclude Iban artists. Existing malaysian_indie, malaysian_traditional and borneo_traditional also overlap geography and heritage: the first is an independent-production scene, the latter two broad traditional-repertoire fields, neither synonymous with the entire Iban-language contemporary recording network. This rock band is one complete branch, not a universal Iban ensemble or an equation between Iban and all Dayak peoples. Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented.",
+            "exemplars": [
+              "Masterpiece — documented January2018 seven-person band practice"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Retain full meaningful guitar-band instrumentation and all physical controls as a representative crossstyle song arrangement. Small sung note groups are an authored positive vocal gesture, rather than a universal neutral speech/song default. Multiple players and exact dated headcounts are evidence, not fixed genre requirements. Existing functional-harmonic verse–chorus–bridge song organization remains authored.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-6.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "voice": [
+            "Depha",
+            "Kent"
+          ],
+          "electric_guitar_humbucker": [
+            "Willy lead guitar",
+            "Kent second guitar"
+          ],
+          "electric_bass": [
+            "Marcus"
+          ],
+          "drum_kit": [
+            "Harold / Iho"
+          ],
+          "electronic_keyboard_unspecified": [
+            "Roslee Qadir",
+            "Valentine Jimmy"
+          ],
+          "policy": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown. Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented."
+        },
+        "vocal_count_audit": {
+          "named_singers": [
+            "Depha",
+            "Kent"
+          ],
+          "count": 2,
+          "count_basis": "Two expressly identified vocal roles in the dated band lineup, not an album-wide headcount."
+        },
+        "scope": "Original documentary programme only, not the revised representative genre default."
+      }
+    },
+    {
+      "source_label": "lagu jambi",
+      "source_url": "https://everynoise.com/engenremap-lagujambi.html",
+      "suggested_id": "lagu_jambi",
+      "allocation_ordinal": 3650,
+      "allocation_group_id": "146",
+      "id": "lagu_jambi",
+      "tradition": {
+        "id": "lagu_jambi",
+        "name": "Lagu Jambi",
+        "family": "vernacular",
+        "lineage": "Lagu Jambi gathers the regional songs and melodies of Jambi, including inherited repertoire and contemporary adaptations. Songs such as Angso Duo, Batanghari and Ketimun Bungkuk connect local memory and identity with continuing performance and publishing.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread",
+          "electric_bass"
+        ],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "acoustic_technique": "acoustic_strummed_ringing"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "Sung phrases and memorable melodic contours carry local texts through traditional and modern accompaniment. Acoustic guitar and bass can support contemporary renditions, alongside percussion and other regional instrumental practices.",
+        "exemplars": [
+          "Angso Duo",
+          "Batanghari",
+          "Ketimun Bungkuk"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -1.6101,
+        103.6131,
+        "Jambi",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Kota Jambi named in the provincial cultural inventory for Angso Duo; regional repertoire anchor, not composer birthplace or concert venue.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://anandasukarlancenter.com/2026/10/02/ananda-sukarlan-award-2027-kategori-ketentuan-semi-final-final/",
+          "title": "Composer piano-solo repertoire and regional origin",
+          "support_notes": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11725search0"
+        },
+        {
+          "url": "https://fortemusiconline.com/product/12051",
+          "title": "Issued score collection retail catalog",
+          "support_notes": "Lists complete Prelude & Fugue on Angso Duo as one of six named works in Transformations on Indonesian Children Songs; used for existing edition status, not extra instrumentation.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11731view0"
+        },
+        {
+          "url": "https://ppid.jambiprov.go.id/storage/dokumen/oi6DOUpEYsikx2upJhfQaztujX4BZdzBZrcUGKvH.pdf",
+          "title": "Provincial cultural inventory",
+          "support_notes": "Kota Jambi section lists Angso Duo, Batanghari and Ketimun Bungkuk as separate local songs. Indexed primary page76, no full-document read asserted.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11735search0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1Qw878bmGXb4ZvjHdvThZW",
+          "title": "Exact creator Lagu Jambi programme",
+          "support_notes": "Items28 and37 list Batang Hari and Ketimun Bungkuk; neither selected composition nor composer appears. Government inventory and composer statement supply the regional bridge.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11729view0"
+        },
+        {
+          "url": "https://journal.unhas.ac.id/index.php/jib/article/download/8208/4536/24471",
+          "title": "Research on Melayu Jambi acoustic music",
+          "support_notes": "Fresh indexed13674search17 identifies MelayuJambi acoustic music, guitar/bass/acoustic-guitar and vocal ensemble roles. Direct PDF timeout13676view0 disclosed. Supports representative acoustic song core, not exact named ensemble reconstruction."
+        }
+      ],
+      "neighbor_distinction": "Lagu Jambi is the regional Jambi song/repertoire field, including locally issued popular versions and inherited named melodies. The provincial government cultural inventory lists Angso Duo, Batanghari and Ketimun Bungkuk as distinct songs of Kota Jambi; the exact creator programme contains Batang Hari and Ketimun Bungkuk alongside contemporary regional releases. The selected composer independently identifies Angso Duo as a Jambi regional song, providing a positive regional-repertoire bridge. Neither Sukarlan nor Angso Duo was found in that creator playlist; no exact membership is claimed. This is a complete concert transformation of one locally identified melody, not proof that the wider field is piano music. Full existing Indonesian pop already includes many national popular practices, and Indonesian folk includes contemporary acoustic acts; neither is defined only by its selected example. Lagu Melayu covers broad Malay asli/joget/inang/zapin heritage and can overlap Jambi, but is not this specific regional publishing/repertoire field. Queued Lagu Aceh and Lagu Maluku are separate regional song fields, not all Indonesian piano transformations. Indonesian indigenous traditions span the archipelago and likewise overlap rather than exclude Jambi heritage. Regional institutional identification, not a different pianist or instrument choice alone, supports this narrower entry.",
+      "model_policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung regional-song default with meaningful guitar and bass support instead of one composed piano fugue. Existing first-party regional song inventory establishes repertoire; indexed academic practice supports contemporary acoustic accompaniment. This compact singer/guitar/bass core is representative, not a purported full transcription. Authored functional-harmonic verse–chorus–bridge arrangement does not redefine every Jambi traditional form.",
+      "dependency_audit": "No new instruments or shared changes; existing upright owner and all three controls retained.",
+      "classification_evidence": {
+        "mode": "provincial_named_repertoire_plus_composer_region_and_creator_field",
+        "url": "https://ppid.jambiprov.go.id/storage/dokumen/oi6DOUpEYsikx2upJhfQaztujX4BZdzBZrcUGKvH.pdf",
+        "matched_artist": null,
+        "note": "Lagu Jambi is the regional Jambi song/repertoire field, including locally issued popular versions and inherited named melodies. The provincial government cultural inventory lists Angso Duo, Batanghari and Ketimun Bungkuk as distinct songs of Kota Jambi; the exact creator programme contains Batang Hari and Ketimun Bungkuk alongside contemporary regional releases. The selected composer independently identifies Angso Duo as a Jambi regional song, providing a positive regional-repertoire bridge. Neither Sukarlan nor Angso Duo was found in that creator playlist; no exact membership is claimed. This is a complete concert transformation of one locally identified melody, not proof that the wider field is piano music. Full existing Indonesian pop already includes many national popular practices, and Indonesian folk includes contemporary acoustic acts; neither is defined only by its selected example. Lagu Melayu covers broad Malay asli/joget/inang/zapin heritage and can overlap Jambi, but is not this specific regional publishing/repertoire field. Queued Lagu Aceh and Lagu Maluku are separate regional song fields, not all Indonesian piano transformations. Indonesian indigenous traditions span the archipelago and likewise overlap rather than exclude Jambi heritage. Regional institutional identification, not a different pianist or instrument choice alone, supports this narrower entry."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung regional-song default with meaningful guitar and bass support instead of one composed piano fugue. Existing first-party regional song inventory establishes repertoire; indexed academic practice supports contemporary acoustic accompaniment. This compact singer/guitar/bass core is representative, not a purported full transcription. Authored functional-harmonic verse–chorus–bridge arrangement does not redefine every Jambi traditional form."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung regional-song default with meaningful guitar and bass support instead of one composed piano fugue. Existing first-party regional song inventory establishes repertoire; indexed academic practice supports contemporary acoustic accompaniment. This compact singer/guitar/bass core is representative, not a purported full transcription. Authored functional-harmonic verse–chorus–bridge arrangement does not redefine every Jambi traditional form."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung regional-song default with meaningful guitar and bass support instead of one composed piano fugue. Existing first-party regional song inventory establishes repertoire; indexed academic practice supports contemporary acoustic accompaniment. This compact singer/guitar/bass core is representative, not a purported full transcription. Authored functional-harmonic verse–chorus–bridge arrangement does not redefine every Jambi traditional form."
+        }
+      ],
+      "verification_status": "primary_source_reviewed_complete_merged_defaults_pinned_inherited_photo_bytes_fresh_rights",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_jambi",
+          "name": "Lagu Jambi",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Ananda Sukarlan, a Jambi performer, the piano or source concert equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11604view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Historical exact023 bytes/visual receipt inherited unchanged.",
+          "fresh_review_ref": "turn11604view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        }
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All three disjoint applicable upright-piano controls explicitly pinned; no shared-key collision or fallback.",
+      "primary_retrieval_refs": [
+        "turn11725search0",
+        "turn11731view0",
+        "turn11735search0",
+        "turn11729view0"
+      ],
+      "source_access_limitation": "Composer-owned indexed full programme, retailer public metadata, provincial indexed inventory and exact creator playlist read. Paid score/audio not inspected. Future competition is not an observed performance. Historical photo bytes reused, not downloaded again.",
+      "status": "genre_profile_pending_peer",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "lagu_jambi",
+            "name": "Lagu Jambi",
+            "family": "vernacular",
+            "lineage": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified. Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "artMusic",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": -2,
+              "timbre": 0,
+              "percussion": -1,
+              "cyclicity": 0
+            },
+            "description": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified. Lagu Jambi is the regional Jambi song/repertoire field, including locally issued popular versions and inherited named melodies. The provincial government cultural inventory lists Angso Duo, Batanghari and Ketimun Bungkuk as distinct songs of Kota Jambi; the exact creator programme contains Batang Hari and Ketimun Bungkuk alongside contemporary regional releases. The selected composer independently identifies Angso Duo as a Jambi regional song, providing a positive regional-repertoire bridge. Neither Sukarlan nor Angso Duo was found in that creator playlist; no exact membership is claimed. This is a complete concert transformation of one locally identified melody, not proof that the wider field is piano music. Full existing Indonesian pop already includes many national popular practices, and Indonesian folk includes contemporary acoustic acts; neither is defined only by its selected example. Lagu Melayu covers broad Malay asli/joget/inang/zapin heritage and can overlap Jambi, but is not this specific regional publishing/repertoire field. Queued Lagu Aceh and Lagu Maluku are separate regional song fields, not all Indonesian piano transformations. Indonesian indigenous traditions span the archipelago and likewise overlap rather than exclude Jambi heritage. Regional institutional identification, not a different pianist or instrument choice alone, supports this narrower entry. Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers.",
+            "exemplars": [
+              "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, issued piano-solo work"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore sung regional-song default with meaningful guitar and bass support instead of one composed piano fugue. Existing first-party regional song inventory establishes repertoire; indexed academic practice supports contemporary acoustic accompaniment. This compact singer/guitar/bass core is representative, not a purported full transcription. Authored functional-harmonic verse–chorus–bridge arrangement does not redefine every Jambi traditional form.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-2.json"
+      },
+      "source_scope_limitation": "Original named-source programme remains historical evidence; current profile and defaults describe the wider genre.",
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "rationale": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified.",
+          "selected_scope": "Complete independently issued Prelude & Fugue on Angso Duo",
+          "roles": [
+            {
+              "instrument": "upright_piano",
+              "source_role": "Whole piano-solo composition",
+              "authored_realization": "Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers."
+            }
+          ],
+          "omissions": "No positively scored role omitted. Beethoven motif does not import original symphony orchestra; other anthology works excluded."
+        },
+        "vocal_count_audit": {
+          "credited_selected_singers": [],
+          "selected_count": 0,
+          "count_basis": "Composer explicitly places complete work in piano-solo category.",
+          "decision": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified."
+        },
+        "scope": "Original documentary programme only, not the revised representative genre default."
+      }
+    },
+    {
+      "source_label": "lagu maluku",
+      "source_url": "https://everynoise.com/engenremap-lagumaluku.html",
+      "suggested_id": "lagu_maluku",
+      "allocation_ordinal": 3654,
+      "allocation_group_id": "147",
+      "status": "genre_profile_pending_peer",
+      "id": "lagu_maluku",
+      "tradition": {
+        "id": "lagu_maluku",
+        "name": "Lagu Maluku",
+        "family": "vernacular",
+        "lineage": "Lagu Maluku encompasses the regional song repertoire of the Maluku islands, sustained through communal singing, recordings and instrumental adaptations. Familiar songs such as Buka Pintu, Sarinande and Rasa Sayange circulate across generations and beyond the region.",
+        "instruments": [
+          "voice",
+          "ukulele"
+        ],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "ukulele_size": "ukulele_soprano",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_koa"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Clear vocal melodies and shared refrains interact with strummed accompaniment. Ukulele is prominent in Ambon’s musical life, alongside guitar, local percussion, wind ensembles and diverse contemporary band settings.",
+        "exemplars": [
+          "Buka Pintu",
+          "Sarinande",
+          "Rasa Sayange"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -3.6954,
+        128.1814,
+        "Ambon",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Approximate Maluku repertoire anchor, not the pianist birthplace,2010 performance venue or an exact song-origin coordinate.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://musik-sastra.com/index.php/news/28-main/news/news2/37-ananda-sukarlan-award-national-piano-competition-20-25-juli-2010",
+          "support_notes": "Fresh10952view1 organizer gives complete eight-minute piano work as final-round requirement.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://musik-sastra.com/index.php/links/28-main/news/news2/51-what-next-a-busy-post-ananda-sukarlan-award-period",
+          "support_notes": "Fresh10952view0 actual organizer post-event report confirms EdithWidayani performedRapsodia4; other plannedensemblework explicitly separate.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://andystarblogger.blogspot.com/2013/06/",
+          "support_notes": "Fresh indexed10919search0 complete composer programme notes identify fourthrhapsody BukaPintu and Maluku source. Genuine unmodified receipt manado-composer-indexed-sourceaudit.json retained.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://andystarblogger.blogspot.com/2011/01/",
+          "support_notes": "Fresh indexed10947search0 firstperson composer interview explicitly says entire fourthrhapsody variations onBukaPintu, piano treatment and EdithWidayani performance. Early provisional eighthwork numbering not used.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://ambon.go.id/implementasi-ambon-city-of-music-pemkot-ambon-siapkan-kurikulum-musik/",
+          "title": "Ambon own municipal music curriculum",
+          "support_notes": "Fresh13673search2 ukulele/tifa/flute/totobuang teaching as regional heritage, not universal simultaneous ensemble."
+        },
+        {
+          "url": "https://www.unesco.org/en/creative-cities/ambon",
+          "title": "UNESCO Ambon musical community",
+          "support_notes": "Fresh13673search0 regional musicians/songwriters; broad community support."
+        }
+      ],
+      "neighbor_distinction": "Lagu Maluku is the regional song-repertoire field positively identified in the composer’s own discussion of Buka Pintu and the distinct Maluku tunes Sarinande and Rasa Sayange. The latter tunes are not imported into this selected fourth rhapsody. Existing Indonesian folk and Indonesian pop are broader national categories, whose full scopes are not restricted to their selected artists. Queued Indonesian Indigenous Traditional is also a broad national heritage field; queued Lagu Aceh and proposed Lagu Manado name different positively identified regional repertoires. Overlap with national heritage/pop categories is retained; this regional source-repertoire axis is not an instrumental style or composer-nationality distinction. No exact creator-list membership is claimed. Actual existing lagu_timur expressly includes Maluku/Banda within its wider cross-regional Eastern Indonesian contemporary-song field. Lagu Maluku is the narrower named regional repertoire axis within that overlapping coverage; it is not newly claimed territory absent from Lagu Timur, and the full existing umbrella is not reduced to Rayen Pono alone.",
+      "model_policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore communal sung/strummed Maluku repertoire rather than compulsory Ananda concert-piano variation. Full17voice and3ukulele controls retained; standard ukulele construction is authored. Municipality positively documents this instrument practice and repertoire sources establish sung songs. Functional-harmonic verse–chorus–bridge is a representative accessible song rendition, not an assertion about every inherited song.",
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "classification_evidence": {
+        "mode": "composer_identified_regional_song_and_complete_presenter_documented_work",
+        "note": "Lagu Maluku is the regional song-repertoire field positively identified in the composer’s own discussion of Buka Pintu and the distinct Maluku tunes Sarinande and Rasa Sayange. The latter tunes are not imported into this selected fourth rhapsody. Existing Indonesian folk and Indonesian pop are broader national categories, whose full scopes are not restricted to their selected artists. Queued Indonesian Indigenous Traditional is also a broad national heritage field; queued Lagu Aceh and proposed Lagu Manado name different positively identified regional repertoires. Overlap with national heritage/pop categories is retained; this regional source-repertoire axis is not an instrumental style or composer-nationality distinction. No exact creator-list membership is claimed. Actual existing lagu_timur expressly includes Maluku/Banda within its wider cross-regional Eastern Indonesian contemporary-song field. Lagu Maluku is the narrower named regional repertoire axis within that overlapping coverage; it is not newly claimed territory absent from Lagu Timur, and the full existing umbrella is not reduced to Rayen Pono alone."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore communal sung/strummed Maluku repertoire rather than compulsory Ananda concert-piano variation. Full17voice and3ukulele controls retained; standard ukulele construction is authored. Municipality positively documents this instrument practice and repertoire sources establish sung songs. Functional-harmonic verse–chorus–bridge is a representative accessible song rendition, not an assertion about every inherited song."
+        },
+        {
+          "instrument": "ukulele",
+          "parts": {
+            "ukulele_size": "ukulele_soprano",
+            "ukulele_style": "ukulele_strum",
+            "ukulele_wood": "ukulele_koa"
+          },
+          "policy": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore communal sung/strummed Maluku repertoire rather than compulsory Ananda concert-piano variation. Full17voice and3ukulele controls retained; standard ukulele construction is authored. Municipality positively documents this instrument practice and repertoire sources establish sung songs. Functional-harmonic verse–chorus–bridge is a representative accessible song rendition, not an assertion about every inherited song."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Single upright owner, three applicable controls protected; no fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn10952view0",
+        "turn10952view1",
+        "turn10919search0",
+        "turn10947search0"
+      ],
+      "source_scope_limitation": "Original named-source programme remains historical evidence; current profile and defaults describe the wider genre.",
+      "source_retrieval_caveat": "Fresh full organizer competition and completion-report pages read. Complete composer2013 notes freshly recovered indexed; original blog direct unavailable. No audio audition/fullscore read asserted.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_maluku",
+          "name": "Lagu Maluku",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not a piano, artist or Maluku-specific instrument.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10889view2 confirms Iain Fergusson/Binksternet crop and CC BY2.5. Exact historical byte receipt retained; no new transfer.",
+          "fresh_review_ref": "turn10889view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn10889view2"
+        ]
+      },
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "lagu_maluku",
+            "name": "Lagu Maluku",
+            "family": "vernacular",
+            "lineage": "Complete Ananda Sukarlan Rapsodia Nusantara no.4, the eight-minute piano composition required in the2010 national piano competition and positively reported by its organizing Indonesian Classical Music Foundation as performed by winner Edith Widayani. The composer describes the whole work as variations on Buka Pintu and identifies this underlying song as Maluku material. This selects the complete fixed solo-piano work, retaining one piano and zero singers, not a partial reduction of the separate choir/orchestra/angklung Stanza Suara mentioned in the organizer’s next paragraph. Eight minutes is the published work duration, not a measured recording length. No recording audition or full-score inspection claimed. Authored standard studio upright and connected classical legato realize source-unspecified piano construction; no actual model or measured technique is asserted. Broad artMusic follows the complete composed concert variation work, not the entire regional song field. No original folk tuning, singer, language, signal chain or recording location is inferred. Controlled live-room listening presentation is authored.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "artMusic",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Complete Ananda Sukarlan Rapsodia Nusantara no.4, the eight-minute piano composition required in the2010 national piano competition and positively reported by its organizing Indonesian Classical Music Foundation as performed by winner Edith Widayani. The composer describes the whole work as variations on Buka Pintu and identifies this underlying song as Maluku material. This selects the complete fixed solo-piano work, retaining one piano and zero singers, not a partial reduction of the separate choir/orchestra/angklung Stanza Suara mentioned in the organizer’s next paragraph. Eight minutes is the published work duration, not a measured recording length. No recording audition or full-score inspection claimed. Lagu Maluku is the regional song-repertoire field positively identified in the composer’s own discussion of Buka Pintu and the distinct Maluku tunes Sarinande and Rasa Sayange. The latter tunes are not imported into this selected fourth rhapsody. Existing Indonesian folk and Indonesian pop are broader national categories, whose full scopes are not restricted to their selected artists. Queued Indonesian Indigenous Traditional is also a broad national heritage field; queued Lagu Aceh and proposed Lagu Manado name different positively identified regional repertoires. Overlap with national heritage/pop categories is retained; this regional source-repertoire axis is not an instrumental style or composer-nationality distinction. No exact creator-list membership is claimed. Actual existing lagu_timur expressly includes Maluku/Banda within its wider cross-regional Eastern Indonesian contemporary-song field. Lagu Maluku is the narrower named regional repertoire axis within that overlapping coverage; it is not newly claimed territory absent from Lagu Timur, and the full existing umbrella is not reduced to Rayen Pono alone. Authored standard studio upright and connected classical legato realize source-unspecified piano construction; no actual model or measured technique is asserted. Broad artMusic follows the complete composed concert variation work, not the entire regional song field. No original folk tuning, singer, language, signal chain or recording location is inferred. Controlled live-room listening presentation is authored.",
+            "exemplars": [
+              "Edith Widayani — complete Ananda Sukarlan Rapsodia Nusantara no.4, ASA2010"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Concise genre history/style replaces original programme and edition dossier; all complete prior documentary roles remain preserved in immutable source packet and before snapshot. Restore communal sung/strummed Maluku repertoire rather than compulsory Ananda concert-piano variation. Full17voice and3ukulele controls retained; standard ukulele construction is authored. Municipality positively documents this instrument practice and repertoire sources establish sung songs. Functional-harmonic verse–chorus–bridge is a representative accessible song rendition, not an assertion about every inherited song.",
+        "original_packet": "/tmp/batch038/recovery147-149-secondpass-3-boundary-clarified-sourceaudit.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "scope": "Complete Ananda Sukarlan Rapsodia Nusantara no.4, the eight-minute piano composition required in the2010 national piano competition and positively reported by its organizing Indonesian Classical Music Foundation as performed by winner Edith Widayani. The composer describes the whole work as variations on Buka Pintu and identifies this underlying song as Maluku material. This selects the complete fixed solo-piano work, retaining one piano and zero singers, not a partial reduction of the separate choir/orchestra/angklung Stanza Suara mentioned in the organizer’s next paragraph. Eight minutes is the published work duration, not a measured recording length. No recording audition or full-score inspection claimed.",
+          "authored_defaults": "Authored standard studio upright and connected classical legato realize source-unspecified piano construction; no actual model or measured technique is asserted. Broad artMusic follows the complete composed concert variation work, not the entire regional song field. No original folk tuning, singer, language, signal chain or recording location is inferred. Controlled live-room listening presentation is authored."
+        },
+        "vocal_count_audit": {
+          "selected_count": 0,
+          "decision": "Complete fixed piano competition work; no vocal role."
+        },
+        "scope": "Original documentary programme only, not the revised representative genre default."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

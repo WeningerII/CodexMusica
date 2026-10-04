@@ -1,0 +1,549 @@
+{
+  "entries": [
+    {
+      "source_label": "cumbia santafesina",
+      "source_url": "https://everynoise.com/engenremap-cumbiasantafesina.html",
+      "suggested_id": "cumbia_santafesina",
+      "allocation_ordinal": 3110,
+      "allocation_group_id": "125",
+      "id": "cumbia_santafesina",
+      "tradition": {
+        "id": "cumbia_santafesina",
+        "name": "Cumbia Santafesina",
+        "family": "pop",
+        "lineage": "Los Girasoles — complete current five-person stage practice described firsthand by leader Carlos Núñez in the30September2026 Radio La Ranchada interview: himself guitar/voice, Octapad player, timbales player, congas player and bassist. One positively named singer, five people and six instrument-family cards because voice/guitar doubles. This is the whole explicitly enumerated stage ensemble, not assumed instrumentation of the separately mentioned A mi querida madre single or an arbitrary reduced old Grupo Cali roster. No duration, tracklist, individual backing-member names, exact Octapad model or audio audition claimed. The interview explicitly contrasts the real band practice with soloists over backing tracks; no backing-master or invented guest imported. Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "timbales_stick_played",
+          "congas",
+          "octapad_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak",
+          "timbales_playing": "timbales_stick_pattern",
+          "timbales_shell": "timbales_steel",
+          "timbales_context": "timbales_son",
+          "octapad_unspecified_layout": "octapad_unspecified_eight_pad_layout",
+          "octapad_unspecified_playing": "octapad_unspecified_stick_strikes",
+          "octapad_unspecified_sound_routing": "octapad_unspecified_generator_unknown"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Los Girasoles — complete current five-person stage practice described firsthand by leader Carlos Núñez in the30September2026 Radio La Ranchada interview: himself guitar/voice, Octapad player, timbales player, congas player and bassist. One positively named singer, five people and six instrument-family cards because voice/guitar doubles. This is the whole explicitly enumerated stage ensemble, not assumed instrumentation of the separately mentioned A mi querida madre single or an arbitrary reduced old Grupo Cali roster. No duration, tracklist, individual backing-member names, exact Octapad model or audio audition claimed. The interview explicitly contrasts the real band practice with soloists over backing tracks; no backing-master or invented guest imported. Cumbia Santafesina is the documented Santa Fe cumbia community and guitar/accordion lineages, not simply any band born in Santa Fe. Firsthand radio identifies this group and practice within that named field; Argentine interpreters association AADI separately documents Juan Carlos Denis/Los del Bohío guitar-led historical development away from the earlier Colombian accordion model. The earlier municipal Grupo Cali source confirms the parallel accordion-led practice; it is not omitted from a purported universal genre definition. Full cumbia_colombiana includes original Caribbean roots and international commercial spread; the Santa Fe field overlaps that ancestry but has a positively documented local historical network. Full cumbia_pop crosses Argentina/Uruguay/Mexico as a radio-facing hybrid, not all Santafesina history. Cumbia electrónica is sample/remix-production practice; a live Octapad does not automatically make this the same field. Cumbia villera, Peruvian, Uruguayan and Mexican regional traditions overlap repertoire/instruments without making their whole scope Santa Fe. Not a claim that guitars alone distinguish categories or all bands use this source palette. Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims. The generated up-tempo voice describes an authored brisk live-band rendition, not a measured original BPM or uniform tempo of the source practice.",
+        "exemplars": [
+          "Los Girasoles — Carlos Núñez complete current five-person stage practice, Radio La Ranchada30September2026"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -31.6333,
+        -60.7,
+        "Santa Fe",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Source identifies Santa Fe band/community; approximate city anchor, not Córdoba interview-studio or a measured live performance location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Cumbia Santafesina is the documented Santa Fe cumbia community and guitar/accordion lineages, not simply any band born in Santa Fe. Firsthand radio identifies this group and practice within that named field; Argentine interpreters association AADI separately documents Juan Carlos Denis/Los del Bohío guitar-led historical development away from the earlier Colombian accordion model. The earlier municipal Grupo Cali source confirms the parallel accordion-led practice; it is not omitted from a purported universal genre definition. Full cumbia_colombiana includes original Caribbean roots and international commercial spread; the Santa Fe field overlaps that ancestry but has a positively documented local historical network. Full cumbia_pop crosses Argentina/Uruguay/Mexico as a radio-facing hybrid, not all Santafesina history. Cumbia electrónica is sample/remix-production practice; a live Octapad does not automatically make this the same field. Cumbia villera, Peruvian, Uruguayan and Mexican regional traditions overlap repertoire/instruments without making their whole scope Santa Fe. Not a claim that guitars alone distinguish categories or all bands use this source palette.",
+      "classification_evidence": "Cumbia Santafesina is the documented Santa Fe cumbia community and guitar/accordion lineages, not simply any band born in Santa Fe. Firsthand radio identifies this group and practice within that named field; Argentine interpreters association AADI separately documents Juan Carlos Denis/Los del Bohío guitar-led historical development away from the earlier Colombian accordion model. The earlier municipal Grupo Cali source confirms the parallel accordion-led practice; it is not omitted from a purported universal genre definition. Full cumbia_colombiana includes original Caribbean roots and international commercial spread; the Santa Fe field overlaps that ancestry but has a positively documented local historical network. Full cumbia_pop crosses Argentina/Uruguay/Mexico as a radio-facing hybrid, not all Santafesina history. Cumbia electrónica is sample/remix-production practice; a live Octapad does not automatically make this the same field. Cumbia villera, Peruvian, Uruguayan and Mexican regional traditions overlap repertoire/instruments without making their whole scope Santa Fe. Not a claim that guitars alone distinguish categories or all bands use this source palette.",
+      "model_policy": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims. The generated up-tempo voice describes an authored brisk live-band rendition, not a measured original BPM or uniform tempo of the source practice.",
+      "sources": [
+        {
+          "url": "https://laranchada.com.ar/los-girasoles-lanzan-propuesta-para-el-mes-de-la-madre-y-reflexionan-sobre-la-crisis-en-la-musica-y-la-irrupcion-de-la-ia/",
+          "support_notes": "12323search0/12363search0 full first-person interview body exactly enumerates five players; source-scoped current whole stage practice.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.aadim.org.ar/uploads/informaadi/2/boletin_2.pdf",
+          "support_notes": "12363search2 full interpreters-association historical Santa Fe guitar-led cumbia community; not source performance personnel.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.concejosantafe.gov.ar/noticias/4733-homenajearon-a-dario-zanco-por-su-trayectoria-en-la-cumbia-santafesina/",
+          "support_notes": "Inherited prior-source local institutional parallel accordion-led Grupo Cali practice; no import of its roles.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://articles.roland.com/redefining-rhythm-a-history-of-roland-drums/",
+          "support_notes": "12324search7 maker explains eight-pad PAD8/80 trigger history and later internal-sound evolution.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.roland.com/Global/products/octapad_spd-30/",
+          "support_notes": "12324search0 maker explicitly contrasts old MIDI-only PAD8 and SPD30 internal sounds; current source model unknown, so do not select existing SPD30-specific owner.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "performer_count": 5,
+        "basis": "Firsthand five-stage-player roster names guitar-and-voice together and four additional instrumental roles; all source-positive voices retained, no invented backing singers."
+      },
+      "instrument_role_audit": {
+        "scope": "Los Girasoles — complete current five-person stage practice described firsthand by leader Carlos Núñez in the30September2026 Radio La Ranchada interview: himself guitar/voice, Octapad player, timbales player, congas player and bassist. One positively named singer, five people and six instrument-family cards because voice/guitar doubles. This is the whole explicitly enumerated stage ensemble, not assumed instrumentation of the separately mentioned A mi querida madre single or an arbitrary reduced old Grupo Cali roster. No duration, tracklist, individual backing-member names, exact Octapad model or audio audition claimed. The interview explicitly contrasts the real band practice with soloists over backing tracks; no backing-master or invented guest imported.",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Núñez voice",
+            "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+          },
+          {
+            "instrument": "electric_guitar_humbucker",
+            "source_role": "Núñez guitar",
+            "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+          },
+          {
+            "instrument": "electric_bass",
+            "source_role": "Bass",
+            "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+          },
+          {
+            "instrument": "timbales_stick_played",
+            "source_role": "Timbales",
+            "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+          },
+          {
+            "instrument": "congas",
+            "source_role": "Congas",
+            "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+          },
+          {
+            "instrument": "octapad_unspecified",
+            "source_role": "Octapad",
+            "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+          }
+        ],
+        "omissions": "None in full stated current band. Mentioned single is not modeled as an undocumented studio master."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+        },
+        {
+          "instrument": "timbales_stick_played",
+          "parts": {
+            "timbales_playing": "timbales_stick_pattern",
+            "timbales_shell": "timbales_steel",
+            "timbales_context": "timbales_son"
+          },
+          "policy": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+        },
+        {
+          "instrument": "congas",
+          "parts": {
+            "percussion_technique": "percussion_hands_layered",
+            "conga_set": "conga_proper",
+            "conga_skin": "conga_cowhide",
+            "conga_shell_wood": "conga_siam_oak"
+          },
+          "policy": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+        },
+        {
+          "instrument": "octapad_unspecified",
+          "parts": {
+            "octapad_unspecified_layout": "octapad_unspecified_eight_pad_layout",
+            "octapad_unspecified_playing": "octapad_unspecified_stick_strikes",
+            "octapad_unspecified_sound_routing": "octapad_unspecified_generator_unknown"
+          },
+          "policy": "Broad functionalSong is an explicitly authored functional-harmonic verse–chorus–bridge song realization, not a measured claim about every source performance. Generic source guitar and bass receive candid modern electric realizations: clean-strummed alder humbucker guitar/maple neck/rosewood board/pure nickel strings and alder long-scale fretted soapbar bass/fingerstyle roundwounds; source exact electrical architecture/materials unknown. Shared alder body is coherent on both, all owning controls retained. Timbales retain stick-played steel-shell model with an authored foundational paila pattern, not an assertion of actual Cuban-son repertoire. Congas retain hands-layered middle-register Siam-oak/cowhide realization; middle role is an editorial representative register, not proof source had only one drum. Source-unspecified voice physiology stays neutral; single accompanied live lead and current-stage/no-overdub rendition are editorial realization of the documented one-singer live band, not studio single tracking. New Octapad identity preserves the positive multipad electronic trigger role while actual model/internal-or-external generator/presets/routing remain unknown. Manufacturer establishes8-pad Octapad architecture across PAD8/SPD30 history; no rubber, MIDI-only or internal-sampler sound assumed. Authored stick strikes and live dynamics are credible playing choices, not measured source strokes. Controlled live room is editorial; no historic gear/capture/tuning claims."
+        }
+      ],
+      "dependency_audit": "One legitimate model-unspecified Octapad multipad controller identity. Existing SPD30 owner hardcodes internal bank; electronic drumkit represents kit rather than tabletop multipad; generic electronics loses positive pad architecture. No existing owner edited.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All applicable owning parts protected; same compatible alder body wood on electric guitar and bass, no fallback override claim.",
+      "primary_retrieval_refs": [
+        "turn12323search0",
+        "turn12363search0",
+        "turn12363search2",
+        "turn12324search7",
+        "turn12324search0"
+      ],
+      "source_retrieval_caveat": "Fresh full indexed firsthand radio interview12323search0/12363search0 closes whole current practice; direct12319view0 timed out. Manufacturer primary differentiates early external-controller and later internal-sound Octapad architectures. No full-audio audition claimed.",
+      "source_scope_limitation": "Los Girasoles — complete current five-person stage practice described firsthand by leader Carlos Núñez in the30September2026 Radio La Ranchada interview: himself guitar/voice, Octapad player, timbales player, congas player and bassist. One positively named singer, five people and six instrument-family cards because voice/guitar doubles. This is the whole explicitly enumerated stage ensemble, not assumed instrumentation of the separately mentioned A mi querida madre single or an arbitrary reduced old Grupo Cali roster. No duration, tracklist, individual backing-member names, exact Octapad model or audio audition claimed. The interview explicitly contrasts the real band practice with soloists over backing tracks; no backing-master or invented guest imported.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cumbia_santafesina",
+          "name": "Cumbia Santafesina",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not artist, source instrument, Octapad or actual equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes and visual receipt inherited; no fresh download claimed.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      },
+      "verification_status": "Author candidate pending independent full primary/dependency/four-format review.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "octapad_unspecified",
+        "name": "Octapad multipad percussion (model and sound routing unspecified)",
+        "short": "Octapad multipad percussion",
+        "family": "electronic",
+        "class": "octapad_unspecified",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "description": "Positive Octapad multipad percussion role. Eight-trigger product-family layout; source model, surface material, generator, presets and external routing unknown. Independent physical layout, authored strike gesture and generator-uncertainty controls preserve what is known without turning the source into a drum kit or asserting SPD30 internal sound bank. Neutral axes are editorial placeholders, not acoustic measurements.",
+        "sources": [
+          "https://laranchada.com.ar/los-girasoles-lanzan-propuesta-para-el-mes-de-la-madre-y-reflexionan-sobre-la-crisis-en-la-musica-y-la-irrupcion-de-la-ia/",
+          "https://articles.roland.com/redefining-rhythm-a-history-of-roland-drums/"
+        ],
+        "parts": [
+          {
+            "id": "octapad_unspecified_layout",
+            "name": "Documented multipad layout",
+            "variants": [
+              {
+                "id": "octapad_unspecified_eight_pad_layout",
+                "name": "Eight-trigger Octapad layout; exact model and pad material unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "octapad_unspecified_playing",
+            "name": "Authored trigger gesture",
+            "variants": [
+              {
+                "id": "octapad_unspecified_stick_strikes",
+                "name": "Authored live stick-struck pad gesture; source strokes unspecified",
+                "default": true,
+                "descriptors": [
+                  "sticks",
+                  "struck"
+                ],
+                "match_tokens": [
+                  "sticks",
+                  "struck"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "octapad_unspecified_sound_routing",
+            "name": "Sound-source and routing uncertainty",
+            "variants": [
+              {
+                "id": "octapad_unspecified_generator_unknown",
+                "name": "Internal or external sound generator and presets undocumented",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "octapad_unspecified",
+        "name": "Octapad multipad percussion (model and sound routing unspecified)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording microphone context, not an Octapad or any source device.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "octapad_unspecified",
+          "name": "Octapad multipad percussion (model and sound routing unspecified)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not an Octapad or any source device.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes and visual receipt inherited; no fresh download claimed.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      },
+      "sources": [
+        "https://laranchada.com.ar/los-girasoles-lanzan-propuesta-para-el-mes-de-la-madre-y-reflexionan-sobre-la-crisis-en-la-musica-y-la-irrupcion-de-la-ia/",
+        "https://articles.roland.com/redefining-rhythm-a-history-of-roland-drums/",
+        "https://www.roland.com/Global/products/octapad_spd-30/"
+      ],
+      "rationale": "One legitimate model-unspecified Octapad multipad controller identity. Existing SPD30 owner hardcodes internal bank; electronic drumkit represents kit rather than tabletop multipad; generic electronics loses positive pad architecture. No existing owner edited."
+    }
+  ],
+  "status": "candidate_for_independent_review"
+}

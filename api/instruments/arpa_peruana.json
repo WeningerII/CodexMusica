@@ -1,0 +1,188 @@
+{
+  "id": "arpa_peruana",
+  "name": "Arpa peruana (Peruvian folk harp)",
+  "short": "arpa peruana",
+  "family": "acoustic_strings",
+  "class": "plucked_harp",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "arpa_peruana_form",
+      "name": "Frame and resonator form",
+      "variants": [
+        {
+          "id": "arpa_peruana_triangular_resonator",
+          "name": "Triangular frame and enlarged resonance box; dimensions unknown",
+          "default": true,
+          "descriptors": [
+            "resonant"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_wood",
+      "name": "Soundbox wood",
+      "variants": [
+        {
+          "id": "cedar",
+          "name": "Cedar",
+          "default": true,
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "responsive",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_configuration",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "arpa_peruana_configuration_unknown",
+          "name": "Regional string count and mixed material allocation unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_tuning",
+      "name": "Tuning layout",
+      "variants": [
+        {
+          "id": "arpa_peruana_diatonic_variable",
+          "name": "Diatonic layout; exact key, range and pitch standard unknown",
+          "default": true,
+          "descriptors": [
+            "diatonic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_gesture",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "arpa_peruana_two_hand_plucking",
+          "name": "Both-hand finger plucking; bass and treble regions",
+          "default": true,
+          "descriptors": [
+            "finger-plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Peruvian triangular folk harp with large resonator and diatonic layout; variable regional count/material distribution is not reduced to one national string recipe. Cedar is authored documented construction, not universal or measured source wood. Separate form, soundbox, configuration, tuning and gesture controls; no pedal/lever assumption. Numeric axes representative acoustic-plucked scaffolding.",
+  "sources": [
+    "https://revistas.unm.edu.pe/index.php/Antec/article/download/258/989/3487",
+    "https://www.claude-ferrier.ch/documents/ClaudeFerrier-Elarpaperuana.pdf",
+    "https://folkways.si.edu/music-of-peru/b/latin-world/album/smithsonian"
+  ],
+  "_ownParts": [
+    {
+      "id": "arpa_peruana_form",
+      "name": "Frame and resonator form",
+      "variants": [
+        {
+          "id": "arpa_peruana_triangular_resonator",
+          "name": "Triangular frame and enlarged resonance box; dimensions unknown",
+          "default": true,
+          "descriptors": [
+            "resonant"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_wood",
+      "name": "Soundbox wood",
+      "variants": [
+        {
+          "id": "cedar",
+          "name": "Cedar",
+          "default": true,
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "responsive",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_configuration",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "arpa_peruana_configuration_unknown",
+          "name": "Regional string count and mixed material allocation unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_tuning",
+      "name": "Tuning layout",
+      "variants": [
+        {
+          "id": "arpa_peruana_diatonic_variable",
+          "name": "Diatonic layout; exact key, range and pitch standard unknown",
+          "default": true,
+          "descriptors": [
+            "diatonic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "arpa_peruana_gesture",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "arpa_peruana_two_hand_plucking",
+          "name": "Both-hand finger plucking; bass and treble regions",
+          "default": true,
+          "descriptors": [
+            "finger-plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

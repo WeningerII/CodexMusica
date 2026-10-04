@@ -1,0 +1,266 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ny_roots",
+          "name": "NY Roots",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not source performer, New York venue or actual source gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh330848view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5;023 historical bytes/visual exact.",
+          "fresh_review_ref": "turn330848view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh330848view0; no freshbytes/visual claim.",
+        "fresh_rights_retrieval_refs": [
+          "turn330848view0"
+        ]
+      },
+      "source_label": "ny roots",
+      "source_url": "https://everynoise.com/engenremap-nyroots.html",
+      "suggested_id": "ny_roots",
+      "allocation_ordinal": 4054,
+      "allocation_group_id": "163",
+      "id": "ny_roots",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "ny_roots",
+        "name": "NY Roots",
+        "family": "vernacular",
+        "lineage": "Sawyer Fredericks — complete solo Man of Constant Sorrow opening performance, Summer Jam, Saratoga Performing Arts Center, June6,2015. Eyewitness positively specifies singer/acoustic guitar and photo caption a pick. This selects that whole presented song, not an excerpt or an assumed album reduction; other festival acts are separate. One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry.angloSingerSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "NY Roots identifies New York’s regional roots-performance community, positively tied to the exact creator corpus across Donna the Buffalo, Richie Stearns, the Horse Flies, Driftwood, the Mammals and Sawyer Fredericks46. The WEXT/WMHT organizer independently documents a regional roots-and-rock institution linking Fredericks to Capital Region performers; Caffe Lena and the artist independently describe his formative local markets/open mics and New York folk venues. Existing roots_americana is a broad roots-Americana field with a Charlie Parr exemplar, not a Minnesota-only field; regional NY practice overlaps it rather than being sonically exclusive. Existing roots_rock describes the older rock-market return to American forms, not every contemporary regional folk, roots-reggae and songwriter network. Existing new_england_americana is a neighboring regional field, whose David Wax Museum example does not define its entire repertoire; New York community is not New England. Existing albany_ny_indie represents overlapping independent-rock institutions in one New York city; the multi-city roots corpus is neither all Albany indie nor defined merely by a different acoustic song. Creator range and independently documented regional institutions establish the category, not this selected solo format. One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer.",
+        "exemplars": [
+          "Sawyer Fredericks — complete solo Man of Constant Sorrow, Saratoga2015"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.0831,
+        -73.7851,
+        "Saratoga Springs",
+        "North America"
+      ],
+      "geo_rationale": "Documented festival locality; authored recording room is distinct from the original outdoor setting.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.timesunion.com/preview/article/People-in-the-news-6311872.php",
+          "support_notes": "Fresh518140view0 firsthand complete opening-song description, venue/date and pick caption; no audio audition."
+        },
+        {
+          "url": "https://www.wextradio.org/local-518/2025-05-18/the-inaugural-wext-local-518-fest",
+          "support_notes": "Fresh518140view1 public-radio organizer regional roots/rock community and selected artist; later band appearance is community evidence only, not2015 instrumentation."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2B97nCsJ1YtOYIbioQp81E",
+          "support_notes": "Fresh518140view2 full100creator roster, Fredericks46; exact selectedsong not asserted playlistmember."
+        },
+        {
+          "url": "https://www.sawyerfredericks.com/about.html",
+          "support_notes": "Fresh452943search2 artist-owned New York roots/folk/blues biography and local formative venues; later album credits not transferred."
+        }
+      ],
+      "neighbor_distinction": "NY Roots identifies New York’s regional roots-performance community, positively tied to the exact creator corpus across Donna the Buffalo, Richie Stearns, the Horse Flies, Driftwood, the Mammals and Sawyer Fredericks46. The WEXT/WMHT organizer independently documents a regional roots-and-rock institution linking Fredericks to Capital Region performers; Caffe Lena and the artist independently describe his formative local markets/open mics and New York folk venues. Existing roots_americana is a broad roots-Americana field with a Charlie Parr exemplar, not a Minnesota-only field; regional NY practice overlaps it rather than being sonically exclusive. Existing roots_rock describes the older rock-market return to American forms, not every contemporary regional folk, roots-reggae and songwriter network. Existing new_england_americana is a neighboring regional field, whose David Wax Museum example does not define its entire repertoire; New York community is not New England. Existing albany_ny_indie represents overlapping independent-rock institutions in one New York city; the multi-city roots corpus is neither all Albany indie nor defined merely by a different acoustic song. Creator range and independently documented regional institutions establish the category, not this selected solo format.",
+      "model_policy": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer.",
+      "classification_evidence": "NY Roots identifies New York’s regional roots-performance community, positively tied to the exact creator corpus across Donna the Buffalo, Richie Stearns, the Horse Flies, Driftwood, the Mammals and Sawyer Fredericks46. The WEXT/WMHT organizer independently documents a regional roots-and-rock institution linking Fredericks to Capital Region performers; Caffe Lena and the artist independently describe his formative local markets/open mics and New York folk venues. Existing roots_americana is a broad roots-Americana field with a Charlie Parr exemplar, not a Minnesota-only field; regional NY practice overlaps it rather than being sonically exclusive. Existing roots_rock describes the older rock-market return to American forms, not every contemporary regional folk, roots-reggae and songwriter network. Existing new_england_americana is a neighboring regional field, whose David Wax Museum example does not define its entire repertoire; New York community is not New England. Existing albany_ny_indie represents overlapping independent-rock institutions in one New York city; the multi-city roots corpus is neither all Albany indie nor defined merely by a different acoustic song. Creator range and independently documented regional institutions establish the category, not this selected solo format.",
+      "vocal_count_audit": {
+        "selected_singing_roles": 1,
+        "decision": "One solo lead; ambient festival cheering is not invented as an arranged backing choir."
+      },
+      "instrument_role_audit": {
+        "scope": "Complete selected song interpretation, source evidence above.",
+        "roles": {
+          "voice": "One self-accompanied singer",
+          "acoustic_guitar_dread": "One acoustic guitar; physical subtype authored"
+        },
+        "authored_defaults": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All22applicable owning parts protected; no shared conflicts or fallback."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer."
+        }
+      ],
+      "verification_status": "Original loader22protected controls, zeroerrors/fallbacks,1638existingownersunchanged. Four original browser/connector renders max458characters inspected; huge/immense spatial prefaces reflect explicitly authored concert-hall rendition, not performer physiology or source outdoor space. No unrelated cultural style rendered. Final integrated signatures/static/API remain root gates.",
+      "source_scope_limitation": "Sawyer Fredericks — complete solo Man of Constant Sorrow opening performance, Summer Jam, Saratoga Performing Arts Center, June6,2015. Eyewitness positively specifies singer/acoustic guitar and photo caption a pick. This selects that whole presented song, not an excerpt or an assumed album reduction; other festival acts are separate.",
+      "source_review_refs": [
+        "turn518140view0",
+        "turn518140view1",
+        "turn518140view2",
+        "turn452943search2",
+        "turn330848view0"
+      ],
+      "source_retrieval_caveat": "Full eyewitness and organizer/creator primary directly retrieved; artist biography freshly indexed. Original audio not inspected. All source scenes are date-scoped.",
+      "primary_retrieval_refs": [
+        "turn518140view0",
+        "turn518140view1",
+        "turn518140view2",
+        "turn452943search2"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

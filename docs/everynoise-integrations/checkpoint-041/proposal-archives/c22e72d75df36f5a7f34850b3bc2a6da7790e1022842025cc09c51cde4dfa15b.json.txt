@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/new-lagu-tarling-genre-profile.json",
+  "sha256": "46cbc6c1901609cb6d8be0ab8005bb88c6dc52e2902eb37048e222af256ca703",
+  "reviewer": "research_116",
+  "source_judgment": "Previously independently reviewed original 2023 ISBI field study explicitly documents modern Indramayu organ-tunggal full arranger substitution plus singer. Concise history and sound preserve that representative branch, not a claim that all Tarling uses this ensemble. Fresh PDF fetch timed out; prior source review remains the basis, not claimed fresh reproduction.",
+  "source_urls": [
+    "https://jurnal.isbi.ac.id/index.php/awilaras/article/download/2768/1596",
+    "https://www.atlantis-press.com/article/55913534.pdf"
+  ],
+  "delta_review": "Only lineage, extras description, geography region and outside-payload format-repair evidence changed. Musical controls, instruments, environment and source records unchanged. Southeast Asia is correct for Indramayu.",
+  "default_review": "All21 original owning controls independently checked in saved mechanical audit; four original outputs independently reread. Regional style/automatic accompaniment represents full source-supported generated palette; up-tempo is explicit authored brisk rendition, not measured source tempo. No change to those render inputs.",
+  "runtime_evidence": "/tmp/batch040/lagu-tarling-peer-runtime116.json",
+  "mechanical_evidence": "/tmp/batch040/resume-root-lagu-tarling-independent-mechanical116.json",
+  "limitations": [
+    "No new static API build or new photo download; exact inherited receipts remain unchanged."
+  ]
+}

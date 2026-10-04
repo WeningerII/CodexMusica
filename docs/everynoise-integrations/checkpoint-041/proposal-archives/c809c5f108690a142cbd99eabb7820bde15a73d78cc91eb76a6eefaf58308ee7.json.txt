@@ -1,0 +1,17 @@
+{
+  "status": "PASS_ROOT_QUEUE_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-007-policies-current116.json",
+  "packet_sha256": "08e8f8b5a36eede7418a5094378a006fcc29c929e487771536bdc373f58a0170",
+  "ids": [
+    "taiwan_graduation_song",
+    "talentkonkurrence",
+    "telugu_indie",
+    "telugu_remix"
+  ],
+  "checked_at": "2026-10-04T00:09:58.111558+00:00",
+  "checks": [
+    "Root read all public profiles/roles/current default policies and every prose output. Source and author full-format reviews retained.",
+    "Original four-format parity/ceiling and strict perowner/import/photo tests pass. Taiwan student chorus, Oeteldonk sung/percussion branch and Spanish rumba singing/guitar restored from positive practice evidence, not forced master reconstruction.",
+    "Original5metadata exacttypes and photos unchanged; historical source and control dossiers retained. Final combined validation pending."
+  ]
+}

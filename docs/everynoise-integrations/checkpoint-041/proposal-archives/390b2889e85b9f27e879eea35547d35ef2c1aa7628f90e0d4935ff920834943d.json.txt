@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/queued-cumbia-cristiana-band.json",
+  "packet_sha256": "3e183ee185690ba37039f5f0f305ca946593fdc0d4fc5a30f14c1f6c60a33d50",
+  "accepted_ids": [
+    "cumbia_cristiana"
+  ],
+  "source_review": {
+    "url": "https://trenquelauquen.gov.ar/musica/project/nueva-adoracion/",
+    "fresh_ref": "turn13443view0",
+    "finding": "Fresh municipal firsthand history identifies Christian cumbia composition/community practice, voices, keyboards, bass, timbales and guiro; also piano/accordion/octapad and announcer. Five-family profile is a representative genre band, explicitly not a reconstruction of this exact ensemble. Broader roles remain acknowledged, not falsely erased."
+  },
+  "default_review": "Keyboard chord/melody, fingerstyle locked bass, stick-played steel timbales and scraped gourd/wood guiro are meaningful coherent cumbia accompaniment. Contemporary sung small-note groups are an authored melodic delivery, not invented source notation or added clapping. Group voices do not assert fixed headcount. Existing timbales son-context control supports generic Latin rhythmic technique without claiming entire genre is Cuban son. Broad Latin percussion parent fits cyclic groove.",
+  "render_review": "All four actual root output strings read in full;32-control validation reviewed. No unrelated cultural labels, clapping role or DJ-only restriction. Generic affect labels do not override explicit percussion and voice controls. No independent static/CI assertion.",
+  "photo_review": "Generic recording-context microphone label/LOW confidence and inherited exact CC BY2.5 receipt unchanged. No new download claimed.",
+  "provenance": "Original DJ edition retained under format_repair; legitimate alternate DJ branch, no implication new band reconstructs that mix. No repo writes."
+}

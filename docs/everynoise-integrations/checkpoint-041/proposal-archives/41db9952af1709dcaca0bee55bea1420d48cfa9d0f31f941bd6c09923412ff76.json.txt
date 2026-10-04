@@ -1,0 +1,270 @@
+{
+  "entries": [
+    {
+      "source_label": "brockton hip hop",
+      "source_url": "https://everynoise.com/engenremap-brocktonhiphop.html",
+      "suggested_id": "brockton_hip_hop",
+      "allocation_ordinal": 226,
+      "allocation_group_id": "010",
+      "id": "brockton_hip_hop",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "brockton_hip_hop",
+        "name": "Brockton Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Brockton hip hop grew through a local battle-rap community and later recording collectives such as Van Buren Records. Creative spaces including SoundLab connected the Massachusetts city’s rappers and producers with neighboring Boston scenes.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Competitive verse, tightly patterned speech and contrasting vocal deliveries link league battles with collaborative recorded rap. Unaccompanied exchanges foreground verbal rhythm; produced songs also draw on soul, R&B and electronic textures.",
+        "exemplars": [
+          "Xcel",
+          "Van Buren Records"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        42.0834,
+        -71.0184,
+        "Brockton",
+        "North America"
+      ],
+      "geo_rationale": "Documented city community; not an invented location for a named recording.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Brockton hip hop is a positively documented local creative community centered on its battle scene and SoundLab/VanBuren network. WBUR reports actual local institutions and participant testimony about exchange with Boston, not artist birthplace alone. Full boston_hip_hop is the broader regional rap scene whose StatikSelektah sample-production example does not restrict all Boston music to that palette. The Brockton city community is an overlapping narrower field, not sonically disjoint from Boston/EastCoast rap. The representative battle branch does not redefine all Brockton hip hop as acapella or erase its produced recordings.",
+      "classification_evidence": "Brockton hip hop is a positively documented local creative community centered on its battle scene and SoundLab/VanBuren network. WBUR reports actual local institutions and participant testimony about exchange with Boston, not artist birthplace alone. Full boston_hip_hop is the broader regional rap scene whose StatikSelektah sample-production example does not restrict all Boston music to that palette. The Brockton city community is an overlapping narrower field, not sonically disjoint from Boston/EastCoast rap. The representative battle branch does not redefine all Brockton hip hop as acapella or erase its produced recordings.",
+      "model_policy": "mcRhythm preserves rhythmic text-led competitive rap. Existing live-duet/live-ensemble controls represent two alternating participants, not simultaneous harmony or choir. Source-unspecified physiology, training, ornament and pitch stay neutral; rhythmic spoken flow follows positive rap practice. A controlled studio listening rendition with neutral modern apparatus is authored, not actual battle location or original recording chain. No global tuning or sung chorus inferred; no musical audience layer is claimed.",
+      "source_scope_limitation": "Representative unaccompanied two-emcee league-battle practice within Brockton hip hop. Xcel explicitly identifies himself as a Brockton street/league battler and technical lyricist in his firsthand AllHipHop interview. The documented modern league format described through iBattle organiser and practitioner interviews includes prepared acapella delivery; practitioner JesseJaeProto directly describes his iBattle writing and unaccompanied performance. WBUR firsthand reporting identifies Brockton’s established battle-rap community separately from the later VanBuren recording collective. This is a genre-practice rendition, not a reconstruction of the separately issued Xcel/RealSikh2019 video, whose exact backing is not claimed verified. Two alternating rappers are the authored conventional battle pair; no particular opponent, round duration or staged event is fabricated. Acapella is a positive documented practice branch, not removal of backing from a recorded track.",
+      "source_retrieval_caveat": "Fresh direct WBUR and AllHipHop; practitioner Medium full indexed primary reproduced but direct open failed. No exact creator-membership or source audition claim.",
+      "sources": [
+        {
+          "url": "https://www.wbur.org/news/2021/07/01/sound-on-van-buren-records",
+          "support_notes": "Fresh13288view0 full local reportage/interviews, established battle community and SoundLab/Boston exchange.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://allhiphop.com/features/profiles-in-battle-rap-xcel-team-homi-ill-will/",
+          "support_notes": "Fresh13288view1 and13279search0 firsthand Brockton identity, streets/leagues and technical lyricism.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://joecataniablog.wordpress.com/author/jcatania474/",
+          "support_notes": "Fresh13282search0 full journalist interviews iBattle owner and performer; modern two-opponent prepared acapella practice, not every battle.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://medium.com/forward-obsessed/my-journey-from-battle-rapping-to-digital-marketing-51c49a1cf533",
+          "support_notes": "Fresh13282search1 full firsthand iBattle practitioner writing and acapella delivery; not claimed Brockton identity for this speaker.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "vocal_count_audit": {
+        "authored_pair": 2,
+        "specific_event_count": null,
+        "basis": "Conventional alternating two-opponent practice; not asserted exact recorded edition."
+      },
+      "instrument_role_audit": {
+        "scope": "Representative unaccompanied two-emcee league-battle practice within Brockton hip hop. Xcel explicitly identifies himself as a Brockton street/league battler and technical lyricist in his firsthand AllHipHop interview. The documented modern league format described through iBattle organiser and practitioner interviews includes prepared acapella delivery; practitioner JesseJaeProto directly describes his iBattle writing and unaccompanied performance. WBUR firsthand reporting identifies Brockton’s established battle-rap community separately from the later VanBuren recording collective. This is a genre-practice rendition, not a reconstruction of the separately issued Xcel/RealSikh2019 video, whose exact backing is not claimed verified. Two alternating rappers are the authored conventional battle pair; no particular opponent, round duration or staged event is fabricated. Acapella is a positive documented practice branch, not removal of backing from a recorded track.",
+        "positive_families": 1,
+        "omitted_positive_roles": [],
+        "authored_defaults": "mcRhythm preserves rhythmic text-led competitive rap. Existing live-duet/live-ensemble controls represent two alternating participants, not simultaneous harmony or choir. Source-unspecified physiology, training, ornament and pitch stay neutral; rhythmic spoken flow follows positive rap practice. A controlled studio listening rendition with neutral modern apparatus is authored, not actual battle location or original recording chain. No global tuning or sung chorus inferred; no musical audience layer is claimed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "mcRhythm preserves rhythmic text-led competitive rap. Existing live-duet/live-ensemble controls represent two alternating participants, not simultaneous harmony or choir. Source-unspecified physiology, training, ornament and pitch stay neutral; rhythmic spoken flow follows positive rap practice. A controlled studio listening rendition with neutral modern apparatus is authored, not actual battle location or original recording chain. No global tuning or sung chorus inferred; no musical audience layer is claimed."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All17 meaningful voice controls protected; no shared-key fallback."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "brockton_hip_hop",
+          "name": "Brockton Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not source performers, voice instrument or original equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13089view1 CC BY2.5/credit, inherited exact023 bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn13089view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13089view1"
+        ],
+        "fresh_rights_review": "Fresh rights/context only; no new download or visual claim."
+      },
+      "render_context_audit": {
+        "literal": "Street-pulsing voice with rhythmic-spoken-flow/syncopated-speech is coherent rap delivery; alternating duet explicitly retained. No sung/foreign-instrument claims. Modern controlled apparatus is wholly authored.",
+        "runtime": "/tmp/batch040/transfer461-from117-brockton-practice-runtime.json",
+        "formats": 4,
+        "maximum_chars": 817
+      },
+      "prior_public_profile_evidence": {
+        "tradition_lineage": "Representative unaccompanied two-emcee league-battle practice within Brockton hip hop. Xcel explicitly identifies himself as a Brockton street/league battler and technical lyricist in his firsthand AllHipHop interview. The documented modern league format described through iBattle organiser and practitioner interviews includes prepared acapella delivery; practitioner JesseJaeProto directly describes his iBattle writing and unaccompanied performance. WBUR firsthand reporting identifies Brockton’s established battle-rap community separately from the later VanBuren recording collective. This is a genre-practice rendition, not a reconstruction of the separately issued Xcel/RealSikh2019 video, whose exact backing is not claimed verified. Two alternating rappers are the authored conventional battle pair; no particular opponent, round duration or staged event is fabricated. Acapella is a positive documented practice branch, not removal of backing from a recorded track. mcRhythm preserves rhythmic text-led competitive rap. Existing live-duet/live-ensemble controls represent two alternating participants, not simultaneous harmony or choir. Source-unspecified physiology, training, ornament and pitch stay neutral; rhythmic spoken flow follows positive rap practice. A controlled studio listening rendition with neutral modern apparatus is authored, not actual battle location or original recording chain. No global tuning or sung chorus inferred; no musical audience layer is claimed.",
+        "extras_description": "Representative unaccompanied two-emcee league-battle practice within Brockton hip hop. Xcel explicitly identifies himself as a Brockton street/league battler and technical lyricist in his firsthand AllHipHop interview. The documented modern league format described through iBattle organiser and practitioner interviews includes prepared acapella delivery; practitioner JesseJaeProto directly describes his iBattle writing and unaccompanied performance. WBUR firsthand reporting identifies Brockton’s established battle-rap community separately from the later VanBuren recording collective. This is a genre-practice rendition, not a reconstruction of the separately issued Xcel/RealSikh2019 video, whose exact backing is not claimed verified. Two alternating rappers are the authored conventional battle pair; no particular opponent, round duration or staged event is fabricated. Acapella is a positive documented practice branch, not removal of backing from a recorded track. mcRhythm preserves rhythmic text-led competitive rap. Existing live-duet/live-ensemble controls represent two alternating participants, not simultaneous harmony or choir. Source-unspecified physiology, training, ornament and pitch stay neutral; rhythmic spoken flow follows positive rap practice. A controlled studio listening rendition with neutral modern apparatus is authored, not actual battle location or original recording chain. No global tuning or sung chorus inferred; no musical audience layer is claimed.",
+        "extras_exemplars": [
+          "Brockton league-battle practice — Xcel and the documented unaccompanied two-emcee format"
+        ],
+        "source_packet": "/tmp/batch040/transfer461-from117-brockton-practice.json",
+        "source_packet_sha256": "11bc2913fc09b2fe3196c955b44bc8bc2bc8fa0491ecdd705e38dfb81afbb3d3"
+      },
+      "profile_cleanup_review": {
+        "scope": "Concise public genre prose; original detailed source/realization narrative preserved in evidence.",
+        "author": "source_audit",
+        "ownership_confirmed": true,
+        "original_preserved": true
+      },
+      "qualification_amendment": {
+        "original_packet": "/tmp/batch040/pending-brockton-genre-profile-sourceaudit.json",
+        "original_sha256": "91c075b9d239d17acffc59f8c3aaccf5eb5f20e55fa1d2c253160ef5b6db87e2",
+        "change": "Parent only: mcRhythm to spokenWord. The selected complete battle branch uses unaccompanied rhythmic speech; mcRhythm explicitly requires back-line beats. Hip-hop family, full genre description and all controls remain unchanged.",
+        "prior_peer_disagreement": "Prior117 accepted mcRhythm broadly. This final qualification follows the actual node contract instead; no source finding is rejected."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

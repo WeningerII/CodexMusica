@@ -1,0 +1,193 @@
+{
+  "entries": [
+    {
+      "source_label": "telugu remix",
+      "source_url": "https://everynoise.com/engenremap-teluguremix.html",
+      "suggested_id": "telugu_remix",
+      "allocation_ordinal": 4414,
+      "allocation_group_id": "177",
+      "status": "frozen_pending_independent_review",
+      "id": "telugu_remix",
+      "tradition": {
+        "id": "telugu_remix",
+        "name": "Telugu remix",
+        "family": "electronic",
+        "lineage": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set. Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set. Telugu remix is the Telugu-song remix and mashup production/DJ circulation field, with substantial repertoire overlap with Tollywood film song and folk. Performer first-person discussion explicitly names Telugu remixes as a repertoire category at the Hyderabad event; TeluguDJs own promotion platform independently organizes Telugu DJ remix/folk remix/club-mix releases by multiple producers. Existing tollywood is the broader Telugu cinema playback-song field and already includes electronic production, so the distinction is remix circulation and club presentation, not the mere presence of synths or a different tune. Existing telugu_folk includes contemporary folk/reggae fusion and may supply source repertoire; telugu_hip_hop is MC practice. Existing indian_edm is the broad Indian electronic dance field, not restricted to Hybrid Protokol; this language/repertoire-facing remix network is an overlapping subset. Hindi Bollywood remixes and Tamil remixes have adjacent language/repertoire communities and may coexist in the selected mixed DJ set. No claim every set selection is Telugu, every record a remix, or that source artist appears in inaccessible EveryNoise roster. Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted.",
+        "exemplars": [
+          "Sahil Gulati — complete reported Royal Stag Boom Box Hyderabad DJ set, interview1October2026"
+        ],
+        "crossRefs": [],
+        "status": "documented"
+      },
+      "geo": [
+        17.385,
+        78.4867,
+        "Hyderabad",
+        "South Asia"
+      ],
+      "geo_rationale": "Primary onsite interview expressly identifies Hyderabad performance; exact venue street coordinates unknown, city anchor editorial.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set.",
+      "neighbor_distinction": "Telugu remix is the Telugu-song remix and mashup production/DJ circulation field, with substantial repertoire overlap with Tollywood film song and folk. Performer first-person discussion explicitly names Telugu remixes as a repertoire category at the Hyderabad event; TeluguDJs own promotion platform independently organizes Telugu DJ remix/folk remix/club-mix releases by multiple producers. Existing tollywood is the broader Telugu cinema playback-song field and already includes electronic production, so the distinction is remix circulation and club presentation, not the mere presence of synths or a different tune. Existing telugu_folk includes contemporary folk/reggae fusion and may supply source repertoire; telugu_hip_hop is MC practice. Existing indian_edm is the broad Indian electronic dance field, not restricted to Hybrid Protokol; this language/repertoire-facing remix network is an overlapping subset. Hindi Bollywood remixes and Tamil remixes have adjacent language/repertoire communities and may coexist in the selected mixed DJ set. No claim every set selection is Telugu, every record a remix, or that source artist appears in inaccessible EveryNoise roster.",
+      "model_policy": "Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted.",
+      "instrument_role_audit": {
+        "scope": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set.",
+        "positive_sound_source_classes": [
+          "recorded-program playback and DJ mixing"
+        ],
+        "authored_defaults": "Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "embedded_voice_count": "unknown",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0
+      },
+      "flat_pin_resolution": {
+        "rule": "One neutral DJ owner and one protected identity part; no shared-key conflicts."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Complete mixed programme preserved; no invented component sound mechanism."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "Source candidate pending independent peer. Original current1638-owner merge preserves every old instrument; sole owning control protected, no errors/fallback. All four original browser/connector outputs inspected, parity true, maximum137characters; up-tempo DJ practice coherent with positive dance-event set. Source signatures/final integrated static build are not tested by this preflight.",
+      "sources": [
+        {
+          "url": "https://www.newindianexpress.com/cities/hyderabad/2026/Oct/01/sahil-gulati-music-is-my-soul",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11351view0 full onsite first-person performer interview, actual Telugu remix DJ set, two example selections, whole remainder not enumerated. No external event date inferred."
+        },
+        {
+          "url": "https://www.telugudjs.com/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11341search9 issuer promotion platform for multiple Telugu DJs, explicit remix/mashup/folk-remix/club-mix practice. Individual uploaded productions are not substituted for the selected actual DJ set."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "telugu_remix",
+          "name": "Telugu remix",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Sahil Gulati, original DJ gear or Telugu instrument.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11331view0 confirms Iain Fergusson/Binksternet crop, CC BY2.5; historical byte/visual receipts unchanged.",
+          "fresh_review_ref": "turn11331view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn11331view0; exact historical byte and visual receipts retained, no new download.",
+        "fresh_rights_retrieval_refs": [
+          "turn11331view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

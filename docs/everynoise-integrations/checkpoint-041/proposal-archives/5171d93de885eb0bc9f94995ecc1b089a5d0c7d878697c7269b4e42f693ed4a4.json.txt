@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/new-musique-urbaine-brazzaville-form-clarified.json",
+  "sha256": "47ff7529aa31a28f44f9ac6b96432b86e295c8def362a2116fd0f4c61476e37a",
+  "reviewer": "review_461",
+  "checks": {
+    "primary": "Fresh full Talents2Kin practitioner/industry testimony independently read at turn13654view0: rap/slam/Afrobeat/ndombolo, named artists, beatmaking, label and festival context establish an actual Congo-Brazzaville cross-style community.",
+    "boundary": "Compared full congolese_rumba, soukous, ndombolo, rap_congolais and musique_urbaine_kinshasa. Rumba and rap already overlap both Congos; this addition represents the documented Republic of Congo cross-style institutional field, not a newly invented sonic separation or merely renamed rapper. Kinshasa entry itself extends beyond its city, acknowledged.",
+    "taxonomy": "Final evidence explicitly identifies authored functional-harmonic verse/hook/bridge rendition within African popular-song field; no source transcription or universal formal claim.",
+    "defaults": "18 owning controls protected: accompanied rhythmic spoken MC and source-unspecified produced beat. Positive beatmaking does not establish synthesizer/sampler architecture.",
+    "literal_outputs": "All four original outputs independently inspected, parity true, max336 characters. Spoken-flowing is compatible with the deliberately modeled rhythmic spoken MC branch; no contradictory sung-only assertion.",
+    "photo": "Fresh Commons turn13659view0 confirms Iain Fergusson/Binksternet CC BY2.5 microphone rights. Generic LOW recording-context photo; preserved historical byte/visual receipts are not represented as new byte retrieval.",
+    "derivative": "Exact comparison found only four policy/classification/audit prose additions; musical objects, photo and public genre profile unchanged."
+  },
+  "evidence": {
+    "controls": "/tmp/batch040/brazzaville-peer-controls461.json",
+    "runtime": "/tmp/batch040/brazzaville-peer-runtime461.json"
+  },
+  "limitations": [
+    "Candidate in-memory original pipeline preflight; final integrated static signature build and whole-batch output review remain root responsibilities."
+  ]
+}

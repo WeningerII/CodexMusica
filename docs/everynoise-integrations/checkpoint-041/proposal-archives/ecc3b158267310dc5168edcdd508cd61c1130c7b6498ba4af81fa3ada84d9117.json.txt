@@ -1,0 +1,629 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "musik_anak_anak",
+        "name": "Musik Anak-Anak",
+        "family": "vernacular",
+        "lineage": "Indonesian children’s music joins composed songs, classroom participation and family entertainment. Educators and songwriters including Ibu Sud and Pak Kasur helped establish a familiar repertoire, extended through television, recordings and newer independent projects.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "voice": 2,
+          "harm": 1,
+          "pitch": 1
+        },
+        "description": "Clear sung melodies, memorable repetition and accessible accompaniment support play, learning and shared family listening. Indonesian-language songs about everyday life and imagination circulate alongside regional children’s repertoires, with piano-led singing offering one enduring format.",
+        "exemplars": [
+          "Ibu Sud",
+          "Pak Kasur",
+          "Clarentia Prameta"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musik_anak_anak",
+          "name": "Musik Anak-Anak",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13941view2 confirms Iain Fergusson original, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn13941view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13941view2; inherited exact byte/visual history retained.",
+        "fresh_rights_retrieval_refs": [
+          "turn13941view2"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative singing with piano, supported by Clarentia Prameta’s firsthand composer/educator interview and the documented TVRI children-song accompaniment tradition. Clarentia positively names both voice and piano across her seven-song project and publishes melody/chord scores and piano accompaniments. No reconstruction of an orchestral children album or omission of known source roles is claimed. One accompanied unprocessed lead is an authored teaching/listening rendition; singer physiology and whole-genre headcount remain unknown/variable. Standard studio upright, block-chord playing and connected syllabic singing are deliberate accessible choices, not measured original hardware or touch. A furnished parlor rendition supports small family listening; not the recorded ArtSound venue or exact source room. Functional-harmonic verse-chorus-bridge organization is deliberately authored for this representative song arrangement, not a transcription of the seven originals or universal form."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Genre-level representative singing with piano, supported by Clarentia Prameta’s firsthand composer/educator interview and the documented TVRI children-song accompaniment tradition. Clarentia positively names both voice and piano across her seven-song project and publishes melody/chord scores and piano accompaniments. No reconstruction of an orchestral children album or omission of known source roles is claimed. One accompanied unprocessed lead is an authored teaching/listening rendition; singer physiology and whole-genre headcount remain unknown/variable. Standard studio upright, block-chord playing and connected syllabic singing are deliberate accessible choices, not measured original hardware or touch. A furnished parlor rendition supports small family listening; not the recorded ArtSound venue or exact source room. Functional-harmonic verse-chorus-bridge organization is deliberately authored for this representative song arrangement, not a transcription of the seven originals or universal form."
+        }
+      ],
+      "source_label": "musik anak-anak",
+      "source_url": "https://everynoise.com/engenremap-musikanakanak.html",
+      "suggested_id": "musik_anak_anak",
+      "allocation_ordinal": 3937,
+      "allocation_group_id": "158",
+      "id": "musik_anak_anak",
+      "status": "ready_for_independent_review",
+      "geo": [
+        -6.2088,
+        106.8456,
+        "Jakarta",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "National songwriting, teaching and broadcast hub documented by the sources; not exclusive origin.",
+      "signature_tokens": [],
+      "model_policy": "Genre-level representative singing with piano, supported by Clarentia Prameta’s firsthand composer/educator interview and the documented TVRI children-song accompaniment tradition. Clarentia positively names both voice and piano across her seven-song project and publishes melody/chord scores and piano accompaniments. No reconstruction of an orchestral children album or omission of known source roles is claimed. One accompanied unprocessed lead is an authored teaching/listening rendition; singer physiology and whole-genre headcount remain unknown/variable. Standard studio upright, block-chord playing and connected syllabic singing are deliberate accessible choices, not measured original hardware or touch. A furnished parlor rendition supports small family listening; not the recorded ArtSound venue or exact source room. Functional-harmonic verse-chorus-bridge organization is deliberately authored for this representative song arrangement, not a transcription of the seven originals or universal form.",
+      "neighbor_distinction": "Full existing preschool_childrens_music is a general composed/recorded under-six field; children_s_folk is participatory folk repertoire and children_s_choir is an ensemble practice. All overlap Indonesian children’s songs, but none supplies the Indonesian-language repertoire and national educator/broadcast/songwriting institutions established by the firsthand source. English/Hindi/Tamil nursery traditions have different linguistic repertoires; Indonesian popular-music umbrellas include children’s releases without defining this functional repertoire. This is not a category inferred from a translated title alone: the composer explicitly addresses the need for simple Indonesian-language children’s songs, names earlier national writers, and publishes usable educational scores. No claim of exact creator-playlist membership for Clarentia; Jack Body’s experimental work with a similar title is excluded as category proof.",
+      "classification_evidence": "Full existing preschool_childrens_music is a general composed/recorded under-six field; children_s_folk is participatory folk repertoire and children_s_choir is an ensemble practice. All overlap Indonesian children’s songs, but none supplies the Indonesian-language repertoire and national educator/broadcast/songwriting institutions established by the firsthand source. English/Hindi/Tamil nursery traditions have different linguistic repertoires; Indonesian popular-music umbrellas include children’s releases without defining this functional repertoire. This is not a category inferred from a translated title alone: the composer explicitly addresses the need for simple Indonesian-language children’s songs, names earlier national writers, and publishes usable educational scores. No claim of exact creator-playlist membership for Clarentia; Jack Body’s experimental work with a similar title is excluded as category proof.",
+      "source_scope_limitation": "Genre-level representative singing with piano, supported by Clarentia Prameta’s firsthand composer/educator interview and the documented TVRI children-song accompaniment tradition. Clarentia positively names both voice and piano across her seven-song project and publishes melody/chord scores and piano accompaniments. No reconstruction of an orchestral children album or omission of known source roles is claimed. One accompanied unprocessed lead is an authored teaching/listening rendition; singer physiology and whole-genre headcount remain unknown/variable. Standard studio upright, block-chord playing and connected syllabic singing are deliberate accessible choices, not measured original hardware or touch. A furnished parlor rendition supports small family listening; not the recorded ArtSound venue or exact source room. Functional-harmonic verse-chorus-bridge organization is deliberately authored for this representative song arrangement, not a transcription of the seven originals or universal form.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Direct composer interview explicitly vocals, representative sung lead."
+        },
+        {
+          "instrument": "upright_piano",
+          "basis": "Direct composer interview explicitly piano and separate piano accompaniments; upright/block-chord controls authored."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored accompanied sung lead",
+        "source_example": "Composer explicitly performs voice and piano; no child physiology inferred from children-targeted repertoire."
+      },
+      "sources": [
+        {
+          "url": "https://www.antaranews.com/view/1815006/clarentia-prameta-luncurkan-mini-album-untuk-anak-indonesia",
+          "primary": true,
+          "evidence_ref": "turn13953view0",
+          "supports": "Firsthand interview directly establishes Indonesian-language children-song function, both performed roles and published melody/chord/piano accompaniments."
+        },
+        {
+          "url": "https://www.antaranews.com/berita/509369/pianis-lagu-anak-meinar-louise-tutup-usia-karena-sakit-paru",
+          "primary": true,
+          "evidence_ref": "turn13952search0",
+          "supports": "Reporter family interview and documented TVRI history corroborate long-running piano accompaniment of children singing; not used for authorship of Bintang Kecil."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn13953view0",
+        "turn13952search0"
+      ],
+      "source_retrieval_caveat": "Actual direct composer interview and indexed reporting inspected. No audio audition, exact source gear or fixed ensemble universal claimed.",
+      "full_neighbor_records": [
+        {
+          "tradition": {
+            "id": "preschool_childrens_music",
+            "name": "Preschool Children's Music",
+            "family": "vernacular",
+            "lineage": "North American commercial repertoire for children under six, professionalized from the 1950s Ella Jenkins and Mister Rogers broadcasts through Raffi's late-1970s Canadian albums and the 1990s Wiggles and Laurie Berkner catalogues — narrow-range diatonic melodies inside an octave at 90-120 BPM, strummed acoustic guitar or ukulele with glockenspiel and toy-piano color, four-square phrases with built-in call-and-response and gesture cues, and a bright, clearly enunciated adult voice doubled by a children's chorus.",
+            "instruments": [
+              "voice",
+              "choir_ensemble",
+              "acoustic_guitar_dread",
+              "ukulele",
+              "glockenspiel",
+              "toy_piano",
+              "tambourine_orch",
+              "upright_piano",
+              "recorder",
+              "drum_kit"
+            ],
+            "room": "live_room",
+            "chain_mic": "mic_u87_condenser_neumann",
+            "chain_pre": "transformer_solid_state",
+            "chain_medium": "digital_std",
+            "chain_console": "clean",
+            "tuning": "twelve_tet",
+            "chain_status": "researched_studio",
+            "chain_comp": "comp_la2a_optical",
+            "chain_archetype": "arch_modern_pro_daw_studio"
+          },
+          "extras": {
+            "parent": "nurseryRhyme.americas",
+            "axes": {
+              "harm": -2,
+              "pitch": 2,
+              "ornament": -2,
+              "meter": 2,
+              "density": -1,
+              "transmission": 0,
+              "improv": -1,
+              "soundTech": 0,
+              "intensity": -1,
+              "voice": 2,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 2
+            },
+            "description": "Preschool children's music is the professional recorded repertoire written for under-sixes, distinct from playground-transmitted nursery rhyme in that it is composed, copyrighted and produced for records and television. The sound is deliberately transparent: one clear adult lead voice, a strummed guitar or ukulele, small tuned percussion, and melodies that stay inside an octave with heavy repetition and built-in participation cues. It differs from school-age kids' pop by avoiding drum programming and contemporary chart production, and from lullaby by its bright tempo and call-and-response function.",
+            "exemplars": [
+              "Raffi — Singable Songs for the Very Young",
+              "Ella Jenkins — You'll Sing a Song and I'll Sing a Song",
+              "Sharon, Lois & Bram",
+              "The Wiggles",
+              "Laurie Berkner",
+              "Fred Rogers — Won't You Be My Neighbor?"
+            ],
+            "status": "documented",
+            "crossRefs": [
+              "nurseryRhyme.european",
+              "lullaby.european",
+              "spokenWord.narration"
+            ]
+          }
+        },
+        {
+          "tradition": {
+            "id": "children_s_folk",
+            "name": "Children’s folk",
+            "family": "vernacular",
+            "lineage": "Folk songs performed and transmitted for children include games, work-song adaptations, animals, stories and participatory refrains. Pete Seeger’s documented 1959 Folk Songs for Young People supplies this North American folk-revival example.",
+            "instruments": [
+              "voice",
+              "banjo_5_string",
+              "acoustic_guitar_dread"
+            ],
+            "room": "parlor",
+            "tuning": "twelve_tet",
+            "chain_archetype": "arch_modern_pro_daw_studio",
+            "chain_mic": "condenser_sdc",
+            "chain_pre": "pre_500_series_modern",
+            "chain_console": "clean",
+            "chain_comp": "comp_none",
+            "chain_eq": "eq_none",
+            "chain_medium": "digital_high",
+            "chain_status": "authored_contemporary_acoustic_model",
+            "pin_parts": true,
+            "parts": {
+              "voice_articulation": "call_response_voice",
+              "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+              "banjo_back": "open_back",
+              "banjo_play": "clawhammer",
+              "acoustic_technique": "acoustic_strummed_ringing",
+              "voice_tradition": "voice_tradition_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "nurseryRhyme",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 1,
+              "density": -1,
+              "transmission": -1,
+              "improv": 0,
+              "soundTech": -1,
+              "intensity": -1,
+              "voice": 2,
+              "timbre": 0,
+              "percussion": -1,
+              "cyclicity": 1
+            },
+            "description": "The default pairs an inviting lead-and-response voice arrangement with open-back banjo and strummed acoustic guitar. Clear recurring melodies and shared refrains make participation central. This is one recorded branch of children’s folk, not a universal claim about children’s repertoires across cultures or a label for all commercial children’s pop.",
+            "exemplars": [
+              "Pete Seeger — Folk Songs for Young People"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        {
+          "tradition": {
+            "id": "children_s_choir",
+            "name": "Children's choir",
+            "family": "classical",
+            "lineage": "Children’s choirs bring young singers together in educational, community and concert settings. Repertoire ranges from simple shared melodies to multipart works written for developing ensembles.",
+            "instruments": [
+              "voice",
+              "grand_piano"
+            ],
+            "room": "treated_studio",
+            "tuning": "twelve_tet",
+            "chain_pre": "transformerless",
+            "chain_console": "console_in_the_box",
+            "chain_comp": "comp_none",
+            "chain_eq": "eq_active_parametric",
+            "chain_medium": "digital_high",
+            "chain_status": "authored_representative_production_model",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_none",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "keyboard_technique": "keyboard_classical_legato",
+              "grand_piano_size": "grand_9_foot",
+              "grand_piano_brand": "steinway_d",
+              "piano_hammer": "steinway_original_hammer",
+              "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+              "piano_soundboard": "sitka_spruce_diaphragmatic",
+              "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+              "piano_plate": "gray_iron_full_perimeter_plate",
+              "piano_pitch_standard": "a_440_modern"
+            },
+            "chain_mic": "dynamic_mic"
+          },
+          "extras": {
+            "parent": "artMusic",
+            "axes": {
+              "harm": 1,
+              "pitch": 1,
+              "ornament": 0,
+              "meter": 0,
+              "density": 1,
+              "transmission": 0,
+              "improv": -1,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 2,
+              "timbre": 1,
+              "percussion": -1,
+              "cyclicity": 0
+            },
+            "description": "Group singing with piano can combine clear text, coordinated phrasing and contrasting vocal lines. Unaccompanied pieces and instrumental collaborations offer other textures, with ensemble size and vocal range varying between choirs.",
+            "exemplars": [
+              "New London Children’s Choir / Alexander Wells"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        {
+          "tradition": {
+            "id": "english_nursery_rhyme",
+            "name": "English nursery rhyme",
+            "family": "global",
+            "lineage": "English-language nursery-rhyme tradition continuous from medieval and early-modern English play-song origins through 18th-century chapbook publication (Tommy Thumb's Pretty Song Book 1744 the earliest documented English nursery-rhyme collection) through Iona and Peter Opie's 20th-century Lore and Language of Schoolchildren ethnographic documentation",
+            "instruments": [
+              "voice"
+            ],
+            "room": "parlor",
+            "chain_mic": "condenser_sdc",
+            "chain_pre": "pre_field_recorder_portable",
+            "chain_medium": "digital_high",
+            "chain_console": "clean",
+            "tuning": "twelve_tet",
+            "parts": {
+              "voice_articulation": "staccato_voice",
+              "voice_speech_song": "voice_syllabic_singing",
+              "voice_register": "chest_voice",
+              "voice_quality": "child_voice",
+              "voice_tradition": "modern_pop_vocal_training",
+              "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_microtone": "tempered_voice",
+              "voice_ornament_system": "voice_ornament_none",
+              "voice_estill_quality": "voice_estill_speech",
+              "voice_vibrato": "straight_tone",
+              "voice_mechanism_compound": "voice_mechanism_single_source"
+            },
+            "chain_status": "researched_field_recording",
+            "chain_archetype": "arch_ethnographic_field_digital"
+          },
+          "extras": {
+            "parent": "nurseryRhyme.european",
+            "axes": {
+              "harm": -1,
+              "pitch": 0,
+              "ornament": -2,
+              "meter": 0,
+              "density": -2,
+              "transmission": -1,
+              "improv": -2,
+              "soundTech": -2,
+              "intensity": -1,
+              "voice": 2,
+              "timbre": -2,
+              "percussion": -2,
+              "cyclicity": 1
+            },
+            "description": "The English-language nursery-rhyme tradition continuous from medieval and early-modern English play-song origins through 18th-century chapbook publication (Tommy Thumb's Pretty Song Book 1744 the earliest documented English nursery-rhyme collection; Mother Goose's Melody 1765 codifying many canonical rhymes) through Iona and Peter Opie's 20th-century Lore and Language of Schoolchildren ethnographic documentation establishing the durability of oral-transmission across British-and-American-childhood generations. Defined by narrow-range pentatonic-or-hexatonic melodic vocabulary, repeating short melodic cells durable across centuries (the \"Mary Had a Little Lamb\" tune is the documented first sound-recorded human voice on Edison's 1877 tinfoil cylinder), action-coordination structure for hand-game and circle-game and counting-out applications, English-language plain-text register, unaccompanied voice as primary performance medium.",
+            "exemplars": [
+              "\"Mary Had a Little Lamb\" 1830 Sarah Josepha Hale text",
+              "\"Ring Around the Rosie\" (Iona and Peter Opie documentation)",
+              "\"Hot Cross Buns\" early-19th-century London street-cry",
+              "\"Twinkle Twinkle Little Star\" 1806 Jane Taylor text (on French \"Ah! vous dirai-je, maman\" tune)",
+              "\"London Bridge Is Falling Down\" medieval-origin English ring-game"
+            ],
+            "crossRefs": [
+              "nurseryRhyme.americas",
+              "lullaby.european",
+              "balladPoetry.celticBalladic"
+            ],
+            "status": "documented"
+          }
+        },
+        {
+          "tradition": {
+            "id": "hindi_nursery_rhyme",
+            "name": "Hindi nursery rhyme (Indian school-curriculum children's songs)",
+            "family": "global",
+            "lineage": "Pan-Indian Hindi-medium children's school-song tradition continuous from late-19th-century Indian-Republican-modernization-era school-curriculum codification through post-independence 1947-onward Hindi-medium school-curriculum continuous practice; the tradition is intentionally constructed school-curriculum-music rather than continuous-folk-tradition",
+            "instruments": [
+              "voice"
+            ],
+            "room": "field_recording",
+            "chain_mic": "condenser_sdc",
+            "chain_pre": "pre_field_recorder_portable",
+            "chain_medium": "digital_high",
+            "chain_console": "clean",
+            "tuning": "hindustani_thaat_alap_jod_jhala",
+            "parts": {
+              "voice_articulation": "staccato_voice",
+              "voice_speech_song": "voice_syllabic_singing",
+              "voice_register": "chest_voice",
+              "voice_quality": "child_voice",
+              "voice_tradition": "modern_pop_vocal_training",
+              "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_microtone": "shruti_inflected",
+              "voice_ornament_system": "voice_ornament_none",
+              "voice_estill_quality": "voice_estill_speech",
+              "voice_vibrato": "straight_tone",
+              "voice_mechanism_compound": "voice_mechanism_single_source"
+            },
+            "chain_status": "researched_field_recording",
+            "chain_archetype": "arch_ethnographic_field_digital"
+          },
+          "extras": {
+            "parent": "nurseryRhyme.southAsian",
+            "axes": {
+              "harm": -1,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -2,
+              "transmission": 0,
+              "improv": -2,
+              "soundTech": -2,
+              "intensity": -1,
+              "voice": 2,
+              "timbre": -2,
+              "percussion": -2,
+              "cyclicity": 1
+            },
+            "description": "The pan-Indian Hindi-medium children's school-song tradition continuous from late-19th-century Indian-Republican-modernization-era school-curriculum codification through post-independence 1947-onward Hindi-medium school-curriculum continuous practice; the tradition is intentionally constructed school-curriculum-music rather than continuous-folk-tradition (the \"Lakdi ki kathi\" and \"Chubby Cheeks\" rep are mid-late-20th-century compositions designed for school-curriculum use). Defined by Hindi-language text register with simple Devanagari-script-aligned syllabic mapping, raga-derived melodic vocabulary (predominantly Bhupali, Yaman, Bilawal) inflecting the school-curriculum frame, narrow-range hexatonic-or-Western-folk melodic vocabulary, action-coordination structure for school-classroom-and-home applications.",
+            "exemplars": [
+              "\"Lakdi ki kathi\" (लकड़ी की काठी) Masoom 1983 film-canonical",
+              "\"Chubby Cheeks\" English-Hindi-bilingual school-rhyme",
+              "\"Chanda Mama\" (चंदा मामा) Uncle Moon canonical bedtime-rhyme",
+              "\"Aaj Mausam Bada Beimaan Hai\" (lullaby-adjacent)",
+              "\"Hum Honge Kamyab\" Hindi-translation of \"We Shall Overcome\" (school-curriculum)"
+            ],
+            "crossRefs": [
+              "lullaby.southAsian",
+              "nurseryRhyme.european",
+              "nurseryRhyme.eastAsian"
+            ],
+            "status": "documented"
+          }
+        },
+        {
+          "tradition": {
+            "id": "tamil_children_song",
+            "name": "Tamil children's rhyme (tamizh sirar paadal)",
+            "family": "global",
+            "lineage": "Tamil-language children's play-song tradition continuous from premodern Tamil folk-play-song origins through 20th-century Tamil-Nadu-and-Sri-Lankan-Tamil school-curriculum codification into modern continuous Tamil childhood-practice",
+            "instruments": [
+              "voice"
+            ],
+            "room": "field_recording",
+            "chain_mic": "condenser_sdc",
+            "chain_pre": "pre_field_recorder_portable",
+            "chain_medium": "digital_high",
+            "chain_console": "clean",
+            "tuning": "carnatic_72_melakarta_kriti_form",
+            "parts": {
+              "voice_articulation": "staccato_voice",
+              "voice_speech_song": "voice_syllabic_singing",
+              "voice_register": "chest_voice",
+              "voice_quality": "child_voice",
+              "voice_tradition": "modern_pop_vocal_training",
+              "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_microtone": "shruti_inflected",
+              "voice_ornament_system": "voice_ornament_none",
+              "voice_estill_quality": "voice_estill_speech",
+              "voice_vibrato": "straight_tone",
+              "voice_mechanism_compound": "voice_mechanism_single_source"
+            },
+            "chain_status": "researched_field_recording",
+            "chain_archetype": "arch_ethnographic_field_digital"
+          },
+          "extras": {
+            "parent": "nurseryRhyme.southAsian",
+            "axes": {
+              "harm": -1,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -2,
+              "transmission": -1,
+              "improv": -2,
+              "soundTech": -2,
+              "intensity": -1,
+              "voice": 2,
+              "timbre": -2,
+              "percussion": -2,
+              "cyclicity": 1
+            },
+            "description": "The Tamil-language children's play-song tradition continuous from premodern Tamil folk-play-song origins through 20th-century Tamil-Nadu-and-Sri-Lankan-Tamil school-curriculum codification into modern continuous Tamil childhood-practice. Defined by Tamil-language text register with the agglutinative-Tamil syllabic mapping characteristic, Carnatic-melakarta-derived melodic vocabulary (predominantly Mayamalavagowla, Mohanam, Shankarabharanam) inflecting the children's-song frame, narrow-range hexatonic-or-Carnatic-pentatonic vocabulary, action-coordination structure for circle-game and hand-game applications.",
+            "exemplars": [
+              "\"Aathaadi\" (ஆதாடி) Tamil children's circle-game canonical",
+              "\"Onnu rendu mooonu\" Tamil counting-rhyme",
+              "\"Kaakka Kaakka\" Tamil crow-rhyme",
+              "\"Nila nila odi va\" moon-come-out rhyme",
+              "\"Chinna chinna asai\" school-children's-song crossover"
+            ],
+            "crossRefs": [
+              "lullaby.southAsian",
+              "nurseryRhyme.eastAsian",
+              "nurseryRhyme.european"
+            ],
+            "status": "documented"
+          }
+        }
+      ],
+      "render_context_audit": {
+        "runtime": "/tmp/batch040/anak-runtime461.json",
+        "judgment": "All four literal outputs preserve positively sung lead and piano. Wabi-rustic describes plain soft intimate timbral affect, not an assertion of Japanese repertoire. Affectionate piano is compatible family-song affect; no unrelated instruments or no-pitch voice language emitted."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

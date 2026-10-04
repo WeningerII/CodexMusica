@@ -1,0 +1,234 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "czsk_emo_rap",
+        "name": "CZSK Emo Rap",
+        "family": "hip_hop",
+        "lineage": "Czech and Slovak emo rap connects confessional writing with the region’s independent rap and alternative-music networks. Local-language releases and cross-border radio sessions bring emotionally direct rap into contact with punk, electronic music and melodic pop.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Intimate or urgent verses address relationships, anxiety and personal uncertainty over producer-built beats. Rapping can alternate with melodic hooks; dark electronic textures and rock influences vary between artists. A direct rhythmic vocal and produced accompaniment represent the rapped branch.",
+        "exemplars": [
+          "Dušan Vlk",
+          "Ad.03.00.am",
+          "Totally Nothin"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "czsk_emo_rap",
+          "name": "CZSK Emo Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13894view2 confirms original Iain Fergusson photograph, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn13894view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13894view2; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13894view2"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative rhythmic rap and produced accompaniment, supported by the broadcaster’s explicit rapped Dušan Vlk performance and Ad.03.00.am’s firsthand account of recording vocals over supplied beats. It is not a reconstruction of either complete programme or album. The latter campaign failed its funding goal, so no completed Coldboy album is asserted. Singing, live guitars and other branches are acknowledged in the public profile but are not compulsory in this positively documented rapped branch. Neutral produced-beat identity retains accompaniment without inventing its physical architecture. Single moderate, unprocessed rapper and controlled room are authored performance choices, not measured recording facts or a genre-wide singer count."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Genre-level representative rhythmic rap and produced accompaniment, supported by the broadcaster’s explicit rapped Dušan Vlk performance and Ad.03.00.am’s firsthand account of recording vocals over supplied beats. It is not a reconstruction of either complete programme or album. The latter campaign failed its funding goal, so no completed Coldboy album is asserted. Singing, live guitars and other branches are acknowledged in the public profile but are not compulsory in this positively documented rapped branch. Neutral produced-beat identity retains accompaniment without inventing its physical architecture. Single moderate, unprocessed rapper and controlled room are authored performance choices, not measured recording facts or a genre-wide singer count."
+        }
+      ],
+      "source_label": "czsk emo rap",
+      "source_url": "https://everynoise.com/engenremap-czskemorap.html",
+      "suggested_id": "czsk_emo_rap",
+      "allocation_ordinal": 255,
+      "allocation_group_id": "011",
+      "id": "czsk_emo_rap",
+      "status": "ready_for_independent_review",
+      "geo": [
+        48.9984,
+        21.2339,
+        "Prešov",
+        "Europe"
+      ],
+      "geo_rationale": "Documented practitioner hub within a cross-border field, not sole origin or recording address.",
+      "signature_tokens": [],
+      "model_policy": "Genre-level representative rhythmic rap and produced accompaniment, supported by the broadcaster’s explicit rapped Dušan Vlk performance and Ad.03.00.am’s firsthand account of recording vocals over supplied beats. It is not a reconstruction of either complete programme or album. The latter campaign failed its funding goal, so no completed Coldboy album is asserted. Singing, live guitars and other branches are acknowledged in the public profile but are not compulsory in this positively documented rapped branch. Neutral produced-beat identity retains accompaniment without inventing its physical architecture. Single moderate, unprocessed rapper and controlled room are authored performance choices, not measured recording facts or a genre-wide singer count.",
+      "neighbor_distinction": "Existing Czech Hip Hop, Slovak Hip Hop and CZSK Hip Hop already cover modern offshoots and shared producers; their selected PSH/Kontrafakt examples do not restrict those umbrellas. This narrower confessional emo-rap orientation is positively named by practitioners and the Czech broadcaster presenting Slovak Dušan Vlk, establishing regional cross-border usage rather than nationality alone. Existing Emo Rap and Sad Rap / Emo Trap cover the wider internet-rooted emotional rap lineage and substantially overlap; neither excludes these artists. The proposed entry identifies its Czech/Slovak language and broadcast/community branch, not a disjoint technique or a different performer alone. Czech Drill is rhythm/scene-specific rather than an equivalent emotional orientation. Queued Russian and Italian Emo Rap record other linguistic/community fields. No exact creator-playlist membership of these new practice exemplars is claimed.",
+      "classification_evidence": "Existing Czech Hip Hop, Slovak Hip Hop and CZSK Hip Hop already cover modern offshoots and shared producers; their selected PSH/Kontrafakt examples do not restrict those umbrellas. This narrower confessional emo-rap orientation is positively named by practitioners and the Czech broadcaster presenting Slovak Dušan Vlk, establishing regional cross-border usage rather than nationality alone. Existing Emo Rap and Sad Rap / Emo Trap cover the wider internet-rooted emotional rap lineage and substantially overlap; neither excludes these artists. The proposed entry identifies its Czech/Slovak language and broadcast/community branch, not a disjoint technique or a different performer alone. Czech Drill is rhythm/scene-specific rather than an equivalent emotional orientation. Queued Russian and Italian Emo Rap record other linguistic/community fields. No exact creator-playlist membership of these new practice exemplars is claimed.",
+      "source_scope_limitation": "Genre-level representative rhythmic rap and produced accompaniment, supported by the broadcaster’s explicit rapped Dušan Vlk performance and Ad.03.00.am’s firsthand account of recording vocals over supplied beats. It is not a reconstruction of either complete programme or album. The latter campaign failed its funding goal, so no completed Coldboy album is asserted. Singing, live guitars and other branches are acknowledged in the public profile but are not compulsory in this positively documented rapped branch. Neutral produced-beat identity retains accompaniment without inventing its physical architecture. Single moderate, unprocessed rapper and controlled room are authored performance choices, not measured recording facts or a genre-wide singer count.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Original Czech Radio session explicitly identifies Dušan Vlk’s rhythmic rapping; firsthand practitioner accounts describe emotionally direct rap and recorded vocals. One rapper represents this branch, not universal headcount."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Artist-owned Donio statement explicitly describes remote collaborators supplying beats, over which the artist records his own vocals and mixes. Actual source assembly, not completed-master playback."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored lead rapper with produced accompaniment",
+        "no_exact_recording_reconstruction": true
+      },
+      "sources": [
+        {
+          "url": "https://wave.rozhlas.cz/full-time-rapper-dusan-vlk-hlasa-make-emo-rap-great-again-v-nove-fonosession-9204172",
+          "primary": true,
+          "evidence_ref": "turn13892view0",
+          "supports": "Original Czech Radio session identifies Slovak emo-rap practice and explicitly rapped delivery; positive cross-border institutional usage."
+        },
+        {
+          "url": "https://donio.sk/ad-03-00-am",
+          "primary": true,
+          "evidence_ref": "turn13894view1",
+          "supports": "Artist-authored campaign identifies Slovak emo-rap crossover and vocals over remotely supplied beats. Funding goal failed; campaign is evidence of practice, not proof the proposed album was issued."
+        },
+        {
+          "url": "https://www.casopishmota.sk/dusan-vlk-pocuvaju-ma-vsetci-precitliveni-pre-tuto-spolocnost/",
+          "primary": true,
+          "evidence_ref": "turn13889search5; turn13892view2",
+          "supports": "Firsthand interview situates emotional/punk-rap orientation in Slovak alternative underground. Later direct retry timed out; original indexed interview passage retained in tool context."
+        },
+        {
+          "url": "https://www.supraphon.cz/novinky/20858",
+          "primary": true,
+          "evidence_ref": "turn13887search4",
+          "supports": "Issuer artist statement confirms personal emotional writing and variable rap, guitar, electronic-beat and ballad approaches in Czech practice; not a full-album reconstruction or claim these are mandatory in every performance."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

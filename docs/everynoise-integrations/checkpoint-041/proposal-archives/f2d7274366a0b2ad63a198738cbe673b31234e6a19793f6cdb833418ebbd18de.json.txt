@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ROOT_QUEUE_REPAIR_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-haitian_traditional.json",
+  "packet_sha256": "993eb47775d65fca83248c08bb460cb00162ebf609b270f2c0dfc0fe2c2e4ab4",
+  "ids": [
+    "haitian_traditional"
+  ],
+  "checked_at": "2026-10-03T22:34:57.559163+00:00",
+  "checks": [
+    "Root read genre prose, firsthand source support and substantive default rationale. Rap defaults restore produced beats; Dark Progressive House now models electronic production rather than one DJ set. Valid Festigal band and Haitian vocal/tanbou branches retained.",
+    "Root independently reran strict owning-control/photo-receipt audit and4formats; read full rich/prose outputs, author full4format semantic review retained. No artist/session public photo captions, required rights unchanged.",
+    "Original dossiers retained separately; final static/regression/CI pending."
+  ]
+}

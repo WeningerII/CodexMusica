@@ -1,0 +1,66 @@
+{
+  "id": "ringtone",
+  "name": "Ringtone",
+  "family": "electronic",
+  "lineage": "Ringtone music — short recognizable musical signals for telephone call alerts.",
+  "recipe": "classic ringtone, art Music. fm synth. treated studio.",
+  "recipe_chars": 54,
+  "score": 2.362,
+  "config": {
+    "traditions": [
+      "ringtone"
+    ],
+    "instruments": [
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx21_dx100"
+        },
+        "scores": {
+          "electronic_technique": 0.9314999999999999,
+          "fm_algorithm": -0.05,
+          "fm_modulator_ratio": 1.3,
+          "fm_polyphony": 0.231,
+          "fm_model_lineage": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "fm_synth": [
+        "electronic_technique",
+        "fm_algorithm",
+        "fm_modulator_ratio",
+        "fm_polyphony",
+        "fm_model_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_pluck_short",
+      "fm_algorithm": "fm_classic",
+      "fm_modulator_ratio": "fm_harmonic",
+      "fm_polyphony": "fm_mono",
+      "fm_model_lineage": "fm_yamaha_dx21_dx100"
+    },
+    "pin_parts": true
+  }
+}

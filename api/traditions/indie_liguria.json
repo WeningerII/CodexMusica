@@ -1,0 +1,62 @@
+{
+  "id": "indie_liguria",
+  "name": "Indie Liguria",
+  "family": "electronic",
+  "lineage": "Indie Liguria links independent music communities in Liguria, including Genoa’s bands, producers and small-label networks. Songwriting, electronic production and cross-cultural collaborations coexist within this regional scene.",
+  "recipe": "classic indie liguria, electronic Dance. sampler drum machine. live tracking.",
+  "recipe_chars": 77,
+  "score": 0.217,
+  "config": {
+    "traditions": [
+      "indie_liguria"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.126,
+          "sample_swing": 0.2415,
+          "sample_processing": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break"
+    },
+    "pin_parts": true
+  }
+}

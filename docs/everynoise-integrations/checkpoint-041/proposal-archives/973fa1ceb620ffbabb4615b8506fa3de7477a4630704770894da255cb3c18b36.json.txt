@@ -1,0 +1,275 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_triste_brasileira",
+          "name": "Música Triste Brasileira",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not Hiosaki, scene illustration or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11563view0 confirms CC BY2.5 Iain Fergusson photograph with existing Binksternet crop; historical exact bytes/visual receipts retained.",
+          "fresh_review_ref": "turn11563view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights/context review turn11563view0; historical byte/visual receipts unchanged.",
+        "fresh_rights_retrieval_refs": "Fresh rights/context review turn11563view0; historical byte/visual receipts unchanged."
+      },
+      "source_label": "musica triste brasileira",
+      "source_url": "https://everynoise.com/engenremap-musicatristebrasileira.html",
+      "suggested_id": "musica_triste_brasileira",
+      "allocation_ordinal": 3928,
+      "allocation_group_id": "158",
+      "id": "musica_triste_brasileira",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "musica_triste_brasileira",
+        "name": "Música Triste Brasileira",
+        "family": "pop",
+        "lineage": "Hiosaki — complete 2021 Royal Produções single Não Aguento Mais (3:10). Official artist video credits Hiosaki as featured singer and Carlinhos Cokó for acoustic guitar and keyboards, also arrangement; Santiago Ferraz is producer/mixer, not an additional inferred instrumentalist. All three positive sound families retained. Source gives no extra drum, bass or percussion performer/role. Exact overdub count, keyboard mechanism and acoustic string type are unspecified; this is the complete credited single, not an acoustic subset removed from a bigger identified arrangement. Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Hiosaki — complete 2021 Royal Produções single Não Aguento Mais (3:10). Official artist video credits Hiosaki as featured singer and Carlinhos Cokó for acoustic guitar and keyboards, also arrangement; Santiago Ferraz is producer/mixer, not an additional inferred instrumentalist. All three positive sound families retained. Source gives no extra drum, bass or percussion performer/role. Exact overdub count, keyboard mechanism and acoustic string type are unspecified; this is the complete credited single, not an acoustic subset removed from a bigger identified arrangement. The creator Música Triste Brasileira playlist includes Hiosaki at item8 alongside Tuono, Zant, VMZ and Sadstation. His firsthand interview describes a youth internet audience and his own melancholic-pop practice evolving from indie/lofi, with personal sadness and vulnerability. This records the Brazilian Portuguese-language sad-pop/rap audience and collaborative discovery field, not every historically melancholy MPB song. Existing sad_rap_emo_trap and emo_rap describe the wider US/internet trap-and-guitar rap lineage; overlap with those fields is explicit, while the selected pop song and Brazilian youth community are not universally trap. Existing sadcore is the American indie songwriting lineage; trap_triste describes Spanish-language Latin-trap grammar. Existing Brazilian popular and hip-hop fields overlap more broadly, rather than being excluded. A different Hiosaki song or acoustic instrumentation alone is not the category distinction. Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted. Existing brazilian_emo is a national indie/emo band field and its Baztian trio is only an exemplar; Brazilian sad-pop/rap overlaps emotional themes but the positively identified internet pop/rap audience and cross-style discovery roster are not defined by an emo-rock band lineage.",
+        "exemplars": [
+          "Hiosaki — Não Aguento Mais, complete Royal Produções 2021 single"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -7.49,
+        -38.99,
+        "Brejo Santo",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Artist birthplace/community anchor positively documented in firsthand interview and own Spotify bio; not asserted source recording location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=K6uo9btXWpA",
+          "title": "Hiosaki official Não Aguento Mais — full credits",
+          "supports": "Complete single source roles; original indexed issuer description preserved in resume116-hiosaki-indexed-primary-raw.json; direct video open failed."
+        },
+        {
+          "url": "https://open.spotify.com/intl-pt/track/2Ot8VEqXC8zkFdYuoUDzZD",
+          "title": "Royal distributed single",
+          "supports": "2021 issue,3:10 whole track; no copyrighted lyrics reproduced."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/47bikoA9qfXDT5VVhzsjy9?theme=0",
+          "title": "Creator Música Triste Brasileira playlist",
+          "supports": "Exact category/member at item8 and multiartist community roster."
+        },
+        {
+          "url": "https://diariodonordeste.verdesmares.com.br/verso/de-brejo-santo-para-o-rock-in-rio-2022-cearense-hiosaki-ganha-o-brasil-com-seu-pop-melancolico-1.3261166",
+          "title": "Firsthand Hiosaki interview",
+          "supports": "Self-described melancholic pop and internet youth community; Brejo Santo anchor."
+        }
+      ],
+      "neighbor_distinction": "The creator Música Triste Brasileira playlist includes Hiosaki at item8 alongside Tuono, Zant, VMZ and Sadstation. His firsthand interview describes a youth internet audience and his own melancholic-pop practice evolving from indie/lofi, with personal sadness and vulnerability. This records the Brazilian Portuguese-language sad-pop/rap audience and collaborative discovery field, not every historically melancholy MPB song. Existing sad_rap_emo_trap and emo_rap describe the wider US/internet trap-and-guitar rap lineage; overlap with those fields is explicit, while the selected pop song and Brazilian youth community are not universally trap. Existing sadcore is the American indie songwriting lineage; trap_triste describes Spanish-language Latin-trap grammar. Existing Brazilian popular and hip-hop fields overlap more broadly, rather than being excluded. A different Hiosaki song or acoustic instrumentation alone is not the category distinction. Existing brazilian_emo is a national indie/emo band field and its Baztian trio is only an exemplar; Brazilian sad-pop/rap overlaps emotional themes but the positively identified internet pop/rap audience and cross-style discovery roster are not defined by an emo-rock band lineage.",
+      "model_policy": "Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted.",
+      "classification_evidence": "The creator Música Triste Brasileira playlist includes Hiosaki at item8 alongside Tuono, Zant, VMZ and Sadstation. His firsthand interview describes a youth internet audience and his own melancholic-pop practice evolving from indie/lofi, with personal sadness and vulnerability. This records the Brazilian Portuguese-language sad-pop/rap audience and collaborative discovery field, not every historically melancholy MPB song. Existing sad_rap_emo_trap and emo_rap describe the wider US/internet trap-and-guitar rap lineage; overlap with those fields is explicit, while the selected pop song and Brazilian youth community are not universally trap. Existing sadcore is the American indie songwriting lineage; trap_triste describes Spanish-language Latin-trap grammar. Existing Brazilian popular and hip-hop fields overlap more broadly, rather than being excluded. A different Hiosaki song or acoustic instrumentation alone is not the category distinction. Existing brazilian_emo is a national indie/emo band field and its Baztian trio is only an exemplar; Brazilian sad-pop/rap overlaps emotional themes but the positively identified internet pop/rap audience and cross-style discovery roster are not defined by an emo-rock band lineage.",
+      "vocal_count_audit": {
+        "credited_named_singers": 1,
+        "credited_names": [
+          "Hiosaki"
+        ],
+        "source_overdub_count": "unknown",
+        "decision": "One accompanied natural lead is an authored realization of the credited singer; source recording stacking remains unknown."
+      },
+      "instrument_role_audit": {
+        "scope": "Hiosaki — complete 2021 Royal Produções single Não Aguento Mais (3:10). Official artist video credits Hiosaki as featured singer and Carlinhos Cokó for acoustic guitar and keyboards, also arrangement; Santiago Ferraz is producer/mixer, not an additional inferred instrumentalist. All three positive sound families retained. Source gives no extra drum, bass or percussion performer/role. Exact overdub count, keyboard mechanism and acoustic string type are unspecified; this is the complete credited single, not an acoustic subset removed from a bigger identified arrangement.",
+        "roles": {
+          "voice": "Hiosaki",
+          "acoustic_guitar_dread": "Carlinhos Cokó — violão; steel-string realization authored, source string material unknown",
+          "electronic_keyboard_unspecified": "Carlinhos Cokó — teclados, architecture unspecified"
+        },
+        "authored_defaults": "Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted."
+      },
+      "dependency_audit": {
+        "new_dependencies": [],
+        "original_engine_unchanged": true
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All three existing owning-part IDs distinct and applicable pins authored; actual merge preflight must verify."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All applicable controls explicitly authored; source exact mechanism, materials and performance settings not invented as facts."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "All applicable controls explicitly authored; source exact mechanism, materials and performance settings not invented as facts."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "All applicable controls explicitly authored; source exact mechanism, materials and performance settings not invented as facts."
+        }
+      ],
+      "verification_status": "Original four formats inspected: huge/immense/stereophonic are authored spatial hall presentation, no foreign cultural field or absent instrument asserted. 24 applicable owning controls protected; no dependencies.",
+      "source_scope_limitation": "Full positive issuer credits inspected; not a waveform audit proving no undocumented overdub. Studio track not replaced with an opaque playback card.",
+      "source_review_refs": [
+        "turn352606youtube12",
+        "turn545273search0",
+        "turn11563view1",
+        "turn11563view0"
+      ],
+      "source_retrieval_caveat": "Primary official video description obtained from indexed official-channel result; direct open unavailable. Raw successful tool response preserved separately; no mirror used as sole primary."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

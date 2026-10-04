@@ -1,0 +1,245 @@
+{
+  "entries": [
+    {
+      "source_label": "magyar kabare",
+      "source_url": "https://everynoise.com/engenremap-magyarkabare.html",
+      "suggested_id": "magyar_kabare",
+      "allocation_ordinal": 3725,
+      "allocation_group_id": "149",
+      "id": "magyar_kabare",
+      "tradition": {
+        "id": "magyar_kabare",
+        "name": "Magyar Kabaré",
+        "family": "vernacular",
+        "lineage": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred. Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord.stagePerformance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred. Magyar Kabaré is the Hungarian comic-theatre and radio-cabaret circulation field, including spoken humor as well as musical satire. Exact creator playlist item42 is Litkai Gergely. His own presenting institution identifies him as a former Rádiókabaré writer/performer, Hungarian stand-up founder and Dumaszínház artistic director, establishing institutional continuity rather than nationality alone. Existing standup_comedy documents the American vaudeville/nightclub form and its broader technique overlaps this solo branch; the new field is not disjoint from stand-up. Full Hungarian folk concerns collected village repertoire and Hungarian pop is broad popular songwriting, neither defining this named comic institution. Neighboring Vlaamse/Dutch cabaret and clean/new comedy can overlap forms, but do not identify this Hungarian-language radio/theatre network. The selected science-themed humorous lecture is a present-day branch, not a definition of every cabaret work. Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place.",
+        "exemplars": [
+          "Litkai Gergely — Változás, complete Duma Akadémia solo programme"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        47.4979,
+        19.0402,
+        "Budapest",
+        "Europe"
+      ],
+      "geo_rationale": "Presenting institution and advertised venues in Budapest; city anchor, not a recording location claim.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://dumaszinhaz.hu/eloadasok/duma-akademia-valtozas-litkai-gergely-onallo-estje-2026-10-21-1900",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11164search0 full programme: sole named speaker, humorous environmental lecture and photographic presentation; actual upcoming date not claimed completed."
+        },
+        {
+          "url": "https://dumaszinhaz.hu/blog/2026/03/02/budapesti-szinhazak-ejszakaja-a-dumaszinhaz-programjai/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11164search1 separately scheduled complete Változás programme at18:00; other afternoon/evening casts excluded."
+        },
+        {
+          "url": "https://dumaszinhaz.hu/fellepok/Litkai-Gergely/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11151search0 own presenter biography establishes Rádiókabaré and Hungarian stand-up institutional continuity."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1dDJAUMo7nJlS3NWZbRIUo",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11163view0 exact creator playlist item42 Litkai Gergely; not a claim selected lecture is that listed track."
+        }
+      ],
+      "neighbor_distinction": "Magyar Kabaré is the Hungarian comic-theatre and radio-cabaret circulation field, including spoken humor as well as musical satire. Exact creator playlist item42 is Litkai Gergely. His own presenting institution identifies him as a former Rádiókabaré writer/performer, Hungarian stand-up founder and Dumaszínház artistic director, establishing institutional continuity rather than nationality alone. Existing standup_comedy documents the American vaudeville/nightclub form and its broader technique overlaps this solo branch; the new field is not disjoint from stand-up. Full Hungarian folk concerns collected village repertoire and Hungarian pop is broad popular songwriting, neither defining this named comic institution. Neighboring Vlaamse/Dutch cabaret and clean/new comedy can overlap forms, but do not identify this Hungarian-language radio/theatre network. The selected science-themed humorous lecture is a present-day branch, not a definition of every cabaret work.",
+      "model_policy": "Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice"
+        ]
+      },
+      "classification_evidence": {
+        "mode": "primary_presenter_institution_and_exact_creator_artist",
+        "note": "Magyar Kabaré is the Hungarian comic-theatre and radio-cabaret circulation field, including spoken humor as well as musical satire. Exact creator playlist item42 is Litkai Gergely. His own presenting institution identifies him as a former Rádiókabaré writer/performer, Hungarian stand-up founder and Dumaszínház artistic director, establishing institutional continuity rather than nationality alone. Existing standup_comedy documents the American vaudeville/nightclub form and its broader technique overlaps this solo branch; the new field is not disjoint from stand-up. Full Hungarian folk concerns collected village repertoire and Hungarian pop is broad popular songwriting, neither defining this named comic institution. Neighboring Vlaamse/Dutch cabaret and clean/new comedy can overlap forms, but do not identify this Hungarian-language radio/theatre network. The selected science-themed humorous lecture is a present-day branch, not a definition of every cabaret work."
+      },
+      "vocal_count_audit": {
+        "speakers": 1,
+        "singers": 0,
+        "basis": "Complete published solo humorous lecture; not other shows or presumed music in an unseen recording."
+      },
+      "instrument_role_audit": {
+        "rationale": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred.",
+        "authored_defaults": "Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "magyar_kabare",
+          "name": "Magyar Kabaré",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Litkai Gergely, the Budapest venue or documented source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11161view0 confirms exact Commons CC BY2.5 authorship and existing crop. Exact inherited023 binary/visual receipt, no new transfer.",
+          "fresh_review_ref": "turn11161view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11161view0"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "All17 human voice owner controls pinned, no fallback or collision."
+      },
+      "primary_retrieval_refs": [
+        "turn11164search0",
+        "turn11164search1",
+        "turn11151search0",
+        "turn11163view0"
+      ],
+      "source_retrieval_caveat": "Presenter direct requests timed out; actual full indexed primary responses saved, exact creator playlist directly read. No source audio audition or soundtrack inventory claimed.",
+      "source_scope_limitation": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred.",
+      "status": "ready_for_independent_review"
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "ready_for_independent_review"
+}

@@ -1,0 +1,381 @@
+{
+  "entries": [
+    {
+      "source_label": "kabyle moderne",
+      "source_url": "https://everynoise.com/engenremap-kabylemoderne.html",
+      "suggested_id": "kabyle_moderne",
+      "allocation_ordinal": 3587,
+      "allocation_group_id": "144",
+      "id": "kabyle_moderne",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "kabyle_moderne",
+        "name": "Kabyle Moderne",
+        "family": "global",
+        "lineage": "Akli D. — the complete announced fifty-minute third act on 8 April 2006 at Cité de la musique, Paris, from the presenting institution’s full Métissages Chanteurs Kabyles programme. Eight named performers: Akli voice/guitar; Patrick Piazza bass/voice; Michel Piétry drums; Malik Kerrouch guitar/voice; David Aubaile keyboard/voice; Hicham Moumine and Karim Touré each percussion/voice; Adhil Mirghni percussion/darbuka. Retain all six singers, both guitarists, bass, kit, keyboard, all three unspecified percussion credits and the separately named darbuka. Do not import the first two acts, next-day Idir ensemble, biographical childhood bendirs, earlier albums or their guests. The selected source is the whole dated announced practice, not an audition or claimed transcription. Exact guitar construction, keyboard architecture, auxiliary instruments and vocal intervals remain unspecified. Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "credited_auxiliary_percussion",
+          "darbuka"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "percussion_technique": "percussion_hands_layered",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Akli D. — the complete announced fifty-minute third act on 8 April 2006 at Cité de la musique, Paris, from the presenting institution’s full Métissages Chanteurs Kabyles programme. Eight named performers: Akli voice/guitar; Patrick Piazza bass/voice; Michel Piétry drums; Malik Kerrouch guitar/voice; David Aubaile keyboard/voice; Hicham Moumine and Karim Touré each percussion/voice; Adhil Mirghni percussion/darbuka. Retain all six singers, both guitarists, bass, kit, keyboard, all three unspecified percussion credits and the separately named darbuka. Do not import the first two acts, next-day Idir ensemble, biographical childhood bendirs, earlier albums or their guests. The selected source is the whole dated announced practice, not an audition or claimed transcription. Exact guitar construction, keyboard architecture, auxiliary instruments and vocal intervals remain unspecified. The creator Kabyle Moderne playlist positively includes Akli D. at17/24/75/82 alongside AmZik, newer singer-songwriters and crossstyle acts. The presenting institution explicitly frames a crossstyle contemporary Kabyle field that opens the inherited song tradition toward reggae, blues, folk-country and other international practices, naming Akli and Iness Mezel; this is a positive artistic-network boundary rather than merely a later date or different exemplar. Full existing kabyle and kabyle_music_algerian already include modern Paris exile chanson, Idir and Matoub, so this field overlaps both and does not claim modernity was absent. The narrower crossstyle popular-song discovery network is not the entire Kabyle ethnic tradition, not all Amazigh music and not an alias for one of the source’s reggae or folk influences. No claim every listed artist uses this particular ensemble. Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning.",
+        "exemplars": [
+          "Akli D. — complete Cité de la musique third act,8April2006,50minutes"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        48.889,
+        2.393,
+        "Paris",
+        "Europe"
+      ],
+      "geo_rationale": "Presenting institution programme gives Cité de la musique,221avenueJeanJaurès75019Paris. Dated event anchor, not genre’s exclusive origin.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The creator Kabyle Moderne playlist positively includes Akli D. at17/24/75/82 alongside AmZik, newer singer-songwriters and crossstyle acts. The presenting institution explicitly frames a crossstyle contemporary Kabyle field that opens the inherited song tradition toward reggae, blues, folk-country and other international practices, naming Akli and Iness Mezel; this is a positive artistic-network boundary rather than merely a later date or different exemplar. Full existing kabyle and kabyle_music_algerian already include modern Paris exile chanson, Idir and Matoub, so this field overlaps both and does not claim modernity was absent. The narrower crossstyle popular-song discovery network is not the entire Kabyle ethnic tradition, not all Amazigh music and not an alias for one of the source’s reggae or folk influences. No claim every listed artist uses this particular ensemble.",
+      "classification_evidence": "The creator Kabyle Moderne playlist positively includes Akli D. at17/24/75/82 alongside AmZik, newer singer-songwriters and crossstyle acts. The presenting institution explicitly frames a crossstyle contemporary Kabyle field that opens the inherited song tradition toward reggae, blues, folk-country and other international practices, naming Akli and Iness Mezel; this is a positive artistic-network boundary rather than merely a later date or different exemplar. Full existing kabyle and kabyle_music_algerian already include modern Paris exile chanson, Idir and Matoub, so this field overlaps both and does not claim modernity was absent. The narrower crossstyle popular-song discovery network is not the entire Kabyle ethnic tradition, not all Amazigh music and not an alias for one of the source’s reggae or folk influences. No claim every listed artist uses this particular ensemble.",
+      "model_policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning.",
+      "source_scope_limitation": "Akli D. — the complete announced fifty-minute third act on 8 April 2006 at Cité de la musique, Paris, from the presenting institution’s full Métissages Chanteurs Kabyles programme. Eight named performers: Akli voice/guitar; Patrick Piazza bass/voice; Michel Piétry drums; Malik Kerrouch guitar/voice; David Aubaile keyboard/voice; Hicham Moumine and Karim Touré each percussion/voice; Adhil Mirghni percussion/darbuka. Retain all six singers, both guitarists, bass, kit, keyboard, all three unspecified percussion credits and the separately named darbuka. Do not import the first two acts, next-day Idir ensemble, biographical childhood bendirs, earlier albums or their guests. The selected source is the whole dated announced practice, not an audition or claimed transcription. Exact guitar construction, keyboard architecture, auxiliary instruments and vocal intervals remain unspecified.",
+      "source_retrieval_caveat": "Whole seven-page institutional PDF freshly read at12314view0 via EXPLOITATION endpoint after CIMU endpoint failed; exact full creator100 freshly12310view1. No audition or verified actual attendance claimed.",
+      "vocal_count_audit": {
+        "selected_count": 6,
+        "basis": "Six expressly credited voices in the complete eight-person third-act roster; unspecified intervals/tracking remain unknown in source, authored live group realization."
+      },
+      "instrument_role_audit": {
+        "scope": "Akli D. — the complete announced fifty-minute third act on 8 April 2006 at Cité de la musique, Paris, from the presenting institution’s full Métissages Chanteurs Kabyles programme. Eight named performers: Akli voice/guitar; Patrick Piazza bass/voice; Michel Piétry drums; Malik Kerrouch guitar/voice; David Aubaile keyboard/voice; Hicham Moumine and Karim Touré each percussion/voice; Adhil Mirghni percussion/darbuka. Retain all six singers, both guitarists, bass, kit, keyboard, all three unspecified percussion credits and the separately named darbuka. Do not import the first two acts, next-day Idir ensemble, biographical childhood bendirs, earlier albums or their guests. The selected source is the whole dated announced practice, not an audition or claimed transcription. Exact guitar construction, keyboard architecture, auxiliary instruments and vocal intervals remain unspecified.",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Six named singers",
+            "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+          },
+          {
+            "instrument": "electric_guitar_humbucker",
+            "source_role": "Akli D. and Malik Kerrouch: source-generic guitars, authored electric realization",
+            "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+          },
+          {
+            "instrument": "electric_bass",
+            "source_role": "Patrick Piazza: bass guitar",
+            "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+          },
+          {
+            "instrument": "drum_kit",
+            "source_role": "Michel Piétry: drums",
+            "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+          },
+          {
+            "instrument": "electronic_keyboard_unspecified",
+            "source_role": "David Aubaile: keyboard",
+            "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+          },
+          {
+            "instrument": "credited_auxiliary_percussion",
+            "source_role": "Hicham Moumine,Karim Touré,Adhil Mirghni: all unspecified percussion retained",
+            "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+          },
+          {
+            "instrument": "darbuka",
+            "source_role": "Adhil Mirghni: separately named derbouka",
+            "authored_realization": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+          }
+        ],
+        "omissions": "None from the full third-act roster; distinct first/second acts and other days are outside selected scope."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+        },
+        {
+          "instrument": "darbuka",
+          "parts": {
+            "percussion_technique": "percussion_hands_layered",
+            "darbuka_material": "darbuka_aluminum_sombaty",
+            "darbuka_skin": "darbuka_synthetic_mylar",
+            "darbuka_regional_style": "darbuka_egyptian_sombaty"
+          },
+          "policy": "Full seven-family authored song-band rendition preserves eight people and six singers, with same-family players aggregated without losing their roles. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the credited keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. The two source-generic guitars are both realized here on the disclosed electric-guitar construction; this does not claim the source instruments were electric or identical. Auxiliary percussion retains its existing source-unspecified owner, without inventing three particular drums. The named darbuka is realized on an explicitly authored modern Egyptian Sombaty aluminum/Mylar hand-played setup; this is physical equipment chosen for the new rendition, not a claim about Adhil’s measured drum, national playing lineage or source tuning."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Every applicable owning control explicitly pinned; shared guitar/bass body wood is the applicable alder variant on both."
+      },
+      "sources": [
+        {
+          "url": "https://pad.philharmoniedeparis.fr/EXPLOITATION/ermes/player.aspx?id=0784440",
+          "support_notes": "Fresh12314view0 whole institutional programme: pages0/3 date/full third-act roster; pages1/4 positive crossstyle field and Akli practice; page6 Paris institutional address.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3HUr4QyGI5W6iuK9enJBRq",
+          "support_notes": "Fresh12310view1 full100 exact creator community; AkliD17/24/75/82. Not a claim selected concert songs match named playlist recordings.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn12314view0",
+        "turn12310view1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "kabyle_moderne",
+          "name": "Kabyle Moderne",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Akli D., the2006stage, any instrument depiction or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12281view4/12287view3 confirms Iain Fergusson/Binksternet cropped SM58 CC BY2.5. Exact inherited023 preview bytes unchanged; no fresh download claimed.",
+          "fresh_review_ref": "turn12287view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12287view3"
+        ]
+      },
+      "verification_status": "Original loader56 applicable controls54flatpins all protected,1638 old owners unchanged, exact023 photo receipt and four browser/connector outputs all pass; maximum995characters retains all seven family names. Independent peer pending; no integrated CI claim."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

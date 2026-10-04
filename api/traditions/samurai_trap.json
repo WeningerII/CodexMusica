@@ -5,7 +5,7 @@
   "lineage": "Samurai trap connects trap and bass production with Japanese-associated melodic and media references in an international electronic listening field. Producers and curators overlap glitch, hip-hop and future-bass communities rather than representing a historical Japanese tradition.",
   "recipe": "classic samurai trap, bass System. sampler, drum machine analog. treated studio.",
   "recipe_chars": 80,
-  "score": 8.228,
+  "score": 8.26,
   "config": {
     "traditions": [
       "samurai_trap"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "electronic_technique": 0.325,
-          "sampler_archetypes": 1.5,
+          "sampler_archetypes": 1.5315,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": 0.2315,
           "sampler_classic_context": 6.24

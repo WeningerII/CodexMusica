@@ -1,0 +1,311 @@
+{
+  "entries": [
+    {
+      "source_label": "png pop",
+      "source_url": "https://everynoise.com/engenremap-pngpop.html",
+      "suggested_id": "png_pop",
+      "allocation_ordinal": 1827,
+      "allocation_group_id": "074",
+      "id": "png_pop",
+      "tradition": {
+        "id": "png_pop",
+        "name": "PNG pop",
+        "family": "pop",
+        "lineage": "PNG pop is Papua New Guinea’s contemporary popular-song field, joining local melodies and languages with rock, reggae, country-pop, R&B and other international styles.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "electronic_keyboard_unspecified",
+          "drum_kit"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "description": "Catchy singing and rhythmic accompaniment connect diverse local communities through recordings, radio and live performance. Electric guitar, bass, drums and keyboards support one widely used band setting, while string bands and electronic productions offer other textures. Island-reggae grooves, pop melody and regional musical traditions circulate together without reducing the country’s many styles to a single sound.",
+        "exemplars": [
+          "Chanted Groove",
+          "Justin Wellington",
+          "George Telek"
+        ],
+        "axes": {
+          "voice": 1,
+          "percussion": 1,
+          "soundTech": 1
+        }
+      },
+      "geo": [
+        -9.4438,
+        147.1803,
+        "Port Moresby",
+        "Oceania"
+      ],
+      "geo_rationale": "Editorial national popular-music hub; not exclusive origin or selected performance venue.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.chmsupersound.com/artist/chanted-groove/",
+          "support_notes": "Fresh13572view0 original label explicitly documents national popular-performance practice spanning country-pop, traditional, reggae, hip-hop and jazz, with bass,guitar,drums,two keyboards and four featured artists. Supports representative band roles, not a reconstructed live recording."
+        },
+        {
+          "url": "https://muzicnotez.com/magazine/interviews/artist-interviews/justin-wellington/",
+          "support_notes": "Fresh13572view1 firsthand interview describes PNG independent/radio scene and his island-pop mixture of reggae,zouk,dancehall,reggaeton and R&B; melody-centered songwriting. Supports national pop field, not a fixed all-genre instrument inventory."
+        }
+      ],
+      "neighbor_distinction": "The full papuan_traditional category includes wider inherited local practices, not only its flute example; papua_new_guinean_polyphony describes Highlands vocal/panpipe traditions. PNG pop names the national contemporary commercial/song-production field, encompassing modern bands and electronic work as well as overlap with local traditions. Broader Melanesian and Pacific popular-music fields include this national scene rather than being denied. The new sources positively establish its recording, radio and performance network rather than merely performer birthplace.",
+      "model_policy": "Genre-level representative popular band: vocal roles aggregate singing, a clean electric guitar carries accompaniment, passive dual-single-coil fretted bass supplies fingerstyle pulse, neutral electronic keyboards retain unknown internal architecture, and a conventional maple kit supplies backbeat. Alder/maple guitar and bass materials, standard studio capture and functional-harmonic verse–chorus–bridge song organization are authored conventional choices, not actual Chanted Groove gear or measurements. Role cards do not assert participant counts or reconstruct any named master. The old Telek single packet remains separately held and unchanged. The representative song uses a clear syllabic sung melody, one note per syllable; this conventional authored pop delivery does not assert every singer uses the same setting. Punctuated staccato group singing is the authored rhythmic pop treatment; the rendered clapping-and-syllabicizing descriptor denotes this delivery, not an assertion of nursery repertoire or an additional handclap instrument. The energetic bass and conventional backbeat support the selected upbeat band branch.",
+      "classification_evidence": "Broad functionalSong reflects the authored functional-harmonic verse–chorus–bridge popular song arrangement within source-positive contemporary popular-song practice.",
+      "vocal_count_audit": {
+        "source_featured_artists": 4,
+        "model": "group-vocal role without genre-wide prescribed headcount"
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Singing and featured vocal roles"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "role": "Clean electric-guitar accompaniment"
+        },
+        {
+          "instrument": "electric_bass",
+          "role": "Electric-bass pulse"
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "role": "Keyboard melodic/chordal role; source generator unspecified"
+        },
+        {
+          "instrument": "drum_kit",
+          "role": "Acoustic drum-kit backbeat"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "staccato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative popular band: vocal roles aggregate singing, a clean electric guitar carries accompaniment, passive dual-single-coil fretted bass supplies fingerstyle pulse, neutral electronic keyboards retain unknown internal architecture, and a conventional maple kit supplies backbeat. Alder/maple guitar and bass materials, standard studio capture and functional-harmonic verse–chorus–bridge song organization are authored conventional choices, not actual Chanted Groove gear or measurements. Role cards do not assert participant counts or reconstruct any named master. The old Telek single packet remains separately held and unchanged. The representative song uses a clear syllabic sung melody, one note per syllable; this conventional authored pop delivery does not assert every singer uses the same setting. Punctuated staccato group singing is the authored rhythmic pop treatment; the rendered clapping-and-syllabicizing descriptor denotes this delivery, not an assertion of nursery repertoire or an additional handclap instrument. The energetic bass and conventional backbeat support the selected upbeat band branch."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Genre-level representative popular band: vocal roles aggregate singing, a clean electric guitar carries accompaniment, passive dual-single-coil fretted bass supplies fingerstyle pulse, neutral electronic keyboards retain unknown internal architecture, and a conventional maple kit supplies backbeat. Alder/maple guitar and bass materials, standard studio capture and functional-harmonic verse–chorus–bridge song organization are authored conventional choices, not actual Chanted Groove gear or measurements. Role cards do not assert participant counts or reconstruct any named master. The old Telek single packet remains separately held and unchanged. The representative song uses a clear syllabic sung melody, one note per syllable; this conventional authored pop delivery does not assert every singer uses the same setting. Punctuated staccato group singing is the authored rhythmic pop treatment; the rendered clapping-and-syllabicizing descriptor denotes this delivery, not an assertion of nursery repertoire or an additional handclap instrument. The energetic bass and conventional backbeat support the selected upbeat band branch."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Genre-level representative popular band: vocal roles aggregate singing, a clean electric guitar carries accompaniment, passive dual-single-coil fretted bass supplies fingerstyle pulse, neutral electronic keyboards retain unknown internal architecture, and a conventional maple kit supplies backbeat. Alder/maple guitar and bass materials, standard studio capture and functional-harmonic verse–chorus–bridge song organization are authored conventional choices, not actual Chanted Groove gear or measurements. Role cards do not assert participant counts or reconstruct any named master. The old Telek single packet remains separately held and unchanged. The representative song uses a clear syllabic sung melody, one note per syllable; this conventional authored pop delivery does not assert every singer uses the same setting. Punctuated staccato group singing is the authored rhythmic pop treatment; the rendered clapping-and-syllabicizing descriptor denotes this delivery, not an assertion of nursery repertoire or an additional handclap instrument. The energetic bass and conventional backbeat support the selected upbeat band branch."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Genre-level representative popular band: vocal roles aggregate singing, a clean electric guitar carries accompaniment, passive dual-single-coil fretted bass supplies fingerstyle pulse, neutral electronic keyboards retain unknown internal architecture, and a conventional maple kit supplies backbeat. Alder/maple guitar and bass materials, standard studio capture and functional-harmonic verse–chorus–bridge song organization are authored conventional choices, not actual Chanted Groove gear or measurements. Role cards do not assert participant counts or reconstruct any named master. The old Telek single packet remains separately held and unchanged. The representative song uses a clear syllabic sung melody, one note per syllable; this conventional authored pop delivery does not assert every singer uses the same setting. Punctuated staccato group singing is the authored rhythmic pop treatment; the rendered clapping-and-syllabicizing descriptor denotes this delivery, not an assertion of nursery repertoire or an additional handclap instrument. The energetic bass and conventional backbeat support the selected upbeat band branch."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Genre-level representative popular band: vocal roles aggregate singing, a clean electric guitar carries accompaniment, passive dual-single-coil fretted bass supplies fingerstyle pulse, neutral electronic keyboards retain unknown internal architecture, and a conventional maple kit supplies backbeat. Alder/maple guitar and bass materials, standard studio capture and functional-harmonic verse–chorus–bridge song organization are authored conventional choices, not actual Chanted Groove gear or measurements. Role cards do not assert participant counts or reconstruct any named master. The old Telek single packet remains separately held and unchanged. The representative song uses a clear syllabic sung melody, one note per syllable; this conventional authored pop delivery does not assert every singer uses the same setting. Punctuated staccato group singing is the authored rhythmic pop treatment; the rendered clapping-and-syllabicizing descriptor denotes this delivery, not an assertion of nursery repertoire or an additional handclap instrument. The energetic bass and conventional backbeat support the selected upbeat band branch."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "png_pop",
+          "name": "PNG Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13534view1 confirms Iain Fergusson/Binksternet credit and CC BY 2.5; inherited historical download and visual receipt retained.",
+          "fresh_review_ref": "turn13534view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights review turn13534view1, 2026-10-03; historical bytes and visual receipt inherited unchanged."
+      },
+      "status": "ready_for_independent_review",
+      "source_scope_limitation": "Genre-level representative popular band: vocal roles aggregate singing, a clean electric guitar carries accompaniment, passive dual-single-coil fretted bass supplies fingerstyle pulse, neutral electronic keyboards retain unknown internal architecture, and a conventional maple kit supplies backbeat. Alder/maple guitar and bass materials, standard studio capture and functional-harmonic verse–chorus–bridge song organization are authored conventional choices, not actual Chanted Groove gear or measurements. Role cards do not assert participant counts or reconstruct any named master. The old Telek single packet remains separately held and unchanged. The representative song uses a clear syllabic sung melody, one note per syllable; this conventional authored pop delivery does not assert every singer uses the same setting. Punctuated staccato group singing is the authored rhythmic pop treatment; the rendered clapping-and-syllabicizing descriptor denotes this delivery, not an assertion of nursery repertoire or an additional handclap instrument. The energetic bass and conventional backbeat support the selected upbeat band branch."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

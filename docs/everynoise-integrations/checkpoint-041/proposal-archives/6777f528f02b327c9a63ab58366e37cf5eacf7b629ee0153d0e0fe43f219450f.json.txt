@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet": "/tmp/batch040/resume119-20.json",
+  "sha256": "82195fc6fdca97c4dccf9c20fe843550cf6632d72815082fc0339a8e50fb0c3d",
+  "id": "japanese_buddhist_chant",
+  "source_review": "Fresh indexed full Mross article independently reproduces broad clerical/lay practices, syllabic single-pitch fixed-rhythm recitation and occasional ritual signal instruments. Direct article timed out; indexed full primary and original PDF excerpt retrieved. Japan Arts Council direct history/ritual account corroborates fixed-rhythm dokyo and temple resonance.",
+  "primary_sources": [
+    {
+      "url": "https://dharmaworld.rk-world.org/articles/buddhism/singing-praises-to-the-buddhas-and-bodhisattvas-music-in-japanese-buddhist-rituals/"
+    },
+    {
+      "url": "https://www2.ntj.jac.go.jp/dglib/contents/learn/edc28/about/en.html"
+    }
+  ],
+  "refs": [
+    "turn13411search0",
+    "turn13411search2",
+    "turn13410view1"
+  ],
+  "category_review": "Actual full shomyo_japanese and pure_land_buddhist records inspected. Former specifically Tendai/Shingon neumed melodic lineages; latter transnational Amitabha recollection. The broader Japanese school/lay/clerical field includes these and wider ceremonial/modern hymn practice. No exclusive lexical claim: institutional Shomyo itself is sometimes broader; overlap is explicit.",
+  "profile_review": "Public fields concise historical/style information; genre-level representative vocal recitation is supported without exact recording/headcount. Occasional ritual signals remain mentioned but need not be imposed on each vocal passage. No documentary-trimming premise.",
+  "defaults": "Seventeen source-neutral vocal controls with positive metrical chant; resonance is an authored listening room rather than specific measured temple. No foreign vocal-training/pitch system imposed.",
+  "runtime": "/tmp/batch040/resume119-20-peer-runtime117.json",
+  "literal_outputs": "Independently regenerated/read four actual outputs: huge vocal spatial affect with fixed-rhythm chant and resonant hall, no unsupported clapping/street delivery or foreign culture. All four parity true.",
+  "photo": "Exact inherited SM58 preview receipt unchanged, generic context label; fresh CC BY2.5 and credits reproduced turn13403view2. No fresh bytes or personal visual claim.",
+  "limits": "Original local browser/connector only; integrated static/regression left to root."
+}

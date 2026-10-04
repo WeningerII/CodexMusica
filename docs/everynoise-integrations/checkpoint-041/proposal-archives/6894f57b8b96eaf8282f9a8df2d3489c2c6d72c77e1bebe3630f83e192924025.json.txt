@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ROOT_QUEUE_REPAIR_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-korean-drill.json",
+  "packet_sha256": "a26b70e8dd0e4f66781409636a5a1a722f8ae67043e70ff1195369148864f418",
+  "ids": [
+    "korean_drill"
+  ],
+  "checked_at": "2026-10-03T22:09:24.501372+00:00",
+  "checks": [
+    "Root read genre history/description, firsthand source basis, default rationale and all four literal output strings. Restored rap voice and electronic rhythm/bass replace narrow piano or acappella dossier framing.",
+    "Author strict controls pass retained; sampler/synth shared-control conflict in German entry resolved with existing analog drum-machine data, retaining all musical roles and disclosing authored construction.",
+    "Photo rights and historical byte/visual receipts preserved with generic public caption. Final static/regression/CI pending."
+  ]
+}

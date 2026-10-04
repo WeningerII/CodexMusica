@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "reviewer": "research_116",
+  "packet_path": "/tmp/batch040/transfer461-timor-metadata-corrected.json",
+  "packet_sha256": "834fff289c51fcd28a1a15080eb35a8f9737f882922e009801032057d7a1f5f1",
+  "source_review": [
+    "https://www.cambridge.org/core/journals/popular-music/article/cinco-do-oriente-the-legend-and-the-legacy-of-timorlestes-most-famous-band/1AFB4E7381D44B84F180B563F0E6DA77"
+  ],
+  "fresh_references": [
+    "turn13471view0",
+    "turn13474view2",
+    "turn13471view3"
+  ],
+  "source_findings": "Original participant/archival research independently reproduced. Blue Star section positively establishes singers, lead/rhythm guitars, bass, drums, keyboards across historical practice; local bands, radio, dancing and international repertoire circulation establish East Timorese national community beyond nationality alone. Genre-practice palette retains all these roles without claiming one exact lineup.",
+  "boundary_review": "Full Indonesian pop catalog read; its regional industry overlaps historical repertoire exchange but does not encompass independently documented Timor-Leste institutions. Broad pop category is no exact national synonym.",
+  "default_review": "51 actual owning controls independently verified with no fallback. Shared guitar/bass materials valid, coherent machine-hammered/traditional-finish cymbals and neutral electronic keyboard. Lead singing and functional-harmonic verse-chorus-bridge are explicitly authored representative choices.",
+  "runtime": "/tmp/batch040/timor-plugg-peer-runtime116.json",
+  "semantic_review": "All four original outputs independently rerun and read, maximum996chars. Huge/immense/stereophonic hall-derived size and guitar attack are coherent new hall presentation, no assertion of source recording acoustics. No unrelated cultural term.",
+  "photo_review": "Fresh Commons13471view3 CC BY2.5 attribution; historical023 baps same mic preview receipt and LOW generic context. Metadata derivative corrects canonical Southeast Asia and stale fresh rights reference only; musical payload unchanged.",
+  "limitations": [
+    "No exact historical lineup or recording reconstruction claimed.",
+    "Final integrated build remains root responsibility."
+  ]
+}

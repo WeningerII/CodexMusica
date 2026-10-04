@@ -1,0 +1,230 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "malawian_hip_hop",
+        "name": "Malawian hip hop",
+        "family": "hip_hop",
+        "lineage": "Malawian hip hop developed through local rappers, independent producers, labels and collaborations linking urban communities with wider African audiences. Artists such as Biriwiri, Dizzo and Macelba helped establish vernacular rap and studio-made beats alongside English-language and cross-border work. Chichewa expression, local experience and connections with older popular traditions remain important parts of the scene.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic verses sit over producer-built beats, with memorable sung hooks and switches between rapping and singing in some branches. Lyrics move between everyday experience, personal confidence and social reflection. Production varies by artist and producer, from direct hip-hop grooves to arrangements incorporating local melodic and rhythmic references.",
+        "exemplars": [
+          "Biriwiri",
+          "Dizzo",
+          "Macelba",
+          "DJ Sley"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "malawian_hip_hop",
+          "name": "Malawian hip hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13810view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn13810view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13810view0; historical image bytes/visual observation inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13810view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rhythmic lead MC over a separately produced beat, directly supported by Macelba’s description of collaborating with DJ Sley and Dizzo’s firsthand beat-making account. The default selects a rap-led branch; it is not a reconstruction of Dizzo’s mixed sung/rap single or any Biriwiri recording. Sung hooks, ensembles, vernacular melodic references and other production approaches remain part of the genre. A single unprocessed accompanied lead and dry studio are editable authored choices, with synthesis/sample architecture unspecified. No mandatory traditional instruments, actual headcount or original hardware is inferred."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rhythmic lead MC over a separately produced beat, directly supported by Macelba’s description of collaborating with DJ Sley and Dizzo’s firsthand beat-making account. The default selects a rap-led branch; it is not a reconstruction of Dizzo’s mixed sung/rap single or any Biriwiri recording. Sung hooks, ensembles, vernacular melodic references and other production approaches remain part of the genre. A single unprocessed accompanied lead and dry studio are editable authored choices, with synthesis/sample architecture unspecified. No mandatory traditional instruments, actual headcount or original hardware is inferred."
+        }
+      ],
+      "source_label": "malawian hip hop",
+      "source_url": "https://everynoise.com/engenremap-malawianhiphop.html",
+      "suggested_id": "malawian_hip_hop",
+      "allocation_ordinal": 389,
+      "allocation_group_id": "016",
+      "id": "malawian_hip_hop",
+      "status": "ready_for_independent_review",
+      "geo": [
+        -13.963,
+        33.774,
+        "Lilongwe",
+        "Africa"
+      ],
+      "geo_rationale": "Representative capital-city production anchor supported by Macelba interview; the field spans Malawi and diaspora links.",
+      "signature_tokens": [],
+      "model_policy": "Representative rhythmic lead MC over a separately produced beat, directly supported by Macelba’s description of collaborating with DJ Sley and Dizzo’s firsthand beat-making account. The default selects a rap-led branch; it is not a reconstruction of Dizzo’s mixed sung/rap single or any Biriwiri recording. Sung hooks, ensembles, vernacular melodic references and other production approaches remain part of the genre. A single unprocessed accompanied lead and dry studio are editable authored choices, with synthesis/sample architecture unspecified. No mandatory traditional instruments, actual headcount or original hardware is inferred.",
+      "neighbor_distinction": "Full Malawian pop is a broad national popular field, not confined to its Faith Mussa guitar exemplar; Malawian folk includes vernacular song and guitar traditions. This positively named hip-hop community is an overlapping rap/producer network with its own artists, labels, local-language verses and collaboration history. It is neither equivalent to all Malawian popular music nor inferred merely from one performer’s nationality. Regional African hip-hop umbrellas remain broader; no exclusive beat grammar is claimed.",
+      "classification_evidence": "Full Malawian pop is a broad national popular field, not confined to its Faith Mussa guitar exemplar; Malawian folk includes vernacular song and guitar traditions. This positively named hip-hop community is an overlapping rap/producer network with its own artists, labels, local-language verses and collaboration history. It is neither equivalent to all Malawian popular music nor inferred merely from one performer’s nationality. Regional African hip-hop umbrellas remain broader; no exclusive beat grammar is claimed.",
+      "source_scope_limitation": "Representative rhythmic lead MC over a separately produced beat, directly supported by Macelba’s description of collaborating with DJ Sley and Dizzo’s firsthand beat-making account. The default selects a rap-led branch; it is not a reconstruction of Dizzo’s mixed sung/rap single or any Biriwiri recording. Sung hooks, ensembles, vernacular melodic references and other production approaches remain part of the genre. A single unprocessed accompanied lead and dry studio are editable authored choices, with synthesis/sample architecture unspecified. No mandatory traditional instruments, actual headcount or original hardware is inferred.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Interviewees identify rap verses and vocal performance; sung-hook branches acknowledged."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Direct artist accounts identify producer-built accompaniment independently of vocals; mechanism unspecified."
+        }
+      ],
+      "vocal_count_audit": {
+        "genre_headcount": "variable",
+        "authored_default": "one rhythmic lead rapper",
+        "recording_reconstruction": false
+      },
+      "sources": [
+        {
+          "url": "https://malawi24.com/2016/07/15/malawi24-close-meet-hip-hop-artist-macelba/",
+          "primary": true,
+          "evidence_ref": "turn13818view0",
+          "supports": "Original artist interview establishes local hip-hop career, Lilongwe practice and producer-built beats with DJ Sley; artist explicitly favors production variety."
+        },
+        {
+          "url": "https://aroundthea.wordpress.com/2013/12/06/a-interviews-dizzo-malawi/",
+          "primary": true,
+          "evidence_ref": "turn13819view0",
+          "supports": "Firsthand rapper/producer account documents beat-making, independent production and artist-development organization, plus rap/sung alternation as one branch."
+        },
+        {
+          "url": "https://www.nyasatimes.com/malawi-hip-hop-duo-biriwiri-talk-about-comeback/",
+          "primary": true,
+          "evidence_ref": "turn13819view1",
+          "supports": "Original duo interview and contemporary career context identify national hip-hop network, Chichewa verses, vernacular references and label history."
+        }
+      ],
+      "source_retrieval_caveat": "Fresh complete firsthand interviews retrieved; no audio audition or exact recording reconstruction."
+    }
+  ],
+  "instrument_dependencies": []
+}

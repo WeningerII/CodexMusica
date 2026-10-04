@@ -1,0 +1,221 @@
+{
+  "entries": [
+    {
+      "source_label": "taiwan graduation song",
+      "source_url": "https://everynoise.com/engenremap-taiwangraduationsong.html",
+      "suggested_id": "taiwan_graduation_song",
+      "allocation_ordinal": 4384,
+      "allocation_group_id": "176",
+      "id": "taiwan_graduation_song",
+      "tradition": {
+        "id": "taiwan_graduation_song",
+        "name": "Taiwan Graduation Song",
+        "family": "pop",
+        "lineage": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation. Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.eastAsianPop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation. Taiwan Graduation Song identifies a student-created school-leaving repertoire and annual interschool production practice. Original verified issuer explains32schools and student writing/composing/singing/video teams in the2016 project; NTU songwriter firsthand account independently describes university graduation-song selection. This positive institutional purpose distinguishes the field within overlapping TaiwanPop/Mandopop. Existing TaiwanPop is the broad Taipei record industry and does not exclude these songs; existing taiwan_campus_folk describes the1970s–80s nativist acoustic songwriting movement, whereas this annual graduation-song practice is not confined to that historical folk lineage. Exact current creator14-track roster includes NTU2020 and joint-high-school songs, but selected2016 collective is absent from that current snapshot; no exact creator-member claim is made. The narrower school/community function is supported independently of the chosen piano arrangement. Queued national student/graduation fields elsewhere do not replace this Taiwanese institutional practice. Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording.",
+        "exemplars": [
+          "LouisLiao — 啟程2016 graduation song, complete12-page piano-solo edition222570"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        25.033,
+        121.565,
+        "Taipei",
+        "East Asia"
+      ],
+      "geo_rationale": "Editorial institutional anchor: original issuer explicitly announces Taipei launch performance; nationwide repertoire not restricted to Taipei and arranger recording site unknown.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.mymusic5.com/zh-hant/h7860118/222570",
+          "title": "LouisLiao complete piano-solo edition",
+          "support_notes": "Fresh11703view0 explicitly12pages, piano, solo, two-staff, lyrics/chord symbols."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=sDGghk50ns0",
+          "title": "Verified original2016 graduation-project issuer",
+          "support_notes": "Fresh277581youtube12 complete original description explains interschool creation/selection andTaipei launch; raw saved resume116-taiwan-original-issuer-raw.json. Original audio not selected; no original studio palette inference."
+        },
+        {
+          "url": "https://ptlog.cloud.ntu.edu.tw/ptlog/index.php?aid=2531&vol=162",
+          "title": "NTU songwriter firsthand graduation-song account",
+          "support_notes": "Fresh274472view0 primary author institutional practice corroboration; selected NTUrecording not substituted forpiano scope."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1bjImUCghMROYHtjnUTi66",
+          "title": "Exact creator Taiwan Graduation Song roster",
+          "support_notes": "Fresh11698view0 contemporary14-track field, no selected2016 membership claim."
+        }
+      ],
+      "neighbor_distinction": "Taiwan Graduation Song identifies a student-created school-leaving repertoire and annual interschool production practice. Original verified issuer explains32schools and student writing/composing/singing/video teams in the2016 project; NTU songwriter firsthand account independently describes university graduation-song selection. This positive institutional purpose distinguishes the field within overlapping TaiwanPop/Mandopop. Existing TaiwanPop is the broad Taipei record industry and does not exclude these songs; existing taiwan_campus_folk describes the1970s–80s nativist acoustic songwriting movement, whereas this annual graduation-song practice is not confined to that historical folk lineage. Exact current creator14-track roster includes NTU2020 and joint-high-school songs, but selected2016 collective is absent from that current snapshot; no exact creator-member claim is made. The narrower school/community function is supported independently of the chosen piano arrangement. Queued national student/graduation fields elsewhere do not replace this Taiwanese institutional practice.",
+      "model_policy": "Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "classification_evidence": "Taiwan Graduation Song identifies a student-created school-leaving repertoire and annual interschool production practice. Original verified issuer explains32schools and student writing/composing/singing/video teams in the2016 project; NTU songwriter firsthand account independently describes university graduation-song selection. This positive institutional purpose distinguishes the field within overlapping TaiwanPop/Mandopop. Existing TaiwanPop is the broad Taipei record industry and does not exclude these songs; existing taiwan_campus_folk describes the1970s–80s nativist acoustic songwriting movement, whereas this annual graduation-song practice is not confined to that historical folk lineage. Exact current creator14-track roster includes NTU2020 and joint-high-school songs, but selected2016 collective is absent from that current snapshot; no exact creator-member claim is made. The narrower school/community function is supported independently of the chosen piano arrangement. Queued national student/graduation fields elsewhere do not replace this Taiwanese institutional practice.",
+      "vocal_count_audit": {
+        "selected_edition_scored_voice_parts": 0,
+        "decision": "Instrumental piano solo edition; original2016 choir and embedded printed lyrics are not modeled as live singers."
+      },
+      "instrument_role_audit": {
+        "scope": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation.",
+        "roles": {
+          "upright_piano": "Sole positively scored piano; upright subtype authored"
+        },
+        "authored_defaults": "Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "All three applicable parts protected; standard modern upright is an authored realization of source-unspecified piano construction."
+        }
+      ],
+      "verification_status": "Pending mechanical/four-format and independent review.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "taiwan_graduation_song",
+          "name": "Taiwan Graduation Song",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context only, not the piano, school performers or session equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11639view0 confirms IainFergusson/Binksternet CC BY2.5 crop; historical exact bytes/visual unchanged.",
+          "fresh_review_ref": "turn11639view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11639view0; historical receipts unchanged, no fresh binary claim."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "One existing owner, all three controls deliberately protected, no shared-key conflict or fallback."
+      },
+      "source_review_refs": [
+        "turn11703view0",
+        "turn277581youtube12",
+        "turn274472view0",
+        "turn11698view0",
+        "turn11639view0"
+      ],
+      "status": "READY_FOR_REVIEW",
+      "source_scope_limitation": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation.",
+      "primary_retrieval_refs": [
+        "turn11703view0",
+        "turn277581youtube12",
+        "turn274472view0",
+        "turn11698view0",
+        "turn11639view0"
+      ],
+      "source_retrieval_caveat": "Arranger scoring metadata direct; original issuer full indexeddescription with raw retained, directYouTube failed. Fullpaidscore and audio not inspected."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

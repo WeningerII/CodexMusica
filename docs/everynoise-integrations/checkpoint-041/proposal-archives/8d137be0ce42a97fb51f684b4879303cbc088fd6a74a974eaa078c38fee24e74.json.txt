@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/transfer461-polish-drill-practice.json",
+  "sha256": "17aa66243f58f3335c34d631f9aa6d18e1597a716431d07e0fbefee8291ee670",
+  "reviewer": "research_119",
+  "source_review": {
+    "primary_refs": [
+      "turn13435view0",
+      "turn13435view1"
+    ],
+    "finding": "Exclusive issuing platform explicitly identifies Polish Drill and British influence; producer primary independently identifies the Polish drill network and software beat production. Genre-level rap, programmed percussion and electronic bass are supported; exact historical hardware is an authored representative choice, not a source gear assertion."
+  },
+  "boundary_review": "Full broad Polish hip-hop, Chicago/UK drill and queued Polish old-school, underground and viral fields overlap but do not subsume the positively named national drill branch as an equivalent. No exemplar-only exclusion.",
+  "defaults_review": "25 owning controls; accompanied rhythmic spoken lead, 808 and bass synth preserve genre roles. Canonical Roland model and square/ladder/plucked synthesis are candid authored choices. Literal street-pulsing/lurking/bass terminology coherent with drill. No compulsory named-session reconstruction.",
+  "runtime": "transfer461-polish-drill-runtime119.json: four formats pass, browser/connector parity, maximum999 characters.",
+  "photo_review": "Fresh turn13435view2 verifies Iain Fergusson/Binksternet CC BY2.5. Generic microphone context low confidence; inherited byte/visual evidence candidly retained, no fresh download claimed. Historical fresh_rights_review ref differs from current rights evidence but both are explicitly retained prior readings, not a rights contradiction.",
+  "limits": [
+    "Original static API/integrated catalog not run by this candidate preflight."
+  ],
+  "repository_edits": false
+}

@@ -1,0 +1,223 @@
+{
+  "entries": [
+    {
+      "source_label": "talent show",
+      "source_url": "https://everynoise.com/engenremap-talentshow.html",
+      "suggested_id": "talent_show",
+      "allocation_ordinal": 4389,
+      "allocation_group_id": "176",
+      "id": "talent_show",
+      "tradition": {
+        "id": "talent_show",
+        "name": "Talent Show",
+        "family": "pop",
+        "lineage": "Complete separately published three-page instrumental piano solo of Kelly Clarkson’s Piece by Piece [2016 American Idol Performance], Musicnotes MN0163712, publishing administered by Sony/ATV. The exact edition specifies Piano, Instrumental Solo/Piano-Chords, no lyrics, three pages; it is distinct from separately listed vocal/piano/guitar editions. One pianist, zero singers in this standalone instrumental arrangement. All three pages belong to the selected complete edition, not a preview passage extracted from a larger ensemble. Full paid notation and performance audio were not inspected. The original television performance and studio master are not reconstructed or asserted to contain only piano. Publisher marks moderate tempo and4/4, but no source-session measurement is asserted. The source-unspecified piano is realized as a standard studio upright with connected melodic phrasing. These physical and touch choices are authored, not the television pianist’s actual instrument. Controlled live-room presentation is editorial, not source venue architecture. FunctionalSong.popRock reflects the selected Anglophone pop song and explicitly authored functional-harmonic verse–chorus–bridge realization; notation alone does not make it classical. No global tuning, original recording chain, performer physiology or source hardware claimed.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.popRock",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Complete separately published three-page instrumental piano solo of Kelly Clarkson’s Piece by Piece [2016 American Idol Performance], Musicnotes MN0163712, publishing administered by Sony/ATV. The exact edition specifies Piano, Instrumental Solo/Piano-Chords, no lyrics, three pages; it is distinct from separately listed vocal/piano/guitar editions. One pianist, zero singers in this standalone instrumental arrangement. All three pages belong to the selected complete edition, not a preview passage extracted from a larger ensemble. Full paid notation and performance audio were not inspected. The original television performance and studio master are not reconstructed or asserted to contain only piano. Publisher marks moderate tempo and4/4, but no source-session measurement is asserted. Talent Show names the cross-market televised singing-competition discovery and subsequent repertoire community. Exact creator corpus spans Kelly Clarkson, Lucy Spraggan, Fifth Harmony and other cross-market competition-associated performers; it is not a perfectly exclusive alumni census. Broadcaster ITV independently documents Got Talent and X Factor as international discovery formats and lists their resulting artist careers. The selected licensed edition expressly names American Idol in its title and show credit, making its institutional repertoire connection positive rather than inferred from a generic popular song. Existing AustralianTalentShow, LatinTalentShow, KoreanTalentShow, Talentschau and Norwegian/Danish talent communities remain narrower regional or language institutions and overlap this broader field. Existing AmericanPop/UKPop and generalPop describe wider popular repertoire, not exclusively competition-derived careers. Full ShowTunes/Broadway cover stage and screen dramatic repertoire, while this field includes original contemporary pop and televised audition/alumni performance. No distinction relies on the selected piano scoring or claim of unique sonic grammar. The source-unspecified piano is realized as a standard studio upright with connected melodic phrasing. These physical and touch choices are authored, not the television pianist’s actual instrument. Controlled live-room presentation is editorial, not source venue architecture. FunctionalSong.popRock reflects the selected Anglophone pop song and explicitly authored functional-harmonic verse–chorus–bridge realization; notation alone does not make it classical. No global tuning, original recording chain, performer physiology or source hardware claimed.",
+        "exemplars": [
+          "Musicnotes — complete Piece by Piece [2016 American Idol Performance] instrumental solo MN0163712"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        39.8,
+        -98.6,
+        "United States",
+        "North America"
+      ],
+      "geo_rationale": "Approximate on-land United States anchor for selected American Idol repertoire; not a claim about venue or recording location. The discovery field is international.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Talent Show names the cross-market televised singing-competition discovery and subsequent repertoire community. Exact creator corpus spans Kelly Clarkson, Lucy Spraggan, Fifth Harmony and other cross-market competition-associated performers; it is not a perfectly exclusive alumni census. Broadcaster ITV independently documents Got Talent and X Factor as international discovery formats and lists their resulting artist careers. The selected licensed edition expressly names American Idol in its title and show credit, making its institutional repertoire connection positive rather than inferred from a generic popular song. Existing AustralianTalentShow, LatinTalentShow, KoreanTalentShow, Talentschau and Norwegian/Danish talent communities remain narrower regional or language institutions and overlap this broader field. Existing AmericanPop/UKPop and generalPop describe wider popular repertoire, not exclusively competition-derived careers. Full ShowTunes/Broadway cover stage and screen dramatic repertoire, while this field includes original contemporary pop and televised audition/alumni performance. No distinction relies on the selected piano scoring or claim of unique sonic grammar. The full existing Idol record and its original data-only-017 evidence are explicitly acknowledged: its evidence neighbor_distinction identifies the American television-talent-show discovery cluster, while its Casey Abrams arrangement is only one branch and does not limit that field to acoustic music. Talent Show overlaps that field, including the selected American Idol composition. The broader cross-format field is positively supported by ITV/Syco documenting Got Talent and The X Factor operating across more than 180 countries and their international recording-artist alumni; this is not a distinction inferred from the chosen pianist, a new sonic style, or an assertion of disjoint repertoires.",
+      "classification_evidence": "Talent Show names the cross-market televised singing-competition discovery and subsequent repertoire community. Exact creator corpus spans Kelly Clarkson, Lucy Spraggan, Fifth Harmony and other cross-market competition-associated performers; it is not a perfectly exclusive alumni census. Broadcaster ITV independently documents Got Talent and X Factor as international discovery formats and lists their resulting artist careers. The selected licensed edition expressly names American Idol in its title and show credit, making its institutional repertoire connection positive rather than inferred from a generic popular song. Existing AustralianTalentShow, LatinTalentShow, KoreanTalentShow, Talentschau and Norwegian/Danish talent communities remain narrower regional or language institutions and overlap this broader field. Existing AmericanPop/UKPop and generalPop describe wider popular repertoire, not exclusively competition-derived careers. Full ShowTunes/Broadway cover stage and screen dramatic repertoire, while this field includes original contemporary pop and televised audition/alumni performance. No distinction relies on the selected piano scoring or claim of unique sonic grammar.",
+      "model_policy": "The source-unspecified piano is realized as a standard studio upright with connected melodic phrasing. These physical and touch choices are authored, not the television pianist’s actual instrument. Controlled live-room presentation is editorial, not source venue architecture. FunctionalSong.popRock reflects the selected Anglophone pop song and explicitly authored functional-harmonic verse–chorus–bridge realization; notation alone does not make it classical. No global tuning, original recording chain, performer physiology or source hardware claimed.",
+      "source_scope_limitation": "Complete separately published three-page instrumental piano solo of Kelly Clarkson’s Piece by Piece [2016 American Idol Performance], Musicnotes MN0163712, publishing administered by Sony/ATV. The exact edition specifies Piano, Instrumental Solo/Piano-Chords, no lyrics, three pages; it is distinct from separately listed vocal/piano/guitar editions. One pianist, zero singers in this standalone instrumental arrangement. All three pages belong to the selected complete edition, not a preview passage extracted from a larger ensemble. Full paid notation and performance audio were not inspected. The original television performance and studio master are not reconstructed or asserted to contain only piano. Publisher marks moderate tempo and4/4, but no source-session measurement is asserted.",
+      "vocal_count_audit": {
+        "scored_singers": 0,
+        "reason": "Exact selected edition positively Instrumental Solo, not an omission-based inference about original television performance."
+      },
+      "instrument_role_audit": {
+        "selected_scope": "Whole standalone three-page instrumental piano edition",
+        "people": [
+          {
+            "role": "piano",
+            "count": 1,
+            "identity": "unspecified arrangement performer"
+          }
+        ],
+        "omitted_positive_roles": []
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "The source-unspecified piano is realized as a standard studio upright with connected melodic phrasing. These physical and touch choices are authored, not the television pianist’s actual instrument. Controlled live-room presentation is editorial, not source venue architecture. FunctionalSong.popRock reflects the selected Anglophone pop song and explicitly authored functional-harmonic verse–chorus–bridge realization; notation alone does not make it classical. No global tuning, original recording chain, performer physiology or source hardware claimed."
+        }
+      ],
+      "flat_pin_resolution": "All three owning piano controls protected; no fallback.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/kelly-clarkson/piece-by-piece-2016-american-idol-performance/MN0163712",
+          "title": "Licensed complete instrumental solo edition",
+          "support_notes": "Fresh12528view0 exact3pages/instrumental solo/no lyrics/SonyATV publisher/AmericanIdol title; not full paid score inspection."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1lMgl0D1HZVvtq16pB13ew?utm_source=generator",
+          "title": "Exact creator Talent Show repertoire",
+          "support_notes": "Fresh12528view1 full creator corpus, including Clarkson13 and Spraggan25. Exact selected arrangement not claimed playlist recording."
+        },
+        {
+          "url": "https://www.itv.com/presscentre/print/pdf/node/5648",
+          "title": "Broadcaster international competition-discovery field",
+          "support_notes": "Fresh12528view2 describes international GotTalent/XFactor institutions and alumni careers, not selected solo-arrangement instrumentation."
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-idol.html",
+          "title": "Every Noise creator map: Idol, full neighboring discovery corpus",
+          "support_notes": "Fresh complete 236-line primary read turn12559view0; artist portion lines2–147 includes Haley Reinhart, Adam Lambert, Casey Abrams, David Cook, Jena Irene and many other named performers. Later direct and cached reopens returned403; successful response remains conversation tool evidence, no saved raw response claimed. Used with original017 explicit field definition, not artist overlap alone.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "talent_show",
+          "name": "Talent Show",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not television performers, piano or actual show venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12462view3 Commons CC BY2.5 IainFergusson/Binksternet crop; exact historical023 byte and visual receipts retained.",
+          "fresh_review_ref": "turn12462view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12462view3"
+        ],
+        "fresh_rights_review": "Fresh12462view3 rights; inherited historical023 byte/visual receipt only."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Complete source candidate pending independent peer; original owning-controls/four-format checks required.",
+      "source_retrieval_caveat": "Licensed product metadata and broadcaster primary retrieved. Full paid three-page notation/audio uninspected; no original TV stage/session palette inferred. Prior LucySpraggan complete voice/guitar source remains separately preserved as render hold; this is a different complete issued edition.",
+      "idol_neighbor_evidence": {
+        "repository_file": "docs/everynoise-integrations/data-only-017-evidence.json",
+        "entry_selector": {
+          "source_label": "idol",
+          "allocation_ordinal": 1725
+        },
+        "field": "neighbor_distinction",
+        "exact_relevant_text": "This category is the American television-talent-show discovery cluster, distinct from Japanese idol and other idol traditions.",
+        "creator_ref": "turn12559view0",
+        "independent_broader_primary_ref": "turn12561view1"
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

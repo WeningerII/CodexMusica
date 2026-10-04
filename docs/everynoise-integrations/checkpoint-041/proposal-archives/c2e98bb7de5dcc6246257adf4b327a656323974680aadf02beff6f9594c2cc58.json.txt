@@ -1,0 +1,225 @@
+{
+  "entries": [
+    {
+      "source_label": "chinese drama ost",
+      "source_url": "https://everynoise.com/engenremap-chinesedramaost.html",
+      "suggested_id": "chinese_drama_ost",
+      "allocation_ordinal": 3017,
+      "allocation_group_id": "121",
+      "status": "candidate_for_independent_review",
+      "id": "chinese_drama_ost",
+      "tradition": {
+        "id": "chinese_drama_ost",
+        "name": "Chinese Drama OST",
+        "family": "pop",
+        "lineage": "\u4e5d\u5f20\u673a (Jiu Zhang Ji), Ye Xuanqing theme from \u53cc\u4e16\u5ba0\u5983, complete Shinian piano-solo edition285799, five pages. Arranger catalogue explicitly states one piano, solo, two staves and no lyrics. One pianist and zero singers belong to this full independently issued arrangement, not a reduction of the original recorded song. Paid score not downloaded and original recording not auditioned; exact piano subtype, fingering, original recording personnel and measured tempo are not inferred. Exact creator Chinese Drama OST item1 names the same song and singer. Authored intimate piano rendition selects a standard-size studio upright and block-chord melodic support for source-unspecified piano subtype; all three original controls protected. Broad functionalSong/pop placement is an explicit editorial functional-harmonic verse-chorus-bridge treatment of the complete theme-song arrangement, not a measured transcription of the purchased score or a claim about all drama music. Controlled live room, no global tuning or capture chain. No instrumental forces or vocals from the original television master are transferred.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "\u4e5d\u5f20\u673a (Jiu Zhang Ji), Ye Xuanqing theme from \u53cc\u4e16\u5ba0\u5983, complete Shinian piano-solo edition285799, five pages. Arranger catalogue explicitly states one piano, solo, two staves and no lyrics. One pianist and zero singers belong to this full independently issued arrangement, not a reduction of the original recorded song. Paid score not downloaded and original recording not auditioned; exact piano subtype, fingering, original recording personnel and measured tempo are not inferred. Exact creator Chinese Drama OST item1 names the same song and singer. Chinese Drama OST is the television/web-serial music commissioning and discovery field nested within broader Chinese screen soundtracks. Tencent Music explicitly maintains separate drama-OST charts alongside film and animation categories, and its2021 industry report separately analyzes online-drama songs, character-linked promotion and soundtrack release practice. Full existing chinese_soundtrack already includes BOTH film and television, and is not restricted to its TanDun film example; the proposed label is a narrower institutionally named serial-drama subfield, not a translation claimed disjoint. Mandarin pop and modern Mandopop overlap these theme songs but are not restricted to narrative serial commissions; orchestral soundtrack and hybrid screen scoring describe production methods across territories/media. Neither drama OST nor the selected piano edition implies all works are vocal, pop, orchestral or exclusively mainland; this example is a mainland web-drama theme. Exact creator roster repeatedly identifies serial theme/ending/insert songs, supporting this intended narrower scope. Authored intimate piano rendition selects a standard-size studio upright and block-chord melodic support for source-unspecified piano subtype; all three original controls protected. Broad functionalSong/pop placement is an explicit editorial functional-harmonic verse-chorus-bridge treatment of the complete theme-song arrangement, not a measured transcription of the purchased score or a claim about all drama music. Controlled live room, no global tuning or capture chain. No instrumental forces or vocals from the original television master are transferred.",
+        "exemplars": [
+          "\u4e5d\u5f20\u673a \u2014 whole Shinian piano-solo edition285799,5pages"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.0,
+        105.0,
+        "China",
+        "East Asia"
+      ],
+      "geo_rationale": "Approximate inland national anchor for the Chinese serial-drama commissioning field and selected mainland web-drama theme. Not a claimed artist hometown, arranger residence, recording studio or exact production location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.mymusic5.com/shinian/285799",
+          "support_notes": "Fresh13091view0 complete ownarranger catalogue:5pages,piano,solo,2staves,lyricsnotincluded; title explicitly identifies drama theme.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7Dlr19bDtTlFFYTAvEG7k2?theme=0",
+          "support_notes": "Fresh13086view1 and13075search0 exactcreator item1 same\u4e5d\u5f20\u673a/\u53f6\u70ab\u6e05; broader explicitly serial-theme/ending/insert roster.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://yobang.tencentmusic.com/activity/uni-annual-report-2023-end/uni-chart/uni-song-album",
+          "support_notes": "Fresh direct13086view0 plus13082search0 official industry separate\u5e74\u5ea6\u5267\u96c6OST category, alongside film/animation categories. Category evidence, not source personnel.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://yobang.tencentmusic.com/pdf/wangluoyingshiyinyue2021.pdf",
+          "support_notes": "Fresh indexed13082search6 official industry report pages11\u201313 explicitly separates online-drama song market/production and serial character promotion. DirectPDFtimeout13079view0; do not claim full direct PDFinspection.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.tencentmusic.com/en-us/about-us.html",
+          "support_notes": "Fresh13088view0 issuer ownChina-platform identity; nationalfieldanchor only.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Chinese Drama OST is the television/web-serial music commissioning and discovery field nested within broader Chinese screen soundtracks. Tencent Music explicitly maintains separate drama-OST charts alongside film and animation categories, and its2021 industry report separately analyzes online-drama songs, character-linked promotion and soundtrack release practice. Full existing chinese_soundtrack already includes BOTH film and television, and is not restricted to its TanDun film example; the proposed label is a narrower institutionally named serial-drama subfield, not a translation claimed disjoint. Mandarin pop and modern Mandopop overlap these theme songs but are not restricted to narrative serial commissions; orchestral soundtrack and hybrid screen scoring describe production methods across territories/media. Neither drama OST nor the selected piano edition implies all works are vocal, pop, orchestral or exclusively mainland; this example is a mainland web-drama theme. Exact creator roster repeatedly identifies serial theme/ending/insert songs, supporting this intended narrower scope.",
+      "model_policy": "Authored intimate piano rendition selects a standard-size studio upright and block-chord melodic support for source-unspecified piano subtype; all three original controls protected. Broad functionalSong/pop placement is an explicit editorial functional-harmonic verse-chorus-bridge treatment of the complete theme-song arrangement, not a measured transcription of the purchased score or a claim about all drama music. Controlled live room, no global tuning or capture chain. No instrumental forces or vocals from the original television master are transferred.",
+      "dependency_audit": "No new instrument owners; preserve all1638 existing definitions.",
+      "classification_evidence": "Chinese Drama OST is the television/web-serial music commissioning and discovery field nested within broader Chinese screen soundtracks. Tencent Music explicitly maintains separate drama-OST charts alongside film and animation categories, and its2021 industry report separately analyzes online-drama songs, character-linked promotion and soundtrack release practice. Full existing chinese_soundtrack already includes BOTH film and television, and is not restricted to its TanDun film example; the proposed label is a narrower institutionally named serial-drama subfield, not a translation claimed disjoint. Mandarin pop and modern Mandopop overlap these theme songs but are not restricted to narrative serial commissions; orchestral soundtrack and hybrid screen scoring describe production methods across territories/media. Neither drama OST nor the selected piano edition implies all works are vocal, pop, orchestral or exclusively mainland; this example is a mainland web-drama theme. Exact creator roster repeatedly identifies serial theme/ending/insert songs, supporting this intended narrower scope.",
+      "vocal_count_audit": {
+        "singers": 0,
+        "performers": 1,
+        "basis": "Complete separately issued piano-solo edition, no lyrics. Original recording vocalist not a performer in this selected instrumental edition."
+      },
+      "instrument_role_audit": {
+        "scope": "\u4e5d\u5f20\u673a (Jiu Zhang Ji), Ye Xuanqing theme from \u53cc\u4e16\u5ba0\u5983, complete Shinian piano-solo edition285799, five pages. Arranger catalogue explicitly states one piano, solo, two staves and no lyrics. One pianist and zero singers belong to this full independently issued arrangement, not a reduction of the original recorded song. Paid score not downloaded and original recording not auditioned; exact piano subtype, fingering, original recording personnel and measured tempo are not inferred. Exact creator Chinese Drama OST item1 names the same song and singer.",
+        "cards": 1,
+        "roles": [
+          "One pianist; full five-page solo arrangement"
+        ],
+        "defaults": "Authored intimate piano rendition selects a standard-size studio upright and block-chord melodic support for source-unspecified piano subtype; all three original controls protected. Broad functionalSong/pop placement is an explicit editorial functional-harmonic verse-chorus-bridge treatment of the complete theme-song arrangement, not a measured transcription of the purchased score or a claim about all drama music. Controlled live room, no global tuning or capture chain. No instrumental forces or vocals from the original television master are transferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Authored intimate piano rendition selects a standard-size studio upright and block-chord melodic support for source-unspecified piano subtype; all three original controls protected. Broad functionalSong/pop placement is an explicit editorial functional-harmonic verse-chorus-bridge treatment of the complete theme-song arrangement, not a measured transcription of the purchased score or a claim about all drama music. Controlled live room, no global tuning or capture chain. No instrumental forces or vocals from the original television master are transferred."
+        }
+      ],
+      "verification_status": "Complete source candidate; independent peer required.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All3 original upright owning controls explicitly pinned, no collision or fallback.",
+      "primary_retrieval_refs": [
+        "turn13091view0",
+        "turn13086view1",
+        "turn13086view0",
+        "turn13082search6",
+        "turn13088view0"
+      ],
+      "source_scope_limitation": "\u4e5d\u5f20\u673a (Jiu Zhang Ji), Ye Xuanqing theme from \u53cc\u4e16\u5ba0\u5983, complete Shinian piano-solo edition285799, five pages. Arranger catalogue explicitly states one piano, solo, two staves and no lyrics. One pianist and zero singers belong to this full independently issued arrangement, not a reduction of the original recorded song. Paid score not downloaded and original recording not auditioned; exact piano subtype, fingering, original recording personnel and measured tempo are not inferred. Exact creator Chinese Drama OST item1 names the same song and singer.",
+      "source_retrieval_caveat": "Full arranger metadata and official chart directly retrieved; full paidscore not read and no audio audition. Official report direct timeout honestly retained; actual indexed primary passage saved chinese-drama-industry-primary117.json. Score raw in chinese-drama-score-primary117.json. No source performer/tempo/gear inferred from a preview or original soundtrack.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "chinese_drama_ost",
+          "name": "Chinese Drama OST",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not YeXuanqing, Shinian, piano, drama set or actual equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13059view0 independently confirms CC BY2.5 IainFergusson/Binksternet crop; exact023 historical bytes/visual receipt inherited, no fresh download.",
+          "fresh_review_ref": "turn13059view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13059view0"
+        ],
+        "fresh_rights_review": "Fresh13059view0 rights/context only; original023 historicalbyte/visual evidence retained."
+      },
+      "authored_render_scope": "Authored intimate piano rendition selects a standard-size studio upright and block-chord melodic support for source-unspecified piano subtype; all three original controls protected. Broad functionalSong/pop placement is an explicit editorial functional-harmonic verse-chorus-bridge treatment of the complete theme-song arrangement, not a measured transcription of the purchased score or a claim about all drama music. Controlled live room, no global tuning or capture chain. No instrumental forces or vocals from the original television master are transferred.",
+      "source_review_refs": [
+        "turn13091view0",
+        "turn13086view1",
+        "turn13086view0",
+        "turn13082search6",
+        "turn13088view0"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

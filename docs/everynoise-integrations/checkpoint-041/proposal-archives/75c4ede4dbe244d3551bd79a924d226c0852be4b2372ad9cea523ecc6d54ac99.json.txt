@@ -1,0 +1,374 @@
+{
+  "entries": [
+    {
+      "source_label": "festigal",
+      "source_url": "https://everynoise.com/engenremap-festigal.html",
+      "suggested_id": "festigal",
+      "allocation_ordinal": 3279,
+      "allocation_group_id": "132",
+      "id": "festigal",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "festigal",
+        "name": "Festigal",
+        "family": "pop",
+        "lineage": "Festigal99 — complete1999 commercial CD, National Library of Israel shelf CD16117, system990053967010205171,54:44. Institutional whole-item catalog supplies sixteen programme selections and full participant note: keyboards Miron Minster and Adi Rennert; guitar Avi Singolda; drums Asher Fedi; bass guitar Alon Nadel; studio singers Sharona Nastovich, Limor Ofer, Liat Ofer, Ilan Leibovich, Doron Oren and Ben Yosef. Programme also names soloists Dafna Dekel, Nimrod Reshef, Liat Achiron, Gil Sasover, Sarit Hadad, Yael Bar Zohar, Roni Nadler, Asaf Ashtar, Rubi Duanias, Liron Karkukli, Hani Nahmias and Yafa Yarkoni, plus Festigal stars and children groups. Preserve entire credited vocal union with unknown total people/overlap/tracking, not six total voices or an assumed choir size. All five source families retained, two keyboard players aggregated within neutral keyboard card. Library digital access is onsite only: catalog metadata read, no recording audition or booklet sighting claimed. Publisher unidentified in library record; production credited Miki Peled/Solan and musical production Miron Minster. Festigal is the named Israeli Hanukkah children-and-star festival production/repertoire institution, not every Israeli popular song or every child performer. National Library historical account distinguishes it from the older Children Song Festival and Shirovision competitors, and its1995 catalog explicitly identifies the children song competition; the present organizer continues the named Hanukkah institution. Existing Israeli Pop/Mizrahi include broad Hebrew commercial song and Sarit Hadad, so overlap is explicit; this institution narrows repertoire by commissioned festival participation rather than ethnicity or a new instrument. Classic Israeli Pop broader songwriter repertoire likewise overlaps performers. Show Tunes includes stage-and-screen musical songs generally, whereas this named recurring Israeli festival production field is narrower; no claim distinct harmony merely from institution. Preschool Childrens Music and Childrens Folk are broader age/function or traditional participatory practice, not synonyms for the complete commercial celebrity festival program. Disney medley is one part of the16-item programme, not a reason to classify the full album as Disney. Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Festigal99 — complete1999 commercial CD, National Library of Israel shelf CD16117, system990053967010205171,54:44. Institutional whole-item catalog supplies sixteen programme selections and full participant note: keyboards Miron Minster and Adi Rennert; guitar Avi Singolda; drums Asher Fedi; bass guitar Alon Nadel; studio singers Sharona Nastovich, Limor Ofer, Liat Ofer, Ilan Leibovich, Doron Oren and Ben Yosef. Programme also names soloists Dafna Dekel, Nimrod Reshef, Liat Achiron, Gil Sasover, Sarit Hadad, Yael Bar Zohar, Roni Nadler, Asaf Ashtar, Rubi Duanias, Liron Karkukli, Hani Nahmias and Yafa Yarkoni, plus Festigal stars and children groups. Preserve entire credited vocal union with unknown total people/overlap/tracking, not six total voices or an assumed choir size. All five source families retained, two keyboard players aggregated within neutral keyboard card. Library digital access is onsite only: catalog metadata read, no recording audition or booklet sighting claimed. Publisher unidentified in library record; production credited Miki Peled/Solan and musical production Miron Minster. Festigal is the named Israeli Hanukkah children-and-star festival production/repertoire institution, not every Israeli popular song or every child performer. National Library historical account distinguishes it from the older Children Song Festival and Shirovision competitors, and its1995 catalog explicitly identifies the children song competition; the present organizer continues the named Hanukkah institution. Existing Israeli Pop/Mizrahi include broad Hebrew commercial song and Sarit Hadad, so overlap is explicit; this institution narrows repertoire by commissioned festival participation rather than ethnicity or a new instrument. Classic Israeli Pop broader songwriter repertoire likewise overlaps performers. Show Tunes includes stage-and-screen musical songs generally, whereas this named recurring Israeli festival production field is narrower; no claim distinct harmony merely from institution. Preschool Childrens Music and Childrens Folk are broader age/function or traditional participatory practice, not synonyms for the complete commercial celebrity festival program. Disney medley is one part of the16-item programme, not a reason to classify the full album as Disney. Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented.",
+        "exemplars": [
+          "Festigal99 — whole1999 CD, NLI CD16117"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        32.794,
+        34.9896,
+        "Haifa",
+        "Middle East"
+      ],
+      "geo_rationale": "National Library historical account identifies Festigal as a Haifa festival; geographic institutional origin anchor, not actual1999 recording site.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Festigal is the named Israeli Hanukkah children-and-star festival production/repertoire institution, not every Israeli popular song or every child performer. National Library historical account distinguishes it from the older Children Song Festival and Shirovision competitors, and its1995 catalog explicitly identifies the children song competition; the present organizer continues the named Hanukkah institution. Existing Israeli Pop/Mizrahi include broad Hebrew commercial song and Sarit Hadad, so overlap is explicit; this institution narrows repertoire by commissioned festival participation rather than ethnicity or a new instrument. Classic Israeli Pop broader songwriter repertoire likewise overlaps performers. Show Tunes includes stage-and-screen musical songs generally, whereas this named recurring Israeli festival production field is narrower; no claim distinct harmony merely from institution. Preschool Childrens Music and Childrens Folk are broader age/function or traditional participatory practice, not synonyms for the complete commercial celebrity festival program. Disney medley is one part of the16-item programme, not a reason to classify the full album as Disney.",
+      "classification_evidence": "Festigal is the named Israeli Hanukkah children-and-star festival production/repertoire institution, not every Israeli popular song or every child performer. National Library historical account distinguishes it from the older Children Song Festival and Shirovision competitors, and its1995 catalog explicitly identifies the children song competition; the present organizer continues the named Hanukkah institution. Existing Israeli Pop/Mizrahi include broad Hebrew commercial song and Sarit Hadad, so overlap is explicit; this institution narrows repertoire by commissioned festival participation rather than ethnicity or a new instrument. Classic Israeli Pop broader songwriter repertoire likewise overlaps performers. Show Tunes includes stage-and-screen musical songs generally, whereas this named recurring Israeli festival production field is narrower; no claim distinct harmony merely from institution. Preschool Childrens Music and Childrens Folk are broader age/function or traditional participatory practice, not synonyms for the complete commercial celebrity festival program. Disney medley is one part of the16-item programme, not a reason to classify the full album as Disney.",
+      "model_policy": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented.",
+      "source_scope_limitation": "Festigal99 — complete1999 commercial CD, National Library of Israel shelf CD16117, system990053967010205171,54:44. Institutional whole-item catalog supplies sixteen programme selections and full participant note: keyboards Miron Minster and Adi Rennert; guitar Avi Singolda; drums Asher Fedi; bass guitar Alon Nadel; studio singers Sharona Nastovich, Limor Ofer, Liat Ofer, Ilan Leibovich, Doron Oren and Ben Yosef. Programme also names soloists Dafna Dekel, Nimrod Reshef, Liat Achiron, Gil Sasover, Sarit Hadad, Yael Bar Zohar, Roni Nadler, Asaf Ashtar, Rubi Duanias, Liron Karkukli, Hani Nahmias and Yafa Yarkoni, plus Festigal stars and children groups. Preserve entire credited vocal union with unknown total people/overlap/tracking, not six total voices or an assumed choir size. All five source families retained, two keyboard players aggregated within neutral keyboard card. Library digital access is onsite only: catalog metadata read, no recording audition or booklet sighting claimed. Publisher unidentified in library record; production credited Miki Peled/Solan and musical production Miron Minster.",
+      "source_retrieval_caveat": "NationalLibrary whole CD catalogue independently indexed full12337search0/1; directrecord fetch403. All participants and16programme entries are catalogue metadata, not our listening or sight of original booklet. Library says digitalcarrier accessible onsiteonly. Exact creator map unavailable; positive namedinstitution supplied by national-library field histories and organizer, no exact playlist match asserted.",
+      "vocal_count_audit": {
+        "selected_count": null,
+        "actual_live_singers_count": null,
+        "basis": "Six studio singers explicitly named plus distinct named programme soloists and plural children/stars groups; total people and overlaps unknown, no fake fixed choir size."
+      },
+      "instrument_role_audit": {
+        "scope": "Festigal99 — complete1999 commercial CD, National Library of Israel shelf CD16117, system990053967010205171,54:44. Institutional whole-item catalog supplies sixteen programme selections and full participant note: keyboards Miron Minster and Adi Rennert; guitar Avi Singolda; drums Asher Fedi; bass guitar Alon Nadel; studio singers Sharona Nastovich, Limor Ofer, Liat Ofer, Ilan Leibovich, Doron Oren and Ben Yosef. Programme also names soloists Dafna Dekel, Nimrod Reshef, Liat Achiron, Gil Sasover, Sarit Hadad, Yael Bar Zohar, Roni Nadler, Asaf Ashtar, Rubi Duanias, Liron Karkukli, Hani Nahmias and Yafa Yarkoni, plus Festigal stars and children groups. Preserve entire credited vocal union with unknown total people/overlap/tracking, not six total voices or an assumed choir size. All five source families retained, two keyboard players aggregated within neutral keyboard card. Library digital access is onsite only: catalog metadata read, no recording audition or booklet sighting claimed. Publisher unidentified in library record; production credited Miki Peled/Solan and musical production Miron Minster.",
+        "roles": [
+          {
+            "instrument": "human_voice_ensemble_unspecified",
+            "source_role": "Complete named soloists/studio singers/children and star groups, totalunknown",
+            "authored_realization": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+          },
+          {
+            "instrument": "electric_guitar_humbucker",
+            "source_role": "Avi Singolda guitar",
+            "authored_realization": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+          },
+          {
+            "instrument": "electric_bass",
+            "source_role": "Alon Nadel bass guitar",
+            "authored_realization": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+          },
+          {
+            "instrument": "drum_kit",
+            "source_role": "Asher Fedi drums",
+            "authored_realization": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+          },
+          {
+            "instrument": "electronic_keyboard_unspecified",
+            "source_role": "Miron Minster and Adi Rennert keyboards",
+            "authored_realization": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+          }
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Full five-family authored present-day popular-song rendition preserves all credited families and unknown vocal/ensemble counts. Broad functionalSong uses explicitly authored verse-chorus-bridge organization over functional progressions, not measured transcription of every medley or original track. Neutral vocal physiology, text-setting, ensemble count and tracking retain unknowns. Both source-generic keyboards use the existing architecture-unspecified melodic/chordal owner, no invented piano/synth model. Source-generic guitar is deliberately realized as clean-strummed alder/maple/rosewood humbucker guitar with AlnicoII, medium winding, pure nickel10gauge, short scale and vibrato bridge; source construction is not asserted. Authored alder/soapbar/nickel-roundwound fretted34inch bass and maple rock kit with B20 traditional-finish cymbals are representative equipment, not observed source gear. Source-specific tempo is unknown; brisk concert affect and controlled live-room are authored rendition choices. No global temperament, microphone chain or acoustic-session fact is invented."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All selected owning parts pinned; identical shared controls aggregated in original flat dictionary. No omitted imported controls."
+      },
+      "sources": [
+        {
+          "url": "https://www.nli.org.il/en/items/NNL_MUSIC_AL990053967010205171/NLI",
+          "support_notes": "Fresh12337search0 complete national-library wholeCD description/16selections/fullinstrument and studio voice roster. Direct blocked; indexed complete record accessible. No carrier audition.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.nli.org.il/he/discover/music/israeli-music/song-festivals/festival-kids",
+          "support_notes": "Fresh12365search4 distinguishes older festival and Haifa Festigal competitor/successor.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.nli.org.il/he/discover/music/israeli-music/song-festivals/shirovision",
+          "support_notes": "Fresh12365search0 distinct Hanukkah star-entertainment festival ecology and named Festigal successor.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990047185960205171/NLI",
+          "support_notes": "Fresh12365search11 actual Festigal95 title explicitly children song competition, positive recurring institution.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://myfestigal.co.il/",
+          "support_notes": "Fresh12365search1 current organizer named programme/children and Hanukkah events. Not source for1999recording instrumentation.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn12337search0",
+        "turn12337search1",
+        "turn12365search0",
+        "turn12365search4",
+        "turn12365search11",
+        "turn12365search1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "festigal",
+          "name": "Festigal",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Festigal cast,1999source gear, or voice instrument depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12394view0 independently confirms CC BY2.5 IainFergusson/cropBinksternet; inherited exact023bytes and originalvisual receipt retained, no newdownload claimed.",
+          "fresh_review_ref": "turn12394view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12394view0"
+        ]
+      },
+      "verification_status": "Author original mechanical51parts and1638preservation plus fourformats parity inspected; independent peer pending. Maximumactual recipe chars recorded in runtime; no final integrated/CI claim.",
+      "flat_pin_conflicts": []
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "ready_for_independent_review"
+}

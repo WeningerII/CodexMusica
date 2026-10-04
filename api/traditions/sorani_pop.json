@@ -1,0 +1,283 @@
+{
+  "id": "sorani_pop",
+  "name": "Sorani Pop",
+  "family": "global",
+  "lineage": "Sorani pop centres on contemporary song in the Sorani Kurdish language, circulated through recordings, television and concert performance. Traditional melodies and poetry remain influential as singers and composers develop modern arrangements and collaborate across Kurdish and neighbouring musical traditions.",
+  "recipe": "classic sorani pop, art Music. solo with instrumental accompaniment. steel bronze mix modern concert tar persian, santur, steel modern kamancheh, tombak, articulate contemporary nylon plastic oud, credited auxiliary percussion, upright piano. live tracking.",
+  "recipe_chars": 257,
+  "score": 13.815,
+  "config": {
+    "traditions": [
+      "sorani_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.17,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.273,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "tar_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tar_belly": "tar_lamb_skin",
+          "tar_pick": "tar_brass_mizrab",
+          "tar_body_wood": "tar_mulberry_body",
+          "tar_string_material": "tar_steel_bronze",
+          "tar_tradition": "tar_modern_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "tar_belly": 1.168,
+          "tar_pick": -0.035,
+          "tar_body_wood": 0,
+          "tar_string_material": 1,
+          "tar_tradition": 2.9899999999999998
+        }
+      },
+      {
+        "id": "santur",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "santur_school": "santur_persian",
+          "santur_technique": "santur_mizrab"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "santur_school": 0,
+          "santur_technique": 0.126
+        }
+      },
+      {
+        "id": "kamancheh",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kamancheh_belly": "sturgeon_kamancheh",
+          "kamancheh_use": "kamancheh_dastgah",
+          "kamancheh_body_wood": "kamancheh_walnut_body",
+          "kamancheh_strings": "kamancheh_steel_modern"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "kamancheh_belly": 0,
+          "kamancheh_use": 0.39,
+          "kamancheh_body_wood": 0,
+          "kamancheh_strings": 1
+        }
+      },
+      {
+        "id": "tombak",
+        "slots": {
+          "tombak_wood": "tombak_mulberry",
+          "tombak_school": "tombak_tehran"
+        },
+        "scores": {
+          "tombak_wood": 1.1365,
+          "tombak_school": 1.575
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_iraqi",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "oud_school": 0.0315,
+          "oud_strings": 1.575,
+          "oud_pick": 1.51,
+          "oud_body_wood": 0,
+          "oud_soundboard_wood": 0,
+          "oud_string_material": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "tar_persian": [
+        "plucked_traditional_technique",
+        "tar_belly",
+        "tar_pick",
+        "tar_body_wood",
+        "tar_string_material",
+        "tar_tradition"
+      ],
+      "santur": [
+        "plucked_traditional_technique",
+        "santur_school",
+        "santur_technique"
+      ],
+      "kamancheh": [
+        "bowed_technique",
+        "kamancheh_belly",
+        "kamancheh_use",
+        "kamancheh_body_wood",
+        "kamancheh_strings"
+      ],
+      "tombak": [
+        "tombak_wood",
+        "tombak_school"
+      ],
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "tar_belly": "tar_lamb_skin",
+      "tar_pick": "tar_brass_mizrab",
+      "tar_body_wood": "tar_mulberry_body",
+      "tar_string_material": "tar_steel_bronze",
+      "tar_tradition": "tar_modern_concert",
+      "santur_school": "santur_persian",
+      "santur_technique": "santur_mizrab",
+      "bowed_technique": "bowed_legato_classical",
+      "kamancheh_belly": "sturgeon_kamancheh",
+      "kamancheh_use": "kamancheh_dastgah",
+      "kamancheh_body_wood": "kamancheh_walnut_body",
+      "kamancheh_strings": "kamancheh_steel_modern",
+      "tombak_wood": "tombak_mulberry",
+      "tombak_school": "tombak_tehran",
+      "oud_school": "oud_iraqi",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_plastic",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "oud_pyramid_nylon",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_spinet"
+    },
+    "pin_parts": true
+  }
+}

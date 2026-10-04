@@ -1,0 +1,1493 @@
+{
+  "entries": [
+    {
+      "source_label": "musique traditionnelle congolaise",
+      "source_url": "https://everynoise.com/engenremap-musiquetraditionnellecongolaise.html",
+      "suggested_id": "musique_traditionnelle_congolaise",
+      "allocation_ordinal": 3953,
+      "allocation_group_id": "159",
+      "status": "unresolved",
+      "id": "musique_traditionnelle_congolaise",
+      "tradition": {
+        "id": "musique_traditionnelle_congolaise",
+        "name": "Musique traditionnelle congolaise",
+        "family": "vernacular",
+        "lineage": "Congolese traditional music encompasses the country’s diverse regional and cultural repertoires, from lamellophone-accompanied song to choral, ritual and dance traditions. Contemporary ensembles also reinterpret inherited material with amplified instruments.",
+        "instruments": [
+          "voice",
+          "lukembi_congolese"
+        ],
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "falsetto",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_minimal_undersung",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "lukembi_congolese_key_count": "lukembi_congolese_ten",
+          "lukembi_congolese_tine_material": "lukembi_congolese_recycled_metal",
+          "lukembi_congolese_body": "lukembi_congolese_hollow_wood",
+          "lukembi_congolese_bridge": "lukembi_congolese_bridge_unspecified",
+          "lukembi_congolese_binding": "lukembi_congolese_vine",
+          "lukembi_congolese_tuning": "lukembi_congolese_sliding_keys_local",
+          "lukembi_congolese_technique": "lukembi_congolese_thumb_plucked"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Voices and interlocking instrumental patterns shape varied local practices. In an intimate song strand, a singer accompanies personal verses on the lukembi, alternating vocal phrases with resonant plucked-metal-key figures; larger ensembles and communal vocal traditions supply other textures.",
+        "exemplars": [
+          "Abdul Aziz — complete Lukembi and Voice, SFW40401 track12"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        1.75,
+        28.5,
+        "Ituri",
+        "Africa"
+      ],
+      "geo_rationale": "Approximate regional Ituri origin anchor from collector and issuer; not invented precise village or studio coordinates.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40401.pdf",
+          "title": "Collector and reissue editors: full track12 note",
+          "support_notes": "Fresh full indexed primary11330search12/11338search0 describes complete voice+instrument scope, exact construction and quiet falsetto/cadenza. Direct PDF text unavailable, indexed full relevant note successfully reproduced and unmodified tool response saved congo-lukembi-primary-raw024.json.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://folkways.si.edu/mbuti-pygmies-of-the-ituri-rainforest/world/music/album/Smithsonian",
+          "title": "Issuer whole reissue tracklist",
+          "support_notes": "Fresh11333search4 track112 Abdul Aziz2:26,1992SFW40401. No attribution to the different Mbuti player on track113.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://folkways.si.edu/music-of-the-ituri-forest/world/album/smithsonian",
+          "title": "Issuer original collection",
+          "support_notes": "Fresh11333search3 identifies original1957FW04483 track101 Abdul Aziz2:23, northeastern Congo traditional context, collectorTurnbull.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0rvR2tjFUlz37sgKpbbkpd",
+          "title": "Exact creator Musique Traditionnelle Congolaise corpus",
+          "support_notes": "Fresh full11340view0 cross-ethnic national field: Banda-Mono12,Mbuti43,Luba25,Songe26,Konono2,KasaiAllstars5. Selected Abdul Aziz not asserted exact membership.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist.",
+      "model_policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements.",
+      "classification_evidence": {
+        "mode": "exact_creator_broad_corpus_plus_firsthand_traditional_regional_work",
+        "note": "The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist."
+      },
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "singers": [
+          "Abdul Aziz"
+        ],
+        "decision": "One collector-named singer plays the accompanying lukembi; no choir or extra singer borrowed from album."
+      },
+      "instrument_role_audit": {
+        "scope": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed.",
+        "roles": {
+          "voice": "Abdul Aziz quiet falsetto",
+          "lukembi_congolese": "Abdul Aziz ten-key hollow-body lamellophone"
+        },
+        "authored_defaults": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "falsetto",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_minimal_undersung",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+        },
+        {
+          "instrument": "lukembi_congolese",
+          "parts": {
+            "lukembi_congolese_key_count": "lukembi_congolese_ten",
+            "lukembi_congolese_tine_material": "lukembi_congolese_recycled_metal",
+            "lukembi_congolese_body": "lukembi_congolese_hollow_wood",
+            "lukembi_congolese_bridge": "lukembi_congolese_bridge_unspecified",
+            "lukembi_congolese_binding": "lukembi_congolese_vine",
+            "lukembi_congolese_tuning": "lukembi_congolese_sliding_keys_local",
+            "lukembi_congolese_technique": "lukembi_congolese_thumb_plucked"
+          },
+          "policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 vocal controls and seven documented physical lukembi controls protected. No imported string technique or hidden tuning default."
+      },
+      "dependency_audit": {
+        "new_dependencies": [
+          "lukembi_congolese"
+        ],
+        "rationale": "Existing mbira broad family lacks ten-key count, hollowed body and vine bridge bindings and requires speculative wood species/buzzers; no equivalent source-specific owner among1638. New meaningful physical controls preserve source facts, not a render bypass."
+      },
+      "verification_status": "pending_independent_review",
+      "source_scope_limitation": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed.",
+      "primary_retrieval_refs": [
+        "turn11338search0",
+        "turn11333search3",
+        "turn11333search4",
+        "turn11340view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musique_traditionnelle_congolaise",
+          "name": "Musique traditionnelle congolaise",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11343view0 Commons source confirms Iain Fergusson original, Binksternet crop and CC BY2.5; exact023 historical bytes and visual receipts retained without new transfer.",
+          "fresh_review_ref": "turn11343view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11343view0"
+        ]
+      },
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery159-161-secondpass-2.json",
+        "before_packet_sha256": "d6813cbaca75c18c8b5473331a59aa0e147d37d140660d8f29588dea01785d2d",
+        "before_entry": {
+          "source_label": "musique traditionnelle congolaise",
+          "source_url": "https://everynoise.com/engenremap-musiquetraditionnellecongolaise.html",
+          "suggested_id": "musique_traditionnelle_congolaise",
+          "allocation_ordinal": 3953,
+          "allocation_group_id": "159",
+          "status": "unresolved",
+          "id": "musique_traditionnelle_congolaise",
+          "tradition": {
+            "id": "musique_traditionnelle_congolaise",
+            "name": "Musique traditionnelle congolaise",
+            "family": "vernacular",
+            "lineage": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed. Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements.",
+            "instruments": [
+              "voice",
+              "lukembi_congolese"
+            ],
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "falsetto",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_minimal_undersung",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_syllabic_singing",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "lukembi_congolese_key_count": "lukembi_congolese_ten",
+              "lukembi_congolese_tine_material": "lukembi_congolese_recycled_metal",
+              "lukembi_congolese_body": "lukembi_congolese_hollow_wood",
+              "lukembi_congolese_bridge": "lukembi_congolese_bridge_unspecified",
+              "lukembi_congolese_binding": "lukembi_congolese_vine",
+              "lukembi_congolese_tuning": "lukembi_congolese_sliding_keys_local",
+              "lukembi_congolese_technique": "lukembi_congolese_thumb_plucked"
+            }
+          },
+          "extras": {
+            "parent": "balladPoetry",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed. The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist. Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements.",
+            "exemplars": [
+              "Abdul Aziz — complete Lukembi and Voice, SFW40401 track12"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            1.75,
+            28.5,
+            "Ituri",
+            "Africa"
+          ],
+          "geo_rationale": "Approximate regional Ituri origin anchor from collector and issuer; not invented precise village or studio coordinates.",
+          "signature_tokens": [],
+          "sources": [
+            {
+              "url": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40401.pdf",
+              "title": "Collector and reissue editors: full track12 note",
+              "support_notes": "Fresh full indexed primary11330search12/11338search0 describes complete voice+instrument scope, exact construction and quiet falsetto/cadenza. Direct PDF text unavailable, indexed full relevant note successfully reproduced and unmodified tool response saved congo-lukembi-primary-raw024.json.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://folkways.si.edu/mbuti-pygmies-of-the-ituri-rainforest/world/music/album/Smithsonian",
+              "title": "Issuer whole reissue tracklist",
+              "support_notes": "Fresh11333search4 track112 Abdul Aziz2:26,1992SFW40401. No attribution to the different Mbuti player on track113.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://folkways.si.edu/music-of-the-ituri-forest/world/album/smithsonian",
+              "title": "Issuer original collection",
+              "support_notes": "Fresh11333search3 identifies original1957FW04483 track101 Abdul Aziz2:23, northeastern Congo traditional context, collectorTurnbull.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/0rvR2tjFUlz37sgKpbbkpd",
+              "title": "Exact creator Musique Traditionnelle Congolaise corpus",
+              "support_notes": "Fresh full11340view0 cross-ethnic national field: Banda-Mono12,Mbuti43,Luba25,Songe26,Konono2,KasaiAllstars5. Selected Abdul Aziz not asserted exact membership.",
+              "checked_date": "2026-10-03"
+            }
+          ],
+          "neighbor_distinction": "The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist.",
+          "model_policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements.",
+          "classification_evidence": {
+            "mode": "exact_creator_broad_corpus_plus_firsthand_traditional_regional_work",
+            "note": "The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist."
+          },
+          "vocal_count_audit": {
+            "selected_count": 1,
+            "singers": [
+              "Abdul Aziz"
+            ],
+            "decision": "One collector-named singer plays the accompanying lukembi; no choir or extra singer borrowed from album."
+          },
+          "instrument_role_audit": {
+            "scope": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed.",
+            "roles": {
+              "voice": "Abdul Aziz quiet falsetto",
+              "lukembi_congolese": "Abdul Aziz ten-key hollow-body lamellophone"
+            },
+            "authored_defaults": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "falsetto",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_minimal_undersung",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+            },
+            {
+              "instrument": "lukembi_congolese",
+              "parts": {
+                "lukembi_congolese_key_count": "lukembi_congolese_ten",
+                "lukembi_congolese_tine_material": "lukembi_congolese_recycled_metal",
+                "lukembi_congolese_body": "lukembi_congolese_hollow_wood",
+                "lukembi_congolese_bridge": "lukembi_congolese_bridge_unspecified",
+                "lukembi_congolese_binding": "lukembi_congolese_vine",
+                "lukembi_congolese_tuning": "lukembi_congolese_sliding_keys_local",
+                "lukembi_congolese_technique": "lukembi_congolese_thumb_plucked"
+              },
+              "policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+            }
+          ],
+          "flat_pin_conflicts": [],
+          "flat_pin_resolution": {
+            "rule": "All17 vocal controls and seven documented physical lukembi controls protected. No imported string technique or hidden tuning default."
+          },
+          "dependency_audit": {
+            "new_dependencies": [
+              "lukembi_congolese"
+            ],
+            "rationale": "Existing mbira broad family lacks ten-key count, hollowed body and vine bridge bindings and requires speculative wood species/buzzers; no equivalent source-specific owner among1638. New meaningful physical controls preserve source facts, not a render bypass."
+          },
+          "verification_status": "pending_independent_review",
+          "source_scope_limitation": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed.",
+          "primary_retrieval_refs": [
+            "turn11338search0",
+            "turn11333search3",
+            "turn11333search4",
+            "turn11340view0"
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "musique_traditionnelle_congolaise",
+              "name": "Musique traditionnelle congolaise",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording microphone context only; not a lukembi, Abdul Aziz or the historical source recording apparatus.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh11343view0 Commons source confirms Iain Fergusson original, Binksternet crop and CC BY2.5; exact023 historical bytes and visual receipts retained without new transfer.",
+              "fresh_review_ref": "turn11343view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn11343view0"
+            ]
+          }
+        },
+        "reason": "Restore broad genre history/style and preserve full selected-work evidence separately. Representative branch does not define a complete original recording."
+      }
+    },
+    {
+      "source_label": "polish alternative",
+      "source_url": "https://everynoise.com/engenremap-polishalternative.html",
+      "suggested_id": "polish_alternative",
+      "allocation_ordinal": 4141,
+      "allocation_group_id": "166",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "id": "polish_alternative",
+      "tradition": {
+        "id": "polish_alternative",
+        "name": "Polish Alternative",
+        "family": "rock",
+        "lineage": "Polish alternative music brings independent and experimental approaches into popular song, crossing guitar rock, alternative pop and electronic production. Its varied artists connect melodic songwriting with exploratory textures and arrangements.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "credited_synthesizer_unspecified"
+        ],
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "room": "live_room"
+      },
+      "extras": {
+        "parent": "distortedRock.alternative",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Singing, electric guitars, bass and drums form one band-oriented foundation, with synthesizers adding harmonic or textural colour. Some arrangements expand into organs, electric piano, processed voices and horns, while others foreground electronic production and sparse pop structures.",
+        "exemplars": [
+          "Lobotomia — complete Kołysanki dla samobójców2015"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        53.4285,
+        14.5528,
+        "Szczecin",
+        "Europe"
+      ],
+      "geo_rationale": "Artist-owned album profile names Szczecin,Poland; editorial artist locality, not a claimed recording address.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Polish Alternative is an overlapping cross-style national alternative-song field, broader than alternative rock alone. The artist explicitly self-tags this complete album Polish Alternative alongside alternative pop/rock. The exact creator field spans Natalia Przybysz, Rosalie., Coals, The Dumplings, Bass Astral x Igo and multiple other acts; no Lobotomia membership is falsely asserted. Adam Mickiewicz Institute cultural curation independently names a Polish alternative-pop scene and its synth-heavy Bokka branch, so the broader pop/electronic reach does not rest solely on a different saxophone arrangement. Full existing polish_alternative_rock and polish_indie_rock are rock fields whose records use representative bands, not restricted to Happy Pills/TrupaTrupa alone. Existing polish_pop is the wider national popular field. The pending Polish Indie label concerns independent-scene circulation and overlaps rather than being asserted synonym or disjoint. No new category boundary is claimed from an album date, instrument palette or new artist alone.",
+      "classification_evidence": "Polish Alternative is an overlapping cross-style national alternative-song field, broader than alternative rock alone. The artist explicitly self-tags this complete album Polish Alternative alongside alternative pop/rock. The exact creator field spans Natalia Przybysz, Rosalie., Coals, The Dumplings, Bass Astral x Igo and multiple other acts; no Lobotomia membership is falsely asserted. Adam Mickiewicz Institute cultural curation independently names a Polish alternative-pop scene and its synth-heavy Bokka branch, so the broader pop/electronic reach does not rest solely on a different saxophone arrangement. Full existing polish_alternative_rock and polish_indie_rock are rock fields whose records use representative bands, not restricted to Happy Pills/TrupaTrupa alone. Existing polish_pop is the wider national popular field. The pending Polish Indie label concerns independent-scene circulation and overlaps rather than being asserted synonym or disjoint. No new category boundary is claimed from an album date, instrument palette or new artist alone.",
+      "model_policy": "Sung electric-band arrangement with supportive synthesizer colour. Expanded horn/organ/vocoder colours remain optional in genre prose, not falsely claimed absent from original album.",
+      "source_scope_limitation": "Sources document the broad genre and an expanded album example. This is a representative core-band arrangement, not a track transcription.",
+      "vocal_count_audit": {
+        "policy": "Authored accompanied vocal lead; no exact original recording headcount asserted."
+      },
+      "instrument_role_audit": {
+        "scope": "Representative five-family genre band; original ten-family album union retained in format_repair.before_entry.",
+        "cards": 5,
+        "authored_defaults": "Sung electric-band arrangement with supportive synthesizer colour. Expanded horn/organ/vocoder colours remain optional in genre prose, not falsely claimed absent from original album."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [
+          "amp_make",
+          "body_wood"
+        ],
+        "rule": "Every applicable original owning part explicitly pinned; shared guitar/bass amp unspecified and alder body coherent. No fallback."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative alternative-pop/rock band with synthesizer colour; all applicable controls preserved. Original full album instrumentation and credits remain separately documented."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Representative alternative-pop/rock band with synthesizer colour; all applicable controls preserved. Original full album instrumentation and credits remain separately documented."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "Representative alternative-pop/rock band with synthesizer colour; all applicable controls preserved. Original full album instrumentation and credits remain separately documented."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Representative alternative-pop/rock band with synthesizer colour; all applicable controls preserved. Original full album instrumentation and credits remain separately documented."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Representative alternative-pop/rock band with synthesizer colour; all applicable controls preserved. Original full album instrumentation and credits remain separately documented."
+        }
+      ],
+      "verification_status": "PASS:65 applicable owning parts protected,1628 existing owners preserved,no dependencies; all10 source-family cards retained in allfour actual formats below1000characters. Generic authored rock-affect descriptors do not claim measuredtempo/feeling; trumpet American-orchestral phrase identifies authored Bach model school, not another orchestra.",
+      "sources": [
+        {
+          "url": "https://lobotomia.bandcamp.com/album/ko-ysanki-dla-samob-jc-w",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh10890view0 direct full album credits, ten tracks,2015date,Szczecin and exact PolishAlternative/alternativepop/alternativerock tags."
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-polishalternative.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh10966search0 full exact creator corpus; breadth corroboration only, Lobotomia membership not claimed."
+        },
+        {
+          "url": "https://culture.pl/en/article/wacky-seven-which-band-is-the-weirdest",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh10971view0 institutional cultural curation explicitly places synth-heavy Bokka in Polishalternativepop scene. This describes category breadth, not extra source-album instruments."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "polish_alternative",
+          "name": "Polish Alternative",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Served thumbnail of existing Binksternet crop; no additional crop. Preserve Iain Fergusson photo and Binksternet derivative credit.",
+          "evidence": "Fresh10917view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical exact bytes/visual inherited, no fresh transfer.",
+          "fresh_review_ref": "turn10917view0"
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [
+            250,
+            720
+          ],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [
+            250,
+            720
+          ],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn10917view0"
+        ]
+      },
+      "source_retrieval_caveat": "Complete album credits and primary category tags read; audio not auditioned. Exact creator corpus corroborates field breadth, not selected artist membership.",
+      "primary_retrieval_refs": [
+        "turn10890view0",
+        "turn10966search0",
+        "turn10971view0"
+      ],
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery166-167-secondpass-2.json",
+        "before_packet_sha256": "5c805eed0b60acab3b3fc937728d2ad4751eceea11907437c8638e678d3f7482",
+        "before_entry": {
+          "source_label": "polish alternative",
+          "source_url": "https://everynoise.com/engenremap-polishalternative.html",
+          "suggested_id": "polish_alternative",
+          "allocation_ordinal": 4141,
+          "allocation_group_id": "166",
+          "status": "READY_FOR_INDEPENDENT_REVIEW",
+          "id": "polish_alternative",
+          "tradition": {
+            "id": "polish_alternative",
+            "name": "Polish Alternative",
+            "family": "rock",
+            "lineage": "Lobotomia — complete ten-track Kołysanki dla samobójców album, released6March2015. Seven credited musicians: Marcin Biskupski voice/guitars; Grzegorz Łukaszewski organ/e-piano/vocoder/synthesizer; Paweł Sowa bass; Michał Buciarski drums; Adam Zwoliński alto saxophone; Michał Serewiś tenor saxophone; Szymon Porowski trumpet. Retain every credited family in ten cards, with two separately named saxophonists represented by the existing alto-and-tenor section owner. Cover illustrator Paweł Kuczyński is not a musician. These are whole-album union credits, not proof all seven play simultaneously on each track. Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "credited_organ_unspecified",
+              "electric_piano_tine",
+              "vocoder",
+              "credited_synthesizer_unspecified",
+              "electric_bass",
+              "drum_kit",
+              "saxophone_section_alto_tenor",
+              "trumpet"
+            ],
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified",
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "tine_voicing": "mellow_tine",
+              "tine_effect": "dry_tine",
+              "voc_band_count": "voc_few_bands",
+              "voc_carrier": "voc_saw_carrier",
+              "voc_modulator": "voc_voice_mod",
+              "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "alto_tenor_section_articulation": "alto_tenor_section_articulation_short",
+              "wind_articulation": "wind_punchy_ensemble",
+              "brass_size": "trumpet_b_flat",
+              "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+              "brass_mute": "no_mute_brass",
+              "trumpet_technique": "trumpet_punchy_ensemble",
+              "trumpet_bell_metal": "trumpet_yellow_brass",
+              "trumpet_maker_school": "trumpet_bach_stradivarius"
+            },
+            "room": "live_room"
+          },
+          "extras": {
+            "parent": "distortedRock.alternative",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Lobotomia — complete ten-track Kołysanki dla samobójców album, released6March2015. Seven credited musicians: Marcin Biskupski voice/guitars; Grzegorz Łukaszewski organ/e-piano/vocoder/synthesizer; Paweł Sowa bass; Michał Buciarski drums; Adam Zwoliński alto saxophone; Michał Serewiś tenor saxophone; Szymon Porowski trumpet. Retain every credited family in ten cards, with two separately named saxophonists represented by the existing alto-and-tenor section owner. Cover illustrator Paweł Kuczyński is not a musician. These are whole-album union credits, not proof all seven play simultaneously on each track. Polish Alternative is an overlapping cross-style national alternative-song field, broader than alternative rock alone. The artist explicitly self-tags this complete album Polish Alternative alongside alternative pop/rock. The exact creator field spans Natalia Przybysz, Rosalie., Coals, The Dumplings, Bass Astral x Igo and multiple other acts; no Lobotomia membership is falsely asserted. Adam Mickiewicz Institute cultural curation independently names a Polish alternative-pop scene and its synth-heavy Bokka branch, so the broader pop/electronic reach does not rest solely on a different saxophone arrangement. Full existing polish_alternative_rock and polish_indie_rock are rock fields whose records use representative bands, not restricted to Happy Pills/TrupaTrupa alone. Existing polish_pop is the wider national popular field. The pending Polish Indie label concerns independent-scene circulation and overlaps rather than being asserted synonym or disjoint. No new category boundary is claimed from an album date, instrument palette or new artist alone. Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock.",
+            "exemplars": [
+              "Lobotomia — complete Kołysanki dla samobójców2015"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            53.4285,
+            14.5528,
+            "Szczecin",
+            "Europe"
+          ],
+          "geo_rationale": "Artist-owned album profile names Szczecin,Poland; editorial artist locality, not a claimed recording address.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Polish Alternative is an overlapping cross-style national alternative-song field, broader than alternative rock alone. The artist explicitly self-tags this complete album Polish Alternative alongside alternative pop/rock. The exact creator field spans Natalia Przybysz, Rosalie., Coals, The Dumplings, Bass Astral x Igo and multiple other acts; no Lobotomia membership is falsely asserted. Adam Mickiewicz Institute cultural curation independently names a Polish alternative-pop scene and its synth-heavy Bokka branch, so the broader pop/electronic reach does not rest solely on a different saxophone arrangement. Full existing polish_alternative_rock and polish_indie_rock are rock fields whose records use representative bands, not restricted to Happy Pills/TrupaTrupa alone. Existing polish_pop is the wider national popular field. The pending Polish Indie label concerns independent-scene circulation and overlaps rather than being asserted synonym or disjoint. No new category boundary is claimed from an album date, instrument palette or new artist alone.",
+          "classification_evidence": "Polish Alternative is an overlapping cross-style national alternative-song field, broader than alternative rock alone. The artist explicitly self-tags this complete album Polish Alternative alongside alternative pop/rock. The exact creator field spans Natalia Przybysz, Rosalie., Coals, The Dumplings, Bass Astral x Igo and multiple other acts; no Lobotomia membership is falsely asserted. Adam Mickiewicz Institute cultural curation independently names a Polish alternative-pop scene and its synth-heavy Bokka branch, so the broader pop/electronic reach does not rest solely on a different saxophone arrangement. Full existing polish_alternative_rock and polish_indie_rock are rock fields whose records use representative bands, not restricted to Happy Pills/TrupaTrupa alone. Existing polish_pop is the wider national popular field. The pending Polish Indie label concerns independent-scene circulation and overlaps rather than being asserted synonym or disjoint. No new category boundary is claimed from an album date, instrument palette or new artist alone.",
+          "model_policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock.",
+          "source_scope_limitation": "Lobotomia — complete ten-track Kołysanki dla samobójców album, released6March2015. Seven credited musicians: Marcin Biskupski voice/guitars; Grzegorz Łukaszewski organ/e-piano/vocoder/synthesizer; Paweł Sowa bass; Michał Buciarski drums; Adam Zwoliński alto saxophone; Michał Serewiś tenor saxophone; Szymon Porowski trumpet. Retain every credited family in ten cards, with two separately named saxophonists represented by the existing alto-and-tenor section owner. Cover illustrator Paweł Kuczyński is not a musician. These are whole-album union credits, not proof all seven play simultaneously on each track.",
+          "vocal_count_audit": {
+            "selected_count": null,
+            "named_singer_count": 1,
+            "named_singer": "Marcin Biskupski",
+            "vocoder_operator": "Grzegorz Łukaszewski",
+            "reason": "One credited singer, separate vocoder operator; modulator origin and any layered human totals unknown, not fictional second singer."
+          },
+          "instrument_role_audit": {
+            "scope": "Lobotomia — complete ten-track Kołysanki dla samobójców album, released6March2015. Seven credited musicians: Marcin Biskupski voice/guitars; Grzegorz Łukaszewski organ/e-piano/vocoder/synthesizer; Paweł Sowa bass; Michał Buciarski drums; Adam Zwoliński alto saxophone; Michał Serewiś tenor saxophone; Szymon Porowski trumpet. Retain every credited family in ten cards, with two separately named saxophonists represented by the existing alto-and-tenor section owner. Cover illustrator Paweł Kuczyński is not a musician. These are whole-album union credits, not proof all seven play simultaneously on each track.",
+            "cards": 10,
+            "credited_people": 7,
+            "authored_defaults": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+          },
+          "flat_pin_conflicts": [],
+          "flat_pin_resolution": {
+            "shared_keys_reviewed": [
+              "amp_make",
+              "body_wood"
+            ],
+            "rule": "Every applicable original owning part explicitly pinned; shared guitar/bass amp unspecified and alder body coherent. No fallback."
+          },
+          "dependency_audit": {
+            "new_dependencies": []
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "neck_wood": "maple_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_10_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "credited_organ_unspecified",
+              "parts": {
+                "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "electric_piano_tine",
+              "parts": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "tine_voicing": "mellow_tine",
+                "tine_effect": "dry_tine"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "vocoder",
+              "parts": {
+                "voc_band_count": "voc_few_bands",
+                "voc_carrier": "voc_saw_carrier",
+                "voc_modulator": "voc_voice_mod"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "credited_synthesizer_unspecified",
+              "parts": {
+                "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "saxophone_section_alto_tenor",
+              "parts": {
+                "alto_tenor_section_articulation": "alto_tenor_section_articulation_short"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            },
+            {
+              "instrument": "trumpet",
+              "parts": {
+                "wind_articulation": "wind_punchy_ensemble",
+                "brass_size": "trumpet_b_flat",
+                "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+                "brass_mute": "no_mute_brass",
+                "trumpet_technique": "trumpet_punchy_ensemble",
+                "trumpet_bell_metal": "trumpet_yellow_brass",
+                "trumpet_maker_school": "trumpet_bach_stradivarius"
+              },
+              "policy": "Authored present-day realization retains source-unspecified organ mechanism and synthesizer architecture. Source generic guitars/bass become alder humbucking electric guitar and long-scale fretted soapbar bass, clean chordal strumming and locked fingerstyle. This is construction/gesture authoring, not identification of source equipment. Maple stick-backbeat kit with traditional-finish B20 cymbals and a coherent B-flat Bach trumpet are likewise authored. Named alto and tenor identities retained; coordinated short section phrasing authored. Source e-piano is realized as a mellow dry tine electric piano with block chords; no claim of original tine hardware. Vocoder retains all three existing controls, authored8–10band saw-carrier and voice-modulator realization; source names the operator but not modulator origin, extra singer or hardware. Named lead voice uses neutral physiology, accompanied solo and single-take authoring; source does not establish every doubled vocal or vocoder input count. No global tuning or capture apparatus. Controlled live-room spatial rendition is authored. Alternative-rock parent follows the selected artist-tagged rock branch without claiming the whole broader field is rock."
+            }
+          ],
+          "verification_status": "PASS:65 applicable owning parts protected,1628 existing owners preserved,no dependencies; all10 source-family cards retained in allfour actual formats below1000characters. Generic authored rock-affect descriptors do not claim measuredtempo/feeling; trumpet American-orchestral phrase identifies authored Bach model school, not another orchestra.",
+          "sources": [
+            {
+              "url": "https://lobotomia.bandcamp.com/album/ko-ysanki-dla-samob-jc-w",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh10890view0 direct full album credits, ten tracks,2015date,Szczecin and exact PolishAlternative/alternativepop/alternativerock tags."
+            },
+            {
+              "url": "https://furia.com/everynoise_public/engenremap-polishalternative.html",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh10966search0 full exact creator corpus; breadth corroboration only, Lobotomia membership not claimed."
+            },
+            {
+              "url": "https://culture.pl/en/article/wacky-seven-which-band-is-the-weirdest",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh10971view0 institutional cultural curation explicitly places synth-heavy Bokka in Polishalternativepop scene. This describes category breadth, not extra source-album instruments."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "polish_alternative",
+              "name": "Polish Alternative",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+              "matched_label": "LOW generic recording-microphone context, not Lobotomia or source-session equipment.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Served thumbnail of existing Binksternet crop; no additional crop. Preserve Iain Fergusson photo and Binksternet derivative credit.",
+              "evidence": "Fresh10917view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical exact bytes/visual inherited, no fresh transfer.",
+              "fresh_review_ref": "turn10917view0"
+            },
+            "full": {
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+              "status": "downloaded_via_browser_link",
+              "content_type": "image/jpeg",
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "dimensions": [
+                250,
+                720
+              ],
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "checked_date": "2026-10-02",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+              "status": "downloaded_via_browser_link",
+              "content_type": "image/jpeg",
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "dimensions": [
+                250,
+                720
+              ],
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "checked_date": "2026-10-02",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+              "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "bajki",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn10917view0"
+            ]
+          },
+          "source_retrieval_caveat": "Complete album credits and primary category tags read; audio not auditioned. Exact creator corpus corroborates field breadth, not selected artist membership.",
+          "primary_retrieval_refs": [
+            "turn10890view0",
+            "turn10966search0",
+            "turn10971view0"
+          ]
+        },
+        "reason": "Restore broad genre history/style and preserve full selected-work evidence separately. Representative branch does not define a complete original recording."
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "lukembi_congolese",
+        "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+        "short": "Congolese ten-key lukembi",
+        "family": "plucked_traditional",
+        "class": "plucked_string_lead",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "lukembi_congolese_key_count",
+            "name": "Ten keys",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_ten",
+                "name": "Ten metal keys",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_tine_material",
+            "name": "Key material",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_recycled_metal",
+                "name": "Recycled metal umbrella stays",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_body",
+            "name": "Resonant body",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_hollow_wood",
+                "name": "Hollowed wooden body; species unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_bridge",
+            "name": "Key bridge",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_bridge_unspecified",
+                "name": "Bridge supporting keys; material unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_binding",
+            "name": "Key bindings",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_vine",
+                "name": "Vine bindings at both ends",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_tuning",
+            "name": "Local tuning",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_sliding_keys_local",
+                "name": "Local performer tuning by sliding keys; exact intervals unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_technique",
+            "name": "Key excitation",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_thumb_plucked",
+                "name": "Thumb-plucked metal keys",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "lukembi_congolese",
+        "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording microphone context only; not a lukembi, Abdul Aziz or the historical source recording apparatus.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "lukembi_congolese",
+          "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not a lukembi, Abdul Aziz or the historical source recording apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11343view0 Commons source confirms Iain Fergusson original, Binksternet crop and CC BY2.5; exact023 historical bytes and visual receipts retained without new transfer.",
+          "fresh_review_ref": "turn11343view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11343view0"
+        ]
+      },
+      "dependency_rationale": "Existing mbira broad family lacks ten-key count, hollowed body and vine bridge bindings and requires speculative wood species/buzzers; no equivalent source-specific owner among1638. New meaningful physical controls preserve source facts, not a render bypass.",
+      "sources": [
+        {
+          "url": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40401.pdf",
+          "title": "Collector and reissue editors: full track12 note",
+          "support_notes": "Fresh full indexed primary11330search12/11338search0 describes complete voice+instrument scope, exact construction and quiet falsetto/cadenza. Direct PDF text unavailable, indexed full relevant note successfully reproduced and unmodified tool response saved congo-lukembi-primary-raw024.json.",
+          "checked_date": "2026-10-03"
+        }
+      ]
+    }
+  ],
+  "status": "ROOT_REPAIR_AWAITING_PEER"
+}

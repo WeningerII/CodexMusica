@@ -1,0 +1,277 @@
+{
+  "entries": [
+    {
+      "source_label": "oeteldonk",
+      "source_url": "https://everynoise.com/engenremap-oeteldonk.html",
+      "suggested_id": "oeteldonk",
+      "allocation_ordinal": 4065,
+      "allocation_group_id": "163",
+      "id": "oeteldonk",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "oeteldonk",
+        "name": "Oeteldonk",
+        "family": "global",
+        "lineage": "Bart Coolen/Funkapel Berlicum — complete issued Bloemetjesgordijn–Onze ouwe Sint-Jan carnival-band medley arrangement, published27February2024. The arranger explicitly supplies trumpet, trombone, alto saxophone, baritone, tenor saxophone and B-flat bass parts plus a conductor score, and explicitly excludes percussion parts. Preserve all six sounding instrument types as five family cards, with alto and tenor retained together. Source generally specifies multiple trumpet/trombone/alto lines and single baritone/tenor/B-flat-bass lines, but exact musician counts and optional doubling remain unknown. The public first-trumpet preview spans the complete medley in one page, ending at bar55; all purchased remaining parts were not inspected. This is a complete independently issued instrumental wind arrangement, not a claim that a sung original recording or live carnival performance lacks singers or percussion. No sounding voice part is issued in this selected edition. Conductor notation is not an additional sounding instrument. CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted.",
+        "instruments": [
+          "trumpet",
+          "trombone",
+          "saxophone_section_alto_tenor",
+          "baritone_horn_bb",
+          "tuba"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42",
+          "alto_tenor_section_articulation": "alto_tenor_section_articulation_short",
+          "baritone_horn_bb_identity": "baritone_horn_bb_scored",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        }
+      },
+      "extras": {
+        "parent": "carnivalProcessional",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Bart Coolen/Funkapel Berlicum — complete issued Bloemetjesgordijn–Onze ouwe Sint-Jan carnival-band medley arrangement, published27February2024. The arranger explicitly supplies trumpet, trombone, alto saxophone, baritone, tenor saxophone and B-flat bass parts plus a conductor score, and explicitly excludes percussion parts. Preserve all six sounding instrument types as five family cards, with alto and tenor retained together. Source generally specifies multiple trumpet/trombone/alto lines and single baritone/tenor/B-flat-bass lines, but exact musician counts and optional doubling remain unknown. The public first-trumpet preview spans the complete medley in one page, ending at bar55; all purchased remaining parts were not inspected. This is a complete independently issued instrumental wind arrangement, not a claim that a sung original recording or live carnival performance lacks singers or percussion. No sounding voice part is issued in this selected edition. Conductor notation is not an additional sounding instrument. Oeteldonk is the positively documented Den Bosch carnival repertoire community: its own institution describes150–200clubs, annual original-song Kwèkfestijn competition with60-plus entrants and eleven issued finalists, plus a separate accompanied children festival. Exact creator map includes Wim Kersten, De Twee Pinten, Van Alles Wè and many named local carnival clubs. The arranger explicitly tags this medley Oeteldonk, connecting the edition to the institutional repertoire rather than merely a Dutch place of birth. Existing dweilorkest already covers Dutch festive wind/percussion bands across carnival and other events, without fixed instrumentation; Oeteldonk overlaps that ensemble practice but names a specific songwriting/festival/repertoire network that also includes singers and children performances. Existing dutch_pop/classic_dutch_pop cover broad national popular-music histories, and levenslied the sentimental song tradition; these remain inclusive overlapping umbrellas rather than categories limited to their current exemplars. Accepted carnaval_limburg is a different positively documented regional carnival network, not all Dutch carnival. British brass-band contest practice is not an alias: this edition retains saxophones and Dutch carnival repertoire. The issued wind-only arrangement is a representative branch, not the proposed category boundary by itself. CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted.",
+        "exemplars": [
+          "Bart Coolen/Funkapel — Bloemetjesgordijn–Onze ouwe Sint-Jan (complete instrumental wind arrangement)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        51.6978,
+        5.3037,
+        "'s-Hertogenbosch",
+        "Europe"
+      ],
+      "geo_rationale": "Oeteldonk is the official carnival community of Den Bosch; geographic anchor names its city, not a measured recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Oeteldonk is the positively documented Den Bosch carnival repertoire community: its own institution describes150–200clubs, annual original-song Kwèkfestijn competition with60-plus entrants and eleven issued finalists, plus a separate accompanied children festival. Exact creator map includes Wim Kersten, De Twee Pinten, Van Alles Wè and many named local carnival clubs. The arranger explicitly tags this medley Oeteldonk, connecting the edition to the institutional repertoire rather than merely a Dutch place of birth. Existing dweilorkest already covers Dutch festive wind/percussion bands across carnival and other events, without fixed instrumentation; Oeteldonk overlaps that ensemble practice but names a specific songwriting/festival/repertoire network that also includes singers and children performances. Existing dutch_pop/classic_dutch_pop cover broad national popular-music histories, and levenslied the sentimental song tradition; these remain inclusive overlapping umbrellas rather than categories limited to their current exemplars. Accepted carnaval_limburg is a different positively documented regional carnival network, not all Dutch carnival. British brass-band contest practice is not an alias: this edition retains saxophones and Dutch carnival repertoire. The issued wind-only arrangement is a representative branch, not the proposed category boundary by itself.",
+      "classification_evidence": "Oeteldonk is the positively documented Den Bosch carnival repertoire community: its own institution describes150–200clubs, annual original-song Kwèkfestijn competition with60-plus entrants and eleven issued finalists, plus a separate accompanied children festival. Exact creator map includes Wim Kersten, De Twee Pinten, Van Alles Wè and many named local carnival clubs. The arranger explicitly tags this medley Oeteldonk, connecting the edition to the institutional repertoire rather than merely a Dutch place of birth. Existing dweilorkest already covers Dutch festive wind/percussion bands across carnival and other events, without fixed instrumentation; Oeteldonk overlaps that ensemble practice but names a specific songwriting/festival/repertoire network that also includes singers and children performances. Existing dutch_pop/classic_dutch_pop cover broad national popular-music histories, and levenslied the sentimental song tradition; these remain inclusive overlapping umbrellas rather than categories limited to their current exemplars. Accepted carnaval_limburg is a different positively documented regional carnival network, not all Dutch carnival. British brass-band contest practice is not an alias: this edition retains saxophones and Dutch carnival repertoire. The issued wind-only arrangement is a representative branch, not the proposed category boundary by itself.",
+      "model_policy": "CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted.",
+      "source_scope_limitation": "Bart Coolen/Funkapel Berlicum — complete issued Bloemetjesgordijn–Onze ouwe Sint-Jan carnival-band medley arrangement, published27February2024. The arranger explicitly supplies trumpet, trombone, alto saxophone, baritone, tenor saxophone and B-flat bass parts plus a conductor score, and explicitly excludes percussion parts. Preserve all six sounding instrument types as five family cards, with alto and tenor retained together. Source generally specifies multiple trumpet/trombone/alto lines and single baritone/tenor/B-flat-bass lines, but exact musician counts and optional doubling remain unknown. The public first-trumpet preview spans the complete medley in one page, ending at bar55; all purchased remaining parts were not inspected. This is a complete independently issued instrumental wind arrangement, not a claim that a sung original recording or live carnival performance lacks singers or percussion. No sounding voice part is issued in this selected edition. Conductor notation is not an additional sounding instrument.",
+      "source_retrieval_caveat": "Full arranger publication and official community page directly read. Public first-trumpet PDF inspected; complete purchased set not acquired. Creator full map directly read12713view0; later repeat403 is disclosed rather than replaced with a fabricated capture.",
+      "vocal_count_audit": {
+        "count": 0,
+        "basis": "Selected issued complete wind arrangement lists six wind types and conductor score, no voice part; no claim about original songs or actual carnival crowds."
+      },
+      "instrument_role_audit": {
+        "trumpet": "trumpet",
+        "trombone": "trombone",
+        "saxophone_section_alto_tenor": "saxophone_section_alto_tenor",
+        "baritone_horn_bb": "baritone_horn_bb",
+        "tuba": "tuba"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted."
+        },
+        {
+          "instrument": "trombone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "trombone_type": "tenor_trombone",
+            "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+            "trombone_mute": "no_mute_trb",
+            "trombone_technique": "big_band_punch",
+            "trombone_bell_metal": "trombone_yellow_brass",
+            "trombone_maker_school": "trombone_bach_42"
+          },
+          "policy": "CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted."
+        },
+        {
+          "instrument": "saxophone_section_alto_tenor",
+          "parts": {
+            "alto_tenor_section_articulation": "alto_tenor_section_articulation_short"
+          },
+          "policy": "CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted."
+        },
+        {
+          "instrument": "baritone_horn_bb",
+          "parts": {
+            "baritone_horn_bb_identity": "baritone_horn_bb_scored"
+          },
+          "policy": "CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted."
+        },
+        {
+          "instrument": "tuba",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "tuba_pitch": "tuba_bbb",
+            "tuba_context": "tuba_brass_band",
+            "tuba_bell_metal": "tuba_yellow_brass",
+            "tuba_valve_system": "tuba_rotary_german",
+            "tuba_maker_school": "tuba_miraphone_german"
+          },
+          "policy": "CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "22 owning controls/20 unique flat keys all protected; shared wind articulation same valid punchy value for all three owners."
+      },
+      "sources": [
+        {
+          "url": "https://www.funkapel.nl/?p=1652",
+          "support_notes": "Bart Coolen/Funkapel Berlicum — complete issued Bloemetjesgordijn–Onze ouwe Sint-Jan carnival-band medley arrangement, published27February2024. The arranger explicitly supplies trumpet, trombone, alto saxophone, baritone, tenor saxophone and B-flat bass parts plus a conductor score, and explicitly excludes percussion parts. Preserve all six sounding instrument types as five family cards, with alto and tenor retained together. Source generally specifies multiple trumpet/trombone/alto lines and single baritone/tenor/B-flat-bass lines, but exact musician counts and optional doubling remain unknown. The public first-trumpet preview spans the complete medley in one page, ending at bar55; all purchased remaining parts were not inspected. This is a complete independently issued instrumental wind arrangement, not a claim that a sung original recording or live carnival performance lacks singers or percussion. No sounding voice part is issued in this selected edition. Conductor notation is not an additional sounding instrument.",
+          "retrieval_ref": "turn12709view0"
+        },
+        {
+          "url": "https://www.funkapel.nl/wp-content/uploads/bloemetjesgordijn-trompet1.pdf",
+          "support_notes": "Actual first-trumpet notation preview, named Bart Coolen medley, alternating6/8 and common time; remaining parts only publisher-specified.",
+          "retrieval_ref": "turn12713view1;turn12716view0"
+        },
+        {
+          "url": "https://scholen.oeteldonk.org/oeteldonkse-muziek-juf-of-meester/",
+          "support_notes": "Institutional definition of local club/songwriting/issued festival repertoire and children accompanied singing.",
+          "retrieval_ref": "turn12709view2"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-oeteldonk.html",
+          "support_notes": "Exact creator field names Wim Kersten/De Twee Pinten/Van Alles Wè and community clubs; selected score is publisher-tagged local repertoire, no claim Funkapel is exact creator member.",
+          "retrieval_ref": "turn12713view0"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "oeteldonk",
+          "name": "Oeteldonk",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context, not a depicted carnival ensemble, wind instrument, singer or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12718view1 confirms Iain Fergusson/Binksternet CC BY2.5/crop; exact historical023 byte and visual receipt inherited.",
+          "fresh_review_ref": "turn12718view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12718view1"
+        ]
+      },
+      "verification_status": "Original22 effective owning controls/20 flat pins,1638 unchanged original owners and all four actual formats pass; max910characters, full five cards retained. Fresh rights/historical photo receipts pass. Pending independent review.",
+      "primary_retrieval_refs": [
+        "turn12709view0",
+        "turn12713view1",
+        "turn12709view2",
+        "turn12713view0"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

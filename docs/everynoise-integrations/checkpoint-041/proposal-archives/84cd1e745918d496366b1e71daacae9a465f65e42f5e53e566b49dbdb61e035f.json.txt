@@ -1,0 +1,568 @@
+{
+  "entries": [
+    {
+      "source_label": "anime rap",
+      "source_url": "https://everynoise.com/engenremap-animerap.html",
+      "suggested_id": "anime_rap",
+      "allocation_ordinal": 194,
+      "allocation_group_id": "008",
+      "id": "anime_rap",
+      "tradition": {
+        "id": "anime_rap",
+        "name": "Anime Rap",
+        "family": "hip_hop",
+        "lineage": "Anime rap — fan-created hip-hop interpreting anime characters, stories and worlds.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "sampler_drum_machine"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Anime rap turns characters and storylines from Japanese animation into original rap narratives. Performers combine rhythmic verses, hooks and produced hip-hop beats with fan interpretation, sometimes speaking through a character’s perspective. Online video communities support a transnational field that overlaps nerdcore and rap geek while centering anime themes.",
+        "exemplars": [
+          "Juu Rafaela and Hawky — complete O Fim do Clã Zenin (Acapella),2026"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -15.78,
+        -47.93,
+        "Brazil",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Country-level editorial anchor for the artist explicitly tagged anime Brasil/otaku Brasil practice; not an inferred birthplace, residence, recording city or source of the transnational whole field.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://music.amazon.com.br/albums/B0GZJBX9RN",
+          "title": "Artist-issued O Fim do Clã Zenin four-version release",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11608view0",
+          "support_notes": "Complete issued3:52 acapella is track2, date2May2026 and artist rights credit. Distinct from original/speed-up/slowed versions."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ZOYD99qMJh8",
+          "title": "Juu Rafaela own composition video and credits",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11608youtube12; original retained turn11576youtube12",
+          "support_notes": "Indexed complete artist description explicitly Maki/Jujutsu Kaisen/anime rap/nerdcore and jointly names Juu Rafaela/Hawky voice and lyrics. Direct video throttled, actual successful indexed raw saved resume461-anime-primary-raw.json."
+        },
+        {
+          "url": "https://music.apple.com/us/artist/juu-rafaela/1564667987",
+          "title": "Artist distributed discography",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11608search5",
+          "support_notes": "Corroborates actual issued acapella and recurring explicit anime character fan repertoire; not source of invented arrangement roles."
+        },
+        {
+          "url": "https://www.azazus.com/anime-presskit",
+          "support_notes": "Fresh13399view1 artist/producer own presskit describes anime/gaming/hiphop fusion and anime fan-community performance. Supports broader produced-rap practice, not exact Juu Rafaela source hardware."
+        }
+      ],
+      "neighbor_distinction": "Artist-owned song metadata explicitly identifies anime rap and its particular Jujutsu Kaisen character narrative. The artist release catalogue corroborates continuing anime-character repertoire, rather than treating a single vague geek title as anime evidence. Existing nerdcore is a broad geek-subject rap field including programming, gaming and science fiction, and can include this repertoire; anime rap is a narrower fan-interpretive narrative field, not a claim of disjoint beats or geography. Full anison and anison_anime_song concern the Japanese commissioned television-title-song industry, not all independent fan rap retellings of anime characters. Geek Rock is a broader geek-subject band practice. This Portuguese-language anime fan-rap branch is illustrative, not a claim the transnational category is exclusively Brazilian. Creator map returned403; no verified map membership asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing human_voice_ensemble_unspecified retains all17 applicable human controls without count/tracking inference; no new owner or shared changes."
+      },
+      "classification_evidence": {
+        "mode": "artist_explicit_anime_rap_subject_and_actual_issued_edition",
+        "url": "https://www.youtube.com/watch?v=ZOYD99qMJh8",
+        "matched_artist": "Juu Rafaela and Hawky",
+        "note": "Artist-owned song metadata explicitly identifies anime rap and its particular Jujutsu Kaisen character narrative. The artist release catalogue corroborates continuing anime-character repertoire, rather than treating a single vague geek title as anime evidence. Existing nerdcore is a broad geek-subject rap field including programming, gaming and science fiction, and can include this repertoire; anime rap is a narrower fan-interpretive narrative field, not a claim of disjoint beats or geography. Full anison and anison_anime_song concern the Japanese commissioned television-title-song industry, not all independent fan rap retellings of anime characters. Geek Rock is a broader geek-subject band practice. This Portuguese-language anime fan-rap branch is illustrative, not a claim the transnational category is exclusively Brazilian. Creator map returned403; no verified map membership asserted."
+      },
+      "verification_status": "Source ready; independent semantic and complete original runtime review required.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "anime_rap",
+          "name": "Anime Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11612view0 confirms Iain Fergusson/Binksternet CC BY2.5; exact historical preview byte/visual receipt inherited.",
+          "fresh_review_ref": "turn11612view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh Commons turn11612view0; LOW generic recording context, exact023 inherited bytes unchanged."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "Single existing unknown-count voice owner, all17 applicable controls explicitly pinned; no cross-owner fallback."
+      },
+      "status": "independent_review_pending",
+      "source_access_limitation": "Issued release directly retrieved. Original own video credits independently indexed; direct video throttled. No audio audition or creator-map membership claim.",
+      "repair_evidence": {
+        "original_source": "/tmp/batch040/resume461-2-edition-count-clarified461.json",
+        "original_entry": {
+          "source_label": "anime rap",
+          "source_url": "https://everynoise.com/engenremap-animerap.html",
+          "suggested_id": "anime_rap",
+          "allocation_ordinal": 194,
+          "allocation_group_id": "008",
+          "id": "anime_rap",
+          "tradition": {
+            "id": "anime_rap",
+            "name": "Anime Rap",
+            "family": "hip_hop",
+            "lineage": "Juu Rafaela — complete separately issued O Fim do Clã Zenin (Acapella),3:52, track2 of the four-version release dated2May2026. The artist-uploaded original composition explicitly concerns Maki from Jujutsu Kaisen and jointly credits Juu Rafaela and Hawky for voice and lyrics. Both original-composition vocal credits are retained as context, but the separately issued acapella lists only its lead artist: selected-edition human count, original collaborator retention and overdub layers remain unknown. The whole issued vocal result is represented without subtracting any source voices or asserting exactly two singers. The selected whole vocal-only edition is actually issued, not an imagined extraction from the accompanied original; no backing instruments from the original are transferred. No listening or original studio reconstruction is claimed. Artist-owned song metadata explicitly identifies anime rap and its particular Jujutsu Kaisen character narrative. The artist release catalogue corroborates continuing anime-character repertoire, rather than treating a single vague geek title as anime evidence. Existing nerdcore is a broad geek-subject rap field including programming, gaming and science fiction, and can include this repertoire; anime rap is a narrower fan-interpretive narrative field, not a claim of disjoint beats or geography. Full anison and anison_anime_song concern the Japanese commissioned television-title-song industry, not all independent fan rap retellings of anime characters. Geek Rock is a broader geek-subject band practice. This Portuguese-language anime fan-rap branch is illustrative, not a claim the transnational category is exclusively Brazilian. Creator map returned403; no verified map membership asserted. Broad mcRhythm scopes the explicitly identified rap branch. Existing human_voice_ensemble_unspecified preserves the entire vocal-only edition with all original human controls, while count and tracking are explicitly unspecified. Original-composition joint vocal credits do not establish a precise count for this separately issued version. Rhythmic spoken articulation is an authored rap realization; actual sung versus rapped proportions and original processing are not measured. Physiology and pitch remain unspecified. Clean treated-studio capture is a new authored presentation, not original gear; global tuning omitted.",
+            "instruments": [
+              "human_voice_ensemble_unspecified"
+            ],
+            "room": "treated_studio",
+            "chain_mic": "condenser_sdc",
+            "chain_pre": "transformerless",
+            "chain_console": "console_in_the_box",
+            "chain_comp": "comp_none",
+            "chain_eq": "eq_none",
+            "chain_medium": "digital_high",
+            "chain_status": "authored_representative_production_model",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "spoken_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_rhythmic_spoken_flow",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+              "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Juu Rafaela — complete separately issued O Fim do Clã Zenin (Acapella),3:52, track2 of the four-version release dated2May2026. The artist-uploaded original composition explicitly concerns Maki from Jujutsu Kaisen and jointly credits Juu Rafaela and Hawky for voice and lyrics. Both original-composition vocal credits are retained as context, but the separately issued acapella lists only its lead artist: selected-edition human count, original collaborator retention and overdub layers remain unknown. The whole issued vocal result is represented without subtracting any source voices or asserting exactly two singers. The selected whole vocal-only edition is actually issued, not an imagined extraction from the accompanied original; no backing instruments from the original are transferred. No listening or original studio reconstruction is claimed. Artist-owned song metadata explicitly identifies anime rap and its particular Jujutsu Kaisen character narrative. The artist release catalogue corroborates continuing anime-character repertoire, rather than treating a single vague geek title as anime evidence. Existing nerdcore is a broad geek-subject rap field including programming, gaming and science fiction, and can include this repertoire; anime rap is a narrower fan-interpretive narrative field, not a claim of disjoint beats or geography. Full anison and anison_anime_song concern the Japanese commissioned television-title-song industry, not all independent fan rap retellings of anime characters. Geek Rock is a broader geek-subject band practice. This Portuguese-language anime fan-rap branch is illustrative, not a claim the transnational category is exclusively Brazilian. Creator map returned403; no verified map membership asserted. Broad mcRhythm scopes the explicitly identified rap branch. Existing human_voice_ensemble_unspecified preserves the entire vocal-only edition with all original human controls, while count and tracking are explicitly unspecified. Original-composition joint vocal credits do not establish a precise count for this separately issued version. Rhythmic spoken articulation is an authored rap realization; actual sung versus rapped proportions and original processing are not measured. Physiology and pitch remain unspecified. Clean treated-studio capture is a new authored presentation, not original gear; global tuning omitted.",
+            "exemplars": [
+              "Juu Rafaela and Hawky — complete O Fim do Clã Zenin (Acapella),2026"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            -15.78,
+            -47.93,
+            "Brazil",
+            "Latin America & Caribbean"
+          ],
+          "geo_rationale": "Country-level editorial anchor for the artist explicitly tagged anime Brasil/otaku Brasil practice; not an inferred birthplace, residence, recording city or source of the transnational whole field.",
+          "signature_tokens": [],
+          "sources": [
+            {
+              "url": "https://music.amazon.com.br/albums/B0GZJBX9RN",
+              "title": "Artist-issued O Fim do Clã Zenin four-version release",
+              "checked_date": "2026-10-03",
+              "retrieval_ref": "turn11608view0",
+              "support_notes": "Complete issued3:52 acapella is track2, date2May2026 and artist rights credit. Distinct from original/speed-up/slowed versions."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=ZOYD99qMJh8",
+              "title": "Juu Rafaela own composition video and credits",
+              "checked_date": "2026-10-03",
+              "retrieval_ref": "turn11608youtube12; original retained turn11576youtube12",
+              "support_notes": "Indexed complete artist description explicitly Maki/Jujutsu Kaisen/anime rap/nerdcore and jointly names Juu Rafaela/Hawky voice and lyrics. Direct video throttled, actual successful indexed raw saved resume461-anime-primary-raw.json."
+            },
+            {
+              "url": "https://music.apple.com/us/artist/juu-rafaela/1564667987",
+              "title": "Artist distributed discography",
+              "checked_date": "2026-10-03",
+              "retrieval_ref": "turn11608search5",
+              "support_notes": "Corroborates actual issued acapella and recurring explicit anime character fan repertoire; not source of invented arrangement roles."
+            }
+          ],
+          "neighbor_distinction": "Artist-owned song metadata explicitly identifies anime rap and its particular Jujutsu Kaisen character narrative. The artist release catalogue corroborates continuing anime-character repertoire, rather than treating a single vague geek title as anime evidence. Existing nerdcore is a broad geek-subject rap field including programming, gaming and science fiction, and can include this repertoire; anime rap is a narrower fan-interpretive narrative field, not a claim of disjoint beats or geography. Full anison and anison_anime_song concern the Japanese commissioned television-title-song industry, not all independent fan rap retellings of anime characters. Geek Rock is a broader geek-subject band practice. This Portuguese-language anime fan-rap branch is illustrative, not a claim the transnational category is exclusively Brazilian. Creator map returned403; no verified map membership asserted.",
+          "model_policy": "Broad mcRhythm scopes the explicitly identified rap branch. Existing human_voice_ensemble_unspecified preserves the entire vocal-only edition with all original human controls, while count and tracking are explicitly unspecified. Original-composition joint vocal credits do not establish a precise count for this separately issued version. Rhythmic spoken articulation is an authored rap realization; actual sung versus rapped proportions and original processing are not measured. Physiology and pitch remain unspecified. Clean treated-studio capture is a new authored presentation, not original gear; global tuning omitted.",
+          "dependency_audit": {
+            "reused_instruments": [
+              "voice"
+            ],
+            "new_instruments": [],
+            "new_parts": [],
+            "new_variants": [],
+            "rationale": "Existing human_voice_ensemble_unspecified retains all17 applicable human controls without count/tracking inference; no new owner or shared changes."
+          },
+          "classification_evidence": {
+            "mode": "artist_explicit_anime_rap_subject_and_actual_issued_edition",
+            "url": "https://www.youtube.com/watch?v=ZOYD99qMJh8",
+            "matched_artist": "Juu Rafaela and Hawky",
+            "note": "Artist-owned song metadata explicitly identifies anime rap and its particular Jujutsu Kaisen character narrative. The artist release catalogue corroborates continuing anime-character repertoire, rather than treating a single vague geek title as anime evidence. Existing nerdcore is a broad geek-subject rap field including programming, gaming and science fiction, and can include this repertoire; anime rap is a narrower fan-interpretive narrative field, not a claim of disjoint beats or geography. Full anison and anison_anime_song concern the Japanese commissioned television-title-song industry, not all independent fan rap retellings of anime characters. Geek Rock is a broader geek-subject band practice. This Portuguese-language anime fan-rap branch is illustrative, not a claim the transnational category is exclusively Brazilian. Creator map returned403; no verified map membership asserted."
+          },
+          "vocal_count_audit": {
+            "original_composition_credited_vocalists": [
+              "Juu Rafaela",
+              "Hawky"
+            ],
+            "selected_count": null,
+            "actual_live_singers_count": null,
+            "selected_edition_tracking": "unknown",
+            "count_basis": "Both original-composition vocal credits are retained as context, but the separately issued acapella lists only its lead artist: selected-edition human count, original collaborator retention and overdub layers remain unknown. The whole issued vocal result is represented without subtracting any source voices or asserting exactly two singers."
+          },
+          "instrument_role_audit": {
+            "rationale": "Juu Rafaela — complete separately issued O Fim do Clã Zenin (Acapella),3:52, track2 of the four-version release dated2May2026. The artist-uploaded original composition explicitly concerns Maki from Jujutsu Kaisen and jointly credits Juu Rafaela and Hawky for voice and lyrics. Both original-composition vocal credits are retained as context, but the separately issued acapella lists only its lead artist: selected-edition human count, original collaborator retention and overdub layers remain unknown. The whole issued vocal result is represented without subtracting any source voices or asserting exactly two singers. The selected whole vocal-only edition is actually issued, not an imagined extraction from the accompanied original; no backing instruments from the original are transferred. No listening or original studio reconstruction is claimed.",
+            "roles": [
+              {
+                "instrument": "human_voice_ensemble_unspecified",
+                "source_role": "Whole actually issued acapella vocal layer, human and overdub counts unspecified",
+                "count": null
+              }
+            ],
+            "scope_limit": "Entire3:52 issued vocal-only edition; no arbitrary excerpt or transfer of original backing."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "human_voice_ensemble_unspecified",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "spoken_voice",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_rhythmic_spoken_flow",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_tessitura": "voice_tessitura_source_unspecified",
+                "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+                "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+              },
+              "policy": "Broad mcRhythm scopes the explicitly identified rap branch. Existing human_voice_ensemble_unspecified preserves the entire vocal-only edition with all original human controls, while count and tracking are explicitly unspecified. Original-composition joint vocal credits do not establish a precise count for this separately issued version. Rhythmic spoken articulation is an authored rap realization; actual sung versus rapped proportions and original processing are not measured. Physiology and pitch remain unspecified. Clean treated-studio capture is a new authored presentation, not original gear; global tuning omitted."
+            }
+          ],
+          "verification_status": "Source ready; independent semantic and complete original runtime review required.",
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "anime_rap",
+              "name": "Anime Rap",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "Generic recording microphone context only; not performers, voices or source studio equipment.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh Commons turn11612view0 confirms Iain Fergusson/Binksternet CC BY2.5; exact historical preview byte/visual receipt inherited.",
+              "fresh_review_ref": "turn11612view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_review": "Fresh Commons turn11612view0; LOW generic recording context, exact023 inherited bytes unchanged."
+          },
+          "flat_pin_conflicts": [],
+          "flat_pin_resolution": {
+            "shared_keys_reviewed": [],
+            "rule": "Single existing unknown-count voice owner, all17 applicable controls explicitly pinned; no cross-owner fallback."
+          },
+          "status": "independent_review_pending",
+          "source_access_limitation": "Issued release directly retrieved. Original own video credits independently indexed; direct video throttled. No audio audition or creator-map membership claim."
+        },
+        "reason": "Replace vocal-only edition as genre preset with representative rap voices and programmed/sample-layered beats. Original acapella remains separate evidence; no imaginary accompaniment attributed to it.",
+        "default_review": "Generic sampler/drum-machine is an authored common hip-hop production realization, not measured original equipment. Existing unknown human-count vocal owner preserves flexible collaboration; no invented singer number.",
+        "prior_instrument_role_audit": {
+          "rationale": "Juu Rafaela — complete separately issued O Fim do Clã Zenin (Acapella),3:52, track2 of the four-version release dated2May2026. The artist-uploaded original composition explicitly concerns Maki from Jujutsu Kaisen and jointly credits Juu Rafaela and Hawky for voice and lyrics. Both original-composition vocal credits are retained as context, but the separately issued acapella lists only its lead artist: selected-edition human count, original collaborator retention and overdub layers remain unknown. The whole issued vocal result is represented without subtracting any source voices or asserting exactly two singers. The selected whole vocal-only edition is actually issued, not an imagined extraction from the accompanied original; no backing instruments from the original are transferred. No listening or original studio reconstruction is claimed.",
+          "roles": [
+            {
+              "instrument": "human_voice_ensemble_unspecified",
+              "source_role": "Whole actually issued acapella vocal layer, human and overdub counts unspecified",
+              "count": null
+            }
+          ],
+          "scope_limit": "Entire3:52 issued vocal-only edition; no arbitrary excerpt or transfer of original backing."
+        },
+        "prior_resolved_parts_audit": [
+          {
+            "instrument": "human_voice_ensemble_unspecified",
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "spoken_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_rhythmic_spoken_flow",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+              "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+            },
+            "policy": "Broad mcRhythm scopes the explicitly identified rap branch. Existing human_voice_ensemble_unspecified preserves the entire vocal-only edition with all original human controls, while count and tracking are explicitly unspecified. Original-composition joint vocal credits do not establish a precise count for this separately issued version. Rhythmic spoken articulation is an authored rap realization; actual sung versus rapped proportions and original processing are not measured. Physiology and pitch remain unspecified. Clean treated-studio capture is a new authored presentation, not original gear; global tuning omitted."
+          }
+        ],
+        "prior_vocal_count_audit": {
+          "original_composition_credited_vocalists": [
+            "Juu Rafaela",
+            "Hawky"
+          ],
+          "selected_count": null,
+          "actual_live_singers_count": null,
+          "selected_edition_tracking": "unknown",
+          "count_basis": "Both original-composition vocal credits are retained as context, but the separately issued acapella lists only its lead artist: selected-edition human count, original collaborator retention and overdub layers remain unknown. The whole issued vocal result is represented without subtracting any source voices or asserting exactly two singers."
+        },
+        "prior_model_policy": "Broad mcRhythm scopes the explicitly identified rap branch. Existing human_voice_ensemble_unspecified preserves the entire vocal-only edition with all original human controls, while count and tracking are explicitly unspecified. Original-composition joint vocal credits do not establish a precise count for this separately issued version. Rhythmic spoken articulation is an authored rap realization; actual sung versus rapped proportions and original processing are not measured. Physiology and pitch remain unspecified. Clean treated-studio capture is a new authored presentation, not original gear; global tuning omitted."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Generic sampler/drum-machine is an authored common hip-hop production realization, not measured original equipment. Existing unknown human-count vocal owner preserves flexible collaboration; no invented singer number."
+        },
+        {
+          "instrument": "sampler_drum_machine",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sample_bitdepth": "sixteen_bit",
+            "sample_swing": "mid_swing",
+            "sample_processing": "one_shots_layered"
+          },
+          "policy": "Generic sampler/drum-machine is an authored common hip-hop production realization, not measured original equipment. Existing unknown human-count vocal owner preserves flexible collaboration; no invented singer number."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "source_ready_pending_independent_review"
+}

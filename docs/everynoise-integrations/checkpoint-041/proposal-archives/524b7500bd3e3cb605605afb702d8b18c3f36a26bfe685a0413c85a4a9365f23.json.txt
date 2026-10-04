@@ -1,0 +1,44 @@
+{
+  "status": "PASS_INDEPENDENT_GENRE_PROFILE_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-002.json",
+  "packet_sha256": "ce4a77b2693802260d1308f3be0f0899cf31897cd58af866781a3cc81942bf0e",
+  "entries": [
+    {
+      "id": "magyar_kabare",
+      "decision": "PASS",
+      "reason": "Solo monologue is an ordinary cabaret form, not an unrelated arrangement selected to avoid accompaniment. Prose expressly preserves sung/ensemble forms in wider field; spoken controls remain coherent."
+    },
+    {
+      "id": "portuguese_indie",
+      "decision": "PASS",
+      "reason": "Vocal guitar/keys/bass/drums is a representative independent band; broader production/circulation history and cross-style scope retained rather than one recording dossier."
+    },
+    {
+      "id": "prank",
+      "decision": "PASS",
+      "reason": "Unknown-count alternating caller/interlocutor voice retains defining method. No false single performer or invented musical backing, and editing described as form history rather than a required acoustic instrument."
+    },
+    {
+      "id": "puerto_rican_indie",
+      "decision": "PASS",
+      "reason": "Sung electric guitar/bass/drum configuration is an established representative strand, explicitly set in wider independent field; clean strumming and rhythmic support remain usable."
+    },
+    {
+      "id": "spa",
+      "decision": "PASS",
+      "reason": "Quiet solo piano is ordinary genre-level spa listening practice, not an arbitrary cover substituted for an electronic genre. Soft/legato/sparse public description agrees with refined piano output; no medical efficacy claim."
+    },
+    {
+      "id": "violao_classico",
+      "decision": "PASS",
+      "reason": "Solo nylon guitar is defining concert-guitar practice. Full field includes chamber performance and international repertoire without making a named recital or personal guitar the default."
+    }
+  ],
+  "runtime_review": {
+    "literal_formats_read": 24,
+    "parity": true,
+    "max_chars": 998,
+    "semantics": "All24 actual strings read. No artist/session details or unrelated cultural mechanisms. Huge/cutting/raging/nagging/refined remain compatible authored acoustic-affect choices, not requirements for source tempo or physiology."
+  },
+  "validation_limit": "Review of supplied unchanged-engine output and retained evidence; no duplicate source download, static API, regression or CI claim. Photos and licenses unchanged per parent packet."
+}

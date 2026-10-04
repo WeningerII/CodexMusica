@@ -1,0 +1,863 @@
+{
+  "entries": [
+    {
+      "source_label": "haitian traditional",
+      "source_url": "https://everynoise.com/engenremap-haitiantraditional.html",
+      "suggested_id": "haitian_traditional",
+      "allocation_ordinal": 3396,
+      "allocation_group_id": "136",
+      "id": "haitian_traditional",
+      "status": "candidate",
+      "tradition": {
+        "id": "haitian_traditional",
+        "name": "Haitian Traditional",
+        "family": "vernacular",
+        "lineage": "Haitian traditional music — sacred and secular heritage spanning drum-song, dance and instrumental practice.",
+        "instruments": [
+          "voice",
+          "credited_haitian_tanbou_set"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_haitian_tanbou_set_configuration": "credited_haitian_tanbou_set_configuration_three",
+          "credited_haitian_tanbou_set_shell": "credited_haitian_tanbou_set_shell_wood",
+          "credited_haitian_tanbou_set_geometry": "credited_haitian_tanbou_set_geometry_unspecified",
+          "credited_haitian_tanbou_set_head": "credited_haitian_tanbou_set_head_unspecified",
+          "credited_haitian_tanbou_set_tension": "credited_haitian_tanbou_set_tension_unspecified",
+          "credited_haitian_tanbou_set_excitation": "credited_haitian_tanbou_set_excitation_unspecified",
+          "credited_haitian_tanbou_set_rite": "credited_haitian_tanbou_set_rite_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.afroDiasporic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Haitian traditional music includes ceremonial singing and tanbou drumming alongside secular dance, string music and bamboo-trumpet traditions. Call-and-response voices and interacting drum parts are central to many communal settings. Repertoire, ensemble and function vary across ceremonies, social dances and regional practices; Vodou drum-song is one prominent strand of this wider heritage.",
+        "exemplars": [
+          "Lavinia Williams Haitian Voodoo Dancers and Musicians — A Youiyo03:06"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        18.5392,
+        -72.335,
+        "Port-au-Prince",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Broad documented ensemble activity locality from original notes; not exact AYouiyo recording address.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Haitian Traditional is a broad heritage/discovery field crossing sacred drum-song, secular meringue, bamboo-trumpet practice and other forms. Original creator includes exact LaviniaWilliams ensemble, EnsembleAuxCalebasses, FrantzCasseus, schoolboys and Rara groups; Smithsonian HaitiConfidential independently presents contrasting named traditional practices. Existing haitian_vodou is explicitly lwa ceremonial music with named drum rites and overlaps the chosen incantation; it does not exhaust secular dance/heritage scope. Existing rara is Lenten walking-band hocketed vaksin practice, and rasin/rasin_haitian explicitly amplified rock/Vodou fusion. Neither exhausts this broader traditional field. No nonoverlap or alias inferred from this different recording; narrow default is candidly one complete branch.",
+      "classification_evidence": "Haitian Traditional is a broad heritage/discovery field crossing sacred drum-song, secular meringue, bamboo-trumpet practice and other forms. Original creator includes exact LaviniaWilliams ensemble, EnsembleAuxCalebasses, FrantzCasseus, schoolboys and Rara groups; Smithsonian HaitiConfidential independently presents contrasting named traditional practices. Existing haitian_vodou is explicitly lwa ceremonial music with named drum rites and overlaps the chosen incantation; it does not exhaust secular dance/heritage scope. Existing rara is Lenten walking-band hocketed vaksin practice, and rasin/rasin_haitian explicitly amplified rock/Vodou fusion. Neither exhausts this broader traditional field. No nonoverlap or alias inferred from this different recording; narrow default is candidly one complete branch.",
+      "source_retrieval_caveat": "Actual primary original notes and exact track metadata read; backing voices explicitly preserved despite shorter notes. No audio audition.",
+      "dependency_audit": {
+        "policy": "Source-documented three-drum Haitian tanbou ensemble. Distinct aggregate identity from tall lead dejanbe and smallest boula; all seven physical/context dimensions retained independently, with unknown subtypes and construction not replaced by guessed rite or models. Broad wood/hide architecture corroborated by museum documentation; neutral authored routing axes do not assert measured sound.",
+        "new_owner": "credited_haitian_tanbou_set"
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable owner controls explicitly pinned, no shared collisions or implicit fallback."
+      },
+      "sources": [
+        {
+          "url": "https://folkways-media.si.edu/docs/folkways/artwork/COOK01022.pdf",
+          "title": "Original recorder notes",
+          "support_notes": "Fresh12811view0 original full track incantation and three drums; broader historical context, no imports from other tracks."
+        },
+        {
+          "url": "https://folkways.si.edu/lavinia-williams-haitian-voodoo-dancers-and-musicians/a-youiyo/caribbean-world/music/track/smithsonian",
+          "title": "Exact issuer track credits",
+          "support_notes": "Fresh12811view1 03:06 Morisseaulead JeanRemytambour and unspecified tambour/backingvocals."
+        },
+        {
+          "url": "https://folkways.si.edu/haiti-confidential/caribbean-world/music/album/smithsonian",
+          "title": "Issuer field and instrument identification",
+          "support_notes": "Fresh12818view1 broad collection context and tanbou identity; wholealbum instrumentation not selectedtrack roster."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-haitiantraditional.html",
+          "title": "Exact original creator field",
+          "support_notes": "Fresh12821view0 exact ensemble membership and cross-practice corpus."
+        },
+        {
+          "url": "https://www.britishmuseum.org/collection/object/E_Am1936-0513-1",
+          "title": "Museum physical corroboration",
+          "support_notes": "Fresh12818view0 Haitian Vodou wood/hide membrane drum; probablysegon and dimensions of museumobject not source-trio facts."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn12811view0",
+        "turn12811view1",
+        "turn12818view0",
+        "turn12818view1",
+        "turn12821view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "haitian_traditional",
+          "name": "Haitian Traditional",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12783view1 rights; exact historical byte/visual receipt retained.",
+          "fresh_review_ref": "turn12783view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12783view1"
+        ]
+      },
+      "verification_status": "24parts all protected,1638 original owners unchanged, original fourformats parity passed; independent source/default/render peer pending.",
+      "flat_pin_conflicts": [],
+      "source_review_refs": [
+        "turn12811view0",
+        "turn12811view1",
+        "turn12818view0",
+        "turn12818view1",
+        "turn12821view0"
+      ],
+      "render_context_audit": {
+        "formats_read": [
+          "rich",
+          "tags",
+          "prose",
+          "compact"
+        ],
+        "maximum_characters": 262,
+        "voice": "Spoken-flowing voice reflects authored connected incanted phrasing. Exact track credits establish vocals but do not measure degree of pitched song or speech; no claim all source delivery was spoken. Independent peer should assess this literal affect.",
+        "drums": "Feisty Haitian-tanbou is authored attack/energy, not measured source rhythm or rite; wooden/percussive mechanism remains supported.",
+        "preservation": "All1638 existing merged owners unchanged after membrane species/thickness control retained without adding a material-pool species; prior failing probe preserved."
+      },
+      "repair_evidence": {
+        "original_source": "/tmp/batch040/resume461-14.json",
+        "original_entry": {
+          "source_label": "haitian traditional",
+          "source_url": "https://everynoise.com/engenremap-haitiantraditional.html",
+          "suggested_id": "haitian_traditional",
+          "allocation_ordinal": 3396,
+          "allocation_group_id": "136",
+          "id": "haitian_traditional",
+          "status": "candidate",
+          "tradition": {
+            "id": "haitian_traditional",
+            "name": "Haitian Traditional",
+            "family": "vernacular",
+            "lineage": "Lavinia Williams Haitian Voodoo Dancers and Musicians — complete separately issued A Youiyo03:06, Smithsonian COOK01022_101 (1958). Original recorder notes identify incantation with Roger Morisseau and three drums led by Jean Remy. Exact track metadata additionally credits backing vocals: all backing singers retained, count unknown. The neighboring flute/dance tracks, callers, stamping, vaccination horns and meringue ensemble are not part of this selected track. No audio audition or named drum-subtype claim. Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work.",
+            "instruments": [
+              "voice",
+              "credited_haitian_tanbou_set"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "legato_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "credited_haitian_tanbou_set_configuration": "credited_haitian_tanbou_set_configuration_three",
+              "credited_haitian_tanbou_set_shell": "credited_haitian_tanbou_set_shell_wood",
+              "credited_haitian_tanbou_set_geometry": "credited_haitian_tanbou_set_geometry_unspecified",
+              "credited_haitian_tanbou_set_head": "credited_haitian_tanbou_set_head_unspecified",
+              "credited_haitian_tanbou_set_tension": "credited_haitian_tanbou_set_tension_unspecified",
+              "credited_haitian_tanbou_set_excitation": "credited_haitian_tanbou_set_excitation_unspecified",
+              "credited_haitian_tanbou_set_rite": "credited_haitian_tanbou_set_rite_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "ritualDevotional.afroDiasporic",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 1,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Lavinia Williams Haitian Voodoo Dancers and Musicians — complete separately issued A Youiyo03:06, Smithsonian COOK01022_101 (1958). Original recorder notes identify incantation with Roger Morisseau and three drums led by Jean Remy. Exact track metadata additionally credits backing vocals: all backing singers retained, count unknown. The neighboring flute/dance tracks, callers, stamping, vaccination horns and meringue ensemble are not part of this selected track. No audio audition or named drum-subtype claim. Haitian Traditional is a broad heritage/discovery field crossing sacred drum-song, secular meringue, bamboo-trumpet practice and other forms. Original creator includes exact LaviniaWilliams ensemble, EnsembleAuxCalebasses, FrantzCasseus, schoolboys and Rara groups; Smithsonian HaitiConfidential independently presents contrasting named traditional practices. Existing haitian_vodou is explicitly lwa ceremonial music with named drum rites and overlaps the chosen incantation; it does not exhaust secular dance/heritage scope. Existing rara is Lenten walking-band hocketed vaksin practice, and rasin/rasin_haitian explicitly amplified rock/Vodou fusion. Neither exhausts this broader traditional field. No nonoverlap or alias inferred from this different recording; narrow default is candidly one complete branch. Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work.",
+            "exemplars": [
+              "Lavinia Williams Haitian Voodoo Dancers and Musicians — A Youiyo03:06"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            18.5392,
+            -72.335,
+            "Port-au-Prince",
+            "Latin America & Caribbean"
+          ],
+          "geo_rationale": "Broad documented ensemble activity locality from original notes; not exact AYouiyo recording address.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Haitian Traditional is a broad heritage/discovery field crossing sacred drum-song, secular meringue, bamboo-trumpet practice and other forms. Original creator includes exact LaviniaWilliams ensemble, EnsembleAuxCalebasses, FrantzCasseus, schoolboys and Rara groups; Smithsonian HaitiConfidential independently presents contrasting named traditional practices. Existing haitian_vodou is explicitly lwa ceremonial music with named drum rites and overlaps the chosen incantation; it does not exhaust secular dance/heritage scope. Existing rara is Lenten walking-band hocketed vaksin practice, and rasin/rasin_haitian explicitly amplified rock/Vodou fusion. Neither exhausts this broader traditional field. No nonoverlap or alias inferred from this different recording; narrow default is candidly one complete branch.",
+          "classification_evidence": "Haitian Traditional is a broad heritage/discovery field crossing sacred drum-song, secular meringue, bamboo-trumpet practice and other forms. Original creator includes exact LaviniaWilliams ensemble, EnsembleAuxCalebasses, FrantzCasseus, schoolboys and Rara groups; Smithsonian HaitiConfidential independently presents contrasting named traditional practices. Existing haitian_vodou is explicitly lwa ceremonial music with named drum rites and overlaps the chosen incantation; it does not exhaust secular dance/heritage scope. Existing rara is Lenten walking-band hocketed vaksin practice, and rasin/rasin_haitian explicitly amplified rock/Vodou fusion. Neither exhausts this broader traditional field. No nonoverlap or alias inferred from this different recording; narrow default is candidly one complete branch.",
+          "model_policy": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work.",
+          "source_scope_limitation": "Lavinia Williams Haitian Voodoo Dancers and Musicians — complete separately issued A Youiyo03:06, Smithsonian COOK01022_101 (1958). Original recorder notes identify incantation with Roger Morisseau and three drums led by Jean Remy. Exact track metadata additionally credits backing vocals: all backing singers retained, count unknown. The neighboring flute/dance tracks, callers, stamping, vaccination horns and meringue ensemble are not part of this selected track. No audio audition or named drum-subtype claim.",
+          "source_retrieval_caveat": "Actual primary original notes and exact track metadata read; backing voices explicitly preserved despite shorter notes. No audio audition.",
+          "vocal_count_audit": {
+            "selected_count": null,
+            "actual_live_singers_count": null,
+            "known_named_lead_count": 1,
+            "backing_singer_count": null,
+            "count_basis": "Exact track positively credits Morisseau lead and unspecified backing vocals; no absence or numerical inference."
+          },
+          "instrument_role_audit": {
+            "scope": "Lavinia Williams Haitian Voodoo Dancers and Musicians — complete separately issued A Youiyo03:06, Smithsonian COOK01022_101 (1958). Original recorder notes identify incantation with Roger Morisseau and three drums led by Jean Remy. Exact track metadata additionally credits backing vocals: all backing singers retained, count unknown. The neighboring flute/dance tracks, callers, stamping, vaccination horns and meringue ensemble are not part of this selected track. No audio audition or named drum-subtype claim.",
+            "roles": {
+              "voice": "RogerMorisseau lead and all backing vocals, unknown number",
+              "credited_haitian_tanbou_set": "All three tambours led by JeanRemy; individual sizes/subtypes unknown"
+            },
+            "authored_defaults": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "legato_voice",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work."
+            },
+            {
+              "instrument": "credited_haitian_tanbou_set",
+              "parts": {
+                "credited_haitian_tanbou_set_configuration": "credited_haitian_tanbou_set_configuration_three",
+                "credited_haitian_tanbou_set_shell": "credited_haitian_tanbou_set_shell_wood",
+                "credited_haitian_tanbou_set_geometry": "credited_haitian_tanbou_set_geometry_unspecified",
+                "credited_haitian_tanbou_set_head": "credited_haitian_tanbou_set_head_unspecified",
+                "credited_haitian_tanbou_set_tension": "credited_haitian_tanbou_set_tension_unspecified",
+                "credited_haitian_tanbou_set_excitation": "credited_haitian_tanbou_set_excitation_unspecified",
+                "credited_haitian_tanbou_set_rite": "credited_haitian_tanbou_set_rite_unspecified"
+              },
+              "policy": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work."
+            }
+          ],
+          "dependency_audit": {
+            "policy": "Source-documented three-drum Haitian tanbou ensemble. Distinct aggregate identity from tall lead dejanbe and smallest boula; all seven physical/context dimensions retained independently, with unknown subtypes and construction not replaced by guessed rite or models. Broad wood/hide architecture corroborated by museum documentation; neutral authored routing axes do not assert measured sound.",
+            "new_owner": "credited_haitian_tanbou_set"
+          },
+          "flat_pin_resolution": {
+            "rule": "All applicable owner controls explicitly pinned, no shared collisions or implicit fallback."
+          },
+          "sources": [
+            {
+              "url": "https://folkways-media.si.edu/docs/folkways/artwork/COOK01022.pdf",
+              "title": "Original recorder notes",
+              "support_notes": "Fresh12811view0 original full track incantation and three drums; broader historical context, no imports from other tracks."
+            },
+            {
+              "url": "https://folkways.si.edu/lavinia-williams-haitian-voodoo-dancers-and-musicians/a-youiyo/caribbean-world/music/track/smithsonian",
+              "title": "Exact issuer track credits",
+              "support_notes": "Fresh12811view1 03:06 Morisseaulead JeanRemytambour and unspecified tambour/backingvocals."
+            },
+            {
+              "url": "https://folkways.si.edu/haiti-confidential/caribbean-world/music/album/smithsonian",
+              "title": "Issuer field and instrument identification",
+              "support_notes": "Fresh12818view1 broad collection context and tanbou identity; wholealbum instrumentation not selectedtrack roster."
+            },
+            {
+              "url": "https://www.furia.com/everynoise_public/engenremap-haitiantraditional.html",
+              "title": "Exact original creator field",
+              "support_notes": "Fresh12821view0 exact ensemble membership and cross-practice corpus."
+            },
+            {
+              "url": "https://www.britishmuseum.org/collection/object/E_Am1936-0513-1",
+              "title": "Museum physical corroboration",
+              "support_notes": "Fresh12818view0 Haitian Vodou wood/hide membrane drum; probablysegon and dimensions of museumobject not source-trio facts."
+            }
+          ],
+          "primary_retrieval_refs": [
+            "turn12811view0",
+            "turn12811view1",
+            "turn12818view0",
+            "turn12818view1",
+            "turn12821view0"
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "haitian_traditional",
+              "name": "Haitian Traditional",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording context, not Haitian performer or source equipment.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12783view1 rights; exact historical byte/visual receipt retained.",
+              "fresh_review_ref": "turn12783view1"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12783view1"
+            ]
+          },
+          "verification_status": "24parts all protected,1638 original owners unchanged, original fourformats parity passed; independent source/default/render peer pending.",
+          "flat_pin_conflicts": [],
+          "source_review_refs": [
+            "turn12811view0",
+            "turn12811view1",
+            "turn12818view0",
+            "turn12818view1",
+            "turn12821view0"
+          ],
+          "render_context_audit": {
+            "formats_read": [
+              "rich",
+              "tags",
+              "prose",
+              "compact"
+            ],
+            "maximum_characters": 262,
+            "voice": "Spoken-flowing voice reflects authored connected incanted phrasing. Exact track credits establish vocals but do not measure degree of pitched song or speech; no claim all source delivery was spoken. Independent peer should assess this literal affect.",
+            "drums": "Feisty Haitian-tanbou is authored attack/energy, not measured source rhythm or rite; wooden/percussive mechanism remains supported.",
+            "preservation": "All1638 existing merged owners unchanged after membrane species/thickness control retained without adding a material-pool species; prior failing probe preserved."
+          }
+        },
+        "reason": "Restore general genre profile; move exact programme personnel and research dossiers to evidence. Representative existing palette retained.",
+        "default_review": "Genre-level representative rendition with existing controls. No precise historical hardware or complete-scene roster asserted.",
+        "prior_instrument_role_audit": {
+          "scope": "Lavinia Williams Haitian Voodoo Dancers and Musicians — complete separately issued A Youiyo03:06, Smithsonian COOK01022_101 (1958). Original recorder notes identify incantation with Roger Morisseau and three drums led by Jean Remy. Exact track metadata additionally credits backing vocals: all backing singers retained, count unknown. The neighboring flute/dance tracks, callers, stamping, vaccination horns and meringue ensemble are not part of this selected track. No audio audition or named drum-subtype claim.",
+          "roles": {
+            "voice": "RogerMorisseau lead and all backing vocals, unknown number",
+            "credited_haitian_tanbou_set": "All three tambours led by JeanRemy; individual sizes/subtypes unknown"
+          },
+          "authored_defaults": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work."
+        },
+        "prior_resolved_parts_audit": [
+          {
+            "instrument": "voice",
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "legato_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified"
+            },
+            "policy": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work."
+          },
+          {
+            "instrument": "credited_haitian_tanbou_set",
+            "parts": {
+              "credited_haitian_tanbou_set_configuration": "credited_haitian_tanbou_set_configuration_three",
+              "credited_haitian_tanbou_set_shell": "credited_haitian_tanbou_set_shell_wood",
+              "credited_haitian_tanbou_set_geometry": "credited_haitian_tanbou_set_geometry_unspecified",
+              "credited_haitian_tanbou_set_head": "credited_haitian_tanbou_set_head_unspecified",
+              "credited_haitian_tanbou_set_tension": "credited_haitian_tanbou_set_tension_unspecified",
+              "credited_haitian_tanbou_set_excitation": "credited_haitian_tanbou_set_excitation_unspecified",
+              "credited_haitian_tanbou_set_rite": "credited_haitian_tanbou_set_rite_unspecified"
+            },
+            "policy": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work."
+          }
+        ],
+        "prior_vocal_count_audit": {
+          "selected_count": null,
+          "actual_live_singers_count": null,
+          "known_named_lead_count": 1,
+          "backing_singer_count": null,
+          "count_basis": "Exact track positively credits Morisseau lead and unspecified backing vocals; no absence or numerical inference."
+        },
+        "prior_model_policy": "Authored combined live-group rendition keeps Morisseau lead plus all source-positive backing singers, without invented count, harmony or measured original overdub claim. Neutral vocal physiology; connected incanted delivery is authored for the positively vocal incantation; exact speech-to-song balance is source-unspecified. Three-drum aggregate preserves every drum and separately exposes configuration, wooden body, geometry, hide, tensioning, excitation and unknown rite. No Rada/Petwo/manman/boula assignment or foreign Congo substitute. Controlled live-room capture is authored, not measured venue. Optional apparatus and global tuning omitted. Parent ritualDevotional.afroDiasporic applies to this documented Vodou incantation branch, not every Haitian traditional work.",
+        "prior_source_scope_limitation": "Lavinia Williams Haitian Voodoo Dancers and Musicians — complete separately issued A Youiyo03:06, Smithsonian COOK01022_101 (1958). Original recorder notes identify incantation with Roger Morisseau and three drums led by Jean Remy. Exact track metadata additionally credits backing vocals: all backing singers retained, count unknown. The neighboring flute/dance tracks, callers, stamping, vaccination horns and meringue ensemble are not part of this selected track. No audio audition or named drum-subtype claim."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative authored genre defaults; individual source-session settings are not asserted."
+        },
+        {
+          "instrument": "credited_haitian_tanbou_set",
+          "parts": {
+            "credited_haitian_tanbou_set_configuration": "credited_haitian_tanbou_set_configuration_three",
+            "credited_haitian_tanbou_set_shell": "credited_haitian_tanbou_set_shell_wood",
+            "credited_haitian_tanbou_set_geometry": "credited_haitian_tanbou_set_geometry_unspecified",
+            "credited_haitian_tanbou_set_head": "credited_haitian_tanbou_set_head_unspecified",
+            "credited_haitian_tanbou_set_tension": "credited_haitian_tanbou_set_tension_unspecified",
+            "credited_haitian_tanbou_set_excitation": "credited_haitian_tanbou_set_excitation_unspecified",
+            "credited_haitian_tanbou_set_rite": "credited_haitian_tanbou_set_rite_unspecified"
+          },
+          "policy": "Representative authored genre defaults; individual source-session settings are not asserted."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "credited_haitian_tanbou_set",
+        "name": "Haitian tanbou ensemble (three drums, subtypes unspecified)",
+        "short": "Haitian-tanbou",
+        "family": "percussion",
+        "class": "credited_haitian_tanbou_set",
+        "axes": {
+          "pitchFix": -2,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": -1,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "credited_haitian_tanbou_set_configuration",
+            "name": "Ensemble configuration",
+            "variants": [
+              {
+                "id": "credited_haitian_tanbou_set_configuration_three",
+                "name": "Three Haitian tanbou drums; individual subtypes/register assignments unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "credited_haitian_tanbou_set_shell",
+            "name": "Resonator material",
+            "variants": [
+              {
+                "id": "credited_haitian_tanbou_set_shell_wood",
+                "name": "Wooden drum bodies; species and construction unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "wooden"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "credited_haitian_tanbou_set_geometry",
+            "name": "Body geometry and dimensions",
+            "variants": [
+              {
+                "id": "credited_haitian_tanbou_set_geometry_unspecified",
+                "name": "Shapes, dimensions and relative sizes source-unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "credited_haitian_tanbou_set_head",
+            "name": "Known hide sounding membrane: species and thickness",
+            "variants": [
+              {
+                "id": "credited_haitian_tanbou_set_head_unspecified",
+                "name": "Species and thickness unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "credited_haitian_tanbou_set_tension",
+            "name": "Head mounting and tension",
+            "variants": [
+              {
+                "id": "credited_haitian_tanbou_set_tension_unspecified",
+                "name": "Lacing, pegs or other tensioning source-unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "credited_haitian_tanbou_set_excitation",
+            "name": "Sounding action",
+            "variants": [
+              {
+                "id": "credited_haitian_tanbou_set_excitation_unspecified",
+                "name": "Struck membranes; distribution of hands/sticks/mallets across drums unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "percussive"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "credited_haitian_tanbou_set_rite",
+            "name": "Named drum rite",
+            "variants": [
+              {
+                "id": "credited_haitian_tanbou_set_rite_unspecified",
+                "name": "Specific Rada, Petwo or other rite source-unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          }
+        ],
+        "description": "Source-documented three-drum Haitian tanbou ensemble. Distinct aggregate identity from tall lead dejanbe and smallest boula; all seven physical/context dimensions retained independently, with unknown subtypes and construction not replaced by guessed rite or models. Broad wood/hide architecture corroborated by museum documentation; neutral authored routing axes do not assert measured sound.",
+        "sources": [
+          "https://folkways-media.si.edu/docs/folkways/artwork/COOK01022.pdf",
+          "https://folkways.si.edu/haiti-confidential/caribbean-world/music/album/smithsonian",
+          "https://www.britishmuseum.org/collection/object/E_Am1936-0513-1"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "credited_haitian_tanbou_set",
+        "name": "Haitian tanbou ensemble (three drums, subtypes unspecified)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording context; not a tanbou, Haitian performer or source equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "credited_haitian_tanbou_set",
+          "name": "Haitian tanbou ensemble (three drums, subtypes unspecified)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not a tanbou, Haitian performer or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12783view1 rights; exact historical byte/visual receipt retained.",
+          "fresh_review_ref": "turn12783view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12783view1"
+        ]
+      },
+      "dependency_rationale": "Source-documented three-drum Haitian tanbou ensemble. Distinct aggregate identity from tall lead dejanbe and smallest boula; all seven physical/context dimensions retained independently, with unknown subtypes and construction not replaced by guessed rite or models. Broad wood/hide architecture corroborated by museum documentation; neutral authored routing axes do not assert measured sound.",
+      "primary_sources": [
+        {
+          "url": "https://folkways-media.si.edu/docs/folkways/artwork/COOK01022.pdf",
+          "support_notes": "Fresh12811view0/12818view1/12818view0: exact ensemble identity and broader physical corroboration; no museum specimen dimensions transferred."
+        },
+        {
+          "url": "https://folkways.si.edu/haiti-confidential/caribbean-world/music/album/smithsonian",
+          "support_notes": "Fresh12811view0/12818view1/12818view0: exact ensemble identity and broader physical corroboration; no museum specimen dimensions transferred."
+        },
+        {
+          "url": "https://www.britishmuseum.org/collection/object/E_Am1936-0513-1",
+          "support_notes": "Fresh12811view0/12818view1/12818view0: exact ensemble identity and broader physical corroboration; no museum specimen dimensions transferred."
+        }
+      ]
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "candidate"
+}

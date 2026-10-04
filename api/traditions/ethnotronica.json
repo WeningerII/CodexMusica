@@ -1,0 +1,116 @@
+{
+  "id": "ethnotronica",
+  "name": "Ethnotronica",
+  "family": "electronic",
+  "lineage": "Ethnotronica brings electronic production into dialogue with regional acoustic traditions. The term circulates through international performance and DJ networks, including Indian-classical electronic collaborations and cross-cultural dance production.",
+  "recipe": "classic ethnotronica, electronic Dance. bansuri, indian rosewood rosewood copper tabla, sampler. live tracking.",
+  "recipe_chars": 111,
+  "score": 6.482,
+  "config": {
+    "traditions": [
+      "ethnotronica"
+    ],
+    "instruments": [
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_assam_bamboo",
+          "bansuri_lineage": "bansuri_pannalal_ghosh"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "bansuri_length": 0.1995,
+          "bansuri_ornament": -0.035,
+          "bansuri_body_material": 0,
+          "bansuri_lineage": 0.3
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 2.46,
+          "tabla_bayan": 1.105,
+          "tabla_syahi": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "bansuri": [
+        "wind_articulation",
+        "bansuri_length",
+        "bansuri_ornament",
+        "bansuri_body_material",
+        "bansuri_lineage"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "bansuri_length": "classical_bansuri",
+      "bansuri_ornament": "meend_bansuri",
+      "bansuri_body_material": "bansuri_assam_bamboo",
+      "bansuri_lineage": "bansuri_pannalal_ghosh",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true
+  }
+}

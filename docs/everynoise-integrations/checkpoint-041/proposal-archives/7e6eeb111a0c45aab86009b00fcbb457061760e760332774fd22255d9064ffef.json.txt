@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet_sha256": "a799c8e218d53f43d1cd6a613663eb99456edae6ee32869016a78d90cf9579f0",
+  "accepted_ids": [
+    "hip_hop_mauritanien"
+  ],
+  "sources": [
+    {
+      "url": "https://africultures.com/le-vrai-debat-cest-daccepter-lidentite-nationale-dans-sa-diversite-12478/",
+      "fresh_reference": "turn13527view0",
+      "finding": "Full firsthand Monza interview establishes1990s development, Senegalese/French/American influence, multilingual local communities, rapping over produced beats and national institutions."
+    },
+    {
+      "url": "https://assalamalekoum.com/programme.pdf",
+      "fresh_reference": "turn13527view1",
+      "finding": "Original organizer16page PDF independently confirms six-city discovery network and computer music/recording workshops. International festival guests are not invented local session roles."
+    }
+  ],
+  "boundary_review": "Read complete current musique_mauritanienne and maghreb records. The first is broad national music beyond its Azawan example; candidate is a positively institutionalized narrower rap community within that national umbrella, not disjoint instrumentation. Maghreb general popular-song field is not synonymous with national multilingual rap. Explicit Senegal influence does not erase locally documented institutions and language practice.",
+  "default_review": "All18 owning parts valid and protected after full dependency merge. Rhythmic spoken voice and genuine neutral credited-beat role retain supported core practice; source mechanism unknown is not fabricated gear. Existing owner reused, no code changes. One MC/studio are authored options, not exact lineup demand.",
+  "runtime": "mauritanian-runtime117.json; independent original browser/connector four formats rerun, all literal strings read and coherent. Frosty generic affect does not imply a false culture or omit backing beat.",
+  "photo_review": {
+    "fresh_rights": "turn13528view0",
+    "url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "finding": "CC BY2.5 IainFergusson/Binksternet crop confirmed; generic LOW context appropriate. Exact inherited preview receipt preserved, no fresh download or visual claim."
+  },
+  "limitation": "Source-only peer, not final static/full regression/CI."
+}

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "packet": "/tmp/batch040/resume119-34.json",
+  "sha256": "26ec5dd01b96f874ca74e9e8044161ba5bac38e5913a63138ae23d36294be9b5",
+  "reviewer": "review_461",
+  "source_review": {
+    "fresh_refs": [
+      "turn13693view0",
+      "turn13693view1",
+      "turn13693view2",
+      "turn13696view0"
+    ],
+    "finding": "Official CAM archive and Sonor label histories establish the golden-age Italian soundtrack/library reissue and licensing field, including recovery of picture-specific masters. Licensed Tracklib catalogue independently uses exact vintage Italian soundtracks terminology and gives Hammond/piano, guitar, bass and drums/percussion. Representative organ quartet is documented general practice, not an arbitrarily stripped album."
+  },
+  "semantic_review": "Read full ItalianSoundtrack, LibraryMusic and ClassicSoundtrack. ItalianSoundtrack remains the encompassing national film field; no claim it excludes old work. The addition identifies the positively institutionalized archival/reissue repertoire community. LibraryMusic already includes Italian1960s/70s, but abstract licensing briefs do not exhaust originally picture-specific recovered film masters. Substantial overlap is candid. Instrument choice does not itself establish boundary. Funk-percussion parent is supported for deliberately chosen groove-led jazz-funk branch, not universal classification of orchestral scores.",
+  "default_review": "38 applicable owning controls independently protected. B3/122, guitar/bass construction and drum setup are ordinary authored choices, with Hammond identity positively sourced. All four literal outputs inspected, parity true, max979. Raging bass matches growly/percussive/fast-attack physical descriptors without literal added distortion or a source-wide quiet-only requirement; childlike organ is a light/gentle timbral label, not a child player. Trudging kit has backbeat/sticks/low-fundamental descriptors and does not emit unrelated cultural mechanism. No extra orchestra or voices invented.",
+  "photo_review": "Generic LOW recording-context SM58. Fresh independent Commons13685view0 confirms exact Iain Fergusson/Binksternet CC BY2.5; historical250x720/33015byte/SHA receipt reused candidly. Author rights dateOct3 is retained prior successful review, no false freshOct4 claim.",
+  "evidence": {
+    "controls": "/tmp/batch040/vintage-italian-controls461.json",
+    "runtime": "/tmp/batch040/vintage-italian-runtime461.json"
+  },
+  "limitations": [
+    "Candidate original-pipeline in-memory preflight; final integrated signature build and full-batch literal output review remain required."
+  ]
+}

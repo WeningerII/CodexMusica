@@ -1,0 +1,287 @@
+{
+  "entries": [
+    {
+      "source_label": "double drumming",
+      "source_url": "https://everynoise.com/engenremap-doubledrumming.html",
+      "suggested_id": "double_drumming",
+      "allocation_ordinal": 3195,
+      "allocation_group_id": "128",
+      "id": "double_drumming",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "double_drumming",
+        "name": "Double Drumming",
+        "family": "rock",
+        "lineage": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble. New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.experimental",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble. Double Drumming is the cross-band two-drummer configuration/practice field, positively named by its exact creator map across King Gizzard, Tortoise, Thee Oh Sees, Kylesa, Boredoms and the selected Lumberjack Feedback. The band’s firsthand account positively explains adopting two simultaneous drummers, rather than a single overdubbed kit or merely a drum-and-hand-percussion lineup. Existing post_metal encompasses the selected band’s long-form heavy branch but does not define every two-drummer practice: the creator field crosses metal, psychedelic rock, post-rock and experimental practices. Conversely not all post-metal uses two drummers. Existing experimental_rock describes broader formal/studio procedures, not this drummer configuration. A different artist alone is not the distinction. The selected heavy instrumental branch is nested under distortedRock.experimental for explicit lengthy jam-developed composition and texture; this is not an assertion all double-drumming music rejects pop architecture. New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed.",
+        "exemplars": [
+          "The Lumberjack Feedback — full five-player instrumental practice, February2016 firsthand account"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        50.6292,
+        3.0573,
+        "Lille",
+        "Europe"
+      ],
+      "geo_rationale": "Band-owned profile explicitly Lille, corroborating interview hometown-label context; not claimed location of every genre performer or exact recording room.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Double Drumming is the cross-band two-drummer configuration/practice field, positively named by its exact creator map across King Gizzard, Tortoise, Thee Oh Sees, Kylesa, Boredoms and the selected Lumberjack Feedback. The band’s firsthand account positively explains adopting two simultaneous drummers, rather than a single overdubbed kit or merely a drum-and-hand-percussion lineup. Existing post_metal encompasses the selected band’s long-form heavy branch but does not define every two-drummer practice: the creator field crosses metal, psychedelic rock, post-rock and experimental practices. Conversely not all post-metal uses two drummers. Existing experimental_rock describes broader formal/studio procedures, not this drummer configuration. A different artist alone is not the distinction. The selected heavy instrumental branch is nested under distortedRock.experimental for explicit lengthy jam-developed composition and texture; this is not an assertion all double-drumming music rejects pop architecture.",
+      "classification_evidence": "Double Drumming is the cross-band two-drummer configuration/practice field, positively named by its exact creator map across King Gizzard, Tortoise, Thee Oh Sees, Kylesa, Boredoms and the selected Lumberjack Feedback. The band’s firsthand account positively explains adopting two simultaneous drummers, rather than a single overdubbed kit or merely a drum-and-hand-percussion lineup. Existing post_metal encompasses the selected band’s long-form heavy branch but does not define every two-drummer practice: the creator field crosses metal, psychedelic rock, post-rock and experimental practices. Conversely not all post-metal uses two drummers. Existing experimental_rock describes broader formal/studio procedures, not this drummer configuration. A different artist alone is not the distinction. The selected heavy instrumental branch is nested under distortedRock.experimental for explicit lengthy jam-developed composition and texture; this is not an assertion all double-drumming music rejects pop architecture.",
+      "model_policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed.",
+      "source_scope_limitation": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble.",
+      "source_retrieval_caveat": "All three primary pages freshly directly/indexedly retrieved. No audio audition, original mix reconstruction, or transfer of another release’s acoustic guitar guest roles. Full dated practice is selected.",
+      "vocal_count_audit": {
+        "selected_singing_roles": 0,
+        "decision": "Band explicitly instrumental; no human voice card."
+      },
+      "instrument_role_audit": {
+        "scope": "The Lumberjack Feedback — full instrumental five-person practice described in bassist Sebastien Tarridec’s February2016 firsthand interview and the band-owned profile: two drummers, bass and guitars, no singer. The interview expressly describes all five working together, two drummers since2012 and instrumental music since inception. Two guitar players complete the five-person roster; no named individual assignment beyond the interviewed bassist is fabricated. The scope is that positively described whole ensemble practice, not a reconstructed studio album, a track excerpt or a later2024 lineup. All three instrument families and five performance roles are retained. No source-known tuning from the separate Horse Lords hold is removed: this is a genuinely different source ensemble.",
+        "roles": {
+          "electric_guitar_humbucker": "Two guitarists; amplified heavy riffs positively described, subtype authored",
+          "electric_bass": "One bass player, interviewed Sebastien Tarridec",
+          "drum_kit": "Two simultaneous drum-kit players, not one doubled source performer"
+        },
+        "authored_defaults": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_fuzz_riff",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_h",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_11_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "New complete five-player ensemble realization keeps two independent drum-kit players and two electric guitar players through shared family cards, plus one bass. Guitar unspecified physical build is authored humbucker with mahogany body and neck, rosewood board, AlnicoII medium winding, medium11gauge pure-nickel strings and short-scale vibrato construction with fuzz riffing. This is a coherent new substantial-string dark heavy-riff realization of the documented loud/low practice, not a claim about original gear or a measured original tone. Bass is authored fretted34inch soapbar/mahogany with nickel roundwounds and aggressive pick attack/high-gain affect fitting the source’s loud heavy instrumental approach; exact original gain and picking remain unknown. Both kits are authored thin maple45degree shells/coated heads,20wires,single felt pedal, rock sticks and B20 machine-hammered fullylathed traditional cymbals. No original equipment, exact source drum patterns or rhythmic unison is claimed. Controlled live-room acoustics and neutral axes are authored; source-known voices remain absent and global temperament is not guessed."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Complete applicable owner controls protected. Shared body_wood and pickup_magnet keys apply to both guitar and bass in actual merged catalog; no fallback silently claimed pinned."
+      },
+      "sources": [
+        {
+          "url": "https://en.rumzine.com/the-lumberjack-feedback/",
+          "support_notes": "Fresh308462view2 full firsthand2016 bassist interview: five-person collective, two drummers since2012, instrumental since inception, jam-developed full compositions and loud/low aesthetic."
+        },
+        {
+          "url": "https://thelumberjackfeedback.bandcamp.com/music",
+          "support_notes": "Fresh184368search0 artist-owned full profile positively guitars/two drummers/bass and instrumental; Lille."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-doubledrumming.html",
+          "support_notes": "Fresh918771view0 full exact creator map, selected band line69 and wide cross-band configuration field."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn308462view2",
+        "turn184368search0",
+        "turn918771view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "double_drumming",
+          "name": "Double Drumming",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only; not the source band, drums, guitars or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh330848view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5; exact023 historical bytes/visual preserved.",
+          "fresh_review_ref": "turn330848view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh330848view0, no fresh bytes or visual inspection claim.",
+        "fresh_rights_retrieval_refs": [
+          "turn330848view0"
+        ]
+      },
+      "verification_status": "Original merged loader32owning controls allprotected, no fallback/errors;1638 priorowners unchanged; four original browser/connector outputs inspected, max981characters. Fuzzed guitar, explicitly authored aggressive/high-gain picked bass and rock kits retain source sound classes. Cheery guitar is generated brighter affect of the new rendition, not a source claim that the original band’s dark programme is cheerful. Source signatures/final static build remain integration gates.",
+      "source_review_refs": [
+        "turn308462view2",
+        "turn184368search0",
+        "turn918771view0",
+        "turn330848view0"
+      ],
+      "candidate_amendment": "Original source packet immutable. One bounded coherent authored mahogany-bodied/necked guitar and medium-gauge string realization, plus corresponding mahogany bass under shared existing material key; all source facts, roles, taxonomy, room, axes and photos unchanged. No matcher rules, new identities, or source tuning claims."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

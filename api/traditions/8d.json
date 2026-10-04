@@ -1,0 +1,86 @@
+{
+  "id": "8d",
+  "name": "8D",
+  "family": "electronic",
+  "lineage": "8D audio is an online headphone-listening practice that makes recorded music appear to move around the listener through binaural spatial processing. It circulates across pop, rap, electronic and other repertoires rather than prescribing a particular band or compositional style.",
+  "recipe": "classic 8d, experimental Elec. headphone immersive binaural spatial renderer. treated studio.",
+  "recipe_chars": 93,
+  "score": 1.99,
+  "config": {
+    "traditions": [
+      "8d"
+    ],
+    "instruments": [
+      {
+        "id": "binaural_spatial_renderer",
+        "slots": {
+          "binaural_spatial_renderer_input": "binaural_spatial_renderer_input_stereo_mix",
+          "binaural_spatial_renderer_hrtf": "binaural_spatial_renderer_hrtf_generic_hrtf",
+          "binaural_spatial_renderer_output": "binaural_spatial_renderer_output_headphones",
+          "binaural_spatial_renderer_azimuth": "binaural_spatial_renderer_azimuth_orbit",
+          "binaural_spatial_renderer_elevation": "binaural_spatial_renderer_elevation_ear_level",
+          "binaural_spatial_renderer_width": "binaural_spatial_renderer_width_preserved",
+          "binaural_spatial_renderer_reflection_level": "binaural_spatial_renderer_reflection_level_moderate",
+          "binaural_spatial_renderer_reflection_time": "binaural_spatial_renderer_reflection_time_short",
+          "binaural_spatial_renderer_reflection_material": "binaural_spatial_renderer_reflection_material_neutral",
+          "binaural_spatial_renderer_focus": "binaural_spatial_renderer_focus_balanced"
+        },
+        "scores": {
+          "binaural_spatial_renderer_input": 0.3,
+          "binaural_spatial_renderer_hrtf": 0.3,
+          "binaural_spatial_renderer_output": 1,
+          "binaural_spatial_renderer_azimuth": 0.39,
+          "binaural_spatial_renderer_elevation": 0,
+          "binaural_spatial_renderer_width": 0,
+          "binaural_spatial_renderer_reflection_level": 0,
+          "binaural_spatial_renderer_reflection_time": 0,
+          "binaural_spatial_renderer_reflection_material": 0,
+          "binaural_spatial_renderer_focus": 0
+        }
+      }
+    ],
+    "pinned": {
+      "binaural_spatial_renderer": [
+        "binaural_spatial_renderer_input",
+        "binaural_spatial_renderer_hrtf",
+        "binaural_spatial_renderer_output",
+        "binaural_spatial_renderer_azimuth",
+        "binaural_spatial_renderer_elevation",
+        "binaural_spatial_renderer_width",
+        "binaural_spatial_renderer_reflection_level",
+        "binaural_spatial_renderer_reflection_time",
+        "binaural_spatial_renderer_reflection_material",
+        "binaural_spatial_renderer_focus"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "binaural_spatial_renderer_input": "binaural_spatial_renderer_input_stereo_mix",
+      "binaural_spatial_renderer_hrtf": "binaural_spatial_renderer_hrtf_generic_hrtf",
+      "binaural_spatial_renderer_output": "binaural_spatial_renderer_output_headphones",
+      "binaural_spatial_renderer_azimuth": "binaural_spatial_renderer_azimuth_orbit",
+      "binaural_spatial_renderer_elevation": "binaural_spatial_renderer_elevation_ear_level",
+      "binaural_spatial_renderer_width": "binaural_spatial_renderer_width_preserved",
+      "binaural_spatial_renderer_reflection_level": "binaural_spatial_renderer_reflection_level_moderate",
+      "binaural_spatial_renderer_reflection_time": "binaural_spatial_renderer_reflection_time_short",
+      "binaural_spatial_renderer_reflection_material": "binaural_spatial_renderer_reflection_material_neutral",
+      "binaural_spatial_renderer_focus": "binaural_spatial_renderer_focus_balanced"
+    },
+    "pin_parts": true
+  }
+}
