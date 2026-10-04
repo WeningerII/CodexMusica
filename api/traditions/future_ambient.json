@@ -2,10 +2,10 @@
   "id": "future_ambient",
   "name": "Future Ambient",
   "family": "electronic",
-  "lineage": "Akumu — documented field-recording micro-reconstruction practice across Descent (2011). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s future ambient, experimental Elec. glitched textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 180,
-  "score": 11.313,
+  "lineage": "Experimental ambient music built around evolving drones, transformed recordings and small digital details. Akumu exemplifies its use of environmental sound as musical material.",
+  "recipe": "classic future ambient, experimental Elec. glitched textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 168,
+  "score": 14.072,
   "config": {
     "traditions": [
       "future_ambient"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 4.45,
-          "sampler_archetypes": 0.75,
+          "electronic_technique": 6.2315000000000005,
+          "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 5.75,
-          "sampler_classic_context": 0.363
+          "sampler_workflow": 6.2,
+          "sampler_classic_context": 1.69
         }
       }
     ],

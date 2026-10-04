@@ -2,10 +2,10 @@
   "id": "48g",
   "name": "48G",
   "family": "global",
-  "lineage": "48G is represented by Sayaka Yamamoto — Kaze No Hi, solo-artist branch of the 48G discovery category. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-  "recipe": "classic 48g, functional Song, east Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. low output no compression clean strummed humbucker electric martin lifespan sealed strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead digital subtractive, pre muffled edge muffled drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 552,
-  "score": 66.308,
+  "lineage": "48G is the Japanese idol-group network centred on AKB48 and its related groups, linking theatre performance, recorded pop and the careers of members and alumni. Shared institutional identity connects a wide range of songs and performance formats.",
+  "recipe": "classic 48g, functional Song, east Asian pop branch. group vocals. soft down tuning clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, block chord upright piano, singing lead rompler workstation, pre muffled edge muffled drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 394,
+  "score": 47.281,
   "config": {
     "traditions": [
       "48g"
@@ -25,11 +25,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.8940000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 1.168,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -56,111 +56,101 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_60s_selmer",
-          "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
-          "string_tuning": "drop_d"
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 3.805,
-          "amp_make": 1.081,
-          "body_wood": 0.39,
-          "neck_wood": 0.231,
+          "electric_technique": 7.805,
+          "amp_make": 0.06500000000000002,
+          "body_wood": 0,
+          "neck_wood": 0.0945,
           "fretboard": 0.0945,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 1,
+          "pickup_magnet": 0.16799999999999998,
+          "pickup_winding": 0.105,
           "string_material": 0.0945,
-          "bridge": 1.1365,
-          "scale_length": 0.43050000000000005,
-          "string_gauge": 1,
-          "finish": 1,
-          "string_tuning": 1.029
+          "bridge": 0.231,
+          "scale_length": 0.609,
+          "string_gauge": 0.1995,
+          "finish": 0,
+          "string_tuning": 1.323
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "d_standard",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 3.7630000000000003,
-          "string_tuning": 0.2315,
+          "acoustic_technique": 7.762999999999999,
+          "string_tuning": 0,
           "top_wood": 0.231,
           "back_sides": 0.1995,
-          "string_acoustic": 1.3
+          "string_acoustic": 0.7034999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_60s_selmer",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
-          "scale_length_b": "extra_long_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.081,
-          "body_wood": 0.43050000000000005,
-          "pickup_config": 1.363,
-          "string_type": 0.39,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.1365,
+          "amp_make": 0.325,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0.2625,
+          "scale_length_b": 0.231,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 3.7630000000000003,
-          "grand_piano_size": 0.1995,
-          "grand_piano_brand": 0.336,
-          "piano_hammer": 5.85,
-          "piano_rim": 5.85,
-          "piano_soundboard": 7.8,
-          "piano_pinblock": 1.1365,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 0.975
+          "keyboard_technique": 7.762999999999999,
+          "upright_use": 0.1995,
+          "upright_piano_size": 0
         }
       },
       {
-        "id": "digital_subtractive",
+        "id": "rompler_workstation",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "rompler_preset_bank": "rompler_preset_gm_combo",
+          "rompler_context": "rompler_context_band_keyboard",
+          "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 3.9415,
-          "va_archetypes": 0.063,
-          "digital_subtractive_context": 5.069999999999999
+          "electronic_technique": 8.241499999999998,
+          "rompler_preset_bank": 0.0315,
+          "rompler_context": 0,
+          "rompler_lineage": 0
         }
       },
       {
@@ -172,7 +162,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 5.836,
+          "drumhead": 8.036,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -198,10 +188,25 @@
         "voice_tessitura"
       ],
       "electric_guitar_humbucker": [
-        "electric_technique"
+        "electric_technique",
+        "body_wood",
+        "neck_wood"
       ],
       "electric_bass": [
+        "body_wood",
+        "pickup_config",
         "bass_technique"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
       ],
       "drum_kit": [
         "drum_technique"
@@ -235,17 +240,27 @@
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "bass_technique": "fingerstyle_locked",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "sticks_rock",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "pickup_config": "dual_single",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "electronic_technique": "electronic_lead_line",
+      "rompler_preset_bank": "rompler_preset_gm_combo",
+      "rompler_context": "rompler_context_band_keyboard",
+      "rompler_lineage": "rompler_lineage_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

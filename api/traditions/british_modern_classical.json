@@ -2,10 +2,10 @@
   "id": "british_modern_classical",
   "name": "British modern classical",
   "family": "classical",
-  "lineage": "British modern classical: Benjamin Britten — Suite for Cello, Op.72 (1964), Rostropovich premiere. A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic mid-1960s british modern classical, art Music, western modern branch. synthetic engelmann spruce European maple sycamore maple oil varnish cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 255,
-  "score": 111.568,
+  "lineage": "British modern classical music includes twentieth-century concert works that develop inherited forms through individual harmonic and expressive languages. Solo repertoire stands alongside chamber, choral and orchestral composition.",
+  "recipe": "classic british modern classical, art Music, western modern branch. synthetic engelmann spruce European maple sycamore maple oil varnish cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 245,
+  "score": 110.112,
   "config": {
     "traditions": [
       "british_modern_classical"
@@ -25,15 +25,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.89,
+          "bowed_technique": 7.905,
           "cello_strings": 4.55,
           "cello_top_wood": 8.75,
           "cello_back_wood": 16.523,
           "cello_varnish": 16.25,
-          "cello_setup_period": 18.023,
+          "cello_setup_period": 17.9375,
           "cello_bow_grip": 3.9,
-          "cello_rosin": 17.986500000000003,
-          "cello_bow_stick": 17.6955
+          "cello_rosin": 16.686500000000002,
+          "cello_bow_stick": 17.61
         }
       }
     ],

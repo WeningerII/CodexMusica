@@ -2,10 +2,10 @@
   "id": "indie_poblano",
   "name": "Indie poblano",
   "family": "rock",
-  "lineage": "Heliotrops — Botánico (2021), complete seven-track album. Both lead and rhythm guitar roles are retained in the full source ledger and share the authored clean-strummed humbucker-family card; its lack of independent part-level lead/rhythm gestures is a representation limit, not a deleted guitarist. Alder/maple guitar, dual-single-coil fingerstyle bass and maple stick-played kit with machine-hammered traditionally finished cymbals are editorial choices. One singer uses source-unspecified physiology and an authored single lead. Broad functionalSong follows the explicit pop-rock songwriting branch without imposing Anglosphere-specific popRock. Controlled room and omitted capture apparatus are authored; global tuning omitted. Broad functionalSong is an authored functional-harmonic verse/refrain rendition of the documented pop-rock songwriting, not a measured transcription of the original harmony or form.",
-  "recipe": "classic early-2020s indie poblano, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 340,
-  "score": 102.448,
+  "lineage": "Puebla indie is the regional independent-song field within Puebla’s broader musical life. Guitar-based pop and rock artists participate in local performance and recording networks while sharing influences with the wider Mexican independent scene.",
+  "recipe": "classic indie poblano, functional Song. solo with instrumental accompaniment. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. live tracking.",
+  "recipe_chars": 213,
+  "score": 27.354,
   "config": {
     "traditions": [
       "indie_poblano"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 9.024,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.849999999999994,
+          "electric_technique": 2.45,
           "amp_make": 0,
-          "body_wood": 2.6,
-          "neck_wood": 2.6539999999999995,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.6,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.6,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 11.386499999999996,
-          "drumhead": 1.3,
+          "drum_technique": 5.1365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.254,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": 21.853999999999992,
-          "cymbal_lathing": 21.799999999999994,
+          "cymbal_alloy": 1.0399999999999998,
+          "cymbal_hammering": 7.5040000000000004,
+          "cymbal_lathing": 7.75,
           "cymbal_finish": 0
         }
       }

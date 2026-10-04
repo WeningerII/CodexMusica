@@ -2,87 +2,163 @@
   "id": "vlaamse_kinderliedje",
   "name": "Vlaamse kinderliedje",
   "family": "pop",
-  "lineage": "K3 — Goden, Cantare dat Alas published piano-solo option. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Global tuning omitted, not a claim of equal temperament. Exact materials, makes, playing settings, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic vlaamse kinderliedje, functional Song, europop branch. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 229,
-  "score": 8.228,
+  "lineage": "Flemish children’s songs include family-oriented pop and entertainment-franchise repertoire associated with performers such as K3. Singing and memorable melodies connect recorded songs, shows and everyday participation.",
+  "recipe": "classic vlaamse kinderliedje, functional Song, europop branch. small note groups per syllable, group vocals, live take. analog poly synth, drum machine analog. live tracking.",
+  "recipe_chars": 174,
+  "score": 3.72,
   "config": {
     "traditions": [
       "vlaamse_kinderliedje"
     ],
     "instruments": [
       {
-        "id": "grand_piano",
+        "id": "voice",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "keyboard_technique": 3.95,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.126,
-          "piano_hammer": -0.07,
-          "piano_rim": 0.26,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": 1.3365,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 2.7950000000000004
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 0.9869999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.9869999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.2415,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

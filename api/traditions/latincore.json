@@ -2,10 +2,10 @@
   "id": "latincore",
   "name": "Latincore",
   "family": "rock_punk",
-  "lineage": "Eterna Inocencia, complete twelve-track Entre llanos y antigales album,2014. Artist credits Guillermo Marmol voice, Alejandro Navajas bass/voice, Roy Ota guitars, Javier Pesquero guitars/voice, German Rodriguez drums; DCEP additionally credits G.Garcia,M.Magritte,C.Avernal,C.Rodriguez voices. Nine named performing contributors and seven vocal contributors across the album, two guitarists, bass and drums retained. Source live assistants/engineers are not extra performers. Guest vocals remain explicitly track-specific, not claimed on every song. All seven source vocal contributors retained as an explicitly authored ensemble union, not an assertion that all perform simultaneously or on every original track. Neutral physiological voice controls. Guitar and bass credits receive modern electric humbucker/dual-single realizations, alder/maple constructions and power-chord/fingerstyle gestures; source does not specify exact original makes or all techniques. Two guitarists share the family card. Maple stick-played kit and symmetrically hammered traditional-finish cymbals are authored coherent defaults. Live room is a new recording realization, not measured original studios; no global tuning or capture chain inferred.",
-  "recipe": "classic mid-2010s latincore, distorted Rock, punk branch. group vocals, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 301,
-  "score": 61.625,
+  "lineage": "Latincore connects Latin American punk, hardcore and melodic-core communities through touring, independent releases and shared audiences. Argentine, Chilean, Mexican and other scenes overlap within a transnational network of guitar-driven music.",
+  "recipe": "classic latincore, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 194,
+  "score": 16.099,
   "config": {
     "traditions": [
       "latincore"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.305,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.2,
+          "electric_technique": 2.21,
           "amp_make": 0,
-          "body_wood": 1.6,
-          "neck_wood": 2.663,
+          "body_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1,
+          "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.6,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.25,
-          "drumhead": 1.3,
+          "drum_technique": 3.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 7.904999999999999,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
-          "bearing_edges": 1.4995,
+          "bearing_edges": 0.1995,
           "snare_wires": 0,
-          "cymbal_alloy": 0.7799999999999998,
-          "cymbal_hammering": 10.023,
-          "cymbal_lathing": 10.05,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 3.9230000000000005,
+          "cymbal_lathing": 3.95,
           "cymbal_finish": 0
         }
       }

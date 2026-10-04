@@ -2,10 +2,10 @@
   "id": "argentine_ambient",
   "name": "Argentine ambient",
   "family": "electronic",
-  "lineage": "A geographically grouped ambient scene with multiple practices, including Leandro Fresco’s layered synthesizer compositions and Federico Durand’s intimate recorded loops and small sounds. This representative model combines quiet synth colour, a clean guitar fragment and looping recorded material; it does not assert a national timbre or compulsory tango instrumentation.",
+  "lineage": "Argentina’s contemporary ambient and electroacoustic scene connects home recording and local sound environments with international independent labels. Its varied practices include synthesizer composition, guitar textures, tape collage and field-recording loops.",
   "recipe": "classic modern argentine ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, single coil electric guitar, layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 433,
-  "score": 35.34,
+  "score": 28.84,
   "config": {
     "traditions": [
       "argentine_ambient",
@@ -22,10 +22,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 11.75,
+          "electronic_technique": 10.3,
           "oscillator": 0,
-          "filter_topology": 0.49499999999999994,
-          "envelope": 4.96,
+          "filter_topology": 0.195,
+          "envelope": 4.66,
           "modulation": 0
         }
       },
@@ -47,7 +47,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.8499999999999999,
+          "electric_technique": -0.15000000000000002,
           "amp_make": 0,
           "body_wood": 0.315,
           "neck_wood": 0,
@@ -72,11 +72,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 11.75,
+          "electronic_technique": 10.3,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 1.7550000000000001,
-          "sampler_workflow": 0.8999999999999999,
-          "sampler_classic_context": 0.8449999999999999
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 2.145
         }
       }
     ],

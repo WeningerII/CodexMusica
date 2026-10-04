@@ -2,28 +2,58 @@
   "id": "deep_full_on",
   "name": "Deep Full On",
   "family": "electronic",
-  "lineage": "Archive (MMD Records) — complete artist-issued Live from the basement vol II, 2:04:35 DJ programme. The issuer labels the whole programme full-on night psychedelic and names selections by Omega Flight, Contrast, T.k.o, Jhesha & Iron Lotus, Qube & Dyce and others. The incomplete displayed tracklist is not replaced with guessed titles. All mixed recorded layers, including any embedded vocals, remain in one actual playback/mixing role; this is not an opaque studio album repackaged as a DJ set. No release year is inferred from relative page age. Actual live or recorded voice counts, carriers, deck count and device models remain unknown. Existing medium-unspecified DJ playback/mixing owner retains the complete documented mixed programme without invented synthesis, sampling or scratching mechanisms. Treated studio is an authored controlled-listening rendition, not measured basement acoustics. Global tuning and capture apparatus are omitted. Existing electronicDance.trance parent follows the expressly named psychedelic/full-on trance practice; neutral axes are editorial coordinates.",
-  "recipe": "classic deep full on, electronic Dance, trance branch. dj playback mixing unspecified. treated studio.",
-  "recipe_chars": 102,
-  "score": 0.2,
+  "lineage": "Deep full-on belongs to psychedelic trance production and its night-oriented dance networks. Artists and DJs develop extended electronic grooves with layered melodic and timbral movement.",
+  "recipe": "classic deep full on, electronic Dance, trance branch. analog poly synth, drum machine analog. treated studio.",
+  "recipe_chars": 110,
+  "score": 2.86,
   "config": {
     "traditions": [
       "deep_full_on"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.1995
+          "electronic_technique": 0.19500000000000003,
+          "poly_archetypes": 2.1365,
+          "poly_voices": 0.1365,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.231,
+          "snare_voice": 0,
+          "hat_voice": 0.231,
+          "shuffle_quantize": -0.035
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +73,14 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_bass_sub",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true
   }

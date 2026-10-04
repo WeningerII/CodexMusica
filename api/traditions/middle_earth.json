@@ -2,15 +2,56 @@
   "id": "middle_earth",
   "name": "Middle-earth music",
   "family": "pop",
-  "lineage": "Enya — May It Be, complete Tobias Beiler two-page piano-solo arrangement MN0235409. Broad functionalSong/pop places this selected adult-contemporary film-song piano rendition as authored functional-harmonic song accompaniment rather than declaring classical art music merely because a score exists. Coherent nine-foot Steinway D construction, original hammer, Sitka soundboard, Hexagrip pinblock, iron plate and block-chord pop touch are authored timbral choices, not evidence of the arranger’s actual piano. A440 instrument baseline and controlled room are editorial; global tuning omitted. No voice or orchestra is added to the explicitly instrumental-solo scoring.",
-  "recipe": "classic middle-earth music, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
-  "recipe_chars": 133,
-  "score": 38.136,
+  "lineage": "Middle-earth music gathers songs, screen scores and concert works associated with Tolkien’s imagined world. Film adaptations and independent interpretations connect vocal songwriting with large-scale instrumental and symphonic traditions.",
+  "recipe": "classic middle-earth music, functional Song. solo with instrumental accompaniment. grand piano. shoebox concert hall.",
+  "recipe_chars": 117,
+  "score": 8.351,
   "config": {
     "traditions": [
       "middle_earth"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.48900000000000005,
+          "voice_ensemble_config": 4.199999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.054,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
       {
         "id": "grand_piano",
         "slots": {
@@ -25,19 +66,38 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 11.549999999999997,
-          "grand_piano_size": 0.3,
-          "grand_piano_brand": 1.4905,
-          "piano_hammer": 3.3080000000000003,
-          "piano_rim": 3.524,
-          "piano_soundboard": 4.800000000000001,
-          "piano_pinblock": 4.500000000000001,
-          "piano_plate": 5.800000000000001,
-          "piano_pitch_standard": 2.8640000000000003
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 1,
+          "grand_piano_brand": 0.273,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],
     "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
       "grand_piano": [
         "keyboard_technique",
         "grand_piano_size",
@@ -50,7 +110,7 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -65,7 +125,7 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
       "keyboard_technique": "keyboard_block_chord_pop",
       "grand_piano_size": "grand_9_foot",
@@ -75,7 +135,24 @@
       "piano_soundboard": "sitka_spruce_diaphragmatic",
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "piano_pitch_standard": "a_440_modern",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
     "pin_parts": true
   }

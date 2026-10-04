@@ -2,15 +2,56 @@
   "id": "korean_superband",
   "name": "Korean superband",
   "family": "pop",
-  "lineage": "Youngso Kim, Like A Star (Piano Version), complete five-page Emily Chua / The Green Book solo-piano edition71507. The arranger’s listing specifies solo piano and no lyrics. One pianist, zero singers; its maximum three voices means notated piano voices, not three people. JTBC directly identifies the underlying original composition in Kim’s12April2019 Superband producer audition. This separately published complete piano interpretation realizes that positively documented competition repertoire; it does not reconstruct the original guitar audition, the Hoppipolla band, any whole TV episode or later studio master. No paid score or audio audition was inspected. Authored popular instrumental-song rendition, with recurring tonal melodic sections and block-chord accompaniment as editorial arrangement choices rather than measured notation. Broad functionalSong preserves the cross-genre television repertoire without forcing every participant under rock, an Anglosphere branch or Western classical music. Publisher KPOP/Newage categorization corroborates the selected popular instrumental branch. Nine-foot Steinway D, original felt hammers, maple rim and pinblock, spruce soundboard, iron plate, A440 and live-room capture are coherent authored defaults, not stated source hardware or broadcast conditions. Global tuning and optional recording chain omitted.",
-  "recipe": "classic korean superband, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
-  "recipe_chars": 131,
-  "score": 41.819,
+  "lineage": "Korean superband is the collaborative musician community formed around JTBC’s Superband competition. Instrumentalists, singers and songwriters develop groups across styles rather than following a single rock-band formula.",
+  "recipe": "classic korean superband, functional Song. one note per syllable, single lead single track no stacking. 17 ply hard rock maple a 440 modern pitch us standard grand piano. shoebox concert hall.",
+  "recipe_chars": 192,
+  "score": 9.069,
   "config": {
     "traditions": [
       "korean_superband"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1,
+          "voice_tessitura": 0
+        }
+      },
       {
         "id": "grand_piano",
         "slots": {
@@ -25,19 +66,38 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.05,
-          "grand_piano_size": 0.3,
-          "grand_piano_brand": 0.40950000000000003,
-          "piano_hammer": 7.7,
-          "piano_rim": 7.7,
-          "piano_soundboard": 5.9365000000000006,
-          "piano_pinblock": 7.1000000000000005,
-          "piano_plate": 6.1000000000000005,
-          "piano_pitch_standard": 1.5230000000000001
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 0.9099999999999999,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 0.8999999999999999,
+          "piano_rim": 1.254,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": 1.2349999999999999
         }
       }
     ],
     "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
       "grand_piano": [
         "keyboard_technique",
         "grand_piano_size",
@@ -50,7 +110,7 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -65,7 +125,7 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
       "keyboard_technique": "keyboard_block_chord_pop",
       "grand_piano_size": "grand_9_foot",
@@ -75,7 +135,24 @@
       "piano_soundboard": "sitka_spruce_diaphragmatic",
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "piano_pitch_standard": "a_440_modern",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
     "pin_parts": true
   }

@@ -2,10 +2,10 @@
   "id": "inuit_pop",
   "name": "Inuit pop",
   "family": "pop",
-  "lineage": "Inuit pop is represented here by Elisapie — Inuktitut selected band core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic inuit pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 45.568,
+  "lineage": "Inuit pop connects Inuit artists, languages and audiences with contemporary songwriting and reinterpretations of popular repertoire.",
+  "recipe": "classic inuit pop, functional Song. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 247,
+  "score": 18.367,
   "config": {
     "traditions": [
       "inuit_pop"
@@ -15,54 +15,54 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_unspecified",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
-          "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_9_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.215499999999999,
-          "amp_make": 1.8199999999999998,
-          "body_wood": 0.26549999999999996,
-          "neck_wood": 0.1365,
-          "fretboard": 0.0315,
-          "pickup_magnet": 0.105,
-          "pickup_winding": 0.702,
-          "string_material": 0.0315,
-          "bridge": 1.69,
-          "scale_length": 0.36749999999999994,
-          "string_gauge": 1.69,
+          "electric_technique": 7.5040000000000004,
+          "amp_make": 0,
+          "body_wood": 0.4635,
+          "neck_wood": 0,
+          "fretboard": 0,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.18,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.1365,
+          "string_gauge": 0.054,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.275,
-          "body_wood": 0.168,
-          "pickup_config": 0.27299999999999996,
-          "string_type": 4.875,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.23399999999999999,
+          "amp_make": 0.304,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0.254,
+          "scale_length_b": 0,
+          "fretted_or_not": 0.4635,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.7815,
-          "drumhead": 11.981499999999999,
+          "drum_technique": -0.035,
+          "drumhead": 7.45,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,26 +112,26 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.378,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 0.40950000000000003,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "juno_60",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.231,
-          "poly_maker_lineage": -0.035
+          "poly_archetypes": 0.18,
+          "poly_voices": 1.1365,
+          "poly_maker_lineage": -0.05
         }
       }
     ],

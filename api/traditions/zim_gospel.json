@@ -2,10 +2,10 @@
   "id": "zim_gospel",
   "name": "Zim gospel",
   "family": "blues_gospel",
-  "lineage": "Zim gospel: The Unveiled — Hallelujah Hossana (official December 2024 video). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-  "recipe": "classic mid-2020s zim gospel, ritual Devotional, christian gospel branch. digital subtractive, electric bass, humbucker electric pre war tone martin lifespan sealed dreadnought acoustic guitar, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 302,
-  "score": 20.193,
+  "lineage": "Zimbabwean gospel develops through church ensembles, praise groups and contemporary devotional recording. Groups such as The Unveiled combine lead singers and arranged vocal sections with instrumental accompaniment.",
+  "recipe": "classic zim gospel, ritual Devotional, christian gospel branch. digital subtractive, electric bass, humbucker electric dreadnought acoustic guitar, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 256,
+  "score": 13.813,
   "config": {
     "traditions": [
       "zim_gospel"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -60,30 +60,30 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
+          "electronic_technique": 1.56,
           "va_archetypes": 0.294,
-          "digital_subtractive_context": 5.329999999999998
+          "digital_subtractive_context": 5.069999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "tape_wound_bass",
+          "string_type": "half_round",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.4949999999999999,
-          "body_wood": 0,
+          "amp_make": 0.25,
+          "body_wood": 0.054,
           "pickup_config": 0.567,
-          "string_type": 0.36,
+          "string_type": 0.288,
           "scale_length_b": 0.273,
-          "fretted_or_not": 0.273,
+          "fretted_or_not": 0.507,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -92,14 +92,14 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -107,16 +107,16 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.4949999999999999,
+          "amp_make": 0,
           "body_wood": 0.9555,
-          "neck_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": 0,
           "pickup_magnet": 0.273,
           "pickup_winding": 0.273,
           "string_material": 0,
-          "bridge": 1.69,
+          "bridge": 0.34800000000000003,
           "scale_length": 0.9555,
-          "string_gauge": 1.69,
+          "string_gauge": 0.294,
           "finish": 0,
           "string_tuning": 0.9555
         }
@@ -126,16 +126,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
+          "top_wood": "sitka",
           "back_sides": "koa_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 0,
+          "top_wood": 0.054,
           "back_sides": 0.294,
-          "string_acoustic": 1.69
+          "string_acoustic": 0.7575000000000001
         }
       },
       {

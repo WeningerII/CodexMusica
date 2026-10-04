@@ -2,51 +2,90 @@
   "id": "turkish_soundtrack",
   "name": "Turkish Soundtrack",
   "family": "classical",
-  "lineage": "Ahmet Kenan Bilgiç — Kelebekler / Butterflies original score: complete acoustic-guitar cues Mezarbaşı and Çobana Gidiş. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic turkish soundtrack, art Music. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 154,
-  "score": 1.7,
+  "lineage": "Turkish soundtrack music serves film and television storytelling through composed instrumental cues and songs. Composers such as Ahmet Kenan Bilgiç and Gökhan Kırdar draw on acoustic instruments, electronic production and diverse local musical references.",
+  "recipe": "classic turkish soundtrack, art Music. dreadnought acoustic guitar, upright piano, analog poly synth. live tracking.",
+  "recipe_chars": 116,
+  "score": -0.226,
   "config": {
     "traditions": [
       "turkish_soundtrack"
     ],
     "instruments": [
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_dread",
         "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 0.3,
-          "back_sides": 0.25,
-          "string_acoustic": 0.6,
-          "acoustic_om_technique": 0.5499999999999998
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "poly_archetypes": 0,
+          "poly_voices": 0.063,
+          "poly_maker_lineage": -0.05
         }
       }
     ],
     "pinned": {
-      "acoustic_guitar_om": [
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -55,20 +94,21 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
       "string_tuning": "standard_tuning",
-      "top_wood": "sitka_om",
-      "back_sides": "rosewood_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_fingerpicked"
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

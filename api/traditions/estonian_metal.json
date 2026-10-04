@@ -5,7 +5,7 @@
   "lineage": "Estonian metal includes Metsatöll’s amplified band music with local traditional instruments. Lauri Õunapuu explicitly distinguishes using Estonian instruments and musical language from arranging pre-existing folk songs. The selected model adds torupill to electric guitar, bass, drums and voice. His production account values natural acoustic timbre against the amplified rhythm section, while documenting practical stage amplification and in-ear monitoring.",
   "recipe": "classic modern estonian metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. power chord humbucker electric guitar, electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit, revival concert viljandi stage torupill. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 472,
-  "score": 60.11,
+  "score": 55.008,
   "config": {
     "traditions": [
       "estonian_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.887749999999999,
+          "electric_technique": 13.8735,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.62025,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.21075,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
+          "bridge": 0.62025,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.6187499999999998
+          "string_tuning": 0.063
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.62025,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.7237499999999999,
-          "fretted_or_not": 0.5557499999999999,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.21075,
+          "fretted_or_not": 0,
+          "bass_technique": 3.82825,
           "electric_bass_string_configuration": 0
         }
       },
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.62025,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
-          "shell_thickness": 0.5557499999999999,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": 1.2852499999999998,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.34225,
+          "cymbal_lathing": 3.7865,
           "cymbal_finish": 0
         }
       },
@@ -120,19 +120,19 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": 0.08549999999999999,
           "voice_vibrato": 0,
           "voice_articulation": -0.07,
           "voice_microtone": 3.685250000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.520749999999999,
+          "voice_speech_song": 1.224,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
+          "voice_pitch_organization": 0.5572499999999999,
           "voice_processing_chain": -0.07,
-          "voice_multitrack_stack": 1.7407499999999998
+          "voice_multitrack_stack": 0.8572499999999998
         }
       },
       {
@@ -144,7 +144,7 @@
         },
         "scores": {
           "torupill_form": 1.56,
-          "torupill_setting": 8.4845,
+          "torupill_setting": 7.843249999999999,
           "torupill_bag": -0.035
         }
       }

@@ -2,10 +2,10 @@
   "id": "idaho_hip_hop",
   "name": "Idaho Hip Hop",
   "family": "hip_hop",
-  "lineage": "Eleven & DJ Jason D — announced musical duo, Radio Boise Couch Surfer Series,13October2019. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic idaho hip hop, mc Rhythm, us hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 290,
-  "score": 13.132,
+  "lineage": "Idaho hip-hop connects local MCs, DJs and producers through independent releases, radio and live events. Boise duo Eleven & DJ Jason D exemplifies its links with golden-era and boom-bap approaches.",
+  "recipe": "classic idaho hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
+  "recipe_chars": 179,
+  "score": 35.319,
   "config": {
     "traditions": [
       "idaho_hip_hop"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,22 +43,28 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.27,
-          "voice_ensemble_config": 1.1655,
+          "voice_speech_song": 9.425,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.56,
+          "voice_multitrack_stack": 0.36750000000000005,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_drum_machine",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.1365
+          "electronic_technique": 5.5,
+          "sample_bitdepth": 0.1365,
+          "sample_swing": 9.1,
+          "sample_processing": 0
         }
       }
     ],
@@ -82,29 +88,32 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -120,14 +129,11 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

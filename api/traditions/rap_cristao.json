@@ -5,7 +5,7 @@
   "lineage": "Brazilian Christian rap represented by the Greater Florianópolis gospel-rap practice documented in fieldwork.",
   "recipe": "classic modern rap cristão, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 350,
-  "score": 45.689,
+  "score": 45.797,
   "config": {
     "traditions": [
       "rap_cristao"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.964999999999998,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 15.018999999999998,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

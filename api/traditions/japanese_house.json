@@ -2,10 +2,10 @@
   "id": "japanese_house",
   "name": "Japanese house",
   "family": "electronic",
-  "lineage": "Japanese house production with a selected Far East Recording branch represented by Soichi Terada and Shinichiro Yokota. First-person interviews document their Tokyo partnership, house/hip-hop sample reworking, hardware samplers and digital keyboard/workstation production.",
+  "lineage": "Japanese house developed through local producer and club networks, including Tokyo’s Far East Recording circle. Sampling, digital keyboards and influences from house and hip-hop helped shape an enduring strand of the scene.",
   "recipe": "classic modern japanese house, electronic Dance, house branch. chopped sampler, organ preset rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 317,
-  "score": 33.402,
+  "score": 33.843,
   "config": {
     "traditions": [
       "japanese_house"
@@ -21,26 +21,26 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.5354999999999999,
+          "electronic_technique": 1.57825,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.1365,
           "sampler_workflow": 1.4,
-          "sampler_classic_context": 19.11
+          "sampler_classic_context": 19.63
         }
       },
       {
         "id": "rompler_workstation",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_pluck_short",
           "rompler_preset_bank": "rompler_preset_dance_stabs",
           "rompler_context": "rompler_context_pop_workstation",
           "rompler_lineage": "rompler_roland_jv_xp"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "rompler_preset_bank": 11.2,
           "rompler_context": -0.05,
-          "rompler_lineage": -1.6344999999999998
+          "rompler_lineage": -1.7769999999999997
         }
       }
     ],
@@ -84,7 +84,7 @@
       "sampler_bit_depth": "sampler_sixteen_bit",
       "sampler_workflow": "sampler_chopped_breaks",
       "sampler_classic_context": "sampler_classic_edm",
-      "electronic_technique": "electronic_pad_drone",
+      "electronic_technique": "electronic_pluck_short",
       "rompler_preset_bank": "rompler_preset_dance_stabs",
       "rompler_context": "rompler_context_pop_workstation",
       "rompler_lineage": "rompler_roland_jv_xp"

@@ -2,10 +2,10 @@
   "id": "modern_free_jazz",
   "name": "Modern free jazz",
   "family": "jazz",
-  "lineage": "Modern free jazz is represented here by Matthew Shipp Trio — Sea Song / New Concepts in Piano Trio Jazz (2024). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-2020s modern free jazz, improv On Frame, avant branch. soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 309,
-  "score": 106.33,
+  "lineage": "Modern free jazz continues the exploration of open form and collective improvisation through contemporary ensembles. Composed outlines may guide a performance without fixing every phrase or harmonic change.",
+  "recipe": "classic modern free jazz, improv On Frame, avant branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, fiberskyn synthetic calf brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 288,
+  "score": 72.07,
   "config": {
     "traditions": [
       "modern_free_jazz"
@@ -14,37 +14,37 @@
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_avant_prepared",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.805,
-          "grand_piano_size": 0.21,
-          "grand_piano_brand": 0.3045,
-          "piano_hammer": 6.109499999999999,
-          "piano_rim": 7.140999999999999,
-          "piano_soundboard": 5.7315000000000005,
-          "piano_pinblock": 6,
-          "piano_plate": 6.105,
-          "piano_pitch_standard": 6.8735
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0,
+          "piano_hammer": 5.359500000000001,
+          "piano_rim": 5.391,
+          "piano_soundboard": 5.2815,
+          "piano_pinblock": 4.95,
+          "piano_plate": 4.95,
+          "piano_pitch_standard": 7.4235
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_wound_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 14.5,
-          "upright_play": 14.5
+          "upright_strings": 0,
+          "upright_play": 11.25
         }
       },
       {
@@ -55,17 +55,26 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.799999999999999,
-          "drumhead": 20.25,
+          "drum_technique": 11.25,
+          "drumhead": 16.25,
           "drum_kit_kick_pedal": 0
         }
       }
     ],
     "pinned": {
       "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
         "piano_pitch_standard"
       ],
       "upright_bass": [
+        "upright_strings",
         "upright_play"
       ],
       "drum_kit": [
@@ -93,7 +102,16 @@
     "parts": {
       "piano_pitch_standard": "a_440_modern",
       "upright_play": "pizz_upright",
-      "drum_technique": "brushes_jazz"
+      "drum_technique": "brushes_jazz",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "upright_strings": "gut_upright",
+      "keyboard_technique": "keyboard_jazz_comping"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "vintage_finnish_jazz",
   "name": "Vintage finnish jazz",
   "family": "jazz",
-  "lineage": "Vintage finnish jazz is represented here by Onni Gideonin kvintetti — I’ve Got My Love to Keep Me Warm (Helsinki,2 May1950). This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic vintage finnish jazz, improv On Frame, early branch. ebonite hard rubber klezmer tradition clarinet, vintage steinway pre-war compression wired 18 ply hard rock maple grand piano, vibraphone, alnico low output no compression nickel humbucker electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 440,
-  "score": 120.919,
+  "lineage": "Vintage Finnish jazz draws on the country’s early jazz-oriented dance bands and their recordings. Local musicians adapted international jazz repertoire through small ensembles and varied instrumental combinations.",
+  "recipe": "classic vintage finnish jazz, improv On Frame, early branch. ebonite hard rubber klezmer tradition clarinet, vintage steinway pre-war compression wired 18 ply hard rock maple grand piano, vibraphone, Fender tweed amp American 50s amp tweed breakup alnico low output no compression humbucker electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 481,
+  "score": 145.059,
   "config": {
     "traditions": [
       "vintage_finnish_jazz"
@@ -24,7 +24,7 @@
           "wind_articulation": -0.05,
           "clarinet_body": 5.328,
           "clarinet_size": 0.24149999999999996,
-          "clarinet_reed": 0.27299999999999996,
+          "clarinet_reed": 0.32699999999999996,
           "clarinet_articulation": 0
         }
       },
@@ -37,7 +37,7 @@
           "piano_hammer": "vintage_steinway_pre_war_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
@@ -48,9 +48,9 @@
           "piano_hammer": 5.1705000000000005,
           "piano_rim": 5.328,
           "piano_soundboard": -0.035,
-          "piano_pinblock": 0.254,
+          "piano_pinblock": -0.035,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 1.625
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -63,8 +63,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "vibe_motor": 14.75,
-          "vibe_mallets": 12.75,
+          "vibe_motor": 18.25,
+          "vibe_mallets": 16.25,
           "vibe_bar_material": 0
         }
       },
@@ -81,23 +81,23 @@
           "string_material": "pure_nickel_h",
           "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 1.6899999999999997,
+          "electric_technique": 2.5735,
+          "amp_make": 5.005,
           "body_wood": 0.47250000000000003,
           "neck_wood": 0.24149999999999996,
           "fretboard": 0.24149999999999996,
           "pickup_magnet": 2,
-          "pickup_winding": 2.363,
+          "pickup_winding": 2.063,
           "string_material": 2,
           "bridge": 2,
           "scale_length": 0.7454999999999998,
-          "string_gauge": 1.18,
-          "finish": 0.18,
+          "string_gauge": 0.231,
+          "finish": 0,
           "string_tuning": 0.819
         }
       },
@@ -108,8 +108,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 12.75,
-          "upright_play": 12.75
+          "upright_strings": 16.25,
+          "upright_play": 16.25
         }
       },
       {
@@ -120,8 +120,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 22.5365,
+          "drum_technique": 16.25,
+          "drumhead": 26.2165,
           "drum_kit_kick_pedal": 0
         }
       }

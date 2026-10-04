@@ -2,10 +2,10 @@
   "id": "south_african_choral",
   "name": "South african choral",
   "family": "vernacular",
-  "lineage": "South african choral is represented by SABC Choristers / Thulas Nkabinde — Jehova Thel’ Umoya, African Classics. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
-  "recipe": "classic south african choral, ritual Devotional, christian gospel branch. group vocals, no specific ornament system. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 1.419,
+  "lineage": "South African choral music brings collective singing into community, religious, educational and concert life. Local languages and varied song traditions meet composed and arranged choral repertoire.",
+  "recipe": "classic south african choral, ritual Devotional, christian gospel branch. no specific ornament system. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 1.073,
   "config": {
     "traditions": [
       "south_african_choral"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7364999999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.6825000000000001,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

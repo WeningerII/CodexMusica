@@ -5,7 +5,7 @@
   "lineage": "Basque-language rap represented by Selektah Kolektiboa and its MC/DJ formation.",
   "recipe": "classic modern rap euskera, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 328,
-  "score": 32.439,
+  "score": 32.386,
   "config": {
     "traditions": [
       "rap_euskera"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 11.7,
-          "voice_ensemble_config": 0.9015,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,

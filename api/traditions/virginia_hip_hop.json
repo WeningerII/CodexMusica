@@ -2,10 +2,10 @@
   "id": "virginia_hip_hop",
   "name": "Virginia hip hop",
   "family": "hip_hop",
-  "lineage": "Virginia hip hop is represented by the Clipse / Neptunes branch developed in Virginia, within a geographically broader state rap network. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
-  "recipe": "classic modern virginia hip hop, mc Rhythm, southern branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 293,
-  "score": 46.213,
+  "lineage": "Virginia hip-hop developed through local MC and producer networks, including the Clipse and Neptunes collaboration.",
+  "recipe": "classic modern virginia hip hop, mc Rhythm, southern branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, echo word punctuation. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 331,
+  "score": 41.373,
   "config": {
     "traditions": [
       "virginia_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 12.704500000000001,
+          "voice_quality": 10.4,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.2135,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 8.9135,
+          "voice_ensemble_config": 1.155,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

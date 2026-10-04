@@ -5,7 +5,7 @@
   "lineage": "Spanish-language Christian rock that took shape in Argentina and Mexico from the late 1980s, with Rescate forming in Buenos Aires in 1991 and Marcos Witt's CanZion label industrialising Latin worship recording out of Durango and Houston — mid-tempo 80-130 BPM guitar-band arrangements over pop-rock and rock-nacional forms, congregational-friendly diatonic progressions with a modulated final chorus, doubled distorted and clean guitars, and Spanish devotional or evangelistic lyrics delivered in a full chest voice with a large backing-vocal crowd.",
   "recipe": "classic 1987-1989 rock cristiano, ritual Devotional, christian gospel branch, christian gospel pentecostal, regional distorted rock, pop rock functional song yacht rock skiffle. thick, declaimed, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning humbucker electric cedar koa phosphor bronze modern martin strummed dreadnought acoustic guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, singing lead digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 941,
-  "score": 646.53,
+  "score": 645.887,
   "config": {
     "traditions": [
       "rock_cristiano",
@@ -40,8 +40,8 @@
           "voice_effort": 0,
           "voice_vibrato": 11.309999999999999,
           "voice_articulation": 20.345,
-          "voice_microtone": 57.06500000000001,
-          "voice_tradition": 16.174999999999997,
+          "voice_microtone": 56.67500000000001,
+          "voice_tradition": 16.265,
           "voice_mechanism_compound": 5.720000000000001,
           "voice_estill_quality": 5.3900000000000015,
           "voice_speech_song": 23.464999999999996,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 8.65,
           "voice_pitch_organization": 1.3649999999999998,
           "voice_processing_chain": 11.165000000000001,
-          "voice_multitrack_stack": 6.492500000000001
+          "voice_multitrack_stack": 6.5375000000000005
         }
       },
       {
@@ -80,7 +80,7 @@
           "string_material": 0.39,
           "bridge": 2.4,
           "scale_length": 2.25,
-          "string_gauge": 2.6,
+          "string_gauge": 2.4675000000000002,
           "finish": 0.3,
           "string_tuning": 19.369999999999997
         }
@@ -120,7 +120,7 @@
           "pickup_config": 1.48,
           "string_type": 39.71249999999999,
           "scale_length_b": 2.1,
-          "fretted_or_not": 0.24,
+          "fretted_or_not": 0.285,
           "bass_technique": 37.669999999999995,
           "electric_bass_string_configuration": 0
         }
@@ -157,7 +157,7 @@
           "grand_piano_brand": 2.55,
           "piano_hammer": 17.689999999999998,
           "piano_rim": 18.184999999999995,
-          "piano_soundboard": 12.549999999999997,
+          "piano_soundboard": 12.354999999999999,
           "piano_pinblock": 1,
           "piano_plate": 1.29,
           "piano_pitch_standard": 6.6674999999999995
@@ -173,9 +173,9 @@
         },
         "scores": {
           "choir_size": 6.4350000000000005,
-          "choir_polyphonic_configuration": 2.4375,
+          "choir_polyphonic_configuration": 2.4825,
           "choir_regional_canonical_configuration": 5.6425,
-          "choir_ensemble_repertoire": 2.65
+          "choir_ensemble_repertoire": 2.455
         }
       },
       {
@@ -186,7 +186,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 13.419999999999998,
+          "electronic_technique": 13.464999999999996,
           "va_archetypes": 1.3900000000000001,
           "digital_subtractive_context": 21.125
         }

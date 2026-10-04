@@ -2,10 +2,10 @@
   "id": "deep_italo_disco",
   "name": "Deep italo disco",
   "family": "electronic",
-  "lineage": "Deep italo disco is represented here by Dyva — Please My Love, B2 instrumental version (2013 reissue). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2010s deep italo disco, electronic Dance. sampler, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 166,
-  "score": 7.445,
+  "lineage": "Deep Italo disco brings less widely circulated Italian electronic dance records and their reissues into contemporary listening and DJ culture.",
+  "recipe": "classic deep italo disco, electronic Dance. sampler, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 154,
+  "score": 12.281,
   "config": {
     "traditions": [
       "deep_italo_disco"
@@ -16,7 +16,7 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "fairlight_cmi",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_eight_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
@@ -25,7 +25,7 @@
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0,
           "sampler_workflow": -0.035,
-          "sampler_classic_context": 1.4299999999999997
+          "sampler_classic_context": 3.6399999999999997
         }
       },
       {
@@ -38,19 +38,23 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 6.25,
+          "sample_bitdepth": 0.126,
+          "sample_swing": 8.75,
           "sample_processing": 0
         }
       }
     ],
     "pinned": {
       "sampler_classic": [
+        "electronic_technique",
         "sampler_archetypes",
+        "sampler_bit_depth",
         "sampler_workflow",
         "sampler_classic_context"
       ],
       "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
         "sample_swing",
         "sample_processing"
       ]
@@ -78,7 +82,10 @@
       "sampler_workflow": "sampler_one_shot_pitched",
       "sampler_classic_context": "sampler_classic_edm",
       "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "sample_processing": "one_shots_layered",
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_bit_depth": "sampler_eight_bit",
+      "sample_bitdepth": "sixteen_bit"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

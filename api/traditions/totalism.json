@@ -5,7 +5,7 @@
   "lineage": "New York downtown movement of the late 1980s and 1990s — Michael Gordon, Julia Wolfe and David Lang with Bang on a Can, plus Mikel Rouse, Rhys Chatham and critic Kyle Gann — steady fast pulse with conflicting tempo layers stacked as 3:4 or 5:7 rhythmic dissonance over it, harmony richer and more dissonant than minimalism, amplified mixed ensembles of electric guitar, bass, drums, piano and winds played at rock volume but with through-composed formal scale.",
   "recipe": "classic 1987-1989 totalism, art Music, western modern branch, classic distorted rock classic garage rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, grenadilla African blackwood traditional clarinet, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 828,
-  "score": 274.973,
+  "score": 278.315,
   "config": {
     "traditions": [
       "totalism",
@@ -32,18 +32,18 @@
         },
         "scores": {
           "electric_technique": 2.7300000000000004,
-          "amp_make": 8.125,
+          "amp_make": 10.27,
           "body_wood": 2.6,
           "neck_wood": 0.65,
-          "fretboard": 1,
+          "fretboard": 1.15,
           "pickup_magnet": 2.5,
-          "pickup_winding": 3.6399999999999997,
-          "string_material": 0.845,
+          "pickup_winding": 4.095,
+          "string_material": 0.195,
           "bridge": 1,
           "scale_length": 1.95,
           "string_gauge": 0.65,
-          "finish": 0.195,
-          "string_tuning": 10.725
+          "finish": 0.65,
+          "string_tuning": 11.83
         }
       },
       {
@@ -62,10 +62,10 @@
           "amp_make": 9.62,
           "body_wood": 1.95,
           "pickup_config": 1.6949999999999998,
-          "string_type": 18.557499999999997,
+          "string_type": 18.85,
           "scale_length_b": 1.5,
-          "fretted_or_not": 0.65,
-          "bass_technique": 13.709999999999997,
+          "fretted_or_not": 0.3,
+          "bass_technique": 15.885,
           "electric_bass_string_configuration": 0
         }
       },
@@ -74,7 +74,7 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -85,13 +85,13 @@
         "scores": {
           "keyboard_technique": 2.545,
           "grand_piano_size": 0.65,
-          "grand_piano_brand": 0.6950000000000001,
-          "piano_hammer": 15.209999999999999,
-          "piano_rim": 15.405,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 15.86,
+          "piano_rim": 16.055,
           "piano_soundboard": 6.4,
           "piano_pinblock": 7.25,
           "piano_plate": 6.82,
-          "piano_pitch_standard": 10.540000000000001
+          "piano_pitch_standard": 9.24
         }
       },
       {
@@ -126,14 +126,14 @@
         },
         "scores": {
           "bowed_technique": 2.7399999999999998,
-          "cello_strings": 2.235,
+          "cello_strings": 1.8849999999999998,
           "cello_top_wood": 3.75,
-          "cello_back_wood": 11.959999999999999,
+          "cello_back_wood": 12.61,
           "cello_varnish": 6.25,
-          "cello_setup_period": 8.79,
-          "cello_bow_grip": 1.89,
+          "cello_setup_period": 8.440000000000001,
+          "cello_bow_grip": 1.54,
           "cello_rosin": 6.7,
-          "cello_bow_stick": 7.540000000000001
+          "cello_bow_stick": 6.890000000000001
         }
       },
       {
@@ -167,11 +167,11 @@
           "bowed_technique": 2.7399999999999998,
           "orch_strings": 0.18,
           "orch_top_wood": 4.32,
-          "orch_back_wood": 13.844999999999999,
+          "orch_back_wood": 14.3,
           "orch_varnish": 6.25,
-          "orch_setup_period": 8.79,
+          "orch_setup_period": 8.440000000000001,
           "orch_bow": 0.045,
-          "orch_bow_stick": 7.540000000000001,
+          "orch_bow_stick": 6.890000000000001,
           "orch_articulation": 0.3,
           "orch_rosin": 6.7
         }
@@ -185,8 +185,8 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 2.09,
-          "mod_voltage_source": 4.9399999999999995,
+          "electronic_technique": 1.7399999999999998,
+          "mod_voltage_source": 5.3950000000000005,
           "mod_patch_density": 0.65,
           "mod_lineage": 1.6049999999999995
         }

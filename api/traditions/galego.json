@@ -2,10 +2,10 @@
   "id": "galego",
   "name": "Galego",
   "family": "pop_rock",
-  "lineage": "The Homens — documented2005 trio. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic galego, distorted Rock, regional branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 279,
-  "score": 19.48,
+  "lineage": "Galego connects music performed in Galician across varied popular and local performance communities. Guitar-led independent and power-pop bands provide one approach within the wider language-based repertoire.",
+  "recipe": "classic galego, distorted Rock, regional branch. one note per syllable. power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 230,
+  "score": 26.58,
   "config": {
     "traditions": [
       "galego"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.8199999999999998,
+          "electric_technique": 3.1200000000000006,
           "amp_make": 0,
           "body_wood": 0.0315,
           "neck_wood": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.51,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
           "string_tuning": 0.063
         }
@@ -132,8 +132,8 @@
           "bearing_edges": 0.273,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 3.8180000000000005,
-          "cymbal_lathing": 3.8075000000000006,
+          "cymbal_hammering": 6.368,
+          "cymbal_lathing": 6.3575,
           "cymbal_finish": 0
         }
       }
@@ -197,15 +197,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +214,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -264,12 +264,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "musica_per_bambini",
   "name": "Musica per bambini",
   "family": "vernacular",
-  "lineage": "Whole issued Veglia su di me audiobook, Curci/Accademia Nazionale di Santa Cecilia2020, EC12213, in the I gusci series. The publisher names Amanda Sandrelli as narrator and Orazio Sciortino as composer of original piano music; Sandrelli personally confirms recording the audiobook and the piano’s role throughout the story. Retain one speaking narrator and piano, zero positively credited singers. Composer is not automatically identified as the recorded pianist: that performer remains unnamed in these primary sources. Fictional mother’s singing and father’s jazz occupation are story content, not extra recording personnel. Complete audiobook selected, not only spoken excerpts. SpokenWord.narration describes this complete narrated musical-story branch, not all Italian children’s repertoire. Authored neutral solo narrator with pure spoken delivery, single lead track and accompaniment preserves the positive role without guessing vocal training, register or anatomy. A standard-size studio upright with legato piano phrasing is a source-compatible authored realization of unspecified piano construction; no claim original keyboard or exact phrasing was measured. Controlled live room and unprocessed voice are authored presentation; no global tuning or source microphone chain inferred.",
-  "recipe": "classic musica per bambini, spoken Word, narration branch. no pitch organization speech, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. upright piano. live tracking.",
-  "recipe_chars": 224,
-  "score": 22.366,
+  "lineage": "Musica per bambini connects Italian children’s musical publishing and performance, including songs, lullabies, choral repertoire and narrated musical stories. Educational and cultural institutions bring these forms to different ages and listening settings.",
+  "recipe": "classic musica per bambini, spoken Word, narration branch. upright piano. live tracking.",
+  "recipe_chars": 88,
+  "score": 1.384,
   "config": {
     "traditions": [
       "musica_per_bambini"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.188499999999999,
-          "voice_ensemble_config": 6.6564999999999985,
+          "voice_speech_song": 0.3255,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 7.457,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.2625,
           "voice_tessitura": 0
         }
       },
@@ -60,8 +60,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.355,
-          "upright_use": 0.273,
+          "keyboard_technique": -0.035,
+          "upright_use": 0.3045,
           "upright_piano_size": 0
         }
       }

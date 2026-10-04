@@ -2,10 +2,10 @@
   "id": "rockabilly_en_espanol",
   "name": "Rockabilly en espanol",
   "family": "rock",
-  "lineage": "Rockabilly en espanol is represented here by Rebel Cats — documented electric core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic rockabilly en espanol, distorted Rock, classic branch. Fender champ amp low wattage studio grit basswood humbucker electric guitar, sticks backbeat drum kit, upright bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 280,
-  "score": 26.556,
+  "lineage": "Spanish-language rockabilly carries rockabilly’s guitar-led dance-band style into Spanish-language songs and performance communities.",
+  "recipe": "classic rockabilly en espanol, distorted Rock, classic branch. Fender tweed amp American 50s amp tweed breakup basswood humbucker electric guitar, sticks backbeat drum kit, upright bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 27.672,
   "config": {
     "traditions": [
       "rockabilly_en_espanol"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_american_fender_tweed",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
-          "amp_make": 7.381499999999999,
+          "electric_technique": 0.2315,
+          "amp_make": 8.2005,
           "body_wood": 1.4069999999999998,
           "neck_wood": 0.6194999999999999,
-          "fretboard": 0.0945,
+          "fretboard": 0.3,
           "pickup_magnet": 0.1365,
           "pickup_winding": 1.95,
           "string_material": 0.1365,
-          "bridge": 1.469,
+          "bridge": 0.6194999999999999,
           "scale_length": 1.2390000000000003,
-          "string_gauge": 1.5005,
-          "finish": 0.3045,
-          "string_tuning": 0.33899999999999997
+          "string_gauge": 0.6194999999999999,
+          "finish": 0.4345,
+          "string_tuning": 0
         }
       },
       {
@@ -52,7 +52,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.313,
+          "drum_technique": 6.6129999999999995,
           "drumhead": 0.6194999999999999,
           "drum_kit_kick_pedal": 0
         }
@@ -104,7 +104,7 @@
         },
         "scores": {
           "upright_strings": 0.1365,
-          "upright_play": 2.339
+          "upright_play": 3.769
         }
       }
     ],

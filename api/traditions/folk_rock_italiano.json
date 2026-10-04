@@ -5,7 +5,7 @@
   "lineage": "Folk rock italiano is represented here by Enrico Capuano and Tammurriatarock — Spazio Rossellini performance. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic folk rock italiano, functional Song, folk rock branch. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, hard rock maple acer saccharum violin orchestral. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 403,
-  "score": 73.15,
+  "score": 73.707,
   "config": {
     "traditions": [
       "folk_rock_italiano"
@@ -23,7 +23,7 @@
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
+          "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 7.15,
-          "body_wood": 0.4725,
+          "body_wood": 0.609,
           "neck_wood": 0.231,
           "fretboard": 0.0945,
-          "pickup_magnet": 0.2415,
-          "pickup_winding": 0.2415,
+          "pickup_magnet": 0.378,
+          "pickup_winding": 0.378,
           "string_material": 0.126,
           "bridge": 1.69,
-          "scale_length": 0.46199999999999997,
+          "scale_length": 0.504,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 0.39
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 7.6049999999999995,
           "body_wood": 0.46199999999999997,
-          "pickup_config": 0.2415,
+          "pickup_config": 0.378,
           "string_type": 18.199999999999996,
-          "scale_length_b": 0.3675,
+          "scale_length_b": 0.504,
           "fretted_or_not": 0.063,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 0.3315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4515,
+          "voice_processing_chain": 0.2835,
           "voice_multitrack_stack": 0.3315
         }
       },

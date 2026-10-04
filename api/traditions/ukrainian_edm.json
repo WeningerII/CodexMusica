@@ -2,28 +2,58 @@
   "id": "ukrainian_edm",
   "name": "Ukrainian EDM",
   "family": "electronic",
-  "lineage": "Lipich — complete57:17 Ukraine Dancing Podcast030, own programme upload titled Kiss FM22June2018. This is the entire published DJ mix, not reconstruction of individual studio productions. The issuer positively credits mixing by Lipich and lists ten selections, while referring to a fuller external tracklist: no assertion those ten exhaust the audio. Entire embedded musical/vocal/effect content retained through source-unspecified DJ playback/mixing. Unknown medium, hardware, deck count and source-layer construction; embedded and separately performed live voices remain unknown. Foreign co-producer and mashup credits retained, no claim every constituent artist is Ukrainian or every selection exclusively one style. Existing neutral DJ playback/mixing owner preserves the documented actual performance role without replacing an opaque studio song with a sampler. Controlled live-room presentation and neutral axes are authored choices, not original booth/session acoustics or measured tempo. No global tuning, invented equipment or source vocal count. ElectronicDance/electronic parent follows explicit broadcaster electronic dance classification, not an inferred synth architecture.",
-  "recipe": "classic ukrainian edm, electronic Dance. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 87,
-  "score": 0.3,
+  "lineage": "Ukrainian EDM connects electronic dance producers, DJs, broadcasters and listeners through Ukrainian and international networks. The field embraces varied club styles rather than a single uniform rhythmic formula.",
+  "recipe": "classic ukrainian edm, electronic Dance. analog poly synth, drum machine analog. live tracking.",
+  "recipe_chars": 95,
+  "score": 2.38,
   "config": {
     "traditions": [
       "ukrainian_edm"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.3
+          "electronic_technique": -0.07,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +73,14 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_lead_line",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true
   }

@@ -2,10 +2,10 @@
   "id": "oriental_metal",
   "name": "Oriental metal",
   "family": "rock_punk",
-  "lineage": "Oriental metal is retained as the source discovery label and represented by Orphaned Land, who use the term for their own Middle Eastern-inflected metal. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
-  "recipe": "classic modern oriental metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 442,
-  "score": 49.477,
+  "lineage": "Oriental metal is a term used by artists such as Orphaned Land for Middle Eastern-inflected metal.",
+  "recipe": "classic modern oriental metal, distorted Rock, folk metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 399,
+  "score": 36.19,
   "config": {
     "traditions": [
       "oriental_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3784999999999998,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.349875,
-          "voice_multitrack_stack": 0.46199999999999997,
+          "voice_processing_chain": 0.255375,
+          "voice_multitrack_stack": 0.39899999999999997,
           "voice_tessitura": 0
         }
       },
@@ -58,52 +58,52 @@
           "electric_technique": "electric_overdriven_lead",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_10_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 0.2315,
-          "amp_make": 8.775,
-          "body_wood": 8.969999999999999,
-          "neck_wood": 0.5774999999999999,
+          "amp_make": 7.605,
+          "body_wood": 7.8,
+          "neck_wood": 0.0315,
           "fretboard": 0.168,
-          "pickup_magnet": 0.168,
-          "pickup_winding": 0.0945,
-          "string_material": 0,
-          "bridge": 0.5985,
-          "scale_length": 8.969999999999999,
-          "string_gauge": 0.6089999999999999,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.0315,
+          "string_material": 0.0315,
+          "bridge": 0.42,
+          "scale_length": 0,
+          "string_gauge": 0.252,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.0945
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.1549999999999998,
-          "pickup_config": 0.1365,
-          "string_type": 4.875,
-          "scale_length_b": 0.5774999999999999,
-          "fretted_or_not": 0.3315,
+          "body_wood": 7.8,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0.0315,
           "bass_technique": 3.805,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 0.7979999999999999,
+          "drumhead": 0.7244999999999999,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -144,10 +144,26 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique"
@@ -192,7 +208,22 @@
       "electric_technique": "electric_overdriven_lead",
       "string_tuning": "standard_tuning",
       "drum_technique": "sticks_rock",
-      "bass_technique": "pick_aggressive"
+      "bass_technique": "pick_aggressive",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

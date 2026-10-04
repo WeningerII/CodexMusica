@@ -1,0 +1,72 @@
+[
+  {
+    "source_label": "korean ost",
+    "allocation_ordinal": 3630,
+    "existing_id": "korean_soundtrack",
+    "count_as_addition": false,
+    "proposal": "/tmp/batch040/korean-ost-equivalence-proposal117.json",
+    "proposal_sha256": "8f86dc56725663e9a73e0c4a9732b86fca23a870e18d3af2f031c2b414eced60",
+    "review": "/tmp/batch040/korean-ost-equivalence-independent-review-root.json",
+    "reason": "Fresh firsthand composers interview explicitly equates OST with original soundtrack and discusses incidental scoring using both terms; issuer Music&NEW labels complete film Original Score OST and positively includes scored cues plus vocal song. The target retains full song-and-score field. Creator roster weighting does not establish distinct category scope."
+  },
+  {
+    "source_label": "lo-fi jazzhop",
+    "allocation_ordinal": 3704,
+    "existing_id": "jazzy_hip_hop",
+    "count_as_addition": false,
+    "proposal": "/tmp/batch040/lo-fi-jazzhop-equivalence-proposal117.json",
+    "proposal_sha256": "ebd334a6ebcb9f27457832514058400065f2f2c9563582826a2f2e91c761c7b6",
+    "review": "/tmp/batch040/equivalence-3704-independent-review-root.json",
+    "reason": "Fresh operating-label biographies use lofi hiphop and jazzhop for the same streaming producer field; the full existing target explicitly covers that qualified lofi/jazz-sample study field. Fresh creator programme matches this practice. This does not equate all historical jazz rap with lo-fi."
+  },
+  {
+    "source_label": "quatuor a cordes",
+    "allocation_ordinal": 4189,
+    "existing_id": "string_quartet",
+    "count_as_addition": false,
+    "proposal": "/tmp/batch040/resume116-4189-equivalence-proposal.json",
+    "proposal_sha256": "12fdb8c969241fec53b3efd9baa55598d98e40645adc0fc7ef847a717ec85e50",
+    "review": "/tmp/batch040/equivalence-4189-independent-review-root.json",
+    "reason": "Fresh Philharmonie musicologist defines the same two-violin, viola, cello composed chamber tradition from eighteenth-century codification to contemporary experimentation. Full existing target already spans these eras internationally. Creator national naming does not independently establish another musical practice; adjacent nonquartet releases are disclosed."
+  },
+  {
+    "source_label": "quartetto d'archi",
+    "allocation_ordinal": 4188,
+    "existing_id": "string_quartet",
+    "count_as_addition": false,
+    "proposal": "/tmp/batch040/resume116-4188-equivalence-proposal.json",
+    "proposal_sha256": "b0b07ac9f0550fbb8811442eff07396f3795c453c93529eb0bcec9aeb02ad706",
+    "review": "/tmp/batch040/equivalence-4188-independent-review-root.json",
+    "reason": "Fresh Italian performers association and conservatory positively define the same two-violin, viola, cello scored ensemble. Full existing target has no nationality exclusion. Fresh complete79-item programme includes international repertoire; adjacent quintet/trio works remain acknowledged rather than mislabeled as four-string works."
+  },
+  {
+    "source_label": "symfonicky orchestr",
+    "allocation_ordinal": 4379,
+    "existing_id": "symphonic",
+    "count_as_addition": false,
+    "proposal": "/tmp/batch040/resume116-4379-equivalence-proposal.json",
+    "proposal_sha256": "3de6d077e0f15d8813a4d21015c80174ec99278d87f6281c61596cc3e4ab4fdf",
+    "review": "/tmp/batch040/equivalence-4379-independent-review-root.json",
+    "reason": "Fresh conductor interview defines the same scored multi-family symphony-orchestra practice. Conservatory history positively documents continuous Beethoven-to-modern concert institution; full existing target explicitly spans international Classical through contemporary orchestral tradition despite its narrower short title. Regional performer concentration alone does not establish a separate musical category."
+  },
+  {
+    "source_label": "belgian hip hop",
+    "allocation_ordinal": 219,
+    "existing_id": "rap_belge",
+    "count_as_addition": false,
+    "proposal": "/tmp/batch040/belgian-hiphop-equivalence-proposal461.json",
+    "proposal_sha256": "059d33af0df3e1aff4603a38222d89ee53ed8392ee9bc419dea2d39bd9496f84",
+    "review": "/tmp/batch040/belgian-hiphop-equivalence-independent-review116.json",
+    "reason": "Original national festival uses Belgian rap and hip-hop for the same multilingual French/Flemish/English field; full existing Rap Belge includes the Flemish wing, and creator playlist spans that same network. Independently verified full-field equivalence."
+  },
+  {
+    "source_label": "instrumental worship",
+    "allocation_ordinal": 3518,
+    "existing_id": "musica_instrumental_cristiana",
+    "count_as_addition": false,
+    "proposal": "/tmp/batch040/instrumental-worship-equivalence-proposal461.json",
+    "proposal_sha256": "74d0caf0baefeaf51321e498e4b00665485bc26fa5614c3cda2c977bc2cb7ad0",
+    "review": "/tmp/batch040/instrumental-worship-equivalence-independent-review119.json",
+    "reason": "Root and independent peer read full existing devotional category and positive multilingual artist field descriptions. Both describe Christian instrumental song interpretations for devotional listening, with variable instrumentation; playlist secular peripherals explicitly excluded from equivalence claim."
+  }
+]

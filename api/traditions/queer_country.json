@@ -2,10 +2,10 @@
   "id": "queer_country",
   "name": "Queer country",
   "family": "vernacular",
-  "lineage": "Queer country names explicitly queer country-song and performance communities rather than a timbre inferred from identity. Lavender Country’s public artistic project and documented Seattle history provide a concrete early branch.",
-  "recipe": "classic modern queer country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. a 440 modern pitch us standard grand piano, melodic bowed song accompaniment fiddle. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 354,
-  "score": 68.57,
+  "lineage": "Queer country names communities and artistic projects that bring openly queer experience into country music. Lavender Country’s Seattle-based work in the early 1970s became an important precedent for later performers, songs and organizing networks.",
+  "recipe": "classic 1970-1973 queer country, functional Song, country branch. thick, breath veiled tone, straight note core, neutral third half flat. grand piano, fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 303,
+  "score": 68.793,
   "config": {
     "traditions": [
       "queer_country"
@@ -18,7 +18,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
@@ -27,27 +27,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
         },
         "scores": {
           "voice_register": 14.062999999999994,
-          "voice_quality": 0.7799999999999996,
+          "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.45,
-          "voice_articulation": -0.14,
+          "voice_vibrato": 16.0355,
+          "voice_articulation": 0.13000000000000003,
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.44099999999999995,
-          "voice_estill_quality": 14.767499999999998,
-          "voice_speech_song": 7.994999999999999,
-          "voice_ensemble_config": 0.39,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 15.511499999999998,
+          "voice_speech_song": 6.305,
+          "voice_ensemble_config": 0.19949999999999998,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.0614999999999999,
-          "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 0.39
+          "voice_pitch_organization": 1.4,
+          "voice_processing_chain": 3.1200000000000006,
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
@@ -55,8 +55,8 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "imadegawa_e_type_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
@@ -66,13 +66,13 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.57,
-          "piano_hammer": -0.035,
+          "grand_piano_brand": 0.42,
+          "piano_hammer": 0.9314999999999999,
           "piano_rim": -0.035,
           "piano_soundboard": -0.05,
           "piano_pinblock": -0.05,
           "piano_plate": -0.05,
-          "piano_pitch_standard": 3.3149999999999995
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -86,11 +86,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 3.6399999999999997,
+          "bowed_technique": 2.34,
           "fiddle_strings": 0.2205,
           "fiddle_bow": 0.1365,
-          "fiddle_mute": 0.357,
-          "fiddle_articulation": 0.1365,
+          "fiddle_mute": 0.9099999999999999,
+          "fiddle_articulation": 0.222,
           "fiddle_string_configuration": 0
         }
       }
@@ -99,16 +99,18 @@
       "voice": [
         "voice_articulation",
         "voice_tradition",
-        "voice_ensemble_config"
+        "voice_ensemble_config",
+        "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size"
       ],
       "fiddle": [
         "bowed_technique"
       ]
     },
-    "room": "parlor",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -126,13 +128,15 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "parlor",
+    "room": "live_room",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "keyboard_technique": "keyboard_block_chord_pop",
       "bowed_technique": "bowed_local_song_melody",
-      "voice_tradition": "voice_tradition_source_unspecified"
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "grand_piano_size": "grand_9_foot",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

@@ -5,7 +5,7 @@
   "lineage": "Jamaican style that emerged in Kingston dancehalls around 1979-1984 as roots reggae receded, built by producers Henry Junjo Lawes and Linval Thompson with the Roots Radics at Channel One and Volcano, slowing the tempo to a stark 'rockers-to-rub-a-dub' 70-90 BPM with a dry gated kit, an enormous minimal bass line, sparse skank guitar and deejays like Yellowman toasting and singers chanting over recycled Studio One riddims.",
   "recipe": "classic Caribbean old school dancehall, bass System, Jamaican branch, dub descendants bass system, Afro-diasporic MC rhythm trip hop dubtronica. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit, dry roasted maple maple single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica, turntable. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 772,
-  "score": 256.178,
+  "score": 256.207,
   "config": {
     "traditions": [
       "old_school_dancehall",
@@ -101,7 +101,7 @@
           "string_gauge": "g_12",
           "bridge": "vintage_trem",
           "scale_length": "scale_baritone",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
@@ -116,7 +116,7 @@
           "string_gauge": 2.08,
           "bridge": 0.045,
           "scale_length": 0.845,
-          "finish": 0.3,
+          "finish": 0,
           "string_tuning": 0.65,
           "single_coil_pickup_construction": 0
         }
@@ -136,7 +136,7 @@
           "drawbar_setting": 0.78,
           "rotary_speed": 0.45499999999999996,
           "percussion_setting": 0.845,
-          "tonewheel_model": 11.825,
+          "tonewheel_model": 11.959999999999999,
           "leslie_cabinet_model": 0
         }
       },
@@ -163,7 +163,7 @@
         },
         "scores": {
           "electronic_technique": 2.385,
-          "turntable_technique": 1.635
+          "turntable_technique": 1.83
         }
       }
     ],

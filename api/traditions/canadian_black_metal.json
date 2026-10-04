@@ -2,10 +2,10 @@
   "id": "canadian_black_metal",
   "name": "Canadian black metal",
   "family": "rock_punk",
-  "lineage": "Canadian black-metal discovery scope represented by Vancouver’s Blasphemy, with primary founders’ accounts of guitar, bass/voice, kit, rehearsal work and the Fiasco Brothers studio recordings.",
-  "recipe": "classic modern canadian black metal, distorted Rock, black branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 385,
-  "score": 24.564,
+  "lineage": "Canadian black metal spans regional underground scenes and differing raw or atmospheric approaches. Vancouver’s Blasphemy exemplify an early extreme strand grounded in rehearsal-driven guitar, bass, drum and vocal interaction.",
+  "recipe": "classic modern canadian black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 474,
+  "score": 31.408,
   "config": {
     "traditions": [
       "canadian_black_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_tremolo_picking",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -30,24 +30,24 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 0,
+          "amp_make": 4.355,
           "body_wood": 0.483,
-          "neck_wood": 0.44849999999999995,
-          "fretboard": 0.0705,
+          "neck_wood": 0.5519999999999999,
+          "fretboard": 0.0315,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.44849999999999995,
+          "string_material": 0.5519999999999999,
           "bridge": 0.483,
           "scale_length": 0,
-          "string_gauge": 0.235,
+          "string_gauge": 0.105,
           "finish": 0,
-          "string_tuning": 0.102
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 3.575,
           "body_wood": 0.483,
           "pickup_config": 0,
-          "string_type": 0.44849999999999995,
+          "string_type": 0.5519999999999999,
           "scale_length_b": 0.0315,
-          "fretted_or_not": 0.03899999999999999,
+          "fretted_or_not": 0,
           "bass_technique": 4.21525,
           "electric_bass_string_configuration": 0
         }
@@ -86,9 +86,9 @@
           "drum_technique": 3.7815,
           "drumhead": 0.483,
           "drum_kit_kick_pedal": 1.69,
-          "shell_wood": 0.48749999999999993,
+          "shell_wood": 0.59475,
           "shell_thickness": 0,
-          "bearing_edges": 0.44849999999999995,
+          "bearing_edges": 0.5519999999999999,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
@@ -128,7 +128,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -139,7 +139,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -246,7 +244,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

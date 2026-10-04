@@ -2,10 +2,10 @@
   "id": "xitsonga_pop",
   "name": "Xitsonga Pop",
   "family": "pop",
-  "lineage": "Hlamalani Maluleke — documented solo guitar-and-voice spontaneous performances, Giyani,2015. Selected scope is the singer’s documented spontaneous solo guitar-and-voice performances around Giyani in2015, described in her firsthand interview, not the separately mentioned studio single or forthcoming album. One performer, one voice and guitar; no album production roster is inferred. Source names guitar without model, construction or measured technique: acoustic dreadnought, mahogany/phosphor-bronze construction, standard string tuning and flatpicking are expressly authored timbral reproduction choices, not source hardware facts. Neutral voice physiology and natural single-lead processing are authored; no global tuning inferred. The documented guitar role is retained as an authored all-mahogany dreadnought with phosphor-bronze strings, standard tuning and flatpicked single-note accompaniment. Source does not identify its body model, woods or picking gesture; this is an explicitly new timbral rendition, not a claim to reproduce the source instrument or exact original guitar part. Where present, the electric guitar uses authored alder/maple construction and the bass dual-single-coil pickups. No source-positive instrument or performer is omitted.",
-  "recipe": "classic mid-2010s xitsonga pop, functional Song. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze modern martin dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 344,
-  "score": 35.092,
+  "lineage": "Popular music in Xitsonga connects Tsonga-language expression with contemporary song, recording and performance communities. Artists such as Hlamalani Maluleke draw on regional identity while working across acoustic and produced pop settings.",
+  "recipe": "classic xitsonga pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 188,
+  "score": 11.329,
   "config": {
     "traditions": [
       "xitsonga_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,30 +43,30 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.3095,
-          "voice_ensemble_config": 5.882499999999999,
+          "voice_speech_song": 0.40950000000000003,
+          "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.9000000000000004,
-          "voice_multitrack_stack": 10.399999999999999,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_flatpicked",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "mahogany_top",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 1.2,
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
-          "top_wood": 2.5999999999999996,
-          "back_sides": 2.5999999999999996,
-          "string_acoustic": 5.199999999999999
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
         }
       }
     ],
@@ -98,22 +98,22 @@
         "string_acoustic"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -125,7 +125,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -135,15 +135,9 @@
       "string_tuning": "standard_tuning",
       "top_wood": "mahogany_top",
       "back_sides": "mahogany_bs",
-      "string_acoustic": "phosphor_bronze",
-      "acoustic_technique": "acoustic_flatpicked"
+      "string_acoustic": "eighty_twenty",
+      "acoustic_technique": "acoustic_strummed_ringing"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

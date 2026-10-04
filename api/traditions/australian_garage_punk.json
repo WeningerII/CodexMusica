@@ -2,10 +2,10 @@
   "id": "australian_garage_punk",
   "name": "Australian garage punk",
   "family": "rock_punk",
-  "lineage": "Australian garage-punk and DIY guitar-band scenes, represented by The Chats’ Sunshine Coast trio. Their direct studio account describes brief loud arrangements, limited takes, bass and drums, and lightly driven rather than maximally saturated guitar.",
-  "recipe": "classic modern australian garage punk, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 398,
-  "score": 33.393,
+  "lineage": "Australian garage punk develops through local DIY guitar-band scenes, combining garage-rock roughness with punk’s direct songwriting and performance energy. Groups such as Queensland’s Chats favour brief songs, economical riffs and an unpolished attack.",
+  "recipe": "classic modern australian garage punk, distorted Rock, punk branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 480,
+  "score": 59.085,
   "config": {
     "traditions": [
       "australian_garage_punk"
@@ -36,25 +36,25 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3945,
+          "voice_vibrato": 1.573,
           "voice_articulation": 0,
-          "voice_microtone": 7.300000000000001,
+          "voice_microtone": 6.000000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.0315,
+          "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.663,
-          "voice_ensemble_config": 1.2285000000000001,
-          "voice_ornament_system": 0.0315,
-          "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.1575
+          "voice_speech_song": 2.08,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_overdriven_lead",
-          "amp_make": "amp_american_fender_blackface",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "alder",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -69,13 +69,13 @@
         },
         "scores": {
           "electric_technique": 0.5315,
-          "amp_make": -0.175,
-          "body_wood": 0.063,
-          "neck_wood": 0.2415,
+          "amp_make": 17.826999999999998,
+          "body_wood": 0,
+          "neck_wood": 0.40950000000000003,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
-          "string_material": 0,
-          "string_gauge": 0.8995,
+          "pickup_magnet": 0,
+          "string_material": 0.0315,
+          "string_gauge": 0.7,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
@@ -97,12 +97,12 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 0.063,
+          "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 0.168,
+          "string_type": 0.1995,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 10.655,
+          "bass_technique": 18.131500000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.0815,
+          "drum_technique": 6.55,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
@@ -141,7 +141,6 @@
       ],
       "electric_guitar_single_coil": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "fretboard",
         "pickup_magnet",
@@ -214,7 +213,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "amp_make": "amp_american_fender_blackface",
       "body_wood": "alder",
       "fretboard": "rosewood_fb",
       "string_gauge": "g_10",

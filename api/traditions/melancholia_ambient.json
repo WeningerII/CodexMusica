@@ -5,7 +5,7 @@
   "lineage": "Post-2005 European neoclassical-ambient current shaped in Reykjavík, Berlin and Leipzig by Jóhann Jóhannsson, Nils Frahm, Ólafur Arnalds and the Erased Tapes and Type catalogues — slow felted piano and close-miked string quartet writing over tape-saturated drones, 50-70 BPM or unpulsed, diatonic minor loops with suspended fourths, and mechanical noise (hammer felt, pedal, room hum) retained as a deliberate timbral layer",
   "recipe": "classic mid-2000s melancholia, experimental Elec, ambient branch, western modern art music, lofi experimental electric neo-classical avant-garde. prepared upright piano, synthetic sitka spruce European maple sycamore maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, sustained pad granular sustained pad analog poly synth, mellotron m4000d modern digital reissue post 2007 polyester base quarter inch iron oxide canonical mellotron mellotron, pedal resonant legato pump organ harmonium. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 696,
-  "score": 208.17,
+  "score": 201.515,
   "config": {
     "traditions": [
       "melancholia_ambient",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "keyboard_technique": 8.3,
-          "upright_use": 1.69,
+          "upright_use": 2.34,
           "upright_piano_size": 1.17
         }
       },
@@ -41,16 +41,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 4.275,
+          "bowed_technique": 3.9,
           "orch_strings": 1.035,
-          "orch_top_wood": 6.85,
-          "orch_back_wood": 11.39,
-          "orch_varnish": 10,
-          "orch_setup_period": 12.25,
+          "orch_top_wood": 6.625,
+          "orch_back_wood": 10.64,
+          "orch_varnish": 9.25,
+          "orch_setup_period": 11.5,
           "orch_bow": 0.78,
-          "orch_bow_stick": 11.45,
-          "orch_articulation": 0.39,
-          "orch_rosin": 12.445
+          "orch_bow_stick": 10.7,
+          "orch_articulation": 0.585,
+          "orch_rosin": 11.695
         }
       },
       {
@@ -67,15 +67,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 4.275,
-          "cello_strings": 3.055,
-          "cello_top_wood": 6.015,
-          "cello_back_wood": 11.39,
-          "cello_varnish": 10,
-          "cello_setup_period": 12.25,
-          "cello_bow_grip": 2.145,
-          "cello_rosin": 10.195,
-          "cello_bow_stick": 11.45
+          "bowed_technique": 3.9,
+          "cello_strings": 2.8600000000000003,
+          "cello_top_wood": 5.64,
+          "cello_back_wood": 10.64,
+          "cello_varnish": 9.25,
+          "cello_setup_period": 11.5,
+          "cello_bow_grip": 1.95,
+          "cello_rosin": 9.445,
+          "cello_bow_stick": 10.7
         }
       },
       {
@@ -86,7 +86,7 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 10.35,
+          "electronic_technique": 11.6,
           "granular_use": 0.195,
           "granular_synth_source": 2.8600000000000003
         }
@@ -100,9 +100,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.35,
+          "electronic_technique": 11.6,
           "poly_archetypes": 0.84,
-          "poly_voices": 1.195,
+          "poly_voices": 1.695,
           "poly_maker_lineage": -1.435
         }
       },
@@ -111,15 +111,15 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "mellotron_voice": "mellotron_strings",
-          "mellotron_context": "mellotron_prog",
+          "mellotron_context": "mellotron_indie",
           "mellotron_model": "mellotron_m4000d_modern",
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
           "keyboard_technique": 0.2,
           "mellotron_voice": 0.585,
-          "mellotron_context": 1.3,
-          "mellotron_model": 4.355,
+          "mellotron_context": 0.975,
+          "mellotron_model": 4.16,
           "mellotron_tape_material": 1.3650000000000002
         }
       },
@@ -131,8 +131,8 @@
           "pump_organ_stops": "pump_organ_bourdon_stop"
         },
         "scores": {
-          "keyboard_technique": 5.425,
-          "pump_organ_construction": 13.584999999999997,
+          "keyboard_technique": 5.2,
+          "pump_organ_construction": 13.194999999999999,
           "pump_organ_stops": 1.3
         }
       }

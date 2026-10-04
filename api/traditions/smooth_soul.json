@@ -5,7 +5,7 @@
   "lineage": "Smooth soul emphasizes melodic hooks, romantic ballad delivery and polished arrangements with funk-derived rhythm. Al Green’s early-1970s recordings provide a representative branch.",
   "recipe": "classic 1970-1973 smooth soul, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 455,
-  "score": 27.519,
+  "score": 27.556,
   "config": {
     "traditions": [
       "smooth_soul"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.703125,
+          "voice_speech_song": 0.6659999999999999,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.252
+          "voice_multitrack_stack": 0.28912499999999997
         }
       },
       {
@@ -68,7 +68,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.2,
+          "electric_technique": 3.2371250000000003,
           "amp_make": 0,
           "body_wood": 0.33599999999999997,
           "neck_wood": 0.2415,

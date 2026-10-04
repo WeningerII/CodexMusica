@@ -2,10 +2,10 @@
   "id": "gambian_pop",
   "name": "Gambian pop",
   "family": "pop",
-  "lineage": "Gambian pop is represented here by Sona Jobarteh — Gambia core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic gambian pop, functional Song, African pop branch. clean strummed humbucker electric guitar, gambia modern revival kora, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 278,
-  "score": 39.45,
+  "lineage": "Gambian pop connects local song traditions and diaspora audiences with contemporary popular arrangements. Kora-led music can meet guitars and a modern rhythm section.",
+  "recipe": "classic gambian pop, functional Song, African pop branch. basswood alnico clean strummed humbucker electric guitar, nylon fishing line mande hardwood local traditional modern concert kora, stainless steel roundwound electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 366,
+  "score": 45.902,
   "config": {
     "traditions": [
       "gambian_pop"
@@ -15,75 +15,75 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.95,
-          "amp_make": 1.1049999999999998,
-          "body_wood": 0.9135,
+          "electric_technique": 13.75,
+          "amp_make": 1.17,
+          "body_wood": 1.3,
           "neck_wood": 0.3045,
           "fretboard": 0.273,
-          "pickup_magnet": 0.336,
-          "pickup_winding": 0.336,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 1.3,
           "string_material": 0,
-          "bridge": 1.5835,
-          "scale_length": 0.8819999999999999,
-          "string_gauge": 1.447,
+          "bridge": 0.3045,
+          "scale_length": 1.3,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
         "id": "kora",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
-          "kora_strings": "kora_25_extended",
-          "kora_resonator": "kora_calabash_med",
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_full",
           "kora_strings_mat": "kora_fishing_line",
           "kora_top_skin": "kora_cowhide_canonical",
           "kora_neck_wood": "kora_hardwood_local",
-          "kora_lineage": "kora_suso_lineage"
+          "kora_lineage": "kora_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 1.4299999999999997,
-          "kora_strings": 0.40950000000000003,
-          "kora_resonator": 0.336,
-          "kora_strings_mat": 0.47250000000000003,
+          "plucked_traditional_technique": -0.035,
+          "kora_strings": 0.21,
+          "kora_resonator": 0.0315,
+          "kora_strings_mat": 1.3,
           "kora_top_skin": 0.4095,
-          "kora_neck_wood": 0.1365,
-          "kora_lineage": 2.0725000000000002
+          "kora_neck_wood": 1.1365,
+          "kora_lineage": 1.3
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.325,
+          "amp_make": 1.17,
           "body_wood": 0.609,
-          "pickup_config": 0.336,
-          "string_type": 0.336,
-          "scale_length_b": 0.609,
-          "fretted_or_not": 0.1365,
+          "pickup_config": 1.3,
+          "string_type": 1.3,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0.363,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -97,7 +97,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 11.981499999999999,
+          "drumhead": 13.7815,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -145,6 +145,15 @@
       "electric_guitar_humbucker": [
         "electric_technique",
         "string_tuning"
+      ],
+      "kora": [
+        "plucked_traditional_technique",
+        "kora_strings",
+        "kora_resonator",
+        "kora_strings_mat",
+        "kora_top_skin",
+        "kora_neck_wood",
+        "kora_lineage"
       ],
       "electric_bass": [
         "bass_technique"
@@ -211,7 +220,14 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "plucked_traditional_technique": "plucked_fingerpicked",
+      "kora_strings": "kora_21_traditional",
+      "kora_resonator": "kora_calabash_full",
+      "kora_strings_mat": "kora_fishing_line",
+      "kora_top_skin": "kora_cowhide_canonical",
+      "kora_neck_wood": "kora_hardwood_local",
+      "kora_lineage": "kora_modern_concert"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

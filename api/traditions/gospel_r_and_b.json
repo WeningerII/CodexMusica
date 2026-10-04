@@ -2,10 +2,10 @@
   "id": "gospel_r_and_b",
   "name": "Gospel r&b",
   "family": "blues_gospel",
-  "lineage": "Gospel R&B combines Christian lyric and devotional purpose with R&B songcraft and production. The selected Kirk Franklin Love Theory branch is directly described by his label as an uptempo R&B melody carrying gospel lyrics. Documented vocals, guitar, bass, Hammond organ and programming support this reduced authored arrangement, pairing collective singing with a syncopated rhythm foundation. Exact synth, sampler and signal-chain decisions remain modern editorial choices, not reconstructed session gear.",
-  "recipe": "classic modern gospel r&b, ritual Devotional, christian gospel branch. one note per syllable, group vocals, no specific ornament system. single coil electric guitar, electric bass, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched full spectrum fast tremolo tonewheel organ, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 564,
-  "score": 52.797,
+  "lineage": "Gospel R&B combines Christian lyrics and devotional purpose with R&B songcraft and production. Artists such as Kirk Franklin connect collective singing and gospel-rooted keyboard textures with syncopated rhythm and contemporary studio techniques.",
+  "recipe": "classic modern gospel r&b, ritual Devotional, christian gospel branch. one note per syllable, group vocals. single coil electric guitar, electric bass, Hammond b3 canonical 1955 1975 jazz gospel rock standard full spectrum fast tremolo tonewheel organ, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 478,
+  "score": 38.753,
   "config": {
     "traditions": [
       "gospel_r_and_b"
@@ -20,16 +20,17 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -38,16 +39,17 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": -0.21,
+          "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.4365,
-          "voice_ornament_system": 0.6825000000000001,
+          "voice_ensemble_config": 0.7364999999999999,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.3,
+          "voice_tessitura": 0
         }
       },
       {
@@ -55,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
+          "body_wood": "alder",
           "neck_wood": "maple",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
@@ -76,7 +78,7 @@
           "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0.294,
-          "bridge": 1.69,
+          "bridge": 0.40950000000000003,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -87,8 +89,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -102,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": 0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -118,11 +120,11 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "drawbar_setting": 12.75,
-          "rotary_speed": 12.7,
+          "drawbar_setting": 11.25,
+          "rotary_speed": 11.2,
           "percussion_setting": 0,
-          "tonewheel_model": 14.4805,
-          "leslie_cabinet_model": 1.625
+          "tonewheel_model": 11.6805,
+          "leslie_cabinet_model": -0.035
         }
       },
       {
@@ -135,7 +137,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 1.69,
+          "sample_bitdepth": 0.40950000000000003,
           "sample_swing": 0.693,
           "sample_processing": 0
         }
@@ -158,7 +160,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "electric_guitar_single_coil": [
         "electric_technique",
@@ -181,7 +184,8 @@
         "string_type",
         "scale_length_b",
         "fretted_or_not",
-        "bass_technique"
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "tonewheel_organ": [
         "keyboard_technique",
@@ -192,6 +196,7 @@
         "leslie_cabinet_model"
       ],
       "sampler_drum_machine": [
+        "electronic_technique",
         "sample_bitdepth",
         "sample_swing",
         "sample_processing"
@@ -219,25 +224,26 @@
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
     "parts": {
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "tempered_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_chicken_scratch",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
+      "body_wood": "alder",
       "neck_wood": "maple",
       "fretboard": "rosewood_fb",
       "pickup_magnet": "alnico_2",
@@ -247,7 +253,7 @@
       "scale_length": "scale_fender",
       "finish": "nitro",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -260,7 +266,9 @@
       "leslie_cabinet_model": "leslie_122_canonical",
       "sample_bitdepth": "sixteen_bit",
       "sample_swing": "mid_swing",
-      "sample_processing": "one_shots_layered"
+      "sample_processing": "one_shots_layered",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "electronic_technique": "electronic_sample_chopped"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

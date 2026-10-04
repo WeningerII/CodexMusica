@@ -5,7 +5,7 @@
   "lineage": "Carolina Eyck — Sonina (2008), track4 from Theremin. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic late-2000s theremin, art Music. moog music etherwave canonical modern reissue 1996 present theremin, concert harp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 7.245,
+  "score": 7.26,
   "config": {
     "traditions": [
       "theremin"
@@ -20,8 +20,8 @@
           "theremin_lineage": "theremin_moog_etherwave"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "theremin_model": -0.035,
+          "electronic_technique": -0.07,
+          "theremin_model": -0.05,
           "theremin_technique": 0.75,
           "theremin_lineage": 4.03
         }

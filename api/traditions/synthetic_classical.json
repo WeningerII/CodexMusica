@@ -2,10 +2,10 @@
   "id": "synthetic_classical",
   "name": "Synthetic classical",
   "family": "classical",
-  "lineage": "Synthetic classical is represented by Wendy Carlos — Bach: Brandenburg Concerto No. 3 (synthesizer realization). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic synthetic classical, art Music, western modern branch. emu modular 1971 1978 analog studio grade east coast precision modular synth. treated studio. transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 205,
-  "score": 2.787,
+  "lineage": "Synthetic classical music realizes composed concert repertoire through electronic sound generation. Keyboard performance, synthesis and layered production can reinterpret instrumental lines and musical forms.",
+  "recipe": "classic synthetic classical, art Music, western modern branch. moog east coast modular canonical 1964 1981 trumansburg keyboard driven subtractive modular synth. treated studio. transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 226,
+  "score": 2.605,
   "config": {
     "traditions": [
       "synthetic_classical"
@@ -15,21 +15,24 @@
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_modular_patch",
-          "mod_voltage_source": "mod_sequencer",
-          "mod_patch_density": "mod_west_coast",
-          "mod_lineage": "mod_emu_modular"
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_simple_patch",
+          "mod_lineage": "mod_moog_east_coast"
         },
         "scores": {
           "electronic_technique": 0.2,
           "mod_voltage_source": 0.39,
-          "mod_patch_density": 0.1365,
-          "mod_lineage": 2.06
+          "mod_patch_density": 0,
+          "mod_lineage": 2.015
         }
       }
     ],
     "pinned": {
       "modular_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_modular_patch"
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_keyboard",
+      "mod_patch_density": "mod_simple_patch",
+      "mod_lineage": "mod_moog_east_coast"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

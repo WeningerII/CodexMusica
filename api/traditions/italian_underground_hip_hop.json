@@ -5,7 +5,7 @@
   "lineage": "Italian underground hip hop includes independent collectives and social-center networks. Rome’s Assalti Frontali and their work with Brutopop supply the selected rap-and-live-instrument branch.",
   "recipe": "classic modern italian underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler, single coil electric guitar, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 398,
-  "score": 47.303,
+  "score": 47.572,
   "config": {
     "traditions": [
       "italian_underground_hip_hop"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.965,
+          "voice_speech_song": 13.019,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 5.2,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.213,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 12.284999999999998
         }
@@ -79,7 +79,7 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -93,8 +93,8 @@
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
           "string_gauge": 0.0735,
-          "bridge": 0.105,
-          "scale_length": 0,
+          "bridge": 0.159,
+          "scale_length": 0.108,
           "finish": 0,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0
@@ -110,7 +110,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.44999999999999996,
+          "rompler_preset_bank": 0.39599999999999996,
           "rompler_context": 0,
           "rompler_lineage": 0
         }

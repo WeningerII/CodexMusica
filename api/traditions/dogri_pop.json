@@ -2,10 +2,10 @@
   "id": "dogri_pop",
   "name": "Dogri pop",
   "family": "pop",
-  "lineage": "Dogri pop is represented here by Sonali Dogra — Avishkar Dogri-song branch. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Dogri pop centres Dogri-language songs within a varied popular-music field. Literary settings and stage performances connect regional language and melody with different accompaniment styles.",
   "recipe": "classic dogri pop, functional Song, south Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, flute, dark clay tabla, song accompaniment harmonium indian. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 364,
-  "score": 24.349,
+  "score": 26.188,
   "config": {
     "traditions": [
       "dogri_pop"
@@ -33,16 +33,16 @@
         "slots": {
           "wind_articulation": "wind_cool_lyrical",
           "flute_size": "alto_flute",
-          "flute_material": "silver_flute",
+          "flute_material": "gold_flute",
           "flute_technique": "beatboxed_flute",
-          "flute_maker_school": "flute_yamaha"
+          "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
           "wind_articulation": -0.035,
-          "flute_size": 0.0315,
-          "flute_material": 0.273,
+          "flute_size": 0.3315,
+          "flute_material": 0.3,
           "flute_technique": 0.8819999999999999,
-          "flute_maker_school": 0.924
+          "flute_maker_school": 0.9239999999999999
         }
       },
       {
@@ -53,24 +53,24 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 0.3,
+          "tabla_dayan": 0,
           "tabla_bayan": 1.2915,
-          "tabla_syahi": 0.39
+          "tabla_syahi": 1.3125000000000002
         }
       },
       {
         "id": "harmonium_indian",
         "slots": {
           "free_reed_technique": "free_reed_overblow_modern",
-          "harmonium_action": "harmonium_foot_pump",
-          "harmonium_voicing": "harmonium_female",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_double",
           "harmonium_use": "harmonium_folk_song"
         },
         "scores": {
           "free_reed_technique": 0.0315,
-          "harmonium_action": 0.6405000000000001,
-          "harmonium_voicing": 0.777,
-          "harmonium_use": 4.029999999999999
+          "harmonium_action": 1.9675,
+          "harmonium_voicing": 0.6,
+          "harmonium_use": 3.25
         }
       },
       {
@@ -105,7 +105,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

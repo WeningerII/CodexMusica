@@ -2,52 +2,94 @@
   "id": "er_ge",
   "name": "Er ge (Chinese children’s repertoire)",
   "family": "pop",
-  "lineage": "pichia — 小毛驢, complete four-page solo-piano theme and three variations. Arranger pichia publishes a complete four-page solo-piano adaptation of 小毛驢(Xiao Mao Lu/Little Donkey), including its theme and three variations labeled tango, Latin and waltz. Public arranger description explicitly calls the repertoire er ge/children song, specifies solo piano, printed lyrics and chords, C major and an Overture-generated listening example. Variations have no lyrics. Complete arrangement metadata was read; purchased full score and audio were not accessed. No original choir recording instrumentation is inferred from the piano edition. The selected published arrangement is explicitly piano solo despite printed lyrics; no singer is added. One nine-foot Steinway-D grand with conventional matching construction and block-chord song support is an authored physical realization, not the arranger playback piano model or source recording equipment. Broad functionalSong models the familiar song-theme and chordal dance variations, rather than treating notation alone as classical art music. Global tuning omitted; source C-major key is retained in evidence but does not prove a measured temperament. Studio capture choices are editorial.",
-  "recipe": "classic er ge, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 204,
-  "score": 34.869,
+  "lineage": "Er ge encompasses Chinese-language children’s songs and associated childhood listening repertoire. Familiar melodies circulate through family, educational and recorded settings, alongside instrumental adaptations and spoken stories.",
+  "recipe": "classic er ge, nursery Rhyme. solo with instrumental accompaniment. upright piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 181,
+  "score": 5.712,
   "config": {
     "traditions": [
       "er_ge"
     ],
     "instruments": [
       {
-        "id": "grand_piano",
+        "id": "voice",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "keyboard_technique": 5.05,
-          "grand_piano_size": 1.3,
-          "grand_piano_brand": 0.40950000000000003,
-          "piano_hammer": 3.95,
-          "piano_rim": 5.8500000000000005,
-          "piano_soundboard": 4.0865,
-          "piano_pinblock": 5.250000000000001,
-          "piano_plate": 5.250000000000001,
-          "piano_pitch_standard": 3.7229999999999994
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.246,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.129,
+          "voice_multitrack_stack": 0.1215,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.45,
+          "upright_use": 0.38549999999999995,
+          "upright_piano_size": 0.3
         }
       }
     ],
     "pinned": {
-      "grand_piano": [
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ]
     },
     "room": "treated_studio",
@@ -67,15 +109,26 @@
   "source": {
     "room": "treated_studio",
     "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

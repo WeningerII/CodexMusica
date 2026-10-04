@@ -5,7 +5,7 @@
   "lineage": "Cuban hip-hop and diaspora practice; selected Orishas traditional-record sampling branch",
   "recipe": "classic modern hip hop cubano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 269,
-  "score": 40.318,
+  "score": 40.48,
   "config": {
     "traditions": [
       "hip_hop_cubano"
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.454749999999999,
+          "electronic_technique": 6.508749999999999,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.213,
           "sampler_workflow": 0.24275000000000002,
           "sampler_classic_context": 10.659999999999998
         }

@@ -2,10 +2,10 @@
   "id": "french_worship",
   "name": "French Worship",
   "family": "blues_gospel",
-  "lineage": "Dan Luiten — complete Ma Dévotion2021 devotional piano-and-voice album, thirty worship songs accompanying the thirty-day book. The artist explicitly identifies the CD as piano/voice with no other voice and no complex orchestration; his own discography distinguishes this2021 project from the multi-guest2023 Dan Luiten & Friends live release. All selected songs retain the sole singer and piano. The companion instrumental tracks require no additional sound family; no2023 guest is transferred. This is the whole artist-issued edition, not a vocal-only excerpt or assumed original studio palette. No audio audition or measured original piano subtype is claimed. Standard modern studio upright and connected legato phrasing are authored realizations of source-unspecified piano construction and touch. One accompanied singer, source-unspecified physiology and pitch system, with a single-lead take as an authored arrangement choice rather than proof of absent self-overdubbing. Dry treated-studio acoustics are an authored intimate recording presentation compatible with the issuer quiet devotional intent, not a source location claim. No global tuning or capture chain inferred. Christian devotional song supplies ritualDevotional.christianGospel parent; not a notation-based art-music claim.",
-  "recipe": "classic french worship, ritual Devotional, christian gospel branch. solo with instrumental accompaniment, single lead single track no stacking. upright piano. treated studio.",
-  "recipe_chars": 174,
-  "score": 16.889,
+  "lineage": "French worship connects French-language Christian devotional songwriting with congregational and recorded practice. Solo artists and groups circulate songs through churches, concerts and media.",
+  "recipe": "classic french worship, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. upright piano. treated studio.",
+  "recipe_chars": 136,
+  "score": 3.889,
   "config": {
     "traditions": [
       "french_worship"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.7459999999999996,
+          "voice_ensemble_config": 3.146,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 9.1,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.25,
+          "keyboard_technique": -0.05,
           "upright_use": 0,
           "upright_piano_size": 0.49350000000000005
         }

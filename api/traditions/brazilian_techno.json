@@ -5,7 +5,7 @@
   "lineage": "Brazilian techno production network, represented here by the darker machine-driven strand of São Paulo producer Gui Boratto. His wider catalog also crosses house and song forms; this selected arrangement emphasizes repeating synthesizer figures and programmed percussion.",
   "recipe": "classic modern brazilian techno, electronic Dance, techno branch. analog synth, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 291,
-  "score": 4.423,
+  "score": 4.462,
   "config": {
     "traditions": [
       "brazilian_techno"
@@ -24,7 +24,7 @@
           "electronic_technique": -0.035,
           "oscillator": 0.20700000000000002,
           "filter_topology": 0,
-          "envelope": 0.2415,
+          "envelope": 0.28049999999999997,
           "modulation": 0.1365
         }
       },

@@ -2,10 +2,10 @@
   "id": "lds_instrumental",
   "name": "Lds Instrumental",
   "family": "vernacular",
-  "lineage": "David Glen Hatch — Favorite LDS Piano Solos Book1, publisher00345. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Instrumental Latter-day Saint sacred repertoire — hymn arrangements and devotional listening music.",
   "recipe": "classic lds instrumental, ritual Devotional, christian gospel branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 0.012,
+  "score": 0.372,
   "config": {
     "traditions": [
       "lds_instrumental"
@@ -33,7 +33,7 @@
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       }
     ],

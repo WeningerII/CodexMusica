@@ -2,10 +2,10 @@
   "id": "electronica_venezuela",
   "name": "Electronica venezuela",
   "family": "electronic",
-  "lineage": "Electronica venezuela is represented here by Aérea Negrot with BANU — We / TransSoundScapes production branch (2022). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2020s electronica venezuela, experimental Elec. solo with instrumental accompaniment. analog mono synth, drum machine analog, field textural sampler. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 264,
-  "score": 17.611,
+  "lineage": "Electrónica Venezuela connects Venezuelan and diaspora artists working with electronic composition, performance and song. Experimental collaborations extend the field across countries and artistic communities.",
+  "recipe": "classic electronica venezuela, experimental Elec. solo with instrumental accompaniment. analog mono synth, drum machine analog, field textural sampler. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 252,
+  "score": 23.189,
   "config": {
     "traditions": [
       "electronica_venezuela"
@@ -21,7 +21,7 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "mono_oscillator": 0.105,
           "mono_filter": 0.21,
           "mono_archetypes": 0.105,
@@ -32,32 +32,32 @@
         "id": "drum_machine_analog",
         "slots": {
           "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
+          "snare_voice": "tone_noise_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "shuffle_high"
         },
         "scores": {
           "kick_voice": 0.105,
-          "snare_voice": 0,
+          "snare_voice": 0.0315,
           "hat_voice": 0,
-          "shuffle_quantize": 0.0315
+          "shuffle_quantize": 0.363
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_s1000",
+          "sampler_archetypes": "emu_emax",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 3.7,
-          "sampler_archetypes": 2.5,
+          "electronic_technique": 6.2315000000000005,
+          "sampler_archetypes": 0.105,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 4.0945,
-          "sampler_classic_context": 3.65
+          "sampler_workflow": 8.201,
+          "sampler_classic_context": 6.15
         }
       },
       {
@@ -92,11 +92,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.1575
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.126
         }
       }
     ],

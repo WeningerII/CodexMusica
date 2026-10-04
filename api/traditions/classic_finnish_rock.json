@@ -2,10 +2,10 @@
   "id": "classic_finnish_rock",
   "name": "Classic Finnish rock",
   "family": "rock_punk",
-  "lineage": "A heritage Finnish rock-repertoire label, represented here by Hurriganes’ mid1970s guitar/bass/drum trio with drummer and bassist also supplying vocals. The selected Hot Wheels-era branch favors compact rock-and-roll songs and a rougher recorded band sound.",
-  "recipe": "classic classic finnish rock, distorted Rock, classic branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp soft down tuning single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. concrete basement. shure SM57, console-strip pre, marshall super lead 1959, colored vintage console, parametric EQ. tape 15ips.",
-  "recipe_chars": 439,
-  "score": 54.198,
+  "lineage": "Classic Finnish rock gathers enduring repertoire from the country’s rock-and-roll and amplified guitar bands. Direct band performance, compact songs and rough-edged recording aesthetics form a prominent historical strand.",
+  "recipe": "classic classic finnish rock, distorted Rock, classic branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp soft down tuning single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. shure SM57, console-strip pre, marshall super lead 1959, colored vintage console, parametric EQ. tape 15ips.",
+  "recipe_chars": 435,
+  "score": 53.89,
   "config": {
     "traditions": [
       "classic_finnish_rock"
@@ -21,7 +21,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -29,18 +29,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.49999999999999994,
+          "electric_technique": 0.2,
           "amp_make": 5.720000000000001,
           "body_wood": 0.0315,
           "neck_wood": 0.6194999999999999,
           "fretboard": 0.126,
           "pickup_magnet": 0,
           "string_material": 0.126,
-          "string_gauge": 0.6194999999999999,
+          "string_gauge": 0.7314999999999999,
           "bridge": 0,
           "scale_length": 1.2390000000000003,
           "finish": 0.3045,
-          "string_tuning": 9.1,
+          "string_tuning": 10.4,
           "single_coil_pickup_construction": 0
         }
       },
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.085,
+          "amp_make": 6.175,
           "body_wood": 0.0315,
           "pickup_config": 0.0315,
           "string_type": -0.1,
           "scale_length_b": 0.6194999999999999,
-          "fretted_or_not": 0.6,
-          "bass_technique": 11.2945,
+          "fretted_or_not": 0.3,
+          "bass_technique": 11.5945,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,8 +117,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.2945,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 1.6945000000000001,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.21,
           "voice_processing_chain": 0,
@@ -163,7 +163,7 @@
         "voice_multitrack_stack"
       ]
     },
-    "room": "concrete_basement",
+    "room": "live_room",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
       "pre": "pre_console_inline_strip",
@@ -180,7 +180,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "concrete_basement",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",

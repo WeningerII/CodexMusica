@@ -2,10 +2,10 @@
   "id": "turin_indie",
   "name": "Turin Indie",
   "family": "pop",
-  "lineage": "Giulia’s Mother — complete live duo at Teatro dei Filarmonici,22March2019. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic turin indie, functional Song. one note per syllable, solo with instrumental accompaniment, harmonizer scale locked diatonic stack, lead plus third fifth harmony stack 3 part. acoustic guitar bass register, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 13.381,
+  "lineage": "Turin’s independent-music scene includes guitar-led songwriting, experimental arrangements and small ensembles that expand their sound through effects. Giulia’s Mother exemplifies one inventive acoustic-band approach.",
+  "recipe": "classic turin indie, functional Song. one note per syllable, solo with instrumental accompaniment. acoustic guitar bass register, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 234,
+  "score": 6.713,
   "config": {
     "traditions": [
       "turin_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.17,
-          "voice_ensemble_config": 1.17,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 0.5715000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.5,
-          "voice_multitrack_stack": 0.654,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
         },
         "scores": {
           "acoustic_guitar_bass_register_identity": 0,
-          "acoustic_guitar_bass_register_role": 0.6,
-          "acoustic_technique": 0.3
+          "acoustic_guitar_bass_register_role": 0,
+          "acoustic_technique": 0
         }
       },
       {
@@ -82,15 +82,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6540000000000001,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 2.454,
-          "cymbal_lathing": 2.7,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       }
@@ -134,15 +134,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -151,7 +151,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -185,12 +185,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

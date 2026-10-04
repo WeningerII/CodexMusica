@@ -2,10 +2,10 @@
   "id": "wrock",
   "name": "Wrock",
   "family": "rock",
-  "lineage": "The Lovegoods — The Lovegoods EP, complete five-track release (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s wrock, distorted Rock. single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 333,
-  "score": 39.032,
+  "lineage": "Wrock, or wizard rock, is a fan-song movement inspired by the characters and stories of Harry Potter. Artists connect original songwriting with a shared literary audience and participatory fan culture.",
+  "recipe": "classic wrock, distorted Rock. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 215,
+  "score": 34.326,
   "config": {
     "traditions": [
       "wrock"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1995,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 1.7890000000000001,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.6000000000000005,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.0315,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -80,17 +80,17 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.08,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.4365
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
-          "pickup_config": 0,
+          "body_wood": 0.0315,
+          "pickup_config": 0.063,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.5,
-          "drumhead": 1.4365,
+          "drum_technique": 9.5,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.7365000000000002,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.3315,
+          "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 9.2,
-          "cymbal_lathing": 9.531499999999998,
+          "cymbal_hammering": 10.2,
+          "cymbal_lathing": 10.231499999999999,
           "cymbal_finish": 0
         }
       }
@@ -197,15 +197,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +214,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -226,7 +226,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -235,8 +235,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_power_chord",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -264,12 +264,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

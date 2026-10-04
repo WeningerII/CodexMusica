@@ -2,10 +2,10 @@
   "id": "euphonium",
   "name": "Euphonium",
   "family": "classical",
-  "lineage": "Steven Bryant — Hummingbrrd (Euphonium), composed2012 for Robert Benton. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic euphonium, art Music, western modern branch. euphonium, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 171,
-  "score": 14.028,
+  "lineage": "Euphonium repertoire spans solo concert performance and larger brass ensembles. Contemporary works also place the instrument alongside electronic accompaniment and other contrasting sound sources.",
+  "recipe": "classic euphonium, art Music, western modern branch. yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, sampler. shoebox concert hall.",
+  "recipe_chars": 182,
+  "score": 16.843,
   "config": {
     "traditions": [
       "euphonium"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "wind_articulation": 2.6365,
-          "euph_use": 0.39,
-          "euphonium_pitch": 0.7364999999999999,
-          "euphonium_bell_metal": 0.78,
-          "euphonium_maker_school": 0.78
+          "euph_use": 0.105,
+          "euphonium_pitch": 1.1365,
+          "euphonium_bell_metal": 1.3,
+          "euphonium_maker_school": 1.3
         }
       },
       {
@@ -41,8 +41,8 @@
           "electronic_technique": -0.035,
           "sampler_archetypes": 4.875,
           "sampler_bit_depth": 1.95,
-          "sampler_workflow": -0.035,
-          "sampler_classic_context": 1.95
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 3.25
         }
       }
     ],
@@ -62,15 +62,15 @@
         "sampler_classic_context"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -79,7 +79,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "wind_articulation": "wind_classical_legato",
       "euph_use": "euph_orchestral",
@@ -92,12 +92,6 @@
       "sampler_workflow": "sampler_one_shot_pitched",
       "sampler_classic_context": "sampler_classic_post"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

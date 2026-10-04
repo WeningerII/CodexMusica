@@ -2,10 +2,10 @@
   "id": "goregrind",
   "name": "Goregrind",
   "family": "rock_punk",
-  "lineage": "Man Stabbed — Where the Sun Dont Shine, complete2025 album. Authored contemporary grind-metal arrangement retains both credited vocalists, humbucker electric guitar, electric bass and programmed drums. Alder bodies, maple guitar neck, soapbar bass, aggressive picked bass and palm-muted power-chord guitar are editorial physical/technique choices, not identified original instruments. New isolated programmed-drum owner preserves exact positive role without assuming sample playback, analog synthesis, MIDI or an acoustic drummer. Guest vocal remains part of full album union; two-voice simultaneous realization is editorial, not a claim every track is a duet. Source voice mechanism, gender, processing and pitch organization remain unspecified. Authored digital studio chain; no global tuning.",
-  "recipe": "classic goregrind, distorted Rock, metal branch. duet, unprocessed natural acoustic. alder maple conventional tuning standard pitch palm muted humbucker electric guitar, full bodied low coloration balanced alder electric bass, programmed credited programmed drums unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 375,
-  "score": 38.931,
+  "lineage": "Goregrind combines grindcore intensity with death-metal weight and a pathological or horror-centered lyrical and visual vocabulary. Early influences such as Carcass connect with later bands that emphasize abrasive riffs and extreme vocal character.",
+  "recipe": "classic goregrind, distorted Rock, metal branch. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 290,
+  "score": 23.239,
   "config": {
     "traditions": [
       "goregrind"
@@ -15,9 +15,9 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "false_fold_voice",
           "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
+          "voice_effort": "effort_projected",
           "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "voice_microtone_local_unspecified",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": -0.5499999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.6315000000000002,
+          "voice_ensemble_config": 0.105,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4575,
-          "voice_multitrack_stack": 0.3315,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.105,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.469999999999999,
+          "electric_technique": 6.62,
           "amp_make": 0,
-          "body_wood": 3.1730000000000005,
-          "neck_wood": 1.405,
-          "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "body_wood": 0.39,
+          "neck_wood": 0.105,
+          "fretboard": 0.325,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.0315,
-          "string_material": 0.1365,
-          "bridge": 0.0315,
-          "scale_length": 1.155,
-          "string_gauge": 1.852,
+          "string_material": 0.21,
+          "bridge": 0.105,
+          "scale_length": 0.39,
+          "string_gauge": 0.147,
           "finish": 0.105,
-          "string_tuning": 2.9045
+          "string_tuning": 0.063
         }
       },
       {
@@ -99,22 +99,42 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.1730000000000005,
-          "pickup_config": 1.705,
+          "body_wood": 0.39,
+          "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 5,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
       {
-        "id": "credited_programmed_drums_unspecified",
+        "id": "drum_kit",
         "slots": {
-          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+          "drum_technique": "blast_beat_single_strokes",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_double",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "credited_programmed_drums_identity": 2.9314999999999993
+          "drum_technique": 0.78,
+          "drumhead": 0.39,
+          "drum_kit_kick_pedal": 0.78,
+          "shell_wood": 0.39,
+          "shell_thickness": 0,
+          "bearing_edges": 0.105,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 3.7865,
+          "cymbal_lathing": 3.8495000000000004,
+          "cymbal_finish": 0.105
         }
       }
     ],
@@ -163,8 +183,18 @@
         "bass_technique",
         "electric_bass_string_configuration"
       ],
-      "credited_programmed_drums_unspecified": [
-        "credited_programmed_drums_identity"
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
     "room": "treated_studio",
@@ -185,9 +215,9 @@
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "false_fold_voice",
       "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
+      "voice_effort": "effort_projected",
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_articulation": "voice_articulation_source_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
@@ -220,7 +250,17 @@
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+      "drum_technique": "blast_beat_single_strokes",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_double",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

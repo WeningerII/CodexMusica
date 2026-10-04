@@ -2,10 +2,10 @@
   "id": "hokkaido_indie",
   "name": "Hokkaido indie",
   "family": "rock",
-  "lineage": "Necoyama Ice — complete twelve-track Domestic Rock’n Roll (2017). The artist credits vocals and guitars to Necoyama Ice and bass and drums to the ZOOM RhythmTrak RT-123. All credited performing roles are retained: one human singer, guitar family and the named rhythm/bass machine encompassing both programmed bass and drums. The Fostex X-12 cassette recorder is documented capture equipment, not an additional performing instrument. Album and artist page explicitly place this home recording in Hokkaido and the project in Asahikawa, with indie rock and indie pop tags. Broad functionalSong models authored recurring lyric refrains with tonal chord support; no Anglosphere-specific child or measured source chord scheme is asserted. The source does not identify guitar pickup/construction: alder-body humbucker guitar with mahogany neck, standard tuning and ringing power-chord playing is a coherent authored garage-rock realization. Voice uses neutral physiology and source-unspecified register, with newly authored small-note-groups-per-syllable singing. Exact source vocal layering is unknown; one credited singer is not a claim of a single recording take. Controlled live-room acoustics are authored contemporary realization, not the source home room; documented cassette recording remains in provenance without inventing a current hardware chain. Global tuning and capture apparatus omitted. RT-123 drum and bass programs are positive source roles, but selected kit/program, pattern, swing and pitches remain unspecified.",
-  "recipe": "classic late-2010s hokkaido indie, functional Song. small note groups per syllable, solo with instrumental accompaniment, single lead single track no stacking. alder mahogany conventional tuning standard pitch power chord humbucker electric guitar, zoom rt123 rhythm bass machine. live tracking.",
-  "recipe_chars": 295,
-  "score": 32.554,
+  "lineage": "Hokkaido indie connects independent rock and pop musicians through local performance, recording and self-release practices. Home-produced projects and bands share a regional setting within the wider Japanese independent music field, with places such as Asahikawa supporting their own creative networks.",
+  "recipe": "classic hokkaido indie, functional Song. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 263,
+  "score": 23.955,
   "config": {
     "traditions": [
       "hokkaido_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.9905,
-          "voice_ensemble_config": 5.7715,
+          "voice_speech_song": 0.1905,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 5.07,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -70,28 +70,71 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.1,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 1.6,
-          "neck_wood": 1.3,
+          "body_wood": 0,
+          "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.3,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 3.8999999999999995
+          "string_tuning": 0
         }
       },
       {
-        "id": "zoom_rt123_rhythm_bass_machine",
+        "id": "electric_bass",
         "slots": {
-          "zoom_rt123_rhythm_bass_machine_identity": "zoom_rt123_rhythm_bass_machine_documented"
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "zoom_rt123_rhythm_bass_machine_identity": 0
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 5.1365,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.054,
+          "shell_thickness": 0,
+          "bearing_edges": 0.054,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.5040000000000004,
+          "cymbal_lathing": 7.45,
+          "cymbal_finish": 0
         }
       }
     ],
@@ -130,8 +173,28 @@
         "finish",
         "string_tuning"
       ],
-      "zoom_rt123_rhythm_bass_machine": [
-        "zoom_rt123_rhythm_bass_machine_identity"
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
     "room": "live_room",
@@ -181,7 +244,23 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "zoom_rt123_rhythm_bass_machine_identity": "zoom_rt123_rhythm_bass_machine_documented"
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true
   }

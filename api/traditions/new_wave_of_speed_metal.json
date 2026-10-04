@@ -5,7 +5,7 @@
   "lineage": "New wave of speed metal is represented by Enforcer’s modern return to early heavy/speed-metal riffing and sung melodic hooks. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern new wave of speed metal, distorted Rock, nwobhm branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 453,
-  "score": 56.991,
+  "score": 57.026,
   "config": {
     "traditions": [
       "new_wave_of_speed_metal"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.2395,
+          "voice_ensemble_config": 0.222,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.054,
+          "voice_processing_chain": 0.0465,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 10.896999999999998,
-          "body_wood": 9.346999999999998,
+          "amp_make": 10.914499999999997,
+          "body_wood": 9.3645,
           "neck_wood": 0.21,
-          "fretboard": 0.320625,
-          "pickup_magnet": 1.620625,
+          "fretboard": 0.338125,
+          "pickup_magnet": 1.638125,
           "pickup_winding": 1.3,
           "string_material": 0.21,
-          "bridge": 0.30562500000000004,
-          "scale_length": 8.837,
+          "bridge": 0.273125,
+          "scale_length": 8.854499999999998,
           "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.378
         }
       },
       {
@@ -102,7 +102,7 @@
           "body_wood": 0.42,
           "pickup_config": 1.3,
           "string_type": 4.5825,
-          "scale_length_b": 1.3075,
+          "scale_length_b": 1.325,
           "fretted_or_not": 0.3,
           "bass_technique": 4.102,
           "electric_bass_string_configuration": 0

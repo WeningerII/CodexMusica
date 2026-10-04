@@ -2,10 +2,10 @@
   "id": "dark_techno",
   "name": "Dark Techno",
   "family": "electronic",
-  "lineage": "Florian Meindl — complete summer2015 hybrid live setup. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "lineage": "A shadowy, forceful strand of techno emphasizing low-register weight, insistent repetition and abrasive or ominous electronic textures. Florian Meindl’s hybrid production and performance practice provides one example.",
   "recipe": "classic dark techno, electronic Dance, techno branch. modular synth, drum machine analog, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay high-gain distortion.",
   "recipe_chars": 246,
-  "score": 3.38,
+  "score": 5.436,
   "config": {
     "traditions": [
       "dark_techno"
@@ -21,8 +21,8 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "mod_voltage_source": 0.39,
-          "mod_patch_density": 0,
+          "mod_voltage_source": 0.4755,
+          "mod_patch_density": 0.108,
           "mod_lineage": 0.5775
         }
       },
@@ -35,9 +35,9 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.054,
+          "kick_voice": 0.18,
           "snare_voice": 0,
-          "hat_voice": 0,
+          "hat_voice": 0.18,
           "shuffle_quantize": -0.035
         }
       },
@@ -53,9 +53,9 @@
         "scores": {
           "electronic_technique": -0.1,
           "sampler_archetypes": 0,
-          "sampler_bit_depth": 0.354,
+          "sampler_bit_depth": 1,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 2.34
+          "sampler_classic_context": 3.25
         }
       }
     ],

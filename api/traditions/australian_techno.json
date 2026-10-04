@@ -2,55 +2,84 @@
   "id": "australian_techno",
   "name": "Australian Techno",
   "family": "electronic",
-  "lineage": "Enclave — complete documented 2021 live PA configuration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s australian techno, electronic Dance. credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 189,
-  "score": 0,
+  "lineage": "Australian techno develops through local producer, club and live-electronic networks, including Melbourne’s scene. DJs and live performers connect repetitive dance structures with varied electronic sound design.",
+  "recipe": "classic australian techno, electronic Dance. drum machine analog, modular synth.",
+  "recipe_chars": 80,
+  "score": 2.463,
   "config": {
     "traditions": [
       "australian_techno"
     ],
     "instruments": [
       {
-        "id": "credited_electronics_unspecified",
+        "id": "drum_machine_analog",
         "slots": {
-          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "credited_electronics_identity": 0
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_random",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 0.063,
+          "mod_lineage": 0
         }
       }
     ],
     "pinned": {
-      "credited_electronics_unspecified": [
-        "credited_electronics_identity"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
       ]
     },
-    "room": "treated_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
     "parts": {
-      "credited_electronics_identity": "credited_electronics_generator_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "classic_sudanese_pop",
   "name": "Classic sudanese pop",
   "family": "pop",
-  "lineage": "Classic sudanese pop is represented here by Sharhabil Ahmed — selected guitar-vocal core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic classic sudanese pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 23.986,
+  "lineage": "Classic Sudanese pop encompasses established popular-song traditions and crossovers developed by Sudanese performers. Electric-guitar-led music connects local singing with influences including rock, surf and Congolese styles.",
+  "recipe": "classic classic sudanese pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. marshall plexi amp British rock amp mahogany maple clean humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 316,
+  "score": 21.862,
   "config": {
     "traditions": [
       "classic_sudanese_pop"
@@ -16,32 +16,32 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.1465,
-          "amp_make": 2.21,
-          "body_wood": 0.378,
+          "electric_technique": 11.3965,
+          "amp_make": 3.1200000000000006,
+          "body_wood": 1.15225,
           "neck_wood": 0.1365,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 2.3,
+          "pickup_winding": 2,
           "string_material": 0.0315,
-          "bridge": 1.69,
+          "bridge": 0.1365,
           "scale_length": 0.504,
-          "string_gauge": 1.69,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
@@ -76,11 +76,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.45124999999999993,
-          "voice_multitrack_stack": 0.16875
+          "voice_processing_chain": 0.5157499999999999,
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

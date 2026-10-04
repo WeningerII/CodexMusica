@@ -2,10 +2,10 @@
   "id": "vocal_ensemble",
   "name": "Vocal ensemble",
   "family": "classical",
-  "lineage": "Nightingale Vocal Ensemble — Composition Sped Up (2023), complete ten-track album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s vocal ensemble, improv On Frame, jam free branch. group vocals, live take. spoken word voice. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 212,
-  "score": 8.393,
+  "lineage": "Music performed by a group of voices, spanning written repertoire, arranged songs and collective improvisation. Ensemble singing can be accompanied or unaccompanied and is not limited to one tradition.",
+  "recipe": "classic vocal ensemble, improv On Frame, jam free branch. group vocals, live take. live tracking.",
+  "recipe_chars": 97,
+  "score": 6.082,
   "config": {
     "traditions": [
       "vocal_ensemble"
@@ -44,21 +44,12 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.8359999999999994,
+          "voice_ensemble_config": 3.336,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 3.535999999999999,
+          "voice_processing_chain": 0.40950000000000003,
+          "voice_multitrack_stack": 2.336,
           "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "spoken_word_voice",
-        "slots": {
-          "spoken_word_voice_identity": "spoken_word_voice_source_unspecified"
-        },
-        "scores": {
-          "spoken_word_voice_identity": 0.6315
         }
       }
     ],
@@ -81,27 +72,24 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
-      ],
-      "spoken_word_voice": [
-        "spoken_word_voice_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -119,15 +107,8 @@
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "spoken_word_voice_identity": "spoken_word_voice_source_unspecified"
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

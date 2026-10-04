@@ -5,7 +5,7 @@
   "lineage": "Geawag — Burári flute solo, Buzi (Wolfgang Laade field recording1964, published1971). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic papuan traditional, improv On Frame. cane burari papuan flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 1.263,
+  "score": 1.232,
   "config": {
     "traditions": [
       "papuan_traditional"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "burari_construction": 1.2,
-          "burari_performance": 0.063
+          "burari_performance": 0.0315
         }
       }
     ],

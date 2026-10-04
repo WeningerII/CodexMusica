@@ -2,10 +2,10 @@
   "id": "derry_indie",
   "name": "Derry Indie",
   "family": "rock_punk",
-  "lineage": "CHERYM — Super Queens(2019), complete single. Complete2019 Super Queens single. Artist explicitly credits Hannah Richardson guitar/voice, Nyree Porter bass/backing voice, Lauren Kelly drum tracks. All three people and two vocal contributors retained through four instrument-family cards. Current later profile duo is not substituted for historical track personnel. Humbucker power chords, fingerstyle electric bass, rock-stick kit and unprocessed duet studio realization are authored choices, not measured instrument brands, playing methods or a simultaneous one-take claim. Neutral vocal physiology and pitch organization retained; modern equal temperament is an editorial framework, not a transcribed tuning. Authored render refinement: an alder body on both electric guitar and bass, a maple electric-guitar neck, and a dual-single-coil bass pickup configuration replace the previous authored mahogany/maple-cap, mahogany-neck and split-coil choices. These are plausible alternative modern instrument constructions, not measurements or claims about the credited performers’ gear. All documented roles, performers, techniques and source boundaries remain intact. The original flat body_wood key applies the same compatible alder choice to both owning instruments.",
-  "recipe": "classic late-2010s derry indie, distorted Rock, punk branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 410,
-  "score": 74.475,
+  "lineage": "Derry indie develops through the city’s independent musical communities and their links across Ireland and Britain. Local bands combine guitar-pop, punk and other alternative approaches within a shared performance and recording scene.",
+  "recipe": "classic derry indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 269,
+  "score": 21.979,
   "config": {
     "traditions": [
       "derry_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 1.3,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,10 +70,10 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.5100000000000002,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 3.2824999999999998,
-          "neck_wood": 2.663,
+          "body_wood": 0.39,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
@@ -82,7 +82,7 @@
           "scale_length": 0.8190000000000002,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.2824999999999998,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.749999999999999,
-          "drumhead": 1.3,
+          "drum_technique": 3.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 6.904999999999999,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
-          "bearing_edges": 2.7994999999999997,
+          "bearing_edges": 0.1995,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": 16.023,
-          "cymbal_lathing": 18.349999999999998,
+          "cymbal_alloy": 1.0399999999999998,
+          "cymbal_hammering": 6.473,
+          "cymbal_lathing": 6.2,
           "cymbal_finish": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "epunk",
   "name": "Epunk",
   "family": "rock_punk",
-  "lineage": "Owen Adamcik — complete Live at Uncle Lous, Printed Paper Recording2024. Printed Paper Recording issues the complete fifteen-track Live at Uncle Lous album on19September2024 and lists four musical contributors: Owen Adamcik guitar/vocals, Will drums, Gavin bass and John guitar. One positively credited singer and four sound-source families. Mix/master and design credits do not imply extra musicians. This complete live band scope retains both guitars; no programmer or extra backing voice is inferred. Label explicitly describes its internet/DIY punk publishing practice and tags this release garage punk, punk rock and power pop. Authored current garage-punk band realization uses alder/maple-neck humbucker overdriven guitar for the two credited guitarists, soapbar fretted picked electric bass, stick drum kit and one accompanied singer with neutral physiology. These constructions and techniques are editorial, not actual Owen or John hardware claims. The two guitars share a family card, not an omitted second performer. Source-issued full live recording remains the bounded scope; room and clean digital capture choices describe a new authored rendition, not exact2024 recording gear. No global tuning, no electronic drum programming transferred from earlier solo records.",
-  "recipe": "classic epunk, distorted Rock, punk branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 419,
-  "score": 91.452,
+  "lineage": "Epunk connects contemporary internet-based punk communities, independent releases and DIY performance. Participants draw on garage punk, power pop and related guitar music while developing local and online networks around shared recordings.",
+  "recipe": "classic epunk, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 274,
+  "score": 31.039,
   "config": {
     "traditions": [
       "epunk"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.2405,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 5.5,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.2315,
+          "electric_technique": 0.2315,
           "amp_make": 0,
-          "body_wood": 2.6,
-          "neck_wood": 1.363,
+          "body_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1.3,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.6,
-          "pickup_config": 1.4365,
+          "body_wood": 0,
+          "pickup_config": 0.1365,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 29.5815,
+          "bass_technique": 12.5315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.749999999999999,
-          "drumhead": 1.3,
+          "drum_technique": 3.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.305,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
-          "cymbal_alloy": 1.3729999999999998,
-          "cymbal_hammering": 11.972999999999999,
-          "cymbal_lathing": 14.299999999999997,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 6.473,
+          "cymbal_lathing": 6.2,
           "cymbal_finish": 0
         }
       }

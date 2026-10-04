@@ -2,10 +2,10 @@
   "id": "burundian_pop",
   "name": "Burundian pop",
   "family": "pop",
-  "lineage": "Burundian pop is represented here by Steven Sogo — selected singer-guitarist core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic burundian pop, functional Song, African pop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 265,
-  "score": 16.69,
+  "lineage": "Burundian pop connects local musical expression with contemporary song, jazz, blues and other popular influences. Traditional instruments and modern band practice contribute different colours to the field.",
+  "recipe": "classic burundian pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 333,
+  "score": 15.977,
   "config": {
     "traditions": [
       "burundian_pop"
@@ -47,24 +47,24 @@
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.7770000000000001
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.7,
-          "string_tuning": 0.26,
+          "acoustic_technique": 11.2,
+          "string_tuning": 0,
           "top_wood": 0.3045,
           "back_sides": 0.147,
-          "string_acoustic": 0.6405000000000001
+          "string_acoustic": 1.3
         }
       }
     ],

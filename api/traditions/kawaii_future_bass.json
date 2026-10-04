@@ -2,75 +2,75 @@
   "id": "kawaii_future_bass",
   "name": "Kawaii future bass",
   "family": "electronic",
-  "lineage": "Moe Shop complete named compact hardware production rig in the manufacturer-hosted6August2021 artist interview: original volca sample, volca sample2, volca keys and Nu:Tekt NTS-1, routed through volca mix. The two sampler generations remain separate owners. Creator explicitly describes preparing piano/synth sounds, tape-stop sounds, vocal shots, melodies and chords in a DAW and loading them for sampler sequencing; every sampled layer remains in those owners. NTS-1 explicitly generates the demonstrated riser. Volca keys is positively named in the rig, without invented assignment to a particular demo phrase. Volca mix is routing/processing, not an additional independent sound generator. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic kawaii future bass, electronic Dance. korg volca sample, korg volca sample2, korg volca keys, korg nts1 digital. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 219,
-  "score": 0,
+  "lineage": "Kawaii future bass joins colorful electronic production with Japanese pop, anime-adjacent aesthetics and dance-music influences. Producers such as Moe Shop connect bright melodic writing with bass-led club sounds.",
+  "recipe": "classic kawaii future bass, electronic Dance. analog synth, sampler. live tracking.",
+  "recipe_chars": 83,
+  "score": 3.259,
   "config": {
     "traditions": [
       "kawaii_future_bass"
     ],
     "instruments": [
       {
-        "id": "korg_volca_sample",
+        "id": "analog_synth",
         "slots": {
-          "korg_volca_sample_identity": "korg_volca_sample_documented"
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
         },
         "scores": {
-          "korg_volca_sample_identity": 0
+          "electronic_technique": 0.325,
+          "oscillator": -0.035,
+          "filter_topology": 0.0315,
+          "envelope": 0,
+          "modulation": 0
         }
       },
       {
-        "id": "korg_volca_sample2",
+        "id": "sampler_classic",
         "slots": {
-          "korg_volca_sample2_identity": "korg_volca_sample2_documented"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "korg_volca_sample2_identity": 0
-        }
-      },
-      {
-        "id": "korg_volca_keys",
-        "slots": {
-          "korg_volca_keys_identity": "korg_volca_keys_documented"
-        },
-        "scores": {
-          "korg_volca_keys_identity": 0
-        }
-      },
-      {
-        "id": "korg_nts1_digital",
-        "slots": {
-          "korg_nts1_digital_identity": "korg_nts1_digital_documented"
-        },
-        "scores": {
-          "korg_nts1_digital_identity": 0
+          "electronic_technique": 0.325,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.063,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 2.34
         }
       }
     ],
     "pinned": {
-      "korg_volca_sample": [
-        "korg_volca_sample_identity"
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
       ],
-      "korg_volca_sample2": [
-        "korg_volca_sample2_identity"
-      ],
-      "korg_volca_keys": [
-        "korg_volca_keys_identity"
-      ],
-      "korg_nts1_digital": [
-        "korg_nts1_digital_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -79,19 +79,18 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
-      "korg_volca_sample_identity": "korg_volca_sample_documented",
-      "korg_volca_sample2_identity": "korg_volca_sample2_documented",
-      "korg_volca_keys_identity": "korg_volca_keys_documented",
-      "korg_nts1_digital_identity": "korg_nts1_digital_documented"
+      "electronic_technique": "electronic_sustained_layering",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

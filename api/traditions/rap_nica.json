@@ -2,71 +2,76 @@
   "id": "rap_nica",
   "name": "Rap nica",
   "family": "hip_hop",
-  "lineage": "La Ofensiva Radio — complete58-minute published episode Dj Homie desde Nicaragua,19October2021. Issuer describes an interview with Nicaraguan DJ Homie/AKA Yerba Santa, two sets of rap nica, and hip-hop news. Retain both entire DJ music programmes and all interview/news speech, not an isolated handpicked set or opaque studio master. Names/count of presenters and embedded music vocalists, complete tracklist and exact take structure are not supplied; unknown count remains unknown. No audio audition or event-date inference from publication date. The existing medium-neutral DJ owner preserves complete musical playback/mixing. Existing human_voice_ensemble_unspecified retains all17 physical vocal controls for interview/news speech, unknown ensemble/track count and neutral physiology. Pure spoken delivery and unprocessed presentation are authored, not a source effect analysis. Authored spacious reverberant listening presentation does not assert a concert or reconstruct Radio U’s studio. No global tuning, hardware or capture chain. mcRhythm.intlHipHop scopes the regional rap repertoire, while the separate speech role remains audible in the complete programme.",
-  "recipe": "classic rap nica, mc Rhythm, intl hip hop branch. dj playback mixing no pitch organization speech unprocessed natural acoustic human voice ensemble unspecified. shoebox concert hall.",
-  "recipe_chars": 182,
-  "score": 12.168,
+  "lineage": "Rap nica connects Nicaragua’s rappers, DJs, producers and listeners through local and diasporic networks. Releases, radio programmes and live events sustain a regional hip-hop field with varied voices and approaches.",
+  "recipe": "classic rap nica, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. shoebox concert hall.",
+  "recipe_chars": 154,
+  "score": 43.705,
   "config": {
     "traditions": [
       "rap_nica"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
-        "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
-        },
-        "scores": {
-          "dj_playback_mixing_identity": 0
-        }
-      },
-      {
-        "id": "human_voice_ensemble_unspecified",
+        "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "spoken_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
-          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 13.715,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.3315,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.867999999999999,
+          "voice_speech_song": 12.768,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "human_voice_ensemble_source_status": 0,
-          "human_voice_tracking_source_status": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": 3.75,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 11.634999999999998
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ],
-      "human_voice_ensemble_unspecified": [
+      "voice": [
         "voice_register",
         "voice_quality",
         "voice_vocal_tract",
@@ -78,12 +83,19 @@
         "voice_mechanism_compound",
         "voice_estill_quality",
         "voice_speech_song",
-        "human_voice_ensemble_source_status",
+        "voice_ensemble_config",
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "human_voice_tracking_source_status",
+        "voice_multitrack_stack",
         "voice_tessitura"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -103,24 +115,28 @@
   "source": {
     "room": "concert_hall_shoebox",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_articulation": "spoken_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
-      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
     "pin_parts": true
   }

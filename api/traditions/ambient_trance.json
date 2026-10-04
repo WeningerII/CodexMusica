@@ -2,10 +2,10 @@
   "id": "ambient_trance",
   "name": "Ambient trance",
   "family": "electronic",
-  "lineage": "The atmospheric listening side of trance and related electronic music, represented by Carbon Based Lifeforms, Solar Fields and the Ultimae orbit. Long melodic layers and repeated sequencer/bass figures may carry soft beats or become beatless. The selected model retains a measured machine pulse rather than prescribing a peak-time trance build.",
-  "recipe": "classic modern ambient trance, electronic Dance, trance branch, ambient experimental electric ambient psychill ambient lo-fi. pad like pad analog synth, low sub bass monosynth acid bass, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 424,
-  "score": 61.151,
+  "lineage": "The atmospheric listening side of trance, associated with the late-1990s onward psychill and ambient-electronic scene. Hypnotic sequences, resonant bass and extended melodic layers connect dance-music repetition with ambient space.",
+  "recipe": "classic 1997-1999 ambient trance, electronic Dance, trance branch, ambient experimental electric ambient psychill ambient lo-fi. pad like pad analog synth, monosynth acid bass, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 414,
+  "score": 54.641,
   "config": {
     "traditions": [
       "ambient_trance",
@@ -23,10 +23,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 15.509999999999998,
-          "oscillator": 14.854999999999999,
-          "filter_topology": 0.995,
-          "envelope": 7.864999999999998,
+          "electronic_technique": 17.735,
+          "oscillator": 10.455,
+          "filter_topology": 0.195,
+          "envelope": 8.84,
           "modulation": 0
         }
       },
@@ -39,7 +39,7 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 3.556250000000001,
+          "electronic_technique": 2.906250000000001,
           "wave_acid": 0,
           "filter_acid": 0.045,
           "accent_acid": 0.24
@@ -55,8 +55,8 @@
         },
         "scores": {
           "electronic_technique": 0.06499999999999999,
-          "sample_bitdepth": 0.65,
-          "sample_swing": 17.375,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 15,
           "sample_processing": 0.045
         }
       }

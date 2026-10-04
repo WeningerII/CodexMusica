@@ -2,10 +2,10 @@
   "id": "comfy_synth",
   "name": "Comfy synth",
   "family": "electronic",
-  "lineage": "Elyvilon — Nimueh’s Gift (2021; Dungeons Deep edition 2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s comfy synth, experimental Elec. analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 169,
-  "score": 3.036,
+  "lineage": "Comfy synth is a welcoming, pastoral branch of fantasy-oriented synthesizer music associated with the dungeon-synth scene.",
+  "recipe": "classic comfy synth, experimental Elec. analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 157,
+  "score": 0.287,
   "config": {
     "traditions": [
       "comfy_synth"
@@ -20,10 +20,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.05,
+          "electronic_technique": 0.2,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
-          "poly_maker_lineage": 0.8499999999999999
+          "poly_maker_lineage": -0.05
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Charles Cohen — Visitors of the Sacred Mountain, Brother I Prove You Wrong (2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic mid-2010s mandible, experimental Elec. modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 168,
-  "score": 4.351,
+  "score": 4.519,
   "config": {
     "traditions": [
       "mandible"
@@ -20,8 +20,8 @@
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 4.0255,
-          "mod_voltage_source": 0,
+          "electronic_technique": 4.057,
+          "mod_voltage_source": 0.1365,
           "mod_patch_density": 0,
           "mod_lineage": 0.325
         }

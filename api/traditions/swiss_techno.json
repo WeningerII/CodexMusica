@@ -2,10 +2,10 @@
   "id": "swiss_techno",
   "name": "Swiss techno",
   "family": "electronic",
-  "lineage": "Swiss-origin techno production, including transnational careers. This default selects Zurich-born Thomas Fehlmann’s synth, electric-keyboard and sample-processing branch, developed largely in Berlin; Swiss identity is not mistaken for an exclusively Swiss studio location.",
-  "recipe": "classic modern swiss techno, electronic Dance, techno branch. analog synth, sampler, rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter spring reverb.",
-  "recipe_chars": 319,
-  "score": 2.264,
+  "lineage": "Swiss techno connects local and expatriate producers through international electronic-music networks. Club rhythm, experimental synthesis and dub-influenced production coexist with harder and more direct dance-floor styles.",
+  "recipe": "classic modern swiss techno, electronic Dance, techno branch. analog synth, sampler, wide pickup gap more bell less bark rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter spring reverb.",
+  "recipe_chars": 355,
+  "score": 7.944,
   "config": {
     "traditions": [
       "swiss_techno"
@@ -21,28 +21,28 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": -0.07,
           "oscillator": 0,
-          "filter_topology": 1.0315,
-          "envelope": 0.3315,
+          "filter_topology": 0.0315,
+          "envelope": 0.0315,
           "modulation": 0.1365
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
+          "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 2.45,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.063,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 1.95
+          "sampler_classic_context": 6.24
         }
       },
       {
@@ -61,7 +61,7 @@
           "rhodes_use": 0.7454999999999999,
           "rhodes_tine_material": -1.454,
           "rhodes_hammer_tip": -1.4,
-          "rhodes_pickup_position": 0.19949999999999998
+          "rhodes_pickup_position": 1.1995
         }
       }
     ],

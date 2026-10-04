@@ -3,9 +3,9 @@
   "name": "Cumbia amazónica",
   "family": "global",
   "lineage": "Peruvian jungle cumbia from Pucallpa, Iquitos and Moyobamba in the late 1960s–1970s, codified by Juaneco y su Combo, Los Mirlos and Los Wemblers de Iquitos — 95–105 BPM cumbia paseo with surf-toned tremolo electric guitar carrying pentatonic-inflected Amazonian melodies over Farfisa organ, timbales, güiro and congas.",
-  "recipe": "classic 1967-1969 cumbia amazónica, groove Percussion, Latin am branch, tropical song functional song, surf rock distorted rock chicha australian surf rock. thick, full chest belt, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright tremolo single coil electric guitar, psychedelic foregrounded organ driven rock combo organ, open slap hand drum timbales, guiro, open slap hand drum congas, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, open slap hand drum bongos. tin roofed shack. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 705,
-  "score": 194.512,
+  "recipe": "classic 1967-1969 cumbia amazónica, groove Percussion, Latin am branch, tropical song functional song, surf rock distorted rock chicha australian surf rock. thick, full chest belt, breath pulsed, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright tremolo single coil electric guitar, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, open slap hand drum timbales, guiro, open slap hand drum congas, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, open slap hand drum bongos. tin roofed shack. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 725,
+  "score": 188.78,
   "config": {
     "traditions": [
       "cumbia_amazonica",
@@ -23,7 +23,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -31,18 +31,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 11.327499999999999,
-          "amp_make": 10.319999999999999,
+          "electric_technique": 10.952499999999999,
+          "amp_make": 9.944999999999997,
           "body_wood": 0.69,
           "neck_wood": 0.69,
           "fretboard": 0.435,
           "pickup_magnet": 0.435,
           "string_material": 0.435,
-          "string_gauge": 1.1225,
+          "string_gauge": 0.735,
           "bridge": 0.045,
           "scale_length": 1.3800000000000001,
           "finish": 0,
-          "string_tuning": 5.525,
+          "string_tuning": 5.329999999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -97,7 +97,7 @@
         },
         "scores": {
           "percussion_technique": 4.48,
-          "conga_set": 0.8250000000000002,
+          "conga_set": 0.195,
           "conga_skin": 0.8249999999999998,
           "conga_shell_wood": 0.8249999999999998
         }
@@ -115,13 +115,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.045,
+          "amp_make": 5.85,
           "body_wood": 1.3800000000000001,
           "pickup_config": 0.045,
-          "string_type": 11.215,
+          "string_type": 10.84,
           "scale_length_b": 0.735,
           "fretted_or_not": 0,
-          "bass_technique": 10.575,
+          "bass_technique": 10.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -132,7 +132,7 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
@@ -146,19 +146,19 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 11.144999999999992,
+          "voice_register": 10.769999999999992,
           "voice_quality": 12.349999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9749999999999999,
-          "voice_articulation": 12.284999999999997,
-          "voice_microtone": 12.674999999999994,
-          "voice_tradition": 5.6875,
+          "voice_vibrato": 0.8449999999999999,
+          "voice_articulation": 11.504999999999997,
+          "voice_microtone": 11.894999999999992,
+          "voice_tradition": 5.492500000000001,
           "voice_mechanism_compound": 3.7049999999999996,
           "voice_estill_quality": 2.8649999999999998,
-          "voice_speech_song": 16.054999999999996,
-          "voice_ensemble_config": 12.154999999999994,
-          "voice_ornament_system": 3.7675,
+          "voice_speech_song": 15.924999999999995,
+          "voice_ensemble_config": 11.569999999999997,
+          "voice_ornament_system": 3.9175,
           "voice_pitch_organization": 1.8849999999999996,
           "voice_processing_chain": 4.4425,
           "voice_multitrack_stack": 4.8375

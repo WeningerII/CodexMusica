@@ -2,10 +2,10 @@
   "id": "synth_funk",
   "name": "Synth funk",
   "family": "electronic",
-  "lineage": "Synth funk is represented by Dâm-Funk — Rhythm Trax Vol. 4 instrumental core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic synth funk, groove Percussion, funk percussive branch. analog poly synth, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 183,
-  "score": 3.817,
+  "lineage": "Synth funk places electronic keyboards and drum-machine grooves at the centre of funk, extending the sound of boogie and electronic soul.",
+  "recipe": "classic synth funk, groove Percussion, funk percussive branch. analog poly synth, drum machine analog. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 182,
+  "score": 0.283,
   "config": {
     "traditions": [
       "synth_funk"
@@ -15,41 +15,45 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.1365,
-          "poly_voices": 0.3315,
-          "poly_maker_lineage": 0.7149999999999999
+          "electronic_technique": 0.2,
+          "poly_archetypes": 0,
+          "poly_voices": 0.0315,
+          "poly_maker_lineage": -0.035
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.1365,
-          "sample_swing": 2.5,
-          "sample_processing": 0.168
+          "kick_voice": 0.0315,
+          "snare_voice": 0.105,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -72,9 +76,13 @@
     "room": "treated_studio",
     "parts": {
       "electronic_technique": "electronic_pad_drone",
-      "sample_bitdepth": "twenty_four_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

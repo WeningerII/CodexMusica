@@ -5,7 +5,7 @@
   "lineage": "Benito Cabrera and Tomás Fariña — Del Renacimiento a Los Beatles, complete published educational duo formation. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic música canaria, art Music. timple canario, classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 180,
-  "score": 0.998,
+  "score": 1.439,
   "config": {
     "traditions": [
       "musica_canaria"
@@ -33,8 +33,8 @@
         "scores": {
           "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
-          "top_wood_classical": 0.0315,
-          "bracing_classical": 0.1365,
+          "top_wood_classical": 0.1575,
+          "bracing_classical": 0.4515,
           "string_classical": 0.39,
           "attack_technique_cl": 0.39
         }

@@ -5,7 +5,7 @@
   "lineage": "Anders Lauge Meldgaard — Music For Six Electric Guitars (2012). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2010s danish experimental, experimental Elec. conventional tuning standard pitch humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 3.921,
+  "score": 3.311,
   "config": {
     "traditions": [
       "danish_experimental"
@@ -39,9 +39,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.21,
-          "string_gauge": 1.69,
+          "string_gauge": 1.3315000000000001,
           "finish": 0,
-          "string_tuning": 1.615
+          "string_tuning": 1.363
         }
       }
     ],

@@ -2,22 +2,45 @@
   "id": "saxophone_house",
   "name": "Saxophone House",
   "family": "electronic",
-  "lineage": "Lovely Laura and Ben Santiago — documented complete DJ-and-live-saxophone duo format. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic saxophone house, electronic Dance. dj playback mixing unspecified, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 184,
-  "score": 3.8,
+  "lineage": "Saxophone house foregrounds saxophone melody and improvisatory phrasing within house-music grooves. Live saxophone with a DJ and studio-produced tracks are both prominent formats.",
+  "recipe": "classic saxophone house, electronic Dance. drum machine analog, analog mono synth, saxophone.",
+  "recipe_chars": 93,
+  "score": 0.052,
   "config": {
     "traditions": [
       "saxophone_house"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "drum_machine_analog",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 0.19500000000000003,
+          "mono_oscillator": 0,
+          "mono_filter": 0.063,
+          "mono_archetypes": 0.126,
+          "mono_maker_lineage": -0.05
         }
       },
       {
@@ -32,19 +55,29 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.49999999999999994,
-          "sax_size": 0.8499999999999999,
+          "wind_articulation": -0.1,
+          "sax_size": -0.05,
           "sax_reed": 0,
-          "sax_body_alloy": 0.7999999999999998,
-          "sax_mouthpiece": 0.3,
-          "sax_technique": 0.5499999999999999,
-          "sax_maker_school": 0.7999999999999998
+          "sax_body_alloy": -0.1,
+          "sax_mouthpiece": 0.168,
+          "sax_technique": -0.05,
+          "sax_maker_school": -0.1
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
       ],
       "saxophone": [
         "wind_articulation",
@@ -56,15 +89,14 @@
         "sax_maker_school"
       ]
     },
-    "room": "treated_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -73,9 +105,16 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
+      "electronic_technique": "electronic_bass_sub",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_maker_lineage": "mono_moog_robert",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
       "wind_articulation": "wind_continuous_legato",
       "sax_size": "alto_sax",
       "sax_reed": "medium_reed",
@@ -84,12 +123,6 @@
       "sax_technique": "sax_continuous_legato",
       "sax_maker_school": "sax_selmer_mark_vi"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

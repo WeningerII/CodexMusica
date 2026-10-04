@@ -5,7 +5,7 @@
   "lineage": "Québec country includes French-language local repertory and multigenerational recording and touring circuits. Renée Martel’s documented career and country recordings supply the selected vocal-band branch.",
   "recipe": "classic modern country québécois, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic guitar, grand piano, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 506,
-  "score": 146.951,
+  "score": 147.727,
   "config": {
     "traditions": [
       "country_quebecois"
@@ -29,25 +29,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 10.792749999999995,
           "voice_quality": 0.9099999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.2,
+          "voice_vibrato": 11.373999999999999,
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 4.680000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 11.82125,
+          "voice_estill_quality": 12.274249999999999,
           "voice_speech_song": 6.825,
           "voice_ensemble_config": 4.8100000000000005,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 1.1549999999999998,
           "voice_processing_chain": 2.063,
-          "voice_multitrack_stack": 1.4485000000000001
+          "voice_multitrack_stack": 1.4372500000000001
         }
       },
       {
@@ -63,7 +63,7 @@
           "acoustic_technique": -0.07,
           "string_tuning": 1.30975,
           "top_wood": 0.105,
-          "back_sides": 0.29924999999999996,
+          "back_sides": 0.44625,
           "string_acoustic": 0.78
         }
       },
@@ -83,7 +83,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.159,
-          "grand_piano_brand": 0.564,
+          "grand_piano_brand": 0.5325,
           "piano_hammer": -0.035,
           "piano_rim": -0.035,
           "piano_soundboard": -0.05,
@@ -97,7 +97,7 @@
         "slots": {
           "electric_technique": "electric_steel_pedal_swells",
           "amp_make": "amp_american_fender_blackface",
-          "pickup_steel": "humbucker_steel",
+          "pickup_steel": "single_coil_steel",
           "string_setup": "standard_e9",
           "bar_material": "steel_bar",
           "pedal_steel_brand": "mullen_d10",
@@ -106,11 +106,11 @@
         },
         "scores": {
           "electric_technique": 12.588,
-          "amp_make": 11.186499999999997,
-          "pickup_steel": 0.0315,
+          "amp_make": 11.229249999999997,
+          "pickup_steel": 0,
           "string_setup": 5.85,
           "bar_material": 0.78,
-          "pedal_steel_brand": 11.7255,
+          "pedal_steel_brand": 11.68275,
           "pedal_steel_neck_config": 14.625,
           "pedal_steel_strings": 11.6715
         }
@@ -130,10 +130,10 @@
         "scores": {
           "amp_make": 11.205,
           "body_wood": 0.0315,
-          "pickup_config": 0.2445,
+          "pickup_config": 0.20174999999999998,
           "string_type": 0.78,
-          "scale_length_b": 0.11699999999999999,
-          "fretted_or_not": 0.43275,
+          "scale_length_b": 0.10575,
+          "fretted_or_not": 0.507,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -142,12 +142,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 4.9399999999999995,
-          "drumhead": 0.39,
+          "drumhead": 0.44625,
           "drum_kit_kick_pedal": 0
         }
       }

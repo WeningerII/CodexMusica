@@ -2,10 +2,10 @@
   "id": "jazz_mexicano",
   "name": "Jazz mexicano",
   "family": "jazz",
-  "lineage": "Jazz mexicano is represented by Alex Mercado — Refraction solo-piano concert at Fonoteca Nacional. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic jazz mexicano, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 233,
-  "score": 4.875,
+  "lineage": "Mexican jazz encompasses composers and improvisers working through local venues, recordings and cultural institutions. Solo performances and small ensembles form part of this wider national field.",
+  "recipe": "classic jazz mexicano, improv On Frame, American jazz branch. grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 0.112,
   "config": {
     "traditions": [
       "jazz_mexicano"
@@ -15,31 +15,39 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.3,
-          "piano_hammer": 1.885,
-          "piano_rim": 1.885,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 0.26,
-          "piano_plate": 0.26,
+          "grand_piano_size": 0.45699999999999996,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -61,7 +69,15 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "keyboard_technique": "keyboard_jazz_comping"
+      "keyboard_technique": "keyboard_jazz_comping",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

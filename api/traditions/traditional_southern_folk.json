@@ -2,10 +2,10 @@
   "id": "traditional_southern_folk",
   "name": "Traditional Southern folk",
   "family": "vernacular",
-  "lineage": "Traditional Southern folk includes many song and instrumental traditions of the southern United States. Jean Ritchie’s documented Kentucky family-ballad and dulcimer practice provides one Southern Appalachian branch.",
-  "recipe": "classic modern traditional southern folk, ballad Poetry. thick, pure, neutral third half flat, notated speech melody. walnut canonical appalachian mountain dulcimer. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 303,
-  "score": 17.648,
+  "lineage": "Traditional Southern folk draws on the interwoven song and instrumental traditions of the southern United States. Appalachian family ballads and dulcimer music form one strand within a region also shaped by African American traditions, dance music and communal singing.",
+  "recipe": "classic modern traditional southern folk, ballad Poetry. thick, pure, neutral third half flat, nasal twang velar port open. walnut canonical appalachian mountain dulcimer. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 309,
+  "score": 26.986,
   "config": {
     "traditions": [
       "traditional_southern_folk"
@@ -23,31 +23,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.5,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.18,
-          "voice_articulation": -0.14600000000000002,
-          "voice_microtone": 2.2099999999999995,
+          "voice_vibrato": 1.234,
+          "voice_articulation": 0.13000000000000003,
+          "voice_microtone": 5.07,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.453,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 4.095000000000001,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.26,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.0839999999999999,
-          "voice_multitrack_stack": 0.5175000000000001
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.9749999999999996,
+          "voice_speech_song": 6.5649999999999995,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0.3,
+          "voice_pitch_organization": 0.15000000000000002,
+          "voice_processing_chain": 1.438,
+          "voice_multitrack_stack": 0.9904999999999998
         }
       },
       {
@@ -60,8 +60,8 @@
           "dulcimer_string_material": "dulcimer_steel_modern"
         },
         "scores": {
-          "acoustic_technique": -0.1,
-          "dulcimer_strings": 0,
+          "acoustic_technique": 0.254,
+          "dulcimer_strings": 0.354,
           "dulcimer_tuning": 0,
           "dulcimer_body_wood": 1.18,
           "dulcimer_string_material": 0

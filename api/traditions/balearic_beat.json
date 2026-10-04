@@ -3,9 +3,9 @@
   "name": "Balearic Beat",
   "family": "electronic",
   "lineage": "Ibiza, mid-1980s, codified by DJ Alfredo Fiorito's open-air sets at Amnesia and carried to Britain in 1987 by Paul Oakenfold and Danny Rampling — a 100-120 BPM eclectic mode joining dub-delayed guitar, nylon-string and slide figures, warm analogue pads and loose live-feel drum machine programming, with long unhurried arrangements and sun-facing major-key harmony.",
-  "recipe": "classic 1984-1986 balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon classical nylon-string guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 710,
-  "score": 251.297,
+  "recipe": "classic 1984-1986 balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 707,
+  "score": 251.087,
   "config": {
     "traditions": [
       "balearic_beat",
@@ -52,11 +52,11 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 2.63,
+          "acoustic_technique": 2.675,
           "string_tuning": 0,
-          "top_wood_classical": 7.040000000000001,
+          "top_wood_classical": 7.1000000000000005,
           "bracing_classical": 0.195,
-          "string_classical": 3.585000000000001,
+          "string_classical": 3.540000000000001,
           "attack_technique_cl": 2.6650000000000005
         }
       },
@@ -64,7 +64,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
@@ -73,11 +73,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.9800000000000013,
-          "body_wood": 2.47,
+          "amp_make": 2.9350000000000014,
+          "body_wood": 2.4400000000000004,
           "pickup_config": 0.195,
-          "string_type": 3.8650000000000007,
-          "scale_length_b": 3.3800000000000003,
+          "string_type": 3.910000000000001,
+          "scale_length_b": 3.1850000000000005,
           "fretted_or_not": 0,
           "bass_technique": 5.699999999999999,
           "electric_bass_string_configuration": 0
@@ -117,9 +117,9 @@
           "voice_speech_song": 20.865000000000002,
           "voice_ensemble_config": 18.785,
           "voice_ornament_system": 0.45500000000000007,
-          "voice_pitch_organization": 3.0199999999999996,
+          "voice_pitch_organization": 3.065,
           "voice_processing_chain": 16.025,
-          "voice_multitrack_stack": 3.9600000000000004
+          "voice_multitrack_stack": 3.8700000000000006
         }
       },
       {

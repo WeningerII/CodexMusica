@@ -5,7 +5,7 @@
   "lineage": "Etran de L’Aïr — Live in Seattle (2023), full two-song concert release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s musique nigérienne, distorted Rock. duet, live take. alder conventional tuning standard pitch humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 374,
-  "score": 40.516,
+  "score": 40.107,
   "config": {
     "traditions": [
       "musique_nigerienne"
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 2.9899999999999998,
           "finish": 0,
-          "string_tuning": 2.0365
+          "string_tuning": 1.9000000000000001
         }
       },
       {
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 8.5,
-          "drumhead": 1.7365000000000002,
+          "drumhead": 1.6,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.7365000000000002,
+          "shell_wood": 1.6,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,

@@ -5,7 +5,7 @@
   "lineage": "Amancia Pérez and ensemble — Sarandunga (1976 Folkways release, Baní field recording). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-1970s música tradicional dominicana, groove Percussion. solo with instrumental accompaniment, single lead single track no stacking. asymmetric pattern merengue tradition tambora dominicana, dominican metal guiro. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 323,
-  "score": 4.563,
+  "score": 4.556,
   "config": {
     "traditions": [
       "musica_tradicional_dominicana"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.17,
+          "voice_multitrack_stack": 1.1624999999999999,
           "voice_tessitura": 0
         }
       },

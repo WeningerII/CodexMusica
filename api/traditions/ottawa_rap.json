@@ -2,10 +2,10 @@
   "id": "ottawa_rap",
   "name": "Ottawa rap",
   "family": "hip_hop",
-  "lineage": "Complete documented Capital Rap Battles competitive pair format, anchored by PoRich (Rich Moss) versus D-Rose (Jesse Desrosiers), Ottawa, October 13, 2018. Firsthand reporters identify both MCs, three rounds of two minutes per contestant, and contemporary unaccompanied delivery. The model covers the complete alternating pair practice, not a claim the embedded news clip contains every round. Both participants are retained; the two-person ensemble control retains the complete pair, while the performers alternate individual turns; it does not assert simultaneous harmony. Two announcers moderate the event and the crowd responds; neither is documented as an additional musical performer. No incidental event speech or audience noise is misrepresented as a credited backing ensemble. Authored recording realization of the complete documented competitive performance format. Source-positive rhythmic spoken delivery, no instrumental backing, neutral vocal physiology and no invented global tuning. Room and chain are authored studio choices, not claims about the pub recording. Full three-round format is evidenced, but no exact verse transcription, source audio or full-recording possession is asserted. This selected battle branch does not define every Ottawa rap recording as unaccompanied.",
-  "recipe": "classic late-2010s ottawa rap, mc Rhythm. rhythmic, rhythmic spoken flow no pitch, duet, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 198,
-  "score": 29.139,
+  "lineage": "Ottawa rap connects local MCs, producers, events and audiences in Canada’s capital. Recorded songs and competitive battles provide different settings for regional voices and shared musical relationships.",
+  "recipe": "classic ottawa rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 195,
+  "score": 34.759,
   "config": {
     "traditions": [
       "ottawa_rap"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -34,22 +34,39 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 12.739999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.363,
+          "voice_articulation": 0.3315,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 21.610499999999995,
-          "voice_ensemble_config": 3.0829999999999997,
+          "voice_speech_song": 12.017999999999999,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 2.9884999999999997,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": 2.25,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 7.6049999999999995
         }
       }
     ],
@@ -72,6 +89,13 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -92,7 +116,7 @@
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -107,7 +131,12 @@
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

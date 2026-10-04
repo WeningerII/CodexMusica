@@ -5,7 +5,7 @@
   "lineage": "Complete Supaman Prayer Loop Song performance filmed by Lloyd Blunk at the Gazette studio in 2014. Original filmmaker identifies a one-person loop-machine performance with live drum and flute layers and scratching an old record of Crow songs; CKUA explicitly identifies beatboxing, singing and rapping in the same video. All six source families are retained: vocal delivery, vocal percussion, Native flute, hand drum, live loop capture/playback and turntable scratching. The sampled old Crow record stays within the turntable source layer; its embedded performers and voices are unknown, not zero or invented live musicians. Authored recording realization of the full documented performance. One live human supplies both vocal cards and instrumental roles; repeated loops do not multiply performer count. Mixed sung/rap delivery and physiology remain source unspecified. The existing beatbox owner requires a gesture: an explicitly authored pulmonic-egressive velar-affricate snare is a compatible representative technique, not a phonetic measurement of Supaman. Ensemble-layer beatbox describes the combined loop texture, not extra people. Scratch/chopped variants realize positive vinyl scratching, not a measured scratch vocabulary or East Coast performer identity. All three isolated owners retain independent physical/workflow controls with unknown options. Room and signal chain are authored; no source hardware model, flute key, drum species or total embedded voice count is invented. Global tuning omitted.",
   "recipe": "classic mid-2010s native american hip hop, mc Rhythm. solo with instrumental accompaniment, single lead single track no stacking. pulmonic egressive percussive vocal percussion ensemble layer pulmonic egressive velar affricate snare vocal percussion voice, native american flute source hand drum source unspecified, live layered live loop recording playback, sampled chopped turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 484,
-  "score": 38.065,
+  "score": 38.389,
   "config": {
     "traditions": [
       "native_american_hip_hop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.446,
+          "voice_ensemble_config": 4.7924999999999995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 1.69,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 1.6360000000000001,
           "voice_tessitura": 0
         }
       },
@@ -61,10 +61,10 @@
           "vocal_percussion_context": "vocal_percussion_context_ensemble"
         },
         "scores": {
-          "vocal_percussion_airstream_mechanism": 2.6,
+          "vocal_percussion_airstream_mechanism": 2.6315,
           "vocal_percussion_beatbox_articulation": 6.5,
           "vocal_percussion_syllabic_drum_system": 0,
-          "vocal_percussion_context": 9.614499999999998
+          "vocal_percussion_context": 9.467499999999998
         }
       },
       {
@@ -107,7 +107,7 @@
         },
         "scores": {
           "live_loop_hardware_neutral": 0,
-          "live_loop_capture_neutral": 5.525499999999999,
+          "live_loop_capture_neutral": 5.294499999999999,
           "live_loop_timing_neutral": 0,
           "live_loop_processing_neutral": 0
         }
@@ -119,8 +119,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 4.0815,
-          "turntable_technique": 3.5130000000000003
+          "electronic_technique": 4.1129999999999995,
+          "turntable_technique": 3.9225000000000003
         }
       }
     ],

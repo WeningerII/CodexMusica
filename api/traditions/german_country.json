@@ -5,7 +5,7 @@
   "lineage": "German country connects local-language songwriting and performance to transatlantic country practice. Tom Astor’s documented German career and country-band recording provide this representative branch.",
   "recipe": "classic modern german country, functional Song, country branch. thick, wide pitch sway, neutral third half flat, nasal twang velar port open. Fender tweed amp American 50s amp tweed breakup single coil electric guitar, fiddle, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 469,
-  "score": 127.99,
+  "score": 128.946,
   "config": {
     "traditions": [
       "german_country"
@@ -36,12 +36,12 @@
           "voice_quality": 0.39,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.45,
+          "voice_vibrato": 14.481499999999999,
           "voice_articulation": -0.14,
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 14.930999999999997,
+          "voice_estill_quality": 15.098999999999997,
           "voice_speech_song": 5.525,
           "voice_ensemble_config": 3.9,
           "voice_ornament_system": 0,
@@ -68,14 +68,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 14.7745,
+          "electric_technique": 14.8375,
           "amp_make": 14.754999999999999,
-          "body_wood": 0.147,
+          "body_wood": 0.294,
           "neck_wood": 0,
           "fretboard": 0.0315,
           "pickup_magnet": 0.105,
           "string_material": 0.3779999999999999,
-          "string_gauge": 0.2835,
+          "string_gauge": 0.4305,
           "bridge": 0.2115,
           "scale_length": 0,
           "finish": 0,
@@ -97,8 +97,8 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 0.2115,
           "fiddle_bow": 0.1365,
-          "fiddle_mute": 0.2835,
-          "fiddle_articulation": 0.1365,
+          "fiddle_mute": 0.4305,
+          "fiddle_articulation": 0.168,
           "fiddle_string_configuration": 0
         }
       },
@@ -119,9 +119,9 @@
           "body_wood": 0.0315,
           "pickup_config": 0.348,
           "string_type": 0.40049999999999997,
-          "scale_length_b": 0.243,
-          "fretted_or_not": 0.36749999999999994,
-          "bass_technique": 14.7745,
+          "scale_length_b": 0.27449999999999997,
+          "fretted_or_not": 0.3989999999999999,
+          "bass_technique": 14.8375,
           "electric_bass_string_configuration": 0
         }
       },
@@ -129,12 +129,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.6399999999999997,
-          "drumhead": 0.1995,
+          "drumhead": 0.294,
           "drum_kit_kick_pedal": 0
         }
       }

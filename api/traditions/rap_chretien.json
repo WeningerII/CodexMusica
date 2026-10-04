@@ -5,7 +5,7 @@
   "lineage": "French-language Christian rap is represented by Manou Bolomik’s solo rap/electro recording practice and church/concert network. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern rap chrétien, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 292,
-  "score": 37.728,
+  "score": 37.89,
   "config": {
     "traditions": [
       "rap_chretien"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.215,
+          "voice_speech_song": 14.269,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

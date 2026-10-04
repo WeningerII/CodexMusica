@@ -2,87 +2,259 @@
   "id": "bisaya_worship",
   "name": "Bisaya worship",
   "family": "blues_gospel",
-  "lineage": "Adonis Melencion — Sa Presensya Mo / May Kaayohan, complete2020 artist-uploaded piano instrumental cover. Official Artist Channel expressly calls it a Bisaya Christian song and tags BisayaWorship/pianoinstrumental. The whole named instrumental piano version is selected, not removal of vocal roles from a band recording. The2021 artist-label distributed Piano Instrumental version corroborates the published practice. No additional instrument or voice is positively identified; no uncredited pad or backing singer inferred. RitualDevotional.christianGospel scopes the expressly Christian worship use. Existing grand-piano card is an authored acoustic realization of source piano, not a claim the video used a Steinway or an acoustic rather than digital source. Coherent nine-foot SteinwayD and block-chord setting are authored; exact fingering, studio room, tuning and chain are not measured. Global tuning omitted. One whole piano-family performance, zero source singers in the explicitly instrumental selected version.",
-  "recipe": "classic bisaya worship, ritual Devotional, christian gospel branch. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 232,
-  "score": 12.597,
+  "lineage": "Bisaya worship connects Christian songs with Cebuano and related Visayan-speaking church communities. Repertoire circulates through congregational singing, recordings and instrumental adaptations within the Philippines and its diaspora.",
+  "recipe": "classic bisaya worship, ritual Devotional, christian gospel branch. small note groups per syllable. gospel runs upright piano, dreadnought acoustic guitar, electric bass, drum kit. live tracking.",
+  "recipe_chars": 195,
+  "score": 7.458,
   "config": {
     "traditions": [
       "bisaya_worship"
     ],
     "instruments": [
       {
-        "id": "grand_piano",
+        "id": "voice",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "keyboard_technique": 2.5000000000000004,
-          "grand_piano_size": 0.294,
-          "grand_piano_brand": 0.273,
-          "piano_hammer": -0.1,
-          "piano_rim": 1.56,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": 2.5,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 5.7695
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.2730000000000001,
+          "voice_ensemble_config": 0.2985,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.8100000000000005,
+          "upright_use": 0,
+          "upright_piano_size": 0.28350000000000003
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.054,
+          "pickup_config": 0.6210000000000001,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": 0.273,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": 0.19500000000000003,
+          "cymbal_finish": 0
         }
       }
     ],
     "pinned": {
-      "grand_piano": [
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "tuning": "twelve_tet",
+    "room": "live_room",
     "parts": {
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "keyboard_technique": "keyboard_gospel_chord_runs",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "acoustic_technique": "acoustic_strummed_ringing"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "ai",
   "name": "AI",
   "family": "vernacular",
-  "lineage": "Aleksandr Sigalov — OpenAI’s MuseNet Artificial Intelligence Piano Performances. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "lineage": "AI music uses computational systems to generate musical material from learned patterns. Systems such as MuseNet and Magenta contributed to experiments in generated composition and performance, including piano releases by Aleksandr Sigalov.",
   "recipe": "classic ai, experimental Elec. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 142,
-  "score": -0.432,
+  "score": 0.288,
   "config": {
     "traditions": [
       "ai"
@@ -31,9 +31,9 @@
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.07,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.07,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.7149999999999999
         }
       }
     ],

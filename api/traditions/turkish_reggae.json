@@ -2,10 +2,10 @@
   "id": "turkish_reggae",
   "name": "Turkish reggae",
   "family": "global",
-  "lineage": "Sattas — Çıplak Kral, complete2025 single issued by Akustikhane. MÜYORBİR performing-artists association magazine supplies eight-person credits: Orçun Sünear voice; Öykü Gülata bass guitar; Cenk Güngör drums; Batu Kurnaz electric guitar; Gonca Feride Varol keyboards; Mehmet Ali Özay alto saxophone; Emir Erünsall tenor/baritone saxophones; Barış Doğukan Yazıcı trumpet. Retain every positive role, with all three saxophone sizes aggregated in the existing section owner. One explicitly credited singer; no claim that uncredited doubling is impossible. Historical or later group lineups are excluded. Existing reggaeDiaspora parent scopes the positively documented bass/drum reggae song. Seven family cards preserve the entire release palette. Saxophone section preserves alto, tenor and baritone without inventing simultaneous use or three players; source names two saxophonists. Keyboard architecture remains unspecified. Humbucker guitar, clean strum, locked fingerstyle bass, modern kit and short coordinated horn attacks are authored compatible choices, not measured source techniques or equipment. Open B-flat trumpet and coherent Bach setup are authored. Vocal mechanism and register remain unspecified; single accompanied singer is modeled. Global tuning omitted; studio chain editorial. Authored render amendment (supersedes earlier authored defaults, not source facts): body_wood=alder_h, fretboard=ebony_fb_h, pickup_magnet=alnico_5_h, pickup_winding=low_wind, pickup_config=soapbar, string_type=flatwound, bass_technique=thumb_muted. The complete source roster and repertoire are unchanged. This new arrangement uses a controlled live room; unspecified capture apparatus is omitted. Construction/material, pickup, articulation and room choices are editorial realizations, not recovered artist hardware or session techniques. Flat material choices apply to every compatible instrument owner, including both guitar and bass where present. No shared instrument, default, lexicon or engine change.",
-  "recipe": "classic turkish reggae, bass System, reggae diaspora branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. low output no compression conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, flatwound thumb muted electric bass, articulate short saxophone section alto tenor baritone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble student friendly trumpet. live tracking.",
-  "recipe_chars": 600,
-  "score": 62.475,
+  "lineage": "Turkish reggae adapts reggae’s bass-centered grooves within local songwriting and band culture. Groups such as Sattas connect Jamaican-derived practices with Turkish expression and influences from Anatolian music.",
+  "recipe": "classic turkish reggae, bass System, reggae diaspora branch. small note groups per syllable, solo with instrumental accompaniment. humbucker electric guitar, electronic keyboard unspecified, drum kit, thumb muted electric bass, saxophone section alto tenor baritone, trumpet. live tracking.",
+  "recipe_chars": 290,
+  "score": 16.032,
   "config": {
     "traditions": [
       "turkish_reggae"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 5.6259999999999994,
+          "voice_multitrack_stack": 0.126,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.2,
+          "electric_technique": -0.1,
           "amp_make": 0,
           "body_wood": 0.0315,
           "neck_wood": 0.3465,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
-          "pickup_winding": 2.8999999999999995,
+          "pickup_winding": 0,
           "string_material": 0.1995,
           "bridge": 0,
           "scale_length": 0.693,
-          "string_gauge": 2.1365,
+          "string_gauge": 0.8365,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -93,7 +93,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.294
+          "keyboard_technique": 0.39
         }
       },
       {
@@ -113,15 +113,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.9000000000000004,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 1.3315000000000001,
+          "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 3.1500000000000004,
-          "cymbal_lathing": 4.513,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       },
@@ -140,11 +140,11 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0.0315,
-          "pickup_config": 1.363,
-          "string_type": 1.2,
+          "pickup_config": 0.063,
+          "string_type": -0.1,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 12.449999999999996,
+          "bass_technique": 11.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -154,7 +154,7 @@
           "alto_tenor_baritone_section_articulation": "alto_tenor_baritone_section_articulation_short"
         },
         "scores": {
-          "alto_tenor_baritone_section_articulation": 1.3
+          "alto_tenor_baritone_section_articulation": 0
         }
       },
       {
@@ -169,13 +169,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.3905,
+          "wind_articulation": -0.10500000000000001,
           "brass_size": 0,
-          "trumpet_mouthpiece": 3.2,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0.0315,
-          "trumpet_technique": 4.3905,
-          "trumpet_bell_metal": 1.51,
-          "trumpet_maker_school": 1.405
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0.21,
+          "trumpet_maker_school": 0.105
         }
       }
     ],
@@ -281,7 +281,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",

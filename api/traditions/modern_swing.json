@@ -5,7 +5,7 @@
   "lineage": "Modern swing is represented here by The Schwings Band featuring Migloko — Jack I’m Mellow (2017). This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic late-2010s modern swing, improv On Frame, early branch. solo with instrumental accompaniment. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, yamaha xeno modern Japanese jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 524,
-  "score": 118.572,
+  "score": 118.2,
   "config": {
     "traditions": [
       "modern_swing"
@@ -16,7 +16,7 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_blue_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": 0.29275,
           "grand_piano_size": 0.3045,
-          "grand_piano_brand": 0.3045,
+          "grand_piano_brand": 0.366,
           "piano_hammer": 6.004499999999999,
           "piano_rim": 6.972999999999999,
-          "piano_soundboard": 6.235125,
-          "piano_pinblock": 6.117,
+          "piano_soundboard": 6.07425,
+          "piano_pinblock": 6.04275,
           "piano_plate": 6,
-          "piano_pitch_standard": 7.26225
+          "piano_pitch_standard": 7.101375
         }
       },
       {
@@ -77,7 +77,7 @@
           "trumpet_mouthpiece": 9.099999999999998,
           "brass_mute": 1.3,
           "trumpet_technique": 0.5199999999999999,
-          "trumpet_bell_metal": 0.509625,
+          "trumpet_bell_metal": 0.47250000000000003,
           "trumpet_maker_school": 2.3
         }
       },

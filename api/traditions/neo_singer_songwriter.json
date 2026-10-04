@@ -5,7 +5,7 @@
   "lineage": "Neo-singer-songwriter is an archival discovery category that includes Gabrielle Aplin, George Ezra and related contemporary performers. Aplin’s first-person accounts of guitar- and piano-based writing supply the selected acoustic-pop branch.",
   "recipe": "classic modern neo-singer-songwriter, ballad Poetry. extended whistle, incomplete closure resting, straight onset, equal tempered. fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 389,
-  "score": 48.614,
+  "score": 49.271,
   "config": {
     "traditions": [
       "neo_singer_songwriter"
@@ -36,18 +36,18 @@
           "voice_quality": 3.8000000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.45,
+          "voice_vibrato": 1.63,
           "voice_articulation": 0,
           "voice_microtone": 3.1365000000000007,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 2.03,
+          "voice_estill_quality": 2.138,
           "voice_speech_song": 3.185,
           "voice_ensemble_config": 3.5100000000000002,
-          "voice_ornament_system": 2.03,
-          "voice_pitch_organization": 0.15000000000000002,
+          "voice_ornament_system": 2.0839999999999996,
+          "voice_pitch_organization": 0.19500000000000003,
           "voice_processing_chain": 1.534,
-          "voice_multitrack_stack": 0.381
+          "voice_multitrack_stack": 0.48900000000000005
         }
       },
       {
@@ -62,9 +62,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.054,
-          "back_sides": 0,
+          "back_sides": 0.054,
           "string_acoustic": 0.1365,
-          "acoustic_om_technique": 5.154000000000001
+          "acoustic_om_technique": 5.208
         }
       },
       {
@@ -85,7 +85,7 @@
           "grand_piano_size": 0,
           "grand_piano_brand": 1,
           "piano_hammer": 3.2,
-          "piano_rim": 3.2,
+          "piano_rim": 3.254,
           "piano_soundboard": 3.2,
           "piano_pinblock": -0.05,
           "piano_plate": 0.2,

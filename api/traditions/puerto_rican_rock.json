@@ -2,10 +2,10 @@
   "id": "puerto_rican_rock",
   "name": "Puerto rican rock",
   "family": "rock",
-  "lineage": "Puerto rican rock is represented here by Campo-Formio — here comes... Campo-Formio!. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Puerto Rican rock includes independent guitar-band scenes and experimental approaches to popular song.",
   "recipe": "classic puerto rican rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 46.977,
+  "score": 40.979,
   "config": {
     "traditions": [
       "puerto_rican_rock"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 6.11,
+          "amp_make": 5.720000000000001,
           "body_wood": 0.273,
           "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 1.5535,
+          "bridge": 0.2535,
           "scale_length": 0.7875000000000001,
-          "string_gauge": 1.5535,
+          "string_gauge": 0.2535,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.11699999999999999
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 6.175,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 15.6,
+          "string_type": 14.625,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.354,
+          "drum_technique": 11.25,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

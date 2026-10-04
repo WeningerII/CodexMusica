@@ -2,10 +2,10 @@
   "id": "italian_pop",
   "name": "Italian pop",
   "family": "pop",
-  "lineage": "Italian pop is represented here by Mario Di Pasquale — Un attimo di smarrimento title track core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic italian pop, functional Song, pop rock branch. ernie ball slinky electric bass, sampler drum machine, singing lead rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 45.128,
+  "lineage": "Italian pop encompasses a broad field of melodic songwriting, performance and studio production. Acoustic, band-based and electronic approaches coexist, including collaborations across countries.",
+  "recipe": "classic italian pop, functional Song, pop rock branch. unprocessed natural acoustic. ernie ball slinky electric bass, sampler drum machine, singing lead rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 274,
+  "score": 46.08,
   "config": {
     "traditions": [
       "italian_pop"
@@ -25,11 +25,11 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.168,
-          "pickup_config": 0.27299999999999996,
+          "body_wood": 0.378,
+          "pickup_config": 0.3045,
           "string_type": 4.875,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.39,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -45,8 +45,8 @@
         "scores": {
           "electronic_technique": -0.1,
           "sample_bitdepth": 0.105,
-          "sample_swing": -0.05,
-          "sample_processing": 0
+          "sample_swing": 2.5,
+          "sample_processing": 0.063
         }
       },
       {
@@ -58,9 +58,9 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 12.569499999999998,
-          "rompler_preset_bank": 12.0735,
-          "rompler_context": 12.105,
+          "electronic_technique": 11.5945,
+          "rompler_preset_bank": 11.3235,
+          "rompler_context": 11.523,
           "rompler_lineage": 0
         }
       },
@@ -96,10 +96,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.363,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 1.0315,
           "voice_multitrack_stack": 0.063
         }
       }

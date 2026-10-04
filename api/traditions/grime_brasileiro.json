@@ -2,10 +2,10 @@
   "id": "grime_brasileiro",
   "name": "Grime brasileiro",
   "family": "hip_hop",
-  "lineage": "Brasil Grime Show — full ANTCONSTANTINO, JXNVS and SD episode, November2018. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic grime brasileiro, mc Rhythm. rhythmic spoken flow no pitch, duet, live take. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 7.447,
+  "lineage": "Brazilian grime develops through local MCs, DJs and producers adapting grime’s rhythmic language to Brazilian scenes and languages. Brasil Grime Show helped establish a platform for performances and exchanges.",
+  "recipe": "classic grime brasileiro, mc Rhythm. rap, rhythmic spoken flow no pitch. sampler drum machine. live tracking.",
+  "recipe_chars": 109,
+  "score": 8.828,
   "config": {
     "traditions": [
       "grime_brasileiro"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 3.5100000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,22 +43,28 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.575,
-          "voice_ensemble_config": 2.22,
+          "voice_speech_song": 3.4450000000000003,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 1.557,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_drum_machine",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.126,
+          "sample_swing": 1.323,
+          "sample_processing": 0
         }
       }
     ],
@@ -82,29 +88,32 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -120,14 +129,11 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

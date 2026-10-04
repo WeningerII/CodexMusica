@@ -2,10 +2,10 @@
   "id": "historic_string_quartet",
   "name": "Historic string quartet",
   "family": "classical",
-  "lineage": "Historic string quartet is represented by Busch Quartet — Schubert: Death and the Maiden (1936). One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic mid-1930s historic string quartet, art Music, western common practice branch. string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 205,
-  "score": 3.13,
+  "lineage": "Historic string-quartet performance preserves interpretations by earlier chamber ensembles. Their recordings document contrasting approaches to tone, timing and the balance of four independent parts.",
+  "recipe": "classic historic string quartet, art Music, western common practice branch. string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 195,
+  "score": 3.465,
   "config": {
     "traditions": [
       "historic_string_quartet"
@@ -16,12 +16,12 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "quartet_school": "quartet_classical",
-          "string_quartet_inst_era": "string_quartet_inst_romantic"
+          "string_quartet_inst_era": "string_quartet_inst_classical"
         },
         "scores": {
-          "bowed_technique": 2.5,
+          "bowed_technique": 2.734,
           "quartet_school": 0,
-          "string_quartet_inst_era": 0.6299999999999999
+          "string_quartet_inst_era": 0.7304999999999999
         }
       }
     ],

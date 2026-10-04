@@ -2,10 +2,10 @@
   "id": "vietnamese_electronic",
   "name": "Vietnamese electronic",
   "family": "electronic",
-  "lineage": "Sound Awakener / Nhung Nguyen — Nocturnal Scenes (2015), complete4:16 single. WISWOS presenting programme explicitly describes field recordings collected near Goethe Institut Hanoi mixed with processed music box. Retain both the environmental collage and processed music-box source; no other instruments, singers, oscillator architecture or sampler hardware inferred. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s vietnamese electronic, experimental Elec. environmental field recording environmental sound collage, credited music box unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 249,
-  "score": 4.563,
+  "lineage": "Vietnamese electronic music connects club production with experimental sound art and electroacoustic composition. Artists such as Sound Awakener explore recorded environments and processed acoustic sources alongside other forms of electronic practice.",
+  "recipe": "classic vietnamese electronic, experimental Elec. environmental sound collage, credited music box unspecified. live tracking.",
+  "recipe_chars": 125,
+  "score": 0.39,
   "config": {
     "traditions": [
       "vietnamese_electronic"
@@ -17,7 +17,7 @@
           "environmental_collage_source": "environmental_field_recording_collage"
         },
         "scores": {
-          "environmental_collage_source": 4.563
+          "environmental_collage_source": 0.39
         }
       },
       {
@@ -38,32 +38,26 @@
         "credited_music_box_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "environmental_collage_source": "environmental_field_recording_collage",
       "credited_music_box_identity": "music_box_processed_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

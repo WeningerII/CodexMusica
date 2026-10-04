@@ -5,7 +5,7 @@
   "lineage": "Australian experimental: Modular Theme Time Sessions — Quantum Burst (2025). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic mid-2020s australian experimental, experimental Elec. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 252,
-  "score": 14.193,
+  "score": 13.898,
   "config": {
     "traditions": [
       "australian_experimental"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 12.125499999999997,
-          "mod_voltage_source": 0,
-          "mod_patch_density": 0.378,
-          "mod_lineage": 1.69
+          "electronic_technique": 12.156999999999996,
+          "mod_voltage_source": 0.1365,
+          "mod_patch_density": 0.3045,
+          "mod_lineage": 1.3
         }
       }
     ],

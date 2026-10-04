@@ -5,7 +5,7 @@
   "lineage": "Andrew Knight-Hill — studio acousmatic practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic british electroacoustic, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 159,
-  "score": 4.495,
+  "score": 4.525,
   "config": {
     "traditions": [
       "british_electroacoustic"
@@ -21,7 +21,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.3,
           "sampler_workflow": 0.25,

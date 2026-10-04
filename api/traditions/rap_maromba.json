@@ -2,10 +2,10 @@
   "id": "rap_maromba",
   "name": "Rap maromba",
   "family": "hip_hop",
-  "lineage": "Brazilian bodybuilding-themed rap includes Léo Stronda’s Bonde da Maromba. A Bonde da Stronda vocal-and-sampler arrangement supplies this authored option.",
+  "lineage": "Brazilian rap organized around bodybuilding, training and gym motivation, associated with performers including Léo Stronda and Bonde da Stronda.",
   "recipe": "classic modern rap maromba, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 286,
-  "score": 34.215,
+  "score": 39.075,
   "config": {
     "traditions": [
       "rap_maromba"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 11.765,
+          "voice_quality": 12.35,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.014999999999999,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 12.219,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,11 +60,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.2,
+          "electronic_technique": 2.6500000000000004,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.105,
-          "sampler_workflow": 2.1500000000000004,
-          "sampler_classic_context": 4.615
+          "sampler_bit_depth": 0.213,
+          "sampler_workflow": 2.6000000000000005,
+          "sampler_classic_context": 6.89
         }
       }
     ],

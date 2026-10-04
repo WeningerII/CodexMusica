@@ -2,10 +2,10 @@
   "id": "appenzeller_folk",
   "name": "Appenzeller folk",
   "family": "vernacular",
-  "lineage": "Appenzeller folk is represented by Nicolas Senn — traditional Appenzeller melodies in solo hackbrett programme. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "lineage": "Appenzeller folk music connects instrumental and vocal traditions of the Appenzell region. Dance melodies, local ensemble playing and solo instrumental performances sustain a varied repertoire.",
   "recipe": "classic appenzeller folk, drone Modal, string branch. hammered dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 171,
-  "score": 5.358,
+  "score": 3.545,
   "config": {
     "traditions": [
       "appenzeller_folk"
@@ -14,22 +14,25 @@
       {
         "id": "hammered_dulcimer",
         "slots": {
-          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_dulcimer_courses": "hd_extended",
           "hammer_material": "wood_bare",
-          "hammered_dulcimer_body_wood": "hd_walnut_canonical",
+          "hammered_dulcimer_body_wood": "hd_maple_modern",
           "hammered_dulcimer_strings": "hd_steel_bronze_modern"
         },
         "scores": {
-          "hammer_dulcimer_courses": 2.274,
+          "hammer_dulcimer_courses": 0.273,
           "hammer_material": 2.274,
-          "hammered_dulcimer_body_wood": 0.42,
-          "hammered_dulcimer_strings": 0.39
+          "hammered_dulcimer_body_wood": 0.273,
+          "hammered_dulcimer_strings": 0.7244999999999999
         }
       }
     ],
     "pinned": {
       "hammered_dulcimer": [
-        "hammered_dulcimer_body_wood"
+        "hammer_dulcimer_courses",
+        "hammer_material",
+        "hammered_dulcimer_body_wood",
+        "hammered_dulcimer_strings"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "hammered_dulcimer_body_wood": "hd_walnut_canonical"
+      "hammered_dulcimer_body_wood": "hd_maple_modern",
+      "hammer_dulcimer_courses": "hd_extended",
+      "hammer_material": "wood_bare",
+      "hammered_dulcimer_strings": "hd_steel_bronze_modern"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

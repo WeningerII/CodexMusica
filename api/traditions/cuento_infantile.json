@@ -2,10 +2,10 @@
   "id": "cuento_infantile",
   "name": "Cuento infantile",
   "family": "vernacular",
-  "lineage": "KendalRigans — Las cuentas de San Pedro, complete first chapter of La media docena (LibriVox2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic cuento infantile, spoken Word, narration branch. conversational, no pitch organization speech, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 259,
-  "score": 4.296,
+  "lineage": "Cuento infantile gathers Spanish-language stories, fables and literary tales addressed to children. Oral storytelling and recorded readings carry narrative traditions across homes, classrooms and publishing networks.",
+  "recipe": "classic cuento infantile, spoken Word, narration branch. conversational, narrative. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 182,
+  "score": 4.348,
   "config": {
     "traditions": [
       "cuento_infantile"
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 1.69,
+          "voice_quality": 0.9240000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.13000000000000003,
+          "voice_articulation": 2.3415000000000004,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 0.3255,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.78,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }

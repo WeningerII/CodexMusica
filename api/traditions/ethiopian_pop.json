@@ -2,10 +2,10 @@
   "id": "ethiopian_pop",
   "name": "Ethiopian pop",
   "family": "pop",
-  "lineage": "Ethiopian pop is represented here by Gigi — Mesgana Ethiopia: core band excluding guest track. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Ethiopian pop connects local melodic and language traditions with contemporary popular arrangements and diaspora collaborations.",
   "recipe": "classic ethiopian pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 347,
-  "score": 36.857,
+  "score": 32.727,
   "config": {
     "traditions": [
       "ethiopian_pop"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 11.2,
-          "amp_make": 1.1049999999999998,
+          "amp_make": 0,
           "body_wood": 0.9135,
           "neck_wood": 0.3045,
           "fretboard": 0.273,
           "pickup_magnet": 0.336,
           "pickup_winding": 0.336,
           "string_material": 0,
-          "bridge": 1.5835,
+          "bridge": 0.3045,
           "scale_length": 0.8819999999999999,
-          "string_gauge": 1.447,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -91,7 +91,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0.168,
-          "poly_voices": 0.21,
+          "poly_voices": 1.21,
           "poly_maker_lineage": -0.035
         }
       },
@@ -127,11 +127,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 1.3
+          "voice_multitrack_stack": 0.7770000000000001
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "polish_free_jazz",
   "name": "Polish free jazz",
   "family": "jazz",
-  "lineage": "Polish free-jazz lineage; selected Stańko/Szukalski chordless quartet",
+  "lineage": "Polish free jazz connects the country’s exploratory improvisers with international avant-garde jazz. Open interaction, expanded instrumental colour and flexible form coexist with composed themes and recurring melodic ideas.",
   "recipe": "classic modern polish free jazz, improv On Frame, avant branch. bach stradivarius 180 canonical American orchestral split tone overblown trumpet, split tone overblown saxophone, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 405,
-  "score": 55.273,
+  "score": 66.77,
   "config": {
     "traditions": [
       "polish_free_jazz"
@@ -24,11 +24,11 @@
         },
         "scores": {
           "wind_articulation": 3.4364999999999997,
-          "brass_size": 0.39,
+          "brass_size": 0.1995,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0,
           "trumpet_technique": 0.325,
-          "trumpet_bell_metal": 0.4095,
+          "trumpet_bell_metal": 0.4455,
           "trumpet_maker_school": 1.95
         }
       },
@@ -45,7 +45,7 @@
         },
         "scores": {
           "wind_articulation": 3.4364999999999997,
-          "sax_size": 0.19500000000000003,
+          "sax_size": -0.10500000000000001,
           "sax_reed": 0.0315,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
@@ -60,8 +60,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.39,
-          "upright_play": 11.25
+          "upright_strings": 0.1995,
+          "upright_play": 13.75
         }
       },
       {
@@ -80,15 +80,15 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.280000000000001,
-          "drumhead": 0.03599999999999999,
+          "drum_technique": 11.179999999999996,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.03599999999999999,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.03599999999999999,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 11.299499999999998,
-          "cymbal_hammering": 11.367999999999999,
+          "cymbal_alloy": 13.799499999999998,
+          "cymbal_hammering": 13.867999999999999,
           "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
         }

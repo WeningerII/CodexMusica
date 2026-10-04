@@ -2,10 +2,10 @@
   "id": "israeli_folk",
   "name": "Israeli folk",
   "family": "vernacular",
-  "lineage": "This archival discovery label includes Bustan Abraham alongside modern instrumental and spiritual-folk performers. Bustan Abraham’s oud-led ensemble work offers a specific collaborative branch rather than a universal ethnic or religious formula.",
-  "recipe": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 421,
-  "score": 20.614,
+  "lineage": "Israeli folk includes collaborative instrumental ensembles alongside song and spiritual-folk traditions. Groups such as Bustan Abraham bring Middle Eastern plucked strings, wind instruments and improvisation into dialogue with bass and hand percussion.",
+  "recipe": "classic modern israeli folk, improv On Frame. Lebanese cedar eastern Mediterranean brass wound bass modern hybrid oud, flute, upright bass, juniper bent frame canonical Maghrebi bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 323,
+  "score": 14.168,
   "config": {
     "traditions": [
       "israeli_folk"
@@ -19,17 +19,17 @@
           "oud_strings": "oud_thirteen",
           "oud_pick": "risha_plastic",
           "oud_body_wood": "oud_mahogany_body",
-          "oud_soundboard_wood": "oud_western_red_cedar_face",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_brass_wound_bass"
         },
         "scores": {
-          "plucked_traditional_technique": 0.18150000000000002,
+          "plucked_traditional_technique": 1.4315,
           "oud_school": 0.1365,
-          "oud_strings": 1.1608749999999999,
-          "oud_pick": 0.223875,
-          "oud_body_wood": 1.1608749999999999,
-          "oud_soundboard_wood": 1.192375,
-          "oud_string_material": 1.681375
+          "oud_strings": 0.192375,
+          "oud_pick": 0.316125,
+          "oud_body_wood": 0.192375,
+          "oud_soundboard_wood": 1,
+          "oud_string_material": 1.523875
         }
       },
       {
@@ -37,16 +37,16 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "flute_size": "concert_flute",
-          "flute_material": "silver_flute",
+          "flute_material": "gold_flute",
           "flute_technique": "beatboxed_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": -0.1,
+          "wind_articulation": -0.07,
           "flute_size": 0,
-          "flute_material": 1.192375,
-          "flute_technique": 1.3,
-          "flute_maker_school": 1.198
+          "flute_material": 0.3315,
+          "flute_technique": 1.1666250000000002,
+          "flute_maker_school": 0.3345
         }
       },
       {
@@ -56,7 +56,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.1608749999999999,
+          "upright_strings": 0.192375,
           "upright_play": -0.05
         }
       },
@@ -70,9 +70,9 @@
         },
         "scores": {
           "bendir_snares": 3.12,
-          "bendir_context": 0.39,
-          "bendir_shell_wood": 2.34,
-          "bendir_head": 1.3
+          "bendir_context": 0.94275,
+          "bendir_shell_wood": 2.73,
+          "bendir_head": 0.452625
         }
       }
     ],

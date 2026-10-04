@@ -5,7 +5,7 @@
   "lineage": "Igbo rap is a language-and-cultural rap field with multiple production styles. Jeriq’s Onitsha-rooted rap/highlife-melody and trap branch supplies the selected model.",
   "recipe": "classic modern igbo rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. TR-808, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 302,
-  "score": 23.74,
+  "score": 23.773,
   "config": {
     "traditions": [
       "igbo_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.623,
+          "voice_quality": 17.677,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -60,7 +60,7 @@
         "scores": {
           "tr808_voice": 2.6969999999999996,
           "drum_machine_808_context": 0.39,
-          "tr808_production_origin": 0.78
+          "tr808_production_origin": 0.759
         }
       },
       {

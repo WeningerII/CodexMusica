@@ -5,7 +5,7 @@
   "lineage": "Mexican women’s rap represented by Oaxaca rapper Mare Advertencia and the collaborative SHHH release.",
   "recipe": "classic modern rap femenino mexicano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 311,
-  "score": 31.586,
+  "score": 31.694,
   "config": {
     "traditions": [
       "rap_femenino_mexicano"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

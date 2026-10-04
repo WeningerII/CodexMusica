@@ -2,10 +2,10 @@
   "id": "rock_cristao_fluminense",
   "name": "Rock cristao fluminense",
   "family": "rock",
-  "lineage": "Rock cristao fluminense is represented here by Fort Enna. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Rock cristão fluminense brings Christian songwriting into the rock-band communities of Rio de Janeiro state.",
   "recipe": "classic rock cristao fluminense, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 59.377,
+  "score": 59.645,
   "config": {
     "traditions": [
       "rock_cristao_fluminense"
@@ -18,7 +18,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 6.5,
+          "amp_make": 7.0200000000000005,
           "body_wood": 0.273,
           "neck_wood": 0.273,
-          "fretboard": 0.39,
+          "fretboard": 0.273,
           "pickup_magnet": 0.168,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 1.4785,
+          "bridge": 0.1785,
           "scale_length": 0.8190000000000001,
-          "string_gauge": 1.51,
+          "string_gauge": 0.21000000000000002,
           "finish": 0,
-          "string_tuning": 0.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.0315,
           "pickup_config": 0.063,
-          "string_type": 16.575,
+          "string_type": 17.875,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.3,
+          "drum_technique": 13.75,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.1550000000000005,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.378
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 6.629999999999999,
+          "poly_archetypes": 7.15,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }

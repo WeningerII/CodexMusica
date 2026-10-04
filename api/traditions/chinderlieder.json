@@ -5,7 +5,7 @@
   "lineage": "Silberbüx — documented three-member Swiss German children’s-song core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
   "recipe": "classic chinderlieder, nursery Rhyme, European branch. grand piano, electric bass, dark musical bronze bell bronze drum kit, dreadnought acoustic guitar, ukulele. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 254,
-  "score": 7.168,
+  "score": 6.785,
   "config": {
     "traditions": [
       "chinderlieder"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.7314999999999999,
+          "keyboard_technique": 0.7,
           "grand_piano_size": 0.3,
-          "grand_piano_brand": 0.105,
+          "grand_piano_brand": 0.378,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.07,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.7149999999999999
         }
@@ -117,15 +117,15 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.273,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.336,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
           "bearing_edges": 1.5329999999999997,
           "snare_wires": 0,
           "cymbal_alloy": 1.2574999999999998,
           "cymbal_hammering": 0.8449999999999999,
-          "cymbal_lathing": 0.7865,
+          "cymbal_lathing": 0.818,
           "cymbal_finish": 0
         }
       },
@@ -139,7 +139,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 0.7314999999999999,
+          "acoustic_technique": 0.7,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
@@ -155,7 +155,7 @@
         },
         "scores": {
           "ukulele_size": -0.07,
-          "ukulele_style": -0.05,
+          "ukulele_style": -0.035,
           "ukulele_wood": -0.035
         }
       }

@@ -2,10 +2,10 @@
   "id": "swedish_techno",
   "name": "Swedish techno",
   "family": "electronic",
-  "lineage": "Sweden-centered techno networks including Adam Beyer, Cari Lekebusch, Joel Mull and more experimental contemporary producers. This default selects a repetitive groove-and-synthesis branch associated with Beyer’s Stockholm production network, while allowing his later hybrid hardware/software workflow.",
+  "lineage": "Swedish techno connects Stockholm production networks with international club and label circuits. Successive generations combine forceful grooves, hands-on synthesis and exploratory electronic textures.",
   "recipe": "classic modern swedish techno, electronic Dance, techno branch. analog synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 303,
-  "score": 9.939,
+  "score": 10.489,
   "config": {
     "traditions": [
       "swedish_techno"
@@ -24,7 +24,7 @@
           "electronic_technique": -0.035,
           "oscillator": 0.255375,
           "filter_topology": 0.6028749999999999,
-          "envelope": 0.26025,
+          "envelope": 0.39,
           "modulation": 0.1365
         }
       },
@@ -37,10 +37,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0.03712499999999999,
-          "sample_swing": 7.347249999999999,
-          "sample_processing": 1
+          "sample_swing": 9.09725,
+          "sample_processing": 0
         }
       }
     ],

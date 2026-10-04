@@ -5,7 +5,7 @@
   "lineage": "DJ Bacon — Universal B Boy Megamix sample-montage branch. Representative authored present-day recording arrangement. Sources establish the selected roles and bounded category relationship. Exact construction, hardware, playing settings, room, chain, temperament and numeric axes are authored choices, not original-session facts or universal genre traits.",
   "recipe": "classic bboy, mc Rhythm. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 145,
-  "score": 1.535,
+  "score": 1.945,
   "config": {
     "traditions": [
       "bboy"
@@ -20,9 +20,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.2,
+          "electronic_technique": 0.2315,
           "sample_bitdepth": 0.39,
-          "sample_swing": 0.945,
+          "sample_swing": 1.323,
           "sample_processing": 0
         }
       }

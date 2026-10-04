@@ -2,10 +2,10 @@
   "id": "louisville_indie",
   "name": "Louisville indie",
   "family": "rock",
-  "lineage": "Wombo — Keesh Mountain (2021), three-member ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s louisville indie, distorted Rock, alternative branch. single lead single track no stacking. conventional tuning standard pitch arpeggiated clean humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 383,
-  "score": 37.709,
+  "lineage": "Louisville independent rock and pop — local bands, songwriters and alternative production.",
+  "recipe": "classic louisville indie, distorted Rock, alternative branch. single lead single track no stacking. arpeggiated clean humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 348,
+  "score": 41.013,
   "config": {
     "traditions": [
       "louisville_indie"
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_b",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,27 +70,27 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.418,
+          "electric_technique": 3.6180000000000003,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.441,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.441,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.749999999999999,
-          "drumhead": 1.4365,
+          "drum_technique": 9.5,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.5415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 7.6815,
-          "cymbal_lathing": 7.786499999999999,
+          "cymbal_hammering": 11.981499999999999,
+          "cymbal_lathing": 12.0865,
           "cymbal_finish": 0
         }
       }
@@ -235,8 +235,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_arpeggiated_clean",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_b",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

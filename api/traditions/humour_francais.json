@@ -5,7 +5,7 @@
   "lineage": "Fernand Raynaud — Le22 à Asnières / Le Plombier / C’est étudié pour (complete Philips8188224 issue,1984). Authored complete solo spoken rendition. One actual performer is represented as solo unaccompanied voice with one editorial lead layer, not a measured take count or claim every character has identical delivery. Pure speech is source-supported; register, training, ornament, pitch organization and mechanism remain source-unspecified controls. Neutral effort/tract and unprocessed voice are editorial settings, not measured physiology. Controlled live room is authored, not reconstructed venue acoustics; capture apparatus and global temperament omitted.",
   "recipe": "classic mid-1980s humour français, spoken Word, stage performance branch. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. live tracking.",
   "recipe_chars": 206,
-  "score": 14.133,
+  "score": 13.913,
   "config": {
     "traditions": [
       "humour_francais"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.199,
-          "voice_ensemble_config": 4.667999999999999,
+          "voice_speech_song": 5.0415,
+          "voice_ensemble_config": 4.699499999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.5415,
-          "voice_multitrack_stack": 2.725,
+          "voice_multitrack_stack": 2.6305,
           "voice_tessitura": 0
         }
       }

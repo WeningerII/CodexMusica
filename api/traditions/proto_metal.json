@@ -2,10 +2,10 @@
   "id": "proto_metal",
   "name": "Proto-metal",
   "family": "rock_punk",
-  "lineage": "Retrospective proto-metal discovery category represented by Blue Cheer’s late-1960s San Francisco fuzz-heavy blues-rock power trio, one precursor strand rather than a claim of sole invention.",
-  "recipe": "classic 1967-1969 proto-metal, distorted Rock, metal branch, classic distorted rock classic psychedelic rock french stoner rock. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood conventional tuning standard pitch humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 543,
-  "score": 110.952,
+  "lineage": "Proto-metal names heavy blues-rock and psychedelic precursors to established heavy metal in the late 1960s and early 1970s.",
+  "recipe": "classic 1967-1969 proto-metal, distorted Rock, metal branch, classic distorted rock classic psychedelic rock french stoner rock. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp riff driven humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 507,
+  "score": 68.743,
   "config": {
     "traditions": [
       "proto_metal",
@@ -18,54 +18,54 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
+          "body_wood": "mahogany_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.165,
-          "amp_make": 8.905,
-          "body_wood": 5.785,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
-          "pickup_magnet": 0.635,
-          "pickup_winding": 3.7049999999999996,
-          "string_material": 0.195,
-          "bridge": 2.5,
-          "scale_length": 5.59,
-          "string_gauge": 1.8949999999999998,
-          "finish": 0.845,
-          "string_tuning": 1.0499999999999998
+          "electric_technique": 4.665,
+          "amp_make": 8.125,
+          "body_wood": 0.845,
+          "neck_wood": 0.189,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.845,
+          "string_material": 0.189,
+          "bridge": 2.1999999999999997,
+          "scale_length": 0,
+          "string_gauge": 1.5949999999999998,
+          "finish": 0,
+          "string_tuning": 0.44999999999999996
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "body_wood": "mahogany_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.439999999999998,
-          "body_wood": 0.9045000000000001,
-          "pickup_config": 0.045,
-          "string_type": 22.5875,
-          "scale_length_b": 0.95,
-          "fretted_or_not": 0.5,
-          "bass_technique": 17.96,
+          "amp_make": 10.27,
+          "body_wood": 0.845,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0,
+          "bass_technique": 16.46,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.465,
+          "drum_technique": 15.964999999999998,
           "drumhead": 2.2099999999999995,
           "drum_kit_kick_pedal": 0
         }
@@ -100,7 +100,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -118,17 +119,34 @@
           "voice_ornament_system": 0.195,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.585
+          "voice_multitrack_stack": 0.585,
+          "voice_tessitura": 0
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique"
@@ -149,7 +167,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ]
     },
     "room": "live_room",
@@ -191,7 +210,23 @@
       "electric_technique": "electric_fuzz_riff",
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "sticks_rock",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "body_wood": "mahogany_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "low_wind",
+      "string_gauge": "g_10_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

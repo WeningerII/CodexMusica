@@ -1,0 +1,54 @@
+{
+  "generated_api_source_fields_and_aggregate_consistent": true,
+  "unexpected_changes_vs_main": [],
+  "receipts": {
+    "serial_regression": "1149/1149",
+    "api_build": "6538 traditions; 1638 instruments; zero failures; 630.0s",
+    "exact_replay": "104 configurations, scores and outputs independently compared with baseline receipt"
+  },
+  "status": "PASS",
+  "reviewer": "research116",
+  "scope": "Independent data partition and preservation audit, plus inspected run receipts; not blanket musical approval or a new full build.",
+  "time": "2026-10-04T03:53:04.376Z",
+  "head": "dd8290578059783276e8b6f7771f81b3d4aa6166",
+  "baseline": "2541e078c9f4326c2d75826779813d933a27f1bb",
+  "frozen": "8bb2cee97d5feee7b48147b61da9a61ea5f5c71c",
+  "main_preserved": "70426a9861fe2591e66789879a6fde3082aad4f6",
+  "counts": {
+    "traditions": 6538,
+    "changed_proposals": 2354,
+    "retained": 1734,
+    "deferred": 620,
+    "original_records_and_extras_unchanged": 2638,
+    "exact_configs_outputs_scores": 104,
+    "api_rows_checked": 6538
+  },
+  "order_and_extras_keys_preserved": true,
+  "deferred_archive_matches_git": true,
+  "protected_paths_vs_main_unchanged": true,
+  "baseline_to_main_protected_changes": [],
+  "source_sha256": {
+    "references/05_traditions.js": "cf8c73c19b3635e58b521fe652bfd31c3d329132c7690f6f9603bee4e85ddd44",
+    "references/06_extras.js": "69b9a756aae83a38d7c06f8f17d79ad97702efe99534a1b49a5fe7280fc67272"
+  },
+  "artifact_sha256": {
+    "conservative-subset.json": "92ee98fb28209a3f24f7e1f409500f2ba963452506d7feb2d6cf6329cd6df682",
+    "deferred-proposals.json": "526a84036bd975f97968a4db903fdccbc65eaae9ac819619282741b7770487ea",
+    "subset-exact-replay.json": "a00d244dc79a8961f453373b05c26a57355c1c93e3e26b16fe89e3f6e6b71f13",
+    "subset-regression.log": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+    "subset-api-build.log": "423a9ce5e7ba8be32009d5072c7df664d9ae8362329a9aaad75077ab1fce9971",
+    "supporting-results.json": "21e9c020ee36734233edb6a1f5debe476ae93778da26fe09bbd29948dd87c5c2"
+  },
+  "api_index_counts": {
+    "traditions": 6538,
+    "instruments": 1638
+  },
+  "api_all_count": 6538,
+  "limitations": [
+    "Existing baseline musical-semantic holds remain unresolved. Restoring exact baseline behavior does not validate inherited instrument/voice choices or labels.",
+    "1734 retained repairs are structurally exact frozen proposals; this audit does not repeat all individual primary-source reviews.",
+    "Full 1149 regression and 630-second API build are independently inspected existing receipts, not rerun here.",
+    "Main481 changes are intentionally preserved; unchanged-engine claim is relative to main70426a98, with baseline-to-main differences explicitly listed.",
+    "Documentation was being updated by parent; mutable status wording is not the source of structural counts."
+  ]
+}

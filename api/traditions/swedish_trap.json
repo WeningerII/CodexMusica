@@ -2,10 +2,10 @@
   "id": "swedish_trap",
   "name": "Swedish trap",
   "family": "hip_hop",
-  "lineage": "Swedish trap includes Ivory’s southern-rap-influenced beatmaking and the collaborative Nirvana recordings. Defaults are a present-day authored realization, not a historical session reconstruction.",
-  "recipe": "classic modern swedish trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "lineage": "Swedish hip-hop shaped by Southern US trap influences and local MC–producer collaboration.",
+  "recipe": "classic modern swedish trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. pitched chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 295,
-  "score": 33.41,
+  "score": 39.094,
   "config": {
     "traditions": [
       "swedish_trap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 9.1,
+          "voice_quality": 8.45,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.035,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 7.085,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.522
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -60,11 +60,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.5,
-          "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.21,
-          "sampler_workflow": 2.25,
-          "sampler_classic_context": 5.3950000000000005
+          "electronic_technique": 4,
+          "sampler_archetypes": 6.5,
+          "sampler_bit_depth": 0.318,
+          "sampler_workflow": 4.05,
+          "sampler_classic_context": 7.345000000000001
         }
       }
     ],

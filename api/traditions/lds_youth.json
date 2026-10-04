@@ -2,10 +2,10 @@
   "id": "lds_youth",
   "name": "Lds Youth",
   "family": "vernacular",
-  "lineage": "Nik Day — I Will Go and Do, official2020 Youth Theme choir score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic lds youth, ritual Devotional, christian gospel branch. one note per syllable. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 197,
-  "score": 1.081,
+  "lineage": "Latter-day Saint youth music — songs for youth devotion, participation and church programmes.",
+  "recipe": "classic lds youth, ritual Devotional, christian gospel branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 174,
+  "score": 1.051,
   "config": {
     "traditions": [
       "lds_youth"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825000000000001,
-          "voice_ensemble_config": 0.2445,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.34800000000000003,
-          "grand_piano_brand": 0.273,
+          "grand_piano_brand": 0.39,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,

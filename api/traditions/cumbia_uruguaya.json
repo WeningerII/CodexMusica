@@ -2,10 +2,10 @@
   "id": "cumbia_uruguaya",
   "name": "Cumbia uruguaya",
   "family": "vernacular",
-  "lineage": "Cumbia Club — complete eleven-member band configuration in December2021 firsthand interview. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored render refinement: an alder body on both electric guitar and bass, a maple electric-guitar neck, and a dual-single-coil bass pickup configuration replace the previous authored mahogany/maple-cap, mahogany-neck and split-coil choices. These are plausible alternative modern instrument constructions, not measurements or claims about the credited performers’ gear. All documented roles, performers, techniques and source boundaries remain intact. The original flat body_wood key applies the same compatible alder choice to both owning instruments.",
-  "recipe": "classic cumbia uruguaya, groove Percussion, Latin am branch. group vocals, live take. credited guira electronic keyboard unspecified, alder maple conventional tuning standard pitch humbucker electric guitar, mid rich alder electric bass, student friendly trumpet, tenor standard standard backbore trombone, credited auxiliary percussion, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 514,
-  "score": 51.056,
+  "lineage": "Cumbia uruguaya connects Uruguay’s tropical dance bands with influences from Colombian cumbia, Argentine villera and local popular music. Musicians reshape these currents through distinctive ensembles, live dance events and contemporary recordings.",
+  "recipe": "classic cumbia uruguaya, groove Percussion, Latin am branch. group vocals, live take. credited guira electronic keyboard unspecified, humbucker electric guitar, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, credited auxiliary percussion, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 510,
+  "score": 13.041,
   "config": {
     "traditions": [
       "cumbia_uruguaya"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.78,
+          "voice_processing_chain": 0.3045,
+          "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }
       },
@@ -79,19 +79,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.49999999999999994,
+          "electric_technique": 0.7,
           "amp_make": 0,
-          "body_wood": 3.6979999999999995,
-          "neck_wood": 2.663,
-          "fretboard": 0.325,
+          "body_wood": 0.798,
+          "neck_wood": 0.063,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.39,
-          "string_gauge": 2.068,
+          "scale_length": 0.84,
+          "string_gauge": 0.16799999999999998,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -108,12 +108,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.6979999999999995,
+          "body_wood": 0.798,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -140,13 +140,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.585,
+          "wind_articulation": 0.19500000000000003,
           "brass_size": 0.063,
-          "trumpet_mouthpiece": 3.305,
-          "brass_mute": 0.7364999999999999,
-          "trumpet_technique": 0.585,
+          "trumpet_mouthpiece": -0.07,
+          "brass_mute": 0.1365,
+          "trumpet_technique": 0.19500000000000003,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.39
+          "trumpet_maker_school": 1.0815
         }
       },
       {
@@ -161,13 +161,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 0.585,
+          "wind_articulation": 0.19500000000000003,
           "trombone_type": -0.05,
-          "trombone_mouthpiece": 3.605,
-          "trombone_mute": 0.7364999999999999,
-          "trombone_technique": 0.588,
+          "trombone_mouthpiece": -0.07,
+          "trombone_mute": 0.1365,
+          "trombone_technique": 0.39,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 0.78
+          "trombone_maker_school": 1.0815
         }
       },
       {
@@ -195,16 +195,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.75,
-          "drumhead": 1.405,
+          "drum_technique": -0.05,
+          "drumhead": 0.105,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.305,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
-          "bearing_edges": 1.573,
+          "bearing_edges": 0.27299999999999996,
           "snare_wires": 0,
-          "cymbal_alloy": 0.10000000000000002,
-          "cymbal_hammering": 4.8695,
-          "cymbal_lathing": 7.318,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 1.2349999999999999,
+          "cymbal_lathing": 1.1179999999999999,
           "cymbal_finish": 0
         }
       }

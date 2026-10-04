@@ -2,10 +2,10 @@
   "id": "minimal_dub",
   "name": "Minimal dub",
   "family": "global",
-  "lineage": "Minimal dub is represented by Caged Element — Invalid Path (Escapism, 2026). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
-  "recipe": "classic mid-2020s minimal dub, bass System, dub descendants branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 175,
-  "score": 7.718,
+  "lineage": "Minimal dub concentrates on repetition, space and a reduced set of sounds. Dub-derived production meets restrained electronic arrangement, allowing small changes in texture and timing to remain audible.",
+  "recipe": "classic minimal dub, bass System, dub descendants branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital tape echo spring reverb.",
+  "recipe_chars": 189,
+  "score": 3.395,
   "config": {
     "traditions": [
       "minimal_dub"
@@ -15,23 +15,27 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 0.313,
-          "sampler_classic_context": 4.55
+          "electronic_technique": 0.325,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 2.8600000000000003
         }
       }
     ],
     "pinned": {
       "sampler_classic": [
-        "electronic_technique"
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -47,13 +51,20 @@
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "tape_echo",
+      "spring_reverb"
+    ]
   },
   "source": {
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sustained_layering"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",
@@ -61,6 +72,10 @@
     "chain_comp": "comp_none",
     "chain_eq": "eq_none",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo",
+      "spring_reverb"
+    ]
   }
 }

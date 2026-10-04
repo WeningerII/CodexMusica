@@ -2,28 +2,61 @@
   "id": "musique_urbaine_kinshasa",
   "name": "Musique urbaine Kinshasa",
   "family": "electronic",
-  "lineage": "Complete broadcaster-issued SYSTEM MIX 051 by DJ P2N,26:56, published6July2021. Official Boiler Room page and linked broadcaster SoundCloud credit one DJ and identify a full mix. This models actual published playback/mixing practice, not source generators inside a produced master. No other Moonshine programme performers or the separate PAM mix are combined into this set. Embedded and actual live vocal totals are unknown; no separately credited live singer is supplied. Neutral existing DJ playback/mixing owner retains the complete issued programme and embedded musical/vocal content without inventing deck, mixer, medium, software or source-generator hardware. Unknown live/embedded voice counts remain null. Controlled live-room capture and neutral axes are explicitly authored contemporary recording scaffolding, not the actual broadcaster session site. No global tuning or signal chain asserted. Broad electronicDance follows the documented club-mix branch, without applying one amapiano log-drum preset to every record.",
-  "recipe": "classic musique urbaine kinshasa, electronic Dance. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 98,
-  "score": 0,
+  "lineage": "Musique urbaine Kinshasa connects contemporary Congolese urban song, rap and electronic dance networks. Artists and DJs circulate between local scenes and wider African club influences, with the named field extending beyond a single city’s residents.",
+  "recipe": "classic musique urbaine kinshasa, electronic Dance. sampler, drum machine analog. live tracking.",
+  "recipe_chars": 96,
+  "score": 9.443,
   "config": {
     "traditions": [
       "musique_urbaine_kinshasa"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": 0.313,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 5.719999999999999
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 3.25
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +76,15 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

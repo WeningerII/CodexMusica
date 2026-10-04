@@ -2,10 +2,10 @@
   "id": "world_devotional",
   "name": "World devotional",
   "family": "vernacular",
-  "lineage": "Naren K. Schreiner — At Thy Feet, complete ten-song Yogananda chant collection (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s world devotional, ritual Devotional. single lead single track no stacking. harmonium indian, credited cymbals, tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 234,
-  "score": 8.208,
+  "lineage": "World devotional brings sacred song and chant from different religious and cultural traditions into a transnational listening field. Yogananda-inspired chanting is one strand alongside other devotional repertoires.",
+  "recipe": "classic world devotional, ritual Devotional. metrical pitched chant fixed rhythm, solo with instrumental accompaniment, single lead single track no stacking. hand pumped harmonium, small manjira, tabla. live tracking.",
+  "recipe_chars": 217,
+  "score": 21.832,
   "config": {
     "traditions": [
       "world_devotional"
@@ -19,12 +19,12 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "legato_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_metrical_chant",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,37 +43,41 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 1.6045,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.78,
+          "voice_multitrack_stack": 1.2075,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "harmonium_indian",
+        "id": "hand_pumped_harmonium",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_hand_pump",
           "harmonium_voicing": "harmonium_male",
-          "harmonium_use": "harmonium_kirtan"
+          "harmonium_use": "harmonium_kirtan",
+          "free_reed_technique": "hand_pumped_harmonium_song_support"
         },
         "scores": {
-          "free_reed_technique": -0.11850000000000002,
-          "harmonium_action": 0.78,
-          "harmonium_voicing": 0.6945,
-          "harmonium_use": 4.809999999999999
+          "harmonium_action": 0.39,
+          "harmonium_voicing": 0.0945,
+          "harmonium_use": 5.85,
+          "free_reed_technique": 0.3315
         }
       },
       {
-        "id": "credited_cymbals",
+        "id": "manjira",
         "slots": {
-          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+          "manjira_form": "manjira_taal_small",
+          "manjira_stroke": "manjira_tala_ostinato",
+          "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "credited_cymbals_identity": 0.063
+          "manjira_form": 11.2,
+          "manjira_stroke": -0.1,
+          "manjira_metal": -0.05
         }
       },
       {
@@ -85,7 +89,7 @@
         },
         "scores": {
           "tabla_dayan": 0.325,
-          "tabla_bayan": 0.39,
+          "tabla_bayan": 0.105,
           "tabla_syahi": 0
         }
       }
@@ -110,14 +114,16 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "harmonium_indian": [
-        "free_reed_technique",
+      "hand_pumped_harmonium": [
         "harmonium_action",
         "harmonium_voicing",
-        "harmonium_use"
+        "harmonium_use",
+        "free_reed_technique"
       ],
-      "credited_cymbals": [
-        "credited_cymbals_identity"
+      "manjira": [
+        "manjira_form",
+        "manjira_stroke",
+        "manjira_metal"
       ],
       "tabla": [
         "tabla_dayan",
@@ -125,55 +131,51 @@
         "tabla_syahi"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_articulation": "legato_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_metrical_chant",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "free_reed_technique": "free_reed_folk_first_position",
+      "free_reed_technique": "hand_pumped_harmonium_song_support",
       "harmonium_action": "harmonium_hand_pump",
       "harmonium_voicing": "harmonium_male",
       "harmonium_use": "harmonium_kirtan",
-      "credited_cymbals_identity": "credited_cymbals_source_unspecified",
       "tabla_dayan": "shisham_dayan",
       "tabla_bayan": "copper_bayan",
-      "tabla_syahi": "fresh_syahi"
+      "tabla_syahi": "fresh_syahi",
+      "manjira_form": "manjira_taal_small",
+      "manjira_stroke": "manjira_tala_ostinato",
+      "manjira_metal": "manjira_brass"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

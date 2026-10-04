@@ -2,10 +2,10 @@
   "id": "musica_tradicional_cubana",
   "name": "Música tradicional cubana",
   "family": "vernacular",
-  "lineage": "Complete artist-authored Trío Los Embajadores de Cuba profile roster, date unspecified: Lázaro Jesús González Díaz third voice and accompaniment guitar; Omar Pérez Rodríguez second voice, requinto, laúd and tres; Luis Pablo Rigual Bandomo first voice, guitar and auxiliary percussion. Three documented harmonizing singers and every six-family role retained, including Omar’s three distinct doubled instruments. This is the full documented small-format practice across its stated Cuban and international repertoire, not a claim every instrument sounds simultaneously, nor credits inferred for any particular embedded recording. Historical lineups on the founder’s son’s archival site differ and are not merged into this roster. Unknown percussion subtype remains unknown. Authored recurring verse/refrain and tonal harmony in a multi-style traditional popular-song rendition supports broad functionalSong, not universal form across the whole Cuban field. Three source harmonizing singers receive a candid live-group rendition with unknown actual intervals and neutral physiology. Guitar roles share an authored mahogany OM steel-string/flatpicked card, not measured original construction. The previously approved credited requinto owner retains unknown construction, course count, stringing, tuning and exact technique. Cuban tres is authored as three doubled steel courses, cedar body, rhythmic strummed son-context, not a claimed setting for every piece. Cuban laúd is an authored standard six-course flat-backed instrument with stiff nylon plectrum and virtuosic fast-picked runs using the existing descarga technique option; this option represents editorial melodic runs, not a claim a source improvisational jam or punto performance. Auxiliary percussion remains source-unspecified. Controlled live room; no global tuning or measured capture equipment asserted. The neumatic voice gesture is an authored lightly ornamented small-note-group delivery for this new popular-song rendition, not a measured source ornament system or extra hand-clapping part.",
-  "recipe": "classic música tradicional cubana, functional Song. small note groups per syllable, group vocals, live take. mahogany phosphor bronze bronze flatpicked acoustic guitar, credited requinto unspecified, cedar canonical Cuban steel modern strummed tres laud cubano, credited auxiliary percussion. live tracking.",
-  "recipe_chars": 307,
-  "score": 46.259,
+  "lineage": "Música tradicional cubana encompasses interrelated Cuban song and dance repertoires, including bolero, son, habanera, guajira and guaracha. Troubadours, trios, larger popular ensembles and other performers sustain contrasting approaches within this broad field.",
+  "recipe": "classic música tradicional cubana, functional Song. small note groups per syllable. acoustic guitar, cedar canonical Cuban tres cubano, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 181,
+  "score": 7.376,
   "config": {
     "traditions": [
       "musica_tradicional_cubana"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.390499999999999,
-          "voice_ensemble_config": 5.472999999999999,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 2.5999999999999996,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,27 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 1.3,
-          "acoustic_om_technique": 1.25
-        }
-      },
-      {
-        "id": "credited_requinto_unspecified",
-        "slots": {
-          "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
-          "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
-          "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
-          "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
-          "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
-        },
-        "scores": {
-          "credited_requinto_identity": 0,
-          "credited_requinto_construction": 0,
-          "credited_requinto_stringing": 0,
-          "credited_requinto_tuning": 0,
-          "credited_requinto_technique": 0
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       },
       {
@@ -96,24 +79,11 @@
           "tres_cubano_strings": "tres_cubano_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 3.3150000000000004,
-          "tres_courses": 8.549999999999999,
-          "tres_cubano_context": 2.0905,
-          "tres_cubano_body_wood": 6.799999999999999,
-          "tres_cubano_strings": 2.5999999999999996
-        }
-      },
-      {
-        "id": "laud_cubano",
-        "slots": {
-          "laud_cubano_form": "laud_cubano_standard",
-          "laud_cubano_style": "laud_cubano_descarga",
-          "laud_cubano_pick": "laud_cubano_nylon_pick"
-        },
-        "scores": {
-          "laud_cubano_form": 0,
-          "laud_cubano_style": 3.9000000000000004,
-          "laud_cubano_pick": 0
+          "plucked_traditional_technique": 1.625,
+          "tres_courses": 2.5,
+          "tres_cubano_context": 0.78,
+          "tres_cubano_body_wood": 1,
+          "tres_cubano_strings": 0
         }
       },
       {
@@ -153,24 +123,12 @@
         "string_acoustic",
         "acoustic_om_technique"
       ],
-      "credited_requinto_unspecified": [
-        "credited_requinto_identity",
-        "credited_requinto_construction",
-        "credited_requinto_stringing",
-        "credited_requinto_tuning",
-        "credited_requinto_technique"
-      ],
       "tres_cubano": [
         "plucked_traditional_technique",
         "tres_courses",
         "tres_cubano_context",
         "tres_cubano_body_wood",
         "tres_cubano_strings"
-      ],
-      "laud_cubano": [
-        "laud_cubano_form",
-        "laud_cubano_style",
-        "laud_cubano_pick"
       ],
       "credited_auxiliary_percussion": [
         "credited_auxiliary_percussion_identity"
@@ -215,19 +173,11 @@
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",
       "acoustic_om_technique": "om_flatpicked_lead",
-      "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
-      "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
-      "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
-      "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
-      "credited_requinto_technique": "credited_requinto_technique_source_unspecified",
       "plucked_traditional_technique": "plucked_folk_strummed",
       "tres_courses": "tres_3x2",
       "tres_cubano_context": "tres_cubano_son",
       "tres_cubano_body_wood": "tres_cubano_cedar",
       "tres_cubano_strings": "tres_cubano_steel_modern",
-      "laud_cubano_form": "laud_cubano_standard",
-      "laud_cubano_style": "laud_cubano_descarga",
-      "laud_cubano_pick": "laud_cubano_nylon_pick",
       "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
     },
     "pin_parts": true

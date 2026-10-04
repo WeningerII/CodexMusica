@@ -2,10 +2,10 @@
   "id": "lampung_indie",
   "name": "Lampung Indie",
   "family": "pop",
-  "lineage": "Afternoon Talk — Hearts, complete3:11 track from Contradiction,11May2013. Exact track credits Sofia Sekar Arum voice/lyrics,Harsa Wahyu guitar,Achmad Ridwan bass,Fajar Juliawan drums. Four positively named performers,one singer,four sound families. Album-wide other tracks include glockenspiel,ukulele,djembe,trumpet and keyboards, but this separately complete track has its own full four-role credits; none is silently removed from a claimed whole-album recreation. Music authorship does not add additional sounding roles. One credited singer uses neutral physiology/pitch/articulation with authored single lead. Harsa’s source guitar is realized as nylon classical guitar, consistent with the same album’s explicit Harsa nylon-guitar credit. Spruce top, Torres fan bracing, high-tension nylon strings and rest-stroke fingerpicking are authored construction/gesture choices, not measured session equipment or transcribed articulation. Bass dual-single-coil alder fingerstyle and maple stick-played kit with traditional machine-hammered cymbal finish are authored coherent constructions, not source equipment. Controlled live room is new rendition; capture apparatus and global tuning omitted. Exact instrumental gestures and original overdub count are unknown.",
-  "recipe": "classic lampung indie, functional Song. solo with instrumental accompaniment, single lead single track no stacking. spruce nylon classical nylon-string guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 292,
-  "score": 55.331,
+  "lineage": "Lampung indie connects local bands, organizers and creative communities within Indonesia’s independent music scene. Pop, folk and rock approaches circulate through regional performances and independently issued recordings.",
+  "recipe": "classic lampung indie, functional Song. single lead single track no stacking. classical nylon-string guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 228,
+  "score": 22.106,
   "config": {
     "traditions": [
       "lampung_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.0714999999999995,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 9.623999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -63,12 +63,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 1.2999999999999996,
+          "acoustic_technique": 2.3000000000000007,
           "string_tuning": 0,
-          "top_wood_classical": 2.654,
-          "bracing_classical": 1.627,
-          "string_classical": 3.8999999999999995,
-          "attack_technique_cl": 4.550000000000001
+          "top_wood_classical": 0.054,
+          "bracing_classical": 0.39,
+          "string_classical": 0,
+          "attack_technique_cl": -0.05
         }
       },
       {
@@ -85,12 +85,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.6,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -110,16 +110,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drum_technique": 2.6365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.654,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 8.804,
-          "cymbal_lathing": 8.75,
+          "cymbal_hammering": 7.5040000000000004,
+          "cymbal_lathing": 7.45,
           "cymbal_finish": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "turkish_trap_pop",
   "name": "Turkish trap pop",
   "family": "hip_hop",
-  "lineage": "Istanbul melodic trap-pop crossover represented by Reynmen’s Ela and its credited composition and arrangement collaborators.",
-  "recipe": "classic modern turkish trap pop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. TR-808, plucked short envelope digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 328,
-  "score": 15.392,
+  "lineage": "Turkish trap-pop brings melodic popular-song writing together with trap-derived electronic production.",
+  "recipe": "classic modern turkish trap pop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment. TR-808, plucked short envelope digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 290,
+  "score": 10.805,
   "config": {
     "traditions": [
       "turkish_trap_pop"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.08549999999999999,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 0.0315,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.522
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -59,21 +59,21 @@
         },
         "scores": {
           "tr808_voice": 2.397,
-          "drum_machine_808_context": 0.40049999999999997,
-          "tr808_production_origin": 0.267
+          "drum_machine_808_context": 0.34650000000000003,
+          "tr808_production_origin": 0.159
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 6.803999999999999,
-          "va_archetypes": 0.1365,
-          "digital_subtractive_context": 3.769999999999999
+          "electronic_technique": 6.053999999999999,
+          "va_archetypes": 0.054,
+          "digital_subtractive_context": -0.035
         }
       }
     ],
@@ -102,7 +102,9 @@
         "tr808_production_origin"
       ],
       "digital_subtractive": [
-        "electronic_technique"
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
       ]
     },
     "room": "studio_auteur_home_pro",
@@ -143,7 +145,9 @@
       "tr808_voice": "tr808_kick_long",
       "drum_machine_808_context": "drum_machine_808_trap",
       "tr808_production_origin": "tr808_tr_8s_modern",
-      "electronic_technique": "electronic_pluck_short"
+      "electronic_technique": "electronic_pluck_short",
+      "va_archetypes": "nord_lead",
+      "digital_subtractive_context": "digital_subtractive_pop"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

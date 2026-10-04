@@ -2,10 +2,10 @@
   "id": "italogaze",
   "name": "Italogaze",
   "family": "rock",
-  "lineage": "Rev Rev Rev — Kykeon (2019). Authored present-day full album-union arrangement. Primary sources establish artist classification and all credited recording roles. Instrument models, constructions, techniques, tuning, room, chain and numeric axes are representative editorial choices, not measured session details.",
-  "recipe": "classic late-2010s italogaze, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 527,
-  "score": 42.135,
+  "lineage": "Italian shoegaze — independent guitar music built around layered texture and submerged melody.",
+  "recipe": "classic italogaze, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. sustained feedback humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sustained pad analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 413,
+  "score": 29.827,
   "config": {
     "traditions": [
       "italogaze"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 1.449,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
@@ -58,7 +58,7 @@
           "electric_technique": "electric_feedback_drone",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7,
+          "electric_technique": 3.2,
           "amp_make": 0,
           "body_wood": 0.441,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 2.873,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 1.4365,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.8415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.181500000000001,
-          "cymbal_lathing": 7.5865,
+          "cymbal_lathing": 6.2865,
           "cymbal_finish": 0
         }
       },
@@ -146,38 +146,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.7,
-          "poly_archetypes": 1.4365,
+          "electronic_technique": 3.2,
+          "poly_archetypes": 0.1365,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
-        }
-      },
-      {
-        "id": "tanpura",
-        "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
-          "tanpura_size": "female_size",
-          "tanpura_jawari": "curved_jawari",
-          "tanpura_strings": "four_string_classical",
-          "tanpura_string_material": "tanpura_bronze_steel",
-          "tanpura_body_wood": "tanpura_gourd_body"
-        },
-        "scores": {
-          "plucked_traditional_technique": -0.07,
-          "tanpura_size": 1.9320000000000006,
-          "tanpura_jawari": -0.05,
-          "tanpura_strings": 1.4365,
-          "tanpura_string_material": 1.3335,
-          "tanpura_body_wood": 1.2285
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
         }
       }
     ],
@@ -244,17 +216,6 @@
         "poly_archetypes",
         "poly_voices",
         "poly_maker_lineage"
-      ],
-      "tanpura": [
-        "plucked_traditional_technique",
-        "tanpura_size",
-        "tanpura_jawari",
-        "tanpura_strings",
-        "tanpura_string_material",
-        "tanpura_body_wood"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
       ]
     },
     "room": "treated_studio",
@@ -296,7 +257,7 @@
       "electric_technique": "electric_feedback_drone",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -306,7 +267,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -326,14 +287,7 @@
       "electronic_technique": "electronic_pad_drone",
       "poly_archetypes": "prophet_5",
       "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith",
-      "plucked_traditional_technique": "plucked_drone_modal",
-      "tanpura_size": "female_size",
-      "tanpura_jawari": "curved_jawari",
-      "tanpura_strings": "four_string_classical",
-      "tanpura_string_material": "tanpura_bronze_steel",
-      "tanpura_body_wood": "tanpura_gourd_body",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

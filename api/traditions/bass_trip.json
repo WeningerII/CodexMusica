@@ -2,10 +2,10 @@
   "id": "bass_trip",
   "name": "Bass trip",
   "family": "jazz",
-  "lineage": "BRZZVLL — complete six-person Jazz in Thals published concert formation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic bass trip, groove Percussion. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electronic keyboard unspecified, conventional tuning standard pitch humbucker electric guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 32.269,
+  "lineage": "Bass trip connects jazz, funk and beat-oriented improvisation within a cross-style discovery field. Groups such as BRZZVLL bring live instrumental interaction into dance-oriented grooves.",
+  "recipe": "classic bass trip, groove Percussion. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electronic keyboard unspecified, humbucker electric guitar, pocket fingerstyle locked electric bass, dark bronze bell bronze drum kit. live tracking.",
+  "recipe_chars": 270,
+  "score": 21.439,
   "config": {
     "traditions": [
       "bass_trip"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": 0.2815,
+          "sax_size": -0.05,
           "sax_reed": 0,
-          "sax_body_alloy": -0.1,
+          "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
-          "sax_technique": 7.249999999999999,
-          "sax_maker_school": 7.2315
+          "sax_technique": 5.75,
+          "sax_maker_school": 5.805
         }
       },
       {
@@ -40,7 +40,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.0315
         }
       },
       {
@@ -48,8 +48,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -63,25 +63,25 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.168,
-          "neck_wood": 0.0315,
+          "body_wood": 0,
+          "neck_wood": 0,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.063,
-          "string_gauge": 1.69,
+          "string_gauge": 0.8365,
           "finish": 0,
-          "string_tuning": 1.573
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -90,12 +90,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 1.4,
+          "bass_technique": 3.1500000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,13 +116,13 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.573,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.599,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 8.817999999999998,
+          "cymbal_alloy": 6.4,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
@@ -182,22 +182,22 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "wind_articulation": "wind_continuous_legato",
       "sax_size": "alto_sax",
@@ -210,8 +210,8 @@
       "keyboard_technique": "electronic_keyboard_melodic_chordal",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -221,7 +221,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -239,12 +239,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

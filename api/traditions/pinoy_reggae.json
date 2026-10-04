@@ -2,10 +2,10 @@
   "id": "pinoy_reggae",
   "name": "Pinoy reggae",
   "family": "global",
-  "lineage": "Pinoy reggae is represented by Lorky Rankin / Norris King — Money Money (RubADub.Ph, 2024). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
-  "recipe": "classic mid-2020s pinoy reggae, bass System, reggae diaspora branch. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 189,
-  "score": 1.785,
+  "lineage": "Pinoy reggae connects Filipino singers and musical communities with reggae traditions. Live bands and digital rub-a-dub productions offer different ways to combine local vocal expression with recurring reggae rhythms.",
+  "recipe": "classic pinoy reggae, bass System, reggae diaspora branch. solo with instrumental accompaniment. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 217,
+  "score": 3.269,
   "config": {
     "traditions": [
       "pinoy_reggae"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -57,14 +57,14 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "mid_swing",
-          "sample_processing": "pitched_kick"
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.363,
-          "sample_swing": 0.6299999999999999,
-          "sample_processing": 0.3465
+          "sample_bitdepth": 0.063,
+          "sample_swing": -0.05,
+          "sample_processing": 0.21
         }
       }
     ],
@@ -89,7 +89,10 @@
         "voice_tessitura"
       ],
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -128,7 +131,10 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

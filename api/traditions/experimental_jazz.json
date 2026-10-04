@@ -2,10 +2,10 @@
   "id": "experimental_jazz",
   "name": "Experimental jazz",
   "family": "jazz",
-  "lineage": "Experimental jazz: jaimie branch — debut Fly or Die quartet, 2017. A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic late-2010s experimental jazz, improv On Frame, avant branch. bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, cello, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 347,
-  "score": 70.456,
+  "lineage": "Experimental jazz uses improvisation, composition and unconventional ensemble colours to extend jazz practice. Open development can coexist with recurring motifs and strong rhythmic movement.",
+  "recipe": "classic experimental jazz, improv On Frame, avant branch. bach stradivarius 180 canonical American orchestral multiphonic jazz balance ensemble trumpet, cello, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 73.343,
   "config": {
     "traditions": [
       "experimental_jazz"
@@ -18,17 +18,17 @@
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 3.6500000000000004,
           "brass_size": 0.3045,
-          "trumpet_mouthpiece": 14.625,
+          "trumpet_mouthpiece": 17.875,
           "brass_mute": 0.105,
-          "trumpet_technique": 0.7234999999999999,
-          "trumpet_bell_metal": 0.4095,
+          "trumpet_technique": 1.1049999999999998,
+          "trumpet_bell_metal": 0.39,
           "trumpet_maker_school": 1.95
         }
       },
@@ -36,10 +36,10 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_sul_ponticello",
-          "cello_strings": "silver_wound_lamb_gut_cello",
+          "cello_strings": "venice_catlin_cello",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
-          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_varnish": "cremonese_post_1740_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "german_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
@@ -47,11 +47,11 @@
         },
         "scores": {
           "bowed_technique": 3.75,
-          "cello_strings": 0.325,
+          "cello_strings": 0.7149999999999999,
           "cello_top_wood": -0.035,
           "cello_back_wood": -0.035,
-          "cello_varnish": 0.26,
-          "cello_setup_period": 0.26,
+          "cello_varnish": -0.035,
+          "cello_setup_period": 0.6499999999999999,
           "cello_bow_grip": 0.063,
           "cello_rosin": 0.2,
           "cello_bow_stick": -0.05
@@ -60,12 +60,12 @@
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_wound_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 11.25,
-          "upright_play": 11.25
+          "upright_strings": 0,
+          "upright_play": 13.75
         }
       },
       {
@@ -76,8 +76,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.890000000000001,
-          "drumhead": 14.559999999999999,
+          "drum_technique": 11.179999999999996,
+          "drumhead": 17.81,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -92,6 +92,7 @@
         "bowed_technique"
       ],
       "upright_bass": [
+        "upright_strings",
         "upright_play"
       ],
       "drum_kit": [
@@ -122,7 +123,8 @@
       "brass_mute": "no_mute_brass",
       "bowed_technique": "bowed_sul_ponticello",
       "upright_play": "pizz_upright",
-      "drum_technique": "brushes_and_sticks"
+      "drum_technique": "brushes_and_sticks",
+      "upright_strings": "gut_upright"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

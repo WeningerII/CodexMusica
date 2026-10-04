@@ -2,10 +2,10 @@
   "id": "motivation",
   "name": "Motivation",
   "family": "vernacular",
-  "lineage": "James Allen — As a Man Thinketh, complete LibriVox version4 (2015), seven sections read solely by Phil Chenevert, total1:00:26. Author and reader remain distinct people/roles: one actual spoken performer. Publisher labels the complete work self-help; its no-incidental-music policy supports unaccompanied standard narration, with textual-song/early-project exceptions acknowledged. No audition or removal of an existing musical backing claimed; this2015 prose essay is not an opera/song project. Authored neutral unaccompanied spoken reading. All17 existing human voice controls preserved, neutral physiology/register/ornament/pitch with pure speech and single live lead. Controlled room is an authored new rendition rather than source session reconstruction. No global tuning, rhythmic rap assertion, backing music, sung chorus, capture apparatus or measured age/gender inferred.",
-  "recipe": "classic mid-2010s motivation, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, single lead single track no stacking. live tracking.",
-  "recipe_chars": 163,
-  "score": 17.013,
+  "lineage": "Motivation connects spoken recordings and readings directed toward encouragement, self-development and practical reflection. Historical self-help writing, contemporary talks and personal testimony offer contrasting approaches to this purpose-based listening field.",
+  "recipe": "classic motivation, spoken Word, narration branch. live tracking.",
+  "recipe_chars": 65,
+  "score": 0.956,
   "config": {
     "traditions": [
       "motivation"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.188499999999999,
-          "voice_ensemble_config": 2.8309999999999995,
+          "voice_speech_song": 0.3255,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 6.857,
+          "voice_multitrack_stack": 0.2625,
           "voice_tessitura": 0
         }
       }

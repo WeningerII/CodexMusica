@@ -5,7 +5,7 @@
   "lineage": "Indonesian performer-songwriters work in solo and collaborative formats. Endah Widiastuti’s documented own-song work with bassist Rhesa Aditya supplies the selected independent acoustic branch.",
   "recipe": "classic modern indonesian singer-songwriter, ballad Poetry. breath veiled tone, neutral third half flat, m1 with m0 pulse borrowing, nasal twang velar port open. fingerpicked acoustic guitar, electric bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 344,
-  "score": 26.26,
+  "score": 26.942,
   "config": {
     "traditions": [
       "indonesian_singer_songwriter"
@@ -36,15 +36,15 @@
           "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.25999999999999995,
+          "voice_vibrato": 0.29899999999999993,
           "voice_articulation": 0,
           "voice_microtone": 1.6899999999999997,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.53325,
-          "voice_estill_quality": 1.3832499999999999,
+          "voice_mechanism_compound": 1.61125,
+          "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 3.185000000000001,
-          "voice_ensemble_config": -0.10500000000000001,
-          "voice_ornament_system": 0.8499999999999999,
+          "voice_ensemble_config": -0.10725000000000003,
+          "voice_ornament_system": 0.8889999999999999,
           "voice_pitch_organization": 5.08,
           "voice_processing_chain": 1.69,
           "voice_multitrack_stack": 1.1425
@@ -62,9 +62,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0,
+          "back_sides": 0.03899999999999999,
           "string_acoustic": 0.39,
-          "acoustic_om_technique": 3.639
+          "acoustic_om_technique": 3.6779999999999995
         }
       },
       {
@@ -74,7 +74,7 @@
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -84,8 +84,8 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0.6499999999999999,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.312,
+          "scale_length_b": 0.03899999999999999,
+          "fretted_or_not": 0.611,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

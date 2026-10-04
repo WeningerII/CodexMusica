@@ -2,10 +2,10 @@
   "id": "faroese_indie",
   "name": "Faroese indie",
   "family": "pop",
-  "lineage": "Konni Kass — Haphe (2016), documented vocal-and-synth core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s faroese indie, functional Song. single lead single track no stacking. analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 205,
-  "score": 1.44,
+  "lineage": "Faroese indie connects independent musicians from the Faroe Islands with local and international audiences. Acoustic songwriting, guitar bands and electronic pop coexist within the field.",
+  "recipe": "classic faroese indie, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 225,
+  "score": 2.75,
   "config": {
     "traditions": [
       "faroese_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.6,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -61,9 +61,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.3,
-          "poly_voices": 0.3,
+          "electronic_technique": 0.2,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.05
         }
       }

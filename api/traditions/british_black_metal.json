@@ -2,10 +2,10 @@
   "id": "british_black_metal",
   "name": "British black metal",
   "family": "rock_punk",
-  "lineage": "British black-metal discovery scope, with a first-wave Venom branch anchored in Newcastle. Primary Cronos interviews document the guitar/bass/drum core and deliberately distorted bass approach, distinct from later second-wave conventions.",
-  "recipe": "classic modern british black metal, distorted Rock, black branch. solo with instrumental accompaniment. distorted power chord humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter silicon fuzz.",
-  "recipe_chars": 418,
-  "score": 39.733,
+  "lineage": "British black metal includes the first-wave legacy of Newcastle’s Venom and later developments across the underground. Its early heavy- and speed-metal roots combined abrasive guitar, heavily driven bass and theatrical harsh singing.",
+  "recipe": "classic modern british black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier power chord humbucker electric guitar, marshall plexi amp British rock amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter silicon fuzz.",
+  "recipe_chars": 543,
+  "score": 48.075,
   "config": {
     "traditions": [
       "british_black_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -29,15 +29,15 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 16.0945,
-          "amp_make": 0,
-          "body_wood": 0.6519999999999999,
-          "neck_wood": 0.4095,
-          "fretboard": 0.0315,
+          "electric_technique": 15.3835,
+          "amp_make": 5.655000000000001,
+          "body_wood": 0.613,
+          "neck_wood": 0.5785,
+          "fretboard": 0.16149999999999998,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.4095,
-          "bridge": 0.6519999999999999,
+          "string_material": 0.5785,
+          "bridge": 0.613,
           "scale_length": 0,
           "string_gauge": 0.8049999999999999,
           "finish": 0,
@@ -47,7 +47,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0.6519999999999999,
+          "amp_make": 4.42,
+          "body_wood": 0.613,
           "pickup_config": 0,
-          "string_type": 0.4095,
+          "string_type": 0.5785,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
           "bass_technique": 4.2115,
@@ -85,10 +85,10 @@
         "scores": {
           "drum_technique": -0.035,
           "drumhead": 0.9099999999999999,
-          "drum_kit_kick_pedal": 2.921,
-          "shell_wood": 0.4095,
+          "drum_kit_kick_pedal": 1.69,
+          "shell_wood": 0.39,
           "shell_thickness": 0,
-          "bearing_edges": 0.4095,
+          "bearing_edges": 0.5785,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
@@ -128,7 +128,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.2295,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -139,7 +139,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -248,7 +246,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_punk",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

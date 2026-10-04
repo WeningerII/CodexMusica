@@ -5,7 +5,7 @@
   "lineage": "Spanish-language emo/sad-trap discovery scene; selected Rojuu / Saramalacara / Carzé recorded collaboration",
   "recipe": "classic modern emo trap en español, mc Rhythm, intl hip hop branch. rap, minimal subglottal pressure, gang vocal unison octave non tuned overlap, retune speed 0ms hard correction robot effect. sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 347,
-  "score": 18.639,
+  "score": 18.846,
   "config": {
     "traditions": [
       "emo_trap_en_espanol"
@@ -37,7 +37,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0.78,
           "voice_vibrato": 0,
-          "voice_articulation": 0.11699999999999998,
+          "voice_articulation": 0.2859999999999999,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -60,7 +60,7 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 2.656,
+          "electronic_technique": 2.695,
           "sampler_archetypes": 0.855,
           "sampler_bit_depth": 0.39,
           "sampler_workflow": 0.5389999999999999,

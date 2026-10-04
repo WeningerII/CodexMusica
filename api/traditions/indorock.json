@@ -5,7 +5,7 @@
   "lineage": "Rock and roll style created by Indo-Dutch (Indische) repatriates in The Hague between roughly 1957 and 1964 — the Tielman Brothers, the Blue Diamonds, the Crazy Rockers and the Black Dynamites — combining fast 4/4 rock and roll and Hawaiian-derived guitar lines with kroncong-inflected melody, twin lead electric guitars using rapid tremolo picking and heavy spring reverb, slap-driven bass, straight backbeat drums, and acrobatic stage guitar technique.",
   "recipe": "classic British late-1950s indorock, distorted Rock, regional branch, surf rock distorted rock, pop rock functional song, classic distorted rock yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany ebony soft down tuning single coil electric cedar parlor classic steel silk strummed parlor acoustic guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
   "recipe_chars": 669,
-  "score": 472.175,
+  "score": 472.28,
   "config": {
     "traditions": [
       "indorock",
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 9.875,
           "voice_articulation": 23.464999999999996,
-          "voice_microtone": 53.32000000000001,
+          "voice_microtone": 53.36500000000001,
           "voice_tradition": 11.634999999999998,
           "voice_mechanism_compound": 4.030000000000001,
           "voice_estill_quality": 3.1200000000000006,
           "voice_speech_song": 26.585,
           "voice_ensemble_config": 22.489999999999995,
           "voice_ornament_system": 0.26999999999999996,
-          "voice_pitch_organization": 2.355,
-          "voice_processing_chain": 7.075,
+          "voice_pitch_organization": 2.2199999999999998,
+          "voice_processing_chain": 7.2700000000000005,
           "voice_multitrack_stack": 4.71
         }
       },
@@ -72,8 +72,8 @@
         "scores": {
           "electric_technique": 9.319999999999999,
           "amp_make": 22.132500000000004,
-          "body_wood": 1.4,
-          "neck_wood": 1.4,
+          "body_wood": 1.445,
+          "neck_wood": 1.445,
           "fretboard": 1.795,
           "pickup_magnet": 0.345,
           "string_material": 0.6,
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 22.132500000000004,
-          "body_wood": 2.94,
+          "body_wood": 2.985,
           "pickup_config": 1.8399999999999999,
-          "string_type": 43.67,
+          "string_type": 43.58,
           "scale_length_b": 1.1,
           "fretted_or_not": 0,
-          "bass_technique": 36.915000000000006,
+          "bass_technique": 36.96,
           "electric_bass_string_configuration": 0
         }
       },
@@ -132,8 +132,8 @@
         },
         "scores": {
           "acoustic_technique": 10.144999999999998,
-          "string_tuning": 1.105,
-          "top_wood_parlor": 1.1,
+          "string_tuning": 0.9700000000000001,
+          "top_wood_parlor": 1.145,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 1.4649999999999999
         }

@@ -5,7 +5,7 @@
   "lineage": "Michael Kollwitz — The Chapman Stick Meets The Beatles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic chapman stick, improv On Frame. chapman stick. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 153,
-  "score": 0.421,
+  "score": 0.495,
   "config": {
     "traditions": [
       "chapman_stick"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "chapman_stick_strings": 0.39,
-          "chapman_stick_technique": 0.0315
+          "chapman_stick_technique": 0.105
         }
       }
     ],

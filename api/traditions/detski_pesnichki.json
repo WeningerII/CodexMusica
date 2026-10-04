@@ -2,10 +2,10 @@
   "id": "detski_pesnichki",
   "name": "Detski pesnichki",
   "family": "vernacular",
-  "lineage": "Irina Dimitrova — Pesnopoyka, 105 detski pesni. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic detski pesnichki, nursery Rhyme, European branch. solo with instrumental accompaniment. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 248,
-  "score": 3.821,
+  "lineage": "Detski pesnichki brings Bulgarian children’s songs into educational and everyday singing. Published songbooks help transmit melodies and words across generations.",
+  "recipe": "classic detski pesnichki, nursery Rhyme, European branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 169,
+  "score": 2.051,
   "config": {
     "traditions": [
       "detski_pesnichki"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.2,
+          "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.105,
+          "grand_piano_brand": 1.5415,
           "piano_hammer": -0.1,
-          "piano_rim": 0.6499999999999999,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": 1.3365,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": -0.035
         }
       }
     ],

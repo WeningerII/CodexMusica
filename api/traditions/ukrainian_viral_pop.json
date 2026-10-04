@@ -2,10 +2,10 @@
   "id": "ukrainian_viral_pop",
   "name": "Ukrainian viral pop",
   "family": "pop",
-  "lineage": "Tember Blanche — announced complete acoustic duo, Sumy27July2024. Authored live vocal duet with source-unspecified physiology and an all-mahogany steel-string OM with articulated flatpicked single-note guitar lines as an alternative authored realization. Source calls the event acoustic and credits guitar, without measured guitar type/wood/string/technique; OM timbre is editorial. Standard guitar tuning and modern neutral studio chain are authored choices, global tuning omitted. Broad functionalSong models recurring songs and functional harmonic support editorially, not a harmonic transcription.",
-  "recipe": "classic ukrainian viral pop, functional Song. duet, unprocessed natural acoustic, live take. mahogany flatpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 228,
-  "score": 13.318,
+  "lineage": "Ukrainian viral pop circulates through social platforms, streaming and contemporary song communities. Acts such as Tember Blanche connect memorable melodies and acoustic songwriting with internet-led discovery.",
+  "recipe": "classic ukrainian viral pop, functional Song. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 157,
+  "score": 8.995,
   "config": {
     "traditions": [
       "ukrainian_viral_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,30 +43,30 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
+          "voice_speech_song": 0.1905,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 4.267999999999999,
-          "voice_multitrack_stack": 1.3,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_dread",
         "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "mahogany_top_om",
-          "back_sides": "mahogany_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_flatpicked_lead"
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 0,
-          "acoustic_om_technique": 2.5500000000000003
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.054
         }
       }
     ],
@@ -90,30 +90,30 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "acoustic_guitar_om": [
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -125,7 +125,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -133,17 +133,11 @@
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "string_tuning": "standard_tuning",
-      "top_wood": "mahogany_top_om",
-      "back_sides": "mahogany_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_flatpicked_lead"
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "acoustic_technique": "acoustic_strummed_ringing"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

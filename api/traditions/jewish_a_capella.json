@@ -5,7 +5,7 @@
   "lineage": "Six13 — documented six-person all-vocal concert format. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic jewish a cappella, functional Song. group vocals, live take. vocal percussion ensemble layer vocal percussion voice. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 223,
-  "score": 6.931,
+  "score": 7.057,
   "config": {
     "traditions": [
       "jewish_a_capella"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.18,
           "voice_multitrack_stack": 0.7364999999999999,
           "voice_tessitura": 0
         }
@@ -64,7 +64,7 @@
           "vocal_percussion_airstream_mechanism": 0.3,
           "vocal_percussion_beatbox_articulation": 0.8999999999999999,
           "vocal_percussion_syllabic_drum_system": 0,
-          "vocal_percussion_context": 3.8245000000000005
+          "vocal_percussion_context": 3.7705
         }
       }
     ],

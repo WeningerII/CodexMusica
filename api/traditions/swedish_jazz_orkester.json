@@ -2,10 +2,10 @@
   "id": "swedish_jazz_orkester",
   "name": "Swedish jazz orkester",
   "family": "jazz",
-  "lineage": "Swedish jazz orkester is represented here by Harry Arnold’s Radioband —1950s Stockholm instrumental band core; Stand by in Swedish Jazz History,Vol.8. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-1950s swedish jazz orkester, improv On Frame, early branch. bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 579,
-  "score": 164.376,
+  "lineage": "Swedish jazz orchestras developed through dance bands, radio ensembles and concert performance. Arrangers and improvisers continue a big-band tradition with local repertoire and international influences.",
+  "recipe": "classic swedish jazz orkester, improv On Frame, early branch. bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, a 440 modern pitch us standard grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 525,
+  "score": 119.986,
   "config": {
     "traditions": [
       "swedish_jazz_orkester"
@@ -14,28 +14,28 @@
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_bebop_runs",
-          "brass_size": "cornet",
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.05,
+          "wind_articulation": 0.585,
           "brass_size": 0,
-          "trumpet_mouthpiece": 18.85,
+          "trumpet_mouthpiece": 14.625,
           "brass_mute": 0.0315,
-          "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.39,
+          "trumpet_technique": 0.585,
+          "trumpet_bell_metal": 0.51525,
           "trumpet_maker_school": 1.95
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_bebop_runs",
+          "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
           "trombone_mute": "no_mute_trb",
@@ -44,19 +44,19 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": -0.05,
-          "trombone_type": 14.5,
-          "trombone_mouthpiece": 14.481499999999999,
+          "wind_articulation": 0.585,
+          "trombone_type": 11.25,
+          "trombone_mouthpiece": 11.231499999999999,
           "trombone_mute": 0.0315,
-          "trombone_technique": 0.29400000000000004,
-          "trombone_bell_metal": 0.39,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.51525,
           "trombone_maker_school": 1.95
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_bebop_runs",
+          "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
@@ -65,49 +65,49 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": -0.05,
+          "wind_articulation": 0.585,
           "sax_size": 0.168,
           "sax_reed": 0,
-          "sax_body_alloy": 14.5,
-          "sax_mouthpiece": 0.1395,
-          "sax_technique": 14.5,
-          "sax_maker_school": 18.785
+          "sax_body_alloy": 11.25,
+          "sax_mouthpiece": 0.2115,
+          "sax_technique": 11.25,
+          "sax_maker_school": 14.559999999999999
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.3045,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 1.885,
-          "piano_rim": 1.885,
-          "piano_soundboard": 0.9854999999999999,
-          "piano_pinblock": 0.26,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 1.625
+          "grand_piano_size": 0.063,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.2349999999999999
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_wound_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 14.5,
-          "upright_play": 14.5
+          "upright_strings": 0.1425,
+          "upright_play": 11.25
         }
       },
       {
@@ -118,17 +118,30 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 8.58,
-          "drumhead": 18.785,
+          "drum_technique": 10.789999999999996,
+          "drumhead": 14.559999999999999,
           "drum_kit_kick_pedal": 0
         }
       }
     ],
     "pinned": {
+      "trumpet": [
+        "brass_size",
+        "brass_mute"
+      ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ],
       "upright_bass": [
+        "upright_strings",
         "upright_play"
       ],
       "drum_kit": [
@@ -156,7 +169,18 @@
     "parts": {
       "keyboard_technique": "keyboard_jazz_comping",
       "drum_technique": "brushes_and_sticks",
-      "upright_play": "pizz_upright"
+      "upright_play": "pizz_upright",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "upright_strings": "gut_upright",
+      "brass_size": "trumpet_b_flat",
+      "brass_mute": "no_mute_brass"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

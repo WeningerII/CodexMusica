@@ -5,7 +5,7 @@
   "lineage": "Guarulhos local MC-and-DJ scene represented by its2019 National Rap Day program.",
   "recipe": "classic modern rap guarulhense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 316,
-  "score": 36.806,
+  "score": 36.914,
   "config": {
     "traditions": [
       "rap_guarulhense"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

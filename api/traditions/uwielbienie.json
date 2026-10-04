@@ -2,10 +2,10 @@
   "id": "uwielbienie",
   "name": "Uwielbienie",
   "family": "global",
-  "lineage": "Rafał Bielecki — Ocalić od zapomnienia Vol.1, complete nineteen-track physical CD described by the artist-owned2023 release page, including six live tracks and three bonuses. The two streaming preview tracks are not confused with this full CD scope. All thirteen positively credited sound families and twenty individually named vocal contributors remain present. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic uwielbienie, ritual Devotional, christian gospel branch. one note per syllable, group vocals, live take. electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, electric upright bass, hohner gola canonical premium German concert accordion, European maple bosnian source flamed figure modern setup longer neck viola classical, saxophone, bach 42 canonical American orchestral tenor trombone, bach stradivarius 180 canonical American orchestral trumpet, European maple bosnian source flamed figure modern setup longer neck violin orchestral, synthetic European maple bosnian source flamed figure modern setup cello, conventional tuning standard pitch humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 837,
-  "score": 57.451,
+  "lineage": "Polish Christian praise and worship repertoire connects devotional singing with church communities and contemporary song production. Traditional sacred texts and newer compositions coexist across denominational and stylistic settings.",
+  "recipe": "classic uwielbienie, ritual Devotional, christian gospel branch. small note groups per syllable. humbucker electric guitar, electric bass, drum kit, upright piano. live tracking.",
+  "recipe_chars": 178,
+  "score": 4.679,
   "config": {
     "traditions": [
       "uwielbienie"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,248 +43,13 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825000000000001,
-          "voice_ensemble_config": 1.4365,
+          "voice_speech_song": 1.573,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.3,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "electronic_keyboard_unspecified",
-        "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
-        },
-        "scores": {
-          "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.39
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_45",
-          "snare_wires": "wires_20",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish"
-        },
-        "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 1,
-          "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.2,
-          "shell_thickness": 0,
-          "bearing_edges": 0.39,
-          "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 1.45,
-          "cymbal_lathing": 3.05,
-          "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 0,
-          "body_wood": 0.273,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "upright_bass",
-        "slots": {
-          "upright_strings": "steel_upright",
-          "upright_play": "pizz_upright"
-        },
-        "scores": {
-          "upright_strings": 0.294,
-          "upright_play": -0.05
-        }
-      },
-      {
-        "id": "accordion",
-        "slots": {
-          "free_reed_technique": "free_reed_chordal_chugging",
-          "accordion_reed_material": "steel_reeds",
-          "musette_offset": "dry_tuning",
-          "reed_config": "lmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
-          "accordion_maker_school": "accordion_hohner_gola"
-        },
-        "scores": {
-          "free_reed_technique": 0.19500000000000003,
-          "accordion_reed_material": 0,
-          "musette_offset": 0.3,
-          "reed_config": 0,
-          "bellows": 0,
-          "voicing_chamber": 0,
-          "accordion_maker_school": 1.2285000000000001
-        }
-      },
-      {
-        "id": "viola_classical",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "viola_size": "viola_16_inch",
-          "viola_strings": "viola_synthetic",
-          "viola_top_wood": "viola_norway_spruce",
-          "viola_back_wood": "viola_bosnian_flamed_maple",
-          "viola_varnish": "viola_oil_amber",
-          "viola_setup_period": "viola_modern_setup",
-          "viola_bow_stick": "viola_pernambuco",
-          "viola_rosin": "viola_larsen_rosin"
-        },
-        "scores": {
-          "bowed_technique": 0.25,
-          "viola_size": 0,
-          "viola_strings": 0.39,
-          "viola_top_wood": -0.1,
-          "viola_back_wood": 1.5,
-          "viola_varnish": 0.7,
-          "viola_setup_period": 1.2999999999999998,
-          "viola_bow_stick": 0.8449999999999999,
-          "viola_rosin": 1.2999999999999998
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "sax_size": "alto_sax",
-          "sax_reed": "medium_reed",
-          "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": 0.26,
-          "sax_size": 0.325,
-          "sax_reed": 0,
-          "sax_body_alloy": 0.9099999999999999,
-          "sax_mouthpiece": 0,
-          "sax_technique": 0.325,
-          "sax_maker_school": -0.07
-        }
-      },
-      {
-        "id": "trombone",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "trombone_type": "tenor_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
-          "trombone_mute": "no_mute_trb",
-          "trombone_technique": "classical_trb",
-          "trombone_bell_metal": "trombone_yellow_brass",
-          "trombone_maker_school": "trombone_bach_42"
-        },
-        "scores": {
-          "wind_articulation": 0.26,
-          "trombone_type": -0.035,
-          "trombone_mouthpiece": 0.7,
-          "trombone_mute": 2.0305,
-          "trombone_technique": 0.294,
-          "trombone_bell_metal": 0.9555,
-          "trombone_maker_school": 1.4385000000000001
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_classical_legato",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
-        },
-        "scores": {
-          "wind_articulation": 0.26,
-          "brass_size": 0,
-          "trumpet_mouthpiece": 0.8365,
-          "brass_mute": 2.0305,
-          "trumpet_technique": 0.25,
-          "trumpet_bell_metal": 0.9555,
-          "trumpet_maker_school": 1.4385000000000001
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
-          "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "pirastro_gold_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": 0.25,
-          "orch_strings": 0,
-          "orch_top_wood": -0.1,
-          "orch_back_wood": 1.5,
-          "orch_varnish": 0.7,
-          "orch_setup_period": 1.2999999999999998,
-          "orch_bow": 0.294,
-          "orch_bow_stick": 0.8449999999999999,
-          "orch_articulation": 2.08,
-          "orch_rosin": 0.9099999999999999
-        }
-      },
-      {
-        "id": "cello",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
-          "cello_top_wood": "norway_spruce_alpine_cello",
-          "cello_back_wood": "bosnian_flamed_maple_cello",
-          "cello_varnish": "oil_amber_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "pernambuco_stick_cello"
-        },
-        "scores": {
-          "bowed_technique": 0.25,
-          "cello_strings": 2.47,
-          "cello_top_wood": -0.1,
-          "cello_back_wood": 1.5,
-          "cello_varnish": 0.7,
-          "cello_setup_period": 1.2999999999999998,
-          "cello_bow_grip": 1.2915,
-          "cello_rosin": 0.9099999999999999,
-          "cello_bow_stick": 0.8449999999999999
         }
       },
       {
@@ -292,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -305,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.9999999999999998,
+          "electric_technique": 0.7,
           "amp_make": 0,
-          "body_wood": 0.273,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -315,9 +80,74 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 4.194,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0.7035,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": 0.40950000000000003,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": -0.1,
+          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0,
+          "upright_piano_size": 0.49350000000000005
         }
       }
     ],
@@ -341,107 +171,6 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity",
-        "keyboard_technique"
-      ],
-      "drum_kit": [
-        "drum_technique",
-        "shell_wood",
-        "shell_thickness",
-        "bearing_edges",
-        "drumhead",
-        "snare_wires",
-        "drum_kit_kick_pedal",
-        "cymbal_alloy",
-        "cymbal_hammering",
-        "cymbal_lathing",
-        "cymbal_finish"
-      ],
-      "electric_bass": [
-        "amp_make",
-        "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
-      ],
-      "upright_bass": [
-        "upright_strings",
-        "upright_play"
-      ],
-      "accordion": [
-        "free_reed_technique",
-        "accordion_reed_material",
-        "musette_offset",
-        "reed_config",
-        "bellows",
-        "voicing_chamber",
-        "accordion_maker_school"
-      ],
-      "viola_classical": [
-        "bowed_technique",
-        "viola_size",
-        "viola_strings",
-        "viola_top_wood",
-        "viola_back_wood",
-        "viola_varnish",
-        "viola_setup_period",
-        "viola_bow_stick",
-        "viola_rosin"
-      ],
-      "saxophone": [
-        "wind_articulation",
-        "sax_size",
-        "sax_reed",
-        "sax_body_alloy",
-        "sax_mouthpiece",
-        "sax_technique",
-        "sax_maker_school"
-      ],
-      "trombone": [
-        "wind_articulation",
-        "trombone_type",
-        "trombone_mouthpiece",
-        "trombone_mute",
-        "trombone_technique",
-        "trombone_bell_metal",
-        "trombone_maker_school"
-      ],
-      "trumpet": [
-        "wind_articulation",
-        "brass_size",
-        "trumpet_mouthpiece",
-        "brass_mute",
-        "trumpet_technique",
-        "trumpet_bell_metal",
-        "trumpet_maker_school"
-      ],
-      "violin_orchestral": [
-        "bowed_technique",
-        "orch_strings",
-        "orch_top_wood",
-        "orch_back_wood",
-        "orch_varnish",
-        "orch_setup_period",
-        "orch_bow",
-        "orch_bow_stick",
-        "orch_articulation",
-        "orch_rosin"
-      ],
-      "cello": [
-        "bowed_technique",
-        "cello_strings",
-        "cello_top_wood",
-        "cello_back_wood",
-        "cello_varnish",
-        "cello_setup_period",
-        "cello_bow_grip",
-        "cello_rosin",
-        "cello_bow_stick"
-      ],
       "electric_guitar_humbucker": [
         "electric_technique",
         "amp_make",
@@ -456,17 +185,45 @@
         "string_gauge",
         "finish",
         "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -475,7 +232,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -487,90 +244,17 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal",
-      "drum_technique": "sticks_rock",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
-      "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "pickup_config": "split_coil",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "bass_technique": "fingerstyle_locked",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "upright_strings": "steel_upright",
-      "upright_play": "pizz_upright",
-      "free_reed_technique": "free_reed_chordal_chugging",
-      "accordion_reed_material": "steel_reeds",
-      "musette_offset": "dry_tuning",
-      "reed_config": "lmm",
-      "bellows": "cardboard_leather",
-      "voicing_chamber": "cassotto",
-      "accordion_maker_school": "accordion_hohner_gola",
-      "bowed_technique": "bowed_legato_classical",
-      "viola_size": "viola_16_inch",
-      "viola_strings": "viola_synthetic",
-      "viola_top_wood": "viola_norway_spruce",
-      "viola_back_wood": "viola_bosnian_flamed_maple",
-      "viola_varnish": "viola_oil_amber",
-      "viola_setup_period": "viola_modern_setup",
-      "viola_bow_stick": "viola_pernambuco",
-      "viola_rosin": "viola_larsen_rosin",
-      "wind_articulation": "wind_continuous_legato",
-      "sax_size": "alto_sax",
-      "sax_reed": "medium_reed",
-      "sax_body_alloy": "yellow_brass_sax",
-      "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_continuous_legato",
-      "sax_maker_school": "sax_selmer_mark_vi",
-      "trombone_type": "tenor_trombone",
-      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
-      "trombone_mute": "no_mute_trb",
-      "trombone_technique": "classical_trb",
-      "trombone_bell_metal": "trombone_yellow_brass",
-      "trombone_maker_school": "trombone_bach_42",
-      "brass_size": "trumpet_b_flat",
-      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-      "brass_mute": "no_mute_brass",
-      "trumpet_technique": "trumpet_classical_legato",
-      "trumpet_bell_metal": "trumpet_yellow_brass",
-      "trumpet_maker_school": "trumpet_bach_stradivarius",
-      "orch_strings": "synthetic_orch",
-      "orch_top_wood": "norway_spruce_alpine_violin",
-      "orch_back_wood": "bosnian_flamed_maple_violin",
-      "orch_varnish": "oil_amber_varnish_violin",
-      "orch_setup_period": "modern_setup_violin",
-      "orch_bow": "modern_bow",
-      "orch_bow_stick": "pernambuco_stick_orch",
-      "orch_articulation": "arco_orch",
-      "orch_rosin": "pirastro_gold_rosin_orch",
-      "cello_strings": "cello_synthetic",
-      "cello_top_wood": "norway_spruce_alpine_cello",
-      "cello_back_wood": "bosnian_flamed_maple_cello",
-      "cello_varnish": "oil_amber_varnish_cello",
-      "cello_setup_period": "modern_setup_cello",
-      "cello_bow_grip": "french_bow_grip",
-      "cello_rosin": "pirastro_cellisto_rosin",
-      "cello_bow_stick": "pernambuco_stick_cello",
       "electric_technique": "electric_clean_strummed",
-      "neck_wood": "mahogany_neck_h",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -579,14 +263,28 @@
       "scale_length": "scale_gibson_h",
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
-      "string_tuning": "standard_tuning"
+      "string_tuning": "standard_tuning",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "hand_random_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

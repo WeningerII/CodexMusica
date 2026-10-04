@@ -2,10 +2,10 @@
   "id": "scottish_techno",
   "name": "Scottish Techno",
   "family": "electronic",
-  "lineage": "Neil Landstrumm — complete May2012 live rig. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "lineage": "Scottish techno connects club culture with adventurous electronic production, including broken rhythms, bass pressure and sampling. Neil Landstrumm exemplifies its hardware-based, cross-style approach.",
   "recipe": "classic scottish techno, electronic Dance, techno branch. digital synthesis drum machine, digital multiengine synthesizer, sampler, software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 256,
-  "score": 2.939,
+  "score": 2.29,
   "config": {
     "traditions": [
       "scottish_techno"
@@ -39,11 +39,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 0.2,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.03899999999999999,
+          "sampler_bit_depth": 0.25999999999999995,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 3.1200000000000006
+          "sampler_classic_context": 1.95
         }
       },
       {

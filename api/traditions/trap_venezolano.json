@@ -2,10 +2,10 @@
   "id": "trap_venezolano",
   "name": "Trap venezolano",
   "family": "hip_hop",
-  "lineage": "Mérida-rooted Venezuelan trap and melodic rap crossover represented by Micro TDH’s collaboration network.",
+  "lineage": "Venezuelan trap connects freestyle and recorded rap with melodic vocal writing and regional producer networks.",
   "recipe": "classic modern trap venezolano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 287,
-  "score": 37.194,
+  "score": 30.272,
   "config": {
     "traditions": [
       "trap_venezolano"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 10.075,
+          "voice_quality": 9.1,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.01,
-          "voice_ensemble_config": 0.0315,
+          "voice_speech_song": 9.035,
+          "voice_ensemble_config": 0.2115,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 10.466
+          "voice_multitrack_stack": 8.966
         }
       },
       {
@@ -59,21 +59,21 @@
         },
         "scores": {
           "tr808_voice": 2.397,
-          "drum_machine_808_context": 0.40049999999999997,
-          "tr808_production_origin": 0.39
+          "drum_machine_808_context": 0.34650000000000003,
+          "tr808_production_origin": 0.159
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "va_archetypes": 0.1365,
-          "digital_subtractive_context": 3.25
+          "va_archetypes": 0.054,
+          "digital_subtractive_context": -0.035
         }
       }
     ],
@@ -102,7 +102,9 @@
         "tr808_production_origin"
       ],
       "digital_subtractive": [
-        "electronic_technique"
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
       ]
     },
     "room": "studio_auteur_home_pro",
@@ -143,7 +145,9 @@
       "tr808_voice": "tr808_kick_long",
       "drum_machine_808_context": "drum_machine_808_trap",
       "tr808_production_origin": "tr808_tr_8s_modern",
-      "electronic_technique": "electronic_pluck_short"
+      "electronic_technique": "electronic_pluck_short",
+      "va_archetypes": "nord_lead",
+      "digital_subtractive_context": "digital_subtractive_pop"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -5,7 +5,7 @@
   "lineage": "Thai pop rap includes URBOYTJ’s melodic rap songwriting and guitar-supported recordings. Defaults are a present-day authored realization, not a historical session reconstruction.",
   "recipe": "classic modern thai pop rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic clean strummed single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 411,
-  "score": 47.665,
+  "score": 47.989,
   "config": {
     "traditions": [
       "thai_pop_rap"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.915,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 13.969,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -55,7 +55,7 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka",
+          "top_wood": "engelmann",
           "back_sides": "maple_bs",
           "string_acoustic": "eighty_twenty"
         },
@@ -79,7 +79,7 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -87,16 +87,16 @@
         "scores": {
           "electric_technique": 8.75,
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.1905,
           "neck_wood": 0.1365,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
           "string_gauge": 1.3735,
-          "bridge": 0.105,
-          "scale_length": 0,
+          "bridge": 0.159,
+          "scale_length": 0.108,
           "finish": 0,
-          "string_tuning": 0.4635,
+          "string_tuning": 0.5715,
           "single_coil_pickup_construction": 0
         }
       }

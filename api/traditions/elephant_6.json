@@ -2,10 +2,10 @@
   "id": "elephant_6",
   "name": "Elephant 6",
   "family": "rock",
-  "lineage": "The Apples in stereo — complete Hypnotic Suggestion four-song EP, recorded December1993–February1994, Chunklet2019 verbatim reissue. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic elephant 6, distorted Rock, alternative branch. unprocessed natural acoustic. acoustic conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 16-bit digital.",
-  "recipe_chars": 381,
-  "score": 39.746,
+  "lineage": "Elephant 6 formed as a collaborative recording community in the 1990s, linking artists associated with Denver, Athens and other cities. Psychedelic pop, home recording and shared musicianship connect its varied bands without imposing a single sound.",
+  "recipe": "classic mid-1990s elephant 6, distorted Rock, alternative branch. acoustic humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 16-bit digital.",
+  "recipe_chars": 338,
+  "score": 30.897,
   "config": {
     "traditions": [
       "elephant_6"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.0679999999999998,
+          "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.78,
-          "back_sides": 0.78,
+          "top_wood": 0.27299999999999996,
+          "back_sides": 0.27299999999999996,
           "string_acoustic": 0.714,
-          "acoustic_om_technique": 0.25
+          "acoustic_om_technique": -0.05
         }
       },
       {
@@ -87,19 +87,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.2,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.8730000000000002,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.6
+          "string_tuning": 0
         }
       },
       {
@@ -116,12 +116,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.39,
-          "pickup_config": 0.39,
+          "body_wood": 0.40950000000000003,
+          "pickup_config": 0.40950000000000003,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -141,16 +141,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.749999999999999,
-          "drumhead": 1.7365000000000002,
+          "drum_technique": 6.25,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.0414999999999996,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 0.10000000000000002,
-          "cymbal_hammering": 7.6815,
-          "cymbal_lathing": 7.786499999999999,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 9.481499999999999,
+          "cymbal_lathing": 9.5865,
           "cymbal_finish": 0
         }
       },
@@ -162,7 +162,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.504
+          "keyboard_technique": 0.39
         }
       }
     ],

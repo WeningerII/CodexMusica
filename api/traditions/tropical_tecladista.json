@@ -2,10 +2,10 @@
   "id": "tropical_tecladista",
   "name": "Tropical Tecladista",
   "family": "global",
-  "lineage": "Nelson Kanzela — complete six-member formation on current official2026 biography. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic tropical tecladista, groove Percussion, Latin am branch. one note per syllable, live take. electronic keyboard unspecified, timbales stick played, credited auxiliary percussion, electric bass, humbucker electric guitar, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 337,
-  "score": 7.176,
+  "lineage": "Keyboard-fronted tropical dance music, represented by performers such as Nelson Kanzela. The keyboardist’s lead role links cumbia and related dance repertoire with flexible electronic and live accompaniment.",
+  "recipe": "classic tropical tecladista, groove Percussion, Latin am branch. duet, live take. electronic keyboard unspecified, timbales stick played, credited auxiliary percussion, electric bass, humbucker electric guitar, saxophone. live tracking.",
+  "recipe_chars": 236,
+  "score": 8.37,
   "config": {
     "traditions": [
       "tropical_tecladista"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.2705,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3045,
-          "voice_multitrack_stack": 0.8294999999999999,
+          "voice_multitrack_stack": 1.69,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.1995
+          "keyboard_technique": 0.78
         }
       },
       {
@@ -89,8 +89,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,8 +99,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.42,
-          "pickup_config": 0,
+          "body_wood": 0.2415,
+          "pickup_config": 0.3465,
           "string_type": 0,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
@@ -113,8 +113,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -128,15 +128,15 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.42,
-          "neck_wood": 0.42,
+          "body_wood": 0.2415,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.84,
-          "string_gauge": 1.768,
+          "string_gauge": 0.8679999999999999,
           "finish": 0,
           "string_tuning": 0
         }
@@ -153,8 +153,8 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": -0.10500000000000001,
-          "sax_size": -0.15000000000000002,
+          "wind_articulation": 0.19500000000000003,
+          "sax_size": 0.15000000000000002,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.2415,
@@ -230,15 +230,15 @@
         "sax_maker_school"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -247,7 +247,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -273,15 +273,15 @@
       "timbales_context": "timbales_salsa",
       "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "pickup_config": "split_coil",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
       "electric_technique": "electric_clean_strummed",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -299,12 +299,6 @@
       "sax_technique": "sax_honking_attack",
       "sax_maker_school": "sax_selmer_mark_vi"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

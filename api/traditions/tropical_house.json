@@ -5,7 +5,7 @@
   "lineage": "Style consolidated around 2013-2016 by Kygo, Thomas Jack, Klingande and Matoma out of Norway and northern Europe, running a slow 100-115 BPM four-on-the-floor with soft rounded kick, off-beat plucked marimba, steelpan and flute-like synth leads, wide reverberant pads, filtered saxophone hooks, and breathy singer-songwriter vocals mixed forward with pop rather than club balance.",
   "recipe": "classic 2013-2016 tropical house, electronic Dance, deep house branch, continental electronic dance gregorian dance new york garage house. extended whistle, breath veiled tone, slow rate, interlocked note trading. singing lead digital subtractive, steelpan, honking attack saxophone, singing lead wavetable synth, room natural cupped muffled hand clap. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 546,
-  "score": 193.114,
+  "score": 193.815,
   "config": {
     "traditions": [
       "tropical_house",
@@ -17,12 +17,12 @@
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "nord_lead",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 6.1805,
-          "va_archetypes": 0.8415,
+          "electronic_technique": 6.104,
+          "va_archetypes": 0.65,
           "digital_subtractive_context": 16.055
         }
       },
@@ -58,19 +58,19 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.4585,
+          "voice_register": 9.892,
           "voice_quality": 8.190000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.265,
           "voice_articulation": 15.014999999999997,
           "voice_microtone": 15.664999999999994,
-          "voice_tradition": 7.304500000000001,
+          "voice_tradition": 7.993,
           "voice_mechanism_compound": 6.109999999999999,
           "voice_estill_quality": 3.38,
           "voice_speech_song": 16.834999999999997,
           "voice_ensemble_config": 19.629999999999995,
-          "voice_ornament_system": 0.9264999999999999,
+          "voice_ornament_system": 0.8499999999999999,
           "voice_pitch_organization": 1.3699999999999997,
           "voice_processing_chain": 20.52,
           "voice_multitrack_stack": 4.160000000000001
@@ -103,10 +103,10 @@
           "electronic_technique": "electronic_lead_line",
           "wt_position": "wt_morphing",
           "wt_family": "wt_vocal",
-          "wt_polyphony": "wt_mono"
+          "wt_polyphony": "wt_poly"
         },
         "scores": {
-          "electronic_technique": 6.1805,
+          "electronic_technique": 6.104,
           "wt_position": 9.685,
           "wt_family": 1.3,
           "wt_polyphony": 0.65

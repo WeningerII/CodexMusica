@@ -5,7 +5,7 @@
   "lineage": "Jamaican hip hop includes locally based rappers and producers as well as dialogue with reggae. Kabaka Pyramid’s Transition mixtapes and sample-led early Bebble Rock practice supply this selected branch.",
   "recipe": "classic modern jamaican hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler, sampled chopped sampler drum machine, sub bass rompler workstation, clean strummed single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 449,
-  "score": 84.186,
+  "score": 84.402,
   "config": {
     "traditions": [
       "jamaican_hip_hop"
@@ -91,7 +91,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 6.197,
+          "electronic_technique": 6.2509999999999994,
           "rompler_preset_bank": 0.063,
           "rompler_context": 0,
           "rompler_lineage": 0
@@ -109,7 +109,7 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -123,8 +123,8 @@
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
           "string_gauge": 0.0735,
-          "bridge": 0.105,
-          "scale_length": 0,
+          "bridge": 0.159,
+          "scale_length": 0.108,
           "finish": 0,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0

@@ -2,10 +2,10 @@
   "id": "derby_indie",
   "name": "Derby Indie",
   "family": "rock",
-  "lineage": "Sunwheel — Live at Dubrek Studios EP(2025), complete five-song session. Complete five-song2025 Live at Dubrek Studios EP, retaining the artist’s full session union: Mark Gould voice/percussion; Bobby Manners lead guitar,keyboards,harmonica,backing voice; Andy Richardson guitar/backing voice; Matt Shaw bass; John Middleton drums. Five people,three vocal contributors,seven families; two guitar players aggregated on one family card. No claim every auxiliary appears continuously in each song. Bare percussion stays neutral. Bare keyboards realized on architecture-unspecified electronic keyboard, an authored timbral choice rather than source construction claim. Source harmonica realized as coherent ten-hole Marine Band/Richter/pearwood/brass cross-harp, not exact source model/technique. Humbucker power-chord guitars,fingerstyle electric bass,rock kit and modern studio/equal-temperament framework authored; physiology and exact vocal voicing remain unspecified.",
-  "recipe": "classic mid-2020s derby indie, distorted Rock, alternative branch. group vocals, live take. alder power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 528,
-  "score": 82.399,
+  "lineage": "Derby indie connects the city’s independent bands, studios and performance spaces with broader British indie traditions. Local groups develop guitar-led songs alongside varied folk, pop and alternative influences.",
+  "recipe": "classic derby indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 320,
+  "score": 29.538,
   "config": {
     "traditions": [
       "derby_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.573,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 2.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.2,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 2.0095,
-          "neck_wood": 0.39,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.0095,
-          "pickup_config": 3.3095000000000003,
+          "body_wood": 0.40950000000000003,
+          "pickup_config": 0.40950000000000003,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 11,
+          "drum_technique": 6.25,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.1415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 1.705,
+          "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 14.981499999999999,
-          "cymbal_lathing": 16.3865,
+          "cymbal_hammering": 8.731499999999999,
+          "cymbal_lathing": 8.8365,
           "cymbal_finish": 0
         }
       },
@@ -145,35 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.504
-        }
-      },
-      {
-        "id": "harmonica",
-        "slots": {
-          "harmonica_type": "diatonic_blues",
-          "harmonica_comb": "pearwood_comb",
-          "harmonica_reed": "brass_harm",
-          "harmonica_technique": "harm_blues_cross",
-          "harmonica_maker_school": "harmonica_hohner_marine_band",
-          "harmonica_tuning": "harmonica_richter_canonical"
-        },
-        "scores": {
-          "harmonica_type": 0,
-          "harmonica_comb": 4.041500000000001,
-          "harmonica_reed": 1.56,
-          "harmonica_technique": 2.5000000000000004,
-          "harmonica_maker_school": 3.2500000000000004,
-          "harmonica_tuning": 3.38
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
+          "keyboard_technique": 0.39
         }
       }
     ],
@@ -238,17 +210,6 @@
       "electronic_keyboard_unspecified": [
         "electronic_keyboard_identity",
         "keyboard_technique"
-      ],
-      "harmonica": [
-        "harmonica_type",
-        "harmonica_comb",
-        "harmonica_reed",
-        "harmonica_technique",
-        "harmonica_maker_school",
-        "harmonica_tuning"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
       ]
     },
     "room": "treated_studio",
@@ -318,14 +279,7 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
       "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal",
-      "harmonica_type": "diatonic_blues",
-      "harmonica_comb": "pearwood_comb",
-      "harmonica_reed": "brass_harm",
-      "harmonica_technique": "harm_blues_cross",
-      "harmonica_maker_school": "harmonica_hohner_marine_band",
-      "harmonica_tuning": "harmonica_richter_canonical",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

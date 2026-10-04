@@ -2,10 +2,10 @@
   "id": "rock_gaucho",
   "name": "Rock gaucho",
   "family": "rock",
-  "lineage": "Rock gaucho is represented here by Acústicos & Valvulados. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Rock gaúcho connects the rock scenes of Rio Grande do Sul, including Porto Alegre’s guitar-band and rock-and-roll traditions.",
   "recipe": "classic rock gaucho, distorted Rock, classic branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 56.353,
+  "score": 64.936,
   "config": {
     "traditions": [
       "rock_gaucho"
@@ -19,29 +19,29 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 0.7314999999999999,
-          "amp_make": 6.5,
+          "amp_make": 8.32,
           "body_wood": 0.9974999999999998,
           "neck_wood": 0.483,
           "fretboard": 0.0945,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0.1485,
           "pickup_winding": 1.95,
           "string_material": 0.1365,
-          "bridge": 1.69,
+          "bridge": 0.483,
           "scale_length": 0.9660000000000002,
-          "string_gauge": 1.69,
+          "string_gauge": 0.483,
           "finish": 0.3045,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
@@ -49,20 +49,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 8.775,
           "body_wood": 0.9660000000000002,
-          "pickup_config": 0.0315,
-          "string_type": 16.575,
+          "pickup_config": 0.054,
+          "string_type": 21.125,
           "scale_length_b": 0.483,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.054,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.813,
+          "drum_technique": 16.313,
           "drumhead": 0.483,
           "drum_kit_kick_pedal": 0
         }
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 0.909,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,

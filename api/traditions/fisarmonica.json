@@ -2,10 +2,10 @@
   "id": "fisarmonica",
   "name": "Fisarmonica",
   "family": "vernacular",
-  "lineage": "Carlo Venturi, Romero: complete two-page melody-and-chord edition expressly labeled for accordion/C instruments in publisher Novalis/Unione Il Mito, printed pages18–19. One accordionist realizes both the notated melody and chord symbols; zero singers. This is the whole published score realization, not a claim that the separate original recording or backing track used accordion alone.",
+  "lineage": "Fisarmonica centers the accordion in Italian instrumental and popular-music traditions. Players draw on dance tunes, songs and concert repertoire, combining melodic playing with the instrument’s own accompaniment.",
   "recipe": "classic fisarmonica, functional Song. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 147,
-  "score": 3.112,
+  "score": 1.081,
   "config": {
     "traditions": [
       "fisarmonica"
@@ -23,12 +23,12 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 1.5999999999999999,
+          "free_reed_technique": 0.2,
           "accordion_reed_material": 0.354,
           "musette_offset": 0,
           "reed_config": 0,
-          "bellows": 0.7364999999999999,
-          "voicing_chamber": 0.42150000000000004,
+          "bellows": 0.1365,
+          "voicing_chamber": 0.39,
           "accordion_maker_school": 0
         }
       }

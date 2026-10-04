@@ -2,10 +2,10 @@
   "id": "musique_militaire",
   "name": "Musique militaire",
   "family": "classical",
-  "lineage": "Complete Chœur de l’Armée française concert announced12September2020, Dôme de Gascogne, Auch, directed by Aurore Tillac: thirty professional male singers, with a seven-person subset drawn from those same singers rather than seven additional singers. Whole two-part programme includes a cappella and piano-accompanied works, French songs, international traditional arrangements and Romantic opera/choral repertoire. Jean-Christian Le Coz and Mathilde Claude are pianists in alternation; presenter explicitly mentions piano at two or four hands. Retain all thirty singers and the piano role, including four-hand use when required, not an invented one-pianist-only event. Conductor is not an extra credited singer. No audio attendance or claim every work has accompaniment or identical voicing. Broad artMusic/classical placement follows the complete formal choral recital with named conductor and Romantic opera/choral arrangements, not a category-wide claim military music is all art music. Source count thirty is retained separately from unknown exact written part count; the existing live singing-group owner avoids inventing thirty independent parts or universal SATB. Neutral physiology and source-unspecified speech/song subdivisions preserve the mixed programme. Standard upright with classical-legato keyboard gesture is an authored piano realization where construction unspecified; the single family card covers two- and four-hand usage, not a restriction to one performer. Controlled concert-hall sound is authored, not a measurement of the Dôme de Gascogne. No global tuning or capture chain asserted.",
-  "recipe": "classic musique militaire, art Music. group vocals, live take. legato upright piano. shoebox concert hall.",
-  "recipe_chars": 106,
-  "score": 14.62,
+  "lineage": "Musique militaire encompasses music maintained and performed by military institutions, including signals, ceremonial ensembles, singing and public concerts. Repertoire ranges from functional calls and marches to choral works and wider popular or concert music.",
+  "recipe": "classic musique militaire, art Music. upright piano. shoebox concert hall.",
+  "recipe_chars": 74,
+  "score": 2.867,
   "config": {
     "traditions": [
       "musique_militaire"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.726,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 1.4260000000000002,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -60,8 +60,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 10.331499999999998,
-          "upright_use": 0,
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
           "upright_piano_size": 0
         }
       }

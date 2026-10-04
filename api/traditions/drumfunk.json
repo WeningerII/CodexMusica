@@ -3,31 +3,31 @@
   "name": "Drumfunk",
   "family": "electronic",
   "lineage": "UK, from the late 1990s onward around Paradox, Fanu and Macc, a drum-and-bass idiom in which the whole composition is the break — 165-175 BPM Amen, Apache and rare funk breaks chopped to single hits and re-sequenced into constantly varying non-looping patterns, over minimal warm sub-bass and sparse Rhodes or ambient pads with almost no riff content.",
-  "recipe": "classic 1997-1999 drumfunk, bass System, bass descendants branch, uk soundsystem bass system, idm glitch experimental electric, American jazz fusion darkcore idm and experimental electronic. glitched textural sampler, fiberskyn synthetic calf brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, turntable, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 677,
-  "score": 127.368,
+  "recipe": "classic 1997-1999 drumfunk, bass System, bass descendants branch, uk soundsystem bass system, idm glitch experimental electric, American jazz fusion darkcore italian jazz fusion. glitched textural sampler, fiberskyn synthetic calf brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, turntable, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 665,
+  "score": 129.367,
   "config": {
     "traditions": [
       "drumfunk",
       "darkcore",
-      "idm"
+      "italian_jazz_fusion"
     ],
     "instruments": [
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_mpc",
+          "sampler_archetypes": "roland_s750",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 12.230833333333331,
-          "sampler_archetypes": 0.78,
-          "sampler_bit_depth": 0.045,
-          "sampler_workflow": 11.375,
-          "sampler_classic_context": 23.692499999999995
+          "electronic_technique": 4.5808333333333335,
+          "sampler_archetypes": 0.15,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 4.375,
+          "sampler_classic_context": 20.54
         }
       },
       {
@@ -38,8 +38,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.735,
-          "drumhead": 1.6999999999999997,
+          "drum_technique": 27.7875,
+          "drumhead": 7.325000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -52,17 +52,17 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
+          "bass_technique": "fingerstyle_walking",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.584999999999997,
+          "amp_make": 14.559999999999997,
           "body_wood": 0.78,
           "pickup_config": 0.545,
           "string_type": 12.805,
           "scale_length_b": 0.585,
           "fretted_or_not": 0,
-          "bass_technique": 3.95,
+          "bass_technique": 7.375000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -78,10 +78,10 @@
         },
         "scores": {
           "keyboard_technique": 4,
-          "rhodes_model": 2.1399999999999997,
+          "rhodes_model": 7.765000000000001,
           "rhodes_use": 1.04,
-          "rhodes_tine_material": 0.65,
-          "rhodes_hammer_tip": -0.17499999999999996,
+          "rhodes_tine_material": 0.7433333333333334,
+          "rhodes_hammer_tip": -0.525,
           "rhodes_pickup_position": 1.3
         }
       },
@@ -92,22 +92,22 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 1.8199999999999998,
-          "turntable_technique": 0.325
+          "electronic_technique": 1.7799999999999998,
+          "turntable_technique": 0.12999999999999998
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 13.649999999999999,
-          "poly_archetypes": 0.49749999999999994,
-          "poly_voices": 0.49749999999999994,
+          "poly_archetypes": 0.5,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -1.435
         }
       }

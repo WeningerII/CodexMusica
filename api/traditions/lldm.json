@@ -2,10 +2,10 @@
   "id": "lldm",
   "name": "Lldm",
   "family": "vernacular",
-  "lineage": "Coro LLDM — Jubilosas Nuestras Voces / Bienvenida, complete one-page SATB score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "La Luz del Mundo choral repertoire supports congregational worship through Spanish-language hymns and devotional singing.",
   "recipe": "classic lldm, ritual Devotional, christian gospel branch. one note per syllable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 179,
-  "score": 1.437,
+  "score": 2.38,
   "config": {
     "traditions": [
       "lldm"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.3,
-          "voice_ensemble_config": 0.1365,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       }

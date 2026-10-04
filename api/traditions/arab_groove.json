@@ -5,7 +5,7 @@
   "lineage": "Arab groove: Hadi Zeidan — Taksim Analog (2018). The timbre roster collapses the six synth devices into representative mono/poly analog roles; it does not claim six performers, six singers or specific photographed hardware. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic late-2010s arab groove, electronic Dance. analog poly analog synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 195,
-  "score": 8.882,
+  "score": 9.249,
   "config": {
     "traditions": [
       "arab_groove"
@@ -15,9 +15,9 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": -0.1,
@@ -37,8 +37,8 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "oscillator": 0.231,
-          "filter_topology": 2.8309999999999995,
+          "oscillator": 0.3675,
+          "filter_topology": 3.0304999999999995,
           "envelope": 0,
           "modulation": 0
         }
@@ -47,13 +47,13 @@
         "id": "drum_machine_analog",
         "slots": {
           "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
+          "snare_voice": "tone_noise_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
           "kick_voice": 2.5999999999999996,
-          "snare_voice": 0,
+          "snare_voice": 0.0315,
           "hat_voice": 0,
           "shuffle_quantize": 0.75
         }

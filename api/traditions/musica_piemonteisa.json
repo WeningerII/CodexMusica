@@ -2,10 +2,10 @@
   "id": "musica_piemonteisa",
   "name": "Mùsica piemontèisa",
   "family": "vernacular",
-  "lineage": "Roberto Balocco — complete1999 La storia a l’è bela...: canson e filastrocole per ij grand e le masnà, published in Torino by Piemont Pais ed la Musica, Gioventura piemontèisa and Libreria piemontese. Turin municipal libraries catalogue this single-disc release with Balocco as interpreter/arranger and explicitly voice and guitar. Retain this complete catalogued acoustic practice, one credited singer and guitar family; no unseen audio audition, invented tracklist or source guitar specification. This is not the neighboring multi-performer anthology or a modern expanded band. Authored solo acoustic rendition preserves one accompanied voice with source-unspecified physiology, register, ornament and pitch. A mahogany-top/back/sides steel-string OM, phosphor-bronze strings, standard guitar tuning and flatpicked articulated melodic support are coherent editorial choices, not the recorded source instrument or playing technique. Controlled live room and single natural lead describe this new rendition; source overdubbing/session acoustics remain unknown. No global temperament, recording chain or additional instruments inferred.",
-  "recipe": "classic mùsica piemontèisa, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
-  "recipe_chars": 223,
-  "score": 23.769,
+  "lineage": "Mùsica piemontèisa encompasses Piedmontese regional-language song and community repertoire, including narratives, rhymes and dance-related traditions. Publications, recordings and performers sustain these materials through revival and contemporary interpretation.",
+  "recipe": "classic mùsica piemontèisa, ballad Poetry. solo with instrumental accompaniment. acoustic guitar. live tracking.",
+  "recipe_chars": 112,
+  "score": 1.9,
   "config": {
     "traditions": [
       "musica_piemonteisa"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.018999999999999,
+          "voice_ensemble_config": 1.95,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.8999999999999995,
-          "voice_multitrack_stack": 6.799999999999999,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 2.9000000000000004,
-          "acoustic_om_technique": 2.5500000000000003
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       }
     ],

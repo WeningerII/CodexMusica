@@ -2,10 +2,10 @@
   "id": "croatian_folk",
   "name": "Croatian folk",
   "family": "vernacular",
-  "lineage": "Croatian folk spans regionally distinct song, dance and instrumental practices. LADO documents a northeastern tamburica branch alongside northwestern string-and-dulcimer ensembles and Adriatic practices; this default selects the tamburica branch.",
-  "recipe": "classic modern croatian folk, functional Song. thick, breath veiled tone, pure, neutral third half flat. tamburica prim, tamburica brac, bugarija, berda. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 291,
-  "score": 25.355,
+  "lineage": "Croatian folk encompasses regionally distinct song, dance and instrumental traditions. Northeastern tamburica ensembles form one important branch, alongside northwestern string-and-dulcimer groups and varied Adriatic practices preserved and renewed by ensembles such as LADO.",
+  "recipe": "classic modern croatian folk, functional Song. one note per syllable. tamburica prim, tamburica brac, bugarija, berda. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 256,
+  "score": 6.961,
   "config": {
     "traditions": [
       "croatian_folk"
@@ -14,40 +14,42 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 4.5,
-          "voice_quality": 1.6899999999999997,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1,
+          "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 4.290000000000001,
+          "voice_microtone": 0,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 8.515,
-          "voice_ensemble_config": 1.8041124150158794e-17,
-          "voice_ornament_system": 1.3877787807814457e-17,
-          "voice_pitch_organization": 0.15000000000000002,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.13000000000000003
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.1365,
+          "voice_tessitura": 0
         }
       },
       {
@@ -57,7 +59,7 @@
           "tamburica_prim_technique": "tamburica_prim_tremolo"
         },
         "scores": {
-          "tamburica_prim_system": 2,
+          "tamburica_prim_system": 2.3,
           "tamburica_prim_technique": 0.39
         }
       },
@@ -68,7 +70,7 @@
           "tamburica_brac_technique": "tamburica_brac_tremolo"
         },
         "scores": {
-          "tamburica_brac_size": 0.39,
+          "tamburica_brac_size": 0.78,
           "tamburica_brac_technique": 0
         }
       },
@@ -82,7 +84,7 @@
         "scores": {
           "bugarija_form": 0.3,
           "bugarija_plectrum": 0,
-          "bugarija_strings": 0
+          "bugarija_strings": 0.3
         }
       },
       {
@@ -92,16 +94,30 @@
           "berda_technique": "berda_pizzicato_root_fifth"
         },
         "scores": {
-          "berda_size": 0.3,
+          "berda_size": 0.6,
           "berda_technique": 0
         }
       }
     ],
     "pinned": {
       "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
         "voice_articulation",
+        "voice_microtone",
         "voice_tradition",
-        "voice_ensemble_config"
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "tamburica_prim": [
         "tamburica_prim_system",
@@ -138,15 +154,29 @@
     "tuning": "twelve_tet",
     "room": "parlor",
     "parts": {
-      "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
       "voice_articulation": "legato_voice",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "tamburica_prim_system": "tamburica_prim_srijem",
       "tamburica_prim_technique": "tamburica_prim_tremolo",
       "tamburica_brac_technique": "tamburica_brac_tremolo",
       "bugarija_form": "bugarija_kontra_e",
       "bugarija_plectrum": "bugarija_soft_pick",
-      "berda_technique": "berda_pizzicato_root_fifth",
-      "voice_tradition": "voice_tradition_source_unspecified"
+      "berda_technique": "berda_pizzicato_root_fifth"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

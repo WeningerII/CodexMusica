@@ -3,9 +3,9 @@
   "name": "Kadongo Kamu",
   "family": "global",
   "lineage": "Ugandan Luganda-language narrative song style whose name means 'one little guitar', formed in Kampala in the 1960s with Elly Wamala and Fred Masagazi and codified by Christopher Sebaduka, Herman Basudde and Paulo Kafeero — moderate 90-110 BPM rolling guitar arpeggios in a repeated two- or three-chord loop, a light kick-and-shaker groove, and long strophic verses of proverb-laden storytelling delivered in a conversational near-spoken tenor.",
-  "recipe": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry senegalese traditional malian traditional. extended whistle, declaimed, pure, interlocked note trading. coated nanoweb fingerpicked dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 566,
-  "score": 164.845,
+  "recipe": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry senegalese traditional malian traditional. extended whistle, declaimed, interlocked note trading, neutral third half flat. coated nanoweb fingerpicked dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 585,
+  "score": 169.378,
   "config": {
     "traditions": [
       "kadongo_kamu",
@@ -20,7 +20,7 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 4.105,
-          "voice_quality": 8.824999999999996,
+          "voice_quality": 9.699999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
-          "voice_articulation": 14.624999999999993,
-          "voice_microtone": 14.42999999999999,
-          "voice_tradition": 28.794999999999998,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 21.96999999999999,
-          "voice_ensemble_config": 16.379999999999992,
+          "voice_vibrato": 0.325,
+          "voice_articulation": 15.534999999999995,
+          "voice_microtone": 14.68999999999999,
+          "voice_tradition": 29.802500000000002,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 21.58,
+          "voice_ensemble_config": 16.639999999999993,
           "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 1.65,
           "voice_processing_chain": 2.275,
@@ -94,7 +94,7 @@
           "fretboard": 0,
           "pickup_magnet": 0.195,
           "string_material": 0,
-          "string_gauge": 1.45,
+          "string_gauge": 0.8,
           "bridge": 0.525,
           "scale_length": 0.39,
           "finish": 0.3,
@@ -133,21 +133,21 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.079999999999995,
-          "drumhead": 4.585,
+          "drum_technique": 15.339999999999996,
+          "drumhead": 4.4350000000000005,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "adungu",
         "slots": {
-          "adungu_size": "adungu_size_alto",
+          "adungu_size": "adungu_size_bass",
           "adungu_setting": "adungu_setting_church",
           "adungu_stringing": "adungu_stringing_nylon_hide"
         },
         "scores": {
-          "adungu_size": -0.07,
-          "adungu_setting": 1.8199999999999996,
+          "adungu_size": 0.06499999999999999,
+          "adungu_setting": 2.695,
           "adungu_stringing": -0.15000000000000002
         }
       }

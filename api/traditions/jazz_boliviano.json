@@ -5,7 +5,7 @@
   "lineage": "Jazz boliviano is represented by Danilo Rojas Trio featuring Jacqueline Gawler — Paris Cat 25 August 2022. This documented branch has an authored present-day studio realization.",
   "recipe": "classic early-2020s jazz boliviano, improv On Frame, Latin jazz branch. grand piano, nyman jazz bass canon double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 279,
-  "score": 57.514,
+  "score": 57.692,
   "config": {
     "traditions": [
       "jazz_boliviano"
@@ -16,7 +16,7 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -27,7 +27,7 @@
         "scores": {
           "keyboard_technique": 0.7149999999999999,
           "grand_piano_size": 0.0945,
-          "grand_piano_brand": 0.1995,
+          "grand_piano_brand": 0.2415,
           "piano_hammer": 0.325,
           "piano_rim": 0.26,
           "piano_soundboard": 0.26,
@@ -58,7 +58,7 @@
           "bass_back_wood": -0.05,
           "bass_varnish": -0.05,
           "bass_setup_period": 0.26,
-          "bass_play": 13.1175,
+          "bass_play": 13.254,
           "bass_rosin": 16.965,
           "bass_bow_stick": -0.05
         }

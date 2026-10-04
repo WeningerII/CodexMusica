@@ -2,10 +2,10 @@
   "id": "ukrainian_phonk",
   "name": "Ukrainian phonk",
   "family": "hip_hop",
-  "lineage": "Ukrainian phonk is a Ukrainian and diasporic producer-community category, represented by Roland Jones’s Memphis-informed sample-based branch. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
+  "lineage": "A Ukrainian and diasporic producer field drawing on phonk and Memphis-rap-derived sampling practices.",
   "recipe": "classic modern ukrainian phonk, mc Rhythm, intl hip hop branch. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 6.6,
+  "score": 6.636,
   "config": {
     "traditions": [
       "ukrainian_phonk"
@@ -20,7 +20,7 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 2.8000000000000003,
+          "electronic_technique": 2.8360000000000003,
           "sample_bitdepth": -0.05,
           "sample_swing": 3.9,
           "sample_processing": -0.05

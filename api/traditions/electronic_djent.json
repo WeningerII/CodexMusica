@@ -5,7 +5,7 @@
   "lineage": "Electronic djent is used here as the source discovery-cluster label, whose roster includes The Algorithm. Rémi Gallego explicitly resists the djent label, describing an experimental electronic/progressive-metal crossover instead. This selected mid-2010s branch combines extended-range electric guitar, live acoustic drums and software FM/wavetable synthesis. His interviews establish computer-based arrangement, MIDI control and an increasing live guitar role. The authored instrumental model preserves those sources without inventing an electric-bass player or lead singer.",
   "recipe": "classic 2014-2016 electronic djent, distorted Rock, metal branch. extended low b seven string electric, birch double bass rapid double strokes machine hammered symmetric pattern drum kit, native instruments fm8 modern software 8 operator fm wavetable synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 403,
-  "score": 28.123,
+  "score": 27.881,
   "config": {
     "traditions": [
       "electronic_djent"
@@ -38,17 +38,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 1.69,
-          "shell_thickness": 0.1365,
+          "shell_thickness": 0,
           "bearing_edges": 1.405,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.0595,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 3.8495000000000004,
+          "cymbal_finish": 0.105
         }
       },
       {
@@ -64,7 +64,7 @@
           "electronic_technique": -0.05,
           "fm_algorithm": 1.355,
           "fm_modulator_ratio": 0.168,
-          "fm_polyphony": 0.105,
+          "fm_polyphony": 0,
           "fm_model_lineage": 1.3
         }
       },
@@ -79,8 +79,8 @@
         "scores": {
           "electronic_technique": -0.05,
           "wt_position": 0.0315,
-          "wt_family": 0.0315,
-          "wt_polyphony": 1.3315000000000001
+          "wt_family": 0.063,
+          "wt_polyphony": 1.405
         }
       }
     ],

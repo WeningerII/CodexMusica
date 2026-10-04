@@ -2,10 +2,10 @@
   "id": "jazz_vibraphone",
   "name": "Jazz vibraphone",
   "family": "jazz",
-  "lineage": "Vibraphone-centered jazz; selected Burton/Corea chamber duet",
-  "recipe": "classic modern jazz vibraphone, improv On Frame, American jazz branch. melodic four mallet chordal vibraphone, a 440 modern pitch us standard grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 299,
-  "score": 15.841,
+  "lineage": "Jazz vibraphone combines pitched metal-bar resonance with melodic improvisation and chordal playing. Gary Burton’s four-mallet approach expanded its harmonic possibilities, including a long-running chamber-jazz dialogue with pianist Chick Corea.",
+  "recipe": "classic modern jazz vibraphone, improv On Frame, American jazz branch. melodic four mallet chordal vibraphone, a 440 modern pitch us standard grand piano. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 306,
+  "score": 22.393,
   "config": {
     "traditions": [
       "jazz_vibraphone"
@@ -20,8 +20,8 @@
           "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
-          "percussion_technique": 13.568625,
-          "vibe_motor": 0.21449999999999997,
+          "percussion_technique": 18.578500000000002,
+          "vibe_motor": 0.1755,
           "vibe_mallets": 0.0315,
           "vibe_bar_material": 0
         }
@@ -41,14 +41,14 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0735,
-          "grand_piano_brand": 0.183,
-          "piano_hammer": -0.07,
+          "grand_piano_size": 0.7735,
+          "grand_piano_brand": 0.144,
+          "piano_hammer": 0.26,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 1.1049999999999998
+          "piano_pitch_standard": 1.625
         }
       }
     ],
@@ -56,7 +56,8 @@
       "vibraphone": [
         "percussion_technique",
         "vibe_motor",
-        "vibe_mallets"
+        "vibe_mallets",
+        "vibe_bar_material"
       ],
       "grand_piano": [
         "keyboard_technique",
@@ -70,7 +71,7 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -88,7 +89,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
       "percussion_technique": "vibraphone_four_mallet_chordal",
       "vibe_motor": "vibe_off",
@@ -101,7 +102,8 @@
       "piano_soundboard": "sitka_spruce_diaphragmatic",
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "piano_pitch_standard": "a_440_modern",
+      "vibe_bar_material": "vibe_bar_material_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

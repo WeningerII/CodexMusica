@@ -5,7 +5,7 @@
   "lineage": "Galician rock represented by Vigo’s Siniestro Total, using the documented2005 studio arrangement of Bésame, soy gallego. This is a regional rock-song branch rather than an assumption that every Galician group uses bagpipes or folk percussion.",
   "recipe": "classic galician rock, distorted Rock, regional branch. group vocals, live take. marshall plexi amp British rock amp single coil electric guitar, marshall plexi amp British rock amp semi hollow, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, saxophone, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 433,
-  "score": 49.553,
+  "score": 49.558,
   "config": {
     "traditions": [
       "galician_rock"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.9645000000000001,
+          "voice_ensemble_config": 1.77925,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.11699999999999999,
-          "voice_multitrack_stack": 0.78
+          "voice_processing_chain": 0.25949999999999995,
+          "voice_multitrack_stack": 0.6427499999999999
         }
       },
       {
@@ -56,13 +56,13 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "pine",
-          "neck_wood": "maple",
+          "neck_wood": "mahogany_neck",
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "hardtail",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -71,15 +71,15 @@
           "electric_technique": -0.1,
           "amp_make": 5.720000000000001,
           "body_wood": 0.87325,
-          "neck_wood": 0,
+          "neck_wood": 0.1425,
           "fretboard": 0,
           "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0.9099999999999999,
           "bridge": 0,
-          "scale_length": 0,
+          "scale_length": 0.1425,
           "finish": 0,
-          "string_tuning": 0.23399999999999999,
+          "string_tuning": 0.10575,
           "single_coil_pickup_construction": 0
         }
       },
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 6.175,
-          "body_wood": 0,
+          "body_wood": 0.1425,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -135,9 +135,9 @@
         },
         "scores": {
           "drum_technique": 11.25,
-          "drumhead": 0.17099999999999999,
+          "drumhead": 0.042749999999999996,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.17099999999999999
+          "shell_wood": 0.042749999999999996
         }
       },
       {
@@ -156,7 +156,7 @@
           "sax_size": -0.15000000000000002,
           "sax_reed": 0.063,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.174,
+          "sax_mouthpiece": 0.3165,
           "sax_technique": -0.15000000000000002,
           "sax_maker_school": 0.30449999999999994
         }

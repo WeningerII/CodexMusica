@@ -2,10 +2,10 @@
   "id": "halloween",
   "name": "Halloween",
   "family": "classical",
-  "lineage": "Stef Price — complete Bach BWV565 at UW Halloween Organ Concert2025. Authored solo baroque-derived pipe-organ concert rendition: concert context, modern neo-baroque construction, Northern-German Schnitger-style voicing, tin/lead pipes, tracker action and WerckmeisterIII temperament are representative editorial choices, not exact Littlefield specification or Bach-session facts. Source-supported complete composition selects artMusic.westernCommonPractice; the wider Halloween-use repertoire is not claimed universally classical. Clean digital treated-room capture is authored, not measured Walker-Ames acoustics.",
-  "recipe": "classic halloween, art Music, western common practice branch. schnitger hamburg canonical north German Baroque late 17th century tin lead 75 25 canonical principal rank bright projecting werckmeister iii canonical bach era well temperament mechanical tracker canonical Baroque direct touch legato pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 407,
-  "score": 31.508,
+  "lineage": "Halloween music gathers seasonal songs, theatrical effects and concert repertoire around playful fright and supernatural imagery. Community celebrations and curated listening bring novelty recordings, organ classics, soundtrack material and other styles into a shared seasonal setting.",
+  "recipe": "classic halloween, art Music, western common practice branch. schnitger hamburg canonical north German Baroque late 17th century pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 239,
+  "score": 10.467,
   "config": {
     "traditions": [
       "halloween"
@@ -23,13 +23,13 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": 7.249999999999999,
-          "pipe_organ_class": 1.3,
-          "pipe_organ_context": 4.29,
-          "pipe_organ_voicing_school": 6.812499999999999,
-          "pipe_organ_pipe_alloy": 3.0095,
-          "pipe_organ_temperament": 4.236,
-          "pipe_organ_action": 4.6095
+          "keyboard_technique": 2.8,
+          "pipe_organ_class": 0,
+          "pipe_organ_context": 5.2,
+          "pipe_organ_voicing_school": 1.3125000000000002,
+          "pipe_organ_pipe_alloy": 0.40950000000000003,
+          "pipe_organ_temperament": 0.336,
+          "pipe_organ_action": 0.40950000000000003
         }
       }
     ],

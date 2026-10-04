@@ -2,10 +2,10 @@
   "id": "power_blues_rock",
   "name": "Power blues-rock",
   "family": "rock_punk",
-  "lineage": "Power blues-rock is represented here by Spreading Roots — Missed on the Way. This documented branch is realized as an authored present-day recording arrangement.",
-  "recipe": "classic power blues-rock, functional Song, blues electric branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp bent note blues lead humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 413,
-  "score": 34.932,
+  "lineage": "Power blues-rock amplifies blues phrasing within a forceful electric-rock band sound.",
+  "recipe": "classic power blues-rock, functional Song, blues electric branch. solo with instrumental accompaniment. marshall plexi amp British rock amp bent note blues lead humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 375,
+  "score": 37.266,
   "config": {
     "traditions": [
       "power_blues_rock"
@@ -16,32 +16,32 @@
         "slots": {
           "electric_technique": "electric_bent_note_blues_lead",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.719999999999999,
-          "amp_make": 3.25,
-          "body_wood": 0.36749999999999994,
+          "electric_technique": 7.409999999999999,
+          "amp_make": 3.7700000000000005,
+          "body_wood": 0.39,
           "neck_wood": 0.3045,
           "fretboard": 0.0315,
           "pickup_magnet": 0.19949999999999998,
-          "pickup_winding": 0.22049999999999997,
+          "pickup_winding": 0.3315,
           "string_material": 0.0315,
-          "bridge": 1.3315000000000001,
+          "bridge": 0.3045,
           "scale_length": 0.609,
-          "string_gauge": 1.3315000000000001,
+          "string_gauge": 0.6825,
           "finish": 0.0315,
-          "string_tuning": 0.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.3149999999999995,
+          "amp_make": 4.225,
           "body_wood": 0.609,
           "pickup_config": 0.063,
-          "string_type": 7.056499999999999,
+          "string_type": 8.0565,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0.063,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.636499999999999,
-          "drumhead": 0.3315,
+          "drum_technique": 7.6365,
+          "drumhead": 0.3045,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.5435
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

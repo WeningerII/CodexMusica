@@ -1,0 +1,204 @@
+{
+  "status": "VALIDATED_CONSERVATIVE_SUBSET_DRAFT_EXACT_HEAD_CI_PENDING",
+  "updated_at": "2026-10-04T03:56:22.818938+00:00",
+  "full_proposal_head": "d63210cbe63b8d9e7edb9b52de3fa0ee1971aa25",
+  "main_preserved": "70426a9861fe2591e66789879a6fde3082aad4f6",
+  "isolated_branch": "codex/checkpoint480-qualifying",
+  "retained_repairs": 1734,
+  "deferred_repairs": 620,
+  "original_records_preserved": 2638,
+  "intended_regression_differences_approved": 0,
+  "musical_defects_fixed": 0,
+  "differences_pending_qualification": 104,
+  "snapshot_updates": 0,
+  "engine_changes": 0,
+  "checks": {
+    "references": "PASS",
+    "full_serial_regression": "PASS1149/1149",
+    "static_api_build_jobs2": "PASS6538/6538 zero failures in630.0s",
+    "exact104configs": "PASS104/104 outputs, complete configurations and numeric scores identical to baseline",
+    "lint": "PASS",
+    "formatting": "PASS",
+    "documentation": "PASS"
+  },
+  "archive_sha256": "526a84036bd975f97968a4db903fdccbc65eaae9ac819619282741b7770487ea",
+  "scope": "Withholding proposals is containment, not proof legacy baseline recipe semantics are correct. All proposed corrections preserved in full frozen commit and deferred-proposals archive.",
+  "bounded_compatible_differences": 32,
+  "bounded_held_differences": 72,
+  "whole_frozen_outputs_qualified": 7,
+  "whole_frozen_outputs_held": 97,
+  "snapshot_differences_in_subset": 0,
+  "frozen_differences_contained_by_subset": 104,
+  "source_sha256": {
+    "references/05_traditions.js": "cf8c73c19b3635e58b521fe652bfd31c3d329132c7690f6f9603bee4e85ddd44",
+    "references/06_extras.js": "69b9a756aae83a38d7c06f8f17d79ad97702efe99534a1b49a5fe7280fc67272"
+  },
+  "original_recipe_snapshots_sha256": "632aea57afc06f54bee01785ab575c66b9a4393e46e69557a179b5eb46d4a524",
+  "supporting_checks": [
+    {
+      "check": "discovery",
+      "exit_code": 0,
+      "seconds": 0.0
+    },
+    {
+      "check": "api-contract",
+      "exit_code": 0,
+      "seconds": 1.4
+    },
+    {
+      "check": "atlas-geo",
+      "exit_code": 0,
+      "seconds": 0.3
+    },
+    {
+      "check": "atlas-tree",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "atlas-check",
+      "exit_code": 0,
+      "seconds": 10.1
+    },
+    {
+      "check": "html",
+      "exit_code": 0,
+      "seconds": 3.8
+    },
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.1
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 10.4
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 10.7
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 15.7
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 28.2
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 0.8
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.4
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 105.2
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.4
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 46.7
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 0,
+      "seconds": 1.9
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 11.9
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.2
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 54.0
+    },
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.3
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 18.5
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 10.3
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 85.0
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 34.6
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 101.3
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 20.2
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.7
+    }
+  ],
+  "supporting_pass_count": 27,
+  "supporting_count": 29,
+  "local_ui_findings": {
+    "check_ui_foundation": "Same complete failure log as frozen predecessor; its same check passes GitHubCI. No UI/shared-code change made.",
+    "ui_reachability_check": "Local fileURL blocked by browser administration; environment obstacle, not overridden."
+  },
+  "remaining_scope": "No original baseline musical defect is claimed fixed.1734 repaired profiles retained;620fullproposals preserved/deferred. Broader2210candidate passed text regression but failed29additional fullconfig comparisons and remains separately held.",
+  "published_deferred_archive_sha256": "42218ba5ca7e1423ec0e56686fbb526c5a0c45be0562f5f1eea505fc16937df5",
+  "log_sha256": {
+    "subset-regression.log": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+    "subset-exact-replay.log": "52385116f788dfc420ec6fd5b0c24eb3665b43962534d55739f969a67e7d9e92",
+    "subset-api-build.log": "423a9ce5e7ba8be32009d5072c7df664d9ae8362329a9aaad75077ab1fce9971",
+    "subset-validate.log": "3fbe3127b60fdd52fad3c7ca3c5e86e604bf945797f01f45231a807b2299c9e3",
+    "subset-lint.log": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+    "subset-format.log": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+    "subset-docs.log": "2a23d4b2e9e20a459ae1f6fb1e7260f5739d46d05ee3aff13b87c8b9ae5aa314",
+    "supporting-results.json": "43ca44b3ed1db6f2e00fcd3aea23e0324e8c76dfe7c97809c299eb60b44dd561",
+    "check_ui_foundation.log": "fe7a3d7c7e282eacb79621090323b396da1d5ba6f7c0ae482980e6c625769f51",
+    "ui_reachability_check.log": "1c219c1a4ea9806503b54dced9a4b68cc322a8d2b0c5f1fb817ce2a841c1c411"
+  }
+}

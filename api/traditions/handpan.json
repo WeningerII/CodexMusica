@@ -2,10 +2,10 @@
   "id": "handpan",
   "name": "Handpan",
   "family": "global",
-  "lineage": "Fabian Küpper — complete expressly separated first nine solo pieces of Inner Journeys — Solo Handpan2019, issued21February2020. Artist explicitly identifies tracks1–9 as solo handpan improvisations, distinguished from the separately described tracks10–16 multi-instrument compositions. Selected pieces are Deep Trance, Relaxing Dream, Calm Dance, Flying Around, Introspection, Desert Ride, Straight Soundscape, Foggy Woods and Intuitive Touch. One instrumental performer, no credited singing. This positive artist-defined program boundary preserves every role in all nine complete works; it does not delete accompaniment from a full album indiscriminately. Broad improvOnFrame follows the explicitly documented improvisations on tuned handpans. Existing handpan owner is the tuned-shell/Hang-derived instrument: its legacy long-name parenthesis steel tongue drum is erroneous, but the actual source and four rendered forms must retain handpan, not slit tongues. A modern Western maker-class D Kurd setup is a disclosed authored modal realization, not the identified maker or tuning of any of the different source instruments. Controlled live-room acoustics are authored and unspecified capture apparatus/global tuning are omitted.",
+  "lineage": "Handpan music centers on hand-played tuned steel shells, developing from the Hang and related contemporary instruments. Solo improvisation, composition and ensemble collaboration circulate through maker communities, recordings and live performance.",
   "recipe": "classic handpan, improv On Frame. handpan. live tracking.",
   "recipe_chars": 57,
-  "score": 5.556,
+  "score": 1.468,
   "config": {
     "traditions": [
       "handpan"
@@ -18,8 +18,8 @@
           "handpan_maker": "handpan_western"
         },
         "scores": {
-          "handpan_scale": 3.866,
-          "handpan_maker": 1.69
+          "handpan_scale": 1.3,
+          "handpan_maker": 0.168
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "classic_opm",
   "name": "Classic Opm",
   "family": "pop",
-  "lineage": "Jose Mari Chan — Beautiful Girl, Jeza Sygrynn Bigueras piano-solo arrangement MN0239454. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Classic OPM brings earlier Original Pilipino Music repertoire into continuing performance and listening traditions. Popular songs remain familiar through singers, bands and new instrumental arrangements.",
   "recipe": "classic classic opm, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 149,
-  "score": 2.051,
+  "score": 2.591,
   "config": {
     "traditions": [
       "classic_opm"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 2.45,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_size": 0.126,
+          "grand_piano_brand": 0.1905,
           "piano_hammer": -0.1,
           "piano_rim": -0.1,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       }
     ],

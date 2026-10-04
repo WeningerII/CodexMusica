@@ -2,10 +2,10 @@
   "id": "chamorro_pop",
   "name": "Chamorro Pop",
   "family": "pop",
-  "lineage": "Patrick Palomo & Tradewinds — complete Hinengge album credited union,2018. Authored acoustic OM fingerpicking and fingerstyle electric bass realize unspecified guitar/bass source roles without asserting actual construction. Nine-foot Steinway jazz-comping piano, brushed/stick acoustic kit and conventional bowed violin are authored modern timbres. Shaker and additional percussion retain approved neutral construction owners rather than invented material or percussion subtype. Four credited singers represented by a group voice card; voicing and actual simultaneous headcount per track remain unknown. Optional global tuning omitted; vocal physiology/pitch/delivery remain source-unspecified. Studio chain and neutral axes are authored.",
-  "recipe": "classic late-2010s chamorro pop, improv On Frame. group vocals, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, acoustic guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, shaker source unspecified, European maple bosnian source flamed figure oil varnish amber tinted violin orchestral, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 540,
-  "score": 101.136,
+  "lineage": "Chamorro pop connects popular songwriting with Chamorro language, community and musical memory in Guam and the wider diaspora. Patrick Palomo and Tradewinds exemplify exchanges between local song, pop and jazz-influenced arrangements.",
+  "recipe": "classic chamorro pop, functional Song. block chord upright piano, strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. live tracking.",
+  "recipe_chars": 241,
+  "score": 44.939,
   "config": {
     "traditions": [
       "chamorro_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,63 +43,51 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9305,
+          "voice_speech_song": 0.1905,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.5999999999999996,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.2815,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.0315,
-          "piano_hammer": 4.5,
-          "piano_rim": 3.2945,
-          "piano_soundboard": 4.5315,
-          "piano_pinblock": 5.34,
-          "piano_plate": 3.2,
-          "piano_pitch_standard": 7.3905
+          "keyboard_technique": 9.95,
+          "upright_use": 0,
+          "upright_piano_size": 0
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_dread",
         "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
+          "acoustic_technique": 9.95,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.035,
-          "string_acoustic": 0,
-          "acoustic_om_technique": -0.25
+          "back_sides": 0,
+          "string_acoustic": 0.054
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -111,16 +99,16 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.0315,
+          "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
+          "drum_technique": "sticks_rock",
           "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt",
           "shell_wood": "maple_shell",
@@ -133,62 +121,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 13.909999999999998,
-          "drumhead": 1.69,
+          "drum_technique": -0.035,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.8600000000000003,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
-          "bearing_edges": 1.5415,
+          "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 5.5600000000000005,
-          "cymbal_hammering": 9.7,
-          "cymbal_lathing": 10.0315,
+          "cymbal_alloy": 4.355,
+          "cymbal_hammering": 9.953999999999999,
+          "cymbal_lathing": 9.899999999999999,
           "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "shaker_source_unspecified",
-        "slots": {
-          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
-        },
-        "scores": {
-          "shaker_source_unspecified_identity": 0
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
-          "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "pirastro_gold_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0,
-          "orch_top_wood": -0.1,
-          "orch_back_wood": 3.25,
-          "orch_varnish": 3.2315,
-          "orch_setup_period": 6.4045,
-          "orch_bow": 0,
-          "orch_bow_stick": 3.2550000000000003,
-          "orch_articulation": 0,
-          "orch_rosin": 3.4415
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
         }
       }
     ],
@@ -212,23 +155,17 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ],
-      "acoustic_guitar_om": [
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
       ],
       "electric_bass": [
         "amp_make",
@@ -252,42 +189,24 @@
         "cymbal_hammering",
         "cymbal_lathing",
         "cymbal_finish"
-      ],
-      "shaker_source_unspecified": [
-        "shaker_source_unspecified_identity"
-      ],
-      "violin_orchestral": [
-        "bowed_technique",
-        "orch_strings",
-        "orch_top_wood",
-        "orch_back_wood",
-        "orch_varnish",
-        "orch_setup_period",
-        "orch_bow",
-        "orch_bow_stick",
-        "orch_articulation",
-        "orch_rosin"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -299,36 +218,27 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "keyboard_technique": "keyboard_jazz_comping",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
+      "keyboard_technique": "keyboard_block_chord_pop",
       "string_tuning": "standard_tuning",
-      "top_wood": "sitka_om",
-      "back_sides": "rosewood_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_fingerpicked",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
-      "pickup_config": "split_coil",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "drum_technique": "brushes_and_sticks",
+      "drum_technique": "sticks_rock",
       "shell_wood": "maple_shell",
       "shell_thickness": "thin_shell",
       "bearing_edges": "edge_45",
@@ -339,25 +249,10 @@
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
-      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role",
-      "bowed_technique": "bowed_legato_classical",
-      "orch_strings": "synthetic_orch",
-      "orch_top_wood": "norway_spruce_alpine_violin",
-      "orch_back_wood": "bosnian_flamed_maple_violin",
-      "orch_varnish": "oil_amber_varnish_violin",
-      "orch_setup_period": "modern_setup_violin",
-      "orch_bow": "modern_bow",
-      "orch_bow_stick": "pernambuco_stick_orch",
-      "orch_articulation": "arco_orch",
-      "orch_rosin": "pirastro_gold_rosin_orch",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "acoustic_technique": "acoustic_strummed_ringing"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

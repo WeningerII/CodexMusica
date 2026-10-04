@@ -3,9 +3,9 @@
   "name": "Irish singer-songwriter",
   "family": "vernacular",
   "lineage": "Irish performer-songwriters span acoustic storytelling, rock and studio experimentation. Glen Hansard’s documented Dublin-to-international career supplies the selected acoustic-song branch.",
-  "recipe": "classic modern irish singer-songwriter, ballad Poetry. thick, breath veiled tone, narrative, equal tempered. dreadnought acoustic guitar, hard rock maple acer saccharum violin orchestral. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 325,
-  "score": 28.34,
+  "recipe": "classic modern irish singer-songwriter, ballad Poetry. thick, breath veiled tone, narrative, equal tempered. dreadnought acoustic guitar, sitka spruce violin orchestral. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 307,
+  "score": 28.748,
   "config": {
     "traditions": [
       "irish_singer_songwriter"
@@ -36,12 +36,12 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.36,
-          "voice_articulation": 1.154,
+          "voice_vibrato": 0.414,
+          "voice_articulation": 1.208,
           "voice_microtone": 2.3865000000000007,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 2.03,
+          "voice_estill_quality": 2.138,
           "voice_speech_song": 3.575000000000001,
           "voice_ensemble_config": 2.600000000000001,
           "voice_ornament_system": 5.404,
@@ -60,7 +60,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.1365,
           "back_sides": 0.1365,
@@ -76,7 +76,7 @@
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
@@ -84,13 +84,13 @@
         "scores": {
           "bowed_technique": -0.05,
           "orch_strings": 0.1365,
-          "orch_top_wood": 0.95,
-          "orch_back_wood": 1.13,
+          "orch_top_wood": 1.004,
+          "orch_back_wood": 0.95,
           "orch_varnish": -0.05,
           "orch_setup_period": -0.1,
-          "orch_bow": 0,
+          "orch_bow": 0.18,
           "orch_bow_stick": -0.05,
-          "orch_articulation": 0.327,
+          "orch_articulation": 0.435,
           "orch_rosin": -0.035
         }
       }

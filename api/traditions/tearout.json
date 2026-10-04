@@ -2,28 +2,55 @@
   "id": "tearout",
   "name": "Tearout",
   "family": "electronic",
-  "lineage": "Cassen / Bass Haven — complete Heavy Dubstep Mix 2026: Tearout, Deathstep, Dark Riddim, creator-published26October2025. The2026 marketing title is not claimed upload date. Entire creator-listed programme from Slipknot Duality STVG Flip at0:00 through yvm3 torment at27:51 retained, including multi-record mashups, vocal/metal material and all intermediate selections. Primary issuer explicitly names Cassen as mixer. This models the complete actual DJ mixing practice, not guessed synthesis/instrument roles inside finished constituent tracks. One named DJ; embedded singers and independently performed live vocal totals unknown, not zero. No deck count, scratch gesture, media, physical DJ hardware or source synthesizer inferred. Neutral existing DJ playback/mixing owner retains complete documented performance role. Controlled live-room rendition is authored capture context, not proof of live audience or measured source venue. No global tuning or source microphone chain imposed. Broad bassSystem parent matches positive dubstep-derived sound-system practice without forcing a narrower UK locality or universal tempo.",
-  "recipe": "classic mid-2020s tearout, bass System. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 86,
-  "score": 0.032,
+  "lineage": "Tearout is a hard-edged branch of dubstep-related bass music, connected through producers, labels and heavy-bass events. Aggressive sound design and sharply articulated rhythmic changes distinguish its musical emphasis within the wider scene.",
+  "recipe": "classic tearout, bass System. sub bass digital subtractive, drum machine analog. live tracking.",
+  "recipe_chars": 95,
+  "score": 11.812,
   "config": {
     "traditions": [
       "tearout"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "digital_subtractive",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "electronic_technique": 8.06,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 3.769999999999999
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.0315,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +70,13 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_bass_sub",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

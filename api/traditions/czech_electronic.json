@@ -2,10 +2,10 @@
   "id": "czech_electronic",
   "name": "Czech electronic",
   "family": "electronic",
-  "lineage": "Czech electronic is represented by Anakver — debut electronic core. This documented branch is realized as an authored present-day arrangement.",
-  "recipe": "classic czech electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 277,
-  "score": 15.291,
+  "lineage": "Czech electronic music connects local producers and independent communities through synth-pop, experimental and dance-related approaches.",
+  "recipe": "classic czech electronic, functional Song. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 221,
+  "score": 0.783,
   "config": {
     "traditions": [
       "czech_electronic"
@@ -15,30 +15,30 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.168,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0.3045,
-          "sample_swing": 10.7815,
-          "sample_processing": 0.1365
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       },
       {
@@ -73,17 +73,26 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.819,
-          "voice_ornament_system": 0.21,
+          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.1265
+          "voice_multitrack_stack": 0.3
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
       "voice": [
         "voice_register",
@@ -139,7 +148,14 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

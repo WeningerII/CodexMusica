@@ -2,10 +2,10 @@
   "id": "detskie_rasskazy",
   "name": "Detskie rasskazy",
   "family": "vernacular",
-  "lineage": "Mikhail Zoshchenko — Rasskazy dlya detey, ARDIS audiobook read by Vladimir Levashyov. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic detskie rasskazy, spoken Word. no pitch organization speech, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 205,
-  "score": 2.307,
+  "lineage": "Detskie rasskazy connects Russian children’s stories with oral reading and recorded narration. Readers use pacing and characterful delivery to bring prose to young listeners.",
+  "recipe": "classic detskie rasskazy, spoken Word. single lead single track no stacking. live tracking.",
+  "recipe_chars": 91,
+  "score": 1.597,
   "config": {
     "traditions": [
       "detskie_rasskazy"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.3255,
+          "voice_speech_song": 0.4515,
+          "voice_ensemble_config": 0.357,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.17,
+          "voice_multitrack_stack": 0.7575,
           "voice_tessitura": 0
         }
       }
@@ -74,24 +74,22 @@
         "voice_tessitura"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -111,12 +109,6 @@
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "balkan_classical_piano",
   "name": "Balkan classical piano",
   "family": "classical",
-  "lineage": "Balkan classical piano: Simon Trpčeski — Variations (2022) solo recital. A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic early-2020s balkan classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 282,
-  "score": 61.788,
+  "lineage": "Balkan classical piano connects performers from the region with international concert institutions and repertoire. Solo recitals coexist with chamber and concerto performance, without a single shared national piano sound.",
+  "recipe": "classic balkan classical piano, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 218,
+  "score": 46.173,
   "config": {
     "traditions": [
       "balkan_classical_piano"
@@ -15,31 +15,39 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
-          "piano_soundboard": "european_spruce_soundboard",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 7.86,
-          "grand_piano_size": 1.063,
-          "grand_piano_brand": 0.5355000000000001,
-          "piano_hammer": 9.685,
-          "piano_rim": 8.3635,
-          "piano_soundboard": 8.6865,
-          "piano_pinblock": 7.75,
-          "piano_plate": 7.9885,
-          "piano_pitch_standard": 9.8555
+          "keyboard_technique": 7.5,
+          "grand_piano_size": 0.1365,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 7.45,
+          "piano_rim": 7.5445,
+          "piano_soundboard": 7.45,
+          "piano_pinblock": 7.45,
+          "piano_plate": 7.45,
+          "piano_pitch_standard": 1.0865
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "live_room",
@@ -61,7 +69,15 @@
     "tuning": "twelve_tet",
     "room": "live_room",
     "parts": {
-      "keyboard_technique": "keyboard_classical_legato"
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

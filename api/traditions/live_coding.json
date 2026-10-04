@@ -3,9 +3,9 @@
   "name": "Live Coding",
   "family": "electronic",
   "lineage": "Formalised in Sheffield and London from 2003 by the TOPLAP collective — Alex McLean, Nick Collins and Adrian Ward — and spread through algorave events after 2012, with SuperCollider, TidalCycles and Sonic Pi as the primary tools: performers write and rewrite executing code onstage with the screen projected, generating pattern-based dance music at 120-170 BPM from sample banks and synthesis, with structure emerging from edits made in real time.",
-  "recipe": "classic early-2000s live coding, experimental Elec, idm glitch branch, techno electronic dance, western modern art music algorave french techno. modular granular glitched textural wavetable fm modular synth, sampler drum machine, monosynth acid bass. festival stage. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 401,
-  "score": 76.525,
+  "recipe": "classic early-2000s live coding, experimental Elec, idm glitch branch, techno electronic dance, western modern art music algorave french techno. modular granular glitched textural wavetable fm modular modular synth, sampler drum machine, monosynth acid bass. festival stage. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 409,
+  "score": 77.06,
   "config": {
     "traditions": [
       "live_coding",
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 10.125,
           "granular_use": 0,
-          "granular_synth_source": 6.305
+          "granular_synth_source": 7.15
         }
       },
       {
@@ -36,7 +36,7 @@
         },
         "scores": {
           "electronic_technique": 10.125,
-          "wt_position": 6.305,
+          "wt_position": 7.15,
           "wt_family": 0.9099999999999999,
           "wt_polyphony": 0.24
         }
@@ -50,9 +50,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.4,
+          "electronic_technique": -0.1,
           "sample_bitdepth": 0.7,
-          "sample_swing": 12.605,
+          "sample_swing": 14.23,
           "sample_processing": 0.38999999999999996
         }
       },
@@ -66,7 +66,7 @@
           "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": -0.035,
+          "electronic_technique": 0.585,
           "fm_algorithm": 0.585,
           "fm_modulator_ratio": 0.345,
           "fm_polyphony": 0.24,
@@ -76,13 +76,13 @@
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_acid_squelch",
+          "electronic_technique": "electronic_modular_patch",
           "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_moog_east_coast"
         },
         "scores": {
-          "electronic_technique": 10.325000000000001,
+          "electronic_technique": 10.125,
           "mod_voltage_source": 0.8250000000000001,
           "mod_patch_density": 0.39,
           "mod_lineage": -1.33
@@ -97,7 +97,7 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 10.325000000000001,
+          "electronic_technique": 8.7,
           "wave_acid": 0,
           "filter_acid": 0.28500000000000003,
           "accent_acid": 0.9150000000000001

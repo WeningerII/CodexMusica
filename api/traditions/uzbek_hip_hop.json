@@ -2,10 +2,10 @@
   "id": "uzbek_hip_hop",
   "name": "Uzbek hip hop",
   "family": "hip_hop",
-  "lineage": "Uzbek hip hop is represented by Shohrux’s Tashkent rap-and-song practice, including the repertoire presented by Uzbekistan’s Ministry of Culture. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
+  "lineage": "Uzbek hip-hop joins local-language rap and melodic song within Uzbekistan’s urban performance and recording communities.",
   "recipe": "classic modern uzbek hip hop, mc Rhythm, intl hip hop branch. rap. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 240,
-  "score": 30.568,
+  "score": 27.838,
   "config": {
     "traditions": [
       "uzbek_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 15.34,
+          "voice_quality": 13,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -46,8 +46,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.042749999999999996,
-          "voice_multitrack_stack": 0.39
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -59,7 +59,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.2,
+          "electronic_technique": 5.24275,
           "sample_bitdepth": 0,
           "sample_swing": 9.1,
           "sample_processing": 0.105

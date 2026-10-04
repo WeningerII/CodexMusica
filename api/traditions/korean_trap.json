@@ -5,7 +5,7 @@
   "lineage": "Korean trap includes Seoul-rooted crews and international collaborations. Keith Ape and Junior Chef’s It G Ma branch supplies this selected spare, bass-heavy group-rap model.",
   "recipe": "classic modern korean trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, group vocals, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 297,
-  "score": 37.678,
+  "score": 37.814,
   "config": {
     "traditions": [
       "korean_trap"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 1.3315000000000001,
+          "voice_ensemble_config": 1.5115,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -59,7 +59,7 @@
         },
         "scores": {
           "tr808_voice": 3.6969999999999996,
-          "drum_machine_808_context": 1.69,
+          "drum_machine_808_context": 1.6465,
           "tr808_production_origin": 0.39
         }
       },

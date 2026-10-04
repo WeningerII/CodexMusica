@@ -2,10 +2,10 @@
   "id": "rosary",
   "name": "Rosary",
   "family": "global",
-  "lineage": "Complete four-track A Rosary Companion — SPOKEN ONLY edition by The Communion of Saints: Joyful, Sorrowful, Glorious and Luminous mysteries, each14:57. Issuer positively specifies one male voice, spoken prayer, no soundscape and no background or musical accompaniment. Chris Herrera signs the release description; the sole voice is not independently identified beyond the issuer credit. Separate SPOKEN+CHANT and SPOKEN+OCEAN releases are not this edition and their backgrounds are not subtracted from an original mix. All four published tracks retained. Authored dry treated-studio one-speaker natural unprocessed recitation. Pure spoken/no pitch selected; global tuning omitted. Vocal anatomy, training, register, ornaments and pitch organization remain source-unspecified. Room is an editorial recording realization, not a measured source location or microphone claim.",
-  "recipe": "classic rosary, ritual Devotional. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
-  "recipe_chars": 168,
-  "score": 19.904,
+  "lineage": "Rosary prayer is a Catholic Marian devotional practice organized around repeated prayers and meditation on sacred mysteries. Spoken, sung and accompanied versions circulate through personal prayer, communal worship and devotional recordings.",
+  "recipe": "classic rosary, ritual Devotional. single lead single track no stacking. treated studio.",
+  "recipe_chars": 88,
+  "score": 2.164,
   "config": {
     "traditions": [
       "rosary"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.8725,
-          "voice_ensemble_config": 0.6300000000000001,
+          "voice_speech_song": 0.4724999999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.6945,
-          "voice_multitrack_stack": 6.7075,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 1.2075,
           "voice_tessitura": 0
         }
       }

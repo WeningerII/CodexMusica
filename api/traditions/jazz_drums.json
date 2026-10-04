@@ -2,10 +2,10 @@
   "id": "jazz_drums",
   "name": "Jazz drums",
   "family": "jazz",
-  "lineage": "Drummer-led jazz interaction; selected chordless Bill Stewart trio",
+  "lineage": "Jazz drums combines timekeeping, interactive accompaniment and melodic-rhythmic improvisation across the drum kit. Drummer-led groups foreground composition and ensemble dialogue, with rhythmic decisions shaping the unfolding form.",
   "recipe": "classic modern jazz drums, improv On Frame, American jazz branch. bronze bell bronze hand hammered random pattern asymmetric drum kit, saxophone, upright bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 304,
-  "score": 43.859,
+  "score": 46.789,
   "config": {
     "traditions": [
       "jazz_drums"
@@ -27,15 +27,15 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.67,
+          "drum_technique": 9.879999999999999,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.252,
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.147,
+          "snare_wires": 0.18412499999999998,
           "cymbal_alloy": 11.246999999999998,
-          "cymbal_hammering": 11.941,
+          "cymbal_hammering": 11.641,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
@@ -58,7 +58,7 @@
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.394125
+          "sax_maker_school": 0.52725
         }
       },
       {

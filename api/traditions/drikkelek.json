@@ -2,10 +2,10 @@
   "id": "drikkelek",
   "name": "Drikkelek",
   "family": "pop",
-  "lineage": "Complete artist-owned2:50 single Voldas Drikkelek, released2November2021 under Bygdekameratene. Issuer-delivered performing credits distributed through Apple Shazam name Lasse Jørstad Olsen sampler, Even Nævdal lead vocals, Øystein Ulekleiv lead vocals and Martin Ström spoken word. Four people; two credited lead vocalists plus one separately credited speaker, preserved through three source families. Production/songwriting entries are not added performers. No acoustic or electronic engine beyond the positively credited sampler is inferred. Metadata and published lyric structure reviewed; no audio audition claimed. Authored contemporary realization preserves both lead vocalists as a live duet, with source-unspecified delivery, physiology and pitch organization; the combined live-duet stack is editorial, not a measured original overdub claim. Martin Ström remains a separate source-unspecified spoken-word owner. Positively credited sampler is realized using an explicitly authored AkaiS1000 16-bit44.1kHz one-shot pitched/chopped hip-hop sampler configuration; exact original model, trigger protocol and sampled content remain unknown. No complete-master playback substitution. Refrain structure is source-positive; functional-harmonic verse/refrain arrangement is authored, not measured original harmony. Controlled live room and neutral axes authored; global temperament and recording chain omitted.",
-  "recipe": "classic drikkelek, functional Song. duet, unprocessed natural acoustic, live take. pitched chopped sampler, spoken word voice. live tracking.",
-  "recipe_chars": 141,
-  "score": 32.93,
+  "lineage": "Drikkelek songs belong to contemporary Nordic participatory party-game repertoire. They circulate through local celebrations, recordings and social gatherings, overlapping student-party music while serving a distinct game-oriented function.",
+  "recipe": "classic drikkelek, functional Song. sampler, spoken word voice. live tracking.",
+  "recipe_chars": 78,
+  "score": 2.718,
   "config": {
     "traditions": [
       "drikkelek"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.499999999999999,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -58,15 +58,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 4.500000000000001,
+          "electronic_technique": -0.1,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 3.25,
-          "sampler_classic_context": 13.140000000000002
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 2.5
         }
       },
       {
@@ -147,8 +147,8 @@
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "akai_s1000",
       "sampler_bit_depth": "sampler_sixteen_bit",
-      "sampler_workflow": "sampler_one_shot_pitched",
-      "sampler_classic_context": "sampler_classic_hiphop",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_pop_production",
       "spoken_word_voice_identity": "spoken_word_voice_source_unspecified"
     },
     "pin_parts": true

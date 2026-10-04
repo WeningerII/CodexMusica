@@ -2,10 +2,10 @@
   "id": "qanun",
   "name": "Qanun",
   "family": "global",
-  "lineage": "Firas Zreik — complete Solo EP (2021), four original compositions Refractions, Zawraq, Rastiyya and Shams, all composed and performed by Zreik on solo acoustic kanun. Recorded live at Funoon Studio, Hastings on Hudson, November2020. Sole instrument and sole performer positively explicit, zero singers; engineering and mastering staff are not performers. Other ensemble albums and later concerts remain outside this complete release scope. Broad artMusic/global follows the selected formally composed instrumental concert-listening repertoire and documented conservatory/composition practice, not a blanket classical equation for this instrument field. Existing kanun represents the complete named zither; authored Arab-school realization fits the expressly maqam-rooted Palestinian composer, with a classical ornamented sustained gesture and modern synthetic picks. These are disclosed catalog controls, not claims about the session exact picks or instrument manufacture. Exact pitches and global tuning are unreported and omitted; no fixed24EDO imposed. Controlled live-room is an authored listening realization, not measured Funoon acoustics. No added oud, drum, voice or ensemble instruments.",
-  "recipe": "classic early-2020s qanun, art Music. kanun synthetic kanun. live tracking.",
-  "recipe_chars": 75,
-  "score": 22.332,
+  "lineage": "Qanun music centers on the plucked zither across Arab, Turkish and other regional performance traditions. Improvisation, ensemble accompaniment and newly composed repertoire connect inherited modal practices with contemporary exploration.",
+  "recipe": "classic qanun, art Music. kanun. live tracking.",
+  "recipe_chars": 47,
+  "score": 0.163,
   "config": {
     "traditions": [
       "qanun"
@@ -19,9 +19,9 @@
           "kanun_articulation": "kanun_synthetic_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 9.85,
-          "kanun_school": 7.25,
-          "kanun_articulation": 5.2315
+          "plucked_traditional_technique": 0.313,
+          "kanun_school": -0.15000000000000002,
+          "kanun_articulation": 0
         }
       }
     ],

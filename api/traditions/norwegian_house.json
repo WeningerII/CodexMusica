@@ -2,31 +2,58 @@
   "id": "norwegian_house",
   "name": "Norwegian House",
   "family": "electronic",
-  "lineage": "Todd Terje — It’s The Arps, complete four-track original EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic norwegian house, electronic Dance. arp 2600 layered. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 159,
-  "score": 0.663,
+  "lineage": "Norwegian house developed alongside the country’s disco and electronic club networks. Todd Terje and Lindstrøm exemplify its melodic synthesizers, dance grooves and overlap with nu-disco.",
+  "recipe": "classic norwegian house, electronic Dance. analog poly synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 181,
+  "score": 2.35,
   "config": {
     "traditions": [
       "norwegian_house"
     ],
     "instruments": [
       {
-        "id": "arp_2600_layered",
+        "id": "analog_poly_synth",
         "slots": {
-          "arp_2600_layered_identity": "arp_2600_layered_semimodular",
-          "arp_2600_layered_palette": "arp_2600_layered_melodic_percussive"
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "arp_2600_layered_identity": 0,
-          "arp_2600_layered_palette": 0.663
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
         }
       }
     ],
     "pinned": {
-      "arp_2600_layered": [
-        "arp_2600_layered_identity",
-        "arp_2600_layered_palette"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -48,8 +75,14 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "arp_2600_layered_identity": "arp_2600_layered_semimodular",
-      "arp_2600_layered_palette": "arp_2600_layered_melodic_percussive"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

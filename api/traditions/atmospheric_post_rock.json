@@ -2,10 +2,10 @@
   "id": "atmospheric_post_rock",
   "name": "Atmospheric post-rock",
   "family": "rock_punk",
-  "lineage": "Atmospheric post-rock is represented here by The Day We Left Earth. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic atmospheric post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 318,
-  "score": 42.812,
+  "lineage": "Atmospheric post-rock centers instrumental guitar texture and gradual changes in density.",
+  "recipe": "classic atmospheric post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 300,
+  "score": 21.318,
   "config": {
     "traditions": [
       "atmospheric_post_rock"
@@ -18,50 +18,50 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 5.2,
+          "amp_make": 4.42,
           "body_wood": 0.693,
-          "neck_wood": 0.378,
-          "fretboard": 0.378,
-          "pickup_magnet": 0.252,
-          "pickup_winding": 0.375,
-          "string_material": 0.378,
-          "bridge": 1.69,
-          "scale_length": 1.1025,
-          "string_gauge": 1.629875,
-          "finish": 0.1365,
-          "string_tuning": 0.376125
+          "neck_wood": 0.417,
+          "fretboard": 0.063,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.252,
+          "string_material": 0.417,
+          "bridge": 0.223875,
+          "scale_length": 0,
+          "string_gauge": 0.160875,
+          "finish": 0,
+          "string_tuning": 0.03712499999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.654999999999999,
-          "body_wood": 0.21,
-          "pickup_config": 0.2835,
-          "string_type": 13.325,
-          "scale_length_b": 0.378,
+          "amp_make": 4.875,
+          "body_wood": 0.693,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.25,
-          "drumhead": 0.39,
+          "drum_technique": 8.75,
+          "drumhead": 0.417,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -84,10 +84,26 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -117,7 +133,22 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

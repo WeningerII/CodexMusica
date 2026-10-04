@@ -2,40 +2,58 @@
   "id": "chill_house",
   "name": "Chill House",
   "family": "electronic",
-  "lineage": "Adam Pietruszko — Cheeze Machine PRO: Chill House, complete 2:02 manufacturer demonstration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic chill house, electronic Dance. cheeze machine pro, credited drums unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 185,
-  "score": 0,
+  "lineage": "A relaxed strand of house combining a steady dance pulse with soft synthesizer textures and spacious production. It overlaps deep house and lounge-oriented electronic music.",
+  "recipe": "classic chill house, electronic Dance. analog poly synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 177,
+  "score": 0.1,
   "config": {
     "traditions": [
       "chill_house"
     ],
     "instruments": [
       {
-        "id": "cheeze_machine_pro",
+        "id": "analog_poly_synth",
         "slots": {
-          "cheeze_machine_pro_identity": "cheeze_machine_pro_source"
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "cheeze_machine_pro_identity": 0
+          "electronic_technique": 0.2,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
         }
       },
       {
-        "id": "credited_drums_unspecified",
+        "id": "drum_machine_analog",
         "slots": {
-          "credited_drums_unspecified_identity": "credited_drums_unspecified_source"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "credited_drums_unspecified_identity": 0
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "cheeze_machine_pro": [
-        "cheeze_machine_pro_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
-      "credited_drums_unspecified": [
-        "credited_drums_unspecified_identity"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -55,8 +73,14 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "cheeze_machine_pro_identity": "cheeze_machine_pro_source",
-      "credited_drums_unspecified_identity": "credited_drums_unspecified_source"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

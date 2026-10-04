@@ -2,28 +2,40 @@
   "id": "pittsburgh_indie",
   "name": "Pittsburgh indie",
   "family": "electronic",
-  "lineage": "Girl Talk — All Day, the complete twelve-section continuous71-minute2010 album, published by the official Illegal Art archive. The label explicitly describes construction from hundreds of woven samples spanning pop, rap, rock, R&B and dance. Retain the whole sample collage and all embedded instrumental and vocal layers; this is the positively documented source-level sample construction, not playback of an otherwise undocumented completed master. Gregg Gillis is Girl Talk, with additional production/assistance by Frank Musarra; mastering by Jonathan Schenke is not invented as another instrumental role. Architecture and sample-source singer count are unspecified. No additional live singer card means no separately credited live vocal performance, not zero sampled singers. Use existing credited_samples_unspecified to retain the complete documented sample construction without guessing sampler hardware/software or individual source instruments. Sole identity part is protected; neutral axes are authored. Broad experimentalElec describes this selected production-led plunderphonic collage, not every Pittsburgh indie work. Authored treated-room listening realization is not the actual source studio. No global tuning or apparatus supplied; embedded voices and intervals remain unknown.",
-  "recipe": "classic pittsburgh indie, experimental Elec. credited samples unspecified. treated studio.",
-  "recipe_chars": 90,
-  "score": 0,
+  "lineage": "Pittsburgh indie connects a varied local independent music community, from guitar bands and songwriters to electronic and sample-based projects. Artists such as Girl Talk demonstrate the field’s reach beyond one rock-band format.",
+  "recipe": "classic pittsburgh indie, experimental Elec. sampler. treated studio.",
+  "recipe_chars": 69,
+  "score": 4.055,
   "config": {
     "traditions": [
       "pittsburgh_indie"
     ],
     "instruments": [
       {
-        "id": "credited_samples_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "credited_samples_identity": "credited_samples_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "credited_samples_identity": 0
+          "electronic_technique": 0.25,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 3.7049999999999996
         }
       }
     ],
     "pinned": {
-      "credited_samples_unspecified": [
-        "credited_samples_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +55,11 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "credited_samples_identity": "credited_samples_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
     "pin_parts": true
   }

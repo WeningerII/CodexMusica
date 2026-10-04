@@ -5,7 +5,7 @@
   "lineage": "Southern Americana encompasses roots-oriented recording and performance networks across the southern United States. Margo Price’s Nashville sessions provide one documented contemporary country-soul branch.",
   "recipe": "classic modern southern americana, functional Song, country branch. thick, blues-shouter, wide pitch sway, narrative. dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, slide sustained song accompaniment lap steel, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 529,
-  "score": 77.973,
+  "score": 79.586,
   "config": {
     "traditions": [
       "southern_americana"
@@ -22,7 +22,7 @@
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
@@ -33,20 +33,20 @@
         },
         "scores": {
           "voice_register": 8.599999999999998,
-          "voice_quality": 2.080000000000002,
+          "voice_quality": 2.2600000000000016,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.2,
-          "voice_articulation": 2.56375,
+          "voice_vibrato": 6.4115,
+          "voice_articulation": 2.83825,
           "voice_microtone": 2.470000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.47424999999999995,
-          "voice_estill_quality": 6.80625,
+          "voice_mechanism_compound": 0.9382499999999998,
+          "voice_estill_quality": 7.33425,
           "voice_speech_song": 6.175000000000001,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.2,
           "voice_pitch_organization": 0.7742499999999998,
-          "voice_processing_chain": 1.191,
+          "voice_processing_chain": 1.0335,
           "voice_multitrack_stack": 0.5199999999999999
         }
       },
@@ -85,15 +85,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 6.46375,
-          "amp_make": 8.736499999999998,
+          "electric_technique": 6.65275,
+          "amp_make": 8.790499999999998,
           "body_wood": 0.9099999999999999,
           "neck_wood": 0,
           "fretboard": 0.0315,
           "pickup_magnet": 0.105,
           "string_material": 0.78,
           "string_gauge": 0.9099999999999999,
-          "bridge": 0.108,
+          "bridge": 0.054,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0.97425,
@@ -126,9 +126,9 @@
         "scores": {
           "amp_make": 6.205000000000001,
           "body_wood": 0.0315,
-          "pickup_config": 0.25575,
+          "pickup_config": 0.20174999999999998,
           "string_type": 2.7380000000000004,
-          "scale_length_b": 0.1395,
+          "scale_length_b": 0.11699999999999999,
           "fretted_or_not": 0.39,
           "bass_technique": 2.4,
           "electric_bass_string_configuration": 0

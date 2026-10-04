@@ -2,10 +2,10 @@
   "id": "rock_mineiro",
   "name": "Rock mineiro",
   "family": "rock",
-  "lineage": "Rock mineiro is represented here by Pelos — Atlântico Corpo electric/synth core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Rock mineiro encompasses Minas Gerais rock communities, including Belo Horizonte’s independent guitar-band scene.",
   "recipe": "classic rock mineiro, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 324,
-  "score": 52.469,
+  "score": 56.45,
   "config": {
     "traditions": [
       "rock_mineiro"
@@ -17,7 +17,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_maple_cap",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 6.11,
-          "body_wood": 0.1365,
-          "neck_wood": 0.1365,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 0.39,
+          "neck_wood": 0.18,
           "fretboard": 0.1365,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.0735,
           "string_material": 0.1365,
-          "bridge": 1.69,
+          "bridge": 0.3075,
           "scale_length": 0.378,
-          "string_gauge": 1.69,
+          "string_gauge": 0.3075,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.11699999999999999
         }
       },
       {
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
-          "body_wood": 0,
+          "amp_make": 7.475,
+          "body_wood": 0.18,
           "pickup_config": 0,
-          "string_type": 15.6,
+          "string_type": 17.875,
           "scale_length_b": 0.063,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.39,
+          "drum_technique": 13.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1395,
-          "voice_multitrack_stack": 0.39
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -124,13 +124,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 6.24,
-          "poly_voices": 0,
+          "poly_archetypes": 7.15,
+          "poly_voices": 0.18,
           "poly_maker_lineage": -0.035
         }
       }

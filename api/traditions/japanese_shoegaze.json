@@ -5,7 +5,7 @@
   "lineage": "Japanese shoegaze is represented here by For Tracy Hyde. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic japanese shoegaze, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 31.799,
+  "score": 31.854,
   "config": {
     "traditions": [
       "japanese_shoegaze"
@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -62,7 +62,7 @@
           "pickup_config": 0.1365,
           "string_type": 8.125,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.054,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

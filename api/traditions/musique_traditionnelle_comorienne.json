@@ -2,10 +2,10 @@
   "id": "musique_traditionnelle_comorienne",
   "name": "Musique traditionnelle comorienne",
   "family": "vernacular",
-  "lineage": "Complete5:35 issued Yimbiyo, INEDIT W260058 track11 (1994). Salim Ali Amir sings with Abu Bakr Mi’raj on firimbi; at the ending Salim joins on a second firimbi. Preserve one singer, two flute players, two people and two sound families, not simultaneous singing plus all flutes throughout. Institutional source identifies Domoni, Anjouan performers and1983 Maison des Cultures du Monde recording; modern institutional page and original booklet agree. One neutral singer with authored single-lead realization; actual original layering unknown. Dedicated firimbi owner preserves open-ended flute identity and positively documented circular breathing. Plastic body is an authored choice from the collector contemporary construction description, not proof of each1983 instrument material; hole count, length, tuning and flute count timing remain unspecified. One family card represents both source players. No global temperament or invented Western concert-flute mechanism; controlled live room is authored new recording acoustics, not an assertion about the1983 capture space; no hardware asserted. Lullaby parent follows issuer function, without a universal sleep-tempo or observed infant audience claim.",
-  "recipe": "classic mid-1990s musique traditionnelle comorienne, lullaby. solo with instrumental accompaniment, single lead single track no stacking. plastic circular breathing sustaining comorian firimbi. live tracking.",
-  "recipe_chars": 208,
-  "score": 12.899,
+  "lineage": "Musique traditionnelle comorienne encompasses inherited practices across domestic, ceremonial, dance and devotional life in the Comorian islands. Songs and instrumental traditions take distinct forms according to community and occasion.",
+  "recipe": "classic musique traditionnelle comorienne, lullaby. solo with instrumental accompaniment, single lead single track no stacking. comorian firimbi. live tracking.",
+  "recipe_chars": 160,
+  "score": 2.199,
   "config": {
     "traditions": [
       "musique_traditionnelle_comorienne"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.7619999999999996,
+          "voice_ensemble_config": 1.462,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,
-          "voice_multitrack_stack": 6.0415,
+          "voice_multitrack_stack": 0.5415,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
         },
         "scores": {
           "comorian_firimbi_form": 0,
-          "comorian_firimbi_material": 1.3,
-          "comorian_firimbi_breath": 2.6
+          "comorian_firimbi_material": 0,
+          "comorian_firimbi_breath": 0
         }
       }
     ],

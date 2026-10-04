@@ -5,7 +5,7 @@
   "lineage": "Ukrainian hip hop is represented by Kalush Orchestra’s Ukrainian-language rap and folk-instrument crossover, one branch of a much wider national scene. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
   "recipe": "classic modern ukrainian hip hop, mc Rhythm, intl hip hop branch. rap. sampled chopped sampler drum machine, breathy woody folk diatonic sopilka. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 281,
-  "score": 31.02,
+  "score": 30.671,
   "config": {
     "traditions": [
       "ukrainian_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.365,
+          "voice_quality": 14.195500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.17999999999999994
+          "voice_multitrack_stack": 0
         }
       },
       {

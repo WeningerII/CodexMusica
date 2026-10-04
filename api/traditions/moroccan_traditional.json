@@ -2,10 +2,10 @@
   "id": "moroccan_traditional",
   "name": "Moroccan traditional",
   "family": "vernacular",
-  "lineage": "Alicia Benassayag — complete Moses Left Egypt (Mose salió de Misraín),2:29,FW04208_107,issued1983. Smithsonian credits her alone on lead voice and identifies Ladino and Moroccan Jewish culture. Its album description explicitly specifies a cappella women’s romance and ritual songs; collector Henrietta Yurchenco’s notes locate the singer in Tetuan and identify this item as a romance. One unaccompanied singer retained, no instruments or other album singers imported. The creator Moroccan Traditional playlist includes this exact artist/title/duration at21. Authored new solo rendition with all17 existing human-voice controls retained, neutral physiology and source-unspecified pitch system. Small-note-group neumatic setting is an explicit authored gesture, not a measured transcription. Single unaccompanied voice with no added stack is source-compatible. Broad balladPoetry supports the positively identified romance/narrative branch, not every ritual or instrumental component of the national heritage field. Controlled live-room is editorial; no global temperament or recording apparatus is asserted.",
-  "recipe": "classic moroccan traditional, ballad Poetry. small note groups per syllable, solo unaccompanied, single lead single track no stacking. live tracking.",
-  "recipe_chars": 149,
-  "score": 16.265,
+  "lineage": "Moroccan traditional music encompasses distinct Amazigh, Arab, Gnawa, Andalusi and Moroccan Jewish repertoires. Community transmission and social or ceremonial settings sustain diverse vocal and instrumental lineages.",
+  "recipe": "classic moroccan traditional, ballad Poetry. live tracking.",
+  "recipe_chars": 59,
+  "score": 0.78,
   "config": {
     "traditions": [
       "moroccan_traditional"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.609500000000001,
-          "voice_ensemble_config": 4.855499999999999,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 6.799999999999999,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "deep_techno",
   "name": "Deep techno",
   "family": "electronic",
-  "lineage": "An Every Noise discovery cluster spanning melodic, atmospheric club techno. This representative branch follows Stephan Bodzin’s live interplay of an expressive monophonic synthesizer and prepared electronic percussion. The classifier label does not imply a universally agreed historical genre boundary.",
+  "lineage": "Deep techno is a listening and discovery field linking atmospheric, melodic and hypnotic club production. Expressive synthesizer performance and carefully spaced percussion connect gradual development with sustained dance-floor rhythm.",
   "recipe": "classic modern deep techno, electronic Dance, techno branch. analog mono synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 317,
-  "score": 9.698,
+  "score": 6.047,
   "config": {
     "traditions": [
       "deep_techno"
@@ -23,9 +23,9 @@
         "scores": {
           "electronic_technique": -0.07,
           "mono_oscillator": 0,
-          "mono_filter": 0.2415,
-          "mono_archetypes": 0.40950000000000003,
-          "mono_maker_lineage": -0.8050000000000002
+          "mono_filter": 0.39,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": -1.435
         }
       },
       {
@@ -39,7 +39,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.0315,
-          "sample_swing": 9.086,
+          "sample_swing": 6.586,
           "sample_processing": 0
         }
       }

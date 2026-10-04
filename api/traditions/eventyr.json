@@ -2,10 +2,10 @@
   "id": "eventyr",
   "name": "Eventyr",
   "family": "vernacular",
-  "lineage": "Kathrine Engan — De tolv vildænder, complete15:54 reading. Complete independently listed story De tolv vildænder, section05 of Skandinaviska äventyr / Skandinaviske eventyr (LibriVox catalog30June2019), read in Norwegian by Kathrine Engan, duration15:54. Full story scope, not excerpt or whole ten-story anthology. Exactly one credited reader and zero singers; other anthology readers are outside this separate complete-story performance. Publisher classifies collection Scandinavian fairy tales in Danish, Swedish and Norwegian. LibriVox own music/effects policy prohibits incidental music and effects and directs enhanced versions to separate hosting; the selected standard catalog reading is represented by voice alone. Policy supports this production class; no personal waveform/listening proof asserted. Authored dry-studio solo narration with pure spoken/no-pitch organization. Vocal physiology, range, training, vibrato and ornament remain source-unspecified, natural unprocessed voice and one narrative track are editorial realization choices, not narrator hardware facts. No global tuning, music or invented effects; capture apparatus omitted.",
-  "recipe": "classic eventyr, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
-  "recipe_chars": 181,
-  "score": 17.313,
+  "lineage": "Eventyr connects Scandinavian fairy-tale traditions with literary collections, oral storytelling and recorded narration. Familiar plots and characters circulate across languages and generations rather than belonging to a single narrator or modern edition.",
+  "recipe": "classic eventyr, spoken Word, narration branch. single lead single track no stacking. treated studio.",
+  "recipe_chars": 101,
+  "score": 1.956,
   "config": {
     "traditions": [
       "eventyr"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.188499999999999,
-          "voice_ensemble_config": 1.5310000000000001,
+          "voice_speech_song": 0.3255,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.7365,
-          "voice_multitrack_stack": 5.856999999999999,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 1.2625,
           "voice_tessitura": 0
         }
       }

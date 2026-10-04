@@ -2,10 +2,10 @@
   "id": "collage_pop",
   "name": "Collage pop",
   "family": "pop",
-  "lineage": "Collage pop is represented here by Nym — Edge City sampler core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Collage pop assembles popular-song textures from recorded fragments, samples and contrasting sonic materials. Instrumental sample-built tracks form one branch alongside vocal approaches.",
   "recipe": "classic collage pop, functional Song, pop rock branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 177,
-  "score": 0.757,
+  "score": 0.1,
   "config": {
     "traditions": [
       "collage_pop"
@@ -15,21 +15,24 @@
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
+          "sample_bitdepth": "twelve_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "chopped_break"
         },
         "scores": {
           "electronic_technique": 0.2,
-          "sample_bitdepth": 0.42000000000000004,
+          "sample_bitdepth": -0.05,
           "sample_swing": 0,
-          "sample_processing": 0.1365
+          "sample_processing": -0.05
         }
       }
     ],
     "pinned": {
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "twelve_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

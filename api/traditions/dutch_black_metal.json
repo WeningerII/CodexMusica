@@ -5,7 +5,7 @@
   "lineage": "The Dutch black-metal field includes Carach Angren’s deliberately theatrical, orchestration-rich branch. The musicians acknowledge black-metal blast beats and abrasive vocals while preferring their own horror-metal description. This authored model combines electric guitar, recorded bass, drum kit, voice and a sampled orchestral keyboard layer. The documented live bass and much orchestration run from backing tracks; absence of an onstage bassist is not mistaken for absence of bass.",
   "recipe": "classic modern dutch black metal, distorted Rock, black branch. unrestrained, solo with instrumental accompaniment. low mid rich spectrum woody mahogany humbucker electric guitar, low mid rich spectrum woody mahogany electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit, rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 477,
-  "score": 37.646,
+  "score": 37.703,
   "config": {
     "traditions": [
       "dutch_black_metal"
@@ -63,7 +63,7 @@
           "string_type": 0.4095,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 4.35775,
+          "bass_technique": 4.21525,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,13 +85,13 @@
         "scores": {
           "drum_technique": 3.7815,
           "drumhead": 0.483,
-          "drum_kit_kick_pedal": 4.639499999999999,
+          "drum_kit_kick_pedal": 4.68225,
           "shell_wood": 0.4095,
           "shell_thickness": 0,
           "bearing_edges": 0.4095,
           "snare_wires": 0,
           "cymbal_alloy": 1.2365,
-          "cymbal_hammering": 3.69275,
+          "cymbal_hammering": 3.6500000000000004,
           "cymbal_lathing": 3.7940000000000005,
           "cymbal_finish": 0
         }
@@ -128,7 +128,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.50775,
+          "voice_ensemble_config": 1.7072499999999997,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": -0.07,

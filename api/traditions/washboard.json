@@ -2,10 +2,10 @@
   "id": "washboard",
   "name": "Washboard",
   "family": "vernacular",
-  "lineage": "Tin Men with Carlo Nuccio — Smoke My Peace Pipe (2019), complete standalone Mardi Gras single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s washboard, groove Percussion. group vocals, live take. conventional tuning standard pitch humbucker electric guitar, sousaphone, credited washboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 278,
-  "score": 6.827,
+  "lineage": "Music foregrounding the washboard as a rhythmic instrument, found in small popular ensembles and several regional traditions. Its scraped and struck patterns can support singing and interact with melodic instruments.",
+  "recipe": "classic washboard, groove Percussion. group vocals. humbucker electric guitar, sousaphone, credited washboard unspecified. live tracking.",
+  "recipe_chars": 137,
+  "score": 1.966,
   "config": {
     "traditions": [
       "washboard"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.5354999999999999,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.2999999999999998,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.168,
-          "neck_wood": 0.0315,
+          "body_wood": 0,
+          "neck_wood": 0,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.063,
-          "string_gauge": 1.69,
+          "string_gauge": 0.8365,
           "finish": 0,
-          "string_tuning": 1.573
+          "string_tuning": 0
         }
       },
       {
@@ -93,7 +93,7 @@
         },
         "scores": {
           "sousaphone_bore": 0,
-          "sousaphone_context": 0.3
+          "sousaphone_context": 0
         }
       },
       {
@@ -149,15 +149,15 @@
         "credited_washboard_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -166,7 +166,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -187,8 +187,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -202,12 +202,6 @@
       "sousaphone_context": "sousaphone_oompah_march",
       "credited_washboard_identity": "credited_washboard_source_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

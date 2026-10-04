@@ -2,10 +2,10 @@
   "id": "british_alternative_rock",
   "name": "British alternative rock",
   "family": "rock_punk",
-  "lineage": "A British-centered alternative-rock network including Enter Shikari, Don Broco, Skunk Anansie and Deaf Havana. The selected Enter Shikari branch joins processed guitar riffs to synthesizer layers, a live rhythm section and vocals.",
-  "recipe": "classic modern british alternative rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, analog synth, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter wah / envelope filter.",
-  "recipe_chars": 538,
-  "score": 40.159,
+  "lineage": "British alternative rock connects bands exploring varied approaches to amplified song, from direct guitar music to electronic-rock hybrids. Independent scenes and touring networks support contrasting vocal styles, rhythmic approaches and production methods.",
+  "recipe": "classic modern british alternative rock, distorted Rock, alternative branch. one note per syllable. single coil electric guitar, analog synth, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter wah / envelope filter.",
+  "recipe_chars": 414,
+  "score": 42.317,
   "config": {
     "traditions": [
       "british_alternative_rock"
@@ -29,14 +29,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.6000000000000005,
+          "electric_technique": 1.8199999999999998,
           "amp_make": -0.07,
           "body_wood": 0.40950000000000003,
           "neck_wood": 0.142125,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.142125,
-          "string_gauge": 0.273,
+          "string_gauge": 0.9099999999999999,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
@@ -55,9 +55,9 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "oscillator": 0.44512499999999994,
-          "filter_topology": 0.24225,
-          "envelope": 0.1365,
+          "oscillator": 0.28424999999999995,
+          "filter_topology": 0.205125,
+          "envelope": 1.1365,
           "modulation": 0
         }
       },
@@ -100,7 +100,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.25,
+          "drum_technique": 11.25,
           "drumhead": 0.142125,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
@@ -108,8 +108,8 @@
           "bearing_edges": 0.142125,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 10.481499999999997,
-          "cymbal_lathing": 10.286499999999998,
+          "cymbal_hammering": 11.181499999999998,
+          "cymbal_lathing": 11.286499999999998,
           "cymbal_finish": 0
         }
       },
@@ -144,12 +144,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 1.6342499999999998,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.644625
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.44662499999999994
         }
       }
     ],
@@ -216,7 +216,7 @@
         "voice_multitrack_stack"
       ]
     },
-    "room": "studio_isolation_cabin_diy",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -237,7 +237,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_isolation_cabin_diy",
+    "room": "live_room",
     "parts": {
       "body_wood": "alder",
       "neck_wood": "maple",

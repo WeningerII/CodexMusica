@@ -2,10 +2,10 @@
   "id": "indonesian_experimental",
   "name": "Indonesian experimental",
   "family": "electronic",
-  "lineage": "Catu Daya — Babat Kawat (2025), complete eight-piece release. Issuer explicitly identifies Catu Daya as Indonesian experimental duo Yustiawan Paradigma Umar and Yoga Nugraha Usmad. Complete release credits name Javanese rebab, gong ageng, electronics and field recordings, all performed by the duo and recorded live at Lokananta in Surakarta. The described practice combines acoustic gamelan resources, environmental material and electronic ambient/drone improvisation. Eight pieces and the complete four-family palette are retained; generic gamelan bio language does not add uncredited metallophones or singers. Indonesian experimental names a cross-medium contemporary experimental practice rather than all Indonesian traditional gamelan or all national electronic dance music. Existing javanese_gamelan describes cyclic court/village ensemble structures, full gamelan resources and wayang contexts; the selected duo instead documents live electronic/environmental transformation and improvisatory spatial engagement. Existing indonesian_electronic overlaps its technology but does not exhaust the wider acoustic/electronic experimental field. This is a narrower overlapping experimental-practice axis, not a claim that national electronic music excludes experimentation. Broad experimentalElec fits the actual electroacoustic process and drone/ambient composition, without assigning a more specific industrial or dance form. Rebab remains the positively named Javanese instrument with chamber context; carved hardwood, goat skin, steel strings and rough sustained drone are authored physical/articulation choices, not measured original gear. The existing generic gong family is deliberately pinned to its bossed pitched-gong variant, preserving the gong ageng mechanism rather than substituting an indefinite-pitch tam-tam; soft mallet is authored and no original diameter/pitch asserted. Neutral credited-electronics owner preserves unknown generator architecture. Environmental-collage owner represents the explicitly credited field-recording layer assembled in the complete mix, not the finished musical master, an invented sampler or a claim that all field material is voice-free. No separately credited live singer is added, while any embedded environmental voices remain unknown. No global tuning is asserted. Controlled live-room capture is an authored rendition, not a measurement of Lokananta geometry.",
-  "recipe": "classic mid-2020s indonesian experimental, experimental Elec. gamelan foundational carved hardwood canonical javanese goat skin canonical javanese steel modern drone like rebab, nipple pitched soft mallet gong tamtam, credited electronics unspecified, environmental field recording environmental sound collage. live tracking.",
-  "recipe_chars": 325,
-  "score": 39.581,
+  "lineage": "Indonesian experimental music connects acoustic traditions, electronic processes and environmental sound with contemporary exploratory practice. Artists such as Catu Daya bring gamelan-related resources into improvisatory and spatial sound work without replacing the distinct structures of traditional ensembles.",
+  "recipe": "classic indonesian experimental, experimental Elec. gamelan foundational rebab, gong tamtam, credited electronics unspecified, environmental field recording environmental sound collage. shoebox concert hall.",
+  "recipe_chars": 207,
+  "score": 2.705,
   "config": {
     "traditions": [
       "indonesian_experimental"
@@ -22,12 +22,12 @@
           "rebab_strings": "rebab_steel_modern"
         },
         "scores": {
-          "bowed_technique": 3.905,
-          "rebab_region": 6.499999999999999,
-          "rebab_context": 1.3,
-          "rebab_body": 5.199999999999999,
-          "rebab_skin": 5.199999999999999,
-          "rebab_strings": 1.354
+          "bowed_technique": -0.07,
+          "rebab_region": 1,
+          "rebab_context": 0,
+          "rebab_body": 0,
+          "rebab_skin": 0,
+          "rebab_strings": 0.054
         }
       },
       {
@@ -37,8 +37,8 @@
           "gong_striker": "gong_soft_mallet"
         },
         "scores": {
-          "gong_type": 1.3,
-          "gong_striker": 2.6
+          "gong_type": 0,
+          "gong_striker": 0.0315
         }
       },
       {
@@ -56,7 +56,7 @@
           "environmental_collage_source": "environmental_field_recording_collage"
         },
         "scores": {
-          "environmental_collage_source": 12.222
+          "environmental_collage_source": 1.69
         }
       }
     ],
@@ -80,7 +80,7 @@
         "environmental_collage_source"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -95,7 +95,7 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
       "bowed_technique": "bowed_rough_drone",
       "rebab_region": "rebab_javanese",

@@ -2,10 +2,10 @@
   "id": "russian_electronic",
   "name": "Russian electronic",
   "family": "electronic",
-  "lineage": "Russian electronic is represented here by Kedr Livanskiy — Ariadna synth-and-voice core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic russian electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 257,
-  "score": 5.264,
+  "lineage": "Russian electronic music includes independent synthesis, club production and electronic songwriting, with artists moving between instrumental and vocal approaches.",
+  "recipe": "classic russian electronic, functional Song. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 202,
+  "score": 3.652,
   "config": {
     "traditions": [
       "russian_electronic"
@@ -15,15 +15,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.168,
-          "poly_maker_lineage": 0.325
+          "electronic_technique": 0.25,
+          "poly_archetypes": 0.054,
+          "poly_voices": 0.054,
+          "poly_maker_lineage": -0.05
         }
       },
       {
@@ -58,17 +58,20 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.21,
+          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.9555
+          "voice_multitrack_stack": 0.354
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
       "voice": [
         "voice_register",
@@ -124,7 +127,10 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_arpeggiated"
+      "electronic_technique": "electronic_arpeggiated",
+      "poly_archetypes": "jupiter_8",
+      "poly_voices": "poly_8_voice",
+      "poly_maker_lineage": "poly_roland_jupiter"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

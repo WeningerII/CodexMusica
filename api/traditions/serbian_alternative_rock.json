@@ -2,10 +2,10 @@
   "id": "serbian_alternative_rock",
   "name": "Serbian alternative rock",
   "family": "rock",
-  "lineage": "Serbian alternative rock is represented here by Repetitor — Prazan prostor među nama koji može i da ne postoji. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic serbian alternative rock, distorted Rock, alternative branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 339,
-  "score": 58.374,
+  "lineage": "Serbian alternative rock includes independent garage-rock bands and heavier, noisier approaches.",
+  "recipe": "classic serbian alternative rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 348,
+  "score": 60.546,
   "config": {
     "traditions": [
       "serbian_alternative_rock"
@@ -16,32 +16,32 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "alder_h",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
-          "amp_make": 6.5,
-          "body_wood": 0.40950000000000003,
-          "neck_wood": 0.3045,
-          "fretboard": 0.3,
-          "pickup_magnet": 0.3,
+          "electric_technique": 0.26,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 1.8795,
+          "neck_wood": 0.34725000000000006,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.69,
+          "bridge": 0.34725000000000006,
           "scale_length": 1.3335000000000001,
-          "string_gauge": 1.69,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.38549999999999995
+          "string_tuning": 0
         }
       },
       {
@@ -49,20 +49,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
-          "body_wood": 0.609,
-          "pickup_config": 0.3,
-          "string_type": 16.575,
+          "amp_make": 7.475,
+          "body_wood": 0.65175,
+          "pickup_config": 0.273,
+          "string_type": 17.875,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.042749999999999996,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.39,
+          "drum_technique": 13.75,
+          "drumhead": 0.378,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.31575,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
@@ -124,13 +124,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0,
+          "poly_archetypes": 7.15,
+          "poly_voices": 0.042749999999999996,
           "poly_maker_lineage": -0.035
         }
       }

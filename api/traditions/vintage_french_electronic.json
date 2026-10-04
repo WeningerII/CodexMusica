@@ -2,10 +2,10 @@
   "id": "vintage_french_electronic",
   "name": "Vintage french electronic",
   "family": "electronic",
-  "lineage": "Vintage french electronic is represented by Bernard Fèvre / Black Devil Disco Club — Follow Me (Instrumental) synth core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic vintage french electronic, experimental Elec. yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship analog poly synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 221,
-  "score": 8.57,
+  "lineage": "Vintage French electronic music brings together early synthesizer composition, studio experimentation and electronic popular music from the later twentieth century.",
+  "recipe": "classic vintage french electronic, experimental Elec. sequential lineage canonical prophet 5 1978 san jose ca analog poly synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 208,
+  "score": 7.066,
   "config": {
     "traditions": [
       "vintage_french_electronic"
@@ -15,21 +15,24 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 0.18525,
-          "poly_voices": 2.405,
-          "poly_maker_lineage": 6.049999999999999
+          "poly_archetypes": 0.0315,
+          "poly_voices": 2.105,
+          "poly_maker_lineage": 5
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_lead_line"
+      "electronic_technique": "electronic_lead_line",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

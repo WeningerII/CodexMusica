@@ -3,9 +3,9 @@
   "name": "Dansband",
   "family": "pop",
   "lineage": "Swedish social-dance popular style formalized in the late 1960s and 1970s out of the folkpark circuit — foxtrot, bugg and waltz tempos around 100-130 BPM played by five- or six-piece bands with electric guitar, bass, drums, saxophone and heavy use of Hammond or synth pads, singing Swedish-language sentimental lyrics in smooth major-key harmony.",
-  "recipe": "classic North American 1967-1969 dansband, functional Song, europop branch, contemp main country, pop rock functional song skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, singing lead analog poly synth, melodic straight piano accordion. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 889,
-  "score": 490.064,
+  "recipe": "classic North American 1967-1969 dansband, functional Song, europop branch, contemp main country, pop rock functional song skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, singing lead analog poly synth, melodic straight piano accordion. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 892,
+  "score": 490.444,
   "config": {
     "traditions": [
       "dansband",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 50.91625000000001,
+          "voice_register": 50.961250000000014,
           "voice_quality": 11.569999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.782499999999999,
           "voice_articulation": 16.054999999999996,
           "voice_microtone": 39.470000000000006,
-          "voice_tradition": 16.119999999999997,
+          "voice_tradition": 16.224999999999994,
           "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 5.840625,
+          "voice_estill_quality": 5.945625,
           "voice_speech_song": 22.034999999999993,
           "voice_ensemble_config": 16.379999999999992,
           "voice_ornament_system": 0.15000000000000002,
@@ -111,13 +111,13 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.67,
-          "drumhead": 12.144999999999998,
+          "drum_technique": 19.629999999999995,
+          "drumhead": 12.099999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -139,7 +139,7 @@
           "sax_body_alloy": 7.499999999999998,
           "sax_mouthpiece": 0.3,
           "sax_technique": 7.499999999999998,
-          "sax_maker_school": 6.294999999999999
+          "sax_maker_school": 6.249999999999999
         }
       },
       {
@@ -156,8 +156,8 @@
           "keyboard_technique": 12.399999999999999,
           "drawbar_setting": 19.625,
           "rotary_speed": 19.724999999999998,
-          "percussion_setting": 9.303125,
-          "tonewheel_model": 16.228125,
+          "percussion_setting": 9.258125,
+          "tonewheel_model": 16.183124999999997,
           "leslie_cabinet_model": 0.95
         }
       },
@@ -170,8 +170,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 14.284999999999998,
-          "poly_archetypes": 9.303125,
+          "electronic_technique": 14.329999999999998,
+          "poly_archetypes": 9.258125,
           "poly_voices": 0.44999999999999996,
           "poly_maker_lineage": 0.5499999999999999
         }
@@ -184,9 +184,9 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 9.874999999999996,
-          "pa_size": 2.906249999999999,
-          "pa_use": 2.906249999999999
+          "free_reed_technique": 9.919999999999996,
+          "pa_size": 3.056249999999999,
+          "pa_use": 3.056249999999999
         }
       }
     ],

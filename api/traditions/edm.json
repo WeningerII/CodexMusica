@@ -2,10 +2,10 @@
   "id": "edm",
   "name": "EDM",
   "family": "electronic",
-  "lineage": "Edm is represented here by Zedd — documented studio practice with Matthew Koma vocal-collaboration branch. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic edm, electronic Dance. solo with instrumental accompaniment. plucked short envelope digital subtractive, organ preset one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits short envelope rompler workstation, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 398,
-  "score": 30.788,
+  "lineage": "Electronic dance music encompasses a broad family of club, festival and studio practices built around electronically produced rhythm and sound. Instrumental tracks coexist with song-oriented collaborations and crossover popular music.",
+  "recipe": "classic edm, electronic Dance. solo with instrumental accompaniment. digital subtractive, organ preset rompler workstation, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 246,
+  "score": 20.213,
   "config": {
     "traditions": [
       "edm"
@@ -19,7 +19,7 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 5.699999999999999,
+          "electronic_technique": 2.45,
           "va_archetypes": 0,
           "digital_subtractive_context": -0.05
         }
@@ -30,13 +30,13 @@
           "electronic_technique": "electronic_pluck_short",
           "rompler_preset_bank": "rompler_preset_dance_stabs",
           "rompler_context": "rompler_context_arranger_party",
-          "rompler_lineage": "rompler_korg_pa_arranger"
+          "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
-          "electronic_technique": 5.699999999999999,
-          "rompler_preset_bank": 5.699999999999999,
-          "rompler_context": 2.08,
-          "rompler_lineage": 1.3
+          "electronic_technique": 2.45,
+          "rompler_preset_bank": 2.45,
+          "rompler_context": 0.39,
+          "rompler_lineage": 0.3
         }
       },
       {
@@ -49,8 +49,8 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 6.999999999999999,
+          "sample_bitdepth": 0.1935,
+          "sample_swing": 8.75,
           "sample_processing": 0
         }
       },
@@ -90,7 +90,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.46799999999999997
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

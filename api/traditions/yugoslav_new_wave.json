@@ -2,10 +2,10 @@
   "id": "yugoslav_new_wave",
   "name": "Yugoslav New Wave",
   "family": "rock_punk",
-  "lineage": "Haustor — Mijenjam se, Zagreb Music Biennale15May1981, complete documented concert lineup. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic yugoslav new wave, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch single coil electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, saxophone, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 454,
-  "score": 26.649,
+  "lineage": "Yugoslav new wave emerged around the late 1970s and early 1980s through punk, post-punk and adventurous pop across the former Yugoslavia. Bands such as Haustor brought local songwriting into dialogue with international rhythmic and production ideas.",
+  "recipe": "classic 1977-1979 yugoslav new wave, distorted Rock, punk branch. solo with instrumental accompaniment. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, saxophone, electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 296,
+  "score": 19.359,
   "config": {
     "traditions": [
       "yugoslav_new_wave"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 1.17,
+          "voice_speech_song": 0.0945,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 1.2,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.2315,
+          "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.0315,
-          "string_gauge": 1.6,
+          "string_gauge": 0.7,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 1.3,
+          "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
       },
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder",
-          "pickup_config": "split_coil",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0,
+          "pickup_config": 0.1365,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.25,
-          "drumhead": 1.3,
+          "drum_technique": 3.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.005,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 5.423,
-          "cymbal_lathing": 5.450000000000001,
+          "cymbal_hammering": 6.473,
+          "cymbal_lathing": 6.2,
           "cymbal_finish": 0
         }
       },
@@ -150,10 +150,10 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": 0.325,
+          "sax_size": -0.035,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.3,
+          "sax_mouthpiece": 0,
           "sax_technique": -0.05,
           "sax_maker_school": -0.07
         }
@@ -242,15 +242,15 @@
         "keyboard_technique"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -259,7 +259,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -271,7 +271,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -291,7 +291,7 @@
       "finish": "nitro",
       "string_tuning": "standard_tuning",
       "single_coil_pickup_construction": "single_coil_construction_unspecified",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -318,12 +318,6 @@
       "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
       "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

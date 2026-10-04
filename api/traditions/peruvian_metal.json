@@ -2,10 +2,10 @@
   "id": "peruvian_metal",
   "name": "Peruvian metal",
   "family": "rock_punk",
-  "lineage": "Broad Peruvian metal discovery field represented by Kranium’s Lima/Rímac heavy-metal and Andean-instrument fusion branch.",
-  "recipe": "classic modern peruvian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic quena, cedar andean andean classical strummed charango, rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 536,
-  "score": 85.243,
+  "lineage": "Peruvian metal encompasses the country’s heavy-music scenes, including Andean-instrument fusion exemplified by Kranium.",
+  "recipe": "classic modern peruvian metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit, quena, cedar andean andean classical charango, rompler workstation, andean tradition paired rows interlocking siku panpipes. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 528,
+  "score": 46.814,
   "config": {
     "traditions": [
       "peruvian_metal"
@@ -17,53 +17,53 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "ceramic_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 20.540499999999998,
-          "amp_make": 9.425,
-          "body_wood": 8.969999999999999,
-          "neck_wood": 0.5774999999999999,
+          "electric_technique": 13.0485,
+          "amp_make": 4.355,
+          "body_wood": 4.55,
+          "neck_wood": 0.105,
           "fretboard": 0.168,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.38549999999999995,
-          "string_material": 0.108,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.105,
           "bridge": 0.9099999999999999,
-          "scale_length": 8.969999999999999,
+          "scale_length": 0,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 0.3285
+          "string_tuning": 0.141
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.275,
-          "body_wood": 1.1549999999999998,
-          "pickup_config": 0.39,
-          "string_type": 4.875,
-          "scale_length_b": 0.5774999999999999,
-          "fretted_or_not": 0.11699999999999999,
-          "bass_technique": 3.805,
+          "amp_make": 2.5495,
+          "body_wood": 4.55,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.20700000000000002,
+          "fretted_or_not": 0.03899999999999999,
+          "bass_technique": 3.7630000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.7815,
+          "drum_technique": 3.75,
           "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
@@ -98,7 +98,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -112,11 +113,12 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0.063,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.2625,
-          "voice_multitrack_stack": 0.46199999999999997
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.273,
+          "voice_tessitura": 0
         }
       },
       {
@@ -127,8 +129,8 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 4.7125,
-          "quena_material": 0.39,
+          "wind_articulation": 0.9099999999999999,
+          "quena_material": 0.0705,
           "quena_pitch": -0.035
         }
       },
@@ -142,11 +144,11 @@
           "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 4.731,
-          "charango_back": 0.3585,
+          "plucked_traditional_technique": 0.975,
+          "charango_back": 0.20799999999999996,
           "charango_top_wood": 1,
           "charango_strings": 1,
-          "charango_string_material": 0.3
+          "charango_string_material": 0
         }
       },
       {
@@ -160,18 +162,45 @@
         "scores": {
           "electronic_technique": -0.07,
           "rompler_preset_bank": -0.035,
-          "rompler_context": 0.78,
+          "rompler_context": 0.39,
           "rompler_lineage": 0
+        }
+      },
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_malta"
+        },
+        "scores": {
+          "siku_construction": 1,
+          "siku_size": 0.03899999999999999
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique"
@@ -192,7 +221,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "quena": [
         "wind_articulation",
@@ -200,7 +230,9 @@
         "quena_pitch"
       ],
       "charango": [
+        "plucked_traditional_technique",
         "charango_back",
+        "charango_top_wood",
         "charango_strings",
         "charango_string_material"
       ],
@@ -209,6 +241,10 @@
         "rompler_preset_bank",
         "rompler_context",
         "rompler_lineage"
+      ],
+      "siku_panpipes": [
+        "siku_construction",
+        "siku_size"
       ]
     },
     "room": "live_room",
@@ -260,7 +296,27 @@
       "wind_articulation": "wind_folk_melodic",
       "charango_back": "charango_wood",
       "charango_strings": "charango_5_double",
-      "charango_string_material": "charango_nylon_canonical"
+      "charango_string_material": "charango_nylon_canonical",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "siku_construction": "siku_ira_arca_paired",
+      "siku_size": "siku_malta",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "charango_top_wood": "charango_cedar_top"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

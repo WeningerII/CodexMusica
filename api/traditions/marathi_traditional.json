@@ -2,10 +2,10 @@
   "id": "marathi_traditional",
   "name": "Marathi Traditional",
   "family": "vernacular",
-  "lineage": "Madhumalati and Sneha Dhopeshwarkar — Palna (Lullaby), Arnold Bake1938 field recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Marathi traditional song includes orally transmitted lullabies, narrative verses and other music connected with everyday and community life.",
   "recipe": "classic marathi traditional, ballad Poetry. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 142,
-  "score": 0.6,
+  "score": 0,
   "config": {
     "traditions": [
       "marathi_traditional"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       }

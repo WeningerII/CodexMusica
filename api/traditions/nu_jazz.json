@@ -5,7 +5,7 @@
   "lineage": "European studio idiom of roughly 1996-2006 developed by Jazzanova and Bugge Wesseltoft in Berlin and Oslo, St Germain in Paris and Nils Petter Molvær in Norway, laying live jazz soloing — trumpet, Rhodes, upright bass, saxophone — over programmed broken-beat and deep-house drum grids at 100-125 BPM, with modal static harmony, sampled and re-edited acoustic fragments, dub-style spatial effects, and arrangement decided at the sequencer rather than in performance.",
   "recipe": "classic mid-2000s nu jazz, improv On Frame, fusion branch, deep house house, American jazz soul jazz jazz organ. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sampler, analog poly synth, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 714,
-  "score": 413.55,
+  "score": 413.4,
   "config": {
     "traditions": [
       "nu_jazz",
@@ -25,11 +25,11 @@
         },
         "scores": {
           "keyboard_technique": 10.025,
-          "rhodes_model": 35.925,
+          "rhodes_model": 35.879999999999995,
           "rhodes_use": 0.585,
           "rhodes_tine_material": 0.09,
           "rhodes_hammer_tip": 0.06499999999999977,
-          "rhodes_pickup_position": 1.69
+          "rhodes_pickup_position": 1.585
         }
       },
       {

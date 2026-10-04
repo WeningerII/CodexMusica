@@ -2,10 +2,10 @@
   "id": "ainu_folk",
   "name": "Ainu folk",
   "family": "vernacular",
-  "lineage": "Ainu folk is represented by OKI — Kyoto tonkori and voice solo programme, 8 December 2022. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic early-2020s ainu folk, drone Modal, string branch. solo with instrumental accompaniment, single lead single track no stacking. epic accompaniment drone and melody tonkori. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 278,
-  "score": 20.655,
+  "lineage": "Ainu folk encompasses song, instrumental music and dance practices maintained and renewed by Ainu communities and musicians. Contemporary performers connect inherited melodies with new settings and collaborations.",
+  "recipe": "classic ainu folk, drone Modal, string branch. solo with instrumental accompaniment, single lead single track no stacking. epic accompaniment drone and melody tonkori. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 266,
+  "score": 24.878,
   "config": {
     "traditions": [
       "ainu_folk"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 4.16,
           "voice_ornament_system": 0.16799999999999998,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.189,
@@ -55,12 +55,12 @@
         "slots": {
           "tonkori_form": "tonkori_form_sakhalin",
           "tonkori_setting": "tonkori_setting_yukar",
-          "tonkori_build": "tonkori_build_nylon"
+          "tonkori_build": "tonkori_build_gut"
         },
         "scores": {
-          "tonkori_form": 9.295,
-          "tonkori_setting": 7.215,
-          "tonkori_build": 0.8679999999999999
+          "tonkori_form": 11.8565,
+          "tonkori_setting": 7.735,
+          "tonkori_build": -0.07
         }
       }
     ],

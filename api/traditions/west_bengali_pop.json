@@ -2,15 +2,56 @@
   "id": "west_bengali_pop",
   "name": "West Bengali Pop",
   "family": "pop",
-  "lineage": "KumarjitDey — complete self-published six-page,130-measure solo-piano arrangement Jawl Phoring — Anupam Roy, MuseScore score26579233, uploaded30July2025 and updated8September2025. Arranger metadata explicitly identifies one piano part and duration2:49. This is the entire separately published community arrangement, not an official film score or transcription of the original studio instrumentation; full notation and audio were not inspected. Zero singers in this instrumental edition. SVF identifies Anupam Roy as Hemlock Society music director and its own press archive identifies Jawlphoring as his composition; the original film vocal and backing roles are not transferred. Standard modern studio upright, connected legato phrasing and controlled live room are a coherent authored performance realization of the source-unspecified piano, not claimed arranger hardware, measured touch or recording location. No global tuning or capture chain specified. FunctionalSong.southAsianPop follows regional film/pop composition, with authored functional-harmonic song realization, not a claim that notation alone makes art music.",
-  "recipe": "classic west bengali pop, functional Song, south Asian pop branch. upright piano. live tracking.",
-  "recipe_chars": 96,
-  "score": 1.597,
+  "lineage": "West Bengali pop connects Bengali-language popular songs, songwriters and audiences in West Bengal. Film music, independent releases and live performances contribute overlapping strands to this regional field.",
+  "recipe": "classic west bengali pop, functional Song, south Asian pop branch. single lead single track no stacking. upright piano. shoebox concert hall.",
+  "recipe_chars": 141,
+  "score": 1.643,
   "config": {
     "traditions": [
       "west_bengali_pop"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.5670000000000001,
+          "voice_tessitura": 0
+        }
+      },
       {
         "id": "upright_piano",
         "slots": {
@@ -19,20 +60,39 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.25,
+          "keyboard_technique": -0.05,
           "upright_use": 0.34650000000000003,
           "upright_piano_size": 0
         }
       }
     ],
     "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
       "upright_piano": [
         "keyboard_technique",
         "upright_use",
         "upright_piano_size"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -47,11 +107,28 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
       "keyboard_technique": "keyboard_classical_legato",
       "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "upright_piano_size": "upright_piano_standard",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
     "pin_parts": true
   }

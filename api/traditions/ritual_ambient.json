@@ -2,10 +2,10 @@
   "id": "ritual_ambient",
   "name": "Ritual ambient",
   "family": "electronic",
-  "lineage": "Ceremonial ambient practice encompasses electronic production and vocal-centered ritual performance. Lustmord’s The Word as Power documents guest voices and long studio pieces; Phurpa’s performances foreground overtone chanting and ritual instruments. The selected model processes an ametrical vocal source through a sampler, without asserting one shared religion or an authentic monastic instrumentation.",
+  "lineage": "An experimental ambient field linking ceremonial imagery, incantatory voices and sustained sound. It encompasses electronic studio composition and ritual-centered performance, drawing on varied practices rather than one shared religious institution.",
   "recipe": "classic modern ritual ambient, experimental Elec, ambient branch, industrial noise experimental electric death industrial italian industrial. interlocked note trading, neutral third half flat, opera quality low larynx anchored, ametrical pitched chant free rhythm. layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
   "recipe_chars": 437,
-  "score": 66.797,
+  "score": 68.702,
   "config": {
     "traditions": [
       "ritual_ambient",
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.37499999999999994,
-          "voice_articulation": 13.064999999999996,
-          "voice_microtone": 10.789999999999992,
+          "voice_articulation": 10.789999999999996,
+          "voice_microtone": 8.905,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 2.065,
-          "voice_ensemble_config": 0.975,
+          "voice_estill_quality": 3.5999999999999996,
+          "voice_speech_song": 2.415,
+          "voice_ensemble_config": 0.195,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.285,
-          "voice_multitrack_stack": 4.322500000000001
+          "voice_processing_chain": 0.195,
+          "voice_multitrack_stack": 3.1525000000000003
         }
       },
       {
@@ -62,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 11.379999999999999,
-          "sampler_archetypes": 3.25,
-          "sampler_bit_depth": 1.04,
+          "electronic_technique": 11.78,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 1.4299999999999997,
           "sampler_workflow": 0.06499999999999999,
-          "sampler_classic_context": 23.5
+          "sampler_classic_context": 30.5
         }
       }
     ],

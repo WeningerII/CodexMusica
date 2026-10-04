@@ -3,9 +3,9 @@
   "name": "African-american classical",
   "family": "classical",
   "lineage": "African-american classical is represented here by Florence Price and Margaret Bonds / Michelle Cann — Revival (Curtis Studio, 2023). This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2020s african-american classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe": "classic early-2020s african-american classical, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 273,
-  "score": 94.552,
+  "score": 94.194,
   "config": {
     "traditions": [
       "african_american_classical"
@@ -17,7 +17,7 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -28,12 +28,12 @@
           "keyboard_technique": 9,
           "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.819,
-          "piano_hammer": 15.23025,
+          "piano_hammer": 15.11325,
           "piano_rim": 13.0545,
           "piano_soundboard": 12.93,
-          "piano_pinblock": 13.2435,
-          "piano_plate": 14.8965,
-          "piano_pitch_standard": 15.010749999999998
+          "piano_pinblock": 13.20075,
+          "piano_plate": 14.840250000000001,
+          "piano_pitch_standard": 14.86825
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "swiss_reggae",
   "name": "Swiss reggae",
   "family": "global",
-  "lineage": "Swiss reggae is represented by Los Billtones — Back In Time. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-  "recipe": "classic swiss reggae, bass System, reggae diaspora branch. humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, 17 ply hard rock maple 7 ply quartersawn maple wet sand cast grand piano, Hammond a 100 built in Leslie home spinet Leslie 147 6l6 tube 40w universal connection tonewheel organ, bass trombone trombone, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 450,
-  "score": 30.621,
+  "lineage": "Swiss reggae is a regional reggae field built through local bands, labels and performance communities. Musicians combine Jamaican-derived grooves and song structures with their own material, from roots-oriented arrangements to other contemporary reggae approaches.",
+  "recipe": "classic swiss reggae, bass System, reggae diaspora branch. group vocals. soft down tuning humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, upright piano, Hammond a 100 built in Leslie home spinet tonewheel organ, bass trombone trombone, rim clicks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 388,
+  "score": 31.158,
   "config": {
     "traditions": [
       "swiss_reggae"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.276,
+          "voice_ensemble_config": 0.5099999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0.37349999999999994,
           "voice_tessitura": 0
         }
       },
@@ -56,9 +56,9 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_60s_selmer",
-          "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
@@ -66,71 +66,59 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
-          "string_tuning": "drop_d"
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 0.7,
-          "amp_make": 1.1049999999999998,
-          "body_wood": 0.39,
+          "electric_technique": -0.07,
+          "amp_make": 0.9354999999999999,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": 0,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 1.3,
-          "scale_length": 0.39,
-          "string_gauge": 1.3,
-          "finish": 1.3,
-          "string_tuning": 0.4425
+          "bridge": 0.105,
+          "scale_length": 0.0315,
+          "string_gauge": 0.105,
+          "finish": 0,
+          "string_tuning": 1.3815
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.275,
+          "amp_make": 2.6650000000000005,
           "body_wood": 0,
-          "pickup_config": 0.39,
-          "string_type": 2.21,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0,
+          "pickup_config": 0,
+          "string_type": 2.6000000000000005,
+          "scale_length_b": 0.0315,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_solid_quartersawn",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.168,
-          "piano_hammer": 2.21,
-          "piano_rim": 2.21,
-          "piano_soundboard": 0.8799999999999999,
-          "piano_pinblock": 1.3,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 0.975
+          "keyboard_technique": -0.1,
+          "upright_use": 0,
+          "upright_piano_size": 0
         }
       },
       {
@@ -141,48 +129,48 @@
           "rotary_speed": "stopped_rotor",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_a100",
-          "leslie_cabinet_model": "leslie_147_alt"
+          "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
           "keyboard_technique": -0.1,
           "drawbar_setting": -0.05,
           "rotary_speed": 0.3,
-          "percussion_setting": 0.4425,
-          "tonewheel_model": 1.2349999999999999,
-          "leslie_cabinet_model": 1.2349999999999999
+          "percussion_setting": 0.6224999999999999,
+          "tonewheel_model": 2.535,
+          "leslie_cabinet_model": 0.0315
         }
       },
       {
         "id": "trombone",
         "slots": {
           "wind_articulation": "wind_split_tone_overblown",
-          "trombone_type": "bass_trombone",
+          "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_1half_g",
-          "trombone_mute": "cup_mute_trb",
+          "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
-          "trombone_maker_school": "trombone_yamaha_xeno"
+          "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.2349999999999999,
-          "trombone_type": 0.0315,
-          "trombone_mouthpiece": 2.6650000000000005,
+          "wind_articulation": -0.035,
+          "trombone_type": 0.325,
+          "trombone_mouthpiece": 3.055,
           "trombone_mute": 0,
-          "trombone_technique": 0.336,
-          "trombone_bell_metal": 0,
-          "trombone_maker_school": 0.39
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.18,
+          "trombone_maker_school": 0.105
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drum_technique": "rim_clicks_dub",
+          "drumhead": "calfskin_drum",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 0.75,
+          "drum_technique": 13.7,
+          "drumhead": 0.954,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -208,10 +196,26 @@
         "voice_tessitura"
       ],
       "electric_guitar_humbucker": [
-        "electric_technique"
+        "electric_technique",
+        "body_wood",
+        "neck_wood"
       ],
       "electric_bass": [
+        "body_wood",
+        "pickup_config",
         "bass_technique"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "tonewheel_organ": [
+        "keyboard_technique"
+      ],
+      "trombone": [
+        "trombone_mute",
+        "trombone_technique"
       ],
       "drum_kit": [
         "drum_technique"
@@ -255,7 +259,15 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "bass_technique": "fingerstyle_locked",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "rim_clicks_dub",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "pickup_config": "dual_single",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "big_band_punch",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

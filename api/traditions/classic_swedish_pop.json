@@ -5,7 +5,7 @@
   "lineage": "Historic Swedish pop represented by ABBA’s layered1970s studio arrangements. This model keeps piano, paired lead voices, guitar/bass/drums, the distinct marimba hook documented for Mamma Mia, and a bowed-string overdub color. It does not prescribe one ensemble for every Swedish-language or English-language classic.",
   "recipe": "classic classic swedish pop, functional Song, europop branch. one note per syllable, duet, thirds fifths octaves voicing. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marimba cremonese pre 1750 four layer system modern setup longer neck longer fingerboard violin orchestral, soft down tuning clean strummed single coil electric guitar, la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled drum kit. treated studio. large-diaphragm condenser, ultra-clean solid-state pre, colored vintage console, clean digital mastering EQ. Studer 30ips tape.",
   "recipe_chars": 614,
-  "score": 69.552,
+  "score": 69.512,
   "config": {
     "traditions": [
       "classic_swedish_pop"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.5625,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.39,
@@ -68,7 +68,7 @@
           "grand_piano_size": 0.3295,
           "grand_piano_brand": 0.39249999999999996,
           "piano_hammer": 7.6915000000000004,
-          "piano_rim": 8.9095,
+          "piano_rim": 8.773,
           "piano_soundboard": 7.75,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
@@ -106,7 +106,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.25,
+          "electric_technique": 8.289,
           "amp_make": 1.255,
           "body_wood": 0.298,
           "neck_wood": 0.298,
@@ -139,7 +139,7 @@
           "pickup_config": 0.2415,
           "string_type": 1.17,
           "scale_length_b": 0.3295,
-          "fretted_or_not": 0.3315,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -172,15 +172,15 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.05,
+          "bowed_technique": -0.035,
           "orch_strings": 0,
           "orch_top_wood": 0.325,
           "orch_back_wood": 0.325,
           "orch_varnish": 1.2,
           "orch_setup_period": 1.56,
-          "orch_bow": 1.6379999999999997,
+          "orch_bow": 1.3649999999999998,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.20700000000000002,
+          "orch_articulation": 0.33699999999999997,
           "orch_rosin": -0.035
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Belly dance is represented by George Abdo and the Flames of Araby Orchestra — Noora Ya Noora, from The Joy of Belly Dancing(1975). One positively documented branch is realized as an authored present-day studio arrangement. Exact instrument construction, keyboard architecture, technique and percussion-pattern defaults, room, microphone, other signal-chain choices, equal-tempered baseline and numeric axes are authored choices. They are not historical session facts, source-performer gear claims or universal characteristics of this category.",
   "recipe": "classic mid-1970s belly dance, groove Percussion. group vocals, live take. oud, qanun, fusion lead electric violin, European maple bosnian source flamed figure violin orchestral, oboe, electric bass, bongos, congas, darbuka, zills sagat, claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 344,
-  "score": 8.198,
+  "score": 8.415,
   "config": {
     "traditions": [
       "belly_dance"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.113,
+          "voice_ensemble_config": 1.2285000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.6719999999999999,
+          "voice_multitrack_stack": 0.819,
           "voice_tessitura": 0
         }
       },
@@ -67,7 +67,7 @@
           "plucked_traditional_technique": -0.15000000000000002,
           "oud_school": 0.39,
           "oud_strings": 0,
-          "oud_pick": 0,
+          "oud_pick": 0.105,
           "oud_body_wood": 0.0315,
           "oud_soundboard_wood": 0,
           "oud_string_material": 0
@@ -87,8 +87,8 @@
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
           "qanun_strings": 0,
-          "qanun_levers": 0,
-          "qanun_pick": 0.1995,
+          "qanun_levers": 0.063,
+          "qanun_pick": 0.2415,
           "qanun_body_wood": 0,
           "qanun_bridge_skin": 0.0315,
           "qanun_string_material": 0
@@ -103,8 +103,8 @@
         },
         "scores": {
           "electric_violin_form": 0.26,
-          "electric_violin_context": 1.885,
-          "electric_violin_pickup": 0.325
+          "electric_violin_context": 1.786,
+          "electric_violin_pickup": 0.2815
         }
       },
       {
@@ -124,13 +124,13 @@
         "scores": {
           "bowed_technique": -0.05,
           "orch_strings": 0,
-          "orch_top_wood": -0.07,
-          "orch_back_wood": 1.56,
+          "orch_top_wood": -0.1,
+          "orch_back_wood": 1.3679999999999999,
           "orch_varnish": -0.1,
           "orch_setup_period": 0.26,
           "orch_bow": 0,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0,
+          "orch_articulation": 0.0315,
           "orch_rosin": -0.1
         }
       },
@@ -148,7 +148,7 @@
           "oboe_reed": 0.168,
           "oboe_class": 0,
           "oboe_body_wood": -0.035,
-          "oboe_maker_school": 0
+          "oboe_maker_school": 0.1365
         }
       },
       {
@@ -225,7 +225,7 @@
           "zills_sagat_articulation": "zills_sagat_open_ringing"
         },
         "scores": {
-          "zills_sagat_articulation": 0.39
+          "zills_sagat_articulation": 0.3315
         }
       },
       {

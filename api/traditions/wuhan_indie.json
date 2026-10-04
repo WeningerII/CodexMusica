@@ -2,10 +2,10 @@
   "id": "wuhan_indie",
   "name": "Wuhan indie",
   "family": "rock_punk",
-  "lineage": "Flip Side — Never Ending Journey, full archival release of eight originals and three acoustic bonus tracks (2006). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2000s wuhan indie, distorted Rock, alternative branch. unprocessed natural acoustic. conventional tuning standard pitch humbucker electric low mid rich spectrum full phosphor bronze bronze acoustic guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 409,
-  "score": 38.029,
+  "lineage": "Wuhan’s independent-music community includes alternative rock, indie pop and locally produced guitar music. Bands such as Flip Side connect the city’s scene with wider Chinese independent networks.",
+  "recipe": "classic wuhan indie, distorted Rock, alternative branch. humbucker electric dreadnought acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 224,
+  "score": 32.862,
   "config": {
     "traditions": [
       "wuhan_indie"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.668,
+          "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,44 +70,44 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.6000000000000005,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 2.873,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_dread",
         "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
+          "acoustic_technique": 2.45,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.05,
-          "string_acoustic": 1.69,
-          "acoustic_om_technique": 0.05000000000000002
+          "back_sides": 0.27299999999999996,
+          "string_acoustic": 0.105
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -116,12 +116,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "pickup_config": 0,
+          "body_wood": 0.40950000000000003,
+          "pickup_config": 0.40950000000000003,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -141,16 +141,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.25,
-          "drumhead": 1.4365,
+          "drum_technique": 6.25,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.8415000000000001,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 6.7815,
-          "cymbal_lathing": 8.1865,
+          "cymbal_hammering": 8.731499999999999,
+          "cymbal_lathing": 9.1365,
           "cymbal_finish": 0
         }
       }
@@ -190,12 +190,12 @@
         "finish",
         "string_tuning"
       ],
-      "acoustic_guitar_om": [
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
       ],
       "electric_bass": [
         "amp_make",
@@ -221,15 +221,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -238,7 +238,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -250,7 +250,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -259,8 +259,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_power_chord",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -270,11 +270,10 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "top_wood": "sitka_om",
-      "back_sides": "rosewood_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_fingerpicked",
-      "pickup_config": "split_coil",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -290,14 +289,9 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish"
+      "cymbal_finish": "traditional_finish",
+      "acoustic_technique": "acoustic_strummed_ringing"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

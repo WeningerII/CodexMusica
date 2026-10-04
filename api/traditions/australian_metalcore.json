@@ -2,10 +2,10 @@
   "id": "australian_metalcore",
   "name": "Australian metalcore",
   "family": "rock_punk",
-  "lineage": "Australian metal practice documented by Parkway Drive’s own guitarist, represented here by a specifically selected low-tuned metalcore branch.",
-  "recipe": "classic modern australian metalcore, distorted Rock, metal branch. basswood mahogany rosewood low output no compression palm muted humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 389,
-  "score": 36.216,
+  "lineage": "Australian metalcore brings heavy metal guitar technique together with hardcore-derived rhythmic force. Bands such as Byron Bay’s Parkway Drive have carried its low-tuned riffing and emphatic ensemble attacks into international touring and recording networks.",
+  "recipe": "classic modern australian metalcore, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 471,
+  "score": 42.76,
   "config": {
     "traditions": [
       "australian_metalcore"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
@@ -29,25 +29,25 @@
           "string_tuning": "drop_b"
         },
         "scores": {
-          "electric_technique": 6.92,
-          "amp_make": 0,
+          "electric_technique": 7.26275,
+          "amp_make": 3.0550000000000006,
           "body_wood": 4.9399999999999995,
           "neck_wood": 1.69,
           "fretboard": 1.625,
-          "pickup_magnet": 0,
-          "pickup_winding": 1.64725,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 1.69,
           "string_material": 0.105,
           "bridge": 1.69,
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0.105,
-          "string_tuning": 0.17925
+          "string_tuning": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 2.7300000000000004,
           "body_wood": 1.69,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 1.9900000000000002,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 3.7,
+          "scale_length_b": 1.51075,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7945,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,9 +75,9 @@
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 1.69,
-          "drum_kit_kick_pedal": 0.78
+          "drum_kit_kick_pedal": 0.39
         }
       },
       {
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
+          "voice_processing_chain": 0.10575,
           "voice_multitrack_stack": 0.273
         }
       }
@@ -123,7 +123,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "pickup_magnet",
         "string_material",
         "bridge",
@@ -131,7 +130,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "pickup_config",
         "string_type",
         "scale_length_b",
@@ -209,7 +207,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "drumhead": "double_coated",
       "drum_kit_kick_pedal": "dk_kick_double"

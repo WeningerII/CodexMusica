@@ -2,10 +2,10 @@
   "id": "cumbia_lagunera",
   "name": "Cumbia lagunera",
   "family": "electronic",
-  "lineage": "Cumbia Xillers — complete documented trio synthesis/sequencing and timbales practice, April2020 interview. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic cumbia lagunera, electronic Dance, Latin electric branch. duet, live take. electronic synthesis sequencing unspecified, timbales stick played. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 249,
-  "score": 2.535,
+  "lineage": "Cumbia lagunera belongs to the urban musical communities of the Comarca Lagunera, connecting Torreón, Gómez Palacio and Lerdo. Tropicalísimo Apache and Chicos de Barrio helped establish its regional identity, while later artists incorporate electronic production and rap.",
+  "recipe": "classic cumbia lagunera, electronic Dance, Latin electric branch. electronic synthesis sequencing unspecified, timbales stick played. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 232,
+  "score": 1.02,
   "config": {
     "traditions": [
       "cumbia_lagunera"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9629999999999999,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.9629999999999999,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "electronic_synthesis_sequencing_identity": "electronic_synthesis_sequencing_architecture_unspecified"
         },
         "scores": {
-          "electronic_synthesis_sequencing_identity": 0.105
+          "electronic_synthesis_sequencing_identity": 0.39
         }
       },
       {
@@ -133,7 +133,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",

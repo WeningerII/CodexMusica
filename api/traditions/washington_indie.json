@@ -2,10 +2,10 @@
   "id": "washington_indie",
   "name": "Washington indie",
   "family": "rock_punk",
-  "lineage": "Bad Optics — Death Cult Blues (2026), complete three-track release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s washington indie, distorted Rock, punk branch. one note per syllable, group vocals. conventional tuning standard pitch humbucker electric guitar, electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, analog poly synth, glockenspiel, credited auxiliary percussion, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 422,
-  "score": 38.522,
+  "lineage": "Washington state’s independent-music scene includes Seattle and other local networks working across rock, punk, pop and experimental approaches. Bad Optics represents an art-punk strand within this wider field.",
+  "recipe": "classic washington indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth, glockenspiel, credited auxiliary percussion, saxophone. live tracking.",
+  "recipe_chars": 276,
+  "score": 42.747,
   "config": {
     "traditions": [
       "washington_indie"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
-          "voice_ensemble_config": 1.305,
+          "voice_speech_song": 0.0945,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,27 +70,27 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.6000000000000005,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.441,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1.6,
+          "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
-          "pickup_config": 0,
+          "body_wood": 0,
+          "pickup_config": 0.1365,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 9.0315,
+          "bass_technique": 15.0315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.75,
-          "drumhead": 1.3,
+          "drum_technique": 6.25,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.405,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
-          "cymbal_alloy": 3.3730000000000007,
-          "cymbal_hammering": 3.9230000000000005,
-          "cymbal_lathing": 3.95,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 8.972999999999999,
+          "cymbal_lathing": 8.7,
           "cymbal_finish": 0
         }
       },
@@ -147,9 +147,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 0.3,
-          "poly_voices": 0.3,
-          "poly_maker_lineage": 0.325
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -186,12 +186,12 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.2,
-          "sax_size": 0.44999999999999996,
+          "wind_articulation": -0.1,
+          "sax_size": -0.15000000000000002,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.3,
-          "sax_technique": 0.25,
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.05,
           "sax_maker_school": -0.07
         }
       }
@@ -278,15 +278,15 @@
         "sax_maker_school"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -295,7 +295,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -307,7 +307,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -316,8 +316,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_power_chord",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -327,7 +327,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -360,12 +360,6 @@
       "sax_technique": "sax_continuous_legato",
       "sax_maker_school": "sax_selmer_mark_vi"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "girl_group",
   "name": "Girl group",
   "family": "pop",
-  "lineage": "SWV — complete NPR Tiny Desk concert, June2024. Authored complete live R&B ensemble includes seven voice roles, neutral electronic keys, clean-strummed humbucker guitar, fingerstyle electric bass, stick kit and trumpet/trombone/saxophone section. Alder/maple guitar, soapbar bass and specific wind sizes/materials/makes are editorial choices, not source equipment IDs. B-flat trumpet, tenor trombone and alto sax model the positively named horn families; source does not specify those sizes. Open brass, ensemble attacks and sustained sax phrases are authored arrangement gestures. Bare keys keep unknown architecture. Neutral vocal physiology and no global temperament. Full seven-singer live configuration follows named source performers, without fabricated harmonic-part count or overdub assumptions. Modern studio chain is authored, not concert hardware.",
-  "recipe": "classic girl group, functional Song, soul R&B branch. group vocals, live take. electronic keyboard unspecified, alder maple clean strummed humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, alto yellow brass modern standard ensemble saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 16-bit digital.",
-  "recipe_chars": 712,
-  "score": 129.713,
+  "lineage": "Girl group music centers ensembles of women singers across pop and R&B history. Earlier vocal-group traditions connect with later soul, contemporary R&B and international pop communities, extending beyond a single decade or production style.",
+  "recipe": "classic girl group, functional Song, soul R&B branch. group vocals. electronic keyboard unspecified, clean strummed humbucker electric guitar, pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 16-bit digital.",
+  "recipe_chars": 372,
+  "score": 35.291,
   "config": {
     "traditions": [
       "girl_group"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 9.172999999999998,
+          "voice_ensemble_config": 3.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 5.472999999999999,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -81,17 +81,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 8.05,
+          "electric_technique": 7.45,
           "amp_make": 0,
-          "body_wood": 2.9000000000000004,
-          "neck_wood": 1.678,
+          "body_wood": 0,
+          "neck_wood": 0.378,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.273,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.6720000000000002,
-          "string_gauge": 1.6735,
+          "string_gauge": 0.0735,
           "finish": 0,
           "string_tuning": 0
         }
@@ -110,12 +110,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.9000000000000004,
-          "pickup_config": 3.4880000000000004,
+          "body_wood": 0,
+          "pickup_config": 0.588,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0.0735,
-          "bass_technique": 4.95,
+          "bass_technique": 6.15,
           "electric_bass_string_configuration": 0
         }
       },
@@ -138,77 +138,14 @@
           "drum_technique": -0.035,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.3315000000000001,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
+          "bearing_edges": 0.6930000000000001,
           "snare_wires": 0,
-          "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 9.1095,
-          "cymbal_lathing": 10.3,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.809500000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
-        },
-        "scores": {
-          "wind_articulation": 9.879,
-          "brass_size": 0.378,
-          "trumpet_mouthpiece": 3.5,
-          "brass_mute": 1.7365000000000002,
-          "trumpet_technique": 9.879,
-          "trumpet_bell_metal": 1.69,
-          "trumpet_maker_school": 1.302
-        }
-      },
-      {
-        "id": "trombone",
-        "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "trombone_type": "tenor_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
-          "trombone_mute": "no_mute_trb",
-          "trombone_technique": "big_band_punch",
-          "trombone_bell_metal": "trombone_yellow_brass",
-          "trombone_maker_school": "trombone_bach_42"
-        },
-        "scores": {
-          "wind_articulation": 9.879,
-          "trombone_type": -0.035,
-          "trombone_mouthpiece": 4.5,
-          "trombone_mute": 1.7365000000000002,
-          "trombone_technique": 1.69,
-          "trombone_bell_metal": 1.69,
-          "trombone_maker_school": 1.69
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "sax_size": "alto_sax",
-          "sax_reed": "medium_reed",
-          "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": 9.879,
-          "sax_size": 1.625,
-          "sax_reed": 0,
-          "sax_body_alloy": 4.909500000000001,
-          "sax_mouthpiece": 0.0315,
-          "sax_technique": -0.035,
-          "sax_maker_school": -0.07
         }
       }
     ],
@@ -273,33 +210,6 @@
         "cymbal_hammering",
         "cymbal_lathing",
         "cymbal_finish"
-      ],
-      "trumpet": [
-        "wind_articulation",
-        "brass_size",
-        "trumpet_mouthpiece",
-        "brass_mute",
-        "trumpet_technique",
-        "trumpet_bell_metal",
-        "trumpet_maker_school"
-      ],
-      "trombone": [
-        "wind_articulation",
-        "trombone_type",
-        "trombone_mouthpiece",
-        "trombone_mute",
-        "trombone_technique",
-        "trombone_bell_metal",
-        "trombone_maker_school"
-      ],
-      "saxophone": [
-        "wind_articulation",
-        "sax_size",
-        "sax_reed",
-        "sax_body_alloy",
-        "sax_mouthpiece",
-        "sax_technique",
-        "sax_maker_school"
       ]
     },
     "room": "treated_studio",
@@ -367,26 +277,7 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "wind_articulation": "wind_punchy_ensemble",
-      "brass_size": "trumpet_b_flat",
-      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-      "brass_mute": "no_mute_brass",
-      "trumpet_technique": "trumpet_punchy_ensemble",
-      "trumpet_bell_metal": "trumpet_yellow_brass",
-      "trumpet_maker_school": "trumpet_bach_stradivarius",
-      "trombone_type": "tenor_trombone",
-      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
-      "trombone_mute": "no_mute_trb",
-      "trombone_technique": "big_band_punch",
-      "trombone_bell_metal": "trombone_yellow_brass",
-      "trombone_maker_school": "trombone_bach_42",
-      "sax_size": "alto_sax",
-      "sax_reed": "medium_reed",
-      "sax_body_alloy": "yellow_brass_sax",
-      "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_continuous_legato",
-      "sax_maker_school": "sax_selmer_mark_vi"
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

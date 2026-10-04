@@ -2,10 +2,10 @@
   "id": "classic_house",
   "name": "Classic house",
   "family": "electronic",
-  "lineage": "A retrospective house discovery cluster spanning foundational and later established producers, including Marshall Jefferson, Todd Terry, Kenny Dope and Louie Vega. This recipe selects the early Masters at Work sample-and-keyboard branch documented in their own account of working together from late 1989–1990.",
-  "recipe": "classic 1989-1990 classic house, electronic Dance, house branch, chicago house house, garage house u s house new york garage house. sampler drum machine, sampler, analog synth, pocket ostinato rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 413,
-  "score": 71.555,
+  "lineage": "A heritage-oriented house music field encompassing foundational producers and enduring club repertoires. Chicago and New York traditions connect drum-machine rhythms, disco-derived samples, soulful keyboard harmony and vocal hooks.",
+  "recipe": "classic modern classic house, electronic Dance, house branch, chicago house house, garage house u s house new york garage house. sampler drum machine, sampler, analog synth, pocket ostinato rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 410,
+  "score": 71.205,
   "config": {
     "traditions": [
       "classic_house",
@@ -42,7 +42,7 @@
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": -9.714451465470119e-18,
-          "sampler_classic_context": 57.36000000000001
+          "sampler_classic_context": 57.010000000000005
         }
       },
       {
@@ -57,8 +57,8 @@
         "scores": {
           "electronic_technique": 0.585,
           "oscillator": 0.78,
-          "filter_topology": 0.39,
-          "envelope": 0,
+          "filter_topology": 0.09,
+          "envelope": 0.3,
           "modulation": 0
         }
       },
@@ -75,7 +75,7 @@
         "scores": {
           "keyboard_technique": 3.2,
           "rhodes_model": 1.2349999999999999,
-          "rhodes_use": 4.42,
+          "rhodes_use": 5.720000000000001,
           "rhodes_tine_material": -1.155,
           "rhodes_hammer_tip": -0.5950000000000001,
           "rhodes_pickup_position": 0.195

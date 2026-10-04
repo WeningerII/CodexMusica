@@ -2,10 +2,10 @@
   "id": "wind_quintet",
   "name": "Wind quintet",
   "family": "classical",
-  "lineage": "New London Chamber Ensemble — Nielsen Wind Quintet Op43, Meridian CDE84580 tracks1–16. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic wind quintet, art Music. flute, oboe, english french horn, grenadilla African blackwood traditional clarinet, bassoon. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 225,
-  "score": 21.372,
+  "lineage": "The standard woodwind quintet brings together flute, oboe, clarinet, horn and bassoon in a chamber ensemble. Composers explore the contrast and blend of these five instrumental colors.",
+  "recipe": "classic wind quintet, art Music. flute, oboe, grenadilla African blackwood traditional clarinet, projecting brass french horn, bassoon. shoebox concert hall.",
+  "recipe_chars": 157,
+  "score": 24.408,
   "config": {
     "traditions": [
       "wind_quintet"
@@ -16,16 +16,16 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "flute_size": "concert_flute",
-          "flute_material": "silver_flute",
+          "flute_material": "gold_flute",
           "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_powell_boston"
+          "flute_maker_school": "flute_muramatsu"
         },
         "scores": {
-          "wind_articulation": 2.8,
+          "wind_articulation": 2.8675,
           "flute_size": 0,
-          "flute_material": 0.0315,
-          "flute_technique": 0,
-          "flute_maker_school": 0.0315
+          "flute_material": 0.063,
+          "flute_technique": 0.3675,
+          "flute_maker_school": 0
         }
       },
       {
@@ -38,26 +38,11 @@
           "oboe_maker_school": "oboe_loree_paris"
         },
         "scores": {
-          "wind_articulation": 2.8,
-          "oboe_reed": 0.0315,
+          "wind_articulation": 2.8675,
+          "oboe_reed": 0.1365,
           "oboe_class": 0.0315,
-          "oboe_body_wood": -0.035,
-          "oboe_maker_school": 0
-        }
-      },
-      {
-        "id": "english_horn",
-        "slots": {
-          "wind_articulation": "wind_classical_legato",
-          "english_horn_school": "english_horn_american",
-          "english_horn_context": "english_horn_orch_solo",
-          "english_horn_body_wood": "english_horn_grenadilla"
-        },
-        "scores": {
-          "wind_articulation": 2.8,
-          "english_horn_school": 0.0315,
-          "english_horn_context": 0,
-          "english_horn_body_wood": -0.05
+          "oboe_body_wood": -0.05,
+          "oboe_maker_school": 0.315
         }
       },
       {
@@ -65,16 +50,16 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "clarinet_body": "grenadilla_clarinet",
-          "clarinet_size": "a_clarinet",
+          "clarinet_size": "b_flat_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.8,
+          "wind_articulation": 2.8675,
           "clarinet_body": 2.5365,
-          "clarinet_size": 1.3,
-          "clarinet_reed": 0,
-          "clarinet_articulation": 0
+          "clarinet_size": 0,
+          "clarinet_reed": 1.7315,
+          "clarinet_articulation": 0.3675
         }
       },
       {
@@ -85,9 +70,9 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 2.8,
-          "french_horn_bore": 0.0315,
-          "french_horn_metal": 0
+          "wind_articulation": 2.8675,
+          "french_horn_bore": 1.0315,
+          "french_horn_metal": 1
         }
       },
       {
@@ -100,11 +85,11 @@
           "bassoon_context": "bassoon_orch"
         },
         "scores": {
-          "wind_articulation": 2.8,
-          "bassoon_school": 0,
-          "bassoon_body_wood": 0.3,
+          "wind_articulation": 2.8675,
+          "bassoon_school": 1.7,
+          "bassoon_body_wood": 0,
           "bassoon_reed": 0,
-          "bassoon_context": 0.3315
+          "bassoon_context": 0.84
         }
       }
     ],
@@ -122,12 +107,6 @@
         "oboe_class",
         "oboe_body_wood",
         "oboe_maker_school"
-      ],
-      "english_horn": [
-        "wind_articulation",
-        "english_horn_school",
-        "english_horn_context",
-        "english_horn_body_wood"
       ],
       "clarinet": [
         "wind_articulation",
@@ -149,15 +128,15 @@
         "bassoon_context"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -166,22 +145,19 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "wind_articulation": "wind_classical_legato",
       "flute_size": "concert_flute",
-      "flute_material": "silver_flute",
+      "flute_material": "gold_flute",
       "flute_technique": "classical_flute",
-      "flute_maker_school": "flute_powell_boston",
+      "flute_maker_school": "flute_muramatsu",
       "oboe_reed": "oboe_american_scrape",
       "oboe_class": "oboe_modern",
       "oboe_body_wood": "oboe_grenadilla_canonical",
       "oboe_maker_school": "oboe_loree_paris",
-      "english_horn_school": "english_horn_american",
-      "english_horn_context": "english_horn_orch_solo",
-      "english_horn_body_wood": "english_horn_grenadilla",
       "clarinet_body": "grenadilla_clarinet",
-      "clarinet_size": "a_clarinet",
+      "clarinet_size": "b_flat_clarinet",
       "clarinet_reed": "medium_clarinet_reed",
       "clarinet_articulation": "tongued_clarinet",
       "french_horn_bore": "french_horn_full",
@@ -191,12 +167,6 @@
       "bassoon_reed": "bassoon_glotin_cane",
       "bassoon_context": "bassoon_orch"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

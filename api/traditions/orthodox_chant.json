@@ -3,14 +3,14 @@
   "name": "Orthodox chant (Slavonic obikhod and znamenny)",
   "family": "classical",
   "lineage": "Church Slavonic liturgical singing of the Russian, Ukrainian and Serbian Orthodox churches, from eleventh-century znamenny neumes through the seventeenth-century shift to staff notation and the nineteenth-century Obikhod harmonizations of Bortniansky, Lvov and Bakhmetev — unaccompanied mixed or male choir in four parts with the melody in the tenor, deep octavist basses, unmetered text-driven declamation in the eight-tone system, and no instruments of any kind.",
-  "recipe": "classic Eastern European early-1940s orthodox chant, ritual Devotional, Russian orthodox branch, christian gospel anglican choral, western early art music english renaissance anglican choral evensong. thick, declaimed, slow rate, interlocked note trading. choir russian orthodox, choir cathedral satb. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 450,
-  "score": 169.05,
+  "recipe": "classic Eastern European early-1940s orthodox chant, ritual Devotional, Russian orthodox branch, christian gospel anglican choral, western early art music anglican choral evensong anglican liturgy. thick, declaimed, slow rate, interlocked note trading. choir russian orthodox, choir cathedral satb. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 447,
+  "score": 156.627,
   "config": {
     "traditions": [
       "orthodox_chant",
-      "english_renaissance",
-      "anglican_choral_evensong"
+      "anglican_choral_evensong",
+      "anglican_liturgy"
     ],
     "instruments": [
       {
@@ -20,8 +20,8 @@
           "use": "orthodox_divine_liturgy"
         },
         "scores": {
-          "voicing": 3.185,
-          "use": 2.535
+          "voicing": 3.38,
+          "use": 2.73
         }
       },
       {
@@ -40,27 +40,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 10.335,
-          "voice_quality": 16.994999999999997,
+          "voice_register": 11.384999999999998,
+          "voice_quality": 18.345,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.265,
-          "voice_articulation": 19.564999999999998,
-          "voice_microtone": 17.87499999999999,
-          "voice_tradition": 10.125,
-          "voice_mechanism_compound": 3.8,
-          "voice_estill_quality": 8.049999999999999,
-          "voice_speech_song": 21.709999999999994,
-          "voice_ensemble_config": 24.374999999999996,
-          "voice_ornament_system": 8.15,
-          "voice_pitch_organization": 4.994999999999999,
+          "voice_vibrato": 4.875,
+          "voice_articulation": 15.794999999999995,
+          "voice_microtone": 13.909999999999993,
+          "voice_tradition": 10.475,
+          "voice_mechanism_compound": 4.300000000000001,
+          "voice_estill_quality": 9.049999999999999,
+          "voice_speech_song": 18.687499999999996,
+          "voice_ensemble_config": 20.799999999999997,
+          "voice_ornament_system": 9.15,
+          "voice_pitch_organization": 3.995,
           "voice_processing_chain": 8.905000000000001,
-          "voice_multitrack_stack": 3.4450000000000016
+          "voice_multitrack_stack": 4.030000000000002
         }
       },
       {
@@ -70,7 +70,7 @@
           "repertoire": "renaissance_polyphony"
         },
         "scores": {
-          "voicing": 4.419999999999999,
+          "voicing": 5.395,
           "repertoire": 0.195
         }
       }

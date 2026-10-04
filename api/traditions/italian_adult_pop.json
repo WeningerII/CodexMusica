@@ -2,10 +2,10 @@
   "id": "italian_adult_pop",
   "name": "Italian adult pop",
   "family": "pop",
-  "lineage": "Italian adult pop is represented here by Niccolò Fabi — solo guitar-and-voice branch. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic italian adult pop, functional Song, pop rock branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 266,
-  "score": 17.53,
+  "lineage": "Italian adult pop connects mature popular songwriting with Italy’s cantautore tradition and contemporary melodic styles.",
+  "recipe": "classic italian adult pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 265,
+  "score": 11.318,
   "config": {
     "traditions": [
       "italian_adult_pop"
@@ -17,15 +17,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.586,
+          "acoustic_technique": 7.75,
           "string_tuning": 0,
-          "top_wood": 0.2415,
-          "back_sides": 0.063,
-          "string_acoustic": 0.3045
+          "top_wood": 0.273,
+          "back_sides": 0.105,
+          "string_acoustic": 0.6194999999999999
         }
       },
       {
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.7700000000000005,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.234
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.354
         }
       }
     ],

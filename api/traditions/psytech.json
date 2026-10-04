@@ -2,28 +2,58 @@
   "id": "psytech",
   "name": "Psytech",
   "family": "electronic",
-  "lineage": "DJ Basilisk — entire five-hour Esoteric Expanse 1, the 81-selection uncut release. Artist documents Traktor 3/Korg Nanokontrol mixing in three sessions, Audacity assembly and Ableton mastering. Preserve the complete mixed programme, including ambient, electro and IDM passages; no assertion that every record is Psytech. This models positive DJ selection, beatmatching and blending, not an undocumented production master or guessed constituent instruments. Embedded vocal count is unknown; no added live voice cards. Existing neutral DJ playback/mixing owner models the documented operation at coarse catalog resolution. Its source-unspecified identity does not contradict the separately retained named software/controller evidence or simulate their exact controls. Authored controlled live-room presentation, not measured source acoustics. No global tuning, guessed physical decks, hardware synthesis or live one-take assertion. Mastering and assembly are documented production processes, not extra instrumental performers.",
-  "recipe": "classic psytech, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 96,
-  "score": 0,
+  "lineage": "Psytech connects psychedelic techno producers, labels and audiences, including the Techgnosis network. It overlaps minimal techno and psychedelic dance music while developing its own patterns of circulation and sound design.",
+  "recipe": "classic psytech, electronic Dance, techno branch. analog poly synth, drum machine analog. live tracking.",
+  "recipe_chars": 104,
+  "score": 0.101,
   "config": {
     "traditions": [
       "psytech"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.07,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0.2415,
+          "shuffle_quantize": -0.035
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +73,14 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true
   }

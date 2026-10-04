@@ -2,10 +2,10 @@
   "id": "ghanaian_traditional",
   "name": "Ghanaian Traditional",
   "family": "vernacular",
-  "lineage": "Three lunsi drummers led by A.B. Lunnaa in Accra — complete Harvest Songs (1), Smithsonian Folkways FW04324_101, issued1978,3:03. Collector notes document three double-membrane stick-beaten hourglass pressure drums: lead changing pitches and rhythmic statements against two responding drummers. Closing female ululations are explicitly the only vocal utterances and are retained; their headcount is unknown. The repertoire calls an earth priest out for harvest consultation, but this recording is explicitly a reenactment outside its original ritual context. No flute, fiddle, rattle or bottle from other album tracks is imported. No personal audio audition claimed. Existing Donno (Dagomba hourglass talking drum) owner represents all three source lunsi roles, not one inferred player. Its standard mid-register size and plain goatskin heads are coherent authored construction choices, not measured original sizes or material. Source lead/response pitch differentiation and3players are retained in prose; the card has no player-count or per-player register controls. Closing ululations use source-unspecified vocal delivery/physiology and a live group realization, with no sung text, exact headcount or harmony inferred. Moderate effort, neutral tract and unprocessed delivery are authored neutral controls, not measured field physiology or equipment. Spacious hall-like reverberant listening is an explicitly authored presentation of this documented reenactment, not a claim that the field source was a concert or recorded in a hall. No signal chain or global tuning is imposed. Collector approximate pitch transcriptions are not treated as equal-temperament proof. Broad ritualDevotional parent follows positively documented harvest-priest ceremonial function, with the out-of-context reenactment disclosed.",
-  "recipe": "classic ghanaian traditional, ritual Devotional. group vocals, unprocessed natural acoustic, live take. donno talking drum. shoebox concert hall.",
-  "recipe_chars": 145,
-  "score": 11.093,
+  "lineage": "Ghanaian traditional music encompasses distinct community repertoires, ceremonies and instrumental practices. Dagomba pressure-drum ensembles form one important strand within this varied national field.",
+  "recipe": "classic ghanaian traditional, ritual Devotional. donno talking drum. shoebox concert hall.",
+  "recipe_chars": 90,
+  "score": 1.627,
   "config": {
     "traditions": [
       "ghanaian_traditional"
@@ -18,8 +18,8 @@
           "donno_head": "donno_plain"
         },
         "scores": {
-          "donno_size": 2.663,
-          "donno_head": 2.6944999999999997
+          "donno_size": 0.363,
+          "donno_head": 0.39
         }
       },
       {
@@ -55,11 +55,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.8205,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3945,
-          "voice_multitrack_stack": 1.5205,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }

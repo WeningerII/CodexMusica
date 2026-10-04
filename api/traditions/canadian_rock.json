@@ -2,10 +2,10 @@
   "id": "canadian_rock",
   "name": "Canadian rock",
   "family": "rock_punk",
-  "lineage": "A broad Canadian rock scene with a selected contemporary Nickelback branch: concise vocal songs and forceful guitar-led band arrangements. The entry does not reduce the whole national scene to one band or imply a fixed national instrument set.",
-  "recipe": "classic canadian rock, distorted Rock, regional branch. one note per syllable, solo with instrumental accompaniment, equal tempered 12 fixed pitch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, mesa/boogie dual rectifier, parallel compression, parametric EQ. 24-bit digital digital delay.",
-  "recipe_chars": 436,
-  "score": 46.542,
+  "lineage": "Canadian rock encompasses regional scenes and successive generations of guitar bands, from melodic songwriting to forceful hard rock. Studio production and live performance connect direct vocal hooks with a broad range of amplified sounds.",
+  "recipe": "classic canadian rock, distorted Rock, regional branch. one note per syllable, solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, mesa/boogie dual rectifier, parallel compression, parametric EQ. 24-bit digital digital delay.",
+  "recipe_chars": 469,
+  "score": 52.156,
   "config": {
     "traditions": [
       "canadian_rock"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
@@ -30,24 +30,24 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 0,
-          "body_wood": 0.663,
-          "neck_wood": 0.3,
-          "fretboard": 0.25,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.063,
+          "neck_wood": 0,
+          "fretboard": -0.05,
           "pickup_magnet": 0,
-          "pickup_winding": 0.3,
-          "string_material": 0.78,
-          "bridge": 0.3,
-          "scale_length": 0.3,
-          "string_gauge": 0.3,
+          "pickup_winding": 0,
+          "string_material": 0.273,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 1.17
+          "string_tuning": 0.546
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder",
           "pickup_config": "split_coil",
           "string_type": "roundwound_n",
@@ -57,11 +57,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0.663,
+          "amp_make": 6.175,
+          "body_wood": 0.063,
           "pickup_config": 0,
-          "string_type": 0.3,
-          "scale_length_b": 0.363,
+          "string_type": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0.063,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -83,16 +83,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.25,
-          "drumhead": 0.39,
+          "drum_technique": 11.25,
+          "drumhead": 0.147,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.6,
-          "shell_thickness": 0.363,
-          "bearing_edges": 0.78,
-          "snare_wires": 0.3,
+          "shell_wood": 0,
+          "shell_thickness": 0.063,
+          "bearing_edges": 0.273,
+          "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 11.117999999999999,
-          "cymbal_lathing": 11.1075,
+          "cymbal_hammering": 11.317999999999998,
+          "cymbal_lathing": 11.3075,
           "cymbal_finish": 0
         }
       },
@@ -130,7 +130,7 @@
           "voice_speech_song": 1.3,
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0
         }
@@ -139,7 +139,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -224,7 +222,6 @@
       "scale_length": "scale_gibson_h",
       "finish": "nitro_hum",
       "string_tuning": "drop_c",
-      "amp_make": "amp_unspecified",
       "pickup_config": "split_coil",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
@@ -270,6 +267,8 @@
     "chain_fx": [
       "digital_delay"
     ],
-    "chain_amp": "amp_mesa_dual_rectifier"
+    "chain_amp": "amp_mesa_dual_rectifier",
+    "chain_amp_guitar": "amp_mesa_dual_rectifier",
+    "chain_amp_bass": "amp_unspecified"
   }
 }

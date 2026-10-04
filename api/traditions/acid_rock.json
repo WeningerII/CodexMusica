@@ -3,14 +3,14 @@
   "name": "Acid Rock",
   "family": "rock",
   "lineage": "San Francisco and Los Angeles psychedelic rock of 1966-1970 codified by the Grateful Dead, Jefferson Airplane, Blue Cheer and the 13th Floor Elevators — moderate-tempo blues-derived modal vamps stretched into long extemporised jams, saturated single-coil guitar through fuzz and spring reverb, heavy use of feedback and Leslie-treated organ, wailing declamatory vocals, and a rhythm section that swells and recedes rather than keeping fixed dynamics",
-  "recipe": "classic Los Angeles 1966-1970 acid rock, distorted Rock, classic branch, experimental distorted rock, doom metal, jam free improv on frame jamgrass jam bands. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, psychedelic foregrounded organ driven rock Leslie rotary combo Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 822,
-  "score": 379.581,
+  "recipe": "classic Los Angeles 1966-1970 acid rock, distorted Rock, classic branch, experimental distorted rock, doom metal, jam free improv on frame jamgrass canadian post-rock. thick, register break ornamental, wide pitch sway, interlocked note trading. marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, sticks backbeat drum kit, psychedelic foregrounded organ driven rock Leslie rotary combo Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 827,
+  "score": 384.696,
   "config": {
     "traditions": [
       "acid_rock",
       "jamgrass",
-      "jam_bands"
+      "canadian_post_rock"
     ],
     "instruments": [
       {
@@ -18,31 +18,31 @@
         "slots": {
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "swamp_ash",
+          "body_wood": "pine",
           "neck_wood": "maple",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "hardtail",
-          "scale_length": "scale_gibson",
+          "scale_length": "scale_short",
           "finish": "oil_satin",
-          "string_tuning": "eb_standard",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.6125,
-          "amp_make": 11.959999999999999,
-          "body_wood": 0.3,
-          "neck_wood": 1.235,
-          "fretboard": 1.235,
-          "pickup_magnet": 1.235,
-          "string_material": 1.235,
-          "string_gauge": 0.16249999999999998,
+          "electric_technique": 8.775,
+          "amp_make": 12.739999999999998,
+          "body_wood": 0.35,
+          "neck_wood": 1.69,
+          "fretboard": 1.69,
+          "pickup_magnet": 1.69,
+          "string_material": 1.69,
+          "string_gauge": 0.65,
           "bridge": 0.09,
-          "scale_length": 0.18,
+          "scale_length": 0.635,
           "finish": 0.195,
-          "string_tuning": 13.65,
+          "string_tuning": 13.909999999999998,
           "single_coil_pickup_construction": 0
         }
       },
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.959999999999999,
+          "amp_make": 12.739999999999998,
           "body_wood": 0.3,
           "pickup_config": 0.15,
-          "string_type": 26.81,
+          "string_type": 28.31,
           "scale_length_b": 0.09,
           "fretted_or_not": 0,
-          "bass_technique": 21.398749999999996,
+          "bass_technique": 22.898749999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -73,12 +73,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "hydraulic",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.9125,
-          "drumhead": 1.5999999999999999,
+          "drum_technique": 23.4125,
+          "drumhead": 1.69,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -93,16 +93,16 @@
         },
         "scores": {
           "keyboard_technique": 0.245,
-          "combo_organ_model": 2.405,
+          "combo_organ_model": 2.21,
           "combo_organ_voicing": 1.6899999999999997,
-          "combo_organ_context": 14.040000000000001,
-          "amp_make": 1.65
+          "combo_organ_context": 14.819999999999999,
+          "amp_make": 1.375
         }
       },
       {
         "id": "tonewheel_organ",
         "slots": {
-          "keyboard_technique": "keyboard_ostinato_groove",
+          "keyboard_technique": "keyboard_block_chord_pop",
           "drawbar_setting": "rock_drawbars",
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
@@ -110,25 +110,25 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 1.6650000000000003,
-          "drawbar_setting": 21.448749999999997,
-          "rotary_speed": 21.245,
-          "percussion_setting": 11.05,
-          "tonewheel_model": 11.6025,
-          "leslie_cabinet_model": 1.7899999999999998
+          "keyboard_technique": 0.245,
+          "drawbar_setting": 22.948749999999997,
+          "rotary_speed": 22.745,
+          "percussion_setting": 11.83,
+          "tonewheel_model": 11.634999999999996,
+          "leslie_cabinet_model": 1.625
         }
       },
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "register_break_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -139,22 +139,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 28.744999999999997,
-          "voice_quality": 8.645,
+          "voice_register": 29.66999999999999,
+          "voice_quality": 6.225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.125,
-          "voice_articulation": 20.279999999999998,
-          "voice_microtone": 22.619999999999994,
-          "voice_tradition": 7.995,
-          "voice_mechanism_compound": 7.800000000000001,
-          "voice_estill_quality": 6.0125,
-          "voice_speech_song": 20.474999999999994,
-          "voice_ensemble_config": 18.654999999999994,
-          "voice_ornament_system": 4.615000000000002,
-          "voice_pitch_organization": 1.8024999999999998,
-          "voice_processing_chain": 4.933750000000001,
-          "voice_multitrack_stack": 2.835000000000001
+          "voice_articulation": 18.784999999999997,
+          "voice_microtone": 22.754999999999992,
+          "voice_tradition": 8.0275,
+          "voice_mechanism_compound": 8.32,
+          "voice_estill_quality": 5.5575,
+          "voice_speech_song": 19.629999999999995,
+          "voice_ensemble_config": 19.499999999999996,
+          "voice_ornament_system": 2.7950000000000017,
+          "voice_pitch_organization": 1.9525,
+          "voice_processing_chain": 3.83375,
+          "voice_multitrack_stack": 2.0799999999999996
         }
       }
     ],

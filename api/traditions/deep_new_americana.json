@@ -5,7 +5,7 @@
   "lineage": "This discovery-oriented Americana cluster links roots songwriting with contemporary indie and psychedelic band practice. Artist metadata includes Liz Cooper and SUSTO; Liz Cooper’s documented guitar-bass-drums trio supplies the selected arrangement branch.",
   "recipe": "classic modern deep new americana, functional Song, folk rock branch. thick, breath veiled tone, straight onset, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
   "recipe_chars": 523,
-  "score": 87.001,
+  "score": 87.201,
   "config": {
     "traditions": [
       "deep_new_americana"
@@ -36,7 +36,7 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8215,
+          "voice_vibrato": 1.885,
           "voice_articulation": -0.1685,
           "voice_microtone": 11.081499999999997,
           "voice_tradition": 0,
@@ -98,7 +98,7 @@
         "scores": {
           "amp_make": 5.525,
           "body_wood": 0.39,
-          "pickup_config": 0.26649999999999996,
+          "pickup_config": 0.40299999999999997,
           "string_type": 9.75,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.0705,

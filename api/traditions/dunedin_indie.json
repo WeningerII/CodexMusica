@@ -2,10 +2,10 @@
   "id": "dunedin_indie",
   "name": "Dunedin indie",
   "family": "rock",
-  "lineage": "Complete artist-issued Paranoia! single, released27August2020: Adelaide Dunn voice, synthesizer and organ; Hamish Morgan drums; Connor Blackie electric guitar; Josh Howley bass; Georgi Hampton piano. Five people, one positively credited singer and seven source families. Music/lyrics and production credits do not add performers. The artist tags the release alternative, baroque pop, chamber pop and indie rock, with Dunedin locality. This is the full single scope, not the complete later album roster. Authored alternative-pop band rendition preserves all seven credited roles. Source-unspecified organ retains unknown mechanism without inventing electronic, reed or pipe construction; unspecified synth uses an explicitly authored coherent five-voice Sequential Prophet-5 sustained pad. Electric guitar uses an authored alder/maple humbucker overdriven setup; electric bass uses coherent alder soapbar fretted picked construction; drum kit uses an authored stick setup with traditional cymbal finish; grand piano uses a nine-foot Steinway D chordal realization. These constructions and techniques are editorial, not source hardware or measured performance claims. One accompanied singing voice retains neutral physiology and a single-lead authored realization, without claiming source overdub count. Contemporary treated-studio digital capture is an authored new recording recipe, not the multi-location2020 recording chain. No global temperament is asserted.",
-  "recipe": "classic dunedin indie, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. sequential lineage canonical prophet 5 1978 san jose ca analog poly synth, credited organ unspecified, alder maple humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 600,
-  "score": 158.74,
+  "lineage": "Dunedin indie connects the New Zealand city’s independent musicians, labels and venues across generations. The Flying Nun-era Dunedin Sound remains an important inheritance alongside newer guitar, electronic and experimental communities.",
+  "recipe": "classic dunedin indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 30.573,
   "config": {
     "traditions": [
       "dunedin_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.246499999999999,
-          "voice_ensemble_config": 3.3799999999999994,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.449,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 7.945999999999999,
+          "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
       },
@@ -61,19 +61,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.5000000000000004,
-          "poly_archetypes": 2.0365,
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0.1365,
           "poly_voices": 0,
-          "poly_maker_lineage": 5.005000000000001
-        }
-      },
-      {
-        "id": "credited_organ_unspecified",
-        "slots": {
-          "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
-        },
-        "scores": {
-          "credited_organ_unspecified_identity": 1.3
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -94,17 +85,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5000000000000004,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 4.9095,
-          "neck_wood": 1.405,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 2.173,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -123,12 +114,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 4.9095,
-          "pickup_config": 2.6095,
+          "body_wood": 0.40950000000000003,
+          "pickup_config": 0.39,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 13.049999999999999,
+          "bass_technique": 6.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -148,42 +139,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 11,
+          "drum_technique": 6.25,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.8415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 21.4815,
-          "cymbal_lathing": 24.786499999999997,
+          "cymbal_hammering": 6.181500000000001,
+          "cymbal_lathing": 6.2865,
           "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
-        },
-        "scores": {
-          "keyboard_technique": 10.449999999999998,
-          "grand_piano_size": 2.0365,
-          "grand_piano_brand": 1.3,
-          "piano_hammer": 7.279999999999999,
-          "piano_rim": 10.659999999999997,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": 1.263,
-          "piano_plate": 1.9365,
-          "piano_pitch_standard": 4.264499999999999
         }
       }
     ],
@@ -212,9 +178,6 @@
         "poly_archetypes",
         "poly_voices",
         "poly_maker_lineage"
-      ],
-      "credited_organ_unspecified": [
-        "credited_organ_unspecified_identity"
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
@@ -253,17 +216,6 @@
         "cymbal_hammering",
         "cymbal_lathing",
         "cymbal_finish"
-      ],
-      "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -304,7 +256,6 @@
       "poly_archetypes": "prophet_5",
       "poly_voices": "poly_5_voice",
       "poly_maker_lineage": "poly_sequential_smith",
-      "keyboard_technique": "keyboard_block_chord_pop",
       "electric_technique": "electric_overdriven_lead",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_h",
@@ -334,16 +285,7 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

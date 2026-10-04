@@ -2,10 +2,10 @@
   "id": "brazilian_black_metal",
   "name": "Brazilian black metal",
   "family": "rock_punk",
-  "lineage": "Brazilian black-metal discovery scope represented by Salvador’s Mystifier. Primary artist and label accounts document a guitar/bass/drum/voice foundation, later keyboard involvement and deliberate variety rather than one fixed black-metal formula.",
-  "recipe": "classic modern brazilian black metal, distorted Rock, black branch. solo with instrumental accompaniment. classic rock hard rock soft down tuning humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 445,
-  "score": 25.439,
+  "lineage": "Brazilian black metal developed through underground scenes with varied raw, atmospheric and melodic approaches. Salvador’s Mystifier exemplify an evolving practice built around amplified guitars, bass, drums and voice, with keyboards adding further color in part of the repertoire.",
+  "recipe": "classic modern brazilian black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier soft down tuning humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 549,
+  "score": 35.349,
   "config": {
     "traditions": [
       "brazilian_black_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_tremolo_picking",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": 0.26,
-          "amp_make": 0,
+          "amp_make": 4.355,
           "body_wood": 0.66825,
           "neck_wood": 0.4095,
           "fretboard": 0.0315,
@@ -47,7 +47,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,7 +57,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 3.575,
           "body_wood": 0.66825,
           "pickup_config": 0,
           "string_type": 0.4095,
@@ -91,7 +91,7 @@
           "bearing_edges": 0.4095,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 3.95,
+          "cymbal_hammering": 3.6500000000000004,
           "cymbal_lathing": 3.8915,
           "cymbal_finish": 0
         }
@@ -128,7 +128,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
@@ -144,9 +144,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
+          "electronic_technique": 0.26,
           "poly_archetypes": 0.2415,
-          "poly_voices": 0.3,
+          "poly_voices": 0,
           "poly_maker_lineage": -1.9869999999999999
         }
       }
@@ -154,7 +154,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -168,7 +167,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -267,7 +265,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

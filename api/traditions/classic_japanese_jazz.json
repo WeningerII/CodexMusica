@@ -5,7 +5,7 @@
   "lineage": "Historical Japanese jazz recording; selected Akiyoshi 1953 quartet",
   "recipe": "classic early-1950s classic japanese jazz, improv On Frame, bop branch. a 440 modern pitch us standard grand piano, acoustic leaning carved top solid spruce Gibson canon thomastik archtop, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 416,
-  "score": 100.573,
+  "score": 100.405,
   "config": {
     "traditions": [
       "classic_japanese_jazz"
@@ -87,11 +87,11 @@
           "drum_technique": 6.89,
           "drumhead": 0.3315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.063,
-          "shell_thickness": 0.0315,
+          "shell_wood": 0.0315,
+          "shell_thickness": 0,
           "bearing_edges": 0.168,
           "snare_wires": 0.0315,
-          "cymbal_alloy": 11.954999999999998,
+          "cymbal_alloy": 11.849999999999998,
           "cymbal_hammering": 12.918,
           "cymbal_lathing": 0.6814999999999999,
           "cymbal_finish": 0.3
