@@ -7819,18 +7819,27 @@ try {
     // The provenance stamp is SERVER-written under the song, inside the
     // verbatim block: seed + exit + banned-pair count reach the user even
     // through a client that relays nothing else.
+    // REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter
+    // (lyric-harness/HANDBOOK.md standing rule 5): the scaffold's unjudged
+    // obligations were meter lines ending on `wire` (W AY1 ER0 / W AY1 R),
+    // now judged on one whole reading. Every requested obligation is judged
+    // and the scaffold's flags still stand, so it is still a negative: exit
+    // 3 with its flags standing. ~~exit 2, certified false, coverage
+    // uncertified, refused obligations non-empty, stamp `exit 2`~~.
     const gradeVerdict = JSON.parse(gradedRes.content[1].text);
     assert.equal(
       gradeVerdict.exit_code,
-      2,
-      'the scaffold draft has unresolved requested obligations'
+      3,
+      'the scaffold draft is judged throughout and its flags stand'
     );
-    assert.equal(gradeVerdict.certified, false);
-    assert.equal(gradeVerdict.coverage.certified, false);
-    assert.ok(gradeVerdict.coverage.refused_obligations.length > 0);
+    // `certified` is the coverage's answer (every requested obligation
+    // judged); the standing flags are what exit 3 reports.
+    assert.equal(gradeVerdict.certified, true);
+    assert.equal(gradeVerdict.coverage.certified, true);
+    assert.deepEqual(gradeVerdict.coverage.refused_obligations, []);
     assert.ok(
-      new RegExp(`\\[GRADED — seed ${planSeed} — exit 2, .+ — \\d+ banned pair\\(s\\)`).test(song),
-      'block 0 carries the same unjudged [GRADED — seed …] stamp as the authenticated verdict'
+      new RegExp(`\\[GRADED — seed ${planSeed} — exit 3, .+ — \\d+ banned pair\\(s\\)`).test(song),
+      'block 0 carries the same [GRADED — seed …] stamp as the authenticated verdict'
     );
     assert.ok(
       /pairs?/i.test(gradeVerdict.report) || gradeVerdict.report.includes('REPORT'),
@@ -8282,15 +8291,37 @@ try {
     assert.ok(
       outOfHook.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK' && f.severity === 'flag')
     );
+    // REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter: the
+    // scaffold is judged throughout (see the grade above), so the title flag
+    // stands on certified coverage, exit 3. ~~exit 2, coverage uncertified~~.
+    // The unresolved case keeps a word no dictionary reads, which the ruling
+    // never guesses, and the same title flag still cannot override it.
+    assert.equal(outOfHook.exit_code, 3, 'the title flag stands on a fully judged scaffold');
+    assert.equal(outOfHook.coverage.certified, true);
+    const unreadableDraft = draft.map((line, i) =>
+      i === draft.length - 1 ? line.replace('the morning', 'the qzzxv') : line
+    );
+    const unresolvedRes = await client.callTool(
+      {
+        name: 'lyric_grade',
+        arguments: withLines({ draft: unreadableDraft, title: 'zzz nowhere' }),
+      },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(!unresolvedRes.isError);
+    const unresolved = JSON.parse(unresolvedRes.content[1].text);
     assert.equal(
-      outOfHook.exit_code,
+      unresolved.exit_code,
       2,
       'a title flag cannot override unresolved scaffold obligations'
     );
-    assert.equal(outOfHook.coverage.certified, false);
+    assert.equal(unresolved.coverage.certified, false);
+    assert.ok(unresolved.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK'));
     // A separately qualified current seed controls clean0 versus flag3.
     // The only difference is the title; requested coverage and every lyric
-    // remain identical. The scaffold above is the explicit unjudged case.
+    // remain identical. The unreadable scaffold above is the explicit
+    // unjudged case.
 
     const qualifiedTitle = async (title) => {
       const result = await client.callTool(
