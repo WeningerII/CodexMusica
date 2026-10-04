@@ -8218,7 +8218,13 @@ sung, so this is what is left of an older error, not a new one. It is still
 the pass's own gap, and one figure shows it: the shortest calibration item is
 now Lovelace's `Mart. lib. I. Epig. 26.` (4 tokens), so the `lyric` curves
 report a calibrated range of 4–3,244 tokens. Partial notes inside items that
-are otherwise sung are not counted here. Sung rows sitting next to prose the
+are otherwise sung are not counted here. The one-line census in
+`quality/test_corpus_audit.py` shows the same gap from the other side. The pass
+CREATED 8 one-line `[VERSE]` blocks (734 -> 742) by annotating every other line
+of a block. They include a `Robert Burns.` signature, a Watts argument line and
+Lovelace note prose: `eng_celtic_robert_burns` `Robert Burns.`, `eng_hymn_watts`
+`Benefit of afflictions, and support under them.`, five Lovelace lines and one
+Hemans line. Sung rows sitting next to prose the
 pass annotated total 819 in 43 files, but most are correct (Watts's stanzas
 under their annotated scripture headings are 393 of them), so this is an
 upper bound for the next reading to work through, not a count. **Ordering

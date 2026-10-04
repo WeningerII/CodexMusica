@@ -1,6 +1,18 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-09-26 (`MISSING.md` M-315): **1,430 files, 0 FAIL, 95 WARN,
+Current result, 2026-10-04 (the Otterbein refrain hymns, `MISSING.md` M-25(a)
+and the label and apparatus pass, one loading batch): **1,477 files, 0 FAIL,
+38 WARN, 1,214 NOTE**. Files +47 (the new `eng_hymn_*` files). Check H accounts
+for all of WARN −57 and NOTE −16 (files 65 WARN / 54 NOTE -> 8 / 38): the
+one-line `[VERSE]` blocks the two passes marked as apparatus. Check G adds 36
+NOTEs, one elision-orthography note on each of 36 new hymn files. Check E
+loses one NOTE, the Watts title echo whose echoing line M-25(a) marked as an
+embedded title. Check I's agreeing population is 516 of 544 (was 517 of 545):
+`eng_oxford_henry_constable` left when its indented sonnet numerals became
+apparatus. Nothing else moved. `quality/RESULTS_OTTERBEIN_M25_2026-10-04.md`
+records the batch. The result it supersedes:
+
+Result, 2026-09-26 (`MISSING.md` M-315): **1,430 files, 0 FAIL, 95 WARN,
 1,195 NOTE** (~~1,193 NOTE~~, 2026-09-15). Check J's enclitic set lost `'t` and
 `'n` — elided words, not enclitics — when the joiner was wired into the rhyme
 path, so two more editions are spaced-DOMINANT (`eng_celtic_msm_andrew_scott`

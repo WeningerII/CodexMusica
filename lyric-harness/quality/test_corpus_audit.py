@@ -462,8 +462,12 @@ def test_every_declared_source_reaches_a_row():
     # `# source:` id and no existing file gained a second: the seven
     # `corpus/song/non_*.txt` are all cut from one compilation,
     # `sveinbjornt/sagadb.org`, admitted by owner ruling.
-    check("2014 id-shaped `# source:` declarations are checked, over 1430 "
-          "files", total == 2014 and len(files) == 1430, (total, len(files)))
+    # REPINNED 2026-10-04 (Otterbein refrain hymns): 2,014 -> 2,066
+    # declarations over 1,430 -> 1,477 files. +47 files each carrying one
+    # `# source:` id, and +5 declarations on the five existing files that
+    # took appended hymns (Bonar, Faber, Cooper, Rankin, Root) -- 47 + 5 = 52.
+    check("2066 id-shaped `# source:` declarations are checked, over 1477 "
+          "files", total == 2066 and len(files) == 1477, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second
@@ -471,9 +475,12 @@ def test_every_declared_source_reaches_a_row():
     # 73 -> 144 (Phase-1): Oxford/PAH items topped up 84 existing files
     # and 19 twin merges gave their keepers another book.
     # REPINNED 2026-08-20 (HBV): 144 -> 316.
-    check("316 files declare two or more sources — the case the file-level "
+    # REPINNED 2026-10-04 (Otterbein): 316 -> 319. Of the five files that
+    # took appended hymns, Bonar, Faber and Cooper gained their first second
+    # source; Rankin and Root already had two.
+    check("319 files declare two or more sources — the case the file-level "
           "check cannot see",
-          sum(1 for v in decls.values() if len(v) > 1) == 316,
+          sum(1 for v in decls.values() if len(v) > 1) == 319,
           sum(1 for v in decls.values() if len(v) > 1))
     bad = [(rel, d) for rel, cf in files for d, _, _ in src.undeclared_sources(cf)]
     check("every declared `# source:` id reaches a data/sources.tsv row",
@@ -837,8 +844,12 @@ def test_item_level_near_duplication_series():
     # D'Urfey +1. This instrument's minimum-signature population is distinct
     # from 8661 raw TITLEs and 8545 nonempty weighted calibration works.
     # 2026-09-15: four apparatus-only entries no longer meet the signature rule.
-    check("1297 eng_* files and 8,243 items meet the signature rule",
-          len({r for r, _ in eng}) == 1297 and len(recs) == 8243,
+    # REPINNED 2026-10-04: 1,297 -> 1,344 eng files (+47 Otterbein hymn
+    # files) and 8,243 -> 8,302 items: +73 Otterbein hymns (8,316), then -3
+    # after M-25(a) and -11 after the label and apparatus pass, items whose
+    # remaining body no longer meets the rule once its apparatus is marked.
+    check("1344 eng_* files and 8,302 items meet the signature rule",
+          len({r for r, _ in eng}) == 1344 and len(recs) == 8302,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
@@ -898,8 +909,12 @@ def test_item_level_near_duplication_series():
     # filed as `M-20` rather than silently relabelled here. Nothing was lost:
     # 19 -> 21 corpus-wide, gained 2, lost 0.
     # 2026-09-15: contents/title-page text retained as apparatus; prior 4/11/5.
-    check("No CONTENTS pages; 10 RUN-ONs and 4 TITLE echoes remain, all named",
-          shapes == {"RUN-ON": 10, "TITLE": 4}, shapes)
+    # REPINNED 2026-10-04: TITLE 4 -> 3. M-25(a) annotated the one-line
+    # `[VERSE]` that opened Watts's 'To the tune of the 113th Psalm' ('The
+    # book of nature and scripture.', an embedded title), so that echo is
+    # apparatus now. RUN-ON unmoved at 10.
+    check("No CONTENTS pages; 10 RUN-ONs and 3 TITLE echoes remain, all named",
+          shapes == {"RUN-ON": 10, "TITLE": 3}, shapes)
 
     # MISSING.md M-20 — poems staged TWICE in their own file, and every
     # instrument reads both copies. What the entry owes is a RULING about
@@ -1258,21 +1273,35 @@ def test_check_H_on_the_real_corpus():
     # allcaps title-page rows were in the matched half (-2); residue -90.
     # 2026-09-15: 82 one-line VERSE blocks relabelled as apparatus: eight
     # bylines, ten section numbers, 64 separators. Prior one/matched 2458/1043.
-    check("2,376 one-line `[VERSE]` blocks under corpus/song/", one == 2376,
+    # REPINNED 2026-10-04, M-25(a) APPLIED: one ~~2,376~~ **742**, matched
+    # ~~961~~ **309**, residue ~~1,415~~ **433**; shapes allcaps-label ~~503~~
+    # **103**, numeral ~~434~~ **198**, heading-word ~~16~~ **0**, ornament 8.
+    # Two steps. M-25(a) annotated 1,642 English blocks on a NOT-SUNG reading
+    # by two blind readers (2,376 -> 734 = 247 English blocks kept as sung +
+    # 487 non-English, never read; matched 309, all of them non-English).
+    # The label and apparatus pass then ADDED 8 (734 -> 742, all residue):
+    # annotating the other lines of a block left one line standing. On their
+    # face at least five of the eight are apparatus too (a `Robert Burns.`
+    # signature, a Watts argument line, Lovelace note prose); no reader has
+    # judged them. They are the pass's own residue, recorded in MISSING.md
+    # M-25 for the next batch's reading, not adjudicated here.
+    check("742 one-line `[VERSE]` blocks under corpus/song/", one == 742,
           one)
-    check("961 of them carry a declared apparatus shape", matched == 961,
+    check("309 of them carry a declared apparatus shape", matched == 309,
           matched)
     check("the shape split reproduces",
-          shapes == {"allcaps-label": 503, "numeral": 434, "ornament": 8,
-                     "heading-word": 16}, shapes)
-    check("the residue is 1,415 and is NOT claimed to be clean",
-          one - matched == 1415, one - matched)
+          shapes == {"allcaps-label": 103, "numeral": 198, "ornament": 8},
+          shapes)
+    check("the residue is 433 and is NOT claimed to be clean",
+          one - matched == 433, one - matched)
     fs = AC.check_staging(files, AC.Sources())
     warn = sum(1 for f in fs if f.severity == AC.WARN)
     note = sum(1 for f in fs if f.severity == AC.NOTE)
     # Previous warning/note split 104/48; now measured 65/54.
-    check("65 files carry raw apparatus-shaped blocks, 54 carry residue only",
-          (warn, note) == (65, 54), (warn, note))
+    # REPINNED 2026-10-04: 65/54 -> 8/38 (M-25(a) took it to 8/35; the label
+    # pass's eight new residue blocks put three more files in the NOTE half).
+    check("8 files carry raw apparatus-shaped blocks, 38 carry residue only",
+          (warn, note) == (8, 38), (warn, note))
 
 
 # ---------------------------------------------------------------------------
@@ -1308,8 +1337,12 @@ def test_check_I_reads_the_indent_and_charges_nothing():
           and "OPPOSITE" in summary[0].measured
           and "inside the null" in summary[0].measured,
           [f.path for f in summary])
-    check("517 agree / 6 opposite / 22 inside the null",
-          summary and "AGREES 517 | runs OPPOSITE 6 | inside the null 22"
+    # REPINNED 2026-10-04: AGREES 517 -> 516, the population 545 -> 544. No
+    # file changed class: `eng_oxford_henry_constable.txt` LEFT, because its
+    # only second indent depth was its indented sonnet numerals (`IX`,
+    # `LXII`), which the label and apparatus pass marked as apparatus.
+    check("516 agree / 6 opposite / 22 inside the null",
+          summary and "AGREES 516 | runs OPPOSITE 6 | inside the null 22"
           in summary[0].measured, summary and summary[0].measured[:70])
     check("the per-file notes are the two SMALL populations only, 28 of them",
           len(fs) - 1 == 28, len(fs) - 1)
