@@ -3,14 +3,14 @@
   "name": "Goth",
   "family": "rock",
   "lineage": "Formed 1979-1985 out of British post-punk around the Batcave club in London and Leeds' Merrion Centre scene — Bauhaus, Siouxsie and the Banshees, The Sisters of Mercy and The Cure established flanged and chorused single-coil guitar drenched in long plate and digital reverb, high-mixed chorused bass carrying the riff, tribal floor-tom or drum-machine patterns at 100-140 BPM, and baritone or keening declamatory vocals over minor and Phrygian modal harmony.",
-  "recipe": "classic North American mid-1980s goth, distorted Rock, gothic rock branch, punk distorted rock, pop rock new wave australian post-punk balkan post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drum machine analog, analog poly synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 677,
-  "score": 290.695,
+  "recipe": "classic North American mid-1980s goth, distorted Rock, gothic rock branch, punk distorted rock, pop rock new wave rock abc paulista australian post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drum machine analog, singing lead analog poly synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 691,
+  "score": 302.19,
   "config": {
     "traditions": [
       "goth",
-      "australian_post_punk",
-      "balkan_post_punk"
+      "rock_abc_paulista",
+      "australian_post_punk"
     ],
     "instruments": [
       {
@@ -31,18 +31,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 15.575,
-          "amp_make": 28.985,
+          "electric_technique": 11.2,
+          "amp_make": 25.759999999999998,
           "body_wood": 0.39,
           "neck_wood": 0.39,
           "fretboard": 0.78,
           "pickup_magnet": 0.3,
           "string_material": 0.09,
-          "string_gauge": 1,
+          "string_gauge": 1.15,
           "bridge": 0.78,
           "scale_length": 0.39,
           "finish": 0.195,
-          "string_tuning": 9.36,
+          "string_tuning": 10.855000000000002,
           "single_coil_pickup_construction": 0
         }
       },
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.870000000000001,
+          "amp_make": 14.17,
           "body_wood": 0.9750000000000001,
           "pickup_config": 0.39,
-          "string_type": 22.275,
-          "scale_length_b": 0.9450000000000001,
+          "string_type": 25.15,
+          "scale_length_b": 0.78,
           "fretted_or_not": 0.045,
-          "bass_technique": 34.220000000000006,
+          "bass_technique": 32.720000000000006,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.25,
-          "drumhead": 1.9999999999999998,
+          "drum_technique": 20.125,
+          "drumhead": 3.875,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -111,42 +111,42 @@
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 18.789999999999992,
-          "voice_quality": 8.58,
+          "voice_register": 23.539999999999992,
+          "voice_quality": 8.385000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 14.884999999999998,
-          "voice_microtone": 18.799999999999997,
-          "voice_tradition": 5.02,
-          "voice_mechanism_compound": 5.265000000000001,
+          "voice_vibrato": 2.62,
+          "voice_articulation": 14.43,
+          "voice_microtone": 23.549999999999997,
+          "voice_tradition": 6.744999999999999,
+          "voice_mechanism_compound": 3.640000000000001,
           "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 15.794999999999998,
-          "voice_ensemble_config": 16.205,
+          "voice_speech_song": 16.119999999999997,
+          "voice_ensemble_config": 13.974999999999998,
           "voice_ornament_system": 0.2,
           "voice_pitch_organization": 1.4299999999999997,
           "voice_processing_chain": 6.445,
-          "voice_multitrack_stack": 4.485
+          "voice_multitrack_stack": 4.68
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 2.4699999999999998,
-          "poly_archetypes": 8.97,
+          "electronic_technique": 3.62,
+          "poly_archetypes": 10.465,
           "poly_voices": 0.3,
           "poly_maker_lineage": -0.035
         }

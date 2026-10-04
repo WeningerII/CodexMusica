@@ -2,10 +2,10 @@
   "id": "austrian_choir",
   "name": "Austrian choir",
   "family": "classical",
-  "lineage": "Austrian choral music encompasses concert ensembles and other singing communities performing historical repertoire and contemporary works. Unaccompanied singing forms one strand alongside opera and choral-orchestral performance.",
-  "recipe": "classic austrian choir, art Music. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 152,
-  "score": 1.69,
+  "lineage": "Austrian choir: Arnold Schoenberg Chor — documented unaccompanied concert branch. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic austrian choir, art Music, western common practice branch. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 184,
+  "score": 2.185,
   "config": {
     "traditions": [
       "austrian_choir"
@@ -20,10 +20,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.69,
-          "choir_polyphonic_configuration": 0,
+          "choir_size": 1.3,
+          "choir_polyphonic_configuration": 0.0315,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 0
+          "choir_ensemble_repertoire": 0.8534999999999999
         }
       }
     ],

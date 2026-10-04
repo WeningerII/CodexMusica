@@ -5,7 +5,7 @@
   "lineage": "Taiwanese electronic music includes club production, experimental performance and sound practices that draw on local environments and voices.",
   "recipe": "classic taiwan electronic, experimental Elec. solo with instrumental accompaniment. glitched textural sampler. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 211,
-  "score": 17.253,
+  "score": 17.043,
   "config": {
     "traditions": [
       "taiwan_electronic"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 6.9815,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": 6.949999999999999,
           "sampler_classic_context": 1.3
         }
@@ -60,10 +60,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.051,
+          "voice_ensemble_config": 0.9460000000000001,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
+          "voice_processing_chain": 0.21,
           "voice_multitrack_stack": 0.126
         }
       }

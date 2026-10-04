@@ -2,10 +2,10 @@
   "id": "latin_arena_pop",
   "name": "Latin arena pop",
   "family": "pop",
-  "lineage": "Latin arena pop brings cross-border Spanish-language popular repertoire to large concert audiences. Acts including Sin Bandera, Alejandro Sanz, Belanova and Maná connect ballads, electronic pop and rock through widely shared songs.",
-  "recipe": "classic latin arena pop, functional Song. unprocessed natural acoustic. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, block chord upright piano. live tracking.",
-  "recipe_chars": 319,
-  "score": 60.242,
+  "lineage": "Sin Bandera — Nunca (2026), complete released track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s latin arena pop, functional Song. duet, unprocessed natural acoustic, live take. conventional tuning standard pitch clean strummed humbucker electric acoustic guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 475,
+  "score": 56.71,
   "config": {
     "traditions": [
       "latin_arena_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_neumatic_singing",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
           "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.8999999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.594,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 0.6,
           "voice_tessitura": 0
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_h",
-          "neck_wood": "maple_neck_h",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,44 +70,44 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 10.004,
+          "electric_technique": 10.049999999999997,
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.1905,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0,
+          "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 1.3
         }
       },
       {
-        "id": "acoustic_guitar_dread",
+        "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "mahogany_top",
-          "back_sides": "mahogany_bs",
-          "string_acoustic": "eighty_twenty"
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 10.004,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0,
-          "string_acoustic": 0
+          "back_sides": -0.035,
+          "string_acoustic": 0,
+          "acoustic_om_technique": 0.05000000000000002
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_h",
-          "pickup_config": "soapbar",
+          "body_wood": "mahogany_maple_cap",
+          "pickup_config": "split_coil",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -116,12 +116,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.1905,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": 0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -141,30 +141,53 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 2.6365,
-          "drumhead": 0,
+          "drum_technique": 0.8865000000000001,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
-          "shell_thickness": 0.054,
-          "bearing_edges": 0,
+          "shell_wood": 1.954,
+          "shell_thickness": 0,
+          "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 12.45,
-          "cymbal_lathing": 12.809999999999999,
+          "cymbal_hammering": 10.253999999999996,
+          "cymbal_lathing": 10.799999999999997,
           "cymbal_finish": 0
         }
       },
       {
-        "id": "upright_piano",
+        "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 9.95,
-          "upright_use": 0,
-          "upright_piano_size": 0
+          "keyboard_technique": 9.449999999999996,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.78,
+          "piano_hammer": 0.608,
+          "piano_rim": 1.0399999999999998,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": 1.7999999999999998,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.8639999999999999
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0
         }
       }
     ],
@@ -203,12 +226,12 @@
         "finish",
         "string_tuning"
       ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
+      "acoustic_guitar_om": [
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic"
+        "string_acoustic",
+        "acoustic_om_technique"
       ],
       "electric_bass": [
         "amp_make",
@@ -233,21 +256,30 @@
         "cymbal_lathing",
         "cymbal_finish"
       ],
-      "upright_piano": [
+      "grand_piano": [
         "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -256,7 +288,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -268,7 +300,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_neumatic_singing",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
       "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -277,8 +309,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_h",
-      "neck_wood": "maple_neck_h",
+      "body_wood": "mahogany_maple_cap",
+      "neck_wood": "mahogany_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -288,10 +320,11 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "top_wood": "mahogany_top",
-      "back_sides": "mahogany_bs",
-      "string_acoustic": "eighty_twenty",
-      "pickup_config": "soapbar",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked",
+      "pickup_config": "split_coil",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -309,10 +342,22 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard",
-      "acoustic_technique": "acoustic_strummed_ringing"
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

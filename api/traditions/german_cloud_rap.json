@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.74475,
-          "voice_ensemble_config": 0.24225,
+          "voice_speech_song": 12.701999999999998,
+          "voice_ensemble_config": 0.28500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 9.736499999999998,
@@ -59,8 +59,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.32825,
-          "sample_bitdepth": 0.105,
+          "electronic_technique": 2.2855000000000003,
+          "sample_bitdepth": 0.14775,
           "sample_swing": -0.05,
           "sample_processing": 0.105
         }

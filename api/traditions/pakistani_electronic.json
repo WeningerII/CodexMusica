@@ -2,10 +2,10 @@
   "id": "pakistani_electronic",
   "name": "Pakistani electronic",
   "family": "electronic",
-  "lineage": "Pakistani electronic music includes DIY producers and collaborative communities, with Karachi’s independent networks supporting experimental approaches.",
+  "lineage": "Pakistani electronic is represented here by Rudoh — Tales of Scrap sampling core. This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic pakistani electronic, experimental Elec, idm glitch branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 156,
-  "score": 0.807,
+  "score": 3.952,
   "config": {
     "traditions": [
       "pakistani_electronic"
@@ -18,14 +18,14 @@
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_post"
+          "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.147,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 0.8354999999999999
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 3.65
         }
       }
     ],
@@ -34,8 +34,7 @@
         "electronic_technique",
         "sampler_archetypes",
         "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+        "sampler_workflow"
       ]
     },
     "room": "treated_studio",
@@ -60,8 +59,7 @@
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_post"
+      "sampler_workflow": "sampler_loop_layered"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

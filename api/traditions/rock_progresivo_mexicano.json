@@ -5,7 +5,7 @@
   "lineage": "Mexican progressive rock develops rock-band playing through instrumental detail and evolving arrangements.",
   "recipe": "classic rock progresivo mexicano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 50.423,
+  "score": 50.656,
   "config": {
     "traditions": [
       "rock_progresivo_mexicano"
@@ -22,9 +22,9 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.252,
           "pickup_winding": 0.46599999999999997,
           "string_material": 0.39,
-          "bridge": 0.0945,
+          "bridge": 0.223875,
           "scale_length": 0.39,
-          "string_gauge": 0.063,
+          "string_gauge": 0.160875,
           "finish": 0.1365,
-          "string_tuning": 0
+          "string_tuning": 0.03712499999999999
         }
       },
       {
@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -62,7 +62,7 @@
           "pickup_config": 0.2835,
           "string_type": 17.875,
           "scale_length_b": 0.378,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s downtown New York and Chicago collision of hardcore punk speed with free-jazz improvisation, codified by John Zorn's Naked City, Last Exit and later The Flying Luttenbachers and Zu — sub-minute compositions of jump-cut blocks, blast-tempo drumming under squealing alto saxophone, detuned or noise-processed guitar, and screamed vocal bursts used as percussive punctuation rather than lyric line.",
   "recipe": "classic North American 1984-1986 jazzcore, distorted Rock, noise rock branch, experimental distorted rock, American jazz avant avant-garde jazz european free jazz. thick, breath veiled tone, straight onset, interlocked note trading. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch mahogany thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, expressive clarinet jazz bass clarinet. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 819,
-  "score": 396.392,
+  "score": 396.288,
   "config": {
     "traditions": [
       "jazzcore",
@@ -46,22 +46,22 @@
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
+          "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.614999999999998,
+          "electric_technique": 9.419999999999998,
           "amp_make": 10.27,
           "body_wood": 2.535,
-          "neck_wood": 1.435,
-          "fretboard": 1.385,
+          "neck_wood": 1.3900000000000001,
+          "fretboard": 1.34,
           "pickup_magnet": 0.45499999999999996,
           "pickup_winding": 0.78,
           "string_material": 0.65,
-          "bridge": 1.435,
-          "scale_length": 1.525,
+          "bridge": 1.3900000000000001,
+          "scale_length": 1.4949999999999999,
           "string_gauge": 1.3900000000000001,
           "finish": 0.195,
           "string_tuning": 7.085
@@ -81,7 +81,7 @@
         },
         "scores": {
           "amp_make": 6.715,
-          "body_wood": 1.525,
+          "body_wood": 1.48,
           "pickup_config": 0.45499999999999996,
           "string_type": 15.379583333333331,
           "scale_length_b": 1.3900000000000001,
@@ -128,18 +128,18 @@
           "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.36583333333333,
+          "voice_vibrato": 16.51583333333333,
           "voice_articulation": 21.58,
           "voice_microtone": 25.34083333333333,
-          "voice_tradition": 18.742916666666666,
-          "voice_mechanism_compound": 14.747083333333332,
+          "voice_tradition": 18.697916666666664,
+          "voice_mechanism_compound": 14.642083333333332,
           "voice_estill_quality": 1.9499999999999997,
           "voice_speech_song": 22.035,
           "voice_ensemble_config": 20.929999999999996,
           "voice_ornament_system": 4.485000000000001,
           "voice_pitch_organization": 1.045,
           "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 5.355
+          "voice_multitrack_stack": 5.655
         }
       },
       {

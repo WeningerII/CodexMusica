@@ -2,10 +2,10 @@
   "id": "atlanta_metal",
   "name": "Atlanta metal",
   "family": "rock_punk",
-  "lineage": "Atlanta metal encompasses a regional network of heavy bands, with Mastodon providing an influential progressive strand. Southern rock connections, contrasting guitar textures and evolving riff structures contribute to a field extending beyond any single band’s sound.",
-  "recipe": "classic modern atlanta metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, twelve string electric, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 546,
-  "score": 43.363,
+  "lineage": "An Atlanta metal discovery scene represented by Mastodon’s progressive guitar-band work. Their direct accounts document complementary guitar roles, variable riff structures, melodic singing and expanded electric-guitar textures alongside the heavy rhythm section.",
+  "recipe": "classic modern atlanta metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. modern metal basswood humbucker electric guitar, twelve string electric, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 432,
+  "score": 33.401,
   "config": {
     "traditions": [
       "atlanta_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
@@ -29,19 +29,19 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": -0.10500000000000001,
-          "amp_make": 4.745,
-          "body_wood": 4.9399999999999995,
+          "electric_technique": 0.585,
+          "amp_make": 0,
+          "body_wood": 5.719999999999999,
           "neck_wood": 0.33599999999999997,
           "fretboard": 0.33599999999999997,
           "pickup_magnet": 0.168,
-          "pickup_winding": 0.189,
+          "pickup_winding": 0.252,
           "string_material": 0.33599999999999997,
-          "bridge": 0.0945,
+          "bridge": 0.126,
           "scale_length": 0.0315,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.189
         }
       },
       {
@@ -55,9 +55,9 @@
           "twelve_string_electric_pickup": "twelve_string_hi_gain_rick"
         },
         "scores": {
-          "electric_technique": -0.10500000000000001,
+          "electric_technique": 0.585,
           "amp_make": 0,
-          "twelve_string_electric_model": 0.168,
+          "twelve_string_electric_model": 0.5459999999999999,
           "twelve_string_electric_context": 2.47,
           "twelve_string_electric_strings": 0,
           "twelve_string_electric_pickup": 0
@@ -66,7 +66,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_unspecified",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -76,13 +76,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.575,
-          "body_wood": 0.189,
+          "amp_make": 0,
+          "body_wood": 0.252,
           "pickup_config": 0,
           "string_type": 0.33599999999999997,
-          "scale_length_b": 0.2625,
+          "scale_length_b": 0.29400000000000004,
           "fretted_or_not": 0.063,
-          "bass_technique": 6.2315000000000005,
+          "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -94,9 +94,9 @@
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 6.355,
-          "drumhead": 0.8679999999999999,
-          "drum_kit_kick_pedal": 0.78
+          "drum_technique": 3.855,
+          "drumhead": 0.8995,
+          "drum_kit_kick_pedal": 0.39
         }
       },
       {
@@ -126,22 +126,23 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0.063,
-          "voice_microtone": 6.031500000000001,
+          "voice_microtone": 3.8315000000000006,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.093125,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.131625,
+          "voice_speech_song": 2.9899999999999998,
+          "voice_ensemble_config": 1.516125,
+          "voice_ornament_system": 0.163125,
           "voice_pitch_organization": 0.063,
-          "voice_processing_chain": 0.03712499999999999,
-          "voice_multitrack_stack": 1.3
+          "voice_processing_chain": 0.368625,
+          "voice_multitrack_stack": 0.6194999999999999
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
         "pickup_magnet",
         "string_material",
         "bridge",
@@ -150,12 +151,14 @@
       ],
       "twelve_string_electric": [
         "electric_technique",
+        "amp_make",
         "twelve_string_electric_model",
         "twelve_string_electric_context",
         "twelve_string_electric_strings",
         "twelve_string_electric_pickup"
       ],
       "electric_bass": [
+        "amp_make",
         "pickup_config",
         "string_type",
         "scale_length_b",
@@ -233,6 +236,7 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
+      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "drumhead": "double_coated",
       "drum_kit_kick_pedal": "dk_kick_double",

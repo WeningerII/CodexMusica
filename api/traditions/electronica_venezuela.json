@@ -5,7 +5,7 @@
   "lineage": "Electrónica Venezuela connects Venezuelan and diaspora artists working with electronic composition, performance and song. Experimental collaborations extend the field across countries and artistic communities.",
   "recipe": "classic electronica venezuela, experimental Elec. solo with instrumental accompaniment. analog mono synth, drum machine analog, field textural sampler. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 252,
-  "score": 23.505,
+  "score": 23.189,
   "config": {
     "traditions": [
       "electronica_venezuela"
@@ -23,8 +23,8 @@
         "scores": {
           "electronic_technique": -0.035,
           "mono_oscillator": 0.105,
-          "mono_filter": 0.315,
-          "mono_archetypes": 0.21,
+          "mono_filter": 0.21,
+          "mono_archetypes": 0.105,
           "mono_maker_lineage": -0.05
         }
       },
@@ -55,7 +55,7 @@
         "scores": {
           "electronic_technique": 6.2315000000000005,
           "sampler_archetypes": 0.105,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": 8.201,
           "sampler_classic_context": 6.15
         }
@@ -95,7 +95,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
+          "voice_processing_chain": 0.21,
           "voice_multitrack_stack": 0.126
         }
       }

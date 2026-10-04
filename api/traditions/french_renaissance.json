@@ -5,7 +5,7 @@
   "lineage": "French Renaissance music includes sacred polyphony, secular chansons and instrumental repertoire. Text setting and the interaction of vocal parts connect intimate ensemble music with wider courtly and civic traditions.",
   "recipe": "classic french renaissance, art Music, western common practice branch. polyrhythmic vocal layering independent cycles choir ensemble, mid renaissance English Spanish lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 282,
-  "score": 14.61,
+  "score": 14.652,
   "config": {
     "traditions": [
       "french_renaissance"
@@ -38,11 +38,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.5,
-          "lute_courses": 2.4845,
+          "lute_courses": 2.6,
           "lute_renaissance_context": 3.9,
           "lute_renaissance_ribs": 0.36,
           "lute_renaissance_soundboard": 0.36,
-          "lute_renaissance_strings": 0.3255
+          "lute_renaissance_strings": 0.252
         }
       }
     ],

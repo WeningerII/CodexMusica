@@ -5,7 +5,7 @@
   "lineage": "Instrumental death metal draws on death-metal intensity and technical composition without a vocalist, as in Blotted Science’s guitar, bass and drum interplay.",
   "recipe": "classic modern instrumental death metal, distorted Rock, death branch, prog metal instrumental djent instrumental progressive metal. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 551,
-  "score": 78.44,
+  "score": 78.245,
   "config": {
     "traditions": [
       "instrumental_death_metal",
@@ -36,7 +36,7 @@
           "body_wood": 10.595,
           "neck_wood": 0.845,
           "fretboard": 0.585,
-          "pickup_magnet": 0.195,
+          "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.845,
           "bridge": 0.8449999999999999,
@@ -51,7 +51,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "basswood_h",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "dual_single",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",

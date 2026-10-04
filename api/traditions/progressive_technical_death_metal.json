@@ -5,7 +5,7 @@
   "lineage": "Progressive technical death metal develops death-metal intensity through intricate instrumental interplay and extended forms.",
   "recipe": "classic modern progressive technical death metal, distorted Rock, death branch, prog metal progressive deathcore progressive metalcore. solo with instrumental accompaniment, single lead single track no stacking. eight string electric, ampeg svt amp rock bass amp fretless bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 432,
-  "score": 13.395,
+  "score": 13.41,
   "config": {
     "traditions": [
       "progressive_technical_death_metal",
@@ -90,10 +90,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0.18,
+          "voice_ornament_system": 0.225,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.78,
+          "voice_processing_chain": 0.135,
+          "voice_multitrack_stack": 0.6599999999999999,
           "voice_tessitura": 0
         }
       }

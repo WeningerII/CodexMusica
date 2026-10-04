@@ -2,10 +2,10 @@
   "id": "hamburg_electronic",
   "name": "Hamburg electronic",
   "family": "electronic",
-  "lineage": "Hamburg electronic includes producers and live performers connected with the city’s electronic-music communities. House-derived rhythm and detailed sound design meet in varied studio and stage practices.",
+  "lineage": "Hamburg electronic is represented by Stimming — Alpe Lusia tour hardware-live core. One documented branch receives an authored present-day studio realization.",
   "recipe": "classic hamburg electronic, electronic Dance, house branch. sampler drum machine, drum machine analog, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 222,
-  "score": 15.787,
+  "score": 14.037,
   "config": {
     "traditions": [
       "hamburg_electronic"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "sample_bitdepth": 0.1365,
-          "sample_swing": 13.75,
+          "sample_swing": 12,
           "sample_processing": 0.273
         }
       },

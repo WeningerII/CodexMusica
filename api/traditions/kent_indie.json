@@ -2,10 +2,10 @@
   "id": "kent_indie",
   "name": "Kent indie",
   "family": "vernacular",
-  "lineage": "Kent indie connects independent musicians, venues and labels across the county, including the Deal and Kingsdown circuit. Acoustic songwriters and electric bands share local networks within the wider British independent scene.",
-  "recipe": "classic kent indie, ballad Poetry, anglo singer song branch. unprocessed natural acoustic. acoustic guitar. live tracking.",
-  "recipe_chars": 122,
-  "score": 3.122,
+  "lineage": "Complete nine-track Demos Of Minnie by Will Varley, recorded by the artist at home in summer2017 and separately issued11November2022. Artist expressly describes raw solo acoustic versions preceding the later full-band Spirit Of Minnie. One singer-songwriter and acoustic guitar retained throughout the separately released source unit; later studio musicians are not removed from a full-band recording but belong to a different edition. Presenter corroborates the artist solo acoustic-guitar practice, and his own interview describes guitar-carrying solo tours. No personal audio inspection or exact original guitar-model claim. Authored intimate acoustic rendition preserving sole accompanied voice and one steel-string OM guitar. Mahogany top and back/sides, phosphor-bronze strings, conventional guitar tuning and flatpicked melodic accompaniment are coherent representative editorial choices, not documented exact gear or a transcription. Source-unspecified voice physiology/delivery, natural single lead and a controlled live room are authored capture; no global temperament or fictitious measured effects. Flatpicked melodic accompaniment is an editorial option within acoustic songwriter practice, not claimed as source fact.",
+  "recipe": "classic kent indie, ballad Poetry, anglo singer song branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
+  "recipe_chars": 241,
+  "score": 35.114,
   "config": {
     "traditions": [
       "kent_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 8.501,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 0.2835,
+          "voice_processing_chain": 8.671499999999998,
+          "voice_multitrack_stack": 6.7835,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.252,
-          "back_sides": 0.2835,
-          "string_acoustic": 0.27299999999999996,
-          "acoustic_om_technique": -0.05
+          "top_wood": 1.552,
+          "back_sides": 1.5835,
+          "string_acoustic": 5.472999999999999,
+          "acoustic_om_technique": 2.55
         }
       }
     ],

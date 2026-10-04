@@ -2,10 +2,10 @@
   "id": "classical_flute",
   "name": "Classical flute",
   "family": "classical",
-  "lineage": "Classical flute performance includes solo, chamber and orchestral repertoire across different periods. Breath, articulation and register give the instrument varied melodic and textural roles.",
-  "recipe": "classic classical flute, art Music. powell boston canonical American orchestral legato flute, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 268,
-  "score": 56.723,
+  "lineage": "Classical flute is represented by Emily Beynon / Andrew West — Poulenc Flute Sonata, L’Album des Six. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic classical flute, art Music, western modern branch. silver yamaha modern Japanese mid to premium legato flute, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 309,
+  "score": 100.29,
   "config": {
     "traditions": [
       "classical_flute"
@@ -16,16 +16,16 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "flute_size": "piccolo_flute",
-          "flute_material": "gold_flute",
+          "flute_material": "silver_flute",
           "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_powell_boston"
+          "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 7.5,
-          "flute_size": 0.0315,
-          "flute_material": 0.38549999999999995,
-          "flute_technique": 0,
-          "flute_maker_school": 1.69
+          "wind_articulation": 8.3865,
+          "flute_size": 0.168,
+          "flute_material": 1.95,
+          "flute_technique": 0.1365,
+          "flute_maker_school": 1.95
         }
       },
       {
@@ -33,24 +33,24 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.5,
-          "grand_piano_size": 1.69,
-          "grand_piano_brand": 0,
-          "piano_hammer": 7.45,
-          "piano_rim": 7.801,
-          "piano_soundboard": 7.45,
-          "piano_pinblock": 7.45,
-          "piano_plate": 7.45,
-          "piano_pitch_standard": 0.325
+          "keyboard_technique": 8.25,
+          "grand_piano_size": 0.3675,
+          "grand_piano_brand": 0.819,
+          "piano_hammer": 14.848499999999998,
+          "piano_rim": 12.3045,
+          "piano_soundboard": 12,
+          "piano_pinblock": 12.462,
+          "piano_plate": 14.3745,
+          "piano_pitch_standard": 12.273
         }
       }
     ],
@@ -59,15 +59,7 @@
         "flute_technique"
       ],
       "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -90,15 +82,7 @@
     "room": "treated_studio",
     "parts": {
       "keyboard_technique": "keyboard_classical_legato",
-      "flute_technique": "classical_flute",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "flute_technique": "classical_flute"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

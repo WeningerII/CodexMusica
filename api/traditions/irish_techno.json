@@ -2,82 +2,28 @@
   "id": "irish_techno",
   "name": "Irish Techno",
   "family": "electronic",
-  "lineage": "Irish techno includes dance-floor production and experimental electronic work that draws on sampling, sound design and repetition. Lakker connects the scene with an exploratory approach to rhythm and recorded sound.",
-  "recipe": "classic irish techno, electronic Dance, techno branch. drum machine analog, glitched textural modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 231,
-  "score": 22.388,
+  "lineage": "Lakker — Struggle & Emerge (2016), complete eight-track archive-only commission. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "recipe": "classic mid-2010s irish techno, experimental Elec, musique concrete branch. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 200,
+  "score": 0.3,
   "config": {
     "traditions": [
       "irish_techno"
     ],
     "instruments": [
       {
-        "id": "drum_machine_analog",
+        "id": "software_sample_playback",
         "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
+          "software_sample_playback_identity": "software_sample_playback_digital"
         },
         "scores": {
-          "kick_voice": 0,
-          "snare_voice": 0,
-          "hat_voice": 0.2415,
-          "shuffle_quantize": -0.035
-        }
-      },
-      {
-        "id": "modular_synth",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_random",
-          "mod_patch_density": "mod_dense_patch",
-          "mod_lineage": "mod_doepfer_eurorack"
-        },
-        "scores": {
-          "electronic_technique": 3.2,
-          "mod_voltage_source": 1,
-          "mod_patch_density": 0.105,
-          "mod_lineage": 0.6825
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_edm"
-        },
-        "scores": {
-          "electronic_technique": 3.2,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
-          "sampler_workflow": 7.7405,
-          "sampler_classic_context": 6.24
+          "software_sample_playback_identity": 0.3
         }
       }
     ],
     "pinned": {
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
-      ],
-      "modular_synth": [
-        "electronic_technique",
-        "mod_voltage_source",
-        "mod_patch_density",
-        "mod_lineage"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+      "software_sample_playback": [
+        "software_sample_playback_identity"
       ]
     },
     "room": "treated_studio",
@@ -97,18 +43,7 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_glitch_textural",
-      "sampler_archetypes": "akai_s1000",
-      "sampler_bit_depth": "sampler_sixteen_bit",
-      "sampler_workflow": "sampler_field_recordings",
-      "sampler_classic_context": "sampler_classic_edm",
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize",
-      "mod_voltage_source": "mod_random",
-      "mod_patch_density": "mod_dense_patch",
-      "mod_lineage": "mod_doepfer_eurorack"
+      "software_sample_playback_identity": "software_sample_playback_digital"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

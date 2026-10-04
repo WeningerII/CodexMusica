@@ -5,7 +5,7 @@
   "lineage": "American post-rock is represented here by Caspian. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic american post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 41.642,
+  "score": 41.405,
   "config": {
     "traditions": [
       "american_post_rock"
@@ -32,16 +32,16 @@
           "electric_technique": -0.07,
           "amp_make": 4.8100000000000005,
           "body_wood": 0.693,
-          "neck_wood": 0.586,
-          "fretboard": 0.586,
+          "neck_wood": 0.45599999999999996,
+          "fretboard": 0.45599999999999996,
           "pickup_magnet": 0.252,
           "pickup_winding": 0.46599999999999997,
-          "string_material": 0.586,
-          "bridge": 1.663,
-          "scale_length": 1.3104999999999998,
-          "string_gauge": 1.6,
+          "string_material": 0.45599999999999996,
+          "bridge": 1.8482500000000002,
+          "scale_length": 1.1804999999999999,
+          "string_gauge": 1.78525,
           "finish": 0.1365,
-          "string_tuning": 0.3
+          "string_tuning": 0.34275
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.586,
+          "drumhead": 0.45599999999999996,
           "drum_kit_kick_pedal": 0
         }
       }

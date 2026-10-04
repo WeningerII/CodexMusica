@@ -5,7 +5,7 @@
   "lineage": "Turkish slow-tempo pop ballad idiom consolidated in Istanbul's Unkapanı record trade between the late 1980s and the 2000s through Sezen Aksu's arrangers, Nilüfer, Kayahan, Sertab Erener and Tarkan, pairing 60-80 BPM ballad drum programming and lush synth-string beds with makam-inflected melodies, a kanun or bağlama obbligato, quarter-tone melismatic vocal ornament and heavily reverbed, arabesk-descended emotional delivery.",
   "recipe": "classic Middle Eastern 1987-1989 türkçe slow şarkılar, functional Song, mid east n African pop branch, med east poetic ballad poetry, middle eastern classical art music khaleeji-iraqi song andalusian classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian saz baglama, kanun tortoiseshell traditional kanun, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mid rich alder electric bass. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 946,
-  "score": 316.25,
+  "score": 312.33,
   "config": {
     "traditions": [
       "turkce_slow",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 12.469999999999999,
-          "voice_quality": 9.295,
+          "voice_quality": 9.88,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.715000000000002,
-          "voice_articulation": 17.484999999999996,
-          "voice_microtone": 29.574999999999996,
-          "voice_tradition": 14.340000000000003,
-          "voice_mechanism_compound": 12.175,
-          "voice_estill_quality": 9.825,
-          "voice_speech_song": 20.279999999999998,
-          "voice_ensemble_config": 16.054999999999996,
-          "voice_ornament_system": 12.745000000000001,
-          "voice_pitch_organization": 12.745000000000001,
+          "voice_vibrato": 14.089999999999998,
+          "voice_articulation": 15.144999999999998,
+          "voice_microtone": 27.235,
+          "voice_tradition": 14.215,
+          "voice_mechanism_compound": 12.7,
+          "voice_estill_quality": 10.274999999999999,
+          "voice_speech_song": 17.939999999999998,
+          "voice_ensemble_config": 14.559999999999997,
+          "voice_ornament_system": 13.120000000000001,
+          "voice_pitch_organization": 13.120000000000001,
           "voice_processing_chain": 4.3,
           "voice_multitrack_stack": 5.380000000000001
         }
@@ -63,7 +63,7 @@
           "saz_tradition": "saz_alevi_cem"
         },
         "scores": {
-          "plucked_traditional_technique": 8.450000000000001,
+          "plucked_traditional_technique": 8.825,
           "saz_size": 0.9750000000000001,
           "saz_frets": 1.3,
           "saz_body_wood": 2.6950000000000003,
@@ -79,7 +79,7 @@
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 8.450000000000001,
+          "plucked_traditional_technique": 8.825,
           "kanun_school": 7.800000000000001,
           "kanun_articulation": 3.7950000000000004
         }
@@ -99,16 +99,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.105,
+          "bowed_technique": 8.48,
           "orch_strings": 0.95,
-          "orch_top_wood": 10.500000000000002,
-          "orch_back_wood": 8.445,
-          "orch_varnish": 8.145,
-          "orch_setup_period": 6.450000000000001,
+          "orch_top_wood": 10.875,
+          "orch_back_wood": 8.819999999999999,
+          "orch_varnish": 8.52,
+          "orch_setup_period": 6.824999999999999,
           "orch_bow": 0.195,
-          "orch_bow_stick": 8.725,
-          "orch_articulation": 0.39,
-          "orch_rosin": 8
+          "orch_bow_stick": 9.099999999999998,
+          "orch_articulation": 0.195,
+          "orch_rosin": 8.375
         }
       },
       {
@@ -120,7 +120,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 10.974999999999998,
+          "electronic_technique": 10.825,
           "poly_archetypes": 0.39,
           "poly_voices": 0.195,
           "poly_maker_lineage": 1.4299999999999997
@@ -137,7 +137,7 @@
         "scores": {
           "percussion_technique": 1.79,
           "darbuka_material": 0.195,
-          "darbuka_skin": 3.185,
+          "darbuka_skin": 2.34,
           "darbuka_regional_style": 6.565000000000001
         }
       },
@@ -149,7 +149,7 @@
           "pickup_config": "humbucker_mm",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -159,7 +159,7 @@
           "pickup_config": 0.39,
           "string_type": 4.04,
           "scale_length_b": 2.35,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0,
           "bass_technique": 0.7,
           "electric_bass_string_configuration": 0
         }

@@ -3,9 +3,9 @@
   "name": "Roots Rock",
   "family": "rock",
   "lineage": "Late-1960s American reaction against psychedelia, formed around Woodstock and the Bay Area with The Band's Music from Big Pink (1968), Creedence Clearwater Revival and Bob Dylan's John Wesley Harding — moderate 90-120 BPM backbeats, unaffected guitar tones, piano and Hammond organ, gospel-derived group harmony and country, blues and R&B forms recorded with minimal overdubbing.",
-  "recipe": "classic Southern American 1967-1969 roots rock, distorted Rock, classic branch, country rock country, blues electric functional song. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric open e tuning steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs fast tremolo tonewheel organ, upright piano, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 954,
-  "score": 670.492,
+  "recipe": "classic Southern American 1967-1969 roots rock, distorted Rock, classic branch, country rock country, blues electric functional song. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric open e tuning steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs fast tremolo tonewheel organ, upright piano, bowl back Italian hard rock maple parallel tone bars loar graduation k and k twin mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 979,
+  "score": 621.782,
   "config": {
     "traditions": [
       "roots_rock",
@@ -29,26 +29,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 71.57,
-          "voice_quality": 10.919999999999993,
+          "voice_register": 65.72,
+          "voice_quality": 10.529999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 35.63999999999999,
-          "voice_articulation": 14.429999999999993,
-          "voice_microtone": 29.174999999999997,
+          "voice_vibrato": 30.764999999999997,
+          "voice_articulation": 14.884999999999994,
+          "voice_microtone": 29.5,
           "voice_tradition": 8.71,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 33.699999999999996,
-          "voice_speech_song": 19.629999999999992,
-          "voice_ensemble_config": 14.754999999999992,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 27.979999999999997,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 0.5849999999999997,
-          "voice_pitch_organization": 0.5199999999999999,
-          "voice_processing_chain": 6.780000000000001,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 6.175,
           "voice_multitrack_stack": 4.260000000000001
         }
       },
@@ -62,7 +62,7 @@
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_8",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "oil_satin",
@@ -70,8 +70,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 28.584999999999997,
-          "amp_make": 33.474999999999994,
+          "electric_technique": 23.709999999999997,
+          "amp_make": 27.709999999999997,
           "body_wood": 0.195,
           "neck_wood": 0.3,
           "fretboard": 0.045,
@@ -81,7 +81,7 @@
           "bridge": 0.045,
           "scale_length": 0.65,
           "finish": 0.045,
-          "string_tuning": 18.395,
+          "string_tuning": 17.94,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 33.105,
+          "amp_make": 27.384999999999998,
           "body_wood": 0.26999999999999996,
           "pickup_config": 0,
-          "string_type": 31.41,
+          "string_type": 30.009999999999998,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.09,
-          "bass_technique": 28.885,
+          "bass_technique": 27.635,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.74,
-          "drumhead": 0.825,
+          "drum_technique": 27.445,
+          "drumhead": 1.25,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,10 +133,10 @@
         },
         "scores": {
           "keyboard_technique": 3.95,
-          "drawbar_setting": 28.935000000000002,
-          "rotary_speed": 32.89,
-          "percussion_setting": 14.115,
-          "tonewheel_model": 18.02,
+          "drawbar_setting": 27.685000000000002,
+          "rotary_speed": 31.64,
+          "percussion_setting": 13.465,
+          "tonewheel_model": 17.369999999999997,
           "leslie_cabinet_model": 1.295
         }
       },
@@ -148,9 +148,9 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 28.324999999999996,
+          "keyboard_technique": 23.449999999999996,
           "upright_use": 0.135,
-          "upright_piano_size": 0.585
+          "upright_piano_size": 1.4300000000000002
         }
       },
       {
@@ -163,8 +163,8 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 30.374999999999996,
-          "string_tuning": 6.52,
+          "acoustic_technique": 25.499999999999996,
+          "string_tuning": 6.759999999999999,
           "top_wood": 0.3,
           "back_sides": 0.3,
           "string_acoustic": 1.4300000000000002
@@ -183,14 +183,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 2.555,
+          "acoustic_technique": 2.5100000000000002,
           "mandolin_shape": 1.235,
           "mandolin_top": 0.57,
-          "mandolin_back": 14.16,
-          "mandolin_bracing": 0.46499999999999997,
+          "mandolin_back": 13.51,
+          "mandolin_bracing": 1.115,
           "mandolin_strings": 0.78,
           "mandolin_fingerboard": 0.045,
-          "mandolin_pickup": 15.794999999999995
+          "mandolin_pickup": 16.249999999999996
         }
       }
     ],

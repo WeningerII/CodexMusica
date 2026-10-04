@@ -5,7 +5,7 @@
   "lineage": "Poland’s contemporary ambient scene encompasses electronic composition, field recording and processed acoustic ensembles. Independent musicians connect chamber-instrument timbres with experimental studio methods, alongside more purely electronic approaches.",
   "recipe": "classic modern polish ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art animal singing. field textural sampler, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, equal temperament modern concert standard prepared harpsichord, clarinet. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
   "recipe_chars": 463,
-  "score": 78.69,
+  "score": 78.473,
   "config": {
     "traditions": [
       "polish_ambient",
@@ -26,7 +26,7 @@
           "electronic_technique": 13.495000000000003,
           "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.45499999999999996,
-          "sampler_workflow": 16.495,
+          "sampler_workflow": 16.3,
           "sampler_classic_context": 15.250000000000002
         }
       },
@@ -47,7 +47,7 @@
         "scores": {
           "bowed_technique": -0.05,
           "orch_strings": 0.95,
-          "orch_top_wood": 1.3324999999999998,
+          "orch_top_wood": 1.3099999999999998,
           "orch_back_wood": 2.065,
           "orch_varnish": 2.07,
           "orch_setup_period": 1.0725,

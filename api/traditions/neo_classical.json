@@ -5,7 +5,7 @@
   "lineage": "Neo-classical in contemporary listening connects accessible instrumental composition with minimalist and ambient approaches. Piano-led pieces form one prominent branch alongside strings and electronic textures.",
   "recipe": "classic neo-classical, art Music, western modern branch. pedal resonant legato upright piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 192,
-  "score": 9.646,
+  "score": 9.919,
   "config": {
     "traditions": [
       "neo_classical"
@@ -21,7 +21,7 @@
         "scores": {
           "keyboard_technique": 7.8,
           "upright_use": 1.3,
-          "upright_piano_size": 0.546
+          "upright_piano_size": 0.8190000000000001
         }
       }
     ],

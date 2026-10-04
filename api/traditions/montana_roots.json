@@ -3,9 +3,9 @@
   "name": "Montana roots",
   "family": "vernacular",
   "lineage": "Montana roots connects regional folk, country, bluegrass and acoustic-song communities. Songwriters and ensembles circulate through local performances and recordings, drawing on shared roots traditions while developing individual approaches.",
-  "recipe": "classic montana roots, functional Song, folk rock branch. unprocessed natural acoustic, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 207,
-  "score": 6.885,
+  "recipe": "classic montana roots, functional Song, folk rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 169,
+  "score": 6.522,
   "config": {
     "traditions": [
       "montana_roots"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 0.363,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.552,
-          "voice_multitrack_stack": 0.525,
+          "voice_processing_chain": 1.5835,
+          "voice_multitrack_stack": 0.126,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
         "scores": {
           "acoustic_technique": 4,
           "string_tuning": 0,
-          "top_wood": 0.0315,
+          "top_wood": 0.063,
           "back_sides": -0.035,
           "string_acoustic": 0.0315
         }

@@ -5,7 +5,7 @@
   "lineage": "Focus beats connects instrumental beat-making with listening for work, study and everyday concentration. Radio curators and independent producers draw on beat tapes, instrumental hip-hop and related electronic music, creating a functional listening field that crosses individual production styles.",
   "recipe": "classic focus beats, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 147,
-  "score": 9.945,
+  "score": 9.93,
   "config": {
     "traditions": [
       "focus_beats"
@@ -21,7 +21,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": -0.035,
+          "electronic_technique": -0.05,
           "sampler_archetypes": 3.5,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": -0.1,

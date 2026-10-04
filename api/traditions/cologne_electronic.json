@@ -5,7 +5,7 @@
   "lineage": "Cologne electronic connects the city’s experimental and independent electronic communities with varied approaches to synthesis and song.",
   "recipe": "classic cologne electronic, experimental Elec. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 204,
-  "score": 1.684,
+  "score": 1.654,
   "config": {
     "traditions": [
       "cologne_electronic"
@@ -20,7 +20,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
           "poly_maker_lineage": -0.05

@@ -5,7 +5,7 @@
   "lineage": "20th-century-codified Chinese national-music conservatory ensemble form anchored at the Central Conservatory Beijing and Shanghai Conservatory",
   "recipe": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music indian violin sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 887,
-  "score": 291.928,
+  "score": 290.442,
   "config": {
     "traditions": [
       "chinese_traditional_ensemble",
@@ -42,12 +42,12 @@
           "voice_articulation": 11.244999999999997,
           "voice_microtone": 11.894999999999996,
           "voice_tradition": 19.5,
-          "voice_mechanism_compound": 5.209999999999999,
+          "voice_mechanism_compound": 5.359999999999999,
           "voice_estill_quality": 6.45,
           "voice_speech_song": 15.404999999999998,
           "voice_ensemble_config": 13.064999999999996,
-          "voice_ornament_system": 11.204999999999998,
-          "voice_pitch_organization": 11.249999999999998,
+          "voice_ornament_system": 11.054999999999998,
+          "voice_pitch_organization": 11.099999999999998,
           "voice_processing_chain": 1.4949999999999997,
           "voice_multitrack_stack": 1.755
         }
@@ -63,7 +63,7 @@
           "erhu_bow": "erhu_bamboo_horsehair"
         },
         "scores": {
-          "bowed_technique": 5.07,
+          "bowed_technique": 4.92,
           "erhu_skin": 3.12,
           "erhu_use": 3.244999999999999,
           "erhu_body_wood": 1.6249999999999998,
@@ -81,7 +81,7 @@
           "pipa_body_wood": "pipa_red_sandalwood"
         },
         "scores": {
-          "plucked_traditional_technique": 5.07,
+          "plucked_traditional_technique": 4.92,
           "pipa_frets": 1.985,
           "pipa_strings": 3.12,
           "pipa_pick": 0.045,
@@ -99,7 +99,7 @@
           "guzheng_string_material": "guzheng_steel_wound_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 5.07,
+          "plucked_traditional_technique": 4.92,
           "guzheng_strings": 4.615,
           "guzheng_picks": 1.295,
           "guzheng_top_wood": 1.6899999999999997,
@@ -117,7 +117,7 @@
           "ruan_strings": "ruan_nylon_steel_wound"
         },
         "scores": {
-          "plucked_traditional_technique": 5.07,
+          "plucked_traditional_technique": 4.92,
           "ruan_size": 3.244999999999999,
           "ruan_context": 13.910000000000002,
           "ruan_body_wood": 0,
@@ -135,7 +135,7 @@
           "sanxian_body_wood": "sanxian_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 5.07,
+          "plucked_traditional_technique": 4.92,
           "sanxian_size": 0.39,
           "sanxian_context": 4.745,
           "sanxian_head": 1.6249999999999998,
@@ -169,7 +169,7 @@
           "sheng_pipe_material": "sheng_bamboo_canonical"
         },
         "scores": {
-          "free_reed_technique": 2.065,
+          "free_reed_technique": 1.8699999999999999,
           "sheng_size": 3.835,
           "sheng_context": 16.9,
           "sheng_pipe_material": 4.77
@@ -194,7 +194,7 @@
           "bawu_context": "bawu_yi"
         },
         "scores": {
-          "free_reed_technique": 2.065,
+          "free_reed_technique": 1.8699999999999999,
           "bawu_pitch": 2.335,
           "bawu_context": 8.19
         }
@@ -207,7 +207,7 @@
           "hulusi_context": "hulusi_yunnan"
         },
         "scores": {
-          "free_reed_technique": 2.065,
+          "free_reed_technique": 1.8699999999999999,
           "hulusi_config": 2.19,
           "hulusi_context": 8.19
         }

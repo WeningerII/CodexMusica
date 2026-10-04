@@ -5,7 +5,7 @@
   "lineage": "Kulk — We Spare Nothing (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s east anglia indie, distorted Rock, noise rock branch. single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 369,
-  "score": 36.167,
+  "score": 36.356,
   "config": {
     "traditions": [
       "east_anglia_indie"
@@ -82,7 +82,7 @@
           "scale_length": 0.609,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 1.3945
+          "string_tuning": 1.4575
         }
       },
       {
@@ -102,9 +102,9 @@
         },
         "scores": {
           "drum_technique": 8.25,
-          "drumhead": 1.363,
+          "drumhead": 1.4260000000000002,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6945000000000001,
+          "shell_wood": 1.7575,
           "shell_thickness": 0,
           "bearing_edges": 0.16799999999999998,
           "snare_wires": 0,

@@ -5,7 +5,7 @@
   "lineage": "Netherlands club and festival style of roughly 2007-2012, codified by Chuckie, Afrojack, Sidney Samson and Laidback Luke out of Rotterdam and Amsterdam bubbling-and-house crossover, built on 128 BPM four-on-the-floor kicks with heavily sidechained tails, pitch-bent squelch leads voiced on a single detuned saw, tuned filtered toms borrowed from bubbling, near-total absence of sustained pads, and short shouted vocal stabs used as rhythmic punctuation rather than melody.",
   "recipe": "classic mid-2010s dutch house, electronic Dance, house branch, tech house house, hardstyle electronic dance jumpstyle bouncy house. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. digital subtractive, TR-909, analog mono synth, hand clap. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 461,
-  "score": 197.934,
+  "score": 198.714,
   "config": {
     "traditions": [
       "dutch_house",
@@ -74,24 +74,24 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
           "voice_register": 3.1849999999999996,
           "voice_quality": 8.190000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.675,
+          "voice_vibrato": 1.72,
           "voice_articulation": 18.004999999999995,
           "voice_microtone": 17.159999999999993,
-          "voice_tradition": 8.301875,
+          "voice_tradition": 8.796875,
           "voice_mechanism_compound": 4.16,
           "voice_estill_quality": 3.9650000000000007,
           "voice_speech_song": 19.499999999999996,
           "voice_ensemble_config": 20.019999999999992,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 3.5456250000000007,
-          "voice_processing_chain": 23.069375000000004,
+          "voice_processing_chain": 23.309375000000006,
           "voice_multitrack_stack": 4.484999999999999
         }
       },
@@ -99,7 +99,7 @@
         "id": "hand_clap",
         "slots": {
           "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_room_natural"
+          "clap_capture": "clap_close_dry"
         },
         "scores": {
           "clap_technique": 0.65,

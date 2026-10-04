@@ -5,7 +5,7 @@
   "lineage": "Música capixaba is the cross-style music community of Espírito Santo, connecting popular music, regional scenes and experimental practice. Universities, labels and cultural organizations provide settings for collaboration across these approaches.",
   "recipe": "classic música capixaba, experimental Elec. group vocals, live take. humbucker electric guitar, electric bass, credited synthesizer credited electronics dj playback mixing live signal processing unspecified. live tracking.",
   "recipe_chars": 222,
-  "score": 3.51,
+  "score": 2.849,
   "config": {
     "traditions": [
       "musica_capixaba"
@@ -70,16 +70,16 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.2315,
+          "electric_technique": 0.2,
           "amp_make": 0,
-          "body_wood": 0.1365,
-          "neck_wood": 0.21,
-          "fretboard": 0.105,
+          "body_wood": 0.0315,
+          "neck_wood": 0.105,
+          "fretboard": 0,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.42,
+          "scale_length": 0.21,
           "string_gauge": 0.7314999999999999,
           "finish": 0,
           "string_tuning": 0.063
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.0315,
           "pickup_config": 0.0315,
           "string_type": 0,
-          "scale_length_b": 0.105,
+          "scale_length_b": 0,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -132,7 +132,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "dj_playback_mixing_identity": 0.105
         }
       },
       {

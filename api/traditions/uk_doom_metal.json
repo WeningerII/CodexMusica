@@ -5,7 +5,7 @@
   "lineage": "UK doom metal is represented here by My Dying Bride. This selected branch has an authored present-day studio realization.",
   "recipe": "classic uk doom metal, distorted Rock, doom branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, hard rock maple acer saccharum liebenzeller metal infused violin orchestral, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 445,
-  "score": 64.703,
+  "score": 64.209,
   "config": {
     "traditions": [
       "uk_doom_metal"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 11.548999999999998,
+          "amp_make": 11.412499999999998,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.39,
           "fretboard": 0.39,
@@ -52,17 +52,17 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.548999999999998,
+          "amp_make": 11.412499999999998,
           "body_wood": 0.7035,
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.49350000000000005,
-          "fretted_or_not": 0.105,
+          "fretted_or_not": 0.063,
           "bass_technique": 3.8365,
           "electric_bass_string_configuration": 0
         }
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7852499999999998,
+          "voice_ensemble_config": 0.6067499999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

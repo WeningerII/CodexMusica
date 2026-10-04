@@ -2,10 +2,10 @@
   "id": "wu_fam",
   "name": "Wu Fam",
   "family": "hip_hop",
-  "lineage": "Wu Fam connects the Wu-Tang affiliate network and its collaborations, extending through related groups and individual MCs. Shared relationships and recording history define the community within the broader East Coast and international hip-hop field.",
-  "recipe": "classic wu fam, mc Rhythm. rhythmic spoken flow no pitch. sampler. live tracking.",
-  "recipe_chars": 81,
-  "score": 16.062,
+  "lineage": "Royal Fam artist-issued I Am Wu-Tang mixtape (2024), complete separately issued La Saga acapella version, track16. Explicit five-person credits: Dreddy Kruger, Prodigal Sunn, Timbo King, Akhenaton and Shurik'n. Single composite voice card retains the five named rappers. Original instrumental and live versions are separately listed; this is the complete released vocal-only version, not researcher-removal of the backing from the original. Other mixtape guest lists are not imported into this separate edition. Wu Fam identifies the Wu-Tang affiliate network, positively documented by this artist-issued Royal Fam/SunzOfMan/IAM collaboration and creator cluster. Exact creator playlist includes Timbo King, Prodigal Sunn and Royal Fam. Existing east_coast_hip_hop_classic already includes Wu-Tang, so no historical exclusion is asserted; Wu Fam is a narrower artist-affiliation network, not all East Coast rap or any performer merely influenced by RZA. Hardcore hip-hop is a delivery/production category, while the affiliate network includes collaborations and separate vocal-only releases. French guests here do not become permanent Wu-Tang members by participation. Broad mcRhythm describes the selected rap collaboration without pretending all voices are American. Five credited performers retained; voice physiology, lineage and exact pitch mechanism stay source-unspecified. Existing live-group/live-ensemble controls are an explicitly authored combined unaccompanied rendition of all five performers, not an assertion that the issued studio acapella was recorded simultaneously or without overdubs. No fixed beat, sampler or synthesizer is inferred from production credits; no accompaniment is invented. Controlled live room and unprocessed voice are representative choices, not source-session facts; optional tuning and apparatus omitted.",
+  "recipe": "classic mid-2020s wu fam, mc Rhythm. group vocals, unprocessed natural acoustic, live take. live tracking.",
+  "recipe_chars": 106,
+  "score": 16.723,
   "config": {
     "traditions": [
       "wu_fam"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -38,35 +38,18 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.39,
+          "voice_articulation": 0.40950000000000003,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.2,
-          "voice_ensemble_config": 0.126,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 8.219999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.0945,
+          "voice_processing_chain": 1.3315000000000001,
+          "voice_multitrack_stack": 6.762499999999999,
           "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_twelve_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_hiphop"
-        },
-        "scores": {
-          "electronic_technique": 0.25,
-          "sampler_archetypes": 1.5,
-          "sampler_bit_depth": -0.05,
-          "sampler_workflow": 0.2,
-          "sampler_classic_context": 8.319999999999999
         }
       }
     ],
@@ -89,13 +72,6 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
       ]
     },
     "room": "live_room",
@@ -125,18 +101,13 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_sustained_layering",
-      "sampler_archetypes": "akai_mpc",
-      "sampler_bit_depth": "sampler_twelve_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_hiphop"
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
     "pin_parts": true
   }

@@ -2,10 +2,10 @@
   "id": "viral_trap",
   "name": "Viral trap",
   "family": "hip_hop",
-  "lineage": "Trap repertoire amplified through internet circulation and audience reuse, overlapping regional and melodic rap scenes.",
+  "lineage": "Viral trap is a distribution-led discovery category, represented by the internet circulation of Roddy Ricch’s The Box. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
   "recipe": "classic modern viral trap, mc Rhythm, modern branch. rap, solo with instrumental accompaniment, echo word punctuation. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 276,
-  "score": 21.588,
+  "score": 21.812,
   "config": {
     "traditions": [
       "viral_trap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 9.1,
+          "voice_quality": 6.825,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -46,8 +46,8 @@
           "voice_ensemble_config": 1.3027499999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 7.7145
+          "voice_processing_chain": 0.03899999999999999,
+          "voice_multitrack_stack": 10.264499999999998
         }
       },
       {
@@ -59,10 +59,10 @@
           "sample_processing": "sample_808_legato_slides"
         },
         "scores": {
-          "electronic_technique": 2.31625,
+          "electronic_technique": 2.61625,
           "sample_bitdepth": 0.4095,
           "sample_swing": -0.035,
-          "sample_processing": 0.78
+          "sample_processing": 0.39
         }
       }
     ],

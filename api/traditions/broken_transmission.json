@@ -5,7 +5,7 @@
   "lineage": "screen recording — 69740. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic broken transmission, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 155,
-  "score": 5.236,
+  "score": 5.026,
   "config": {
     "traditions": [
       "broken_transmission"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 1.0315,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": -0.05,
           "sampler_classic_context": 4.094999999999999
         }

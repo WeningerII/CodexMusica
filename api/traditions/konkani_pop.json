@@ -2,10 +2,10 @@
   "id": "konkani_pop",
   "name": "Konkani pop",
   "family": "pop",
-  "lineage": "Konkani pop brings Konkani-language song into contemporary recording, film and live popular-music settings. Goan musicians have combined regional expression with rock and other international styles.",
-  "recipe": "classic konkani pop, functional Song. solo with instrumental accompaniment. humbucker electric guitar, rock canon ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 8.402,
+  "lineage": "Konkani pop is represented here by Remo Fernandes — Maka Naka Tuka Naka guitar core. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic konkani pop, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, rock canon ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 302,
+  "score": 19.227,
   "config": {
     "traditions": [
       "konkani_pop"
@@ -18,51 +18,51 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_9_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.1,
-          "amp_make": 1.2,
-          "body_wood": 0.4635,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.18,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0.1365,
-          "string_gauge": 0.054,
+          "electric_technique": -0.07,
+          "amp_make": 2.21,
+          "body_wood": 0.26549999999999996,
+          "neck_wood": 0.1365,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.702,
+          "string_material": 0.0315,
+          "bridge": 1.69,
+          "scale_length": 0.36749999999999994,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.604,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 3.25,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.4635,
+          "amp_make": 2.6650000000000005,
+          "body_wood": 0.168,
+          "pickup_config": 0.27299999999999996,
+          "string_type": 5.85,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.23399999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -99,11 +99,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.78
         }
       }
     ],

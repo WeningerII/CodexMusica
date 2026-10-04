@@ -2,58 +2,28 @@
   "id": "chill_out_trance",
   "name": "Chill-Out Trance",
   "family": "electronic",
-  "lineage": "Chill-out trance connects trance repertoire with relaxed listening, including reinterpretations of vocal-trance songs. Remixers and labels such as Seven24’s network, RNM and Suanda link melodic dance music with atmospheric listening arrangements.",
-  "recipe": "classic chill-out trance, electronic Dance, trance branch. analog poly synth, drum machine analog. shoebox concert hall.",
-  "recipe_chars": 120,
-  "score": 1.625,
+  "lineage": "Seven24 — complete Balearic Time continuous DJ mix, track16 on Easy Summer2016 release Balearic Time (Compiled & Mixed by Seven24),57:29. Issuer explicitly credits compilation and mixing and separately publishes this full continuous programme. Selected scope is the complete mixed track, not all sixteen album entries added together or the underlying individual productions. No claim the mix contains every preceding fifteen standalone tracks in the same order. Recorded-program playback and DJ mixing positively established; deck medium/software/constituent instruments and embedded or additional live voice counts unknown. All mixed source layers retained, no uncredited reconstruction or pure-trance set claim. Existing neutral DJ playback/mixing owner models the positively published continuous performance. A spacious shoebox-hall listening presentation is authored for this complete mixed programme; the large reverberant playback space is not the original mixing room, source venue, source tempo measurement or additional instrument. No unknown source hardware, live singer card, tuning or studio production layers invented. ElectronicDance.trance is the editorial ancestry of this chosen trance-remix-facing practice, not a claim every constituent selection is dance-floor trance.",
+  "recipe": "classic chill-out trance, electronic Dance, trance branch. dj playback mixing unspecified. shoebox concert hall.",
+  "recipe_chars": 112,
+  "score": 0.2,
   "config": {
     "traditions": [
       "chill_out_trance"
     ],
     "instruments": [
       {
-        "id": "analog_poly_synth",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "poly_archetypes": 0.8365,
-          "poly_voices": 0.1365,
-          "poly_maker_lineage": -0.035
-        }
-      },
-      {
-        "id": "drum_machine_analog",
-        "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
-        },
-        "scores": {
-          "kick_voice": 0.231,
-          "snare_voice": 0,
-          "hat_voice": 0.231,
-          "shuffle_quantize": -0.035
+          "dj_playback_mixing_identity": 0.1995
         }
       }
     ],
     "pinned": {
-      "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
-      ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -73,14 +43,7 @@
   "source": {
     "room": "concert_hall_shoebox",
     "parts": {
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize",
-      "electronic_technique": "electronic_pad_drone",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true
   }

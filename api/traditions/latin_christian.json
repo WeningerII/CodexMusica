@@ -2,56 +2,15 @@
   "id": "latin_christian",
   "name": "Latin Christian",
   "family": "global",
-  "lineage": "Latin Christian music links Spanish-language Christian artists, churches and ministries across national borders. Worship, gospel, pop, rock and rap coexist within a broad devotional and recording network.",
-  "recipe": "classic latin christian, ritual Devotional, christian gospel branch. 17 ply hard rock maple a 440 modern pitch us standard grand piano. shoebox concert hall.",
+  "lineage": "Marcos Witt — Renuévame, complete advanced solo-piano edition arranged/interpreted/produced by Eliab Sandoval and issued by Himnos Pista Piano. Publisher explicitly lists Piano Solo and church/rehearsal/personal-practice use. This is a separately issued complete instrumental adaptation, not removal of voices or a band from Witt’s original recording. One piano performer, zero scored singers; unseen score notes and original audio not asserted. All nine grand-piano parts explicitly authored: coherent nine-foot Steinway D construction, A440, sustain-rich arpeggiation and controlled live-room acoustic. These are new rendition choices, not source equipment, original gesture transcription or proof the overall category is instrumental. Equal temperament is editorial modern-piano realization.",
+  "recipe": "classic latin christian, ritual Devotional, christian gospel branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
   "recipe_chars": 157,
-  "score": 8.135,
+  "score": 30.383,
   "config": {
     "traditions": [
       "latin_christian"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0.40950000000000003,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.1365,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
-          "voice_tessitura": 0
-        }
-      },
       {
         "id": "grand_piano",
         "slots": {
@@ -66,38 +25,19 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.504,
-          "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 0.8999999999999999,
-          "piano_rim": 1.17,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 1.625
+          "keyboard_technique": 2.5000000000000004,
+          "grand_piano_size": 0.294,
+          "grand_piano_brand": 0.273,
+          "piano_hammer": 3.8000000000000003,
+          "piano_rim": 5.946000000000001,
+          "piano_soundboard": 3.2,
+          "piano_pinblock": 3.2,
+          "piano_plate": 3.2,
+          "piano_pitch_standard": 7.969499999999999
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
       "grand_piano": [
         "keyboard_technique",
         "grand_piano_size",
@@ -110,7 +50,7 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -127,7 +67,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
     "parts": {
       "keyboard_technique": "keyboard_arpeggio_sustain_rich",
       "grand_piano_size": "grand_9_foot",
@@ -137,24 +77,7 @@
       "piano_soundboard": "sitka_spruce_diaphragmatic",
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "legato_voice",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true
   }

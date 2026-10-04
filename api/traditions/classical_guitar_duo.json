@@ -5,7 +5,7 @@
   "lineage": "Classical guitar duos perform original two-guitar works and arrangements across a broad concert repertoire. Two players distribute melodic, harmonic and rhythmic material between matching instrumental voices.",
   "recipe": "classic classical guitar duo, art Music, western common practice branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 242,
-  "score": 12.155,
+  "score": 12.104,
   "config": {
     "traditions": [
       "classical_guitar_duo"
@@ -24,7 +24,7 @@
         "scores": {
           "acoustic_technique": -0.175,
           "string_tuning": 0,
-          "top_wood_classical": 0.63,
+          "top_wood_classical": 0.579,
           "bracing_classical": 3.9,
           "string_classical": 3.9,
           "attack_technique_cl": 3.9

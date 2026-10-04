@@ -5,7 +5,7 @@
   "lineage": "Japanese teen-idol pop formalised by talent agencies and TV variety programming in Tokyo from the early 1970s — Momoe Yamaguchi and then Seiko Matsuda in the 1980s establishing the template, extended by Onyanko Club and later Morning Musume and AKB48 — bright 120-145 BPM major-key songs with Brill-Building-style key-change choruses, session-band backing with syncopated slap bass and gated snare, sweetened brass and synth-string beds, and a deliberately thin, high, unrehearsed-sounding solo or unison-group vocal recorded very close.",
   "recipe": "classic East Asian 1970-1973 japanese idol pop, functional Song, east Asian pop branch, pop rock synthpop yacht rock a cappella. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, singing lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mid attack plastic glockenspiel. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
   "recipe_chars": 924,
-  "score": 618.488,
+  "score": 617.708,
   "config": {
     "traditions": [
       "japanese_teen_pop",
@@ -62,7 +62,7 @@
         "scores": {
           "multitrack_stack_density": 1.8199999999999998,
           "multitrack_stack_era_aesthetic": 7.8325,
-          "multitrack_stack_processing": 1.6800000000000002
+          "multitrack_stack_processing": 1.08
         }
       },
       {
@@ -83,7 +83,7 @@
           "pickup_config": 0.65,
           "string_type": 20.474999999999998,
           "scale_length_b": 1.8400000000000003,
-          "fretted_or_not": 0.39,
+          "fretted_or_not": 0.3,
           "bass_technique": 17.09,
           "electric_bass_string_configuration": 0
         }
@@ -143,7 +143,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 30.909999999999993,
+          "electronic_technique": 30.819999999999993,
           "poly_archetypes": 8.189999999999998,
           "poly_voices": 1.235,
           "poly_maker_lineage": 0.5199999999999999

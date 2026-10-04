@@ -2,61 +2,28 @@
   "id": "samurai_trap",
   "name": "Samurai trap",
   "family": "hip_hop",
-  "lineage": "Samurai trap connects trap and bass production with Japanese-associated melodic and media references in an international electronic listening field. Producers and curators overlap glitch, hip-hop and future-bass communities rather than representing a historical Japanese tradition.",
-  "recipe": "classic samurai trap, bass System. sampler, drum machine analog. treated studio.",
+  "lineage": "[dunkelbunt] — complete49:19 Samurai Trap & Glitch Japanese Asian Future Bass Hip-hop, issued on his own Mixcloud and directly linked from his own DJ news page. The practitioner labels the programme Samurai Trap (bass of asia) and identifies DJ selection/spinning. The entire crossover mix is retained, including its expressly named glitch/future-bass neighbours; no subset is excised to pretend a stylistically pure album. Model positive recorded-program playback and mixing rather than inventing the instrument generators inside mastered selections. Actual decks/software, live versus offline assembly, embedded singers and session musicians are unspecified. Zero additional live voice cards does not mean zero voices in the music. Broad mcRhythm with hip_hop family is an authored organizational home for the trap/hip-hop programme, not a claim all selections have MCs. Existing medium-neutral DJ playback/mixing owner retains the full recorded programme and positive mix practice. Treated studio is an authored listening/mixing environment; no source room, exact hardware, global tuning or capture chain is asserted.",
+  "recipe": "classic samurai trap, mc Rhythm. dj playback mixing unspecified. treated studio.",
   "recipe_chars": 80,
-  "score": 8.228,
+  "score": 0,
   "config": {
     "traditions": [
       "samurai_trap"
     ],
     "instruments": [
       {
-        "id": "sampler_classic",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_twelve_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_edm"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.325,
-          "sampler_archetypes": 1.5,
-          "sampler_bit_depth": -0.05,
-          "sampler_workflow": 0.2315,
-          "sampler_classic_context": 6.24
-        }
-      },
-      {
-        "id": "drum_machine_analog",
-        "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
-        },
-        "scores": {
-          "kick_voice": 0,
-          "snare_voice": 0.0315,
-          "hat_voice": 0,
-          "shuffle_quantize": -0.05
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
-      ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "treated_studio",
@@ -76,15 +43,7 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sustained_layering",
-      "sampler_archetypes": "akai_mpc",
-      "sampler_bit_depth": "sampler_twelve_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_edm",
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true
   }

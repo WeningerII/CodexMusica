@@ -5,7 +5,7 @@
   "lineage": "Italian classical guitar connects concert performance and musical education with a broad international guitar repertoire. Solo recitals, chamber collaborations and new works sustain varied approaches to the instrument.",
   "recipe": "classic italian classical guitar, art Music, western common practice branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 12.325,
+  "score": 12.309,
   "config": {
     "traditions": [
       "italian_classical_guitar"
@@ -22,7 +22,7 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.06500000000000002,
+          "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
           "top_wood_classical": 0.5595,
           "bracing_classical": 3.9,

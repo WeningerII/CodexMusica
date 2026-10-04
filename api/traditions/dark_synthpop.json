@@ -5,7 +5,7 @@
   "lineage": "Dark synthpop combines melodic electronic songwriting with shadowed textures and influences from post-punk and darker dance music.",
   "recipe": "classic dark synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 273,
-  "score": 3.115,
+  "score": 3.285,
   "config": {
     "traditions": [
       "dark_synthpop"
@@ -77,7 +77,7 @@
           "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.9555
+          "voice_multitrack_stack": 1.1265
         }
       }
     ],

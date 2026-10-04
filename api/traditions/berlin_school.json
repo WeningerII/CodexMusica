@@ -3,27 +3,27 @@
   "name": "Berlin School",
   "family": "electronic",
   "lineage": "West Berlin and Dusseldorf 1971-79, codified by Tangerine Dream, Klaus Schulze and Ashra — long-form sequencer music built on 16-step analogue sequencer ostinati at roughly 100-130 pulses per minute, layered Mellotron and string-synthesiser pads, slow filter sweeps and gradual additive arrangements running fifteen to twenty-five minutes without vocals, tracked to multitrack tape in self-built studios.",
-  "recipe": "classic Central European early-1970s berlin school, experimental Elec, ambient branch, techno electronic dance, western modern art music canadian contemporary classical modern chamber music. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sustained pad analog poly arp lineage canonical 2600 1971 lexington ma analog mono synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, sustained pad string machine, open string slide resonance single coil electric guitar, field textural sampler. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 817,
-  "score": 90.14,
+  "recipe": "classic Central European early-1970s berlin school, experimental Elec, ambient branch, techno electronic dance, western modern art music canadian contemporary classical norwegian techno. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral pad modular sustained pad analog poly arp lineage canonical 2600 1971 lexington ma analog mono synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, sustained pad string machine, open string slide resonance single coil electric guitar, field textural sampler. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 809,
+  "score": 88.475,
   "config": {
     "traditions": [
       "berlin_school",
       "canadian_contemporary_classical",
-      "modern_chamber_music"
+      "norwegian_techno"
     ],
     "instruments": [
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
+          "electronic_technique": "electronic_pad_drone",
           "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 4.95,
-          "mod_voltage_source": 0.8250000000000001,
+          "electronic_technique": 4.99,
+          "mod_voltage_source": 0.195,
           "mod_patch_density": 3.9499999999999997,
           "mod_lineage": 4.225
         }
@@ -32,14 +32,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 4.84,
+          "electronic_technique": 4.99,
           "poly_archetypes": 0.39,
-          "poly_voices": 0.845,
+          "poly_voices": 0.65,
           "poly_maker_lineage": -0.035
         }
       },
@@ -55,7 +55,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "mellotron_voice": 0.39,
-          "mellotron_context": 1.535,
+          "mellotron_context": 2.035,
           "mellotron_model": 2.015,
           "mellotron_tape_material": 1.69
         }
@@ -66,13 +66,13 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_brass"
+          "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 4.84,
-          "sm_voice_count": 3.25,
-          "sm_chorus": 1.54,
-          "sm_voicing": 0.3
+          "electronic_technique": 4.99,
+          "sm_voice_count": 5.720000000000001,
+          "sm_chorus": 1.69,
+          "sm_voicing": 0.195
         }
       },
       {
@@ -81,14 +81,14 @@
           "electronic_technique": "electronic_acid_squelch",
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
-          "mono_archetypes": "sh_101",
+          "mono_archetypes": "minimoog",
           "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 1.6999999999999997,
-          "mono_oscillator": 2.5,
-          "mono_filter": 0.195,
-          "mono_archetypes": 0.24,
+          "electronic_technique": 4.824999999999999,
+          "mono_oscillator": 1.45,
+          "mono_filter": 0.43499999999999994,
+          "mono_archetypes": 0.675,
           "mono_maker_lineage": 1.2349999999999999
         }
       },
@@ -97,8 +97,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_mesa_dual_rectifier",
-          "body_wood": "alder",
-          "neck_wood": "wenge_neck",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "flatwound_elec",
@@ -111,15 +111,15 @@
         },
         "scores": {
           "electric_technique": 1.075,
-          "amp_make": 2.9500000000000006,
-          "body_wood": 0.345,
-          "neck_wood": 0.65,
-          "fretboard": 0.195,
-          "pickup_magnet": 0.195,
-          "string_material": 0.65,
-          "string_gauge": 1.4949999999999999,
-          "bridge": 2.695,
-          "scale_length": 0.195,
+          "amp_make": 1.6899999999999997,
+          "body_wood": 0.585,
+          "neck_wood": 0.43499999999999994,
+          "fretboard": 0.285,
+          "pickup_magnet": 0.045,
+          "string_material": 0.195,
+          "string_gauge": 1.3,
+          "bridge": 1.4949999999999999,
+          "scale_length": 0.8700000000000001,
           "finish": 0.045,
           "string_tuning": 1.69,
           "single_coil_pickup_construction": 0
@@ -136,10 +136,10 @@
         },
         "scores": {
           "electronic_technique": 4.95,
-          "sampler_archetypes": 6.25,
-          "sampler_bit_depth": 2.7399999999999998,
+          "sampler_archetypes": 3.625,
+          "sampler_bit_depth": 1.54,
           "sampler_workflow": 5.865,
-          "sampler_classic_context": 14.104999999999997
+          "sampler_classic_context": 13.129999999999995
         }
       }
     ],

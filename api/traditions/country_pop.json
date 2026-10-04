@@ -5,7 +5,7 @@
   "lineage": "Country pop blends country songwriting and vocal phrasing with the melodic hooks and production approaches of popular music.",
   "recipe": "classic country pop, functional Song, pop rock branch. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 222,
-  "score": 14.061,
+  "score": 13.975,
   "config": {
     "traditions": [
       "country_pop"
@@ -17,15 +17,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.5305,
+          "acoustic_technique": 12.362499999999999,
           "string_tuning": 0,
-          "top_wood": 0.2415,
-          "back_sides": 0.105,
-          "string_acoustic": 0.33599999999999997
+          "top_wood": 0.1905,
+          "back_sides": 0.063,
+          "string_acoustic": 0.3045
         }
       },
       {
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.363,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 0.243
         }
       }
     ],

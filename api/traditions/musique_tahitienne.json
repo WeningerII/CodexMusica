@@ -5,7 +5,7 @@
   "lineage": "Teiva LC — Orureraa (2025), complete credited single from Hitireva Tuamoo. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s musique tahitienne, groove Percussion. acoustic guitar, electric bass, credited auxiliary percussion, vivo tahitian, ukulele. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 242,
-  "score": 3.275,
+  "score": 2.971,
   "config": {
     "traditions": [
       "musique_tahitienne"
@@ -107,7 +107,7 @@
           "vivo_tahitian_form": "vivo_tahitian_bamboo_nasal"
         },
         "scores": {
-          "vivo_tahitian_form": 0.0315
+          "vivo_tahitian_form": 0
         }
       },
       {
@@ -119,7 +119,7 @@
         },
         "scores": {
           "ukulele_size": 0.7,
-          "ukulele_style": 1.323,
+          "ukulele_style": 1.0499999999999998,
           "ukulele_wood": 0.75
         }
       }

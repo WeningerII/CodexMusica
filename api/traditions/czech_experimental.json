@@ -5,7 +5,7 @@
   "lineage": "Tomáš Niesner — Bečvou (2022), guitar/modular core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s czech experimental, experimental Elec. acoustic guitar, eurorack modular. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 192,
-  "score": 7.198,
+  "score": 7.063,
   "config": {
     "traditions": [
       "czech_experimental"
@@ -24,7 +24,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.2415,
+          "string_acoustic": 0.1365,
           "acoustic_om_technique": -0.2185
         }
       },
@@ -36,7 +36,7 @@
           "eurorack_modular_context": "eurorack_modular_studio"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "eurorack_focus": 3.6399999999999997,
           "eurorack_modular_context": 3.6399999999999997
         }

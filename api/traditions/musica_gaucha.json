@@ -5,7 +5,7 @@
   "lineage": "Gabriel Romano & Equilíbrio Dinâmico — Ecarta Santa Cruz concert,11 July2025. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic musica gaucha, art Music. hohner gola canonical premium German concert accordion, flute, humbucker electric guitar, electric bass, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 5.55,
+  "score": 5.715,
   "config": {
     "traditions": [
       "musica_gaucha"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "free_reed_technique": -0.1,
-          "accordion_reed_material": 0.0315,
-          "musette_offset": 0.105,
+          "accordion_reed_material": 0,
+          "musette_offset": 0.0315,
           "reed_config": 0,
           "bellows": 0.1365,
           "voicing_chamber": 0,
-          "accordion_maker_school": 2.08
+          "accordion_maker_school": 1.6315000000000002
         }
       },
       {
@@ -44,9 +44,9 @@
         "scores": {
           "wind_articulation": -0.1,
           "flute_size": 0,
-          "flute_material": 0.0315,
-          "flute_technique": 0.22049999999999997,
-          "flute_maker_school": 0.588
+          "flute_material": 0,
+          "flute_technique": 0,
+          "flute_maker_school": 0.0315
         }
       },
       {
@@ -77,9 +77,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.8205,
-          "finish": 0.0315,
-          "string_tuning": 0
+          "string_gauge": 2.08,
+          "finish": 0,
+          "string_tuning": 0.9870000000000001
         }
       },
       {
@@ -99,7 +99,7 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.0315,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -120,15 +120,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.035,
+          "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.2,
+          "orch_back_wood": 1.56,
           "orch_varnish": -0.1,
-          "orch_setup_period": -0.1,
-          "orch_bow": 0.0315,
+          "orch_setup_period": -0.07,
+          "orch_bow": 0,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.363,
+          "orch_articulation": 0.3,
           "orch_rosin": -0.1
         }
       }

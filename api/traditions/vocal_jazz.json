@@ -2,10 +2,10 @@
   "id": "vocal_jazz",
   "name": "Vocal jazz",
   "family": "jazz",
-  "lineage": "Vocal jazz places the singing voice within jazz phrasing, harmony and improvisation. Interpretations of songs coexist with scat singing, original writing and varied ensemble traditions.",
-  "recipe": "classic vocal jazz, improv On Frame, smooth vocal branch. solo with instrumental accompaniment. grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 209,
-  "score": 4.764,
+  "lineage": "Vocal jazz is represented here by Tony Bennett and Bill Evans — The Tony Bennett/Bill Evans Album (1975). This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic mid-1970s vocal jazz, improv On Frame, smooth vocal branch. solo with instrumental accompaniment. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 283,
+  "score": 10.058,
   "config": {
     "traditions": [
       "vocal_jazz"
@@ -43,36 +43,36 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.168,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0.399,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.168
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.013,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 2.0315,
-          "piano_hammer": -0.07,
-          "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": -0.1,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.609,
+          "grand_piano_brand": 0.609,
+          "piano_hammer": 1.885,
+          "piano_rim": 1.885,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": 0.26,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.015
         }
       }
     ],
@@ -96,15 +96,7 @@
         "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -142,15 +134,7 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "keyboard_technique": "keyboard_jazz_comping",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "keyboard_technique": "keyboard_jazz_comping"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -3,14 +3,14 @@
   "name": "Straight-Ahead Jazz",
   "family": "jazz",
   "lineage": "Post-1960 mainstream American acoustic jazz practice consolidated in New York clubs and on Blue Note, Riverside and Prestige, codified by Cannonball Adderley, Hank Mobley, Dexter Gordon and later Ron Carter's and Cedar Walton's rhythm sections, defined by swung 4/4 ride-cymbal timekeeping, walking bass, comping piano, standards and blues/rhythm-changes forms, and successive full-chorus solos at medium to bright tempos.",
-  "recipe": "classic North American early-1960s straight-ahead jazz, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz jazz organ. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, venice catlin high twist renaissance bass plywood laminate double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, vibraphone. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 745,
-  "score": 486.896,
+  "recipe": "classic North American early-1960s straight-ahead jazz, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz neo-bop jazz organ. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, cold pressed wurzen felt oversize maple tension resonator gospel runs grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, vibraphone. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 766,
+  "score": 402.475,
   "config": {
     "traditions": [
       "straight_ahead_jazz",
-      "jazz_organ",
-      "soul_jazz"
+      "neo_bop",
+      "jazz_organ"
     ],
     "instruments": [
       {
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 9.4645,
-          "sax_size": 8.424999999999999,
+          "wind_articulation": 5.624499999999999,
+          "sax_size": 3.675,
           "sax_reed": 0.3,
-          "sax_body_alloy": 37.5,
+          "sax_body_alloy": 32.075,
           "sax_mouthpiece": 0.195,
-          "sax_technique": 35.550000000000004,
-          "sax_maker_school": 43.142500000000005
+          "sax_technique": 31.424999999999997,
+          "sax_maker_school": 37.427499999999995
         }
       },
       {
@@ -39,33 +39,33 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 11.125,
+          "keyboard_technique": 3.6649999999999996,
           "grand_piano_size": 1,
-          "grand_piano_brand": 0.585,
-          "piano_hammer": 8.190000000000001,
-          "piano_rim": 8.58,
-          "piano_soundboard": 1.625,
-          "piano_pinblock": 1.3499999999999999,
-          "piano_plate": 2.2,
-          "piano_pitch_standard": 2.6649999999999996
+          "grand_piano_brand": 0.24,
+          "piano_hammer": 8.06,
+          "piano_rim": 8.06,
+          "piano_soundboard": -0.05,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.8999999999999999,
+          "piano_pitch_standard": 0.325
         }
       },
       {
         "id": "double_bass",
         "slots": {
-          "bowed_technique": "bowed_sul_tasto",
+          "bowed_technique": "bowed_legato_classical",
           "bass_size": "bass_three_quarter",
           "bass_strings": "venice_catlin_bass",
-          "bass_top_wood": "plywood_bass_top",
+          "bass_top_wood": "norway_spruce_alpine_bass",
           "bass_back_wood": "european_maple_bass_back",
           "bass_varnish": "spirit_varnish_bass",
           "bass_setup_period": "baroque_setup_bass",
@@ -74,16 +74,16 @@
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": 0.12999999999999998,
-          "bass_size": 1.0495,
-          "bass_strings": 1.8199999999999998,
-          "bass_top_wood": 1.25,
-          "bass_back_wood": 1.5,
-          "bass_varnish": 1.25,
-          "bass_setup_period": 2.5349999999999997,
-          "bass_play": 35.49,
-          "bass_rosin": 46.522000000000006,
-          "bass_bow_stick": 1.8495
+          "bowed_technique": -0.035,
+          "bass_size": 1.1995,
+          "bass_strings": 2.0799999999999996,
+          "bass_top_wood": 0.06499999999999999,
+          "bass_back_wood": 0.2,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 2.5999999999999996,
+          "bass_play": 31.319999999999997,
+          "bass_rosin": 41.047,
+          "bass_bow_stick": -9.714451465470119e-18
         }
       },
       {
@@ -94,8 +94,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 36.66,
-          "drumhead": 43.842,
+          "drum_technique": 33.50749999999999,
+          "drumhead": 37.477,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -111,13 +111,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 9.4645,
+          "wind_articulation": 5.624499999999999,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 43.8475,
+          "trumpet_mouthpiece": 38.2825,
           "brass_mute": 1,
-          "trumpet_technique": 9.4645,
+          "trumpet_technique": 5.624499999999999,
           "trumpet_bell_metal": 0.195,
-          "trumpet_maker_school": 8.06
+          "trumpet_maker_school": 8.125
         }
       },
       {
@@ -130,8 +130,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "vibe_motor": 35.25,
-          "vibe_mallets": 35.25,
+          "vibe_motor": 31.169999999999998,
+          "vibe_mallets": 31.124999999999996,
           "vibe_bar_material": 0
         }
       }

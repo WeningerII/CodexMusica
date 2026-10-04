@@ -5,7 +5,7 @@
   "lineage": "Latin American folk metal combines heavy-band writing with varied folk references, including the Argentine-origin Celtic crossover of Skiltron.",
   "recipe": "classic folk metal latinoamericano, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, melodic highland bagpipes. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 439,
-  "score": 74.541,
+  "score": 74.972,
   "config": {
     "traditions": [
       "folk_metal_latinoamericano"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 16.5855,
+          "electric_technique": 16.6665,
           "amp_make": 6.305000000000001,
           "body_wood": 6.5,
           "neck_wood": 0,
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.39149999999999996,
           "string_material": 0,
-          "bridge": 0.675,
+          "bridge": 0.855,
           "scale_length": 0,
-          "string_gauge": 0.5609999999999999,
+          "string_gauge": 0.741,
           "finish": 0,
-          "string_tuning": 0.1395
+          "string_tuning": 0.1935
         }
       },
       {
@@ -130,7 +130,7 @@
           "highland_bag": "highland_hide_bag"
         },
         "scores": {
-          "wind_articulation": 15.958,
+          "wind_articulation": 15.895,
           "highland_drones": 0,
           "highland_chanter": 0.39149999999999996,
           "highland_drone_reeds": 0.28350000000000003,

@@ -5,7 +5,7 @@
   "lineage": "Kali Malone — Spectacle of Ritual, complete composed organ work. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic spectra, art Music. kirnberger iii canonical late Baroque well temperament legato pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 200,
-  "score": 12.978,
+  "score": 12.915,
   "config": {
     "traditions": [
       "spectra"
@@ -23,13 +23,13 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": 3.304,
+          "keyboard_technique": 3.3355,
           "pipe_organ_class": 0,
           "pipe_organ_context": 5.9799999999999995,
           "pipe_organ_voicing_school": 0.8999999999999999,
           "pipe_organ_pipe_alloy": 0.6,
           "pipe_organ_temperament": 1.5,
-          "pipe_organ_action": 0.6945
+          "pipe_organ_action": 0.6
         }
       }
     ],

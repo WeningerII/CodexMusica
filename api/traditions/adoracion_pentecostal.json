@@ -2,10 +2,10 @@
   "id": "adoracion_pentecostal",
   "name": "Adoración pentecostal",
   "family": "vernacular",
-  "lineage": "Adoración pentecostal develops through Spanish-speaking Pentecostal churches and their praise repertories. Hymns and contemporary songs express resurrection, salvation and shared faith through congregational and recorded worship.",
-  "recipe": "classic adoración pentecostal, ritual Devotional, pentecostal branch. humbucker electric guitar, electric bass, drum kit, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 233,
-  "score": 2.946,
+  "lineage": "Guillermo Prein / CCNV — Resurrección, Himnos 2. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic adoración pentecostal, ritual Devotional, pentecostal branch. humbucker electric guitar, electric bass, dark musical bronze bell bronze drum kit, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 265,
+  "score": 4.124,
   "config": {
     "traditions": [
       "adoracion_pentecostal"
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7464999999999999,
+          "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 0.273,
           "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.21,
-          "string_gauge": 0.2415,
+          "string_gauge": 1.5415,
           "finish": 0,
           "string_tuning": 0.0315
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 0.273,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.0315,
@@ -131,9 +131,9 @@
           "shell_thickness": 0,
           "bearing_edges": 0.126,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": 1.2049999999999998,
           "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": 0.19500000000000003,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       },
@@ -153,7 +153,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "grand_piano_size": 0.063,
-          "grand_piano_brand": 0.39,
+          "grand_piano_brand": 0.273,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

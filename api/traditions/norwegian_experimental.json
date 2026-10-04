@@ -5,7 +5,7 @@
   "lineage": "Norwegian experimental connects artist-run composition and improvisation networks, including the SOFA label and exploratory concert practice. The field overlaps jazz, contemporary composition and other experimental traditions.",
   "recipe": "classic norwegian experimental, art Music. acoustic guitar 12 string. live tracking.",
   "recipe_chars": 84,
-  "score": 0.3,
+  "score": 0.363,
   "config": {
     "traditions": [
       "norwegian_experimental"
@@ -20,8 +20,8 @@
           "acoustic_technique": "acoustic_twelve_string_fingerpicked"
         },
         "scores": {
-          "twelve_string_body": 0,
-          "twelve_string_tuning": 0,
+          "twelve_string_body": 0.0315,
+          "twelve_string_tuning": 0.0315,
           "twelve_string_strings": 0,
           "acoustic_technique": 0.3
         }

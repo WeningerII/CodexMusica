@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s through early 1990s fast-tempo aggressive metal genre fusing NWOBHM melodic-twin-guitar vocabulary with hardcore-punk tempo and aggression — codified through the Big Four (Metallica Kill Em All 1983 and Master of Puppets 1986, Slayer Reign in Blood 1986, Megadeth Peace Sells But Whos Buying 1986, Anthrax Among the Living 1987), then extended through Exodus, Testament, Overkill, Death Angel, Kreator (German Teutonic thrash), Sodom, Sepultura (Brazilian)",
   "recipe": "classic North American 1984-1986 thrash metal, distorted Rock, thrash branch, punk distorted rock hardcore punk malaysian hardcore. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 proco RAT.",
   "recipe_chars": 691,
-  "score": 305.807,
+  "score": 304.627,
   "config": {
     "traditions": [
       "thrash_metal",
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.449999999999996,
-          "amp_make": 34.11,
-          "body_wood": 8.905,
+          "electric_technique": 27.574999999999996,
+          "amp_make": 33.81,
+          "body_wood": 8.45,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.9900000000000002,
           "pickup_magnet": 2.08,
           "pickup_winding": 0.21,
           "string_material": 1.3900000000000001,
-          "bridge": 1.9900000000000002,
-          "scale_length": 9.325,
+          "bridge": 2.49,
+          "scale_length": 8.975,
           "string_gauge": 1.4949999999999999,
           "finish": 0.195,
-          "string_tuning": 14.95
+          "string_tuning": 14.494999999999997
         }
       },
       {
@@ -59,7 +59,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.37,
+          "amp_make": 6.5649999999999995,
           "body_wood": 3.575,
           "pickup_config": 1.9900000000000002,
           "string_type": 14.625,
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.382499999999997,
+          "drum_technique": 12.772499999999994,
           "drumhead": 1.4949999999999999,
           "drum_kit_kick_pedal": 0
         }
@@ -104,21 +104,21 @@
         },
         "scores": {
           "voice_register": 11.139999999999993,
-          "voice_quality": 7.540000000000001,
+          "voice_quality": 7.735,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.3800000000000003,
-          "voice_articulation": 12.154999999999994,
-          "voice_microtone": 13.06499999999999,
+          "voice_articulation": 12.544999999999993,
+          "voice_microtone": 13.454999999999991,
           "voice_tradition": 1.9499999999999997,
-          "voice_mechanism_compound": 29.609999999999996,
-          "voice_estill_quality": 3.7050000000000005,
-          "voice_speech_song": 13.584999999999994,
-          "voice_ensemble_config": 19.505,
+          "voice_mechanism_compound": 28.234999999999996,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 13.974999999999993,
+          "voice_ensemble_config": 19.005,
           "voice_ornament_system": 1.1949999999999998,
           "voice_pitch_organization": 1.755,
           "voice_processing_chain": 4.875000000000001,
-          "voice_multitrack_stack": 5.590000000000001
+          "voice_multitrack_stack": 6.240000000000001
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Dutch roots musicians adapt American country, blues and rock-and-roll resources within local recording and touring networks. Danny Vera’s label explicitly identifies Americana and country/blues roots, supplying the selected band branch.",
   "recipe": "classic modern dutch americana, functional Song, americana branch. thick, worn fold, wide pitch sway, neutral third half flat. open d tuning dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 523,
-  "score": 109.62,
+  "score": 109.379,
   "config": {
     "traditions": [
       "dutch_americana"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 16.017999999999994,
+          "voice_register": 15.912999999999995,
           "voice_quality": 2.600000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -41,7 +41,7 @@
           "voice_microtone": 5.590000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 10.104999999999999,
+          "voice_estill_quality": 9.968499999999999,
           "voice_speech_song": 8.125,
           "voice_ensemble_config": 6.11,
           "voice_ornament_system": 0.3315,

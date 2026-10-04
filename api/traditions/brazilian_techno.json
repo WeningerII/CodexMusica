@@ -2,10 +2,10 @@
   "id": "brazilian_techno",
   "name": "Brazilian techno",
   "family": "electronic",
-  "lineage": "Brazilian techno developed through producers, clubs and electronic recording networks, including a prominent scene in São Paulo. Machine-driven repetition and studio sound design connect darker instrumental tracks with more melodic approaches.",
+  "lineage": "Brazilian techno production network, represented here by the darker machine-driven strand of São Paulo producer Gui Boratto. His wider catalog also crosses house and song forms; this selected arrangement emphasizes repeating synthesizer figures and programmed percussion.",
   "recipe": "classic modern brazilian techno, electronic Dance, techno branch. analog synth, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 291,
-  "score": 0.029,
+  "score": 4.462,
   "config": {
     "traditions": [
       "brazilian_techno"
@@ -22,9 +22,9 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "oscillator": 0.168,
-          "filter_topology": 0.3,
-          "envelope": 0.39,
+          "oscillator": 0.20700000000000002,
+          "filter_topology": 0,
+          "envelope": 0.28049999999999997,
           "modulation": 0.1365
         }
       },
@@ -36,7 +36,7 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": -0.035,
+          "tr909_voice": 4.168,
           "drum_machine_909_context": -0.035,
           "tr909_production_origin": -1.435
         }

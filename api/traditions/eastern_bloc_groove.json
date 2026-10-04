@@ -5,7 +5,7 @@
   "lineage": "Eastern Bloc groove draws together jazz, funk, soul, disco and beat recordings from the former socialist countries of Eastern Europe. Collectors, reissue labels and contemporary musicians connect these varied national recording histories through their rhythmic and instrumental affinities.",
   "recipe": "classic eastern bloc groove, groove Percussion. rhodes electric, pocket fingerstyle locked electric bass, dark bronze bell bronze drum kit, tenor selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, flute. live tracking.",
   "recipe_chars": 250,
-  "score": 20.773,
+  "score": 21.5,
   "config": {
     "traditions": [
       "eastern_bloc_groove"
@@ -26,8 +26,8 @@
           "rhodes_model": 3.2815,
           "rhodes_use": 0.0315,
           "rhodes_tine_material": 0,
-          "rhodes_hammer_tip": 0.1995,
-          "rhodes_pickup_position": 0.0315
+          "rhodes_hammer_tip": 0.231,
+          "rhodes_pickup_position": 0
         }
       },
       {
@@ -70,13 +70,13 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.399,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 3.1000000000000005,
+          "cymbal_alloy": 3.2680000000000007,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
@@ -95,12 +95,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": 2.4000000000000004,
+          "sax_size": 2.5260000000000002,
           "sax_reed": 0,
-          "sax_body_alloy": -0.07,
+          "sax_body_alloy": -0.1,
           "sax_mouthpiece": 0,
           "sax_technique": 3.25,
-          "sax_maker_school": 3.305
+          "sax_maker_school": 3.2315
         }
       },
       {
@@ -117,7 +117,7 @@
           "flute_size": 0,
           "flute_material": 0,
           "flute_technique": 0.7,
-          "flute_maker_school": 0.1365
+          "flute_maker_school": 0
         }
       }
     ],

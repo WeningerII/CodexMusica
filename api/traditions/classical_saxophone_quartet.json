@@ -2,10 +2,10 @@
   "id": "classical_saxophone_quartet",
   "name": "Classical saxophone quartet",
   "family": "classical",
-  "lineage": "Classical saxophone quartets develop chamber repertoire through original works and arrangements. Soprano, alto, tenor and baritone saxophones provide four contrasting but closely related registers.",
-  "recipe": "classic classical saxophone quartet, art Music. saxophone quartet soprano alto tenor baritone. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 196,
-  "score": 0.91,
+  "lineage": "SIGNUM’s documented soprano, alto, tenor and baritone quartet core represents a classical saxophone-ensemble branch, realized here with authored present-day recording defaults.",
+  "recipe": "classic classical saxophone quartet, art Music, western modern branch. saxophone quartet soprano alto tenor baritone. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 219,
+  "score": 0.837,
   "config": {
     "traditions": [
       "classical_saxophone_quartet"
@@ -17,7 +17,7 @@
           "saxophone_quartet_articulation": "saxophone_quartet_legato"
         },
         "scores": {
-          "saxophone_quartet_articulation": 0.9099999999999999
+          "saxophone_quartet_articulation": 0.8365
         }
       }
     ],

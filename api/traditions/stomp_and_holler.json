@@ -5,7 +5,7 @@
   "lineage": "Anglo-American indie-folk revival style of roughly 2008-2015 — Mumford & Sons, The Lumineers, Of Monsters and Men, Edward Sharpe and The Head and the Heart — built on strummed dreadnought guitar and clawhammer or rolled banjo at 100-140 BPM, a kick-drum-and-tambourine floor pulse played by the singers themselves, communal 'hey!' shouts and massed unison choruses, and a soft-verse-to-full-band-crescendo dynamic arc borrowed from post-rock and applied to acoustic instrumentation.",
   "recipe": "classic mid-2010s stomp and holler, ballad Poetry, indie folk branch, americana country, bluegrass improv on frame reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, upright bass, double bass rapid double strokes bass drum, snappy to palm hand clap, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, Hammond a 100 built in Leslie home spinet fast tremolo tonewheel organ, tambourine orch. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 845,
-  "score": 408.125,
+  "score": 406.385,
   "config": {
     "traditions": [
       "stomp_and_holler",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 19.189999999999994,
-          "voice_quality": 12.344999999999995,
+          "voice_register": 19.039999999999996,
+          "voice_quality": 12.254999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.75,
-          "voice_articulation": 22.380000000000003,
-          "voice_microtone": 22.215,
-          "voice_tradition": 14.549999999999999,
+          "voice_articulation": 22.185000000000002,
+          "voice_microtone": 22.064999999999998,
+          "voice_tradition": 14.52,
           "voice_mechanism_compound": 3.185,
-          "voice_estill_quality": 9.375,
+          "voice_estill_quality": 9.18,
           "voice_speech_song": 27.300000000000004,
-          "voice_ensemble_config": 23.870000000000005,
+          "voice_ensemble_config": 23.720000000000002,
           "voice_ornament_system": 1.755,
           "voice_pitch_organization": 1.0899999999999999,
           "voice_processing_chain": 6.425000000000001,
@@ -68,15 +68,15 @@
         },
         "scores": {
           "banjo_back": 1.3900000000000001,
-          "tone_ring": 9.045,
-          "banjo_head": 22.095000000000006,
+          "tone_ring": 9,
+          "banjo_head": 21.945000000000004,
           "banjo_pot": 0.15,
           "banjo_play": 3.5999999999999996,
           "banjo_rim_wood": 10.645,
           "banjo_neck_wood": 9.15,
           "banjo_strings": 10.004999999999999,
           "banjo_bridge": 9.299999999999999,
-          "banjo_setup_period": 32.2
+          "banjo_setup_period": 32.050000000000004
         }
       },
       {
@@ -89,7 +89,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.42,
+          "acoustic_technique": 13.375,
           "string_tuning": 1.0150000000000001,
           "top_wood": 1.74,
           "back_sides": 1.345,
@@ -110,12 +110,12 @@
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_size": "bass_drum_concert",
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0,
-          "bass_drum_beater": 2.065
+          "bass_drum_size": 0.15,
+          "bass_drum_beater": 2.02
         }
       },
       {
@@ -149,7 +149,7 @@
           "mandolin_bracing": 9.15,
           "mandolin_strings": 2.2199999999999998,
           "mandolin_fingerboard": 0.585,
-          "mandolin_pickup": 24.070000000000004
+          "mandolin_pickup": 23.725000000000005
         }
       },
       {
@@ -167,7 +167,7 @@
           "drawbar_setting": 4.7,
           "rotary_speed": 5.345000000000001,
           "percussion_setting": 1.69,
-          "tonewheel_model": 11.169999999999998,
+          "tonewheel_model": 11.019999999999998,
           "leslie_cabinet_model": -0.035
         }
       },

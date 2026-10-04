@@ -5,7 +5,7 @@
   "lineage": "Dutch experimental electronic music includes exploratory synthesis, live electronic improvisation and approaches that connect sound design with club rhythm.",
   "recipe": "classic dutch experimental electronic, experimental Elec. evolving modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 10.701,
+  "score": 10.764,
   "config": {
     "traditions": [
       "dutch_experimental_electronic"
@@ -20,7 +20,7 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 9.530999999999999,
+          "electronic_technique": 9.594,
           "mod_voltage_source": 0.78,
           "mod_patch_density": 0.39,
           "mod_lineage": 0

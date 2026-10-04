@@ -5,7 +5,7 @@
   "lineage": "Belo Horizonte regional strain of Brazilian funk that emerged in Minas Gerais baile circuits from the mid-2010s, codified by DJ Win, MC Neguinho do Kaxeta's BH collaborators and the 'beat de BH' producers — running 130-150 BPM over a hard, dry tamborzão-derived kick-and-clap montagem, aggressive detuned lead stabs and sampled vocal snips looped into the beat, with MCs rapping in fast, percussive, heavily regional-accented delivery and a mix built for cheap PA horn stacks rather than club subwoofers.",
   "recipe": "classic Southern American 2014-2016 funk bh, groove Percussion, Afro-diasporic electric branch, Afro-diasporic MC rhythm, Latin electric electronic dance funk consciente funk paulista. vocal fry, breath veiled tone, slow rate, interlocked note trading. TR-808, pitched chopped sampler, sampled chopped sampler drum machine, sub bass analog poly synth, sampled chopped turntable. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 505,
-  "score": 191.038,
+  "score": 190.903,
   "config": {
     "traditions": [
       "funk_bh",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.1449999999999996,
           "voice_pitch_organization": 0.845,
           "voice_processing_chain": 17.525,
-          "voice_multitrack_stack": 7.26
+          "voice_multitrack_stack": 7.215
         }
       },
       {
@@ -107,8 +107,8 @@
         },
         "scores": {
           "electronic_technique": 4.3225,
-          "poly_archetypes": 0.345,
-          "poly_voices": 0.345,
+          "poly_archetypes": 0.3,
+          "poly_voices": 0.3,
           "poly_maker_lineage": -1.8475000000000001
         }
       },

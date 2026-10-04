@@ -5,7 +5,7 @@
   "lineage": "Enabling Behaviour — Vaguely Content. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic cardiff indie, distorted Rock. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 16.084,
+  "score": 16.556,
   "config": {
     "traditions": [
       "cardiff_indie"
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.1365
         }
       },
       {
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.168,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": 1.4299999999999997,
           "cymbal_hammering": 3.6500000000000004,
-          "cymbal_lathing": 3.6815,
+          "cymbal_lathing": 3.7130000000000005,
           "cymbal_finish": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Indonesian experimental music connects acoustic traditions, electronic processes and environmental sound with contemporary exploratory practice. Artists such as Catu Daya bring gamelan-related resources into improvisatory and spatial sound work without replacing the distinct structures of traditional ensembles.",
   "recipe": "classic indonesian experimental, experimental Elec. gamelan foundational rebab, gong tamtam, credited electronics unspecified, environmental field recording environmental sound collage. shoebox concert hall.",
   "recipe_chars": 207,
-  "score": 2.915,
+  "score": 2.705,
   "config": {
     "traditions": [
       "indonesian_experimental"
@@ -24,7 +24,7 @@
         "scores": {
           "bowed_technique": -0.07,
           "rebab_region": 1,
-          "rebab_context": 0.105,
+          "rebab_context": 0,
           "rebab_body": 0,
           "rebab_skin": 0,
           "rebab_strings": 0.054
@@ -38,7 +38,7 @@
         },
         "scores": {
           "gong_type": 0,
-          "gong_striker": 0.1365
+          "gong_striker": 0.0315
         }
       },
       {

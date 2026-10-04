@@ -5,7 +5,7 @@
   "lineage": "British classical piano encompasses recital, recording and teaching traditions across historical and contemporary repertoire. British composers’ works sit alongside the wider international piano literature.",
   "recipe": "classic british classical piano, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 256,
-  "score": 82.349,
+  "score": 82.808,
   "config": {
     "traditions": [
       "british_classical_piano"
@@ -28,12 +28,12 @@
           "keyboard_technique": 7.5,
           "grand_piano_size": 1.2730000000000001,
           "grand_piano_brand": 1.1365,
-          "piano_hammer": 13.2105,
+          "piano_hammer": 13.323,
           "piano_rim": 11.7345,
           "piano_soundboard": 11.25,
-          "piano_pinblock": 11.25,
-          "piano_plate": 12.9375,
-          "piano_pitch_standard": 12.057
+          "piano_pinblock": 11.304,
+          "piano_plate": 13.05,
+          "piano_pitch_standard": 12.237
         }
       }
     ],

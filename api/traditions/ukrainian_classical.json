@@ -3,9 +3,9 @@
   "name": "Ukrainian classical",
   "family": "classical",
   "lineage": "Ukrainian classical music includes composition and performance across instrumental and vocal forms. Local musical references and international developments meet in a varied concert repertoire.",
-  "recipe": "classic ukrainian classical, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 368,
-  "score": 119.494,
+  "recipe": "classic ukrainian classical, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 369,
+  "score": 118.289,
   "config": {
     "traditions": [
       "ukrainian_classical"
@@ -27,25 +27,25 @@
         },
         "scores": {
           "bowed_technique": 7.5,
-          "orch_strings": 0.7454999999999999,
-          "orch_top_wood": 7.773,
-          "orch_back_wood": 7.9645,
+          "orch_strings": 0.6719999999999999,
+          "orch_top_wood": 7.6365,
+          "orch_back_wood": 7.828,
           "orch_varnish": 7.744,
-          "orch_setup_period": 7.807,
-          "orch_bow": 0.6825000000000001,
+          "orch_setup_period": 7.7335,
+          "orch_bow": 0.546,
           "orch_bow_stick": 9.620000000000001,
-          "orch_articulation": 0.5385,
-          "orch_rosin": 8.2375
+          "orch_articulation": 0.465,
+          "orch_rosin": 8.101
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
@@ -53,14 +53,14 @@
         },
         "scores": {
           "keyboard_technique": 7.554,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.798,
+          "grand_piano_size": 0.42299999999999993,
+          "grand_piano_brand": 0.7155,
           "piano_hammer": 9.685,
-          "piano_rim": 8.3635,
-          "piano_soundboard": 8.6865,
+          "piano_rim": 8.277,
+          "piano_soundboard": 8.4135,
           "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.8805000000000005,
-          "piano_pitch_standard": 9.969499999999998
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 10.012999999999998
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "chill_r_and_b",
   "name": "Chill r&b",
   "family": "global",
-  "lineage": "Chill R&B is a relaxed contemporary R&B and neo-soul listening strand shaped by intimate songwriting and studio production. Independent releases combine sung hooks with live instrumental details and programmed rhythm tracks.",
-  "recipe": "classic chill r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, digital subtractive, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 436,
-  "score": 49.226,
+  "lineage": "Chill r&b: CEC — Four Walls, 2025 single, typed instrumental core. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+  "recipe": "classic mid-2020s chill r&b, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, digital subtractive, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 475,
+  "score": 34.894,
   "config": {
     "traditions": [
       "chill_r_and_b"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.252,
+          "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }
       },
@@ -57,30 +57,30 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "basswood_h",
+          "body_wood": "korina",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 2.45,
-          "amp_make": 6.533,
-          "body_wood": 1.0605000000000002,
+          "electric_technique": -0.1,
+          "amp_make": 4.033,
+          "body_wood": 0.504,
           "neck_wood": 0.33599999999999997,
           "fretboard": 0.2415,
-          "pickup_magnet": 0.315,
-          "pickup_winding": 0.315,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.39,
           "string_material": 0.2415,
-          "bridge": 0.516,
-          "scale_length": 1.092,
-          "string_gauge": 0.33599999999999997,
+          "bridge": 1.2535,
+          "scale_length": 0.6720000000000002,
+          "string_gauge": 1.2535,
           "finish": 0,
           "string_tuning": 1.0080000000000002
         }
@@ -92,33 +92,33 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.231,
+          "amp_make": 4.731,
           "body_wood": 0.6720000000000002,
-          "pickup_config": 0.45149999999999996,
-          "string_type": 8.45,
-          "scale_length_b": 0.33599999999999997,
-          "fretted_or_not": 0.38549999999999995,
-          "bass_technique": 6.15,
+          "pickup_config": 0.39,
+          "string_type": 5.2,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.0735,
+          "bass_technique": 3.65,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_bass_sub",
           "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 0.19500000000000003,
           "va_archetypes": 0.168,
-          "digital_subtractive_context": 5.459999999999999
+          "digital_subtractive_context": 3.769999999999999
         }
       },
       {
@@ -131,7 +131,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.315,
+          "sample_bitdepth": 0.39,
           "sample_swing": 1.8479999999999999,
           "sample_processing": 0.273
         }

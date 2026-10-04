@@ -5,7 +5,7 @@
   "lineage": "Canadian shoegaze connects atmospheric guitar music with independent recording scenes and psychedelic experimentation. Montreal’s Besnard Lakes exemplify a studio-oriented strand built from sustained tones, gradual development and dense vocal and instrumental textures.",
   "recipe": "classic modern canadian shoegaze, distorted Rock, alternative branch. solo with instrumental accompaniment. single coil electric guitar, atmospheric production texture omnichord, electric bass, brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital tape echo spring reverb.",
   "recipe_chars": 422,
-  "score": 22.2,
+  "score": 22.534,
   "config": {
     "traditions": [
       "canadian_shoegaze"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 0.6194999999999999,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.40950000000000003,
+          "body_wood": 0.446625,
           "neck_wood": 0.39,
           "fretboard": 0.39,
           "pickup_magnet": 0,
           "string_material": 0.39,
           "string_gauge": 0.359625,
-          "bridge": 0.1365,
-          "scale_length": 0.609,
+          "bridge": 0.173625,
+          "scale_length": 0.6832500000000001,
           "finish": 0,
           "string_tuning": 2.73,
           "single_coil_pickup_construction": 0
@@ -71,10 +71,10 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 0.40950000000000003,
+          "body_wood": 0.446625,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.310125,
+          "scale_length_b": 0.34725,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -91,9 +91,9 @@
         },
         "scores": {
           "drum_technique": 5.329999999999999,
-          "drumhead": 0.464625,
+          "drumhead": 0.5017499999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.2415,
+          "shell_wood": 0.278625,
           "cymbal_alloy": -0.2
         }
       },
@@ -133,7 +133,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.205125,
-          "voice_multitrack_stack": 0.4095
+          "voice_multitrack_stack": 0.44662499999999994
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Accordion-centered jazz practice, represented by Richard Galliano’s drummerless Mare Nostrum collaboration with Paolo Fresu and Jan Lundgren. Accordion, trumpet and piano share melodic and harmonic roles.",
   "recipe": "classic modern jazz accordion, improv On Frame, bop branch. accordion, bach stradivarius 180 canonical American orchestral trumpet, grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 289,
-  "score": 4.228,
+  "score": 4.504,
   "config": {
     "traditions": [
       "jazz_accordion"
@@ -25,9 +25,9 @@
         "scores": {
           "free_reed_technique": 0.7149999999999999,
           "accordion_reed_material": 0.1365,
-          "musette_offset": 0.273,
-          "reed_config": 0,
-          "bellows": 0.0705,
+          "musette_offset": 0.33599999999999997,
+          "reed_config": 0.03899999999999999,
+          "bellows": 0.1365,
           "voicing_chamber": 0,
           "accordion_maker_school": 0
         }
@@ -47,7 +47,7 @@
           "wind_articulation": 0.325,
           "brass_size": 0.1365,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0,
+          "brass_mute": 0.03899999999999999,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.1365,
           "trumpet_maker_school": 1.95
@@ -68,13 +68,13 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0,
+          "grand_piano_size": 0.03899999999999999,
           "grand_piano_brand": 0,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
-          "piano_plate": -0.1,
+          "piano_plate": -0.07,
           "piano_pitch_standard": 0.325
         }
       }

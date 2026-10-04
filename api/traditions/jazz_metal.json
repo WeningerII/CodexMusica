@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward fusion of extreme metal with post-bop harmony, crystallized by Florida's Atheist and Cynic and continued in Europe by Ephel Duath, Shining (Norway) and Panzerballett — palm-muted downtuned riffing recast in 7/8 and 5/4, chromatic altered-dominant and diminished harmony under blast-beat and jazz-ride alternation, fretless-inflected bass counterlines, and saxophone or clean vocal passages interleaved with death-metal growls.",
   "recipe": "classic Northern European 1987-1989 jazz metal, distorted Rock, avant branch, prog metal, American jazz fusion japanese jazz fusion progressive jazz fusion. thick, conversational, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, vintage ambassador asymmetric brushes-and-sticks drum kit, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 914,
-  "score": 486.945,
+  "score": 486.645,
   "config": {
     "traditions": [
       "jazz_metal",
@@ -50,7 +50,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "extra_long_b",
@@ -60,10 +60,10 @@
         },
         "scores": {
           "amp_make": 7.085,
-          "body_wood": 0.3,
-          "pickup_config": 0.39,
-          "string_type": 19.89,
-          "scale_length_b": 0.465,
+          "body_wood": 0.36,
+          "pickup_config": 0.3,
+          "string_type": 19.935,
+          "scale_length_b": 0.36,
           "fretted_or_not": 0.195,
           "bass_technique": 19.5,
           "electric_bass_string_configuration": 0
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 37.97500000000001,
+          "drum_technique": 37.825,
           "drumhead": 19.705,
           "drum_kit_kick_pedal": 0
         }
@@ -130,15 +130,15 @@
           "voice_effort": 0,
           "voice_vibrato": 20.54,
           "voice_articulation": 17.225,
-          "voice_microtone": 29.845,
-          "voice_tradition": 20.494999999999997,
-          "voice_mechanism_compound": 21.31,
-          "voice_estill_quality": 5.6899999999999995,
+          "voice_microtone": 29.889999999999997,
+          "voice_tradition": 20.555,
+          "voice_mechanism_compound": 21.265,
+          "voice_estill_quality": 5.435,
           "voice_speech_song": 17.225,
           "voice_ensemble_config": 17.355,
           "voice_ornament_system": 1.6899999999999997,
           "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 5.615000000000001,
+          "voice_processing_chain": 5.750000000000001,
           "voice_multitrack_stack": 7.67
         }
       },

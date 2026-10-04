@@ -3,14 +3,14 @@
   "name": "Memphis phonk",
   "family": "hip_hop",
   "lineage": "Underground Memphis tape sound of 1991-1997 made by Three 6 Mafia, Tommy Wright III, DJ Squeeky, DJ Spanish Fly and Kingpin Skinny Pimp on four-track and dubbed cassettes — 70-90 BPM half-time beats, detuned minor-key horror-film keyboard loops, distorted 808 kicks, triplet hi-hat rolls, cowbell, and chanted hooks recorded hot into a single dynamic mic with audible tape saturation and generation loss.",
-  "recipe": "classic mid-1990s memphis phonk, mc Rhythm, southern branch, us hip hop gangsta, lofi experimental electric bedroom pop. thick, rap, straight onset, interlocked note trading. TR-808, chopped sampler, low sub bass analog poly synth, sampled chopped turntable, mahogany tape wound nylon tape upright like fingerstyle electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 437,
-  "score": 233.93,
+  "recipe": "classic mid-1990s memphis phonk, mc Rhythm, southern branch, us hip hop gangsta, lofi experimental electric finnish electronic. thick, rap, straight onset, interlocked note trading. TR-808, chopped sampler, sub bass analog poly synth, sampled chopped turntable, tape wound nylon tape upright like fingerstyle locked electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 438,
+  "score": 210.38,
   "config": {
     "traditions": [
       "memphis_phonk",
       "gangsta_rap",
-      "bedroom_pop"
+      "finnish_electronic"
     ],
     "instruments": [
       {
@@ -26,7 +26,7 @@
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
@@ -34,34 +34,34 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.245000000000001,
-          "voice_quality": 14.569999999999999,
+          "voice_register": 0.7199999999999999,
+          "voice_quality": 14.795,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
-          "voice_articulation": 14.559999999999995,
-          "voice_microtone": 17.354999999999993,
-          "voice_tradition": 9.649999999999999,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 2.9250000000000007,
-          "voice_speech_song": 15.989999999999995,
-          "voice_ensemble_config": 15.989999999999995,
+          "voice_vibrato": 1.9174999999999995,
+          "voice_articulation": 13.129999999999992,
+          "voice_microtone": 15.92499999999999,
+          "voice_tradition": 8.925,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 15.690000000000001,
+          "voice_ensemble_config": 14.559999999999992,
           "voice_ornament_system": 5.340000000000002,
           "voice_pitch_organization": 1.9949999999999999,
-          "voice_processing_chain": 9.715,
-          "voice_multitrack_stack": 10.2375
+          "voice_processing_chain": 9.940000000000001,
+          "voice_multitrack_stack": 5.7200000000000015
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.589999999999999,
-          "drum_machine_808_context": 3.9650000000000003,
+          "tr808_voice": 7.8149999999999995,
+          "drum_machine_808_context": 2.7950000000000004,
           "tr808_production_origin": 0.105
         }
       },
@@ -69,17 +69,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "emu_sp1200",
+          "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 7.18,
-          "sampler_archetypes": 12.577499999999999,
-          "sampler_bit_depth": 2.5675,
-          "sampler_workflow": 7.209999999999999,
-          "sampler_classic_context": 25.414999999999996
+          "electronic_technique": 7.405,
+          "sampler_archetypes": 11.7,
+          "sampler_bit_depth": 1.0399999999999998,
+          "sampler_workflow": 7.435,
+          "sampler_classic_context": 24.472499999999993
         }
       },
       {
@@ -87,14 +87,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 8.86,
-          "poly_archetypes": 0.8449999999999999,
+          "electronic_technique": 8.935,
+          "poly_archetypes": 0.39,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -0.9800000000000001
+          "poly_maker_lineage": -1.36
         }
       },
       {
@@ -104,8 +104,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 7.18,
-          "turntable_technique": 8.19
+          "electronic_technique": 7.405,
+          "turntable_technique": 8.415
         }
       },
       {
@@ -121,11 +121,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.405,
-          "body_wood": 1.04,
-          "pickup_config": 3.835,
+          "amp_make": 2.21,
+          "body_wood": 0.845,
+          "pickup_config": 1.69,
           "string_type": 2.0799999999999996,
-          "scale_length_b": 1.04,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0,
           "bass_technique": 2.62,
           "electric_bass_string_configuration": 0

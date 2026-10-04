@@ -5,7 +5,7 @@
   "lineage": "Russian experimental electronic music connects artists working across sound design, composition and live electronic performance. Local and diaspora practice includes interdisciplinary work and varied approaches to rhythm and texture.",
   "recipe": "classic russian experimental electronic, experimental Elec. analog mono synth, glitched textural sampler, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 207,
-  "score": 28.596,
+  "score": 28.176,
   "config": {
     "traditions": [
       "russian_experimental_electronic"
@@ -23,8 +23,8 @@
         "scores": {
           "electronic_technique": -0.10500000000000001,
           "mono_oscillator": 0.105,
-          "mono_filter": 0.315,
-          "mono_archetypes": 0.21,
+          "mono_filter": 0.21,
+          "mono_archetypes": 0.105,
           "mono_maker_lineage": -0.05
         }
       },
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 8.731499999999999,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": -0.1,
           "sampler_classic_context": 8.65
         }

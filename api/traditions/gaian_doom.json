@@ -5,7 +5,7 @@
   "lineage": "SubRosa — October2013 interviewed quintet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic gaian doom, distorted Rock, doom branch. fuzzed riff driven humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, prog rock electric violin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 325,
-  "score": 38.963,
+  "score": 39.236,
   "config": {
     "traditions": [
       "gaian_doom"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.441,
-          "voice_ensemble_config": 0.0315,
+          "voice_speech_song": 0.3675,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -82,7 +82,7 @@
           "scale_length": 0.7665,
           "string_gauge": 1.7785000000000002,
           "finish": 0,
-          "string_tuning": 0.1575
+          "string_tuning": 0.26249999999999996
         }
       },
       {
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0.357,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.11850000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.43050000000000005,
+          "drumhead": 0.5354999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.29400000000000004,
+          "shell_wood": 0.39899999999999997,
           "shell_thickness": 0.063,
           "bearing_edges": 0.2625,
           "snare_wires": 0,

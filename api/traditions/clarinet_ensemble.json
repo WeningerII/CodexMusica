@@ -5,7 +5,7 @@
   "lineage": "John McCowen — Clarinet Quartets nos.1 & 2 (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s clarinet ensemble, art Music. clarinet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 156,
-  "score": 2.155,
+  "score": 1.877,
   "config": {
     "traditions": [
       "clarinet_ensemble"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "wind_articulation": 0.7,
-          "clarinet_body": 0.8449999999999999,
+          "clarinet_body": 0.7865,
           "clarinet_size": 0.39,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.22049999999999997
+          "clarinet_articulation": 0
         }
       }
     ],

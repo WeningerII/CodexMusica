@@ -5,7 +5,7 @@
   "lineage": "Hekla — documented solo theremin-and-voice practice, Athens Epidaurus Festival 2023. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s icelandic experimental, experimental Elec. solo with instrumental accompaniment. moog music etherwave canonical modern reissue 1996 present theremin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 7.01,
+  "score": 7.087,
   "config": {
     "traditions": [
       "icelandic_experimental"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
+          "voice_processing_chain": 0.21,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -61,7 +61,7 @@
           "theremin_lineage": "theremin_moog_etherwave"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 0.2315,
           "theremin_model": 0.975,
           "theremin_technique": -0.05,
           "theremin_lineage": 2.8600000000000003

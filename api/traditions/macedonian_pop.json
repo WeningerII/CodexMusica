@@ -3,9 +3,9 @@
   "name": "Macedonian Pop",
   "family": "pop",
   "lineage": "Macedonian pop connects singers, songwriters and popular-music audiences in North Macedonia. Broadcasts, festivals and recordings circulate a repertoire that ranges from intimate ballads to fuller contemporary productions.",
-  "recipe": "classic macedonian pop, functional Song. upright piano. shoebox concert hall.",
-  "recipe_chars": 77,
-  "score": 0.73,
+  "recipe": "classic macedonian pop, functional Song. single lead single track no stacking. upright piano. shoebox concert hall.",
+  "recipe_chars": 115,
+  "score": 1.789,
   "config": {
     "traditions": [
       "macedonian_pop"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.23399999999999999,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.23399999999999999,
+          "voice_multitrack_stack": 0.5219999999999999,
           "voice_tessitura": 0
         }
       },
@@ -60,9 +60,9 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "upright_use": 0,
-          "upright_piano_size": 0
+          "upright_piano_size": 0.054
         }
       }
     ],

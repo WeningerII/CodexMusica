@@ -5,7 +5,7 @@
   "lineage": "Death ’n’ roll combines death-metal weight with rock-and-roll grooves and riff-oriented songwriting. Bands such as Entombed and later groups draw on metal’s abrasive timbres while emphasizing bodily pulse, repeated figures and more direct song structures.",
   "recipe": "classic death 'n' roll, distorted Rock, death branch. distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 222,
-  "score": 45.551,
+  "score": 45.645,
   "config": {
     "traditions": [
       "death_n_roll"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.363,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.3315,
           "voice_tessitura": 0
         }
       },
@@ -82,7 +82,7 @@
           "scale_length": 1.743,
           "string_gauge": 0.847,
           "finish": 0.0315,
-          "string_tuning": 0.0945
+          "string_tuning": 0.126
         }
       },
       {
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.35699999999999993,
+          "drumhead": 0.38849999999999996,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.35699999999999993,
+          "shell_wood": 0.38849999999999996,
           "shell_thickness": 0,
           "bearing_edges": 0.44099999999999995,
           "snare_wires": 0,

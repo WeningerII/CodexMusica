@@ -5,7 +5,7 @@
   "lineage": "Harmonica jazz foregrounds the instrument as an improvising melodic voice, notably through the chromatic-harmonica tradition associated with Toots Thielemans. Its repertoire ranges from intimate duets to larger jazz ensembles.",
   "recipe": "classic modern harmonica jazz, improv On Frame, bop branch. solo canonical chromatic lead chromatic harmonica, grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 268,
-  "score": 40.562,
+  "score": 40.333,
   "config": {
     "traditions": [
       "harmonica_jazz"
@@ -25,9 +25,9 @@
           "harmonica_type": 7.15,
           "harmonica_comb": -0.035,
           "harmonica_reed": -0.07,
-          "harmonica_technique": 15.572,
+          "harmonica_technique": 15.466999999999999,
           "harmonica_maker_school": 0,
-          "harmonica_tuning": 15.45475
+          "harmonica_tuning": 15.461250000000001
         }
       },
       {
@@ -44,9 +44,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.055,
+          "keyboard_technique": 0.95,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.024999999999999998,
+          "grand_piano_brand": 0,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

@@ -3,9 +3,9 @@
   "name": "Somali qaraami song",
   "family": "global",
   "lineage": "Somali qaraami art-song tradition emerging in 1940s Mogadishu and Hargeisa as urban-classical Somali popular music, incorporating Arabian peninsular oud and qanun with Somali-language poetic-meter. The genre matured through the Somali Republic golden-age 1960s-1970s with Radio Mogadishu broadcasting the canonical Hargeisa-school singers. Vocal style features melismatic ornament over Arabic maqam vocabulary with Somali-Cushitic vocal-inflection. The post-1991 civil war disrupted institutional transmission; diaspora-revival in Minneapolis, London, and Toronto sustains contemporary practice.",
-  "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music türk sanat müziği andalusian classical. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic maple ribs Turkish school Lebanese cedar oud, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
-  "recipe_chars": 676,
-  "score": 304.248,
+  "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music türk sanat müziği andalusian classical. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic maple ribs Turkish school Lebanese cedar oud, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
+  "recipe_chars": 641,
+  "score": 297.94,
   "config": {
     "traditions": [
       "somali_qaraami",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.015,
-          "voice_quality": 10.139999999999997,
+          "voice_register": 3.5149999999999997,
+          "voice_quality": 10.72499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.557500000000005,
-          "voice_articulation": 15.275,
-          "voice_microtone": 30.095000000000002,
-          "voice_tradition": 27.260000000000005,
-          "voice_mechanism_compound": 18.39,
-          "voice_estill_quality": 17.08,
-          "voice_speech_song": 18.655,
-          "voice_ensemble_config": 13.714999999999998,
-          "voice_ornament_system": 24.065,
-          "voice_pitch_organization": 24.395,
-          "voice_processing_chain": 3.915,
-          "voice_multitrack_stack": 4.904999999999999
+          "voice_vibrato": 19.044999999999998,
+          "voice_articulation": 12.935000000000002,
+          "voice_microtone": 27.755000000000006,
+          "voice_tradition": 27.135,
+          "voice_mechanism_compound": 18.915,
+          "voice_estill_quality": 17.529999999999998,
+          "voice_speech_song": 16.315,
+          "voice_ensemble_config": 12.22,
+          "voice_ornament_system": 24.44,
+          "voice_pitch_organization": 24.77,
+          "voice_processing_chain": 4.715,
+          "voice_multitrack_stack": 4.1499999999999995
         }
       },
       {
@@ -64,9 +64,9 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 14.625000000000002,
-          "oud_school": 4.209999999999999,
-          "oud_strings": 7.345000000000001,
+          "plucked_traditional_technique": 15,
+          "oud_school": 3.7099999999999995,
+          "oud_strings": 7.54,
           "oud_pick": 1.54,
           "oud_body_wood": 2.535,
           "oud_soundboard_wood": 2.8600000000000003,
@@ -85,10 +85,10 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 14.625000000000002,
-          "qanun_strings": 7.345000000000001,
+          "plucked_traditional_technique": 15,
+          "qanun_strings": 7.54,
           "qanun_levers": -1.05,
-          "qanun_pick": 7.345000000000001,
+          "qanun_pick": 7.54,
           "qanun_body_wood": 2.535,
           "qanun_bridge_skin": 1.69,
           "qanun_string_material": 0
@@ -105,7 +105,7 @@
         "scores": {
           "percussion_technique": -0.07,
           "darbuka_material": 1.69,
-          "darbuka_skin": 1.69,
+          "darbuka_skin": 0.845,
           "darbuka_regional_style": 3.6399999999999997
         }
       }

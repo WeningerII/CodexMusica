@@ -5,7 +5,7 @@
   "lineage": "Ice Locus — modular synthesis and sampled-field-recording practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic canadian experimental, experimental Elec. doepfer eurorack canonical 1995 present small format standardization textural modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 265,
-  "score": 27.008,
+  "score": 26.799,
   "config": {
     "traditions": [
       "canadian_experimental"
@@ -38,7 +38,7 @@
         "scores": {
           "electronic_technique": 6.9815,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": 9.200999999999999,
           "sampler_classic_context": 0.78
         }

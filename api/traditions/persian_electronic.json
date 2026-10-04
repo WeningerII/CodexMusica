@@ -2,10 +2,10 @@
   "id": "persian_electronic",
   "name": "Persian electronic",
   "family": "electronic",
-  "lineage": "Persian electronic music includes Iranian and diaspora artists who work with synthesis, recorded sound and experimental production.",
+  "lineage": "Persian electronic is represented here by Ash Koosha — I AKA I field-sampling core. This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic persian electronic, experimental Elec, musique concrete branch. field textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 16.693,
+  "score": 13.607,
   "config": {
     "traditions": [
       "persian_electronic"
@@ -18,14 +18,14 @@
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_post"
+          "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 6.5315,
+          "electronic_technique": 3.7315,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.735,
-          "sampler_workflow": 8.1615,
-          "sampler_classic_context": 1.3
+          "sampler_workflow": 5.525,
+          "sampler_classic_context": 3.65
         }
       }
     ],
@@ -34,8 +34,7 @@
         "electronic_technique",
         "sampler_archetypes",
         "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+        "sampler_workflow"
       ]
     },
     "room": "treated_studio",
@@ -60,8 +59,7 @@
       "electronic_technique": "electronic_glitch_textural",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_field_recordings",
-      "sampler_classic_context": "sampler_classic_post"
+      "sampler_workflow": "sampler_field_recordings"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

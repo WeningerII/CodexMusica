@@ -5,7 +5,7 @@
   "lineage": "Costantino Bertucci — Marcia Funebre di Pulcinella, Federico Maddaluno solo-mandolin edition. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic italian mandolin, art Music. Italian alpine spruce brescian calace mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 1.508,
+  "score": 1.749,
   "config": {
     "traditions": [
       "italian_mandolin"
@@ -30,8 +30,8 @@
           "mandolin_back": -0.05,
           "mandolin_bracing": -0.05,
           "mandolin_strings": 0,
-          "mandolin_fingerboard": 0.063,
-          "mandolin_pickup": 0.0945
+          "mandolin_fingerboard": 0.0315,
+          "mandolin_pickup": 0.36749999999999994
         }
       }
     ],

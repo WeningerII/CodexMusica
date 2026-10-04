@@ -5,7 +5,7 @@
   "lineage": "Slavic folk metal combines modern heavy-band writing with Slavic-themed repertoire and folk-derived melodic colors.",
   "recipe": "classic slavic folk metal, distorted Rock, folk metal branch. unprocessed natural acoustic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar, modern metal basswood electric bass, pre muffled edge muffled sticks backbeat drum kit, silver yamaha modern Japanese mid to premium flute, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 583,
-  "score": 65.374,
+  "score": 65.806,
   "config": {
     "traditions": [
       "slavic_folk_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 16.8315,
+          "electric_technique": 16.9125,
           "amp_make": 9.620000000000001,
           "body_wood": 7.8,
           "neck_wood": 0,
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 1.2115,
           "string_material": 0,
-          "bridge": 0.675,
+          "bridge": 0.855,
           "scale_length": 0,
-          "string_gauge": 0.5609999999999999,
+          "string_gauge": 0.741,
           "finish": 0,
-          "string_tuning": 0.1395
+          "string_tuning": 0.1935
         }
       },
       {
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.0315,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.78,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

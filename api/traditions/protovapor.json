@@ -5,7 +5,7 @@
   "lineage": "The 2009-2011 American experimental precursor stratum to vaporwave — hypnagogic-pop and plunderphonic cassette work by Daniel Lopatin (as Chuck Person), James Ferraro and Ford & Lopatin — using slowed, looped and echo-drenched fragments of 1980s soft rock, VHS library music and early digital synth demos, with no fixed tempo grid, degraded cassette speed drift, and structures built from a single repeated four-bar cell.",
   "recipe": "classic 2009-2011 protovapor, experimental Elec, retro aesthetic branch, lofi experimental electric, musique concrete experimental electric anime lo-fi latvian electronic. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, block chord tape replay keyboard, plucked short envelope analog poly synth, plucked short envelope digital subtractive, string machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 512,
-  "score": 204.762,
+  "score": 204.916,
   "config": {
     "traditions": [
       "protovapor",
@@ -27,7 +27,7 @@
           "sampler_archetypes": 2.6975000000000002,
           "sampler_bit_depth": 1.845,
           "sampler_workflow": 15.785,
-          "sampler_classic_context": 17.744999999999997
+          "sampler_classic_context": 17.55
         }
       },
       {
@@ -68,7 +68,7 @@
         "scores": {
           "electronic_technique": 3.725,
           "va_archetypes": 0.5,
-          "digital_subtractive_context": 14.949999999999998
+          "digital_subtractive_context": 14.754999999999999
         }
       },
       {
@@ -93,21 +93,21 @@
         },
         "scores": {
           "voice_register": 7.395000000000001,
-          "voice_quality": 5.005000000000002,
+          "voice_quality": 5.590000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.428214285714286,
-          "voice_articulation": 15.144999999999996,
-          "voice_microtone": 14.949999999999992,
-          "voice_tradition": 18.44607142857143,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 2.9250000000000007,
-          "voice_speech_song": 15.534999999999995,
-          "voice_ensemble_config": 16.639999999999993,
+          "voice_vibrato": 2.890714285714286,
+          "voice_articulation": 14.949999999999998,
+          "voice_microtone": 14.754999999999995,
+          "voice_tradition": 18.692500000000003,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 15.339999999999996,
+          "voice_ensemble_config": 15.794999999999995,
           "voice_ornament_system": 1.675,
           "voice_pitch_organization": 3.48,
           "voice_processing_chain": 9.87,
-          "voice_multitrack_stack": 4.030000000000001
+          "voice_multitrack_stack": 4.875000000000001
         }
       },
       {

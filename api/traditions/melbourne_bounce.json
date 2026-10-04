@@ -5,7 +5,7 @@
   "lineage": "Melbourne bounce emerged in Melbourne's inner-north club and Melbourne-shuffle scene around 2012–2014 out of Dutch house and Melbourne's earlier 'Melbourne shuffle' hard-dance culture, codified by Joel Fletcher, Will Sparks, Timmy Trumpet and the Orkestrated crew — 128–132 BPM four-on-the-floor with a heavily sidechained detuned offbeat saw bass on the upbeat eighths, aggressive open-hat rides, long white-noise risers into silent-drop breakdowns, and chopped pitched-up vocal or trumpet hooks in place of sung toplines.",
   "recipe": "classic 2012-2014 melbourne bounce, electronic Dance, house branch, tech house house, hardstyle electronic dance, continental electronic dance gym phonk drift phonk. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. TR-909, monosynth acid bass, analog poly synth, snappy to palm hand clap, sampler drum machine. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 477,
-  "score": 169.456,
+  "score": 170.311,
   "config": {
     "traditions": [
       "melbourne_bounce",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.905,
-          "voice_quality": 9.35357142857143,
+          "voice_register": 1.95,
+          "voice_quality": 9.620000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.04,
           "voice_articulation": 13.064999999999996,
           "voice_microtone": 13.519999999999992,
-          "voice_tradition": 6.862714285714286,
+          "voice_tradition": 7.207714285714286,
           "voice_mechanism_compound": 3.77,
           "voice_estill_quality": 5.07,
           "voice_speech_song": 13.064999999999996,
           "voice_ensemble_config": 15.339999999999996,
-          "voice_ornament_system": 1.3682142857142858,
+          "voice_ornament_system": 1.4132142857142858,
           "voice_pitch_organization": 1.7249999999999999,
-          "voice_processing_chain": 20.660714285714285,
+          "voice_processing_chain": 20.754000000000005,
           "voice_multitrack_stack": 5.3950000000000005
         }
       },
@@ -70,7 +70,7 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
-          "filter_acid": "opening_acid",
+          "filter_acid": "closed_acid",
           "accent_acid": "no_accent_acid"
         },
         "scores": {
@@ -103,7 +103,7 @@
         },
         "scores": {
           "clap_technique": 2.275,
-          "clap_capture": 0.345
+          "clap_capture": 0.3
         }
       },
       {
@@ -115,7 +115,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 2.045,
+          "electronic_technique": 2.15,
           "sample_bitdepth": 0.45499999999999996,
           "sample_swing": 19.548214285714284,
           "sample_processing": 1.2349999999999999

@@ -5,7 +5,7 @@
   "lineage": "Sakuzyo — Altale, complete piano-solo score in Yamaha DEEMO Piano Collection GTP01097153, item13, published15June2019. Publisher explicitly gives composer/arranger Sakuzyo and piano solo. Selected scope is this whole published arrangement, not all18scores, the two separate four-hand items, original game soundtrack or recording hardware. Companion official CD credits Tomoko Asaka piano for Altale, corroborating the keyboard-only adaptation; publisher cautions score and CD differ in places. No paid score interior or audio audition claimed. Source piano subtype unspecified. A standard modern studio upright, block-chord pop articulation and shoebox recital hall are candid authored performance choices, not the original piano, score-wide articulation or measured venue. One pianist, no separately scored voice or additional instrument. No global temperament or recording apparatus claim. Broad artMusic locates only this publisher-described concert-program piano arrangement, not the whole rhythm-game field or all original electronic soundtracks.",
   "recipe": "classic rhythm game, art Music. block chord upright piano. shoebox concert hall.",
   "recipe_chars": 80,
-  "score": 5.832,
+  "score": 5.8,
   "config": {
     "traditions": [
       "rhythm_game"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "keyboard_technique": 5.800000000000001,
-          "upright_use": 0.0315,
+          "upright_use": 0,
           "upright_piano_size": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "deep_brazilian_pop",
   "name": "Deep brazilian pop",
   "family": "pop",
-  "lineage": "Deep Brazilian pop connects less-mainstream Brazilian song repertoire with the melodic and harmonic traditions of MPB. Intimate vocal collaborations form one strand of this broad discovery field.",
-  "recipe": "classic deep brazilian pop, functional Song, Brazilian song branch. basswood clean strummed humbucker electric guitar, yamaha modern Japanese mid to premium flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 264,
-  "score": 14.819,
+  "lineage": "Deep brazilian pop is represented here by Mônica Salmaso — Ô de Casas: João e Maria. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic deep brazilian pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 21.315,
   "config": {
     "traditions": [
       "deep_brazilian_pop"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_12_hum",
-          "finish": "poly_hum",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.45,
-          "amp_make": 0,
-          "body_wood": 1.1655,
-          "neck_wood": 0.483,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.273,
+          "electric_technique": 11.6575,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.483,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.1365,
           "pickup_winding": 0.1365,
-          "string_material": 0.063,
-          "bridge": 0.483,
-          "scale_length": 0.966,
-          "string_gauge": 0.651,
-          "finish": 0.105,
-          "string_tuning": 0
+          "string_material": 0.0315,
+          "bridge": 1.7365000000000002,
+          "scale_length": 0.504,
+          "string_gauge": 1.7995,
+          "finish": 0,
+          "string_tuning": 0.3
         }
       },
       {
@@ -49,16 +49,16 @@
         "slots": {
           "wind_articulation": "wind_cool_lyrical",
           "flute_size": "concert_flute",
-          "flute_material": "silver_flute",
-          "flute_technique": "classical_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "beatboxed_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 0.313,
-          "flute_size": 0,
-          "flute_material": 0.1995,
-          "flute_technique": 0,
-          "flute_maker_school": 1.1340000000000001
+          "wind_articulation": -0.035,
+          "flute_size": 0.126,
+          "flute_material": 0.21,
+          "flute_technique": 0.5145,
+          "flute_maker_school": 0.5925
         }
       },
       {
@@ -93,11 +93,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.40950000000000003,
-          "voice_ornament_system": 0.3045,
+          "voice_ensemble_config": 0.363,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 0.273
+          "voice_processing_chain": 0.27149999999999996,
+          "voice_multitrack_stack": 0.363
         }
       }
     ],
@@ -105,13 +105,6 @@
       "electric_guitar_humbucker": [
         "electric_technique",
         "string_tuning"
-      ],
-      "flute": [
-        "wind_articulation",
-        "flute_size",
-        "flute_material",
-        "flute_technique",
-        "flute_maker_school"
       ],
       "voice": [
         "voice_register",
@@ -168,12 +161,7 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "electric_technique": "electric_clean_strummed",
-      "string_tuning": "standard_tuning",
-      "wind_articulation": "wind_cool_lyrical",
-      "flute_size": "concert_flute",
-      "flute_material": "silver_flute",
-      "flute_technique": "classical_flute",
-      "flute_maker_school": "flute_yamaha"
+      "string_tuning": "standard_tuning"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

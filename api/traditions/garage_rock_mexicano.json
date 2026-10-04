@@ -2,10 +2,10 @@
   "id": "garage_rock_mexicano",
   "name": "Garage rock mexicano",
   "family": "rock_punk",
-  "lineage": "Mexican garage rock connects local guitar-band traditions with international garage and psychedelic scenes. Groups such as Los Dug Dug’s helped establish a lasting connection between melodic songwriting, amplified experimentation and later garage revivals.",
-  "recipe": "classic modern garage rock mexicano, distorted Rock, alternative branch. equal tempered, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp riff driven humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 453,
-  "score": 46.595,
+  "lineage": "Mexican garage-rock discovery scope, represented by Los Dug Dug’s and Armando Nava’s guitar-band practice. Direct artist interviews connect the group to international garage/psychedelic scenes and document guitar, bass, drum and multi-instrumental branches.",
+  "recipe": "classic modern garage rock mexicano, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. fuzzed riff driven humbucker electric guitar, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 385,
+  "score": 43.894,
   "config": {
     "traditions": [
       "garage_rock_mexicano"
@@ -36,25 +36,25 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.4724999999999999,
+          "voice_vibrato": 2.2245,
           "voice_articulation": 0,
-          "voice_microtone": 8.499999999999996,
+          "voice_microtone": 13.049999999999997,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.1365,
+          "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 1.493,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.273,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.546
+          "voice_ornament_system": 0.0315,
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_fuzz_riff",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_unspecified",
           "body_wood": "alder",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
@@ -68,17 +68,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.5945000000000005,
-          "amp_make": 4.42,
-          "body_wood": 0.40950000000000003,
-          "neck_wood": 0.5775,
+          "electric_technique": 3.0164999999999997,
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0.9099999999999999,
+          "bridge": 0.8365,
           "scale_length": 0,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 0.8995,
           "finish": 0,
           "string_tuning": 0
         }
@@ -86,7 +86,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_unspecified",
           "body_wood": "alder",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -96,13 +96,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.875,
-          "body_wood": 0.40950000000000003,
+          "amp_make": 0,
+          "body_wood": 0.063,
           "pickup_config": 0,
-          "string_type": 0.105,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.0735,
-          "bass_technique": 9,
+          "string_type": 0.168,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 9.555,
           "electric_bass_string_configuration": 0
         }
       },
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 8.75,
-          "drumhead": 0.1365,
+          "drum_technique": 9.5705,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -141,6 +141,7 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
         "body_wood",
         "fretboard",
         "pickup_magnet",
@@ -153,6 +154,7 @@
         "string_tuning"
       ],
       "electric_bass": [
+        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -209,6 +211,7 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "amp_make": "amp_unspecified",
       "body_wood": "alder",
       "fretboard": "rosewood_fb_h",
       "string_gauge": "g_10_hum",

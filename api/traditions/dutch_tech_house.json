@@ -2,10 +2,10 @@
   "id": "dutch_tech_house",
   "name": "Dutch tech house",
   "family": "electronic",
-  "lineage": "Dutch tech house joins contemporary producer and club networks with minimal and classic-house influences. Electronic drum programming, bass synthesis and keyboard textures support a varied groove-centered scene.",
+  "lineage": "A Dutch groove-led house/tech-house discovery network including Chris Stussy, ANOTR, Joris Voorn and Franky Rizardo. Stussy’s first-person production account grounds the selected model in software drum-machine voices, pitched drum samples, analog-style synth emulations, filtered pads and bass sketches.",
   "recipe": "classic modern dutch tech house, electronic Dance, tech house branch. sampler drum machine, analog analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 321,
-  "score": 2.74,
+  "score": 4.685,
   "config": {
     "traditions": [
       "dutch_tech_house"
@@ -22,8 +22,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.0315,
-          "sample_swing": 0.11775,
-          "sample_processing": 0.07425
+          "sample_swing": 0.16049999999999998,
+          "sample_processing": 0.11699999999999999
         }
       },
       {
@@ -37,9 +37,9 @@
         },
         "scores": {
           "electronic_technique": 1.4949999999999999,
-          "oscillator": 1.0315,
-          "filter_topology": 0.17925000000000002,
-          "envelope": 0.042749999999999996,
+          "oscillator": 0.3315,
+          "filter_topology": 0.29625,
+          "envelope": 0.08549999999999999,
           "modulation": 0
         }
       },
@@ -55,7 +55,7 @@
           "electronic_technique": 1.4949999999999999,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.0315,
-          "poly_maker_lineage": -1.9449999999999998
+          "poly_maker_lineage": -1.145
         }
       }
     ],

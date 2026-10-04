@@ -5,7 +5,7 @@
   "lineage": "Polish noise rock is represented here by Nagrobki — Pod Ziemią. This documented branch is realized as an authored present-day recording arrangement.",
   "recipe": "classic polish noise rock, distorted Rock, noise rock branch. marshall plexi amp British rock amp humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 26.731,
+  "score": 27.028,
   "config": {
     "traditions": [
       "polish_noise_rock"
@@ -37,10 +37,10 @@
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.231,
           "string_material": 0.16799999999999998,
-          "bridge": 1.5415,
+          "bridge": 1.69,
           "scale_length": 0.6839999999999999,
-          "string_gauge": 1.4365,
-          "finish": 0.1365,
+          "string_gauge": 1.69,
+          "finish": 0.0315,
           "string_tuning": 0.39
         }
       },

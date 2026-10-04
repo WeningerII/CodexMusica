@@ -2,84 +2,55 @@
   "id": "portuguese_techno",
   "name": "Portuguese Techno",
   "family": "electronic",
-  "lineage": "Portugal’s techno scene links producers, labels, clubs and DJs with international dance-music networks. Temudo exemplifies its rhythm-focused and exploratory electronic production.",
-  "recipe": "classic portuguese techno, electronic Dance, techno branch. drum machine analog, modular synth.",
-  "recipe_chars": 95,
-  "score": 1.849,
+  "lineage": "Temudo — complete VOLTAGE Podcast20 DJ mix,2December2021. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "recipe": "classic portuguese techno, electronic Dance, techno branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 0,
   "config": {
     "traditions": [
       "portuguese_techno"
     ],
     "instruments": [
       {
-        "id": "drum_machine_analog",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "kick_voice": 0.12999999999999998,
-          "snare_voice": 0,
-          "hat_voice": 0.12999999999999998,
-          "shuffle_quantize": -0.035
-        }
-      },
-      {
-        "id": "modular_synth",
-        "slots": {
-          "electronic_technique": "electronic_modular_patch",
-          "mod_voltage_source": "mod_random",
-          "mod_patch_density": "mod_dense_patch",
-          "mod_lineage": "mod_doepfer_eurorack"
-        },
-        "scores": {
-          "electronic_technique": -0.07,
-          "mod_voltage_source": 1,
-          "mod_patch_density": 0.39,
-          "mod_lineage": 0.3045
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
-      ],
-      "modular_synth": [
-        "electronic_technique",
-        "mod_voltage_source",
-        "mod_patch_density",
-        "mod_lineage"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
+    "room": "treated_studio",
     "parts": {
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize",
-      "electronic_technique": "electronic_modular_patch",
-      "mod_voltage_source": "mod_random",
-      "mod_patch_density": "mod_dense_patch",
-      "mod_lineage": "mod_doepfer_eurorack"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

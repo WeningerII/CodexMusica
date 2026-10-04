@@ -5,7 +5,7 @@
   "lineage": "String folk: Roger Nicholson with Bob Johnson — The Laily Worm and the Mackerel of the Sea, Nonesuch for Dulcimer (1972). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic early-1970s string folk, ballad Poetry, britfolk branch. solo with instrumental accompaniment. fingerpicked mountain dulcimer, dadgad tuning martin lifespan sealed fingerpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 312,
-  "score": 26.914,
+  "score": 26.936,
   "config": {
     "traditions": [
       "string_folk"
@@ -80,7 +80,7 @@
         },
         "scores": {
           "acoustic_technique": 7.463,
-          "string_tuning": 4.263000000000001,
+          "string_tuning": 4.285500000000001,
           "top_wood": 0.24149999999999996,
           "back_sides": 0.24149999999999996,
           "string_acoustic": 1.3

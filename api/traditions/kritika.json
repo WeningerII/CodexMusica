@@ -2,10 +2,10 @@
   "id": "kritika",
   "name": "Kritika",
   "family": "vernacular",
-  "lineage": "Kritika is the song and dance music of Crete, shaped by local poetic traditions and instrumental styles centered on bowed lyra and accompanying lutes.",
-  "recipe": "classic kritika, ballad Poetry, Mediterranean ballad branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. cretan lyra, cretan rhythmic laouto, mandolin, askomandoura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 319,
-  "score": 20.848,
+  "lineage": "Stelios Petrakis Quartet — Syrta featuring Vasilis Stavrakakis, from Spondi. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic kritika, ballad Poetry, Mediterranean ballad branch. solo with instrumental accompaniment, single lead single track no stacking. mulberry canonical cretan cretan lyra, cretan rhythmic laouto, acoustic only no pickup mandolin, askomandoura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 346,
+  "score": 18.799,
   "config": {
     "traditions": [
       "kritika"
@@ -21,10 +21,10 @@
           "lyra_string_material": "lyra_steel_modern"
         },
         "scores": {
-          "bowed_technique": 2.6,
+          "bowed_technique": 0.78,
           "lyra_strings": 0.9449999999999998,
           "lyra_use": 1.218,
-          "lyra_body_wood": 0.39,
+          "lyra_body_wood": 1.56,
           "lyra_string_material": 0.9660000000000002
         }
       },
@@ -60,12 +60,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.546,
-          "voice_ensemble_config": 2.08,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 0.7770000000000001,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.17,
           "voice_tessitura": 0
         }
       },
@@ -77,8 +77,8 @@
           "laouto_strings": "laouto_strings_steel"
         },
         "scores": {
-          "laouto_form": 4.26,
-          "laouto_role": 5.395,
+          "laouto_form": 1.6099999999999999,
+          "laouto_role": 6.304999999999998,
           "laouto_strings": -0.035
         }
       },
@@ -102,7 +102,7 @@
           "mandolin_bracing": -0.05,
           "mandolin_strings": 0.168,
           "mandolin_fingerboard": 0.5145,
-          "mandolin_pickup": 0.273
+          "mandolin_pickup": 1.17
         }
       },
       {

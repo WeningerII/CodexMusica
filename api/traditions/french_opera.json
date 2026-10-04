@@ -3,9 +3,9 @@
   "name": "French opera",
   "family": "classical",
   "lineage": "French opera joins sung drama with instrumental music across contrasting historical styles. Text, character and musical development interact through arias, ensembles and other theatrical forms.",
-  "recipe": "classic french opera, art Music, western common practice branch. solo with instrumental accompaniment. modern bright oversize maple tension resonator European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 291,
-  "score": 26.511,
+  "recipe": "classic french opera, art Music, western common practice branch. solo with instrumental accompaniment. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 296,
+  "score": 26.023,
   "config": {
     "traditions": [
       "french_opera"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.8369999999999997,
+          "voice_ensemble_config": 2.7376249999999995,
           "voice_ornament_system": 0.126,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -56,7 +56,7 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_blue_hammer",
+          "piano_hammer": "renner_standard_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
@@ -66,13 +66,13 @@
         "scores": {
           "keyboard_technique": 2.5,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.9345000000000001,
+          "grand_piano_brand": 0.6615,
           "piano_hammer": 3.185,
           "piano_rim": 3.25,
           "piano_soundboard": 3.25,
           "piano_pinblock": 2.555,
-          "piano_plate": 2.954,
-          "piano_pitch_standard": 4.3085
+          "piano_plate": 2.8070000000000004,
+          "piano_pitch_standard": 4.34025
         }
       }
     ],

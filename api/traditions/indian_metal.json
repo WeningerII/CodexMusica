@@ -3,14 +3,14 @@
   "name": "Indian metal",
   "family": "rock_punk",
   "lineage": "Indian metal encompasses diverse regional scenes and subgenres. Mumbai’s Demonic Resurrection exemplifies its symphonic death-metal branch.",
-  "recipe": "classic modern indian metal, distorted Rock, metal branch, death metal, symphonic metal christian symphonic metal deep symphonic black metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 617,
-  "score": 98.715,
+  "recipe": "classic modern indian metal, distorted Rock, metal branch, death metal, symphonic metal christian symphonic metal gothenburg metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, blast beat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 618,
+  "score": 107.985,
   "config": {
     "traditions": [
       "indian_metal",
       "christian_symphonic_metal",
-      "deep_symphonic_black_metal"
+      "gothenburg_metal"
     ],
     "instruments": [
       {
@@ -31,9 +31,9 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 22.39,
-          "amp_make": 11.114999999999997,
-          "body_wood": 11.309999999999999,
+          "electric_technique": 25.265,
+          "amp_make": 12.609999999999996,
+          "body_wood": 12.805,
           "neck_wood": 0.43499999999999994,
           "fretboard": 0.705,
           "pickup_magnet": 0,
@@ -43,7 +43,7 @@
           "scale_length": 0,
           "string_gauge": 1.2449999999999999,
           "finish": 0,
-          "string_tuning": 1.02
+          "string_tuning": 0.195
         }
       },
       {
@@ -60,12 +60,12 @@
         },
         "scores": {
           "amp_make": 6.4350000000000005,
-          "body_wood": 11.309999999999999,
+          "body_wood": 12.805,
           "pickup_config": 0.24,
           "string_type": 14.3,
           "scale_length_b": 1.515,
           "fretted_or_not": 0.045,
-          "bass_technique": 11.174999999999999,
+          "bass_technique": 11.219999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.39,
+          "drum_technique": 2.025,
           "drumhead": 1.4549999999999998,
           "drum_kit_kick_pedal": 0
         }
@@ -117,8 +117,8 @@
           "voice_ensemble_config": 0.975,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.345
+          "voice_processing_chain": 0.345,
+          "voice_multitrack_stack": 0.195
         }
       },
       {
@@ -132,7 +132,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "rompler_preset_bank": -0.05,
-          "rompler_context": 3.12,
+          "rompler_context": 2.405,
           "rompler_lineage": 0
         }
       }

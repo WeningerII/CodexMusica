@@ -5,7 +5,7 @@
   "lineage": "Instrumental funk places interlocking bass and drums at the center, with recurring horn, guitar and keyboard figures carrying melodic interest. Bands such as The Budos Band connect syncopated grooves with Afro-soul and psychedelic influences.",
   "recipe": "classic modern instrumental funk, groove Percussion, funk percussive branch. single coil electric guitar, pocket fingerstyle locked electric bass, drum kit, ensemble honking attack saxophone, ensemble trumpet, combo organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 426,
-  "score": 32.969,
+  "score": 33.221,
   "config": {
     "traditions": [
       "instrumental_funk"
@@ -29,7 +29,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.5130000000000003,
+          "electric_technique": 2.5445,
           "amp_make": 0,
           "body_wood": 0.0315,
           "neck_wood": 0.273,
@@ -37,7 +37,7 @@
           "pickup_magnet": 0.0315,
           "string_material": 0,
           "string_gauge": 0,
-          "bridge": 0.0315,
+          "bridge": 0.063,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -92,7 +92,7 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.156,
+          "wind_articulation": 4.218999999999999,
           "sax_size": 0.6405,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
@@ -113,11 +113,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.156,
+          "wind_articulation": 4.218999999999999,
           "brass_size": 0.273,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
-          "trumpet_technique": 4.156,
+          "trumpet_technique": 4.218999999999999,
           "trumpet_bell_metal": 0.3045,
           "trumpet_maker_school": 0.9029999999999999
         }

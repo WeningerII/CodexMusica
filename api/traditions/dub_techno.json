@@ -5,7 +5,7 @@
   "lineage": "Berlin dub-techno subgenre codified by Basic Channel and Chain Reaction (founded 1993 by Moritz von Oswald and Mark Ernestus, at the Hardwax record store / Kreuzberg techno-scene infrastructure) — fuses Detroit techno-foundational vocabulary with King Tubby-derived dub mixing aesthetic; recordings: Basic Channel Phylyps Trak 1993, Maurizio Domina 1995, Porter Ricks Biokinetics 1996",
   "recipe": "classic Central European early-1990s dub techno, bass System, dub descendants branch, techno electronic dance detroit techno italian techno. drum machine analog, analog synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb roland RE-201 space echo hall reverb.",
   "recipe_chars": 472,
-  "score": 10.435,
+  "score": 10.836,
   "config": {
     "traditions": [
       "dub_techno",
@@ -17,15 +17,15 @@
         "id": "drum_machine_analog",
         "slots": {
           "kick_voice": "bridged_t_kick",
-          "snare_voice": "two_oscillator_snare",
+          "snare_voice": "tone_noise_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
           "kick_voice": 0.3,
-          "snare_voice": 0,
+          "snare_voice": 0.195,
           "hat_voice": 0.15,
-          "shuffle_quantize": 2.015
+          "shuffle_quantize": 2.4162500000000002
         }
       },
       {
@@ -41,7 +41,7 @@
           "electronic_technique": 1.9499999999999997,
           "oscillator": 2.145,
           "filter_topology": 2.795,
-          "envelope": 1.235,
+          "envelope": 1.04,
           "modulation": 0.195
         }
       }

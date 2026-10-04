@@ -2,10 +2,10 @@
   "id": "norwegian_choir",
   "name": "Norwegian choir",
   "family": "classical",
-  "lineage": "Norwegian choral music connects professional and community ensembles with historical and contemporary repertoire. New works and international exchanges broaden the approaches to collective vocal sound.",
-  "recipe": "classic norwegian choir, art Music. polyrhythmic vocal layering independent cycles choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 197,
-  "score": 2.99,
+  "lineage": "Norwegian choir is represented by The Norwegian Soloists’ Choir / Grete Pedersen — Messiaen: Cinq rechants, from Refractions. One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic norwegian choir, art Music, western modern branch. antiphonal double choir alternating choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 209,
+  "score": 6.485,
   "config": {
     "traditions": [
       "norwegian_choir"
@@ -15,22 +15,21 @@
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "chamber_choir",
-          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
           "choir_regional_canonical_configuration": "choir_regional_none",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
           "choir_size": 1.3,
-          "choir_polyphonic_configuration": 1.69,
+          "choir_polyphonic_configuration": 3.8846249999999998,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 0
+          "choir_ensemble_repertoire": 1.3
         }
       }
     ],
     "pinned": {
       "choir_ensemble": [
         "choir_size",
-        "choir_polyphonic_configuration",
         "choir_regional_canonical_configuration",
         "choir_ensemble_repertoire"
       ]
@@ -56,8 +55,7 @@
     "parts": {
       "choir_size": "chamber_choir",
       "choir_regional_canonical_configuration": "choir_regional_none",
-      "choir_ensemble_repertoire": "choir_ensemble_contemporary",
-      "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered"
+      "choir_ensemble_repertoire": "choir_ensemble_contemporary"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

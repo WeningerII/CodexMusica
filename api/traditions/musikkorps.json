@@ -3,9 +3,9 @@
   "name": "Musikkorps",
   "family": "classical",
   "lineage": "Luftwaffenmusikkorps Erfurt — Die Blechstaffel documented chamber ensemble (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s musikkorps, art Music. legato student friendly trumpet, controlled legato french horn, legato tenor standard standard backbore trombone, brass legato tuba, unsnared rear sound port cajon peruano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 313,
-  "score": 32.426,
+  "recipe": "classic late-2010s musikkorps, art Music. legato student friendly trumpet, controlled legato french horn, legato tenor standard standard backbore trombone, brass legato tuba, cajon peruano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 288,
+  "score": 30.477,
   "config": {
     "traditions": [
       "musikkorps"
@@ -23,13 +23,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.4705,
-          "brass_size": 0.0315,
+          "wind_articulation": 3.25,
+          "brass_size": 0,
           "trumpet_mouthpiece": 3.2,
-          "brass_mute": 0.363,
-          "trumpet_technique": 3.4705,
+          "brass_mute": 0.3315,
+          "trumpet_technique": 3.25,
           "trumpet_bell_metal": 0.6,
-          "trumpet_maker_school": 0.39
+          "trumpet_maker_school": 0.3315
         }
       },
       {
@@ -40,9 +40,9 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 3.4705,
+          "wind_articulation": 3.25,
           "french_horn_bore": 0.0315,
-          "french_horn_metal": 0.6315
+          "french_horn_metal": 0.6
         }
       },
       {
@@ -57,13 +57,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 3.4705,
-          "trombone_type": -0.035,
+          "wind_articulation": 3.25,
+          "trombone_type": -0.05,
           "trombone_mouthpiece": 3.2,
-          "trombone_mute": 0.363,
-          "trombone_technique": 0.22049999999999997,
+          "trombone_mute": 0.3315,
+          "trombone_technique": 0,
           "trombone_bell_metal": 0.6,
-          "trombone_maker_school": 0.39
+          "trombone_maker_school": 0.3315
         }
       },
       {
@@ -77,9 +77,9 @@
           "tuba_maker_school": "tuba_miraphone_german"
         },
         "scores": {
-          "wind_articulation": 3.4705,
+          "wind_articulation": 3.25,
           "tuba_pitch": 0.0315,
-          "tuba_context": 3.3565000000000005,
+          "tuba_context": 3.0940000000000003,
           "tuba_bell_metal": 0.6315,
           "tuba_valve_system": 0.0315,
           "tuba_maker_school": 0.0315
@@ -92,7 +92,7 @@
           "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
         },
         "scores": {
-          "cajon_peruano_construction": 1.005,
+          "cajon_peruano_construction": 0.8999999999999999,
           "cajon_peruano_role": 0
         }
       }

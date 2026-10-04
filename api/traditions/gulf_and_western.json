@@ -3,9 +3,9 @@
   "name": "Gulf and Western (Trop Rock)",
   "family": "country",
   "lineage": "US coastal songwriter style codified by Jimmy Buffett's Key West recordings of the mid-1970s — country and folk-rock song forms at relaxed 90-120 BPM, acoustic guitar and pedal steel augmented by steel pan, marimba-like percussion, calypso-tinged shuffles and saxophone, with conversational baritone vocals narrating beaches, boats, bars and escape.",
-  "recipe": "classic Southern American 1974-1976 gulf and western, functional Song, americana branch, country rock country, Caribbean groove percussion modern country rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, concert stage steel steelpan, rose brass darker warmer saxophone. beach. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 805,
-  "score": 682.212,
+  "recipe": "classic Southern American 1974-1976 gulf and western, functional Song, americana branch, country rock country, Caribbean groove percussion modern country rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, concert stage steel steelpan, gold brass warmer tone saxophone. beach. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 806,
+  "score": 666.692,
   "config": {
     "traditions": [
       "gulf_and_western",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 61.195000000000014,
+          "voice_register": 60.320000000000014,
           "voice_quality": 7.605,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 31.999999999999993,
-          "voice_articulation": 16.249999999999996,
-          "voice_microtone": 26,
-          "voice_tradition": 9.49,
+          "voice_vibrato": 31.454999999999995,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 26.3,
+          "voice_tradition": 9.23,
           "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 34.425,
-          "voice_speech_song": 23.399999999999995,
-          "voice_ensemble_config": 15.729999999999995,
+          "voice_estill_quality": 33.35499999999999,
+          "voice_speech_song": 22.099999999999994,
+          "voice_ensemble_config": 15.274999999999995,
           "voice_ornament_system": 0.19500000000000003,
           "voice_pitch_organization": 1.63,
-          "voice_processing_chain": 6.165,
+          "voice_processing_chain": 6.209999999999999,
           "voice_multitrack_stack": 5.355
         }
       },
@@ -62,8 +62,8 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 35.964999999999996,
-          "string_tuning": 0.65,
+          "acoustic_technique": 35.09,
+          "string_tuning": 1.1150000000000002,
           "top_wood": 1.45,
           "back_sides": 0.15,
           "string_acoustic": 3.73
@@ -82,14 +82,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 36.10499999999999,
-          "amp_make": 32.25999999999999,
+          "electric_technique": 35.23,
+          "amp_make": 30.994999999999994,
           "pickup_steel": 1.45,
-          "string_setup": 15.459999999999997,
+          "string_setup": 14.419999999999998,
           "bar_material": 3.23,
-          "pedal_steel_brand": 32.519999999999996,
-          "pedal_steel_neck_config": 34.17999999999999,
-          "pedal_steel_strings": 31.269999999999996
+          "pedal_steel_brand": 31.839999999999996,
+          "pedal_steel_neck_config": 32.614999999999995,
+          "pedal_steel_strings": 30.589999999999993
         }
       },
       {
@@ -105,13 +105,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 31.839999999999993,
+          "amp_make": 30.769999999999996,
           "body_wood": 1.6,
           "pickup_config": 0,
-          "string_type": 26.12,
+          "string_type": 25.97,
           "scale_length_b": 2.145,
           "fretted_or_not": 0.09,
-          "bass_technique": 31.119999999999994,
+          "bass_technique": 30.244999999999997,
           "electric_bass_string_configuration": 0
         }
       },
@@ -123,8 +123,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.945,
-          "drumhead": 2.17,
+          "drum_technique": 23.75,
+          "drumhead": 2.545,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -136,7 +136,7 @@
         },
         "scores": {
           "steelpan_voice": 2.08,
-          "steelpan_context": 2.4699999999999998
+          "steelpan_context": 2.6649999999999996
         }
       },
       {
@@ -145,7 +145,7 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "rose_brass_sax",
+          "sax_body_alloy": "gold_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
@@ -154,7 +154,7 @@
           "wind_articulation": 0.39,
           "sax_size": 1.45,
           "sax_reed": 0.65,
-          "sax_body_alloy": 1.4299999999999997,
+          "sax_body_alloy": 1.9050000000000002,
           "sax_mouthpiece": 0.195,
           "sax_technique": -0.035,
           "sax_maker_school": 0.06499999999999999
@@ -178,8 +178,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 31.119999999999994,
-          "amp_make": 32.25999999999999,
+          "electric_technique": 30.244999999999997,
+          "amp_make": 30.994999999999994,
           "body_wood": 1.45,
           "neck_wood": 1.45,
           "fretboard": 1.4,
@@ -189,7 +189,7 @@
           "bridge": 0.09,
           "scale_length": 1.6,
           "finish": 0,
-          "string_tuning": 12.350000000000001,
+          "string_tuning": 12.440000000000001,
           "single_coil_pickup_construction": 0
         }
       }

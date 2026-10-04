@@ -2,55 +2,28 @@
   "id": "experimental_bass",
   "name": "Experimental Bass",
   "family": "electronic",
-  "lineage": "Experimental bass connects producers exploring sound design and combinations across bass-music styles. Synthesizers, sampling and processing provide varied routes through a field that overlaps dubstep, hip-hop and other electronic traditions.",
-  "recipe": "classic experimental bass, bass System. low sub bass digital subtractive, drum machine analog. treated studio.",
-  "recipe_chars": 110,
-  "score": 15.703,
+  "lineage": "Don Jamal: complete twenty-selection guest DJ programme issued by FUXWITHIT17January2024, with its full published tracklist. The publisher describes experimental bass,140 and drum-and-bass repertoire; the performer explicitly explains the complete cross-genre mix. All twenty selections and embedded voices remain. Actual recorded playback/mixing is documented; constituent studio sound generators, decks and media formats are not. Existing medium-unspecified DJ playback/mixing owner models complete actual DJ practice, not a whole-master shortcut for undocumented studio creation. No source mechanism, hardware, live vocalist or tuning is guessed. Treated studio is an authored controlled listening rendition, not measured venue acoustics. Broad bassSystem parent reflects the explicitly bass-led practice rather than forcing every constituent track into one tempo or UK subgenre.",
+  "recipe": "classic experimental bass, bass System. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 87,
+  "score": 0.032,
   "config": {
     "traditions": [
       "experimental_bass"
     ],
     "instruments": [
       {
-        "id": "digital_subtractive",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electronic_technique": 10.652,
-          "va_archetypes": 0,
-          "digital_subtractive_context": 5.069999999999999
-        }
-      },
-      {
-        "id": "drum_machine_analog",
-        "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
-        },
-        "scores": {
-          "kick_voice": 0,
-          "snare_voice": 0.0315,
-          "hat_voice": 0,
-          "shuffle_quantize": -0.05
+          "dj_playback_mixing_identity": 0.0315
         }
       }
     ],
     "pinned": {
-      "digital_subtractive": [
-        "electronic_technique",
-        "va_archetypes",
-        "digital_subtractive_context"
-      ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "treated_studio",
@@ -70,13 +43,7 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_bass_sub",
-      "va_archetypes": "access_virus",
-      "digital_subtractive_context": "digital_subtractive_trance",
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true
   }

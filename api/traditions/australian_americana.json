@@ -5,7 +5,7 @@
   "lineage": "Australian roots musicians participate in Americana through country, folk and transnational collaboration. Kasey Chambers, an Americana Music Awards nominee with Shane Nicholson, represents the selected song-centered acoustic branch.",
   "recipe": "classic modern australian americana, functional Song, americana branch. thick, breath veiled tone, straight note core, neutral third half flat. dreadnought acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 399,
-  "score": 48.484,
+  "score": 48.109,
   "config": {
     "traditions": [
       "australian_americana"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 8.767999999999999,
+          "voice_register": 8.663,
           "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -41,12 +41,12 @@
           "voice_microtone": 1.6899999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 9.247749999999998,
+          "voice_estill_quality": 9.111249999999998,
           "voice_speech_song": 5.525000000000001,
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0.1365,
-          "voice_processing_chain": 1.69,
+          "voice_processing_chain": 1.57375,
           "voice_multitrack_stack": 0.27375
         }
       },
@@ -60,7 +60,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 0.26,
+          "acoustic_technique": 0.24275000000000002,
           "string_tuning": 0.26,
           "top_wood": 0.168,
           "back_sides": 0.0315,

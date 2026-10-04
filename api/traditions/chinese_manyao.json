@@ -2,95 +2,55 @@
   "id": "chinese_manyao",
   "name": "Chinese manyao",
   "family": "electronic",
-  "lineage": "Chinese manyao connects Chinese-language popular songs with dance remixes and continuous DJ programmes. Familiar vocal repertoire is recast through electronic rhythm, repeated hooks and contrasting sections.",
-  "recipe": "classic chinese manyao, electronic Dance. analog synth, sampler. live tracking.",
-  "recipe_chars": 79,
-  "score": 6.204,
+  "lineage": "ReyLimitless — complete DJ Tiao Lou Ji Breakbeat Mandarin Chinese Remix Manyao Mix, July2025. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic chinese manyao, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 172,
+  "score": 0.063,
   "config": {
     "traditions": [
       "chinese_manyao"
     ],
     "instruments": [
       {
-        "id": "analog_synth",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "oscillator": "saw_super",
-          "filter_topology": "svf",
-          "envelope": "pad_env",
-          "modulation": "lfo_filter"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "oscillator": -0.035,
-          "filter_topology": 0.063,
-          "envelope": 0,
-          "modulation": 0
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_edm"
-        },
-        "scores": {
-          "electronic_technique": -0.035,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.126,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 6.24
+          "dj_playback_mixing_identity": 0.063
         }
       }
     ],
     "pinned": {
-      "analog_synth": [
-        "electronic_technique",
-        "oscillator",
-        "filter_topology",
-        "envelope",
-        "modulation"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sustained_layering",
-      "oscillator": "saw_super",
-      "filter_topology": "svf",
-      "envelope": "pad_env",
-      "modulation": "lfo_filter",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_edm"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

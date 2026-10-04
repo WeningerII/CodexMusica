@@ -5,7 +5,7 @@
   "lineage": "Neo-trad doom metal renews traditional doom’s heavy riffing and song-led melodic approach.",
   "recipe": "classic modern neo-trad doom metal, distorted Rock, doom branch. one note per syllable. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch basswood electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 411,
-  "score": 65.728,
+  "score": 65.476,
   "config": {
     "traditions": [
       "neo_trad_doom_metal"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6809999999999999,
-          "voice_ensemble_config": 0.03599999999999999,
+          "voice_speech_song": 0.6074999999999999,
+          "voice_ensemble_config": 0.06749999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.03599999999999999,
+          "voice_multitrack_stack": 0.06749999999999999,
           "voice_tessitura": 0
         }
       },
@@ -70,8 +70,8 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 12.7845,
-          "amp_make": 13.549,
+          "electric_technique": 12.815999999999999,
+          "amp_make": 13.4125,
           "body_wood": 4.55,
           "neck_wood": 0.2625,
           "fretboard": 0.1995,
@@ -98,7 +98,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.549,
+          "amp_make": 13.4125,
           "body_wood": 4.55,
           "pickup_config": 0,
           "string_type": 0,

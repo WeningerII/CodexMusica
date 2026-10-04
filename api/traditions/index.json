@@ -32764,7 +32764,7 @@
     {
       "id": "london_indie",
       "name": "London indie",
-      "family": "rock",
+      "family": "rock_punk",
       "href": "traditions/london_indie.json"
     },
     {
@@ -32806,7 +32806,7 @@
     {
       "id": "malayalam_cover",
       "name": "Malayalam Cover",
-      "family": "pop",
+      "family": "electronic",
       "href": "traditions/malayalam_cover.json"
     },
     {
@@ -36838,7 +36838,7 @@
     {
       "id": "rock_nacional_feminino",
       "name": "Rock Nacional Feminino",
-      "family": "rock",
+      "family": "rock_punk",
       "href": "traditions/rock_nacional_feminino.json"
     },
     {
@@ -36982,7 +36982,7 @@
     {
       "id": "kikuyu_gospel",
       "name": "Kikuyu Gospel",
-      "family": "blues_gospel",
+      "family": "electronic",
       "href": "traditions/kikuyu_gospel.json"
     },
     {

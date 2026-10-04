@@ -2,10 +2,10 @@
   "id": "hip_hop_galsen",
   "name": "Hip hop galsen",
   "family": "hip_hop",
-  "lineage": "Hip hop galsen connects Senegalese rap scenes and their wider networks. Dakar’s Daara J Family exemplifies a Wolof-centered approach that moves between rap, melodic singing and played-band performance.",
-  "recipe": "classic modern hip hop galsen, mc Rhythm, Afro-diasporic branch. rap, group vocals. clean strummed single coil electric guitar, rompler workstation, electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 318,
-  "score": 19.76,
+  "lineage": "Senegalese hip-hop scenes; selected Daara J Family Yamatélé-era played-band branch",
+  "recipe": "classic modern hip hop galsen, mc Rhythm, Afro-diasporic branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. clean strummed single coil electric guitar, sub bass rompler workstation, electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 382,
+  "score": 24.674,
   "config": {
     "traditions": [
       "hip_hop_galsen"
@@ -19,37 +19,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "spoken_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_aural_relative",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 12.74,
+          "voice_quality": 6.825,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.126,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.72525,
+          "voice_speech_song": 7.15,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.34724999999999995,
-          "voice_tessitura": 0
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -57,7 +55,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder",
+          "body_wood": "alder_b",
           "neck_wood": "maple",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_5",
@@ -70,9 +68,9 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 4.555000000000001,
+          "electric_technique": 3.805,
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.1575,
           "neck_wood": 0,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -88,13 +86,13 @@
       {
         "id": "rompler_workstation",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_bass_sub",
           "rompler_preset_bank": "rompler_preset_gm_combo",
           "rompler_context": "rompler_context_band_keyboard",
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.2,
+          "electronic_technique": 3.7670000000000003,
           "rompler_preset_bank": 0,
           "rompler_context": 0,
           "rompler_lineage": 0
@@ -104,7 +102,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder",
+          "body_wood": "alder_b",
           "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
@@ -114,7 +112,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.1575,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -170,8 +168,7 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
+        "voice_multitrack_stack"
       ],
       "electric_guitar_single_coil": [
         "electric_technique",
@@ -188,7 +185,6 @@
         "string_tuning"
       ],
       "rompler_workstation": [
-        "electronic_technique",
         "rompler_preset_bank",
         "rompler_context",
         "rompler_lineage"
@@ -228,33 +224,34 @@
       "amp": null,
       "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
+    "tuning": "twelve_tet",
     "room": "live_room",
     "parts": {
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "spoken_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_aural_relative",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder",
+      "body_wood": "alder_b",
       "neck_wood": "maple",
       "fretboard": "rosewood_fb",
       "pickup_magnet": "alnico_5",
@@ -283,8 +280,7 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "hand_random_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "electronic_technique": "electronic_pad_drone"
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

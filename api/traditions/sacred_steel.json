@@ -5,7 +5,7 @@
   "lineage": "Black Pentecostal pedal-and-lap-steel-guitar gospel tradition developed in the House of God and Church of the Living God Pentecostal denominations from the 1930s onward — the pedal steel guitar functions as the foreground praise-and-worship instrument substituting for the tonewheel organ standard in most Black Pentecostal churches; codified through Aubrey Ghent, Sonny Treadway, Calvin Cooke, the modern Robert Randolph and the Family Band post-2000s extension",
   "recipe": "classic Southern American mid-1930s sacred steel, ritual Devotional, sacred steel branch, christian gospel black gospel gospel quartet. thick, declaimed, wide pitch sway, leader call answered. Fender blackface amp American 60s amp spring reverb bright steel zum steel pedal steel, ampeg b15 amp American 60s bass amp flip top character stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 599,
-  "score": 405.684,
+  "score": 405.352,
   "config": {
     "traditions": [
       "sacred_steel",
@@ -38,14 +38,14 @@
           "voice_quality": 46.59750000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.775,
+          "voice_vibrato": 4.625,
           "voice_articulation": 34.71875000000001,
           "voice_microtone": 16.682249999999996,
-          "voice_tradition": 48.81125,
+          "voice_tradition": 48.856249999999996,
           "voice_mechanism_compound": 2.4699999999999998,
           "voice_estill_quality": 36.11250000000001,
-          "voice_speech_song": 18.642249999999997,
-          "voice_ensemble_config": 34.322500000000005,
+          "voice_speech_song": 18.849999999999994,
+          "voice_ensemble_config": 34.17250000000001,
           "voice_ornament_system": 10.025000000000002,
           "voice_pitch_organization": 0.65,
           "voice_processing_chain": 7.6049999999999995,
@@ -66,11 +66,11 @@
         },
         "scores": {
           "electric_technique": 13.649999999999997,
-          "amp_make": 7.49075,
+          "amp_make": 7.34075,
           "pickup_steel": 0.32625,
-          "string_setup": 0.585,
+          "string_setup": 0.5025,
           "bar_material": 7.394999999999999,
-          "pedal_steel_brand": 8.04875,
+          "pedal_steel_brand": 8.09375,
           "pedal_steel_neck_config": 1.7575,
           "pedal_steel_strings": 1.76125
         }
@@ -79,7 +79,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
@@ -88,10 +88,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.2865,
-          "body_wood": 0.39,
+          "amp_make": 7.1815,
+          "body_wood": 0.3525,
           "pickup_config": 0.65,
-          "string_type": 8.243749999999999,
+          "string_type": 8.288749999999999,
           "scale_length_b": 1.00375,
           "fretted_or_not": 1.00375,
           "bass_technique": 5,

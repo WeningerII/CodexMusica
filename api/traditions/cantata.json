@@ -3,24 +3,24 @@
   "name": "Cantata",
   "family": "classical",
   "lineage": "Multi-movement vocal-instrumental work for voices and continuo-based ensemble that emerged in early-seventeenth-century Italy as chamber cantata and was codified in its Lutheran church form by Buxtehude and J.S. Bach at Leipzig (1723-1750) — opening choral fugue or chorale fantasia, alternating recitatives and da capo arias with obbligato instruments, closing four-part chorale, scored for SATB choir, strings, oboes, occasional trumpets and basso continuo of organ and cello, notated in full score and performed at moderate tempi with Baroque articulation and unequal note conventions.",
-  "recipe": "classic European early-1720s cantata, art Music, western early branch, western common practice art music, christian gospel anglican choral classical bass icelandic choir. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, damore a Baroque legato oboe damore, Italian cristofori grimaldi canonical late 16th 17th century single 8 foot soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, synthetic norway spruce European alpine European maple bosnian source cello, trumpet Baroque natural trumpet, Baroque leaning silbermann saxon canonical central German Baroque early 18th century high lead 25 75 canonical flue stops mellow romantic quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ. parish church.",
-  "recipe_chars": 987,
-  "score": 366.578,
+  "recipe": "classic European early-1720s cantata, art Music, western early branch, western common practice art music, christian gospel anglican choral classical bass anglican choral evensong. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, damore a Baroque legato oboe damore, English kirkman shudi canonical mid 18th century London soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, synthetic norway spruce European alpine European maple bosnian source cello, trumpet Baroque natural trumpet, Baroque leaning silbermann saxon canonical central German Baroque early 18th century high lead 25 75 canonical flue stops mellow romantic quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ. parish church. blumlein stereo pair.",
+  "recipe_chars": 999,
+  "score": 356.152,
   "config": {
     "traditions": [
       "cantata",
       "classical_bass",
-      "icelandic_choir"
+      "anglican_choral_evensong"
     ],
     "instruments": [
       {
         "id": "choir_cathedral_satb",
         "slots": {
-          "voicing": "satb_standard",
+          "voicing": "satb_with_boys",
           "repertoire": "romantic_choral"
         },
         "scores": {
-          "voicing": 3.6399999999999997,
+          "voicing": 3.3499999999999996,
           "repertoire": 0.48
         }
       },
@@ -42,25 +42,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.7749999999999995,
-          "voice_quality": 4.875000000000001,
+          "voice_register": 6.9,
+          "voice_quality": 8.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.847499999999998,
-          "voice_articulation": 21.905,
-          "voice_microtone": 16.119999999999997,
-          "voice_tradition": 11.0175,
-          "voice_mechanism_compound": 6.5249999999999995,
-          "voice_estill_quality": 9.929999999999998,
-          "voice_speech_song": 20.085,
-          "voice_ensemble_config": 23.595000000000002,
-          "voice_ornament_system": 7.325,
-          "voice_pitch_organization": 8.095,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 2.0799999999999996
+          "voice_vibrato": 8.222499999999998,
+          "voice_articulation": 23.92,
+          "voice_microtone": 18.134999999999998,
+          "voice_tradition": 10.0425,
+          "voice_mechanism_compound": 5.2749999999999995,
+          "voice_estill_quality": 8.68,
+          "voice_speech_song": 22.1,
+          "voice_ensemble_config": 24.960000000000004,
+          "voice_ornament_system": 6.075,
+          "voice_pitch_organization": 8.445,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 2.405000000000001
         }
       },
       {
@@ -78,16 +78,16 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 6.625,
+          "bowed_technique": 5.375,
           "orch_strings": 0.8999999999999999,
-          "orch_top_wood": 10.66,
-          "orch_back_wood": 9.71,
-          "orch_varnish": 9.935,
-          "orch_setup_period": 8.845,
+          "orch_top_wood": 9.41,
+          "orch_back_wood": 8.46,
+          "orch_varnish": 8.834999999999999,
+          "orch_setup_period": 8.095,
           "orch_bow": 0.9099999999999999,
-          "orch_bow_stick": 9.5225,
-          "orch_articulation": 3.575,
-          "orch_rosin": 9.045
+          "orch_bow_stick": 7.8975,
+          "orch_articulation": 3.965,
+          "orch_rosin": 7.795
         }
       },
       {
@@ -105,19 +105,19 @@
         "id": "harpsichord",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "harpsichord_register": "harpsi_8_foot",
+          "harpsichord_register": "harpsi_double_8",
           "harpsichord_context": "harpsichord_solo",
-          "harpsichord_maker_school": "harpsichord_italian_cristofori",
+          "harpsichord_maker_school": "harpsichord_english_kirkman",
           "harpsichord_plectrum": "harpsichord_leather_french",
           "harpsichord_temperament": "harpsichord_meantone_quarter"
         },
         "scores": {
-          "keyboard_technique": 6.625,
-          "harpsichord_register": 3.445,
-          "harpsichord_context": 11.115,
-          "harpsichord_maker_school": 1.69,
+          "keyboard_technique": 5.5249999999999995,
+          "harpsichord_register": 3.0549999999999997,
+          "harpsichord_context": 10.725,
+          "harpsichord_maker_school": 2.34,
           "harpsichord_plectrum": 1.3,
-          "harpsichord_temperament": 4.55
+          "harpsichord_temperament": 5.005
         }
       },
       {
@@ -134,15 +134,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 6.625,
-          "cello_strings": 3.0549999999999997,
-          "cello_top_wood": 10.66,
-          "cello_back_wood": 9.71,
-          "cello_varnish": 9.935,
-          "cello_setup_period": 8.845,
-          "cello_bow_grip": 4.9399999999999995,
-          "cello_rosin": 8.81,
-          "cello_bow_stick": 9.5225
+          "bowed_technique": 5.375,
+          "cello_strings": 3.4449999999999994,
+          "cello_top_wood": 9.41,
+          "cello_back_wood": 8.46,
+          "cello_varnish": 8.834999999999999,
+          "cello_setup_period": 8.095,
+          "cello_bow_grip": 3.835,
+          "cello_rosin": 7.56,
+          "cello_bow_stick": 7.8975
         }
       },
       {
@@ -168,12 +168,12 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": 6.625,
+          "keyboard_technique": 5.5249999999999995,
           "pipe_organ_class": 1.195,
-          "pipe_organ_context": 11.96,
-          "pipe_organ_voicing_school": 5.85,
+          "pipe_organ_context": 12.415000000000001,
+          "pipe_organ_voicing_school": 6.305,
           "pipe_organ_pipe_alloy": 1.5900000000000003,
-          "pipe_organ_temperament": 4.55,
+          "pipe_organ_temperament": 5.005,
           "pipe_organ_action": 1.95
         }
       }

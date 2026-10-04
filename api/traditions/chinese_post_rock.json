@@ -5,7 +5,7 @@
   "lineage": "Chinese post-rock includes ensembles combining guqin phrases with amplified instrumental bands.",
   "recipe": "classic chinese post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, guqin. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 303,
-  "score": 22.783,
+  "score": 22.814,
   "config": {
     "traditions": [
       "chinese_post_rock"
@@ -93,7 +93,7 @@
           "plucked_traditional_technique": -0.035,
           "guqin_strings": 0.252,
           "guqin_context": 0.1995,
-          "guqin_body_wood": 0.44099999999999995,
+          "guqin_body_wood": 0.4724999999999999,
           "guqin_lacquer": 0.252
         }
       }

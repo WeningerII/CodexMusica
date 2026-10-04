@@ -5,7 +5,7 @@
   "lineage": "Dutch Baroque music connects keyboard and instrumental repertoire with the musical life of the seventeenth and early eighteenth centuries. Performers revisit surviving works through historical practice and modern interpretations.",
   "recipe": "classic dutch baroque, art Music, western common practice branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 255,
-  "score": 42.93,
+  "score": 42.607,
   "config": {
     "traditions": [
       "dutch_baroque"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 2.554,
-          "grand_piano_size": 0.684,
-          "grand_piano_brand": 0.798,
+          "grand_piano_size": 0.6105,
+          "grand_piano_brand": 0.7155,
           "piano_hammer": 7.475,
-          "piano_rim": 6.6635,
+          "piano_rim": 6.527,
           "piano_soundboard": 5.75,
           "piano_pinblock": 5.855,
-          "piano_plate": 6.1805,
-          "piano_pitch_standard": 6.9695
+          "piano_plate": 6.107,
+          "piano_pitch_standard": 7.013
         }
       }
     ],

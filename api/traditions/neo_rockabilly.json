@@ -5,7 +5,7 @@
   "lineage": "Neo-rockabilly renews rockabilly’s guitar-led dance-band sound through contemporary songs and performance.",
   "recipe": "classic neo-rockabilly, functional Song, pop rock branch. Fender champ amp low wattage studio grit clean strummed humbucker electric guitar, upright bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 306,
-  "score": 29.966,
+  "score": 30.134,
   "config": {
     "traditions": [
       "neo_rockabilly"
@@ -22,7 +22,7 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": 4.9575,
-          "amp_make": 8.072000000000001,
-          "body_wood": 0.6194999999999999,
+          "amp_make": 8.241,
+          "body_wood": 0.483,
           "neck_wood": 0.2415,
           "fretboard": 0.3,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 0.2415,
-          "scale_length": 0.6405000000000001,
-          "string_gauge": 0.1995,
+          "bridge": 0.3055,
+          "scale_length": 0.504,
+          "string_gauge": 0.36849999999999994,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.03899999999999999
         }
       },
       {

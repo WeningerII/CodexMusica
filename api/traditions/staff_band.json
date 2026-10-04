@@ -3,9 +3,9 @@
   "name": "Staff Band",
   "family": "classical",
   "lineage": "Chicago Staff Band — Andrew Wainwright, Illuminate (2015), complete published score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s staff band, art Music. brass yellow brass canonical brass band besson sovereign canonical British brass band cornet, low overtone rich spectrum round brass flugelhorn, tenor horn eb, baritone horn bb, tenor standard standard backbore trombone, bass trombone, yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, brass besson sovereign British brass band tuba, low fundamental tuning traditional calfskin timpani, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 606,
-  "score": 66.014,
+  "recipe": "classic mid-2010s staff band, art Music. yellow brass canonical brass band besson sovereign canonical British brass band cornet, low overtone rich spectrum round brass flugelhorn, tenor horn eb, baritone horn bb, tenor standard standard backbore trombone, bass trombone, yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, brass besson sovereign British brass band tuba, low fundamental tuning traditional calfskin timpani, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 600,
+  "score": 64.79,
   "config": {
     "traditions": [
       "staff_band"
@@ -23,9 +23,9 @@
         "scores": {
           "wind_articulation": 2.75,
           "cornet_pitch": 4.849999999999999,
-          "cornet_context": 1.17,
+          "cornet_context": 0.8999999999999999,
           "cornet_bell_metal": 4.999999999999998,
-          "cornet_maker_school": 5.299999999999999
+          "cornet_maker_school": 5.331499999999999
         }
       },
       {
@@ -39,7 +39,7 @@
         },
         "scores": {
           "wind_articulation": 2.75,
-          "flugel_use": 1.1415,
+          "flugel_use": 1.1309999999999998,
           "flugelhorn_pitch": 0,
           "flugelhorn_bell_metal": 0.8999999999999999,
           "flugelhorn_maker_school": -0.1
@@ -76,12 +76,12 @@
         },
         "scores": {
           "wind_articulation": 2.75,
-          "trombone_type": -0.035,
+          "trombone_type": -0.05,
           "trombone_mouthpiece": 3.0500000000000003,
-          "trombone_mute": 0.663,
-          "trombone_technique": 0.22049999999999997,
+          "trombone_mute": 0.6315,
+          "trombone_technique": 0,
           "trombone_bell_metal": 0.8999999999999999,
-          "trombone_maker_school": 0.78
+          "trombone_maker_school": 0.6315
         }
       },
       {
@@ -91,8 +91,8 @@
           "bass_trombone_context": "bass_trombone_orchestral_legato"
         },
         "scores": {
-          "bass_trombone_valves": 0.105,
-          "bass_trombone_context": 0.363
+          "bass_trombone_valves": 0,
+          "bass_trombone_context": 0.3315
         }
       },
       {
@@ -107,9 +107,9 @@
         "scores": {
           "wind_articulation": 2.75,
           "euph_use": 0.8999999999999999,
-          "euphonium_pitch": 5.299999999999999,
-          "euphonium_bell_metal": 5.299999999999999,
-          "euphonium_maker_school": 5.299999999999999
+          "euphonium_pitch": 5.331499999999999,
+          "euphonium_bell_metal": 5.331499999999999,
+          "euphonium_maker_school": 5.331499999999999
         }
       },
       {
@@ -125,10 +125,10 @@
         "scores": {
           "wind_articulation": 2.75,
           "tuba_pitch": 0.0315,
-          "tuba_context": 1.95,
+          "tuba_context": 1.794,
           "tuba_bell_metal": 0.9314999999999999,
-          "tuba_valve_system": 0.5565,
-          "tuba_maker_school": 5.299999999999999
+          "tuba_valve_system": 0,
+          "tuba_maker_school": 5.331499999999999
         }
       },
       {
@@ -141,7 +141,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "timpani_size": 1.3,
-          "timpani_head": 1.1365
+          "timpani_head": 1.3
         }
       },
       {

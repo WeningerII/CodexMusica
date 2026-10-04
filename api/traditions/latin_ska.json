@@ -2,10 +2,10 @@
   "id": "latin_ska",
   "name": "Latin ska",
   "family": "global",
-  "lineage": "Latin ska connects ska rhythms with Latin American songwriting and local musical influences. Bands range from compact guitar-and-keyboard groups to larger ensembles with brass and percussion.",
-  "recipe": "classic latin ska, bass System, reggae diaspora branch. solo with instrumental accompaniment. soft down tuning humbucker electric guitar, rim clicks drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 10.553,
+  "lineage": "Latin ska is represented by Los de Abajo — original Latin-ska quartet. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+  "recipe": "classic latin ska, bass System, reggae diaspora branch. solo with instrumental accompaniment. humbucker electric guitar, rim clicks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 322,
+  "score": 14.245,
   "config": {
     "traditions": [
       "latin_ska"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
+          "voice_ensemble_config": 1.4017499999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.30825,
+          "voice_multitrack_stack": 0.25425,
           "voice_tessitura": 0
         }
       },
@@ -56,7 +56,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_tweed",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
@@ -67,34 +67,34 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 0.7999999999999998,
-          "body_wood": 0.17925,
+          "amp_make": 1.551,
+          "body_wood": 0.39,
           "neck_wood": 0.042749999999999996,
           "fretboard": 0.042749999999999996,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 0.1365,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.39,
           "string_material": 0.063,
-          "bridge": 0.14775,
-          "scale_length": 0.15974999999999998,
-          "string_gauge": 0.105,
+          "bridge": 1.3,
+          "scale_length": 0.39,
+          "string_gauge": 1.285,
           "finish": 0,
-          "string_tuning": 1.3815
+          "string_tuning": 0.57075
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "rim_clicks_dub",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.74275,
-          "drumhead": 0.11624999999999999,
+          "drumhead": 0.75,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -104,13 +104,13 @@
           "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 0.6224999999999999,
+          "poly_archetypes": 0.4425,
           "poly_voices": 0.174,
-          "poly_maker_lineage": -0.035
+          "poly_maker_lineage": 1.2349999999999999
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "leon_gto_indie",
   "name": "Leon Gto Indie",
   "family": "pop_rock",
-  "lineage": "León, Guanajuato independent music — local indie-pop, dream-pop and rock activity.",
-  "recipe": "classic leon gto indie, functional Song. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 286,
-  "score": 28.596,
+  "lineage": "Clan de Venus — Clan de Venus (2019), complete album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic late-2010s leon gto indie, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 352,
+  "score": 29.497,
   "config": {
     "traditions": [
       "leon_gto_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.063,
+          "voice_ensemble_config": 1.2285000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 6.449999999999999,
+          "electric_technique": 4.6075,
           "amp_make": 0,
-          "body_wood": 0,
-          "neck_wood": 0,
-          "fretboard": -0.05,
+          "body_wood": 0.2415,
+          "neck_wood": 0.2415,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0,
-          "string_gauge": 1.17,
+          "bridge": 0.0315,
+          "scale_length": 0.378,
+          "string_gauge": 1.4995,
           "finish": 0,
           "string_tuning": 0
         }
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "dual_single",
+          "pickup_config": "split_coil",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.2415,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 2.6365,
+          "drum_technique": 3.7815,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.3,
           "shell_thickness": 0,
-          "bearing_edges": 0,
+          "bearing_edges": 0.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 8.95,
-          "cymbal_lathing": 8.95,
+          "cymbal_hammering": 8.462499999999999,
+          "cymbal_lathing": 8.389,
           "cymbal_finish": 0
         }
       }
@@ -236,7 +236,7 @@
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "maple_neck_h",
+      "neck_wood": "mahogany_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "dual_single",
+      "pickup_config": "split_coil",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

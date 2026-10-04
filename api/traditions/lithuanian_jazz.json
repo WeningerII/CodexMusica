@@ -2,10 +2,10 @@
   "id": "lithuanian_jazz",
   "name": "Lithuanian jazz",
   "family": "jazz",
-  "lineage": "Lithuanian jazz includes musicians exploring composition and improvisation across acoustic, amplified and experimental settings. Local ensembles connect regional scenes with international jazz practice.",
-  "recipe": "classic lithuanian jazz, improv On Frame, American jazz branch. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, basswood humbucker electric guitar, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 374,
-  "score": 81.933,
+  "lineage": "Lithuanian jazz is represented here by Sheep Got Waxed — documented self-titled-era instrumental trio (2014). This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic mid-2010s lithuanian jazz, improv On Frame, avant branch. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, humbucker electric guitar, vintage ambassador asymmetric brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 352,
+  "score": 83.463,
   "config": {
     "traditions": [
       "lithuanian_jazz"
@@ -14,22 +14,22 @@
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_cool_lyrical",
+          "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "nickel_silver_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": -0.035,
+          "wind_articulation": 3.6500000000000004,
           "sax_size": -0.10500000000000001,
-          "sax_reed": 0.19949999999999998,
-          "sax_body_alloy": 13.91,
+          "sax_reed": 0.3045,
+          "sax_body_alloy": 12.918,
           "sax_mouthpiece": 0.3045,
-          "sax_technique": 13.75,
-          "sax_maker_school": 17.81
+          "sax_technique": 12.75,
+          "sax_maker_school": 16.509999999999998
         }
       },
       {
@@ -38,43 +38,43 @@
           "electric_technique": "electric_jazz_comping",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_gauge": "g_10_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": -0.05,
           "amp_make": 1.6899999999999997,
-          "body_wood": 1.0185,
-          "neck_wood": 0.315,
-          "fretboard": 0.34650000000000003,
-          "pickup_magnet": 0.63,
-          "pickup_winding": 0.46199999999999997,
-          "string_material": 0.4095,
-          "bridge": 0.315,
-          "scale_length": 0.8294999999999999,
-          "string_gauge": 0.7979999999999999,
-          "finish": 0,
-          "string_tuning": 0.7349999999999999
+          "body_wood": 0.5565,
+          "neck_wood": 0.3045,
+          "fretboard": 0.3045,
+          "pickup_magnet": 0.0735,
+          "pickup_winding": 0.4095,
+          "string_material": 0.3045,
+          "bridge": 1.105,
+          "scale_length": 0.6825,
+          "string_gauge": 1.105,
+          "finish": 0.0315,
+          "string_tuning": 1.3545
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
+          "drum_technique": "brushes_jazz",
           "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.789999999999996,
-          "drumhead": 17.81,
+          "drum_technique": 12.75,
+          "drumhead": 16.509999999999998,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -82,12 +82,6 @@
     "pinned": {
       "saxophone": [
         "sax_size"
-      ],
-      "electric_guitar_humbucker": [
-        "electric_technique"
-      ],
-      "drum_kit": [
-        "drum_technique"
       ]
     },
     "room": "treated_studio",
@@ -109,9 +103,7 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "sax_size": "tenor_sax",
-      "electric_technique": "electric_jazz_comping",
-      "drum_technique": "brushes_and_sticks"
+      "sax_size": "tenor_sax"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

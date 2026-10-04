@@ -5,7 +5,7 @@
   "lineage": "Cereus Bright — First Avenue documented five-member configuration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic knoxville indie, functional Song, folk rock branch. group vocals. fingerpicked acoustic conventional tuning standard pitch clean strummed humbucker electric guitar, strummed open chord ringing overtones mandolin, European maple bosnian source flamed figure modern setup heavier bass bar double bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 484,
-  "score": 77.748,
+  "score": 77.704,
   "config": {
     "traditions": [
       "knoxville_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3995,
+          "voice_ensemble_config": 1.3575,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.1995,
+          "string_acoustic": 0.231,
           "acoustic_om_technique": 4.331500000000001
         }
       },
@@ -82,13 +82,13 @@
           "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": 3.7315,
+          "acoustic_technique": 3.7,
           "mandolin_shape": 0.5499999999999999,
           "mandolin_top": -0.035,
           "mandolin_back": 0.25,
-          "mandolin_bracing": 0.9864999999999999,
-          "mandolin_strings": 0.1995,
-          "mandolin_fingerboard": 0.0315,
+          "mandolin_bracing": 0.8814999999999998,
+          "mandolin_strings": 0.231,
+          "mandolin_fingerboard": 0.063,
           "mandolin_pickup": 0.78
         }
       },
@@ -110,19 +110,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.7315,
+          "electric_technique": 3.7,
           "amp_make": 0,
           "body_wood": 0.39,
-          "neck_wood": 0.1995,
+          "neck_wood": 0.231,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.399,
+          "scale_length": 0.46199999999999997,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 1.4995
+          "string_tuning": 1.5205
         }
       },
       {
@@ -140,15 +140,15 @@
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": -0.035,
+          "bowed_technique": -0.05,
           "bass_size": 0.0315,
           "bass_strings": 0.78,
           "bass_top_wood": -0.07,
-          "bass_back_wood": 1.605,
+          "bass_back_wood": 1.5,
           "bass_varnish": 0.7,
           "bass_setup_period": 1.6899999999999997,
           "bass_play": 0.25,
-          "bass_rosin": 1.6899999999999997,
+          "bass_rosin": 1.6885,
           "bass_bow_stick": 0.6499999999999999
         }
       },
@@ -169,9 +169,9 @@
         },
         "scores": {
           "drum_technique": 11.5,
-          "drumhead": 1.4995,
+          "drumhead": 1.552,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.0995,
+          "shell_wood": 2.152,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0,

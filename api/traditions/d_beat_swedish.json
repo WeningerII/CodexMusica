@@ -5,7 +5,7 @@
   "lineage": "Punk subgenre named for the distinctive 1-and-3 kick / 2-and-4 snare beat-pattern codified by Discharge (UK 1977-onward). Swedish D-beat-revival scene centered on Anti-Cimex, Mob 47, and (in the 1990s D-beat wave) Driller Killer and Wolfpack drove international circulation. Characterized by Discharge-derived beat-pattern, distorted-bass-and-guitar tone, and bleak anti-war anti-government political content.",
   "recipe": "classic Northern European modern d-beat, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 604,
-  "score": 288.507,
+  "score": 288.747,
   "config": {
     "traditions": [
       "d_beat_swedish",
@@ -42,14 +42,14 @@
           "voice_articulation": 15.014999999999993,
           "voice_microtone": 14.819999999999991,
           "voice_tradition": 1.4949999999999999,
-          "voice_mechanism_compound": 26.185,
-          "voice_estill_quality": 1.15,
+          "voice_mechanism_compound": 26.23,
+          "voice_estill_quality": 1.1949999999999998,
           "voice_speech_song": 15.014999999999993,
           "voice_ensemble_config": 14.949999999999992,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.135,
           "voice_pitch_organization": 2.3399999999999994,
-          "voice_processing_chain": 3.2749999999999995,
-          "voice_multitrack_stack": 5.302500000000001
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 5.212500000000001
         }
       },
       {
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.837499999999995,
+          "electric_technique": 27.882499999999997,
           "amp_make": 20.009999999999998,
           "body_wood": 13.064999999999998,
           "neck_wood": 1.69,
@@ -104,7 +104,7 @@
           "string_type": 13.162500000000001,
           "scale_length_b": 1.69,
           "fretted_or_not": 0.845,
-          "bass_technique": 17.26,
+          "bass_technique": 17.215,
           "electric_bass_string_configuration": 0
         }
       },

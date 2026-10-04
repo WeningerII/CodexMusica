@@ -5,7 +5,7 @@
   "lineage": "Progressive groove metal combines heavy riffing with intricate accents and shifting rhythmic relationships.",
   "recipe": "classic modern progressive groove metal, distorted Rock, prog branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 488,
-  "score": 38.504,
+  "score": 38.336,
   "config": {
     "traditions": [
       "progressive_groove_metal"
@@ -33,13 +33,13 @@
           "amp_make": 4.355,
           "body_wood": 4.55,
           "neck_wood": 0.33599999999999997,
-          "fretboard": 0.126,
-          "pickup_magnet": 0.1365,
+          "fretboard": 0.1575,
+          "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.33599999999999997,
           "bridge": 0.9099999999999999,
           "scale_length": 0.0315,
-          "string_gauge": 0.0945,
+          "string_gauge": 0.126,
           "finish": 0,
           "string_tuning": 4.55
         }
@@ -57,11 +57,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.3180000000000005,
+          "amp_make": 2.3495000000000004,
           "body_wood": 4.55,
           "pickup_config": 0,
           "string_type": 0.0315,
-          "scale_length_b": 0.2625,
+          "scale_length_b": 0.1575,
           "fretted_or_not": 0.063,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -114,10 +114,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.126,
+          "voice_ornament_system": 0.1575,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.6405000000000001,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.5249999999999999,
           "voice_tessitura": 0
         }
       }

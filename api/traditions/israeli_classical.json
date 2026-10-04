@@ -5,7 +5,7 @@
   "lineage": "Israeli classical music connects instrumental and vocal performance with concert institutions and musical education. Musicians interpret international repertoire alongside works associated with local composers and communities.",
   "recipe": "classic israeli classical, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 272,
-  "score": 58.912,
+  "score": 58.146,
   "config": {
     "traditions": [
       "israeli_classical"
@@ -27,15 +27,15 @@
         },
         "scores": {
           "bowed_technique": 7.8,
-          "orch_strings": 0.7454999999999999,
-          "orch_top_wood": 7.773,
-          "orch_back_wood": 7.9645,
+          "orch_strings": 0.6719999999999999,
+          "orch_top_wood": 7.6365,
+          "orch_back_wood": 7.828,
           "orch_varnish": 7.744,
-          "orch_setup_period": 7.807,
-          "orch_bow": 0.6825000000000001,
+          "orch_setup_period": 7.7335,
+          "orch_bow": 0.546,
           "orch_bow_stick": 9.620000000000001,
-          "orch_articulation": 0.5385,
-          "orch_rosin": 8.2375
+          "orch_articulation": 0.465,
+          "orch_rosin": 8.101
         }
       }
     ],

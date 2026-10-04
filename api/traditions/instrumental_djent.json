@@ -5,7 +5,7 @@
   "lineage": "Instrumental djent is represented by Animals As Leaders’ Washington-origin instrumental progressive-metal practice: extended-range guitar parts, intricate drum interaction and electronic texture without lead vocals.",
   "recipe": "classic modern instrumental djent, distorted Rock, prog branch. percussive djent chug eight string electric, sticks backbeat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 298,
-  "score": 10.009,
+  "score": 10.219,
   "config": {
     "traditions": [
       "instrumental_djent"
@@ -46,7 +46,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.14587499999999998,
+          "poly_voices": 0.35587499999999994,
           "poly_maker_lineage": -1.8609999999999998
         }
       }

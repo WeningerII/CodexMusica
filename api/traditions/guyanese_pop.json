@@ -2,10 +2,10 @@
   "id": "guyanese_pop",
   "name": "Guyanese pop",
   "family": "pop",
-  "lineage": "Guyanese pop connects Guyanese singers and diaspora songwriters with contemporary popular music.",
-  "recipe": "classic guyanese pop, functional Song. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 9.8,
+  "lineage": "Guyanese pop is represented here by Juke Ross — acoustic songwriter core. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic guyanese pop, functional Song, folk rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 17.239,
   "config": {
     "traditions": [
       "guyanese_pop"
@@ -16,16 +16,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
-          "back_sides": "mahogany_bs",
-          "string_acoustic": "eighty_twenty"
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 8.2,
+          "acoustic_technique": 12.7,
           "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": 0,
-          "string_acoustic": 0
+          "top_wood": 0.2625,
+          "back_sides": 0.105,
+          "string_acoustic": 0.4725
         }
       },
       {
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 1.8835000000000002,
+          "voice_multitrack_stack": 0.126
         }
       }
     ],

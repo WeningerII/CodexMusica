@@ -5,7 +5,7 @@
   "lineage": "A Film In Color — To Scale a Mountain EP (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s doomgaze, distorted Rock, doom branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 25.063,
+  "score": 25.117,
   "config": {
     "traditions": [
       "doomgaze"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.504,
+          "body_wood": 0.4305,
           "neck_wood": 0.36750000000000005,
           "fretboard": -0.035,
           "pickup_magnet": 0.1365,
@@ -41,7 +41,7 @@
           "scale_length": 0.7665,
           "string_gauge": 1.7785000000000002,
           "finish": 0,
-          "string_tuning": 1.4575
+          "string_tuning": 1.5625
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.504,
+          "body_wood": 0.4305,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.357,
@@ -86,7 +86,7 @@
           "drum_technique": 3.75,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.594,
+          "shell_wood": 1.69,
           "shell_thickness": 0,
           "bearing_edges": 0.2625,
           "snare_wires": 0,

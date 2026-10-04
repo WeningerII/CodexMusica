@@ -3,9 +3,9 @@
   "name": "Hungarian metal",
   "family": "rock_punk",
   "lineage": "Hungarian metal spans several electric-band styles, including Ektomorf’s tightly grooved thrash-influenced sound.",
-  "recipe": "classic modern hungarian metal, distorted Rock, metal branch, thrash metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 592,
-  "score": 100.575,
+  "recipe": "classic modern hungarian metal, distorted Rock, metal branch, thrash metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 630,
+  "score": 102.46,
   "config": {
     "traditions": [
       "hungarian_metal",
@@ -31,19 +31,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 19.765,
-          "amp_make": 9.165000000000001,
-          "body_wood": 9.555,
+          "electric_technique": 19.21,
+          "amp_make": 8.515,
+          "body_wood": 8.905000000000001,
           "neck_wood": 0.195,
           "fretboard": 0.39,
-          "pickup_magnet": 0,
+          "pickup_magnet": 0.15,
           "pickup_winding": 0.255,
           "string_material": 0.195,
-          "bridge": 0.8449999999999999,
+          "bridge": 1.4949999999999999,
           "scale_length": 0,
           "string_gauge": 0.7800000000000001,
           "finish": 0,
-          "string_tuning": 9.555
+          "string_tuning": 8.71
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.525,
-          "body_wood": 9.555,
+          "amp_make": 6.37,
+          "body_wood": 8.905000000000001,
           "pickup_config": 0.585,
           "string_type": 12.025,
           "scale_length_b": 0.7800000000000001,
-          "fretted_or_not": 0.24,
-          "bass_technique": 9.485,
+          "fretted_or_not": 0.195,
+          "bass_technique": 9.865,
           "electric_bass_string_configuration": 0
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 9.25,
-          "drumhead": 0.45499999999999996,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.8600000000000003,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 2.405,
+          "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.195
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.4300000000000002
         }
       }
     ],

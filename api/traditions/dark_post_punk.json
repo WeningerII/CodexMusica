@@ -2,10 +2,10 @@
   "id": "dark_post_punk",
   "name": "Dark post-punk",
   "family": "rock_punk",
-  "lineage": "Dark post-punk combines atmospheric guitar-band writing with electronic layers and a pronounced low-register pulse.",
-  "recipe": "classic dark post-punk, distorted Rock, gothic rock branch. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 456,
-  "score": 35.187,
+  "lineage": "Dark post-punk is represented here by Weathered Statues. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic dark post-punk, distorted Rock, gothic rock branch. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation arpeggiated humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 477,
+  "score": 52.159,
   "config": {
     "traditions": [
       "dark_post_punk"
@@ -17,52 +17,52 @@
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "ceramic_h",
-          "pickup_winding": "high_wind",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_fender_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
-          "finish": "poly_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.2630000000000003,
-          "amp_make": 10.205,
-          "body_wood": 1.3,
-          "neck_wood": 0.105,
-          "fretboard": 1.3,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.0315,
-          "string_material": 0.105,
+          "electric_technique": 3.713,
+          "amp_make": 11.18,
+          "body_wood": 0.7979999999999998,
+          "neck_wood": 0.504,
+          "fretboard": 0.3254999999999999,
+          "pickup_magnet": 0.3465,
+          "pickup_winding": 0.19949999999999998,
+          "string_material": 0.1365,
           "bridge": 1.3,
-          "scale_length": 0,
-          "string_gauge": 0.0735,
-          "finish": 0,
-          "string_tuning": 0
+          "scale_length": 1.0079999999999998,
+          "string_gauge": 1.1785,
+          "finish": 0.1365,
+          "string_tuning": 0.3315
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "basswood_h",
-          "pickup_config": "split_coil",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.225,
-          "body_wood": 1.3,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 1.2625,
-          "fretted_or_not": 0.0315,
+          "amp_make": 4.615,
+          "body_wood": 1.0079999999999998,
+          "pickup_config": 0.0315,
+          "string_type": 9.75,
+          "scale_length_b": 0.504,
+          "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 7.5945,
-          "drumhead": 1.3,
+          "drumhead": 0.5774999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -98,8 +98,7 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
           "voice_register": 0,
@@ -116,23 +115,22 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7454999999999998,
-          "voice_tessitura": 0
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.8189999999999998
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
+          "electronic_technique": 0.26,
+          "poly_archetypes": 3.9,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -0.035
         }
       }
@@ -140,26 +138,10 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "pickup_winding",
-        "string_material",
-        "bridge",
-        "scale_length",
-        "string_gauge",
-        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
+        "bass_technique"
       ],
       "drum_kit": [
         "drum_technique",
@@ -181,14 +163,10 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
+        "voice_multitrack_stack"
       ],
       "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
+        "electronic_technique"
       ]
     },
     "room": "treated_studio",
@@ -231,26 +209,7 @@
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "electronic_technique": "electronic_pad_drone",
-      "body_wood": "basswood_h",
-      "neck_wood": "maple_neck_h",
-      "fretboard": "ebony_fb_h",
-      "string_material": "nickel_plated_h",
-      "scale_length": "scale_fender_h",
-      "finish": "poly_hum",
-      "bridge": "string_thru",
-      "pickup_magnet": "ceramic_h",
-      "pickup_winding": "high_wind",
-      "string_gauge": "g_10_hum",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "pickup_config": "split_coil",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "electronic_technique": "electronic_pad_drone"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

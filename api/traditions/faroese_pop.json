@@ -5,7 +5,7 @@
   "lineage": "Popular songwriting in the Faroe Islands, represented by Lena Anderssen’s intimate melodic songs and recorded vocal/string accompaniment. English-language work belongs to this local practice alongside her later Faroese-language writing. The selected authored chamber-pop realization follows the documented Abbey Road live string-quartet performance.",
   "recipe": "classic modern faroese pop, functional Song, pop rock branch. solo with instrumental accompaniment. sitka spruce hard rock maple acer saccharum violin orchestral, hard rock maple viola classical, hard rock maple cello. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 364,
-  "score": 16.075,
+  "score": 15.939,
   "config": {
     "traditions": [
       "faroese_pop"
@@ -71,7 +71,7 @@
           "orch_back_wood": 1.885,
           "orch_varnish": -0.035,
           "orch_setup_period": -0.07,
-          "orch_bow": 0.4515,
+          "orch_bow": 0.315,
           "orch_bow_stick": -0.035,
           "orch_articulation": 1.69,
           "orch_rosin": -0.035

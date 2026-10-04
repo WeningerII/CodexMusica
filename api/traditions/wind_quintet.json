@@ -5,7 +5,7 @@
   "lineage": "The standard woodwind quintet brings together flute, oboe, clarinet, horn and bassoon in a chamber ensemble. Composers explore the contrast and blend of these five instrumental colors.",
   "recipe": "classic wind quintet, art Music. flute, oboe, grenadilla African blackwood traditional clarinet, projecting brass french horn, bassoon. shoebox concert hall.",
   "recipe_chars": 157,
-  "score": 23.636,
+  "score": 20.544,
   "config": {
     "traditions": [
       "wind_quintet"
@@ -21,10 +21,10 @@
           "flute_maker_school": "flute_muramatsu"
         },
         "scores": {
-          "wind_articulation": 2.7205,
+          "wind_articulation": 2.5,
           "flute_size": 0,
-          "flute_material": 0.0315,
-          "flute_technique": 0.22049999999999997,
+          "flute_material": 0,
+          "flute_technique": 0,
           "flute_maker_school": 0
         }
       },
@@ -38,11 +38,11 @@
           "oboe_maker_school": "oboe_loree_paris"
         },
         "scores": {
-          "wind_articulation": 2.7205,
-          "oboe_reed": 0.1365,
+          "wind_articulation": 2.5,
+          "oboe_reed": 0.0315,
           "oboe_class": 0.0315,
-          "oboe_body_wood": -0.035,
-          "oboe_maker_school": 0.5565
+          "oboe_body_wood": -0.05,
+          "oboe_maker_school": 0
         }
       },
       {
@@ -55,11 +55,11 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.7205,
-          "clarinet_body": 2.6415,
+          "wind_articulation": 2.5,
+          "clarinet_body": 2.5365,
           "clarinet_size": 0,
           "clarinet_reed": 1.7,
-          "clarinet_articulation": 0.22049999999999997
+          "clarinet_articulation": 0
         }
       },
       {
@@ -70,9 +70,9 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 2.7205,
+          "wind_articulation": 2.5,
           "french_horn_bore": 1.0315,
-          "french_horn_metal": 1.0315
+          "french_horn_metal": 1
         }
       },
       {
@@ -85,11 +85,11 @@
           "bassoon_context": "bassoon_orch"
         },
         "scores": {
-          "wind_articulation": 2.7205,
+          "wind_articulation": 2.5,
           "bassoon_school": 1.7,
           "bassoon_body_wood": 0,
           "bassoon_reed": 0,
-          "bassoon_context": 0.7665
+          "bassoon_context": 0.063
         }
       }
     ],

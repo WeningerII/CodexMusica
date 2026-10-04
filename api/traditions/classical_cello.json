@@ -5,7 +5,7 @@
   "lineage": "Classical cello performance brings together solo, chamber and orchestral traditions. A wide repertoire explores the instrument’s sustained tone, register and range of bowing and plucked articulation.",
   "recipe": "classic classical cello, art Music, western common practice branch. silver wound lamb gut core carpathian spruce European maple sycamore maple cello, beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 344,
-  "score": 130.311,
+  "score": 128.987,
   "config": {
     "traditions": [
       "classical_cello"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "bowed_technique": 8.5,
-          "cello_strings": 2.2545,
-          "cello_top_wood": 7.9095,
-          "cello_back_wood": 8.101,
-          "cello_varnish": 8.017,
-          "cello_setup_period": 7.954000000000001,
+          "cello_strings": 2.3625,
+          "cello_top_wood": 7.773,
+          "cello_back_wood": 7.9645,
+          "cello_varnish": 7.744,
+          "cello_setup_period": 7.807,
           "cello_bow_grip": 3.9,
           "cello_rosin": 10.0545,
-          "cello_bow_stick": 9.437000000000001
+          "cello_bow_stick": 9.620000000000001
         }
       },
       {
@@ -45,20 +45,20 @@
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.5,
           "grand_piano_size": 1.3,
-          "grand_piano_brand": 0.9345000000000001,
-          "piano_hammer": 10.697,
-          "piano_rim": 8.6365,
-          "piano_soundboard": 9.096,
-          "piano_pinblock": 7.555000000000001,
-          "piano_plate": 8.0275,
-          "piano_pitch_standard": 10.437
+          "grand_piano_brand": 0.798,
+          "piano_hammer": 10.985,
+          "piano_rim": 8.3635,
+          "piano_soundboard": 8.6865,
+          "piano_pinblock": 7.558,
+          "piano_plate": 7.9885,
+          "piano_pitch_standard": 10.0815
         }
       }
     ],

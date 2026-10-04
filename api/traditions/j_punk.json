@@ -5,7 +5,7 @@
   "lineage": "Japanese punk lineage running from Tokyo's 1978-1983 first wave — the Stalin, INU, Gauze, the Star Club — through the 1987-1995 melodic era of the Blue Hearts and Hi-Standard, characterized by fast downstroke barre-chord guitar at 180-240 BPM, driving eighth-note bass, hardcore d-beat or straight-eight drumming, Japanese-language shouted or strained-melodic vocals, and abrasive fast tracking in small Tokyo and Osaka studios and live houses.",
   "recipe": "classic East Asian mid-1980s j-punk, distorted Rock, punk branch, pop punk distorted rock, noise rock distorted rock skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 714,
-  "score": 489.885,
+  "score": 490.295,
   "config": {
     "traditions": [
       "j_punk",
@@ -39,7 +39,7 @@
           "pickup_magnet": 3.5187499999999994,
           "pickup_winding": 0.3,
           "string_material": 0,
-          "bridge": 2.7274999999999996,
+          "bridge": 3.0275,
           "scale_length": 0.8449999999999999,
           "string_gauge": 0.975,
           "finish": 0.195,
@@ -104,20 +104,20 @@
         },
         "scores": {
           "voice_register": 27.882499999999993,
-          "voice_quality": 13.322499999999994,
+          "voice_quality": 13.454999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.4350000000000005,
           "voice_articulation": 20.279999999999994,
           "voice_microtone": 28.22,
-          "voice_tradition": 13.542499999999997,
+          "voice_tradition": 13.437499999999998,
           "voice_mechanism_compound": 18.25375,
           "voice_estill_quality": 1.69,
           "voice_speech_song": 18.784999999999993,
-          "voice_ensemble_config": 33.6225,
+          "voice_ensemble_config": 33.5175,
           "voice_ornament_system": 2.2099999999999995,
           "voice_pitch_organization": 5.330000000000001,
-          "voice_processing_chain": 4.6225000000000005,
+          "voice_processing_chain": 4.8100000000000005,
           "voice_multitrack_stack": 4.225
         }
       },

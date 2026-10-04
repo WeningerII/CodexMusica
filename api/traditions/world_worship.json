@@ -5,7 +5,7 @@
   "lineage": "Global contemporary worship spread from Sydney and Brisbane megachurches (Hillsong, Planetshakers) and Charlotte's Elevation from the mid-1990s onward, translated into Portuguese, Spanish, Korean, Mandarin and dozens of African languages — 68-78 BPM anthemic 4/4 builds, pad-and-delay guitar swells, four-chord diatonic loops, congregational unison melody in a narrow octave range and long repeated tag sections captured live before a crowd.",
   "recipe": "classic 1994-1996 world worship, ritual Devotional, christian gospel branch, christian gospel pentecostal, christian gospel black gospel, pop rock functional song yacht rock skiffle. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, marshall plexi amp British rock amp mahogany rosewood alnico single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs fast tremolo tonewheel organ. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
   "recipe_chars": 953,
-  "score": 560.109,
+  "score": 560.409,
   "config": {
     "traditions": [
       "world_worship",
@@ -40,14 +40,14 @@
           "voice_effort": 0,
           "voice_vibrato": 13.753749999999998,
           "voice_articulation": 19.564999999999998,
-          "voice_microtone": 36.025,
-          "voice_tradition": 15.566249999999997,
+          "voice_microtone": 36.415,
+          "voice_tradition": 15.476249999999997,
           "voice_mechanism_compound": 2.21,
           "voice_estill_quality": 10.299999999999999,
           "voice_speech_song": 23.074999999999996,
           "voice_ensemble_config": 19.889999999999997,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 3.785625000000001,
+          "voice_pitch_organization": 4.025625000000001,
           "voice_processing_chain": 6.639375,
           "voice_multitrack_stack": 5.265000000000001
         }
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 5.525,
-          "choir_polyphonic_configuration": 2.130625,
+          "choir_polyphonic_configuration": 2.085625,
           "choir_regional_canonical_configuration": 5.069999999999999,
           "choir_ensemble_repertoire": 2.6
         }
@@ -118,7 +118,7 @@
           "pickup_config": 1.61875,
           "string_type": 19.9625,
           "scale_length_b": 2.1,
-          "fretted_or_not": 0.29062499999999997,
+          "fretted_or_not": 0.24562499999999998,
           "bass_technique": 19.575,
           "electric_bass_string_configuration": 0
         }
@@ -145,9 +145,9 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 10.415624999999999,
+          "electronic_technique": 10.370624999999999,
           "poly_archetypes": 8.3225,
-          "poly_voices": 3.2356249999999998,
+          "poly_voices": 3.085625,
           "poly_maker_lineage": -0.8050000000000002
         }
       },
@@ -167,10 +167,10 @@
         "scores": {
           "keyboard_technique": 13.584999999999999,
           "grand_piano_size": 2.4,
-          "grand_piano_brand": 3.2356249999999998,
+          "grand_piano_brand": 3.085625,
           "piano_hammer": 9.135,
           "piano_rim": 10.019999999999998,
-          "piano_soundboard": 8.999999999999998,
+          "piano_soundboard": 9.194999999999999,
           "piano_pinblock": 1,
           "piano_plate": 0.45499999999999996,
           "piano_pitch_standard": 5.719999999999999

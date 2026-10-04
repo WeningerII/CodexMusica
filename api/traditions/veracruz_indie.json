@@ -5,7 +5,7 @@
   "lineage": "Independent music from Veracruz state includes guitar-led pop and rock as well as experimental and progressive approaches. Xalapa-based artists such as Aqueronte contribute to this regional network.",
   "recipe": "classic veracruz indie, distorted Rock, experimental branch. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, upright piano. live tracking.",
   "recipe_chars": 237,
-  "score": 40.546,
+  "score": 40.987,
   "config": {
     "traditions": [
       "veracruz_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.29400000000000004,
-          "voice_ensemble_config": 0.3465,
+          "voice_speech_song": 0.4095,
+          "voice_ensemble_config": 0.44100000000000006,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3465,
+          "voice_multitrack_stack": 0.44100000000000006,
           "voice_tessitura": 0
         }
       },
@@ -73,14 +73,14 @@
           "electric_technique": 3.2815,
           "amp_make": 0,
           "body_wood": 0.063,
-          "neck_wood": 0.5145,
+          "neck_wood": 0.5459999999999999,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.1575,
-          "string_gauge": 0.7735,
+          "scale_length": 0.126,
+          "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0
         }
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0.063,
-          "pickup_config": 0.2835,
+          "pickup_config": 0.38849999999999996,
           "string_type": 0,
           "scale_length_b": 0.063,
           "fretted_or_not": 0,
@@ -129,9 +129,9 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.063,
           "shell_thickness": 0,
-          "bearing_edges": 0.7664999999999998,
+          "bearing_edges": 0.9029999999999999,
           "snare_wires": 0,
-          "cymbal_alloy": -0.1685,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 11.2945,
           "cymbal_lathing": 11.231499999999999,
           "cymbal_finish": 0

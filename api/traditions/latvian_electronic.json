@@ -2,26 +2,38 @@
   "id": "latvian_electronic",
   "name": "Latvian electronic",
   "family": "electronic",
-  "lineage": "Latvian electronic music includes independent producers who build compositions from their own recordings and everyday sonic surroundings.",
-  "recipe": "classic latvian electronic, experimental Elec, musique concrete branch. upright piano, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 209,
-  "score": 8.799,
+  "lineage": "Latvian electronic is represented by Kashuks — Hand Written Story piano and self-recorded-sample core. One documented branch receives an authored present-day studio realization.",
+  "recipe": "classic latvian electronic, experimental Elec, musique concrete branch. one piece 17 ply hard rock maple grand piano, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 10.069,
   "config": {
     "traditions": [
       "latvian_electronic"
     ],
     "instruments": [
       {
-        "id": "upright_piano",
+        "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_minimalist_repeated",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "upright_use": 0,
-          "upright_piano_size": 0
+          "grand_piano_size": 0.22049999999999997,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": -0.035,
+          "piano_rim": 1.17,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": 0.2315,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -30,10 +42,10 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.2315,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0.3675,
           "sample_swing": 8.25,
           "sample_processing": 0
@@ -41,16 +53,11 @@
       }
     ],
     "pinned": {
-      "upright_piano": [
-        "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
+      "grand_piano": [
+        "keyboard_technique"
       ],
       "sampler_drum_machine": [
-        "electronic_technique",
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+        "electronic_technique"
       ]
     },
     "room": "treated_studio",
@@ -73,12 +80,7 @@
     "room": "treated_studio",
     "parts": {
       "keyboard_technique": "keyboard_minimalist_repeated",
-      "electronic_technique": "electronic_sample_chopped",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard",
-      "sample_bitdepth": "sixteen_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "electronic_technique": "electronic_sample_chopped"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -5,7 +5,7 @@
   "lineage": "Belarusian metal includes Adliga’s Belarusian-language doom/post-metal recordings. Defaults are a present-day authored realization, not a historical session reconstruction.",
   "recipe": "classic modern belarusian metal, distorted Rock, metal branch. thick, larynx lowered, interlocked note trading, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier power chord single coil electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 503,
-  "score": 85.291,
+  "score": 85.144,
   "config": {
     "traditions": [
       "belarusian_metal"
@@ -32,15 +32,15 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 3.2927500000000016,
+          "voice_register": 3.2500000000000018,
           "voice_quality": 2.2000000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.2415,
+          "voice_vibrato": 0.273,
           "voice_articulation": 1.755,
           "voice_microtone": 3.5315000000000007,
           "voice_tradition": 2.405,
-          "voice_mechanism_compound": 15.899,
+          "voice_mechanism_compound": 15.799999999999999,
           "voice_estill_quality": 0.26,
           "voice_speech_song": 3.835000000000001,
           "voice_ensemble_config": 1.6899999999999997,
@@ -68,7 +68,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 15.529,
+          "electric_technique": 15.43,
           "amp_make": 5.655000000000001,
           "body_wood": 0.5775,
           "neck_wood": 0.5775,
@@ -101,8 +101,8 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.609,
-          "fretted_or_not": 0.231,
-          "bass_technique": 3.7945,
+          "fretted_or_not": 0.2625,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },

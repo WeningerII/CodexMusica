@@ -5,7 +5,7 @@
   "lineage": "Modern jazz trio develops close three-way interaction through contemporary composition and improvisation. Piano, bass and drums form a prominent configuration, with other instrumental combinations offering different balances of melody, harmony and rhythm.",
   "recipe": "classic modern modern jazz trio, improv On Frame, American jazz branch. upright bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 373,
-  "score": 90.329,
+  "score": 90.306,
   "config": {
     "traditions": [
       "modern_jazz_trio"
@@ -40,11 +40,11 @@
           "grand_piano_size": 0.147,
           "grand_piano_brand": 0.105,
           "piano_hammer": 5.5485,
-          "piano_rim": 5.4510000000000005,
-          "piano_soundboard": 5.184,
+          "piano_rim": 5.412,
+          "piano_soundboard": 5.289,
           "piano_pinblock": 4.95,
           "piano_plate": 4.95,
-          "piano_pitch_standard": 7.882999999999999
+          "piano_pitch_standard": 7.9239999999999995
         }
       },
       {
@@ -70,7 +70,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
           "snare_wires": 0.186,
-          "cymbal_alloy": 11.376999999999997,
+          "cymbal_alloy": 11.246999999999998,
           "cymbal_hammering": 11.641,
           "cymbal_lathing": 5.141500000000001,
           "cymbal_finish": 0

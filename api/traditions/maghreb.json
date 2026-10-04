@@ -3,9 +3,9 @@
   "name": "Maghreb (Maghrebi popular music, pan-regional)",
   "family": "global",
   "lineage": "The shared popular-music field of Morocco, Algeria and Tunisia as it consolidated through state radio, cassette kiosks and the Paris migrant market from the 1950s onward — Andalusi modal inheritance and Arabic-Amazigh bilingual verse set to mandole, oud, violin, qanun and bendir, later synthesizer and drum machine, over 6/8 and shuffled 4/4 cycles with dense ornamentation, mawwal-style free vocal preludes, and choral refrains shared by chaabi, rai, malhun and Amazigh song.",
-  "recipe": "classic North African mid-1950s maghreb, functional Song, mid east n African pop branch, middle eastern classical art music, med east poetic ballad poetry khaleeji-iraqi song andalusian classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. chaabi melodic single line mandole, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean la bella oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, metal finger picks maple body Turkish school goat skin bridge plate qanun, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 986,
-  "score": 371.768,
+  "recipe": "classic North African mid-1950s maghreb, functional Song, mid east n African pop branch, middle eastern classical art music, med east poetic ballad poetry khaleeji-iraqi song andalusian classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. urban ornamented chaabi mandole, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean la bella oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, metal finger picks maple body Turkish school goat skin bridge plate qanun, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 983,
+  "score": 365.138,
   "config": {
     "traditions": [
       "maghreb",
@@ -21,8 +21,8 @@
           "mandole_strings": "mandole_steel"
         },
         "scores": {
-          "mandole_form": 11.180000000000001,
-          "mandole_role": 2.18,
+          "mandole_form": 10.530000000000001,
+          "mandole_role": 0.7149999999999999,
           "mandole_strings": -0.05
         }
       },
@@ -38,9 +38,9 @@
           "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 8.15,
-          "oud_school": 5.110000000000001,
-          "oud_strings": 4.16,
+          "plucked_traditional_technique": 8.524999999999999,
+          "oud_school": 4.609999999999999,
+          "oud_strings": 4.3549999999999995,
           "oud_pick": 2.395,
           "oud_body_wood": 3.055,
           "oud_soundboard_wood": 2.8600000000000003,
@@ -62,16 +62,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.58,
+          "bowed_technique": 8.805,
           "orch_strings": 0.95,
-          "orch_top_wood": 12.450000000000001,
-          "orch_back_wood": 8.145,
-          "orch_varnish": 8.295,
-          "orch_setup_period": 7.725000000000001,
+          "orch_top_wood": 12.825,
+          "orch_back_wood": 8.52,
+          "orch_varnish": 8.67,
+          "orch_setup_period": 8.1,
           "orch_bow": 0.195,
-          "orch_bow_stick": 10.27,
-          "orch_articulation": 0.39,
-          "orch_rosin": 8.145
+          "orch_bow_stick": 10.757499999999999,
+          "orch_articulation": 0.195,
+          "orch_rosin": 8.52
         }
       },
       {
@@ -86,10 +86,10 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 8.15,
-          "qanun_strings": 4.16,
+          "plucked_traditional_technique": 8.524999999999999,
+          "qanun_strings": 4.3549999999999995,
           "qanun_levers": -1.05,
-          "qanun_pick": 4.16,
+          "qanun_pick": 4.3549999999999995,
           "qanun_body_wood": 1.245,
           "qanun_bridge_skin": 1.125,
           "qanun_string_material": 0
@@ -104,10 +104,10 @@
           "bendir_head": "bendir_synthetic_modern"
         },
         "scores": {
-          "bendir_snares": 2.34,
-          "bendir_context": 1.7999999999999998,
-          "bendir_shell_wood": 2.73,
-          "bendir_head": 4.55
+          "bendir_snares": 2.145,
+          "bendir_context": 1.15,
+          "bendir_shell_wood": 2.535,
+          "bendir_head": 4.095000000000001
         }
       },
       {
@@ -121,7 +121,7 @@
         "scores": {
           "percussion_technique": 1.8199999999999998,
           "darbuka_material": 0.195,
-          "darbuka_skin": 3.185,
+          "darbuka_skin": 2.34,
           "darbuka_regional_style": 6.370000000000001
         }
       },
@@ -147,20 +147,20 @@
         },
         "scores": {
           "voice_register": 5.34,
-          "voice_quality": 9.294999999999998,
+          "voice_quality": 9.879999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.455000000000002,
-          "voice_articulation": 20.995000000000005,
-          "voice_microtone": 35.392500000000005,
-          "voice_tradition": 21.485000000000003,
-          "voice_mechanism_compound": 12.265,
-          "voice_estill_quality": 11.305,
-          "voice_speech_song": 25.48,
-          "voice_ensemble_config": 20.475,
-          "voice_ornament_system": 18.740000000000002,
-          "voice_pitch_organization": 17.62,
-          "voice_processing_chain": 3.25,
+          "voice_vibrato": 13.942499999999997,
+          "voice_articulation": 18.655000000000005,
+          "voice_microtone": 33.05250000000001,
+          "voice_tradition": 21.36,
+          "voice_mechanism_compound": 12.79,
+          "voice_estill_quality": 11.754999999999999,
+          "voice_speech_song": 23.140000000000004,
+          "voice_ensemble_config": 18.980000000000004,
+          "voice_ornament_system": 19.115,
+          "voice_pitch_organization": 17.995,
+          "voice_processing_chain": 4.015000000000001,
           "voice_multitrack_stack": 3.445000000000001
         }
       },
@@ -173,7 +173,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 5.445,
+          "electronic_technique": 5.295,
           "poly_archetypes": 0.24,
           "poly_voices": 0.435,
           "poly_maker_lineage": 2.73

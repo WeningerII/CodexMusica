@@ -5,7 +5,7 @@
   "lineage": "Brazilian percussion spans social dance, ritual, concert and popular-music traditions shaped by African, Indigenous and European histories. Performers such as Airto Moreira carry this rich rhythmic vocabulary into jazz and international ensemble music.",
   "recipe": "classic brazilian percussion, groove Percussion. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, surdo, tamborim. live tracking.",
   "recipe_chars": 210,
-  "score": 6.561,
+  "score": 6.719,
   "config": {
     "traditions": [
       "brazilian_percussion"
@@ -25,9 +25,9 @@
           "percussion_technique": -0.07,
           "pandeiro_size": 0.3,
           "pandeiro_context": 0,
-          "pandeiro_head": 2,
-          "pandeiro_shell_wood": 2,
-          "pandeiro_jingles": 2.0315
+          "pandeiro_head": 2.063,
+          "pandeiro_shell_wood": 2.063,
+          "pandeiro_jingles": 2.063
         }
       },
       {

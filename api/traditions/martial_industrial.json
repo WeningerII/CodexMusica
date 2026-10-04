@@ -5,7 +5,7 @@
   "lineage": "Central and Northern Europe from the early 1990s (Cold Meat Industry in Sweden, Der Blutharsch in Austria, Les Joyaux de la Princesse in France) — slow processional 60-80 BPM marching-snare and timpani patterns, synthesized brass and orchestral samples, tolling bells, male choir pads and archival wartime speech samples, mixed dark and reverberant in DIY studios onto CD.",
   "recipe": "classic European 1990-1993 martial industrial, experimental Elec, industrial noise branch, gothic rock distorted rock, ambient experimental electric ambient techno deep downtempo fusion. marching gang, mallets timpani, rawhide mallet bells extended tubular bells, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, mixed satb canonical 4 part western antiphonal double choir alternating choir ensemble, glitched textural sampler, dark soft mallet gong tamtam. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 607,
-  "score": 71.91,
+  "score": 72.08,
   "config": {
     "traditions": [
       "martial_industrial",
@@ -20,8 +20,8 @@
           "marching_gang_footwear": "marching_gang_heavy_boots"
         },
         "scores": {
-          "marching_gang_surface": 0.39,
-          "marching_gang_footwear": 0.39
+          "marching_gang_surface": 0.345,
+          "marching_gang_footwear": 0.345
         }
       },
       {
@@ -45,7 +45,7 @@
         },
         "scores": {
           "tubular_bells_striker": 1.345,
-          "tubular_bells_range": 1.3
+          "tubular_bells_range": 1.345
         }
       },
       {
@@ -57,9 +57,9 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 6.335,
+          "electronic_technique": 6.38,
           "poly_archetypes": 1.8199999999999998,
-          "poly_voices": 0.135,
+          "poly_voices": 0.18,
           "poly_maker_lineage": 1.2349999999999999
         }
       },
@@ -68,13 +68,13 @@
         "slots": {
           "choir_size": "mixed_4_part_satb",
           "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.89,
+          "choir_size": 1.95,
           "choir_polyphonic_configuration": 1.195,
-          "choir_regional_canonical_configuration": 0.7149999999999999,
+          "choir_regional_canonical_configuration": 0.78,
           "choir_ensemble_repertoire": 4.620000000000001
         }
       },

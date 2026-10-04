@@ -5,7 +5,7 @@
   "lineage": "Catrin Finch and Seckou Keita — Clychau Dibon (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2010s kora, art Music. kora, concert harp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 155,
-  "score": 2.695,
+  "score": 2.563,
   "config": {
     "traditions": [
       "kora"
@@ -23,13 +23,13 @@
           "kora_lineage": "kora_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
+          "plucked_traditional_technique": -0.05,
           "kora_strings": 0,
           "kora_resonator": 0.39,
-          "kora_strings_mat": 0,
+          "kora_strings_mat": 0.0315,
           "kora_top_skin": 0.39,
           "kora_neck_wood": 0.39,
-          "kora_lineage": 0.78
+          "kora_lineage": 0.6315
         }
       },
       {

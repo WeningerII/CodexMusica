@@ -5,7 +5,7 @@
   "lineage": "Reworking and rearrangement of video-game music and sound, ranging from electronic dance remixes to experimental sample manipulation. Game themes and effects become material for new musical structures.",
   "recipe": "classic vgm remix, experimental Elec. glitched textural sampler. live tracking.",
   "recipe_chars": 79,
-  "score": 14.412,
+  "score": 14.202,
   "config": {
     "traditions": [
       "vgm_remix"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 6.2,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.372,
+          "sampler_bit_depth": 0.162,
           "sampler_workflow": 6.2,
           "sampler_classic_context": 1.69
         }

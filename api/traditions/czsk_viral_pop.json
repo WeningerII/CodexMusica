@@ -5,7 +5,7 @@
   "lineage": "Czsk viral pop groups Czech and Slovak popular music whose audience grows through online sharing and video platforms.",
   "recipe": "classic czsk viral pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 9.862,
+  "score": 9.808,
   "config": {
     "traditions": [
       "czsk_viral_pop"
@@ -64,7 +64,7 @@
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.108
+          "voice_multitrack_stack": 0.054
         }
       }
     ],

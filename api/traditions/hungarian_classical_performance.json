@@ -5,7 +5,7 @@
   "lineage": "Hungarian classical performance connects instrumental and vocal traditions with concert institutions and musical education. Musicians interpret Hungarian repertoire alongside a wide international canon.",
   "recipe": "classic hungarian classical performance, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 62.902,
+  "score": 62.272,
   "config": {
     "traditions": [
       "hungarian_classical_performance"
@@ -26,13 +26,13 @@
         },
         "scores": {
           "bowed_technique": 7.8,
-          "cello_strings": 0.756,
-          "cello_top_wood": 7.773,
-          "cello_back_wood": 7.9645,
+          "cello_strings": 0.609,
+          "cello_top_wood": 7.6365,
+          "cello_back_wood": 7.828,
           "cello_varnish": 7.744,
-          "cello_setup_period": 7.807,
+          "cello_setup_period": 7.7335,
           "cello_bow_grip": 3.9,
-          "cello_rosin": 8.2375,
+          "cello_rosin": 8.101,
           "cello_bow_stick": 10.919999999999998
         }
       }

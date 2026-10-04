@@ -2,56 +2,15 @@
   "id": "oktoberfest",
   "name": "Oktoberfest",
   "family": "vernacular",
-  "lineage": "Oktoberfest music connects Munich beer-tent performance and its wider circulation, from repeated toasting songs to folk, schlager and contemporary party repertoire. Live bands and communal singing sustain the festival’s participatory musical setting.",
-  "recipe": "classic oktoberfest, drinking Song, European branch. one note per syllable, group vocals, live take. clarinet, bass clarinet. live tracking.",
-  "recipe_chars": 140,
-  "score": 4.237,
+  "lineage": "Kenneth Abeling — complete Ein Prosit clarinet-quartet arrangement, Lincoln Music Publications/ScoreExchange360326. Publisher-owned listing supplies all four parts: three B-flat clarinets and one B-flat bass clarinet, no vocal score. All four instrumental lines are retained through two instrument-family cards; shared B-flat clarinet card is a section model, not a claim that only two people perform. The complete independently published arrangement is selected, not a removal of voices/brass from an actual tent-band recording. Individual score pages have not been visually inspected. Metadata duration2minutes versus programme note2:30 discrepancy remains unspecified, not resolved by guess. European drinking-song taxonomy follows this instrumental version of the positively documented toasting repertoire, not a claim that the selected score contains sung parts or a classical classification merely from notation. Grenadilla body, medium reeds and connected tongued phrasing for the three B-flat clarinets are coherent authored wind-band choices. Low-C bass-clarinet extension and smooth sustained bass phrasing are authored available-instrument choices, not measured score range. B-flat transpositions are positively publisher specified. Controlled live-room capture is authored, global tuning and capture apparatus omitted.",
+  "recipe": "classic oktoberfest, drinking Song, European branch. grenadilla African blackwood traditional continuous-airflow legato clarinet, low c classical legato bass clarinet. live tracking.",
+  "recipe_chars": 182,
+  "score": 17.473,
   "config": {
     "traditions": [
       "oktoberfest"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 1.3,
-          "voice_ensemble_config": 1.3315000000000001,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.0315,
-          "voice_tessitura": 0
-        }
-      },
       {
         "id": "clarinet",
         "slots": {
@@ -62,11 +21,11 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": -0.07,
-          "clarinet_body": -0.15000000000000002,
-          "clarinet_size": 0,
-          "clarinet_reed": 0,
-          "clarinet_articulation": 0.7
+          "wind_articulation": 4.16,
+          "clarinet_body": 4.45,
+          "clarinet_size": 1.3,
+          "clarinet_reed": 0.3,
+          "clarinet_articulation": 2
         }
       },
       {
@@ -76,31 +35,12 @@
           "bass_clarinet_style": "bass_clarinet_classical_legato"
         },
         "scores": {
-          "bass_clarinet_range": 0.0315,
-          "bass_clarinet_style": 0.0315
+          "bass_clarinet_range": 2.6315,
+          "bass_clarinet_style": 2.6315
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
       "clarinet": [
         "wind_articulation",
         "clarinet_body",
@@ -136,24 +76,7 @@
       "clarinet_reed": "medium_clarinet_reed",
       "clarinet_articulation": "tongued_clarinet",
       "bass_clarinet_range": "bass_clarinet_to_low_c",
-      "bass_clarinet_style": "bass_clarinet_classical_legato",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "bass_clarinet_style": "bass_clarinet_classical_legato"
     },
     "pin_parts": true
   }

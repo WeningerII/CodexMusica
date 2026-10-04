@@ -5,7 +5,7 @@
   "lineage": "Scottish Americana links locally based musicians with American roots repertoires and transatlantic recording networks. Rab Noakes’s documented songwriting, guitar work and roots broadcasting provide one established branch.",
   "recipe": "classic modern scottish americana, functional Song, americana branch. thick, straight note core, neutral third half flat, m1 with m0 pulse borrowing. dadgad tuning acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 318,
-  "score": 32.989,
+  "score": 32.748,
   "config": {
     "traditions": [
       "scottish_americana"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 3.4180000000000015,
+          "voice_register": 3.3130000000000015,
           "voice_quality": 0.39,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -41,7 +41,7 @@
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 5.805,
+          "voice_estill_quality": 5.6685,
           "voice_speech_song": 5.525,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.26,

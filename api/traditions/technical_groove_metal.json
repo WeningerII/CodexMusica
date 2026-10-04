@@ -5,7 +5,7 @@
   "lineage": "Technical groove metal places intricate accent patterns and shifting rhythmic groupings over a strongly felt pulse.",
   "recipe": "classic technical groove metal, distorted Rock, prog branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 397,
-  "score": 36.604,
+  "score": 36.362,
   "config": {
     "traditions": [
       "technical_groove_metal"
@@ -33,15 +33,15 @@
           "amp_make": 4.355,
           "body_wood": 4.55,
           "neck_wood": 0.33599999999999997,
-          "fretboard": 0.126,
-          "pickup_magnet": 0.1365,
+          "fretboard": 0.1575,
+          "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.33599999999999997,
-          "bridge": 0.5145000000000001,
+          "bridge": 0.4095,
           "scale_length": 0.0315,
           "string_gauge": 0.315,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.189
         }
       },
       {
@@ -61,7 +61,7 @@
           "body_wood": 4.55,
           "pickup_config": 0,
           "string_type": 0.0315,
-          "scale_length_b": 0.2625,
+          "scale_length_b": 0.1575,
           "fretted_or_not": 0.063,
           "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
@@ -114,10 +114,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.126,
+          "voice_ornament_system": 0.1575,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.6405000000000001,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.5249999999999999,
           "voice_tessitura": 0
         }
       }

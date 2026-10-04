@@ -5,7 +5,7 @@
   "lineage": "Brazilian Northeast (Pernambuco, Bahia, Paraíba, Ceará) rapid-fire repentista vocal-duel tradition — two emboladores improvise verses over a fast pandeiro rhythmic foundation, alternating in pairs and trying to outdo each other in tongue-twister vocal dexterity, rhymed wit, and topical social satire; closely related to the parallel cantoria de viola (the Northeast repentista poetic-duel tradition with viola caipira accompaniment) and the broader Sertão Brazilian-Northeast vernacular oral-poetic culture, recently recognized by Brazilian cultural heritage authorities and continued through 20th-century figures Caju e Castanha, Mestre Verdelinho, and modern festival circuits",
   "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm cameroonian hip hop hip hop galsen. vocal fry, rap, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 450,
-  "score": 102.89,
+  "score": 92.07,
   "config": {
     "traditions": [
       "embolada",
@@ -26,30 +26,30 @@
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
           "voice_register": 2.7649999999999997,
-          "voice_quality": 12.447499999999998,
+          "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.045,
-          "voice_articulation": 11.634999999999996,
-          "voice_microtone": 9.945,
-          "voice_tradition": 8.71,
-          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_articulation": 10.075000000000001,
+          "voice_microtone": 8.580000000000002,
+          "voice_tradition": 8.45,
+          "voice_mechanism_compound": 1.885,
           "voice_estill_quality": 3.0550000000000006,
-          "voice_speech_song": 11.3425,
-          "voice_ensemble_config": 9.425,
-          "voice_ornament_system": 2.6650000000000014,
-          "voice_pitch_organization": 1.2349999999999997,
-          "voice_processing_chain": 5.12,
-          "voice_multitrack_stack": 4.289999999999999
+          "voice_speech_song": 8.970000000000002,
+          "voice_ensemble_config": 9.295000000000002,
+          "voice_ornament_system": 2.470000000000001,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 3.92,
+          "voice_multitrack_stack": 4.095
         }
       },
       {
@@ -65,7 +65,7 @@
         "scores": {
           "percussion_technique": 5.6450000000000005,
           "pandeiro_size": 0,
-          "pandeiro_context": 3.055,
+          "pandeiro_context": 2.8600000000000003,
           "pandeiro_head": 5.205,
           "pandeiro_shell_wood": 5.205,
           "pandeiro_jingles": 5.444999999999999

@@ -5,7 +5,7 @@
   "lineage": "Israeli punk includes melodic guitar bands within local independent scenes.",
   "recipe": "classic israeli punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 324,
-  "score": 37.901,
+  "score": 38.456,
   "config": {
     "traditions": [
       "israeli_punk"
@@ -33,15 +33,15 @@
           "amp_make": 13.129999999999999,
           "body_wood": 1.029,
           "neck_wood": 0.063,
-          "fretboard": 0.1425,
+          "fretboard": 0.18525,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1425,
+          "bridge": 0.32775,
           "scale_length": 0,
-          "string_gauge": 0.054,
+          "string_gauge": 0.19649999999999998,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.042749999999999996
         }
       },
       {
@@ -113,7 +113,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.32775000000000004,
+          "voice_ensemble_config": 0.47025,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

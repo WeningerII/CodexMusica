@@ -5,7 +5,7 @@
   "lineage": "Norwegian metal is a broad regional umbrella, represented here by Enslaved’s Bergen-based black/progressive metal. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern norwegian metal, distorted Rock, prog branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, regional style kit party arranger one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 570,
-  "score": 47.358,
+  "score": 47.105,
   "config": {
     "traditions": [
       "norwegian_metal"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.0945,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -75,10 +75,10 @@
           "body_wood": 7.799999999999999,
           "neck_wood": 0.33599999999999997,
           "fretboard": 0.33599999999999997,
-          "pickup_magnet": 0.168,
-          "pickup_winding": 0.189,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 0.252,
           "string_material": 0.33599999999999997,
-          "bridge": 0.5145000000000001,
+          "bridge": 0.4095,
           "scale_length": 7.799999999999999,
           "string_gauge": 0.315,
           "finish": 0,
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_british_hiwatt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "dual_single",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
@@ -98,11 +98,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.3180000000000005,
-          "body_wood": 0.189,
-          "pickup_config": 0.1365,
+          "amp_make": 2.3495000000000004,
+          "body_wood": 0.252,
+          "pickup_config": 0.0315,
           "string_type": 4.875,
-          "scale_length_b": 0.3255,
+          "scale_length_b": 0.252,
           "fretted_or_not": 0.1365,
           "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
@@ -133,7 +133,7 @@
           "electronic_technique": -0.07,
           "rompler_preset_bank": 2.08,
           "rompler_context": 1.17,
-          "rompler_lineage": 1.69
+          "rompler_lineage": 1.6360000000000001
         }
       }
     ],

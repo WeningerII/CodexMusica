@@ -2,56 +2,15 @@
   "id": "musical_advocacy",
   "name": "Musical advocacy",
   "family": "pop",
-  "lineage": "Musical advocacy connects repertoire organized around public causes, collective action and charitable support. Multi-artist projects and community performances bring songs across pop, rock, choral and other traditions into new social contexts.",
-  "recipe": "classic musical advocacy, functional Song. one note per syllable. block chord upright piano. shoebox concert hall.",
-  "recipe_chars": 114,
-  "score": 6.384,
+  "lineage": "Complete separately published seven-page Neil Archer instrumental piano arrangement of We Are the World, Musicnotes MN0257180. Publisher positively specifies one piano, instrumental solo and no lyrics; zero singers and no other instrument parts. This is the whole authorized piano edition, not a reduction inferred by deleting participants from the1985 ensemble master. The creator field lists the original USA for Africa song, not this later arrangement. Authored standard-size studio upright piano with block-chord pop support in a controlled live room realizes the positively scored piano. The published E-major,4/4 pop song supports a functional-song rendition with recurring refrain and tonal chord support; this editorial structural realization is not a transcription claim about every advocacy work. Upright construction and room are editorial, not claimed original recording equipment. No global tuning, capture hardware or source dynamics guessed.",
+  "recipe": "classic musical advocacy, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 84,
+  "score": 13.9,
   "config": {
     "traditions": [
       "musical_advocacy"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.40950000000000003,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.054,
-          "voice_multitrack_stack": 0.1365,
-          "voice_tessitura": 0
-        }
-      },
       {
         "id": "upright_piano",
         "slots": {
@@ -60,39 +19,20 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 4.95,
-          "upright_use": 0.054,
-          "upright_piano_size": 0
+          "keyboard_technique": 13.599999999999998,
+          "upright_use": 0,
+          "upright_piano_size": 0.3
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
       "upright_piano": [
         "keyboard_technique",
         "upright_use",
         "upright_piano_size"
       ]
     },
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -107,28 +47,11 @@
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
     "parts": {
       "keyboard_technique": "keyboard_block_chord_pop",
       "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "legato_voice",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

@@ -5,7 +5,7 @@
   "lineage": "Blues band is an ensemble-oriented catalogue category for blues performed by an interacting band rather than a distinct national origin or one mandatory rhythmic subgenre. Chicago’s Old Town School documents the continuing practice of preparing band repertoire for Rosa’s Lounge with voice, guitar, bass, drums, harmonica, piano and saxophone. The authored recording model selects that club ensemble, with electric-guitar fills and alternating harmonica or saxophone leads.",
   "recipe": "classic modern blues band, functional Song, blues electric branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, electric bass, brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, upright piano, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 579,
-  "score": 82.608,
+  "score": 83.11,
   "config": {
     "traditions": [
       "blues_band"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.49049999999999994,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.239
+          "voice_multitrack_stack": 1.7069999999999999
         }
       },
       {
@@ -169,7 +169,7 @@
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.0315,
           "sax_technique": -0.05,
-          "sax_maker_school": -1.5034999999999996
+          "sax_maker_school": -1.4699999999999998
         }
       }
     ],

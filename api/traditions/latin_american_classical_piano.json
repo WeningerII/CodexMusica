@@ -5,7 +5,7 @@
   "lineage": "Latin American classical piano encompasses performers and composers working across regional and international concert traditions. Recitals bring Latin American works into conversation with a broader piano repertoire.",
   "recipe": "classic latin american classical piano, art Music, western common practice branch. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 64.504,
+  "score": 64.045,
   "config": {
     "traditions": [
       "latin_american_classical_piano"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 7.554,
-          "grand_piano_size": 0.684,
-          "grand_piano_brand": 0.798,
+          "grand_piano_size": 0.6105,
+          "grand_piano_brand": 0.7155,
           "piano_hammer": 10.6995,
           "piano_rim": 11.277,
-          "piano_soundboard": 8.6865,
+          "piano_soundboard": 8.4135,
           "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.8805000000000005,
-          "piano_pitch_standard": 9.369499999999999
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 9.413
         }
       }
     ],

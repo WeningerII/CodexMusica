@@ -5,7 +5,7 @@
   "lineage": "Icelandic choral music connects sacred and secular singing with local composers and concert institutions. Mixed choirs interpret varied repertoire in unaccompanied and accompanied settings.",
   "recipe": "classic icelandic choir, art Music, western common practice branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 182,
-  "score": 2.203,
+  "score": 2.29,
   "config": {
     "traditions": [
       "icelandic_choir"
@@ -23,7 +23,7 @@
           "choir_size": 1.3,
           "choir_polyphonic_configuration": 0.1365,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 0.7665
+          "choir_ensemble_repertoire": 0.8534999999999999
         }
       }
     ],

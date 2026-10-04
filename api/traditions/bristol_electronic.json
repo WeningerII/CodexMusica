@@ -5,7 +5,7 @@
   "lineage": "Bristol electronic spans varied local electronic-music practices, including experimental and industrial approaches. The field is broader than any one producer’s sound or performance setup.",
   "recipe": "classic bristol electronic, experimental Elec. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 166,
-  "score": 0.774,
+  "score": 0.744,
   "config": {
     "traditions": [
       "bristol_electronic"
@@ -20,7 +20,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
           "poly_maker_lineage": -0.05

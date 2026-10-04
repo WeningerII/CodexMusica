@@ -2,10 +2,10 @@
   "id": "ethnomusicology",
   "name": "Ethnomusicology",
   "family": "classical",
-  "lineage": "Ethnomusicology connects the study of music in cultural context with documentary recordings, archives and sustained research relationships. Curated listening collections bring distinct local traditions to wider audiences while retaining their separate histories and practices.",
-  "recipe": "classic ethnomusicology, art Music, east Asian branch. madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi. live tracking.",
-  "recipe_chars": 180,
-  "score": 9.513,
+  "lineage": "Nonesuch Explorer Series — Goro Yamaguchi, A Bell Ringing in the Empty Sky, whole1969album. Entire two-piece1969 Nonesuch Explorer H72025 album A Bell Ringing in the Empty Sky: Goro Yamaguchi alone on shakuhachi. Publisher specifies KinkoKurosawa-school repertoire and instrumental scoring. SokakuReibo12:12 and KokuReibo15:18 both retained, no singer or other Nipponia/Explorer albums imported. Japanese repertoire anchor; actual recording site unknown. Full source solo performance realized with existing shakuhachi. Kinko lineage and bamboo instrument supported by issuer;1.8shaku/D length, madake species, continuous phrasing and meri/kari bends are candid authored physical/playing choices, not measured source instrument or every recorded gesture. New controlled live-room recital realization, no claimed historic room or capture apparatus. Optional global tuning omitted; no equal-tempered replacement imposed on regional pitch practice.",
+  "recipe": "classic ethnomusicology, art Music, east Asian branch. madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. live tracking.",
+  "recipe_chars": 206,
+  "score": 12.635,
   "config": {
     "traditions": [
       "ethnomusicology"
@@ -21,11 +21,11 @@
           "shakuhachi_lineage": "shakuhachi_kinko"
         },
         "scores": {
-          "wind_articulation": 2.6075000000000004,
+          "wind_articulation": 4.6575,
           "shaku_length": -0.035,
           "shaku_technique": 0.47250000000000003,
-          "shakuhachi_body_material": 3.6644999999999994,
-          "shakuhachi_lineage": 2.8034999999999997
+          "shakuhachi_body_material": 5.46,
+          "shakuhachi_lineage": 2.08
         }
       }
     ],

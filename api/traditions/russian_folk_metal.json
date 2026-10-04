@@ -5,7 +5,7 @@
   "lineage": "Russian folk metal is represented here by Arkona. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic russian folk metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric travis picked dreadnought acoustic guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic tin whistle, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 595,
-  "score": 93.086,
+  "score": 93.172,
   "config": {
     "traditions": [
       "russian_folk_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.3355,
+          "electric_technique": 17.4165,
           "amp_make": 7.085,
           "body_wood": 6.89,
           "neck_wood": 0.5774999999999999,
@@ -39,9 +39,9 @@
           "string_material": 0,
           "bridge": 1.3,
           "scale_length": 6.89,
-          "string_gauge": 1.627,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.38549999999999995
+          "string_tuning": 0.39
         }
       },
       {
@@ -128,7 +128,7 @@
           "whistle_body_material": "whistle_aluminum_anodized"
         },
         "scores": {
-          "wind_articulation": 10.158,
+          "wind_articulation": 10.094999999999999,
           "whistle_key": 0.0315,
           "whistle_ornament": 4.9399999999999995,
           "whistle_body_material": 0.39149999999999996

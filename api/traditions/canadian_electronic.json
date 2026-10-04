@@ -5,7 +5,7 @@
   "lineage": "Canadian electronic music spans independent production communities working with synthesis, sequencing and varied vocal approaches.",
   "recipe": "classic canadian electronic, experimental Elec. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 226,
-  "score": 1.739,
+  "score": 1.709,
   "config": {
     "traditions": [
       "canadian_electronic"
@@ -20,7 +20,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
           "poly_maker_lineage": -0.05

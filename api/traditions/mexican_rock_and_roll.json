@@ -2,10 +2,10 @@
   "id": "mexican_rock_and_roll",
   "name": "Mexican rock-and-roll",
   "family": "rock",
-  "lineage": "Mexican rock-and-roll developed through early electric groups and Spanish-language rock songs, with bands such as Los Locos del Ritmo among its pioneers.",
-  "recipe": "classic mexican rock-and-roll, functional Song. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 369,
-  "score": 32.578,
+  "lineage": "Mexican rock-and-roll is represented here by Los Locos del Ritmo — UNAM concert, 2012. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic early-2010s mexican rock-and-roll, functional Song, pop rock branch. solo with instrumental accompaniment. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 487,
+  "score": 62.788,
   "config": {
     "traditions": [
       "mexican_rock_and_roll"
@@ -16,53 +16,53 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.1,
-          "amp_make": 4.327500000000001,
-          "body_wood": 0.45225000000000004,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0.1365,
-          "string_gauge": 0,
+          "electric_technique": 3.8575000000000004,
+          "amp_make": 6.11,
+          "body_wood": 0.6194999999999999,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.1365,
+          "string_material": 0.0315,
+          "bridge": 1.4365,
+          "scale_length": 0.6405000000000001,
+          "string_gauge": 1.4995,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.3
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.72025,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 10.4275,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.45225000000000004,
+          "amp_make": 6.5649999999999995,
+          "body_wood": 0.378,
+          "pickup_config": 0.3045,
+          "string_type": 14.541,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.4365,
-          "drumhead": 0,
+          "drum_technique": 12.0315,
+          "drumhead": 3.9415,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,21 +113,25 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
         }
       },
       {
-        "id": "electronic_keyboard_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_keyboard_identity": 0.1425,
-          "keyboard_technique": 0.042749999999999996
+          "electronic_technique": -0.07,
+          "poly_archetypes": 6.24,
+          "poly_voices": 0.231,
+          "poly_maker_lineage": 1.625
         }
       }
     ],
@@ -161,9 +165,8 @@
         "voice_processing_chain",
         "voice_multitrack_stack"
       ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity",
-        "keyboard_technique"
+      "analog_poly_synth": [
+        "electronic_technique"
       ]
     },
     "room": "treated_studio",
@@ -206,8 +209,7 @@
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      "electronic_technique": "electronic_pad_drone"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -3,13 +3,13 @@
   "name": "Greek tragedy chorus declamation",
   "family": "classical",
   "lineage": "Choral declamation of Athenian tragedy, 5th century BCE, performed by a chorus of twelve (later fifteen under Sophocles) in the circular orchestra of the Theatre of Dionysus during the City Dionysia festival. The chorus of the plays of Aeschylus, Sophocles, and Euripides moved between spoken dialogue, chanted anapestic recitation for entrances (parodos) and exits, and fully sung strophic odes accompanied by the aulos, with strophe and antistrophe mirrored in dance. No notated choral music survives beyond fragments, so modern practice is scholarly reconstruction, staged today in surviving open-air stone theatres such as Epidaurus, where unison declamation projected without amplification remains the defining sound.",
-  "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch early music ensemble tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 244.402,
+  "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch detskie pesni tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 291,
+  "score": 257.867,
   "config": {
     "traditions": [
       "greek_tragedy_chorus",
-      "early_music_ensemble",
+      "detskie_pesni",
       "tibetan_ache_lhamo"
     ],
     "instruments": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.228187500000001,
-          "voice_quality": 26.194999999999997,
+          "voice_register": 7.3781875,
+          "voice_quality": 28.08,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.725,
-          "voice_articulation": 26.065000000000005,
-          "voice_microtone": 25.870000000000005,
-          "voice_tradition": 17.6475,
-          "voice_mechanism_compound": 9.45,
-          "voice_estill_quality": 16.1525,
-          "voice_speech_song": 40.072500000000005,
-          "voice_ensemble_config": 27.495000000000005,
-          "voice_ornament_system": 9.825,
-          "voice_pitch_organization": 9.386499999999998,
-          "voice_processing_chain": 13.129999999999995,
-          "voice_multitrack_stack": 6.110000000000001
+          "voice_vibrato": 11.2125,
+          "voice_articulation": 25.285000000000004,
+          "voice_microtone": 25.09,
+          "voice_tradition": 21.06,
+          "voice_mechanism_compound": 9.825,
+          "voice_estill_quality": 18.749374999999997,
+          "voice_speech_song": 41.990000000000016,
+          "voice_ensemble_config": 29.055,
+          "voice_ornament_system": 10.2,
+          "voice_pitch_organization": 9.761499999999998,
+          "voice_processing_chain": 12.934999999999997,
+          "voice_multitrack_stack": 7.995
         }
       }
     ],

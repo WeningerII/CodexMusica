@@ -5,7 +5,7 @@
   "lineage": "Conjunto Casino — complete 2011 Uruguay music-export catalog roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2010s orquesta tropical, groove Percussion. one note per syllable. trumpet, grand piano, electric bass, congas, timbales stick played. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 247,
-  "score": 3.625,
+  "score": 3.345,
   "config": {
     "traditions": [
       "orquesta_tropical"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825,
+          "voice_speech_song": 0.6615,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -69,8 +69,8 @@
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0.3,
           "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0.0945,
-          "trumpet_maker_school": 0.1365
+          "trumpet_bell_metal": 0.0315,
+          "trumpet_maker_school": 0.0315
         }
       },
       {
@@ -144,7 +144,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "timbales_playing": 0.39,
+          "timbales_playing": 0.3,
           "timbales_shell": 0,
           "timbales_context": 0
         }

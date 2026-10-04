@@ -3,12 +3,14 @@
   "name": "Modal jazz",
   "family": "jazz",
   "lineage": "Late-1950s onward jazz subgenre dispensing with rapid bebop chord-changes in favor of static modal frameworks — Miles Davis Kind of Blue (1959), Coltrane Impressions and the McCoy Tyner / Elvin Jones quartet years, Bill Evans modal trio voicings, Wayne Shorter, Herbie Hancock",
-  "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 637,
-  "score": 147.78,
+  "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal borneo traditional rogaland musikk. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, no chemical hardener t rivet 17 ply hard rock maple sitka spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 676,
+  "score": 196.655,
   "config": {
     "traditions": [
-      "modal_jazz"
+      "modal_jazz",
+      "borneo_traditional",
+      "rogaland_musikk"
     ],
     "instruments": [
       {
@@ -17,7 +19,7 @@
           "wind_articulation": "wind_bebop_runs",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
@@ -26,8 +28,8 @@
           "wind_articulation": 4,
           "sax_size": 4.450000000000001,
           "sax_reed": 0.3,
-          "sax_body_alloy": 14.249999999999998,
-          "sax_mouthpiece": 0.7649999999999999,
+          "sax_body_alloy": 17.499999999999996,
+          "sax_mouthpiece": 1.7550000000000001,
           "sax_technique": 14.429999999999998,
           "sax_maker_school": 12.799999999999999
         }
@@ -36,18 +38,18 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_bebop_runs",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
-          "brass_mute": "harmon_out",
+          "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_bebop_lines",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 4,
-          "brass_size": 0.3,
-          "trumpet_mouthpiece": 15.254999999999997,
-          "brass_mute": 0.3,
+          "brass_size": 0.845,
+          "trumpet_mouthpiece": 15.905,
+          "brass_mute": 1.0999999999999999,
           "trumpet_technique": 4,
           "trumpet_bell_metal": 0.795,
           "trumpet_maker_school": 1.95
@@ -57,25 +59,25 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_hammer": "abel_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 2.2500000000000004,
-          "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.435,
-          "piano_hammer": 1.7349999999999999,
-          "piano_rim": 1.885,
-          "piano_soundboard": 0.6499999999999999,
-          "piano_pinblock": -0.035,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 1.4949999999999999
+          "grand_piano_size": 0.995,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 5.494999999999999,
+          "piano_rim": 6.0649999999999995,
+          "piano_soundboard": 4.9399999999999995,
+          "piano_pinblock": 4.934999999999999,
+          "piano_plate": 4.39,
+          "piano_pitch_standard": 7.425
         }
       },
       {
@@ -92,13 +94,13 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_jazz",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.249999999999998,
-          "drumhead": 14.29,
+          "drum_technique": 23.6275,
+          "drumhead": 17.499999999999996,
           "drum_kit_kick_pedal": 0
         }
       }

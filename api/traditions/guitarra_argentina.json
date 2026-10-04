@@ -5,7 +5,7 @@
   "lineage": "Argentine guitar repertoire brings together concert composition, tango, milonga and folk-derived instrumental practice. Soloists, duos and larger ensembles connect regional dance rhythms with the guitar’s melodic and harmonic resources. Eduardo Falú and Héctor Ayala are among the composers represented in its concert repertoire.",
   "recipe": "classic guitarra argentina, art Music. classical nylon-string guitar. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 174,
-  "score": 5.45,
+  "score": 5.318,
   "config": {
     "traditions": [
       "guitarra_argentina"
@@ -24,9 +24,9 @@
         "scores": {
           "acoustic_technique": 2.6000000000000005,
           "string_tuning": 0,
-          "top_wood_classical": 0.39,
-          "bracing_classical": 0.9099999999999999,
-          "string_classical": 0.25,
+          "top_wood_classical": 0.3,
+          "bracing_classical": 0.8365,
+          "string_classical": 0.2815,
           "attack_technique_cl": 1.3
         }
       }

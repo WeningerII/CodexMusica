@@ -3,9 +3,9 @@
   "name": "Trombone Brasileiro",
   "family": "classical",
   "lineage": "Brazilian trombone performance spans popular repertoire, arranged ensemble music and concert practice. Trombone groups bring Brazilian melodies and rhythmic traditions into a distinctive brass sound.",
-  "recipe": "classic trombone brasileiro, art Music. yellow brass canonical 70 30 bach 42 standard tenor standard standard backbore trombone, bass trombone, drum kit. live tracking.",
-  "recipe_chars": 168,
-  "score": 6.512,
+  "recipe": "classic trombone brasileiro, art Music. yellow brass canonical 70 30 bach 42 standard tenor standard standard backbore trombone, bass trombone, low fundamental tuning maple drum kit. live tracking.",
+  "recipe_chars": 197,
+  "score": 7.694,
   "config": {
     "traditions": [
       "trombone_brasileiro"
@@ -23,13 +23,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.3915,
-          "trombone_type": -0.035,
+          "wind_articulation": 1.3809999999999998,
+          "trombone_type": -0.05,
           "trombone_mouthpiece": 2.45,
-          "trombone_mute": 0.063,
-          "trombone_technique": 1.363,
+          "trombone_mute": 0.0315,
+          "trombone_technique": 1.3,
           "trombone_bell_metal": 1,
-          "trombone_maker_school": 0.588
+          "trombone_maker_school": 0.0315
         }
       },
       {
@@ -39,7 +39,7 @@
           "bass_trombone_context": "bass_trombone_big_band_section"
         },
         "scores": {
-          "bass_trombone_valves": 0.105,
+          "bass_trombone_valves": 0,
           "bass_trombone_context": 0
         }
       },
@@ -60,15 +60,15 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0,
+          "drumhead": 1.0185000000000002,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 1.05,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.10500000000000001,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": -0.11850000000000002,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
         }
       }

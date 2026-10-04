@@ -5,7 +5,7 @@
   "lineage": "Music foregrounding the washboard as a rhythmic instrument, found in small popular ensembles and several regional traditions. Its scraped and struck patterns can support singing and interact with melodic instruments.",
   "recipe": "classic washboard, groove Percussion. group vocals. humbucker electric guitar, sousaphone, credited washboard unspecified. live tracking.",
   "recipe_chars": 137,
-  "score": 1.966,
+  "score": 2.313,
   "config": {
     "traditions": [
       "washboard"
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.063,
-          "string_gauge": 0.8365,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.273
         }
       },
       {

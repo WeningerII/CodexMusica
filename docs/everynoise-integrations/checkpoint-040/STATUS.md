@@ -1,20 +1,32 @@
 # Draft genre checkpoint 040
 
-Frozen source snapshot **8bb2cee97d5feee7b48147b61da9a61ea5f5c71c** has been rebuilt and tested in an isolated worktree. **Not qualified for merge.**
+This candidate retains **1,734 reviewed repairs** and defers **620 proposals** from the complete 2,354-repair frozen checkpoint. The deferred source changes and their evidence remain preserved here and in commit `d63210cbe63b8d9e7edb9b52de3fa0ee1971aa25`. No proposal was discarded or silently declared incorrect.
 
-- 2,354 reviewed profile repairs, including 336 prose-only partials with musical holds still open.
-- 178 reviewed additions remain evidence only and are not imported. Seven earlier queued entries remain held separately.
-- Original baseline cohort of 2,638 records and extras preserved. The live catalog has 6,538 traditions and 1,638 instruments. Shared engine, pipeline and regression snapshots are unchanged.
-- Later reviewed changes and unfinished work remain separately preserved on the continuation branch and in the workspace; they did not alter frozen build inputs.
+PR #481, main commit `70426a9861fe2591e66789879a6fde3082aad4f6`, is included unchanged. The original baseline cohort of 2,638 records and extras, instrument catalog, shared engine, pipeline, and regression snapshots are preserved. The catalog remains at 6,538 traditions and 1,638 instruments. The 178 reviewed additions remain evidence only; later reviews and unfinished work remain separate.
 
-## Rebuild and checks
+## Regression qualification
 
-The original static API pipeline completed with two workers: all 6,538 traditions compiled, zero failures, every recipe within 1,000 characters and every ID resolving. Discovery, atlas and HTML regeneration completed. The static API contract now passes; generated files no longer lag this source snapshot.
+All 104 frozen-checkpoint differences were individually reviewed. Of these, 32 have compatible changed settings and 72 retain specific concerns. Only seven complete frozen outputs qualify without reservations; other whole-output holds include explicitly identified pre-existing defects. These counts are not permission to refresh snapshots.
 
-Reference, signature, descriptor-table, duplicate, lint, formatting and full documentation checks passed. Of 29 supporting build, regression, connector and UI checks, 27 passed. Two UI failures match earlier baseline observations: enlarged-image thumbnail retention, and browser policy blocking the reachability check's generated file URL.
+The named regressions were traced with unchanged-engine counterfactuals:
 
-Serial recipe regression matched **1,045 of 1,149 fixtures**. The other 104 were replayed independently: reverting only genre data in process memory restores every prior output, configuration and score. This proves causality, not correctness. The changed catalog affects 448 unprotected settings across 101 fixtures. Explicit emitted blockers include an Andean choir for male gospel quartet, Sardinian cantu a tenore for Methodist hymnody, and a brushes-based groove-metal rendition. No blanket snapshot refresh was performed.
+- Gospel quartet: the revised Gospel Singers description changes the selected regional choir configuration.
+- Methodist hymnody: British Choir's parent change alters the selected companion tradition and choir result.
+- Groove metal: the revised Belgian Death Metal description changes the drum technique; ordinary prose affects the original neighbor scoring.
 
-See frozen-validation.json for checks and frozen-regression-review.json for all 104 individual dispositions. Baseline, current and counterfactual replay records are included beside them. Earlier source evidence and partial-repair limitations remain in reviewed-repairs.json.
+Restoring those three complete neighboring records reproduces the three baseline configurations exactly. Restoring selected fields alone can conceal other changed settings, so output equality alone was not accepted as sufficient evidence.
 
-**Pending:** regression qualification, remaining musical-default/render holds, unfinished source review and green exact-head CI including artifact reproducibility. Keep this PR draft and unmerged until qualified.
+## Conservative subset
+
+The subset withholds repaired records read by baseline fixture scoring or possible companion-tradition selection, plus structural changes that could alter those dependencies. It is intentionally conservative, not a claim that all 620 deferred source corrections are wrong.
+
+- **1,149/1,149 recipe regressions pass**, with zero snapshot updates.
+- **104/104 complete configurations, numeric scores, and emitted outputs** match the baseline exactly.
+- The existing API builder completed with two workers: **6,538 traditions, zero failures**, valid IDs and recipes within 1,000 characters.
+- Reference, lint, formatting and documentation checks pass. Of 29 supporting checks, 27 pass. The local enlarged-photo check repeats the frozen predecessor failure that passes GitHub CI; file-URL reachability remains blocked by browser administration. Exact-head CI for this subset is pending. See subset-validation.json.
+
+Containment does not fix inherited baseline mistakes. The old gospel and Methodist results already contain unsupported choir identities. Concrete original-record data proposals remove the three named mismatches in isolated tests, but remain **unapplied** under the original-record preservation constraint; their full before/after evidence and remaining limitations are retained.
+
+The earlier frozen commit passed CI artifact reproducibility and 62 of 63 verification checks; recipe regression was its sole failing verification check. Its local enlarged-photo UI failure did not reproduce in CI. The new subset requires its own exact-head CI and remains draft until qualified.
+
+See musical-qualification.json, regression-data-causes.json, subset-selection.json, subset-exact-comparison.json, deferred-proposals.json, and reviewed-repairs.json. The frozen-prefixed reports describe the earlier full snapshot, not the current subset. No shared-code fix or blanket snapshot replacement was made.

@@ -5,7 +5,7 @@
   "lineage": "Indian rock includes progressive bands combining electric-rock conventions with regional melodic influences.",
   "recipe": "classic indian rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 286,
-  "score": 25.397,
+  "score": 25.019,
   "config": {
     "traditions": [
       "indian_rock"
@@ -33,13 +33,13 @@
           "amp_make": 5.720000000000001,
           "body_wood": 0.273,
           "neck_wood": 0.273,
-          "fretboard": 0.0315,
+          "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 0.105,
+          "pickup_winding": 0,
           "string_material": 0.273,
-          "bridge": 0.1785,
+          "bridge": 0.0735,
           "scale_length": 0,
-          "string_gauge": 0.21000000000000002,
+          "string_gauge": 0.0735,
           "finish": 0,
           "string_tuning": 0.063
         }

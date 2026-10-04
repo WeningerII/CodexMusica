@@ -3,9 +3,9 @@
   "name": "Schrammelmusik",
   "family": "vernacular",
   "lineage": "Concert Schrammeln of the Johann Strauss Society of Vienna — 11 November2023 concert musical ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic schrammelmusik, art Music. one note per syllable. European maple bosnian source flamed figure violin orchestral, hohner gola canonical premium German concert accordion, contraguitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 289,
-  "score": 13.036,
+  "recipe": "classic schrammelmusik, art Music. one note per syllable. European maple bosnian source flamed figure modern setup longer neck violin orchestral, hohner gola canonical premium German concert accordion, contraguitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 314,
+  "score": 12.904,
   "config": {
     "traditions": [
       "schrammelmusik"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
+          "voice_processing_chain": 0.24149999999999996,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -67,15 +67,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.7815,
+          "bowed_technique": 0.75,
           "orch_strings": 0,
           "orch_top_wood": 0.7,
-          "orch_back_wood": 2.3000000000000003,
+          "orch_back_wood": 2.99,
           "orch_varnish": 0.7,
-          "orch_setup_period": 0.9999999999999998,
-          "orch_bow": 0.0315,
+          "orch_setup_period": 1.0314999999999999,
+          "orch_bow": 0,
           "orch_bow_stick": 0.8449999999999999,
-          "orch_articulation": 0.063,
+          "orch_articulation": 0,
           "orch_rosin": 0.7
         }
       },
@@ -91,13 +91,13 @@
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": -0.10500000000000001,
-          "accordion_reed_material": 0.0315,
-          "musette_offset": 0.168,
+          "free_reed_technique": -0.15000000000000002,
+          "accordion_reed_material": 0,
+          "musette_offset": 0.1365,
           "reed_config": 0,
           "bellows": 0.1365,
           "voicing_chamber": 0,
-          "accordion_maker_school": 3.966499999999999
+          "accordion_maker_school": 3.231499999999999
         }
       },
       {
@@ -106,7 +106,7 @@
           "contraguitar_identity": "contraguitar_six_plus_seven"
         },
         "scores": {
-          "contraguitar_identity": 0.063
+          "contraguitar_identity": 0.0315
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Italian gothic rock and darkwave — post-punk guitar music in dialogue with synthesizers and drum machines.",
   "recipe": "classic italian gothic, distorted Rock, gothic rock branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. electric bass, humbucker electric guitar, analog synth, TR-707. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 8.419,
+  "score": 8.677,
   "config": {
     "traditions": [
       "italian_gothic"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.5670000000000001,
+          "voice_speech_song": 0.9554999999999999,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7454999999999998,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.8189999999999998,
           "voice_tessitura": 0
         }
       },
@@ -69,7 +69,7 @@
           "body_wood": 0.3045,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.36749999999999994,
+          "scale_length_b": 0.26249999999999996,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -96,16 +96,16 @@
           "electric_technique": 1.9445000000000001,
           "amp_make": 0,
           "body_wood": 0.3045,
-          "neck_wood": 0.105,
+          "neck_wood": 0.1365,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 1.2179999999999997,
-          "string_gauge": 0.3735,
+          "scale_length": 1.0079999999999998,
+          "string_gauge": 0.39,
           "finish": 0.1365,
-          "string_tuning": 0
+          "string_tuning": 0.063
         }
       },
       {
@@ -122,7 +122,7 @@
           "oscillator": 0,
           "filter_topology": 0.39,
           "envelope": 0.252,
-          "modulation": 0.063
+          "modulation": 0.0315
         }
       },
       {

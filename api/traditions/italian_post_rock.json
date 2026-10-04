@@ -5,7 +5,7 @@
   "lineage": "Italian post-rock combines repeated guitar figures with electronic and keyboard textures.",
   "recipe": "classic italian post-rock, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, electronic keyboard credited samples credited electronics unspecified, credited auxiliary percussion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 436,
-  "score": 28.237,
+  "score": 28.226,
   "config": {
     "traditions": [
       "italian_post_rock"
@@ -114,10 +114,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.0315,
+          "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.19949999999999998,
+          "voice_multitrack_stack": 0.23099999999999998,
           "voice_tessitura": 0
         }
       },
@@ -128,7 +128,7 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0.18674999999999997,
+          "electronic_keyboard_identity": 0.11324999999999999,
           "keyboard_technique": 0.18674999999999997
         }
       },

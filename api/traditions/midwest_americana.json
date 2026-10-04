@@ -5,7 +5,7 @@
   "lineage": "Midwest Americana draws together regional roots songwriting, folk and blues performance across the American Midwest. Minnesota songwriter Charlie Parr exemplifies its connection to vernacular storytelling and resonant fingerpicked guitar, with both solo and ensemble approaches circulating through independent labels and venues.",
   "recipe": "classic modern midwest americana, functional Song, americana branch. narrative, solo with instrumental accompaniment. acoustic guitar 12 string. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 282,
-  "score": 8.858,
+  "score": 8.648,
   "config": {
     "traditions": [
       "midwest_americana"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.4255,
+          "voice_articulation": 1.3204999999999998,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -64,7 +64,7 @@
           "twelve_string_body": 0.78,
           "twelve_string_tuning": 0.3,
           "twelve_string_strings": 0.39,
-          "acoustic_technique": 1.168
+          "acoustic_technique": 1.063
         }
       }
     ],

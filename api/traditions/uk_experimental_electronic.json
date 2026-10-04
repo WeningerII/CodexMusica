@@ -5,7 +5,7 @@
   "lineage": "UK experimental electronic music includes artists exploring synthesis, sampling and unconventional composition or performance systems. Individual projects develop different relationships between sound design, rhythm and musical form.",
   "recipe": "classic uk experimental electronic, experimental Elec. analog mono synth, glitched textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 180,
-  "score": 18.395,
+  "score": 18.006,
   "config": {
     "traditions": [
       "uk_experimental_electronic"
@@ -23,8 +23,8 @@
         "scores": {
           "electronic_technique": -0.035,
           "mono_oscillator": 0.2475,
-          "mono_filter": 0.315,
-          "mono_archetypes": 0.21,
+          "mono_filter": 0.21,
+          "mono_archetypes": 0.105,
           "mono_maker_lineage": -0.05
         }
       },
@@ -38,9 +38,9 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 8.7,
+          "electronic_technique": 8.731499999999999,
           "sampler_archetypes": 0.2475,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": -0.1,
           "sampler_classic_context": 8.65
         }

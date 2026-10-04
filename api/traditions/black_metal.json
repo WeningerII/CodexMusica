@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward extreme metal subgenre characterized by tremolo-picked treble-guitar, blast-beat drumming, false-fold ventricular shriek vocal, lo-fi production aesthetic, and anti-Christian thematic vocabulary — codified through the Norwegian second wave: Mayhem (De Mysteriis Dom Sathanas 1994), Burzum (Filosofem 1996), Darkthrone (Transilvanian Hunger 1994), Emperor (In the Nightside Eclipse 1994), Immortal",
   "recipe": "classic North American 1987-1989 black metal, distorted Rock, black branch, doom metal christian doom metal. thick, false fold engaged, breath pulsed, interlocked note trading. orange amp British heavy crunch mahogany maple pau ferro single coil electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape boss DS-1.",
   "recipe_chars": 505,
-  "score": 295.61,
+  "score": 295.31,
   "config": {
     "traditions": [
       "black_metal",
@@ -40,7 +40,7 @@
           "voice_effort": 0,
           "voice_vibrato": 4.095000000000001,
           "voice_articulation": 10.854999999999995,
-          "voice_microtone": 11.924999999999997,
+          "voice_microtone": 11.969999999999997,
           "voice_tradition": 3.2500000000000004,
           "voice_mechanism_compound": 37.975,
           "voice_estill_quality": 1.7850000000000001,
@@ -70,8 +70,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 34.28,
-          "amp_make": 28.319999999999997,
+          "electric_technique": 34.325,
+          "amp_make": 28.124999999999996,
           "body_wood": 1.17,
           "neck_wood": 2.4250000000000003,
           "fretboard": 2.4250000000000003,
@@ -98,7 +98,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 28.319999999999997,
+          "amp_make": 28.124999999999996,
           "body_wood": 1.17,
           "pickup_config": 1.3,
           "string_type": 15.925,

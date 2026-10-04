@@ -2,10 +2,10 @@
   "id": "canadian_children_s_music",
   "name": "Canadian children’s music",
   "family": "pop",
-  "lineage": "Canadian children’s music grows through family concerts, recordings and educational song traditions. Artists such as Raffi connect everyday experiences, imaginative stories and care for children with memorable, participatory music.",
-  "recipe": "classic canadian children’s music, functional Song. dreadnought acoustic guitar, upright piano. live tracking.",
-  "recipe_chars": 110,
-  "score": 6.436,
+  "lineage": "Complete Hal Leonard Teacher Edition9971440 Baby Beluga: A Musical Revue Featuring Songs by Raffi, arranged Mark Brymer. Publisher specifies five piano/vocal arrangements, reproducible singer parts and adaptable rhyming narration across the complete15minute classroom/stage program: BabyBeluga,BrushYourTeeth,DownByTheBay,RiseAndShine,ShakeMySilliesOut. Retain piano, singing and spoken narration; no commercial recording, accompanimentCD or movement sounds inferred. Singer/speaker headcounts are unreported and adaptable to group size. Broad functionalSong represents the publisher’s rhythmic repetitive singable songs with piano harmonization and linking narration; it is not chosen merely because children are the audience. Authored live-group singing and one narrator represent an adaptable score realization, not source-specified numbers of humans or voicing. The same participants may speak and sing. Neutral physiology and voice parts remain unspecified. GrandD9 piano is a coherent authored model of source piano; block chords,room and signalchain are editorial. No global tuning imposed.",
+  "recipe": "classic canadian children’s music, functional Song. one note per syllable, group vocals, live take. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, spoken word voice. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 284,
+  "score": 24.334,
   "config": {
     "traditions": [
       "canadian_children_s_music"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_neumatic_singing",
+          "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,43 +43,47 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.40950000000000003,
+          "voice_speech_song": 4.756499999999999,
+          "voice_ensemble_config": 4.172999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.1365,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "acoustic_guitar_dread",
+        "id": "grand_piano",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "mahogany_top",
-          "back_sides": "mahogany_bs",
-          "string_acoustic": "eighty_twenty"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "acoustic_technique": 2.45,
-          "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": 0,
-          "string_acoustic": 0
+          "keyboard_technique": 3.75,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 2.7904999999999998,
+          "piano_hammer": 1.308,
+          "piano_rim": 1.524,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": 1.2,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 3.264
         }
       },
       {
-        "id": "upright_piano",
+        "id": "spoken_word_voice",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "spoken_word_voice_identity": "spoken_word_voice_source_unspecified"
         },
         "scores": {
-          "keyboard_technique": 2.45,
-          "upright_use": 0.3,
-          "upright_piano_size": 0
+          "spoken_word_voice_identity": 0
         }
       }
     ],
@@ -103,35 +107,37 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning",
-        "top_wood",
-        "back_sides",
-        "string_acoustic"
-      ],
-      "upright_piano": [
+      "grand_piano": [
         "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "spoken_word_voice": [
+        "spoken_word_voice_identity"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -143,7 +149,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_neumatic_singing",
+      "voice_speech_song": "voice_syllabic_singing",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -151,14 +157,22 @@
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "string_tuning": "standard_tuning",
-      "top_wood": "mahogany_top",
-      "back_sides": "mahogany_bs",
-      "string_acoustic": "eighty_twenty",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard",
-      "acoustic_technique": "acoustic_strummed_ringing"
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "spoken_word_voice_identity": "spoken_word_voice_source_unspecified"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

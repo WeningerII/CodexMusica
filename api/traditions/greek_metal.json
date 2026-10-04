@@ -3,9 +3,9 @@
   "name": "Greek metal",
   "family": "rock_punk",
   "lineage": "Greek metal encompasses multiple national scenes and styles, including the melodic heavy and power metal associated with Firewind.",
-  "recipe": "classic modern greek metal, distorted Rock, metal branch, power metal italian power metal japanese power metal. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 627,
-  "score": 75.215,
+  "recipe": "classic modern greek metal, distorted Rock, metal branch, power metal italian power metal japanese power metal. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 688,
+  "score": 82.795,
   "config": {
     "traditions": [
       "greek_metal",
@@ -31,19 +31,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
-          "amp_make": 10.205,
-          "body_wood": 10.4,
-          "neck_wood": 0.195,
-          "fretboard": 0.39,
+          "electric_technique": 0.06499999999999999,
+          "amp_make": 11.764999999999997,
+          "body_wood": 11.959999999999999,
+          "neck_wood": 0.39,
+          "fretboard": 0.195,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.195,
-          "bridge": 0.39,
+          "string_material": 0.39,
+          "bridge": 0.195,
           "scale_length": 0,
-          "string_gauge": 0.105,
+          "string_gauge": 0.555,
           "finish": 0.195,
-          "string_tuning": 0.045
+          "string_tuning": 0.39
         }
       },
       {
@@ -60,11 +60,11 @@
         },
         "scores": {
           "amp_make": 5.525,
-          "body_wood": 10.4,
-          "pickup_config": 0.39,
+          "body_wood": 11.959999999999999,
+          "pickup_config": 0.195,
           "string_type": 11.965,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.24,
+          "fretted_or_not": 0.09,
           "bass_technique": 9.68,
           "electric_bass_string_configuration": 0
         }
@@ -73,12 +73,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_clear",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 9.25,
-          "drumhead": 0.195,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,12 +113,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.28500000000000003,
-          "voice_ensemble_config": 2.145,
-          "voice_ornament_system": 0,
+          "voice_speech_song": 1.0350000000000001,
+          "voice_ensemble_config": 1.6899999999999997,
+          "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.24
+          "voice_processing_chain": 0.135,
+          "voice_multitrack_stack": 0.585
         }
       },
       {
@@ -132,7 +132,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "rompler_preset_bank": -0.035,
-          "rompler_context": 4.42,
+          "rompler_context": 4.9399999999999995,
           "rompler_lineage": 0
         }
       }

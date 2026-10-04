@@ -2,10 +2,10 @@
   "id": "australian_choir",
   "name": "Australian choir",
   "family": "classical",
-  "lineage": "Australian choral music includes chamber groups, larger choirs and community ensembles interpreting international repertoire and works by local composers. Concerts and recordings sustain varied approaches to ensemble singing.",
-  "recipe": "classic australian choir, art Music. group vocals, live take. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 162,
-  "score": 2.413,
+  "lineage": "Australian choir is represented here by Australian Chamber Choir / Douglas Lawrence — A Traveller and The Quacks, English Eccentrics extracts on Gold (2024). This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic mid-2020s australian choir, art Music, western modern branch. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 170,
+  "score": 1.03,
   "config": {
     "traditions": [
       "australian_choir"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.159,
+          "voice_ensemble_config": 0.447,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 1.159
+          "voice_processing_chain": 0.27299999999999996,
+          "voice_multitrack_stack": 0.3105
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Qanun music centers on the plucked zither across Arab, Turkish and other regional performance traditions. Improvisation, ensemble accompaniment and newly composed repertoire connect inherited modal practices with contemporary exploration.",
   "recipe": "classic qanun, art Music. kanun. live tracking.",
   "recipe_chars": 47,
-  "score": 0.131,
+  "score": 0.1,
   "config": {
     "traditions": [
       "qanun"
@@ -19,7 +19,7 @@
           "kanun_articulation": "kanun_synthetic_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 0.2815,
+          "plucked_traditional_technique": 0.25,
           "kanun_school": -0.15000000000000002,
           "kanun_articulation": 0
         }

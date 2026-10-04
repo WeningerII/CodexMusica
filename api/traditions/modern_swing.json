@@ -2,10 +2,10 @@
   "id": "modern_swing",
   "name": "Modern swing",
   "family": "jazz",
-  "lineage": "Modern swing renews swing-era and early-jazz repertoire through present-day bands, recordings and dance-oriented performance. New songs and arrangements sit alongside established material.",
-  "recipe": "classic modern swing, improv On Frame, early branch. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, yamaha xeno modern Japanese jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 498,
-  "score": 114.254,
+  "lineage": "Modern swing is represented here by The Schwings Band featuring Migloko — Jack I’m Mellow (2017). This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic late-2010s modern swing, improv On Frame, early branch. solo with instrumental accompaniment. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, yamaha xeno modern Japanese jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 524,
+  "score": 118.2,
   "config": {
     "traditions": [
       "modern_swing"
@@ -15,36 +15,36 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.063,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 5.0865,
-          "piano_rim": 5.223,
-          "piano_soundboard": 4.9815000000000005,
-          "piano_pinblock": 4.95,
-          "piano_plate": 4.95,
-          "piano_pitch_standard": 6.133624999999999
+          "keyboard_technique": 0.29275,
+          "grand_piano_size": 0.3045,
+          "grand_piano_brand": 0.366,
+          "piano_hammer": 6.004499999999999,
+          "piano_rim": 6.972999999999999,
+          "piano_soundboard": 6.07425,
+          "piano_pinblock": 6.04275,
+          "piano_plate": 6,
+          "piano_pitch_standard": 7.101375
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_upright",
+          "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0,
-          "upright_play": 8.75
+          "upright_strings": 6.999999999999999,
+          "upright_play": 6.999999999999999
         }
       },
       {
@@ -55,51 +55,51 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.879999999999999,
-          "drumhead": 13.75,
+          "drum_technique": 4.68,
+          "drumhead": 12.749999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "cornet",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_punchy_ensemble",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 0.19500000000000003,
-          "brass_size": 0,
-          "trumpet_mouthpiece": 11.375,
-          "brass_mute": 0.0315,
-          "trumpet_technique": 0.19500000000000003,
+          "wind_articulation": 0.5199999999999999,
+          "brass_size": 1.3,
+          "trumpet_mouthpiece": 9.099999999999998,
+          "brass_mute": 1.3,
+          "trumpet_technique": 0.5199999999999999,
           "trumpet_bell_metal": 0.47250000000000003,
-          "trumpet_maker_school": 2
+          "trumpet_maker_school": 2.3
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_bebop_runs",
           "sax_size": "soprano_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "nickel_silver_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "ebonite_vintage",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.19500000000000003,
-          "sax_size": 0,
+          "wind_articulation": -0.05,
+          "sax_size": 0.3,
           "sax_reed": 0,
-          "sax_body_alloy": 13.75,
-          "sax_mouthpiece": 0.15525,
-          "sax_technique": 8.75,
-          "sax_maker_school": 11.309999999999999
+          "sax_body_alloy": 12.749999999999998,
+          "sax_mouthpiece": 1.3315000000000001,
+          "sax_technique": 6.999999999999999,
+          "sax_maker_school": 9.034999999999998
         }
       },
       {
@@ -134,36 +134,23 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3275000000000001,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.042749999999999996,
           "voice_multitrack_stack": 0.35774999999999996
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "keyboard_technique"
       ],
       "upright_bass": [
-        "upright_strings",
         "upright_play"
       ],
       "drum_kit": [
         "drum_technique"
-      ],
-      "trumpet": [
-        "brass_size",
-        "brass_mute"
       ],
       "saxophone": [
         "sax_size"
@@ -225,18 +212,7 @@
       "sax_size": "soprano_sax",
       "upright_play": "pizz_upright",
       "keyboard_technique": "keyboard_jazz_comping",
-      "drum_technique": "brushes_and_sticks",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "upright_strings": "gut_upright",
-      "brass_size": "trumpet_b_flat",
-      "brass_mute": "no_mute_brass"
+      "drum_technique": "brushes_and_sticks"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

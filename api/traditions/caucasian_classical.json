@@ -2,10 +2,10 @@
   "id": "caucasian_classical",
   "name": "Caucasian classical",
   "family": "classical",
-  "lineage": "Classical music from the Caucasus connects composers and performers with regional musical cultures and international concert traditions. Armenian, Georgian and other local histories contribute distinct repertoires rather than one uniform style.",
-  "recipe": "classic caucasian classical, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 214,
-  "score": 46.882,
+  "lineage": "Caucasian classical is represented by Aram Khachaturian / Kariné Poghosyan — Original Piano Works and Transcriptions. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic caucasian classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 254,
+  "score": 87.325,
   "config": {
     "traditions": [
       "caucasian_classical"
@@ -16,38 +16,30 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.5,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0,
-          "piano_hammer": 7.45,
-          "piano_rim": 8.867,
-          "piano_soundboard": 7.45,
-          "piano_pinblock": 7.45,
-          "piano_plate": 7.45,
-          "piano_pitch_standard": 0.325
+          "keyboard_technique": 8.25,
+          "grand_piano_size": 0.441,
+          "grand_piano_brand": 0.9555,
+          "piano_hammer": 14.485499999999998,
+          "piano_rim": 12.3045,
+          "piano_soundboard": 12,
+          "piano_pinblock": 12.408,
+          "piano_plate": 14.207999999999998,
+          "piano_pitch_standard": 12.273
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -69,15 +61,7 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "keyboard_technique": "keyboard_classical_legato",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "keyboard_technique": "keyboard_classical_legato"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

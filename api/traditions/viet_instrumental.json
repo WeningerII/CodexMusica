@@ -5,7 +5,7 @@
   "lineage": "Viet instrumental connects Vietnamese instrumental repertoire across traditional instruments, modern interpreters and varied listening settings. The field includes zither, guitar, piano, saxophone and ensemble approaches rather than a single chamber tradition.",
   "recipe": "classic viet instrumental, improv On Frame. steel modern dan tranh. live tracking.",
   "recipe_chars": 82,
-  "score": 3.339,
+  "score": 3.343,
   "config": {
     "traditions": [
       "viet_instrumental"
@@ -21,8 +21,8 @@
           "dan_tranh_body_wood": "dan_tranh_paulownia"
         },
         "scores": {
-          "plucked_traditional_technique": 0.613,
-          "dan_tranh_use": 0.39,
+          "plucked_traditional_technique": 0.6445,
+          "dan_tranh_use": 0.363,
           "dan_tranh_strings": 1.168,
           "dan_tranh_string_material": 1.168,
           "dan_tranh_body_wood": 0

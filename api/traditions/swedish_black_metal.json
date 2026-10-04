@@ -5,7 +5,7 @@
   "lineage": "Swedish black metal developed through national extreme-metal scenes with forceful, atmospheric and melodic approaches.",
   "recipe": "classic swedish black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 409,
-  "score": 30.12,
+  "score": 30.434,
   "config": {
     "traditions": [
       "swedish_black_metal"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.3315,
+          "bridge": 0.39,
           "scale_length": 0,
-          "string_gauge": 0.105,
+          "string_gauge": 0.285,
           "finish": 0,
-          "string_tuning": 0.063
+          "string_tuning": 0.08549999999999999
         }
       },
       {
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1905,
-          "voice_multitrack_stack": 0.1485,
+          "voice_multitrack_stack": 0.20249999999999999,
           "voice_tessitura": 0
         }
       }

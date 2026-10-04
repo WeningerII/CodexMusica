@@ -5,7 +5,7 @@
   "lineage": "1980s-and-onward American-Jewish jazz-fusion style integrating klezmer modal-and-melodic vocabulary with jazz-improvisational practice. Don Byron's Plays the Music of Mickey Katz (1993) and the Klezmatics 1980s-onward recordings constitute the canonical type-specimens; the parallel Frank London-led ensembles and David Krakauer's solo work extended the genre. Distinguished from broader klezmer revival by jazz-fusion's explicit jazz-improvisation-and-harmonic emphasis.",
   "recipe": "classic North American mid-1980s klezmer-jazz fusion, improv On Frame, klezmer improv branch, Jewish ritual devotional hasidic niggun sephardi bakkashot. thick, breath veiled tone, straight onset, interlocked note trading. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, klezmer ensemble. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 809,
-  "score": 408.37,
+  "score": 410.325,
   "config": {
     "traditions": [
       "klezmer_jazz_fusion",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_gated_reverb",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 14.624999999999993,
           "voice_ornament_system": 8.9,
           "voice_pitch_organization": 7.51,
-          "voice_processing_chain": 6.499999999999999,
-          "voice_multitrack_stack": 7.679999999999999
+          "voice_processing_chain": 6.639999999999999,
+          "voice_multitrack_stack": 7.874999999999999
         }
       },
       {
@@ -99,19 +99,19 @@
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 2.875,
-          "grand_piano_size": 1.495,
+          "grand_piano_size": 1.54,
           "grand_piano_brand": 1.495,
           "piano_hammer": 4.415,
-          "piano_rim": 8.185,
+          "piano_rim": 8.379999999999999,
           "piano_soundboard": 6.922499999999999,
-          "piano_pinblock": 3.295,
-          "piano_plate": 3.4449999999999994,
+          "piano_pinblock": 3.685,
+          "piano_plate": 3.4899999999999993,
           "piano_pitch_standard": 4.225
         }
       },
@@ -134,7 +134,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 33.959999999999994,
+          "drum_technique": 34.904999999999994,
           "drumhead": 18.375,
           "drum_kit_kick_pedal": 0
         }

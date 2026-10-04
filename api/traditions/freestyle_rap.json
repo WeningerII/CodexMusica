@@ -3,9 +3,9 @@
   "name": "Freestyle Rap",
   "family": "hip_hop",
   "lineage": "Improvised rap practice formalized in New York park jams and radio cyphers from the late 1970s and canonized by the Stretch Armstrong and Bobbito show, Wake Up Show and Rap Olympics through the 1990s, in which MCs compose in real time over a looped 85-95 BPM break, trading eight- and sixteen-bar turns with audience-supplied words and immediate rhyme-scheme resolution.",
-  "recipe": "classic North American 1977-1979 freestyle rap, mc Rhythm, us hip hop branch, us hip hop east coast, stage performance spoken word boom bap bronx hip hop. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, vocal percussion ensemble layer bilabial ejective kick drum source vocal percussion voice, TR-808. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-  "recipe_chars": 589,
-  "score": 264.315,
+  "recipe": "classic North American 1977-1979 freestyle rap, mc Rhythm, us hip hop branch, us hip hop east coast, stage performance spoken word boom bap bronx hip hop. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, vocal percussion melody paired dissociated airflow bilabial ejective kick drum source vocal percussion voice, TR-808. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 608,
+  "score": 253.505,
   "config": {
     "traditions": [
       "freestyle_rap",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 5.515000000000001,
-          "voice_quality": 30.414999999999996,
+          "voice_quality": 29.764999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9825,
-          "voice_articulation": 19.24,
-          "voice_microtone": 17.094999999999995,
-          "voice_tradition": 10.084999999999999,
-          "voice_mechanism_compound": 3.9,
+          "voice_vibrato": 1.7875000000000003,
+          "voice_articulation": 16.9,
+          "voice_microtone": 15.404999999999994,
+          "voice_tradition": 9.934999999999999,
+          "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 3.5300000000000002,
-          "voice_speech_song": 29.4,
-          "voice_ensemble_config": 17.224999999999998,
+          "voice_speech_song": 28.75,
+          "voice_ensemble_config": 15.729999999999997,
           "voice_ornament_system": 4.420000000000002,
           "voice_pitch_organization": 1,
           "voice_processing_chain": 20.374999999999996,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 9.01,
-          "turntable_technique": 14.044999999999998
+          "turntable_technique": 13.395
         }
       },
       {
@@ -77,7 +77,7 @@
           "sampler_archetypes": 14.169999999999998,
           "sampler_bit_depth": 0.9750000000000001,
           "sampler_workflow": 9.444999999999999,
-          "sampler_classic_context": 30.257499999999997
+          "sampler_classic_context": 28.7625
         }
       },
       {
@@ -86,13 +86,13 @@
           "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
           "vocal_percussion_beatbox_articulation": "beatbox_kick_bilabial_ejective",
           "vocal_percussion_syllabic_drum_system": "syllabic_samba_vocable",
-          "vocal_percussion_context": "vocal_percussion_context_ensemble"
+          "vocal_percussion_context": "vocal_percussion_context_lead_melody_pair"
         },
         "scores": {
           "vocal_percussion_airstream_mechanism": 0.15,
           "vocal_percussion_beatbox_articulation": 1.3,
           "vocal_percussion_syllabic_drum_system": 0.78,
-          "vocal_percussion_context": 1.2349999999999999
+          "vocal_percussion_context": 1.235
         }
       },
       {
@@ -104,7 +104,7 @@
         },
         "scores": {
           "tr808_voice": 9.254999999999999,
-          "drum_machine_808_context": 2.145,
+          "drum_machine_808_context": 1.4949999999999999,
           "tr808_production_origin": -0.45499999999999996
         }
       }

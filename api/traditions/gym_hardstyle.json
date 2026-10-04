@@ -2,52 +2,28 @@
   "id": "gym_hardstyle",
   "name": "Gym hardstyle",
   "family": "electronic",
-  "lineage": "Gym hardstyle connects hard-dance production with online fitness and Zyzz-associated listening communities. Producers and curators such as Tevvez and Ru-Style draw on melodic hardstyle and harder dance crossovers, bringing festival energy into workout-oriented music circulation.",
-  "recipe": "classic gym hardstyle, electronic Dance, hardstyle branch. digital subtractive, TR-909. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 186,
-  "score": 6.497,
+  "lineage": "Ru-Style, ZYZZ WOULD LISTEN TO Episode1 (Gym Hardstyle Mix), complete artist-issued mixed programme published13February2025. The primary upload supplies a sequential tracklist starting with Tevvez Code and ending with The Viper and G-Town Madness, Come As One (Sefa Remix), which begins39:35; final duration is not asserted. One named mix creator, with all playback layers retained through the architecture-neutral DJ playback/mixing owner. This is a positively titled authored mix by an organizer-identified DJ, not invented playback of an opaque studio album. Embedded singers, source instruments and exact live-versus-edited workflow remain unspecified; they are not falsely counted as zero or modeled as extra live performers. Existing architecture-neutral DJ owner protects the whole recorded programme, without guessing decks, turntables, samplers, source synth models or live singer count. Treated studio and neutral clean digital capture are explicitly authored new-recording choices. Global tuning omitted. Generic street-pulsing affect is compatible with this rhythmic hard-dance playback branch, not a literal street location. Existing electronicDance.hardstyle parent follows direct hardstyle identity; no physiological workout-benefit claim.",
+  "recipe": "classic gym hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 189,
+  "score": 0,
   "config": {
     "traditions": [
       "gym_hardstyle"
     ],
     "instruments": [
       {
-        "id": "digital_subtractive",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "va_archetypes": 0.0945,
-          "digital_subtractive_context": 5.9799999999999995
-        }
-      },
-      {
-        "id": "drum_machine_909",
-        "slots": {
-          "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
-        },
-        "scores": {
-          "tr909_voice": -0.05,
-          "drum_machine_909_context": 0.5775,
-          "tr909_production_origin": -0.035
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "digital_subtractive": [
-        "electronic_technique",
-        "va_archetypes",
-        "digital_subtractive_context"
-      ],
-      "drum_machine_909": [
-        "tr909_voice",
-        "drum_machine_909_context",
-        "tr909_production_origin"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "treated_studio",
@@ -67,12 +43,7 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_lead_line",
-      "va_archetypes": "access_virus",
-      "digital_subtractive_context": "digital_subtractive_trance",
-      "tr909_voice": "tr909_kick",
-      "drum_machine_909_context": "drum_machine_909_hardcore",
-      "tr909_production_origin": "tr909_roland_osaka_canonical"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

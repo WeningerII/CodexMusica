@@ -2,10 +2,10 @@
   "id": "marathi_devotional",
   "name": "Marathi Devotional",
   "family": "vernacular",
-  "lineage": "Marathi devotional music carries Bhakti poetry and saint-song traditions through sung prayer and reflection, including abhang repertoire associated with figures such as Janabai.",
-  "recipe": "classic marathi devotional, ritual Devotional, hindu branch. solo with instrumental accompaniment. sustaining copper tabla, dotara. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 230,
-  "score": 3.974,
+  "lineage": "Shruthi Veena Vishwanath — Dev Khate, Dev Peete, live Madras session (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic mid-2020s marathi devotional, ritual Devotional, hindu branch. one note per syllable, solo with instrumental accompaniment. sustaining copper tabla, dotara. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 263,
+  "score": 4.289,
   "config": {
     "traditions": [
       "marathi_devotional"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 0.9239999999999999,
+          "voice_ensemble_config": 1.3860000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3045,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },

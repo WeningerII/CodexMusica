@@ -3,9 +3,9 @@
   "name": "Australian house",
   "family": "electronic",
   "lineage": "Australia’s house music scene connects local clubs, producers and touring DJ networks, including a prominent bass-driven Melbourne strand. Contemporary studio production joins programmed rhythms with synthesized hooks and edited vocals.",
-  "recipe": "classic modern australian house, electronic Dance, house branch, tech house house brazilian tech house latin tech house. sub bass wavetable synth, sampler drum machine, sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 371,
-  "score": 43.506,
+  "recipe": "classic modern australian house, electronic Dance, house branch, tech house house brazilian tech house latin tech house. low sub bass wavetable synth, sampler drum machine, sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 375,
+  "score": 45.953,
   "config": {
     "traditions": [
       "australian_house",
@@ -22,10 +22,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 3.185000000000001,
+          "electronic_technique": 3.7700000000000005,
           "wt_position": 0,
-          "wt_family": 0,
-          "wt_polyphony": 0.65
+          "wt_family": 0.15,
+          "wt_polyphony": 0
         }
       },
       {
@@ -37,8 +37,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
-          "sample_bitdepth": 0.09,
+          "electronic_technique": 0.52,
+          "sample_bitdepth": 0.195,
           "sample_swing": -0.05,
           "sample_processing": 0.195
         }
@@ -53,11 +53,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
+          "electronic_technique": 0.52,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.09,
+          "sampler_bit_depth": 0.195,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 40.01087499999999
+          "sampler_classic_context": 40.028375000000004
         }
       }
     ],

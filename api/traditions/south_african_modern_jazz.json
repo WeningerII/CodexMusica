@@ -5,7 +5,7 @@
   "lineage": "South African modern jazz develops through local musical histories, contemporary composition and improvisation. Piano traditions form an important strand alongside varied instrumental and vocal ensembles.",
   "recipe": "classic south african modern jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 248,
-  "score": 33.071,
+  "score": 33.209,
   "config": {
     "traditions": [
       "south_african_modern_jazz"
@@ -30,10 +30,10 @@
           "grand_piano_brand": 0.105,
           "piano_hammer": 5.5485,
           "piano_rim": 5.712,
-          "piano_soundboard": 4.986,
+          "piano_soundboard": 5.091,
           "piano_pinblock": 4.95,
           "piano_plate": 5.07,
-          "piano_pitch_standard": 6.4670000000000005
+          "piano_pitch_standard": 6.5
         }
       }
     ],

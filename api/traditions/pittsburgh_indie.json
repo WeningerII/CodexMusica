@@ -5,7 +5,7 @@
   "lineage": "Pittsburgh indie connects a varied local independent music community, from guitar bands and songwriters to electronic and sample-based projects. Artists such as Girl Talk demonstrate the field’s reach beyond one rock-band format.",
   "recipe": "classic pittsburgh indie, experimental Elec. sampler. treated studio.",
   "recipe_chars": 69,
-  "score": 4.087,
+  "score": 4.055,
   "config": {
     "traditions": [
       "pittsburgh_indie"
@@ -21,7 +21,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 0.2815,
+          "electronic_technique": 0.25,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": 0.2,

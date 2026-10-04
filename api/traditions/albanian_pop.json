@@ -5,7 +5,7 @@
   "lineage": "Selected late-2010s Albanian-language electronic commercial pop represented by Elvana Gjata and the producer-led Me tana release of 2019, circulating through Festivali i Kenges and digital singles. This compact dance-song branch coexists with Kosovo and diaspora pop scenes, ballads and acoustic repertoire; Albanian language or nationality alone does not define one sound.",
   "recipe": "classic 2017-2019 albanian pop, functional Song, europop branch, pop rock synthpop kazakh pop. pure, equal tempered, modern pop training, single source phonation. roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth, sampler drum machine, ampeg svt amp rock bass amp ernie ball slinky sub heavy electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter stereo widener / width control.",
   "recipe_chars": 568,
-  "score": 148.121,
+  "score": 148.361,
   "config": {
     "traditions": [
       "albanian_pop",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 0.39,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.585,
           "voice_articulation": 0.045,
           "voice_microtone": 33.20000000000001,
-          "voice_tradition": 36.754999999999995,
+          "voice_tradition": 36.64999999999999,
           "voice_mechanism_compound": 0.585,
           "voice_estill_quality": 2.7950000000000004,
           "voice_speech_song": 3.12,
@@ -100,7 +100,7 @@
           "pickup_config": 0.195,
           "string_type": 8.2875,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.15,
           "bass_technique": 1.9724999999999997,
           "electric_bass_string_configuration": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Chinese electronic music includes local and diaspora producers bringing electronic production into dialogue with varied Chinese musical experiences.",
   "recipe": "classic chinese electronic, experimental Elec. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 207,
-  "score": 13.218,
+  "score": 13.008,
   "config": {
     "traditions": [
       "chinese_electronic"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "sample_bitdepth": 0.21,
+          "sample_bitdepth": 0,
           "sample_swing": 10.75,
           "sample_processing": 0
         }

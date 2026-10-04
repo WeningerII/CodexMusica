@@ -5,7 +5,7 @@
   "lineage": "Tibetan-Buddhist praise-recitation tradition continuous from 8th-9th century Indo-Tibetan-Buddhist-foundation era through 11th-14th century Sarma-school monastery-formalization era into modern Tibetan-Buddhist-monastic and Tibetan-Buddhist-diaspora practice; thödröl (\"liberation through hearing\") and broader lama-praise repertoires constitute the praise-vocabulary",
   "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual throat singing tibetan ache lhamo opera. sygyt, declaimed, slow rate, interlocked note trading. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 369,
-  "score": 185.46,
+  "score": 187.02,
   "config": {
     "traditions": [
       "tibetan_thodrol_lama_praise",
@@ -35,15 +35,15 @@
         },
         "scores": {
           "voice_register": 12.345,
-          "voice_quality": 22.09999999999999,
+          "voice_quality": 22.054999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.597499999999999,
           "voice_articulation": 18.069999999999997,
           "voice_microtone": 19.369999999999997,
-          "voice_tradition": 19.375,
-          "voice_mechanism_compound": 13.265,
-          "voice_estill_quality": 10.415,
+          "voice_tradition": 20.155,
+          "voice_mechanism_compound": 13.46,
+          "voice_estill_quality": 11.044999999999998,
           "voice_speech_song": 22.879999999999995,
           "voice_ensemble_config": 19.239999999999995,
           "voice_ornament_system": 5.200000000000001,

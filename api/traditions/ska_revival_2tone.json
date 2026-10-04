@@ -3,9 +3,9 @@
   "name": "2-Tone ska revival",
   "family": "global",
   "lineage": "UK 1979-1981 multiracial ska revival movement centered on Coventry — codified through the 2 Tone Records label (founded 1979 by Jerry Dammers of The Specials) and its catalog: The Specials, The Selecter, Madness, The Beat, The Bodysnatchers, Bad Manners — translating original 1960s Jamaican ska into the post-punk era with explicit anti-racist political content and Two-Tone-checkerboard graphic identity",
-  "recipe": "classic Northern European 1979-1981 2-tone ska revival, bass System, reggae diaspora branch, punk distorted rock argentine punk arizona punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, bach stradivarius 180 canonical American orchestral large cup large rim orchestral bottom heavy trumpet, gold brass warmer tone split tone overblown saxophone, bach 42 canonical American orchestral tenor bass leaning trombone. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 937,
-  "score": 241.25,
+  "recipe": "classic Northern European 1979-1981 2-tone ska revival, bass System, reggae diaspora branch, punk distorted rock argentine punk arizona punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, bach stradivarius 180 canonical American orchestral large cup large rim orchestral bottom heavy trumpet, gold brass warmer tone split tone overblown saxophone, bach 42 canonical American orchestral tenor bass leaning trombone. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 947,
+  "score": 236.025,
   "config": {
     "traditions": [
       "ska_revival_2tone",
@@ -20,35 +20,35 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 7.790000000000003,
-          "voice_quality": 14.104999999999995,
+          "voice_register": 5.990000000000002,
+          "voice_quality": 13.194999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.935,
-          "voice_articulation": 4.42,
-          "voice_microtone": 6.500000000000002,
-          "voice_tradition": 1.1049999999999998,
-          "voice_mechanism_compound": 2.665000000000001,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 4.225,
-          "voice_ensemble_config": 13.08,
+          "voice_vibrato": 0.5700000000000001,
+          "voice_articulation": 3.9650000000000007,
+          "voice_microtone": 6.000000000000001,
+          "voice_tradition": 1.2999999999999998,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 3.9650000000000007,
+          "voice_ensemble_config": 13.479999999999999,
           "voice_ornament_system": 1.5,
-          "voice_pitch_organization": 3.7700000000000005,
-          "voice_processing_chain": 1.3,
+          "voice_pitch_organization": 3.7750000000000004,
+          "voice_processing_chain": 3.9950000000000006,
           "voice_multitrack_stack": 5.325000000000001
         }
       },
@@ -62,26 +62,26 @@
           "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "pure_nickel",
-          "string_gauge": "g_12",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 12.45,
-          "amp_make": 19.955,
+          "electric_technique": 12.7,
+          "amp_make": 20.019999999999996,
           "body_wood": 0.585,
           "neck_wood": 0.585,
           "fretboard": 0.39,
           "pickup_magnet": 0.09,
           "string_material": 0.345,
-          "string_gauge": 0.78,
+          "string_gauge": 1,
           "bridge": 0.39,
           "scale_length": 1.1700000000000002,
           "finish": 0.195,
-          "string_tuning": 4.095000000000001,
+          "string_tuning": 3.6399999999999997,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.785,
+          "amp_make": 5.525,
           "body_wood": 1.1700000000000002,
           "pickup_config": 0.39,
-          "string_type": 8.775000000000002,
+          "string_type": 8.125,
           "scale_length_b": 0.585,
           "fretted_or_not": 0.045,
-          "bass_technique": 19.295,
+          "bass_technique": 19.045,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.5,
+          "drum_technique": 12.75,
           "drumhead": 0.585,
           "drum_kit_kick_pedal": 0
         }
@@ -132,12 +132,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 0.26,
-          "drawbar_setting": 6.795000000000001,
-          "rotary_speed": 7.090000000000001,
-          "percussion_setting": 3.5100000000000002,
-          "tonewheel_model": 3.315000000000001,
-          "leslie_cabinet_model": 0.65
+          "keyboard_technique": -0.07,
+          "drawbar_setting": 6.295,
+          "rotary_speed": 6.59,
+          "percussion_setting": 3.25,
+          "tonewheel_model": 3.0550000000000006,
+          "leslie_cabinet_model": 0.9450000000000001
         }
       },
       {
@@ -155,7 +155,7 @@
           "wind_articulation": 9.745,
           "brass_size": 0.09,
           "trumpet_mouthpiece": 3.475,
-          "brass_mute": 0.39,
+          "brass_mute": 0.195,
           "trumpet_technique": 9.7,
           "trumpet_bell_metal": 0.9750000000000001,
           "trumpet_maker_school": 2.715
@@ -197,8 +197,8 @@
           "wind_articulation": 9.745,
           "trombone_type": 0,
           "trombone_mouthpiece": 2.2749999999999995,
-          "trombone_mute": 0.39,
-          "trombone_technique": 0.39,
+          "trombone_mute": 0.195,
+          "trombone_technique": 0.195,
           "trombone_bell_metal": 0.9750000000000001,
           "trombone_maker_school": 2.5349999999999997
         }

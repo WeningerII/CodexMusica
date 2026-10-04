@@ -2,112 +2,28 @@
   "id": "nederlandse_hardstyle",
   "name": "Nederlandse hardstyle",
   "family": "electronic",
-  "lineage": "Nederlandse hardstyle connects Dutch-language popular songs, carnival repertoire and communal celebration with hardstyle production. Remixers and event networks bring familiar vocal material into hard-dance contexts.",
-  "recipe": "classic nederlandse hardstyle, electronic Dance, hardstyle branch. digital subtractive, TR-909. live tracking.",
-  "recipe_chars": 110,
-  "score": 5.298,
+  "lineage": "Nederlandse Hardstyle — complete artist-issued WK2022 ORANJE HARDSTYLE MIX, published11November2022, eight consecutive selections00:00–22:00. The official artist channel explicitly created this promotional mix and credits the constituent artists. Preserve the entire22-minute programme, including remixed Dutch vocal songs; it is not a guessed playback substitute for an opaque studio single. Artist-brand membership in the exact creator corpus is independently positive. No event date or live audience inferred from World Cup branding. Embedded singer totals and separately performed live voice totals are unknown; no added live singer card means neither is asserted zero. Existing architecture-neutral DJ playback/mixing owner retains the documented complete mixing role and all embedded layers. No source decks, scratch technique, synthesizer, media format or per-track original instruments invented. Controlled live-room acoustics are an authored new listening/recording realization, not an event venue claim. No global tuning or source capture chain. ElectronicDance.hardstyle follows the explicit primary style, with neutral numeric axes and protected sole source-role part.",
+  "recipe": "classic nederlandse hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 113,
+  "score": 0,
   "config": {
     "traditions": [
       "nederlandse_hardstyle"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.063,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
-          "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "digital_subtractive",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_trance"
-        },
-        "scores": {
-          "electronic_technique": -0.07,
-          "va_archetypes": 0.231,
-          "digital_subtractive_context": 4.159999999999999
-        }
-      },
-      {
-        "id": "drum_machine_909",
-        "slots": {
-          "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
-        },
-        "scores": {
-          "tr909_voice": -0.05,
-          "drum_machine_909_context": 0.609,
-          "tr909_production_origin": -0.035
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "digital_subtractive": [
-        "electronic_technique",
-        "va_archetypes",
-        "digital_subtractive_context"
-      ],
-      "drum_machine_909": [
-        "tr909_voice",
-        "drum_machine_909_context",
-        "tr909_production_origin"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "live_room",
@@ -127,29 +43,7 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "electronic_technique": "electronic_lead_line",
-      "va_archetypes": "access_virus",
-      "digital_subtractive_context": "digital_subtractive_trance",
-      "tr909_voice": "tr909_kick",
-      "drum_machine_909_context": "drum_machine_909_hardcore",
-      "tr909_production_origin": "tr909_roland_osaka_canonical",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true
   }

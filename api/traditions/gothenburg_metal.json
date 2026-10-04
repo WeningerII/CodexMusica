@@ -5,7 +5,7 @@
   "lineage": "Gothenburg metal is closely associated with the city’s melodic-death-metal sound, including Dark Tranquillity.",
   "recipe": "classic modern gothenburg metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 550,
-  "score": 38.563,
+  "score": 38.657,
   "config": {
     "traditions": [
       "gothenburg_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.8714999999999999,
           "finish": 0,
-          "string_tuning": 0.714
+          "string_tuning": 0.7769999999999999
         }
       },
       {
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.063
         }
       },

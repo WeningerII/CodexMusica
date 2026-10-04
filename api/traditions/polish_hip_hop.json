@@ -2,10 +2,10 @@
   "id": "polish_hip_hop",
   "name": "Polish Hip Hop",
   "family": "hip_hop",
-  "lineage": "Polish hip-hop includes national MC, producer and DJ communities, with independent and mainstream branches. Artists such as Jakub Jan Bryndal connect rap with electronic production and live instrumental experimentation.",
-  "recipe": "classic polish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
-  "recipe_chars": 182,
-  "score": 45.575,
+  "lineage": "Jakub Jan Bryndal / EL AXO — announced trio, Downtown Gardens, Szczecin,11August2024. Source roles are documented; detailed performance/recording settings and axes are authored present-day choices. Neutral unspecified owners preserve missing architecture information. The single accompanied rhythmic lead is an authored realization of the rap credit. Vocal physiology, formal training, source pitch system, deck technology and sample origin are not inferred; optional global tuning is omitted.",
+  "recipe": "classic polish hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. credited samples credited drums credited electronics electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 18.122,
   "config": {
     "traditions": [
       "polish_hip_hop"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "rap_voice",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.105,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,28 +43,51 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.53,
-          "voice_ensemble_config": 4.0215,
+          "voice_speech_song": 14.818,
+          "voice_ensemble_config": 0.504,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 2.6,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "credited_samples_unspecified",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "credited_samples_identity": "credited_samples_source_unspecified"
         },
         "scores": {
-          "electronic_technique": 5.608,
-          "sample_bitdepth": 0.105,
-          "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "credited_samples_identity": 0
+        }
+      },
+      {
+        "id": "credited_drums_unspecified",
+        "slots": {
+          "credited_drums_unspecified_identity": "credited_drums_unspecified_source"
+        },
+        "scores": {
+          "credited_drums_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "credited_electronics_unspecified",
+        "slots": {
+          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+        },
+        "scores": {
+          "credited_electronics_identity": 0
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0.1995
         }
       }
     ],
@@ -88,32 +111,39 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "sampler_drum_machine": [
-        "electronic_technique",
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "credited_samples_unspecified": [
+        "credited_samples_identity"
+      ],
+      "credited_drums_unspecified": [
+        "credited_drums_unspecified_identity"
+      ],
+      "credited_electronics_unspecified": [
+        "credited_electronics_identity"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "rap_voice",
+      "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -129,11 +159,18 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_sample_chopped",
-      "sample_bitdepth": "sixteen_bit",
-      "sample_swing": "mid_swing",
-      "sample_processing": "one_shots_layered"
+      "credited_samples_identity": "credited_samples_source_unspecified",
+      "credited_drums_unspecified_identity": "credited_drums_unspecified_source",
+      "credited_electronics_identity": "credited_electronics_generator_unspecified",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

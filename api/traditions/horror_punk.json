@@ -5,7 +5,7 @@
   "lineage": "Invented by the Misfits in Lodi, New Jersey between 1977 and 1983 and continued by Samhain, Blitzkid and the Italian scene of the 2000s — 1950s doo-wop and Buddy Holly turnarounds with 'whoa-oh' backing vocals played at 160-200 BPM punk tempo under B-movie and gore lyrics, topped by a baritone crooned-then-barked lead vocal doused in tape slapback.",
   "recipe": "classic North American mid-2000s horror punk, distorted Rock, punk branch, gothic rock distorted rock, soul R&B doowop deathrock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 611,
-  "score": 327.832,
+  "score": 328.027,
   "config": {
     "traditions": [
       "horror_punk",
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.8349999999999997,
           "voice_articulation": 20.279999999999998,
           "voice_microtone": 22.97,
-          "voice_tradition": 4.030000000000001,
+          "voice_tradition": 4.225,
           "voice_mechanism_compound": 6.955000000000001,
           "voice_estill_quality": 3.5100000000000002,
           "voice_speech_song": 21.449999999999996,
@@ -62,7 +62,7 @@
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
+          "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
@@ -77,7 +77,7 @@
           "fretboard": 0.78,
           "pickup_magnet": 1.4949999999999999,
           "pickup_winding": 0.195,
-          "string_material": 0.15,
+          "string_material": 0.195,
           "bridge": 0.845,
           "scale_length": 0.845,
           "string_gauge": 1.4299999999999997,
@@ -103,7 +103,7 @@
           "pickup_config": 0.3,
           "string_type": 26.8125,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0.24,
+          "fretted_or_not": 0.195,
           "bass_technique": 37.894999999999996,
           "electric_bass_string_configuration": 0
         }

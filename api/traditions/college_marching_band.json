@@ -2,10 +2,10 @@
   "id": "college_marching_band",
   "name": "College Marching Band",
   "family": "vernacular",
-  "lineage": "College marching bands combine university music-making with movement, sporting events and public ceremony. Institutional traditions shape ensemble sound, repertoire and the relationship between musical precision and coordinated display.",
-  "recipe": "classic college marching band, groove Percussion, American marching branch. collegiate brass percussion ensemble. field recording.",
-  "recipe_chars": 130,
-  "score": 8.58,
+  "lineage": "Ohio State University Marching Band — full published instrumental roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic college marching band, groove Percussion, American marching branch. collegiate brass percussion ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 7.67,
   "config": {
     "traditions": [
       "college_marching_band"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "collegiate_brass_percussion_roster": 2.73,
-          "collegiate_brass_percussion_context": 5.85
+          "collegiate_brass_percussion_context": 4.9399999999999995
         }
       }
     ],
@@ -29,15 +29,15 @@
         "collegiate_brass_percussion_context"
       ]
     },
-    "room": "field_recording",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -46,11 +46,17 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "field_recording",
+    "room": "treated_studio",
     "parts": {
       "collegiate_brass_percussion_roster": "collegiate_ohio_full_roster",
       "collegiate_brass_percussion_context": "collegiate_full_roster_realization"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

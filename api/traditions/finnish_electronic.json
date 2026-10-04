@@ -2,10 +2,10 @@
   "id": "finnish_electronic",
   "name": "Finnish electronic",
   "family": "electronic",
-  "lineage": "Finnish electronic music includes independent production across dance rhythms, bass music, sample-based composition and more exploratory listening styles.",
-  "recipe": "classic finnish electronic, bass System, bass descendants branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 154,
-  "score": 3.98,
+  "lineage": "Finnish electronic is represented here by Fanu / FatGyver — Adventures In Imperfection instrumental sampling branch. This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic finnish electronic, experimental Elec, lofi branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 148,
+  "score": 3.242,
   "config": {
     "traditions": [
       "finnish_electronic"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "electronic_technique": 0.5199999999999999,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": 0.45499999999999996,
-          "sampler_classic_context": 3.055
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.16799999999999998,
+          "sampler_workflow": 0.4445,
+          "sampler_classic_context": 2.145
         }
       }
     ],

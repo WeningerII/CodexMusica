@@ -5,7 +5,7 @@
   "lineage": "Welsh metal is represented here by Goat Major. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic welsh metal, distorted Rock, doom branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 359,
-  "score": 55.872,
+  "score": 55.76,
   "config": {
     "traditions": [
       "welsh_metal"
@@ -29,8 +29,8 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.512,
-          "amp_make": 6.045,
+          "electric_technique": 13.5435,
+          "amp_make": 5.994000000000001,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.36750000000000005,
           "fretboard": 0.2625,
@@ -52,17 +52,17 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.045,
+          "amp_make": 5.994000000000001,
           "body_wood": 0.7665,
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.5565,
-          "fretted_or_not": 0.105,
+          "fretted_or_not": 0.063,
           "bass_technique": 3.8365,
           "electric_bass_string_configuration": 0
         }

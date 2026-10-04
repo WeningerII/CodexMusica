@@ -3,14 +3,14 @@
   "name": "Chamber Music",
   "family": "classical",
   "lineage": "Western art-music practice of one player per part for small rooms, standardized between Haydn's Op. 33 quartets (1781) and the Beethoven-Schubert generation and extended by Brahms, Debussy, Bartók and Shostakovich — string quartet, piano trio, quintet and wind serenade formats, fully notated sonata-cycle movements, tempi from grave adagio to presto finales, motivic dialogue traded between equal parts, and a dynamic and articulation vocabulary calibrated to a salon or shoebox hall rather than an orchestra pit.",
-  "recipe": "classic British early-1780s chamber music, art Music, western common practice branch, western modern art music, western early art music, string drone modal austrian contemporary classical brazilian contemporary classical. sustained legato string quartet inst, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, carpathian spruce eastern European source European maple general oil varnish amber tinted viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello, 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano, composite resin blackwood dust legato clarinet, steel carpathian spruce European maple sycamore maple oil varnish double bass, brass legato french horn. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 832,
-  "score": 513.981,
+  "recipe": "classic British early-1780s chamber music, art Music, western common practice branch, western modern art music, western early art music, string drone modal austrian contemporary classical brazilian classical. sustained legato string quartet inst, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, carpathian spruce eastern European source European maple general oil varnish amber tinted viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, composite resin blackwood dust legato clarinet, steel carpathian spruce European maple sycamore maple oil varnish double bass, brass legato french horn. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 810,
+  "score": 513.234,
   "config": {
     "traditions": [
       "chamber_music",
       "austrian_contemporary_classical",
-      "brazilian_contemporary_classical"
+      "brazilian_classical"
     ],
     "instruments": [
       {
@@ -22,8 +22,8 @@
         },
         "scores": {
           "bowed_technique": 7.65,
-          "quartet_school": 1.3,
-          "string_quartet_inst_era": 2.6
+          "quartet_school": 1.4949999999999999,
+          "string_quartet_inst_era": 2.145
         }
       },
       {
@@ -41,16 +41,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.625,
+          "bowed_technique": 8.25,
           "orch_strings": 1.24,
           "orch_top_wood": 9.405000000000001,
-          "orch_back_wood": 13.758750000000001,
+          "orch_back_wood": 13.6725,
           "orch_varnish": 13,
-          "orch_setup_period": 13.74375,
-          "orch_bow": 0.89375,
-          "orch_bow_stick": 15.036249999999999,
+          "orch_setup_period": 13.7625,
+          "orch_bow": 0.69875,
+          "orch_bow_stick": 15.21125,
           "orch_articulation": 0.9099999999999999,
-          "orch_rosin": 13.776250000000001
+          "orch_rosin": 13.795
         }
       },
       {
@@ -67,15 +67,15 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 8.625,
-          "viola_size": 2.32375,
+          "bowed_technique": 8.25,
+          "viola_size": 2.17375,
           "viola_strings": 0.9100000000000003,
           "viola_top_wood": 7.89,
           "viola_back_wood": 13.39,
           "viola_varnish": 13,
-          "viola_setup_period": 13.74375,
-          "viola_bow_stick": 15.036249999999999,
-          "viola_rosin": 13.58125
+          "viola_setup_period": 13.7625,
+          "viola_bow_stick": 15.21125,
+          "viola_rosin": 13.6
         }
       },
       {
@@ -92,40 +92,40 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 8.625,
+          "bowed_technique": 8.25,
           "cello_strings": 1.8200000000000005,
           "cello_top_wood": 7.89,
           "cello_back_wood": 13.39,
           "cello_varnish": 13,
-          "cello_setup_period": 13.74375,
+          "cello_setup_period": 13.7625,
           "cello_bow_grip": 3.9,
           "cello_rosin": 13.24375,
-          "cello_bow_stick": 15.036249999999999
+          "cello_bow_stick": 15.21125
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_5_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.8,
-          "grand_piano_size": 1.4949999999999999,
+          "grand_piano_size": 1.3,
           "grand_piano_brand": 1.3,
-          "piano_hammer": 15.671249999999999,
-          "piano_rim": 14.49875,
+          "piano_hammer": 15.84625,
+          "piano_rim": 14.34875,
           "piano_soundboard": 14,
-          "piano_pinblock": 13.1625,
-          "piano_plate": 13.881250000000001,
-          "piano_pitch_standard": 17.45875
+          "piano_pinblock": 13.198750000000002,
+          "piano_plate": 13.9,
+          "piano_pitch_standard": 18.8325
         }
       },
       {
@@ -138,7 +138,7 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 8.736249999999998,
+          "wind_articulation": 8.655,
           "clarinet_body": 13,
           "clarinet_size": 3.9,
           "clarinet_reed": 1.24,
@@ -160,16 +160,16 @@
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": 8.625,
+          "bowed_technique": 8.25,
           "bass_size": 0.21124999999999997,
           "bass_strings": 2.21,
           "bass_top_wood": 7.89,
           "bass_back_wood": 13.39,
           "bass_varnish": 13,
-          "bass_setup_period": 13.74375,
-          "bass_play": 4.485,
+          "bass_setup_period": 13.7625,
+          "bass_play": 4.29,
           "bass_rosin": 13.1625,
-          "bass_bow_stick": 15.036249999999999
+          "bass_bow_stick": 15.21125
         }
       },
       {
@@ -180,8 +180,8 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 8.736249999999998,
-          "french_horn_bore": 0.585,
+          "wind_articulation": 8.655,
+          "french_horn_bore": 0.39,
           "french_horn_metal": 1.24
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Muzika l’yeladim encompasses Hebrew and Israeli children’s musical repertoire, including educational songs, festival material, lullabies and concert arrangements. Songs circulate between family, school, broadcast and performance settings.",
   "recipe": "classic muzika l’yeladim, art Music. flute. shoebox concert hall.",
   "recipe_chars": 65,
-  "score": 1.531,
+  "score": 0.844,
   "config": {
     "traditions": [
       "muzika_lyeladim"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.2415,
+          "voice_processing_chain": 0.24149999999999996,
+          "voice_multitrack_stack": 0.23099999999999998,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": -0.035,
+          "wind_articulation": -0.05,
           "flute_size": 0,
-          "flute_material": 0.0315,
-          "flute_technique": 0.22049999999999997,
-          "flute_maker_school": 0.588
+          "flute_material": 0,
+          "flute_technique": 0,
+          "flute_maker_school": 0.0315
         }
       }
     ],

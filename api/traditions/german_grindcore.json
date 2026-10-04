@@ -5,7 +5,7 @@
   "lineage": "German grindcore joins the country’s punk and extreme-metal networks, with grindpunk bands such as Japanische Kampfhörspiele drawing on both traditions.",
   "recipe": "classic german grindcore, distorted Rock, metal branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood ernie ball slinky electric bass, kevlar aramid extreme tension drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 399,
-  "score": 34.018,
+  "score": 34.112,
   "config": {
     "traditions": [
       "german_grindcore"
@@ -62,8 +62,8 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.609,
-          "fretted_or_not": 0.231,
-          "bass_technique": 7.0945,
+          "fretted_or_not": 0.2625,
+          "bass_technique": 7.126,
           "electric_bass_string_configuration": 0
         }
       },
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.0945,
           "voice_multitrack_stack": 0.273
         }
       }

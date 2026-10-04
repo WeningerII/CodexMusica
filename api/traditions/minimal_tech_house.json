@@ -5,7 +5,7 @@
   "lineage": "Minimalist tech-house subgenre codified through Romanian producers (Rhadoo, Petre Inspirescu, Raresh) and the !K7 / Sunday Music label ecosystem — characterized by restrained production palette, long-form 8-12-minute tracks, glitchy-percussion accents, and deep-listening dancefloor aesthetic",
   "recipe": "classic modern minimal tech-house, electronic Dance, tech house branch, idm glitch experimental electric icelandic electronic italian electronica. digital subtractive, TR-909, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 348,
-  "score": 69.425,
+  "score": 67.285,
   "config": {
     "traditions": [
       "minimal_tech_house",
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.19500000000000003,
           "va_archetypes": 0,
-          "digital_subtractive_context": 6.369999999999999
+          "digital_subtractive_context": 5.265
         }
       },
       {
@@ -43,17 +43,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 12.445,
-          "sampler_archetypes": 0.7050000000000001,
+          "electronic_technique": 11.195,
+          "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.21,
-          "sampler_workflow": 12.25,
-          "sampler_classic_context": 23.725
+          "sampler_workflow": 11,
+          "sampler_classic_context": 23.269999999999996
         }
       }
     ],

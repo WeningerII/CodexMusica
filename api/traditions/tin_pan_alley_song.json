@@ -3,14 +3,14 @@
   "name": "Tin Pan Alley song",
   "family": "global",
   "lineage": "American pre-rock popular songwriting tradition centered on the West 28th Street and later Brill Building songwriter-publisher infrastructure (c. 1885-1965) — covering George M. Cohan, Irving Berlin (Alexander s Ragtime Band 1911, the Tin Pan Alley breakthrough), Cole Porter, the Gershwins, Rodgers and Hart (later Rodgers and Hammerstein), Harold Arlen, Hoagy Carmichael, and the post-WWII Brill Building era (Goffin and King, Mann and Weil, Sedaka, Bacharach and David, Leiber and Stoller); foundational repertoire for the 32-bar AABA song form that defined American popular music for half a century",
-  "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early british dance band czech swing. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 590,
-  "score": 170.287,
+  "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early british dance band swing italiano. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 559,
+  "score": 160.532,
   "config": {
     "traditions": [
       "tin_pan_alley_song",
       "british_dance_band",
-      "czech_swing"
+      "swing_italiano"
     ],
     "instruments": [
       {
@@ -25,56 +25,56 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_sob",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 15.214999999999996,
-          "voice_quality": 9.815000000000001,
+          "voice_register": 13.964999999999996,
+          "voice_quality": 9.165000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.405,
-          "voice_articulation": 19.240000000000002,
-          "voice_microtone": 20.345,
-          "voice_tradition": 14.7875,
-          "voice_mechanism_compound": 0.845,
-          "voice_estill_quality": 0.9099999999999999,
-          "voice_speech_song": 24.245000000000005,
-          "voice_ensemble_config": 19.565,
-          "voice_ornament_system": 0.6499999999999998,
-          "voice_pitch_organization": 3.315000000000001,
-          "voice_processing_chain": 3.7700000000000005,
+          "voice_vibrato": 10.155,
+          "voice_articulation": 17.745,
+          "voice_microtone": 18.849999999999998,
+          "voice_tradition": 13.1625,
+          "voice_mechanism_compound": 1.4949999999999999,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 22.75,
+          "voice_ensemble_config": 18.07,
+          "voice_ornament_system": 0.52,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 3.1200000000000006,
           "voice_multitrack_stack": 0.845
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
+          "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": 0.09999999999999999,
           "grand_piano_size": 0.195,
-          "grand_piano_brand": 1.4300000000000002,
-          "piano_hammer": 6.4350000000000005,
+          "grand_piano_brand": 1.2349999999999999,
+          "piano_hammer": 6.630000000000001,
           "piano_rim": 8.125,
           "piano_soundboard": 1.625,
-          "piano_pinblock": -0.035,
+          "piano_pinblock": 0.04999999999999999,
           "piano_plate": 0.12999999999999998,
-          "piano_pitch_standard": 2.925
+          "piano_pitch_standard": 3.38
         }
       },
       {
@@ -86,9 +86,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 3.1849999999999996,
-          "choir_polyphonic_configuration": 1.04,
-          "choir_regional_canonical_configuration": 2.925,
+          "choir_size": 3.6399999999999997,
+          "choir_polyphonic_configuration": 0.845,
+          "choir_regional_canonical_configuration": 3.38,
           "choir_ensemble_repertoire": 2.915
         }
       }

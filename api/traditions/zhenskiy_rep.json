@@ -3,9 +3,9 @@
   "name": "Zhenskiy Rep",
   "family": "hip_hop",
   "lineage": "Zhenskiy rep brings women’s voices into Russian-language rap and adjacent regional hip-hop communities. Artists such as AIGEL connect rhythmic poetry with electronic production, while individual repertoires may cross languages and incorporate singing.",
-  "recipe": "classic zhenskiy rep, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. live tracking.",
-  "recipe_chars": 143,
-  "score": 22.742,
+  "recipe": "classic zhenskiy rep, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. live tracking.",
+  "recipe_chars": 181,
+  "score": 22.878,
   "config": {
     "traditions": [
       "zhenskiy_rep"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.33599999999999997,
+          "voice_multitrack_stack": 0.504,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.513,
+          "electronic_technique": 1.4815,
           "sample_bitdepth": 0.126,
           "sample_swing": 2.6,
           "sample_processing": 0

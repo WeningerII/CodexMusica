@@ -3,9 +3,9 @@
   "name": "Indonesian deathcore",
   "family": "rock_punk",
   "lineage": "Indonesian deathcore combines death-metal intensity with breakdown-centered heavy music. Bandung’s Revenge The Fate represents a melodic and symphonic strand.",
-  "recipe": "classic modern indonesian deathcore, distorted Rock, death branch, punk distorted rock, symphonic metal christian symphonic metal deep symphonic black metal. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 576,
-  "score": 84.515,
+  "recipe": "classic modern indonesian deathcore, distorted Rock, death branch, punk distorted rock, symphonic metal christian symphonic metal deep symphonic black metal. duet, live take. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 593,
+  "score": 93.71,
   "config": {
     "traditions": [
       "indonesian_deathcore",
@@ -31,9 +31,9 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 17.35,
-          "amp_make": 7.605,
-          "body_wood": 8.19,
+          "electric_technique": 19.725,
+          "amp_make": 8.84,
+          "body_wood": 9.425,
           "neck_wood": 0.09,
           "fretboard": 0.78,
           "pickup_magnet": 0,
@@ -43,7 +43,7 @@
           "scale_length": 0,
           "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 8.19
+          "string_tuning": 9.425
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "amp_make": 6.4350000000000005,
-          "body_wood": 8.19,
+          "body_wood": 9.425,
           "pickup_config": 0.39,
           "string_type": 14.3,
           "scale_length_b": 0.39,
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.78,
+          "drum_technique": 0.585,
           "drumhead": 0.78,
           "drum_kit_kick_pedal": 0
         }
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 0.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3
+          "voice_multitrack_stack": 0.6
         }
       }
     ],

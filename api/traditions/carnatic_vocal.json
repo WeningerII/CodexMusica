@@ -3,9 +3,9 @@
   "name": "Carnatic vocal",
   "family": "classical",
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
-  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri hindustani vocal. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, silvery treble-extended suited to female vocal tanpura, ghatam, extended concert stage thavil, jackwood frame canonical carnatic kanjira, concert forged steel sarvalaghu morsing, sruti anchor tonic drone bright brass reed resonant teak shruti box. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 764,
-  "score": 413.593,
+  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri hindustani vocal. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, silvery treble-extended suited to female vocal tanpura, ghatam, extended concert stage thavil, jackwood frame canonical carnatic kanjira, concert forged steel morsing, sruti anchor tonic drone bright brass reed resonant teak shruti box. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 753,
+  "score": 411.793,
   "config": {
     "traditions": [
       "carnatic_vocal",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.039999999999999,
+          "voice_register": 4.844999999999999,
           "voice_quality": 14.169999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.529999999999998,
+          "voice_vibrato": 19.439999999999998,
           "voice_articulation": 11.634999999999994,
           "voice_microtone": 12.34999999999999,
-          "voice_tradition": 39.39500000000001,
-          "voice_mechanism_compound": 16.084999999999997,
+          "voice_tradition": 39.245000000000005,
+          "voice_mechanism_compound": 16.235,
           "voice_estill_quality": 16.694499999999998,
           "voice_speech_song": 16.429999999999996,
           "voice_ensemble_config": 11.959999999999994,
-          "voice_ornament_system": 25.263999999999996,
-          "voice_pitch_organization": 25.608999999999998,
-          "voice_processing_chain": 4.9399999999999995,
-          "voice_multitrack_stack": 6.0299999999999985
+          "voice_ornament_system": 25.113999999999997,
+          "voice_pitch_organization": 25.459,
+          "voice_processing_chain": 4.744999999999999,
+          "voice_multitrack_stack": 5.639999999999999
         }
       },
       {
@@ -79,7 +79,7 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 15.945,
+          "bowed_technique": 15.795,
           "violin_carnatic_tuning": 23.464999999999996,
           "violin_carnatic_posture": 6.37,
           "violin_carnatic_strings": 9.165000000000003,
@@ -97,8 +97,8 @@
           "tanpura_body_wood": "tanpura_gourd_body"
         },
         "scores": {
-          "plucked_traditional_technique": 15.945,
-          "tanpura_size": 6.339499999999999,
+          "plucked_traditional_technique": 15.795,
+          "tanpura_size": 6.144499999999999,
           "tanpura_jawari": 15.75,
           "tanpura_strings": 4.159999999999999,
           "tanpura_string_material": 0.585,
@@ -150,12 +150,12 @@
         "id": "morsing",
         "slots": {
           "morsing_form": "morsing_carnatic",
-          "morsing_technique": "morsing_laya_accompaniment",
+          "morsing_technique": "morsing_thani_solo",
           "morsing_material": "morsing_steel"
         },
         "scores": {
           "morsing_form": 15.314499999999999,
-          "morsing_technique": 5.185,
+          "morsing_technique": 5.049999999999999,
           "morsing_material": 4.75
         }
       },

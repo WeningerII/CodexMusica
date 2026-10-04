@@ -5,7 +5,7 @@
   "lineage": "Turkish death metal develops within the country’s extreme-metal recording and concert networks.",
   "recipe": "classic turkish death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 409,
-  "score": 41.899,
+  "score": 41.467,
   "config": {
     "traditions": [
       "turkish_death_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.683,
+          "electric_technique": 11.737,
           "amp_make": 5.655000000000001,
           "body_wood": 5.85,
           "neck_wood": 0.3045,
-          "fretboard": 0.49349999999999994,
+          "fretboard": 0.26249999999999996,
           "pickup_magnet": 0,
           "pickup_winding": 0.273,
           "string_material": 0.3045,
-          "bridge": 0.6405,
+          "bridge": 0.57,
           "scale_length": 0,
-          "string_gauge": 0.147,
+          "string_gauge": 0.3075,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.1485
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 5.85,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.63,
+          "scale_length_b": 0.399,
           "fretted_or_not": 0.0315,
-          "bass_technique": 3.8575000000000004,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,7 +113,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0875,
+          "voice_ensemble_config": 0.9509999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

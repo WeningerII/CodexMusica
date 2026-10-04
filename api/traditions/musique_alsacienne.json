@@ -5,7 +5,7 @@
   "lineage": "Musique alsacienne connects Alsace’s regional dances, dialect songs and ensemble traditions. Musicians and arrangers transmit repertoire shaped by French and German musical exchange, including polkas, marches and Rhinländer.",
   "recipe": "classic musique alsacienne, art Music. accordion. live tracking.",
   "recipe_chars": 64,
-  "score": 0.878,
+  "score": 0.773,
   "config": {
     "traditions": [
       "musique_alsacienne"
@@ -24,11 +24,11 @@
         },
         "scores": {
           "free_reed_technique": 0.49999999999999994,
-          "accordion_reed_material": 0.0315,
-          "musette_offset": 0.105,
-          "reed_config": 0,
+          "accordion_reed_material": 0,
+          "musette_offset": 0.0315,
+          "reed_config": 0.0315,
           "bellows": 0.1365,
-          "voicing_chamber": 0.105,
+          "voicing_chamber": 0.0735,
           "accordion_maker_school": 0
         }
       }

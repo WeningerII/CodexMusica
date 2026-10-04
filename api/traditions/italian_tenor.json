@@ -5,7 +5,7 @@
   "lineage": "Italian tenor singing — operatic, concert and recital traditions.",
   "recipe": "classic italian tenor, art Music. bel canto, one note per syllable, solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 284,
-  "score": 30.589,
+  "score": 31.66,
   "config": {
     "traditions": [
       "italian_tenor"
@@ -40,15 +40,15 @@
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
-          "voice_tradition": 10.631499999999997,
+          "voice_tradition": 10.599999999999998,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.6255000000000002,
-          "voice_ensemble_config": 1.0815000000000001,
+          "voice_speech_song": 1.552,
+          "voice_ensemble_config": 1.0290000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.21,
+          "voice_processing_chain": 0.24149999999999996,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5,
+          "keyboard_technique": 2.5315,
           "grand_piano_size": 1.0315,
-          "grand_piano_brand": 1.105,
-          "piano_hammer": 2.45,
-          "piano_rim": 2.5445,
-          "piano_soundboard": 2.45,
-          "piano_pinblock": 2.45,
+          "grand_piano_brand": 1.063,
+          "piano_hammer": 2.6180000000000003,
+          "piano_rim": 2.744,
+          "piano_soundboard": 2.555,
+          "piano_pinblock": 3.185,
           "piano_plate": 2.45,
           "piano_pitch_standard": -0.035
         }

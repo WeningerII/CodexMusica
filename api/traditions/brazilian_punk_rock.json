@@ -3,9 +3,9 @@
   "name": "Brazilian punk rock",
   "family": "rock_punk",
   "lineage": "Brazilian punk rock emphasizes guitar-band songcraft, direct vocals and energetic rhythmic movement.",
-  "recipe": "classic brazilian punk rock, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 358,
-  "score": 53.757,
+  "recipe": "classic brazilian punk rock, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 396,
+  "score": 54.171,
   "config": {
     "traditions": [
       "brazilian_punk_rock"
@@ -39,9 +39,9 @@
           "string_material": 0.063,
           "bridge": 0.39,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.18,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.054
         }
       },
       {
@@ -113,7 +113,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.465,
+          "voice_ensemble_config": 0.645,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

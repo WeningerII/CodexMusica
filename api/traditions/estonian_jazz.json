@@ -2,10 +2,10 @@
   "id": "estonian_jazz",
   "name": "Estonian jazz",
   "family": "jazz",
-  "lineage": "Estonian jazz links local musicians and composers with international improvising networks. Contemporary approaches bring carefully shaped compositions into contact with open interaction, acoustic detail and amplified instrumental colour.",
-  "recipe": "classic modern estonian jazz, improv On Frame, American jazz branch. grand piano, semi hollow, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 308,
-  "score": 34.24,
+  "lineage": "Estonia-connected jazz, represented by Kristjan Randalu’s Absence trio with electric guitarist Ben Monder and drummer Markku Ounaskari. This bassless ensemble opens carefully structured piano compositions to improvised color and interplay.",
+  "recipe": "classic modern estonian jazz, improv On Frame, bop branch. grand piano, semi hollow, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 298,
+  "score": 35.526,
   "config": {
     "traditions": [
       "estonian_jazz"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0735,
-          "grand_piano_brand": 0.105,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": -0.1,
+          "piano_soundboard": 0.26,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
@@ -49,10 +49,10 @@
         "scores": {
           "electric_technique": 0.19500000000000003,
           "amp_make": 0,
-          "semi_archetypes": -0.035,
-          "semi_hollow_pickup": 0.105,
-          "semi_hollow_strings": 0.0315,
-          "semi_hollow_context": 0.368625
+          "semi_archetypes": -0.05,
+          "semi_hollow_pickup": 0.063,
+          "semi_hollow_strings": 0.0945,
+          "semi_hollow_context": 0.39
         }
       },
       {
@@ -71,17 +71,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 9.1,
-          "drumhead": 0.3,
+          "drum_technique": 9.49,
+          "drumhead": 0.3315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.3735,
+          "shell_wood": 0.33599999999999997,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
-          "snare_wires": 0.3735,
-          "cymbal_alloy": 11.293499999999998,
-          "cymbal_hammering": 11.641,
-          "cymbal_lathing": -0.10500000000000001,
-          "cymbal_finish": 0
+          "snare_wires": 0.3,
+          "cymbal_alloy": 11.099999999999998,
+          "cymbal_hammering": 11.367999999999999,
+          "cymbal_lathing": -0.11850000000000002,
+          "cymbal_finish": 0.0315
         }
       }
     ],

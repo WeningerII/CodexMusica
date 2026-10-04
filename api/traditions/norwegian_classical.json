@@ -3,9 +3,9 @@
   "name": "Norwegian classical",
   "family": "classical",
   "lineage": "Norwegian classical music includes composition, performance and teaching across instrumental and vocal forms. Local concert institutions connect Norwegian repertoire with wider historical and contemporary traditions.",
-  "recipe": "classic norwegian classical, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 264,
-  "score": 60.384,
+  "recipe": "classic norwegian classical, art Music, western common practice branch. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 265,
+  "score": 59.995,
   "config": {
     "traditions": [
       "norwegian_classical"
@@ -18,7 +18,7 @@
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
@@ -29,11 +29,11 @@
           "grand_piano_size": 0.39,
           "grand_piano_brand": 1.3,
           "piano_hammer": 9.685,
-          "piano_rim": 8.3635,
-          "piano_soundboard": 8.6865,
+          "piano_rim": 8.277,
+          "piano_soundboard": 8.4135,
           "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.8805000000000005,
-          "piano_pitch_standard": 8.969499999999998
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 9.012999999999998
         }
       }
     ],

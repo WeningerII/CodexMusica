@@ -5,7 +5,7 @@
   "lineage": "Los Angeles classic hip-hop tradition emerging in late-1980s through Ice-T, N.W.A, and the broader Compton-and-South-Central LA gangsta-rap movement. Characterized by funk-and-P-funk-derived synthesizer-heavy production (especially in 1990s G-funk era), confrontational street-life narrative content, and slower mid-tempo grooves than East Coast. Dr. Dre's The Chronic (1992) and Snoop Doggy Dogg's Doggystyle (1993) consolidated the canonical G-funk sound.",
   "recipe": "classic Los Angeles 1987-1989 west coast hip-hop, mc Rhythm, west coast branch, us hip hop gangsta. thick, rap, straight onset, narrative. pitched chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 452,
-  "score": 255.121,
+  "score": 254.743,
   "config": {
     "traditions": [
       "west_coast_hip_hop_classic",
@@ -37,10 +37,10 @@
           "voice_quality": 23.8545,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.12,
+          "voice_vibrato": 3.1515000000000004,
           "voice_articulation": 14.225000000000003,
           "voice_microtone": 13.25999999999999,
-          "voice_tradition": 11.538000000000002,
+          "voice_tradition": 11.433000000000002,
           "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 22.733500000000006,
@@ -64,8 +64,8 @@
           "electronic_technique": 10.3945,
           "sampler_archetypes": 17.94,
           "sampler_bit_depth": 2.6000000000000005,
-          "sampler_workflow": 10.623000000000001,
-          "sampler_classic_context": 26.627999999999997
+          "sampler_workflow": 10.549500000000002,
+          "sampler_classic_context": 26.522999999999996
         }
       },
       {
@@ -76,7 +76,7 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 11.590500000000002,
+          "tr808_voice": 11.527500000000002,
           "drum_machine_808_context": 5.676,
           "tr808_production_origin": 2.6260000000000003
         }
@@ -91,7 +91,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 12.697000000000001,
+          "electronic_technique": 12.634000000000002,
           "oscillator": 2.3,
           "filter_topology": 5.915000000000001,
           "envelope": 0.315,

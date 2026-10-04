@@ -3,14 +3,14 @@
   "name": "Noise rock",
   "family": "rock_punk",
   "lineage": "Late-1970s through 1990s experimental dissonance-foregrounded rock — codified through Sonic Youth (Daydream Nation 1988), The Jesus Lizard, Big Black (Songs About Fucking 1987), Swans, Glenn Branca’s symphonies, and the broader Touch and Go / SST label ecosystem; characterized by detuned guitars, feedback as compositional material, and aggressive-confrontational performance aesthetic",
-  "recipe": "classic North American 1977-1979 noise rock, distorted Rock, noise rock branch, experimental distorted rock, alternative distorted rock garage psych japanese math rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape electro-harmonix big muff pi proco turbo RAT.",
-  "recipe_chars": 819,
-  "score": 378.138,
+  "recipe": "classic North American 1977-1979 noise rock, distorted Rock, noise rock branch, experimental distorted rock, alternative distorted rock austrian stoner rock grunge brasileiro. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape electro-harmonix big muff pi proco turbo RAT.",
+  "recipe_chars": 826,
+  "score": 370.225,
   "config": {
     "traditions": [
       "noise_rock",
-      "garage_psych",
-      "japanese_math_rock"
+      "austrian_stoner_rock",
+      "grunge_brasileiro"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 29.194999999999997,
-          "voice_quality": 6.045,
+          "voice_register": 29.069999999999997,
+          "voice_quality": 5.135,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.990000000000001,
-          "voice_articulation": 13.844999999999999,
-          "voice_microtone": 29.505,
-          "voice_tradition": 13.714999999999998,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 12.674999999999995,
+          "voice_microtone": 29.47,
+          "voice_tradition": 9.034999999999998,
           "voice_mechanism_compound": 12.544999999999998,
-          "voice_estill_quality": 2.1449999999999996,
-          "voice_speech_song": 15.014999999999999,
-          "voice_ensemble_config": 15.014999999999999,
-          "voice_ornament_system": 0.7799999999999998,
-          "voice_pitch_organization": 0.19500000000000003,
-          "voice_processing_chain": 4.83,
-          "voice_multitrack_stack": 4.545000000000001
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 13.649999999999995,
+          "voice_ensemble_config": 12.999999999999995,
+          "voice_ornament_system": 0.585,
+          "voice_pitch_organization": 0.585,
+          "voice_processing_chain": 4.920000000000001,
+          "voice_multitrack_stack": 4.045000000000001
         }
       },
       {
@@ -62,7 +62,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_short",
           "finish": "oil_satin",
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.979999999999997,
-          "amp_make": 17.095,
+          "electric_technique": 14.084999999999997,
+          "amp_make": 17.03,
           "body_wood": 0.39,
-          "neck_wood": 0.975,
-          "fretboard": 0.975,
-          "pickup_magnet": 0.975,
-          "string_material": 0.975,
-          "string_gauge": 0.39,
-          "bridge": 0.44999999999999996,
-          "scale_length": 0.735,
+          "neck_wood": 0.78,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.78,
+          "string_material": 0.78,
+          "string_gauge": 1.3,
+          "bridge": 0.6,
+          "scale_length": 0.78,
           "finish": 0.195,
-          "string_tuning": 16.315,
+          "string_tuning": 16.055,
           "single_coil_pickup_construction": 0
         }
       },
@@ -93,29 +93,29 @@
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.979999999999997,
-          "amp_make": 17.095,
+          "electric_technique": 14.084999999999997,
+          "amp_make": 17.03,
           "body_wood": 0.78,
-          "neck_wood": 0.975,
-          "fretboard": 0.975,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.48,
-          "string_material": 0.975,
-          "bridge": 0.39,
-          "scale_length": 1.365,
-          "string_gauge": 0.39,
+          "neck_wood": 0.78,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.51,
+          "pickup_winding": 0.51,
+          "string_material": 0.78,
+          "bridge": 1.3900000000000001,
+          "scale_length": 1.17,
+          "string_gauge": 1.3,
           "finish": 0.195,
-          "string_tuning": 16.705000000000002
+          "string_tuning": 16.445000000000004
         }
       },
       {
@@ -126,18 +126,18 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.055,
+          "amp_make": 15.990000000000002,
           "body_wood": 0.39,
-          "pickup_config": 0.405,
-          "string_type": 36.1,
-          "scale_length_b": 0.54,
-          "fretted_or_not": 0.195,
-          "bass_technique": 31.300000000000004,
+          "pickup_config": 0.555,
+          "string_type": 35.76500000000001,
+          "scale_length_b": 0.6900000000000001,
+          "fretted_or_not": 0,
+          "bass_technique": 31.175000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,8 +149,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 29.500000000000004,
-          "drumhead": 1.53,
+          "drum_technique": 29.375000000000007,
+          "drumhead": 1.83,
           "drum_kit_kick_pedal": 0
         }
       }

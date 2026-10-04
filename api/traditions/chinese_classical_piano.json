@@ -2,10 +2,10 @@
   "id": "chinese_classical_piano",
   "name": "Chinese classical piano",
   "family": "classical",
-  "lineage": "Chinese classical piano encompasses recital, recording and teaching practice within a broad international concert tradition. Performers interpret historical and contemporary repertoire through individual approaches to sound and form.",
-  "recipe": "classic chinese classical piano, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 218,
-  "score": 47.05,
+  "lineage": "Chinese classical piano is represented by Yuja Wang — The Berlin Recital solo-piano program. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic chinese classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 270,
+  "score": 67.023,
   "config": {
     "traditions": [
       "chinese_classical_piano"
@@ -15,39 +15,31 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.8,
-          "grand_piano_size": 0.414,
-          "grand_piano_brand": 0,
-          "piano_hammer": 7.45,
-          "piano_rim": 7.801,
-          "piano_soundboard": 7.45,
-          "piano_pinblock": 7.45,
-          "piano_plate": 7.45,
-          "piano_pitch_standard": 1.2349999999999999
+          "keyboard_technique": 8.25,
+          "grand_piano_size": 1.597,
+          "grand_piano_brand": 0.798,
+          "piano_hammer": 11.049999999999997,
+          "piano_rim": 9.1135,
+          "piano_soundboard": 9.4365,
+          "piano_pinblock": 8.607999999999999,
+          "piano_plate": 9.038499999999999,
+          "piano_pitch_standard": 9.131499999999999
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -69,15 +61,7 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "keyboard_technique": "keyboard_classical_legato",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "keyboard_technique": "keyboard_classical_legato"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

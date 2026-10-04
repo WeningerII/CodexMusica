@@ -5,7 +5,7 @@
   "lineage": "Israeli urban style formed in the 1970s among Yemenite, Iraqi, Moroccan and Turkish immigrant communities of south Tel Aviv and Jerusalem's Kerem HaTeimanim, circulated on kiosk cassettes ('musiqa qassetot') and codified by Zohar Argov, Daklon and arranger Moshe Ben-Mush — Hebrew lyrics sung with dense Arab-style silsulim melisma over 4/4 or 8/8 darbuka-and-bass grooves at 100-130 BPM, with electric guitar or bouzouki playing oud-derived maqam lines against synthesizer strings.",
   "recipe": "classic North African mid-1970s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, middle eastern classical art music khaleeji-iraqi song uzbek traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 845,
-  "score": 330.275,
+  "score": 335.315,
   "config": {
     "traditions": [
       "mizrahi",
@@ -38,18 +38,18 @@
           "voice_quality": 10.984999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.180000000000001,
+          "voice_vibrato": 10.765,
           "voice_articulation": 17.224999999999998,
           "voice_microtone": 31.524999999999995,
-          "voice_tradition": 15.120000000000001,
-          "voice_mechanism_compound": 13.27,
-          "voice_estill_quality": 8.72,
+          "voice_tradition": 15.705,
+          "voice_mechanism_compound": 13.315,
+          "voice_estill_quality": 8.765,
           "voice_speech_song": 20.019999999999996,
           "voice_ensemble_config": 19.044999999999995,
           "voice_ornament_system": 15.690000000000003,
           "voice_pitch_organization": 16.335,
-          "voice_processing_chain": 7.1000000000000005,
-          "voice_multitrack_stack": 3.2000000000000006
+          "voice_processing_chain": 7.340000000000001,
+          "voice_multitrack_stack": 3.3950000000000005
         }
       },
       {
@@ -65,12 +65,12 @@
         },
         "scores": {
           "plucked_traditional_technique": 7.745000000000001,
-          "oud_school": 4.29,
-          "oud_strings": 3.045,
-          "oud_pick": 2.6350000000000002,
+          "oud_school": 4.53,
+          "oud_strings": 3.5100000000000002,
+          "oud_pick": 2.83,
           "oud_body_wood": 4.2,
           "oud_soundboard_wood": 4.405,
-          "oud_string_material": 2.7350000000000003
+          "oud_string_material": 2.99
         }
       },
       {
@@ -86,12 +86,12 @@
         },
         "scores": {
           "plucked_traditional_technique": 7.745000000000001,
-          "qanun_strings": 3.045,
-          "qanun_levers": 0.045,
-          "qanun_pick": 3.345,
+          "qanun_strings": 3.5100000000000002,
+          "qanun_levers": 0.09,
+          "qanun_pick": 3.705,
           "qanun_body_wood": 2.5350000000000006,
           "qanun_bridge_skin": 0.15,
-          "qanun_string_material": 0.045
+          "qanun_string_material": 0.6299999999999999
         }
       },
       {
@@ -133,8 +133,8 @@
           "neck_wood": 2.545,
           "fretboard": 2.495,
           "pickup_magnet": 0.195,
-          "string_material": 0.255,
-          "string_gauge": 2.89,
+          "string_material": 0.15,
+          "string_gauge": 3.055,
           "bridge": 0.495,
           "scale_length": 2.74,
           "finish": 0,
@@ -156,12 +156,12 @@
         },
         "scores": {
           "amp_make": 2.3450000000000006,
-          "body_wood": 2.755,
-          "pickup_config": 0.3,
+          "body_wood": 2.845,
+          "pickup_config": 0.495,
           "string_type": 3.9450000000000003,
           "scale_length_b": 2.545,
           "fretted_or_not": 0.39,
-          "bass_technique": 1.3499999999999999,
+          "bass_technique": 1.545,
           "electric_bass_string_configuration": 0
         }
       },
@@ -174,7 +174,7 @@
         },
         "scores": {
           "drum_technique": 17.485,
-          "drumhead": 6.690000000000001,
+          "drumhead": 6.9300000000000015,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -183,11 +183,11 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 7.265000000000001,
+          "electronic_technique": 7.220000000000001,
           "poly_archetypes": 0.39,
           "poly_voices": 0.195,
           "poly_maker_lineage": 3.1

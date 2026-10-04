@@ -2,10 +2,10 @@
   "id": "jazz_dominicano",
   "name": "Jazz dominicano",
   "family": "jazz",
-  "lineage": "Dominican jazz connects the country’s musicians and diaspora with modern jazz and wider Afro-Caribbean musical exchange. Rhythmic vitality, melodic invention and harmonic colour inform solo, small-group and larger-ensemble approaches.",
-  "recipe": "classic modern jazz dominicano, improv On Frame, Latin jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 286,
-  "score": 19.678,
+  "lineage": "Dominican jazz musicians; selected Michel Camilo solo piano",
+  "recipe": "classic modern jazz dominicano, improv On Frame, Latin jazz branch. grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 225,
+  "score": 1.544,
   "config": {
     "traditions": [
       "jazz_dominicano"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 2.45,
-          "piano_rim": 2.9015,
-          "piano_soundboard": 2.5445,
-          "piano_pinblock": 2.4815,
-          "piano_plate": 2.4815,
-          "piano_pitch_standard": 3.25
+          "grand_piano_size": 0.363,
+          "grand_piano_brand": 0.0315,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": 0.26,
+          "piano_pitch_standard": 0.325
         }
       }
     ],

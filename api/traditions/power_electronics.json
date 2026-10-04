@@ -5,7 +5,7 @@
   "lineage": "British subgenre named by William Bennett of Whitehouse circa 1981 around the Come Organisation label, consisting of shrieked or bellowed vocals over static high-frequency synthesizer feedback and cracked oscillator tones with no beat and no bass, recorded direct to cassette or two-track at clipping levels, with deliberately confrontational spoken texts and minimal, sleeve-only presentation.",
   "recipe": "classic European early-1980s power electronics, experimental Elec, industrial noise branch, musique concrete experimental electric, stage performance spoken word, ambient experimental electric isolationism lowercase. sygyt, breath veiled tone, straight note core, interlocked note trading. pad like pad analog glitched textural modular synth, tape replay keyboard. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 471,
-  "score": 165.435,
+  "score": 165.12,
   "config": {
     "traditions": [
       "power_electronics",
@@ -41,14 +41,14 @@
           "voice_vibrato": 1.9949999999999997,
           "voice_articulation": 15.274999999999995,
           "voice_microtone": 14.68999999999999,
-          "voice_tradition": 17.590000000000003,
+          "voice_tradition": 17.680000000000003,
           "voice_mechanism_compound": 5.335,
-          "voice_estill_quality": 4.485,
+          "voice_estill_quality": 4.32,
           "voice_speech_song": 15.274999999999995,
           "voice_ensemble_config": 15.664999999999994,
           "voice_ornament_system": 4.739999999999999,
           "voice_pitch_organization": 2.5349999999999997,
-          "voice_processing_chain": 7.964999999999999,
+          "voice_processing_chain": 7.919999999999999,
           "voice_multitrack_stack": 5.89
         }
       },
@@ -62,7 +62,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 10.17,
+          "electronic_technique": 10.125,
           "oscillator": 2,
           "filter_topology": 2.1,
           "envelope": 4.609999999999999,
@@ -73,13 +73,13 @@
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_random",
+          "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
           "electronic_technique": 15.420000000000002,
-          "mod_voltage_source": 0.15,
+          "mod_voltage_source": 0.045,
           "mod_patch_density": 4.46,
           "mod_lineage": 0.65
         }
@@ -93,7 +93,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "tape_voice": 0.345,
+          "tape_voice": 0.3,
           "tape_state": 0.045
         }
       }

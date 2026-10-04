@@ -2,10 +2,10 @@
   "id": "classic_dutch_pop",
   "name": "Classic dutch pop",
   "family": "pop",
-  "lineage": "Classic Dutch pop brings together established popular songs and later performances that continue their melodic traditions. Acoustic songcraft and soft-pop approaches form part of this repertoire.",
-  "recipe": "classic classic dutch pop, functional Song, europop branch. duet, unprocessed natural acoustic, live take. cedar strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 280,
-  "score": 16.149,
+  "lineage": "Classic dutch pop is represented here by Dick van Altena and Marcel Smulders — Seasons in the Sun acoustic core. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic classic dutch pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 258,
+  "score": 16.279,
   "config": {
     "traditions": [
       "classic_dutch_pop"
@@ -17,15 +17,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 10.55,
+          "acoustic_technique": 13.112499999999999,
           "string_tuning": 0,
-          "top_wood": 1.2730000000000001,
-          "back_sides": 0.105,
-          "string_acoustic": 0.6194999999999999
+          "top_wood": 0.39,
+          "back_sides": 0.063,
+          "string_acoustic": 0.3045
         }
       },
       {
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9869999999999999,
-          "voice_ornament_system": 0.1365,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4905,
-          "voice_multitrack_stack": 0.9869999999999999
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.29699999999999993
         }
       }
     ],

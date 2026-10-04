@@ -5,7 +5,7 @@
   "lineage": "American contemporary classical music includes concert composition shaped by minimalism and many other modern approaches. Works circulate through solo, chamber, vocal and larger-ensemble performance.",
   "recipe": "classic american contemporary classical, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 78.877,
+  "score": 79.014,
   "config": {
     "traditions": [
       "american_contemporary_classical"
@@ -26,13 +26,13 @@
         },
         "scores": {
           "keyboard_technique": 0.25,
-          "grand_piano_size": 0.571,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.4095,
           "piano_hammer": 13.75,
-          "piano_rim": 14.13175,
+          "piano_rim": 14.1355,
           "piano_soundboard": 13.75,
-          "piano_pinblock": 13.75,
-          "piano_plate": 13.75,
+          "piano_pinblock": 13.91725,
+          "piano_plate": 13.919,
           "piano_pitch_standard": 8.515
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "House-derived electronic music that treats the dance groove as a framework for unusual sound design, modulation and compositional experiments. A_A connects floor-oriented rhythms with graphic-score and improvised electronic practices.",
   "recipe": "classic experimental house, experimental Elec. drum machine analog, modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 189,
-  "score": 8.672,
+  "score": 8.767,
   "config": {
     "traditions": [
       "experimental_house"
@@ -35,9 +35,9 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 6.674,
+          "electronic_technique": 6.737,
           "mod_voltage_source": 0.1365,
-          "mod_patch_density": 0.273,
+          "mod_patch_density": 0.3045,
           "mod_lineage": 0.23399999999999999
         }
       }

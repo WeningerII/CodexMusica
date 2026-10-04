@@ -5,7 +5,7 @@
   "lineage": "A Czech folk-rock scene with a selected Čechomor branch: Czech, Moravian and Slovak song material arranged for an active band. Violin and accordion retain the melodic center while guitar and a rhythm section provide support.",
   "recipe": "classic czech folk rock, functional Song, folk rock branch. five string low c extension bowed song accompaniment fiddle, accordion, strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 70.777,
+  "score": 69.885,
   "config": {
     "traditions": [
       "czech_folk_rock"
@@ -23,11 +23,11 @@
         },
         "scores": {
           "bowed_technique": 4.55,
-          "fiddle_strings": 0.4095,
+          "fiddle_strings": 0.273,
           "fiddle_bow": 0,
-          "fiddle_mute": 0.6615000000000001,
-          "fiddle_articulation": 1.126,
-          "fiddle_string_configuration": 1.731
+          "fiddle_mute": 1.0290000000000001,
+          "fiddle_articulation": 1.0315,
+          "fiddle_string_configuration": 1.6995
         }
       },
       {
@@ -43,8 +43,8 @@
         },
         "scores": {
           "free_reed_technique": -0.1,
-          "accordion_reed_material": 0.363,
-          "musette_offset": 0.063,
+          "accordion_reed_material": 0.3315,
+          "musette_offset": 0.0315,
           "reed_config": 0,
           "bellows": 0.063,
           "voicing_chamber": 0,
@@ -61,7 +61,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 3.7315,
+          "acoustic_technique": 3.7,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
@@ -82,10 +82,10 @@
         },
         "scores": {
           "amp_make": 7.215,
-          "body_wood": 0.3,
+          "body_wood": 0.3315,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3315,
+          "scale_length_b": 0.363,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,11 +112,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.378,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 17.055,
-          "cymbal_lathing": 17.118,
+          "cymbal_hammering": 16.95,
+          "cymbal_lathing": 17.012999999999998,
           "cymbal_finish": 0
         }
       },
@@ -152,11 +152,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.1995,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.273,
+          "voice_pitch_organization": 0.063,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.33599999999999997
+          "voice_multitrack_stack": 0.063
         }
       }
     ],

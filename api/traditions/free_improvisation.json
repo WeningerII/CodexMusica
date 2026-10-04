@@ -5,7 +5,7 @@
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
   "recipe": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète chinese experimental. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel carpathian spruce European maple bosnian source flamed figure double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, vocal whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 600,
-  "score": 133.145,
+  "score": 132.86,
   "config": {
     "traditions": [
       "free_improvisation",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 0.195,
           "voice_speech_song": 11.569999999999997,
           "voice_ensemble_config": 10.659999999999995,
-          "voice_ornament_system": 2.8000000000000007,
+          "voice_ornament_system": 2.755000000000001,
           "voice_pitch_organization": 0.78,
           "voice_processing_chain": 4.030000000000001,
           "voice_multitrack_stack": 4.030000000000001
@@ -95,7 +95,7 @@
           "bass_back_wood": 2.4350000000000005,
           "bass_varnish": 0.8749999999999999,
           "bass_setup_period": 2.0149999999999997,
-          "bass_play": 0.49499999999999994,
+          "bass_play": 0.44999999999999996,
           "bass_rosin": 0.975,
           "bass_bow_stick": 1.0074999999999998
         }
@@ -135,9 +135,9 @@
           "waterphone_construction": "waterphone_bronze_stainless"
         },
         "scores": {
-          "waterphone_model": 4.59,
+          "waterphone_model": 4.545,
           "waterphone_excitation": 0.39,
-          "waterphone_context": 6.694999999999999,
+          "waterphone_context": 6.544999999999999,
           "waterphone_construction": 0.195
         }
       }

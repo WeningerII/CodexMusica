@@ -5,7 +5,7 @@
   "lineage": "Romanian electronic music includes club production and exploratory live projects that combine electronic and amplified instruments. Audiovisual performance provides one setting for these hybrid approaches.",
   "recipe": "classic romanian electronic, experimental Elec. analog poly synth, sampler drum machine, humbucker electric guitar. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 195,
-  "score": 14.398,
+  "score": 13.873,
   "config": {
     "traditions": [
       "romanian_electronic"
@@ -50,7 +50,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
@@ -62,13 +62,13 @@
           "electric_technique": -0.1,
           "amp_make": 0,
           "body_wood": 0.39,
-          "neck_wood": 0.21,
+          "neck_wood": 0.105,
           "fretboard": 0.3315,
           "pickup_magnet": 0.3315,
-          "pickup_winding": 0.105,
+          "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.21,
-          "scale_length": 0.42,
+          "bridge": 0.105,
+          "scale_length": 0.21,
           "string_gauge": 0.39,
           "finish": 0,
           "string_tuning": 0.273

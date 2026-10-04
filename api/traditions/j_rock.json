@@ -3,9 +3,9 @@
   "name": "J-rock",
   "family": "global",
   "lineage": "Japanese-language alternative-rock and visual-kei tradition codified through X Japan (1980s-90s), Luna Sea, B’z, Mr. Children, L’Arc-en-Ciel, and the Buck-Tick visual-kei progenitor lineage — characterized by Western-rock instrumentation with Japanese-language vocals, dramatic stage personas, and extensive crossover with anime soundtrack production",
-  "recipe": "classic Asian mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka alt-idol. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 722,
-  "score": 309.635,
+  "recipe": "classic Asian mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka alt-idol. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 742,
+  "score": 297.685,
   "config": {
     "traditions": [
       "j_rock",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 27.499999999999993,
-          "voice_quality": 5.525,
+          "voice_register": 26.249999999999993,
+          "voice_quality": 5.915,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.8425,
-          "voice_articulation": 15.080000000000004,
-          "voice_microtone": 29.22,
-          "voice_tradition": 31.525,
+          "voice_vibrato": 4.3225,
+          "voice_articulation": 13.780000000000001,
+          "voice_microtone": 27.97,
+          "voice_tradition": 32.76,
           "voice_mechanism_compound": 4.029999999999999,
           "voice_estill_quality": 5.135,
-          "voice_speech_song": 20.865000000000002,
-          "voice_ensemble_config": 15.600000000000005,
+          "voice_speech_song": 19.565,
+          "voice_ensemble_config": 14.105000000000002,
           "voice_ornament_system": 3.2500000000000004,
           "voice_pitch_organization": 3.2500000000000004,
-          "voice_processing_chain": 6.904999999999999,
+          "voice_processing_chain": 6.694999999999999,
           "voice_multitrack_stack": 5.7524999999999995
         }
       },
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 11.525,
-          "amp_make": 7.425000000000001,
+          "amp_make": 6.925000000000001,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -82,7 +82,7 @@
           "scale_length": 0.8699999999999999,
           "string_gauge": 0.845,
           "finish": 0.65,
-          "string_tuning": 8.254999999999999
+          "string_tuning": 7.8
         }
       },
       {
@@ -99,12 +99,12 @@
           "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "oil_satin",
-          "string_tuning": "drop_d",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 11.525,
-          "amp_make": 7.425000000000001,
+          "amp_make": 6.925000000000001,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -114,7 +114,7 @@
           "bridge": 0.345,
           "scale_length": 1.4949999999999999,
           "finish": 0.65,
-          "string_tuning": 7.864999999999999,
+          "string_tuning": 7.395,
           "single_coil_pickup_construction": 0
         }
       },
@@ -131,13 +131,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.725,
+          "amp_make": 7.225,
           "body_wood": 0.845,
           "pickup_config": 0.195,
-          "string_type": 16.474999999999998,
+          "string_type": 15.224999999999998,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.195,
-          "bass_technique": 16.41,
+          "bass_technique": 15.159999999999998,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,7 +149,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.874999999999998,
+          "drum_technique": 14.624999999999998,
           "drumhead": 11.43,
           "drum_kit_kick_pedal": 0
         }

@@ -2,10 +2,10 @@
   "id": "dusseldorf_indie",
   "name": "Düsseldorf Indie",
   "family": "rock",
-  "lineage": "Düsseldorf indie brings together independent bands and performance networks shaped by the city’s long engagement with rock and electronic music. Contemporary artists explore guitar-pop, psychedelia and experimental textures alongside other approaches.",
-  "recipe": "classic düsseldorf indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 311,
-  "score": 35.6,
+  "lineage": "Love Machine — Circles (2016), complete seven-track album union. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored render refinement: an alder body on both electric guitar and bass, a maple electric-guitar neck, and a dual-single-coil bass pickup configuration replace the previous authored mahogany/maple-cap, mahogany-neck and split-coil choices. These are plausible alternative modern instrument constructions, not measurements or claims about the credited performers’ gear. All documented roles, performers, techniques and source boundaries remain intact. The original flat body_wood key applies the same compatible alder choice to both owning instruments.",
+  "recipe": "classic mid-2010s düsseldorf indie, distorted Rock, classic branch. group vocals. alder maple conventional tuning standard pitch humbucker electric guitar, alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, analog poly synth, credited organ unspecified, yellow brass modern standard saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 471,
+  "score": 65.864,
   "config": {
     "traditions": [
       "dusseldorf_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.0945,
+          "voice_ensemble_config": 2.178,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.1,
+          "electric_technique": 0.2,
           "amp_make": 0,
-          "body_wood": 0.441,
-          "neck_wood": 0.39,
+          "body_wood": 3.2194999999999996,
+          "neck_wood": 2.7259999999999995,
           "fretboard": -0.035,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.273,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 2.73,
+          "string_material": 0.1365,
+          "bridge": 0.1365,
+          "scale_length": 1.2390000000000003,
+          "string_gauge": 1.3315000000000001,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 1.6
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
+          "body_wood": 3.2194999999999996,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.0735,
-          "bass_technique": -0.15000000000000002,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,17 +124,26 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.75,
-          "drumhead": 0.1365,
+          "drum_technique": 7.812999999999999,
+          "drumhead": 1.7365000000000002,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.2415,
+          "shell_wood": 5.8,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "bearing_edges": 1.4260000000000002,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 11.231499999999999,
-          "cymbal_lathing": 11.6365,
-          "cymbal_finish": 0
+          "cymbal_hammering": 12.055,
+          "cymbal_lathing": 13.612999999999998,
+          "cymbal_finish": 0.1365
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
         }
       },
       {
@@ -146,10 +155,40 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.1365,
-          "poly_voices": 0,
+          "electronic_technique": -0.07,
+          "poly_archetypes": 0.0315,
+          "poly_voices": 0.7364999999999999,
           "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "credited_organ_unspecified",
+        "slots": {
+          "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+        },
+        "scores": {
+          "credited_organ_unspecified_identity": 0.063
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": 0.325,
+          "sax_reed": 0,
+          "sax_body_alloy": 3.2,
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.05,
+          "sax_maker_school": -0.07
         }
       }
     ],
@@ -211,11 +250,26 @@
         "cymbal_lathing",
         "cymbal_finish"
       ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
       "analog_poly_synth": [
         "electronic_technique",
         "poly_archetypes",
         "poly_voices",
         "poly_maker_lineage"
+      ],
+      "credited_organ_unspecified": [
+        "credited_organ_unspecified_identity"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
       ]
     },
     "room": "treated_studio",
@@ -282,10 +336,19 @@
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
       "electronic_technique": "electronic_pad_drone",
       "poly_archetypes": "prophet_5",
       "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "poly_maker_lineage": "poly_sequential_smith",
+      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

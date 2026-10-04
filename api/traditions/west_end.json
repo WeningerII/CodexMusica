@@ -2,56 +2,15 @@
   "id": "west_end",
   "name": "West End",
   "family": "pop",
-  "lineage": "West End music connects London’s commercial musical-theatre productions, performers and repertoire. Songs circulate through staged shows, cast recordings, concerts and adaptations, overlapping the wider international show-tune tradition.",
-  "recipe": "classic west end, functional Song. upright piano. shoebox concert hall.",
-  "recipe_chars": 71,
-  "score": 3.644,
+  "lineage": "The Music of the Night: complete published piano-solo arrangement in Showtunes—Legendary Piano Series, Music Sales America/Hal Leonard14041663. Publisher expressly identifies Piano Solo Songbook and lists this work. Selected scope is this complete arrangement, not all255pages or the original cast recording and pit orchestra; one piano, no separate scored singer. No full copyrighted score or audio audition claimed. Broad functionalSong placement uses an explicitly authored tonal song rendition; harmony/form not claimed transcribed. Standard modern upright-piano construction and block-chord pop articulation are coherent authored piano choices, not source instrument or historical pit equipment. A spacious shoebox-hall recital is a new recording presentation; no source session location, apparatus or global tuning asserted. Source piano subtype unspecified; upright is authored, not documentary.",
+  "recipe": "classic west end, functional Song. block chord upright piano. shoebox concert hall.",
+  "recipe_chars": 83,
+  "score": 8.3,
   "config": {
     "traditions": [
       "west_end"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.36,
-          "voice_tessitura": 0
-        }
-      },
       {
         "id": "upright_piano",
         "slots": {
@@ -60,32 +19,13 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 2.45,
-          "upright_use": 0.054,
+          "keyboard_technique": 8.299999999999999,
+          "upright_use": 0,
           "upright_piano_size": 0
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
       "upright_piano": [
         "keyboard_technique",
         "upright_use",
@@ -111,24 +51,7 @@
     "parts": {
       "keyboard_technique": "keyboard_block_chord_pop",
       "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "legato_voice",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

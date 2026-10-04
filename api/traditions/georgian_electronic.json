@@ -5,7 +5,7 @@
   "lineage": "Georgian electronic music develops through local and international networks of producers, performers and collaborators. Acoustic and amplified instruments can meet synthesis, sampling and experimental studio techniques.",
   "recipe": "classic georgian electronic, experimental Elec. unprocessed natural acoustic. single coil electric guitar, electric bass, digital subtractive, analog mono synth, glitched textural sampler, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 28.95,
+  "score": 27.495,
   "config": {
     "traditions": [
       "georgian_electronic"
@@ -17,10 +17,10 @@
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_champ",
           "body_wood": "basswood",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
-          "pickup_magnet": "alnico_2",
-          "string_material": "flatwound_elec",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
@@ -30,15 +30,15 @@
         },
         "scores": {
           "electric_technique": -0.035,
-          "amp_make": 1.0179999999999998,
+          "amp_make": 0.9129999999999998,
           "body_wood": 0.39,
-          "neck_wood": 0.21,
+          "neck_wood": 0.105,
           "fretboard": 0.105,
           "pickup_magnet": 0.105,
-          "string_material": 0.1365,
-          "string_gauge": 0.2415,
-          "bridge": 0.105,
-          "scale_length": 0.42,
+          "string_material": 0.105,
+          "string_gauge": 0.1365,
+          "bridge": 0,
+          "scale_length": 0.21,
           "finish": 0,
           "string_tuning": 0.273,
           "single_coil_pickup_construction": 0
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.313,
-          "body_wood": 0.42,
+          "amp_make": 0.2815,
+          "body_wood": 0.21,
           "pickup_config": 0.0315,
           "string_type": 0.26,
-          "scale_length_b": 0.21,
-          "fretted_or_not": 0.063,
+          "scale_length_b": 0.105,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,7 +75,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 0.18150000000000002,
           "va_archetypes": 0.105,
           "digital_subtractive_context": 6.369999999999999
         }
@@ -90,10 +90,10 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 0.18150000000000002,
           "mono_oscillator": 0.105,
-          "mono_filter": 0.315,
-          "mono_archetypes": 0.21,
+          "mono_filter": 0.21,
+          "mono_archetypes": 0.105,
           "mono_maker_lineage": -0.05
         }
       },
@@ -109,7 +109,7 @@
         "scores": {
           "electronic_technique": 6.2315000000000005,
           "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": -0.1,
           "sampler_classic_context": 6.694999999999999
         }
@@ -126,7 +126,7 @@
           "kick_voice": 0.105,
           "snare_voice": 0.0315,
           "hat_voice": 0,
-          "shuffle_quantize": 0.063
+          "shuffle_quantize": 0.0945
         }
       },
       {

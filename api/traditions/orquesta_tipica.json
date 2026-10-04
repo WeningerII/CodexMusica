@@ -3,9 +3,9 @@
   "name": "Orquesta Tipica",
   "family": "global",
   "lineage": "La Martino Orquesta Típica — self-titled2016 album, complete recording roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic orquesta tipica, art Music. European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure viola classical, European maple bosnian source flamed figure cello, bandoneon, grand piano, cutting carbon fiber classical nylon-string guitar, European maple bosnian source flamed figure double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 442,
-  "score": 12.829,
+  "recipe": "classic orquesta tipica, art Music. European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure viola classical, European maple bosnian source flamed figure cello, bandoneon, grand piano, classical nylon-string guitar, European maple bosnian source flamed figure double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 421,
+  "score": 11.46,
   "config": {
     "traditions": [
       "orquesta_tipica"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3255,
-          "voice_ensemble_config": 0.378,
+          "voice_speech_song": 0.252,
+          "voice_ensemble_config": 0.36749999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.2415,
+          "voice_processing_chain": 0.24149999999999996,
+          "voice_multitrack_stack": 0.23099999999999998,
           "voice_tessitura": 0
         }
       },
@@ -67,15 +67,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.363,
+          "bowed_technique": 0.3315,
           "orch_strings": 0,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.2,
+          "orch_back_wood": 1.56,
           "orch_varnish": -0.1,
-          "orch_setup_period": -0.1,
-          "orch_bow": 0.0315,
+          "orch_setup_period": -0.07,
+          "orch_bow": 0,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.063,
+          "orch_articulation": 0,
           "orch_rosin": -0.1
         }
       },
@@ -93,15 +93,15 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 0.363,
+          "bowed_technique": 0.3315,
           "viola_size": 0.6315,
           "viola_strings": 0,
           "viola_top_wood": -0.1,
-          "viola_back_wood": 1.2,
+          "viola_back_wood": 1.56,
           "viola_varnish": -0.1,
-          "viola_setup_period": -0.1,
+          "viola_setup_period": -0.07,
           "viola_bow_stick": -0.10500000000000001,
-          "viola_rosin": -0.1
+          "viola_rosin": -0.07
         }
       },
       {
@@ -118,14 +118,14 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 0.363,
+          "bowed_technique": 0.3315,
           "cello_strings": 0,
           "cello_top_wood": -0.1,
-          "cello_back_wood": 1.2,
+          "cello_back_wood": 1.56,
           "cello_varnish": -0.1,
-          "cello_setup_period": -0.1,
-          "cello_bow_grip": 1.785,
-          "cello_rosin": -0.1,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.483,
+          "cello_rosin": -0.07,
           "cello_bow_stick": -0.10500000000000001
         }
       },
@@ -160,13 +160,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0.6315,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": -0.1,
+          "grand_piano_brand": 0.363,
+          "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }
@@ -184,9 +184,9 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 0.189,
-          "bracing_classical": 0.34650000000000003,
-          "string_classical": 1.68,
+          "top_wood_classical": 0.063,
+          "bracing_classical": 0.1365,
+          "string_classical": 0.483,
           "attack_technique_cl": -0.05
         }
       },
@@ -205,15 +205,15 @@
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": 0.363,
-          "bass_size": 0.063,
-          "bass_strings": 0.0315,
+          "bowed_technique": 0.3315,
+          "bass_size": 0,
+          "bass_strings": 0,
           "bass_top_wood": -0.1,
-          "bass_back_wood": 1.2,
+          "bass_back_wood": 1.56,
           "bass_varnish": -0.1,
-          "bass_setup_period": -0.1,
+          "bass_setup_period": -0.07,
           "bass_play": 0.78,
-          "bass_rosin": -0.1,
+          "bass_rosin": -0.07,
           "bass_bow_stick": -0.10500000000000001
         }
       }

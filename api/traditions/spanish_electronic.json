@@ -5,7 +5,7 @@
   "lineage": "Spanish electronic music includes independent songwriters and producers working between electronic texture, ambient sound and popular-song forms.",
   "recipe": "classic spanish electronic, experimental Elec. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 166,
-  "score": 3.52,
+  "score": 3.594,
   "config": {
     "traditions": [
       "spanish_electronic"
@@ -20,7 +20,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.7815,
+          "electronic_technique": 2.75,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
           "poly_maker_lineage": -0.05
@@ -61,7 +61,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
+          "voice_processing_chain": 0.21,
           "voice_multitrack_stack": 0.126
         }
       }

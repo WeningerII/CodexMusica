@@ -5,7 +5,7 @@
   "lineage": "Brazilian death metal developed through underground bands and international extreme-metal networks. Ijuí’s Krisiun exemplify a tightly interacting guitar, singing-bass and drum trio whose intense playing also makes room for thrash-derived rhythms and grooves.",
   "recipe": "classic modern brazilian death metal, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 485,
-  "score": 42.867,
+  "score": 42.961,
   "config": {
     "traditions": [
       "brazilian_death_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.847,
           "finish": 0,
-          "string_tuning": 0.714
+          "string_tuning": 0.7769999999999999
         }
       },
       {
@@ -131,7 +131,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
+          "voice_processing_chain": 0.3315,
           "voice_multitrack_stack": 0.063
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Rural Khmer repertoires outside the court — the phleng kar wedding cycle, arak spirit-possession music, ayai sung repartee and the solo chapei dang veng bardic tradition — carried orally through village ceremony and codified in the late twentieth century largely through Kong Nay and post-genocide revival projects, built on chapei long-necked lute, tro fiddles, khim dulcimer, skor daey hand drum and chhing cymbals under speech-rhythm vocal narration.",
   "recipe": "classic modern cambodian traditional, wedding, east Asian branch, indian bard ballad poetry, east Asian field work thai folk min'yō. thick, breath veiled tone, slow rate, interlocked note trading. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute, silk historical coconut shell three string wedding context tro khmer, tro sau, khim, krapeu, skor daey, khmer ching chap open and damped bronze ching. tin roofed shack. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 544,
-  "score": 210.566,
+  "score": 211.579,
   "config": {
     "traditions": [
       "cambodian_traditional",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.4699999999999998,
           "voice_articulation": 19.824999999999996,
           "voice_microtone": 20.34499999999999,
-          "voice_tradition": 16.1775,
+          "voice_tradition": 16.7025,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 2.6650000000000005,
           "voice_speech_song": 25.609999999999992,
@@ -74,10 +74,10 @@
         },
         "scores": {
           "bowed_technique": 1.4,
-          "tro_khmer_strings": 4.251250000000001,
-          "tro_khmer_body": 4.24,
-          "tro_khmer_tuning": 6.467499999999999,
-          "tro_khmer_context": 14.544999999999998
+          "tro_khmer_strings": 4.296250000000001,
+          "tro_khmer_body": 4.4350000000000005,
+          "tro_khmer_tuning": 6.5649999999999995,
+          "tro_khmer_context": 14.694999999999999
         }
       },
       {

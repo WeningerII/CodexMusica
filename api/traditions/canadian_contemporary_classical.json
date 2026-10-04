@@ -5,7 +5,7 @@
   "lineage": "Canadian contemporary classical music includes new concert works and experimental approaches across acoustic and electronic media. Composers and performers collaborate on solo, chamber and larger-scale repertoire.",
   "recipe": "classic canadian contemporary classical, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 62.373,
+  "score": 62.269,
   "config": {
     "traditions": [
       "canadian_contemporary_classical"
@@ -26,12 +26,12 @@
         },
         "scores": {
           "keyboard_technique": 0.25,
-          "grand_piano_size": 0.588,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.4095,
           "piano_hammer": 11.25,
           "piano_rim": 11.25,
           "piano_soundboard": 11.25,
-          "piano_pinblock": 11.25,
+          "piano_pinblock": 11.366999999999999,
           "piano_plate": 11.25,
           "piano_pitch_standard": 4.875
         }

@@ -5,7 +5,7 @@
   "lineage": "California honky-tonk style codified in Bakersfield, Kern County, between 1955 and 1970 by Buck Owens with guitarist Don Rich and by Merle Haggard with the Strangers, recorded largely at Capitol Studios in Hollywood, defined by trebly Fender Telecaster leads through amp reverb, pedal steel, a driving 2/4 shuffle or freight-train backbeat with slap-hard snare, minimal or no string sweetening, high tenor harmony doubling the lead vocal a third above, and dance-hall tempos around 120-150 BPM.",
   "recipe": "classic North American mid-1950s bakersfield sound, functional Song, honky tonk era branch, outlaw country, neo trad country redneck rock classic texas country. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric cedar indian rosewood rosewood steel silk dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel double stops fiddle, upright piano. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 857,
-  "score": 670.024,
+  "score": 669.754,
   "config": {
     "traditions": [
       "bakersfield_sound",
@@ -42,14 +42,14 @@
           "voice_articulation": 16.899999999999995,
           "voice_microtone": 17.549999999999994,
           "voice_tradition": 9.815,
-          "voice_mechanism_compound": 6.802375,
-          "voice_estill_quality": 34.00887500000002,
+          "voice_mechanism_compound": 6.562374999999999,
+          "voice_estill_quality": 33.768875000000016,
           "voice_speech_song": 24.83,
           "voice_ensemble_config": 14.429999999999994,
           "voice_ornament_system": 1.8565,
           "voice_pitch_organization": 1,
           "voice_processing_chain": 6.4350000000000005,
-          "voice_multitrack_stack": 4.5355
+          "voice_multitrack_stack": 4.4455
         }
       },
       {
@@ -62,7 +62,7 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -77,7 +77,7 @@
           "fretboard": 1.625,
           "pickup_magnet": 0.195,
           "string_material": 4.159999999999999,
-          "string_gauge": 0.39,
+          "string_gauge": 0.435,
           "bridge": 0,
           "scale_length": 1.69,
           "finish": 0.0315,
@@ -126,7 +126,7 @@
           "pickup_config": 0.3,
           "string_type": 9.546,
           "scale_length_b": 0.363,
-          "fretted_or_not": 0.09,
+          "fretted_or_not": 0.045,
           "bass_technique": 27.170000000000005,
           "electric_bass_string_configuration": 0
         }
@@ -158,7 +158,7 @@
           "bowed_technique": 32.075,
           "fiddle_strings": 4.615,
           "fiddle_bow": 0.195,
-          "fiddle_mute": 0.4065,
+          "fiddle_mute": 0.5115,
           "fiddle_articulation": 0.15,
           "fiddle_string_configuration": 0
         }
@@ -174,7 +174,7 @@
         },
         "scores": {
           "acoustic_technique": 27.225,
-          "string_tuning": 2.327125,
+          "string_tuning": 2.5221250000000004,
           "top_wood": 2.0365,
           "back_sides": 1.355,
           "string_acoustic": 4.159999999999999

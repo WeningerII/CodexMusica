@@ -5,7 +5,7 @@
   "lineage": "An ambient approach in which interwoven sounds evolve through subtle variation, recording and electronic processing. Contemporary independent labels apply the term to both sample-and-synth work and music integrating acoustic instruments or environmental recordings.",
   "recipe": "classic organic ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, layered sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
   "recipe_chars": 276,
-  "score": 26.185,
+  "score": 26.095,
   "config": {
     "traditions": [
       "organic_ambient",
@@ -22,7 +22,7 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 10.645,
+          "electronic_technique": 10.6,
           "oscillator": 0,
           "filter_topology": 0.195,
           "envelope": 4.66,
@@ -39,7 +39,7 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 10.645,
+          "electronic_technique": 10.6,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.45499999999999996,
           "sampler_workflow": 0.2,

@@ -5,7 +5,7 @@
   "lineage": "Algorithmically named 2010s internet-era style of sleek electro-funk pop, made largely in home studios across Los Angeles, Auckland and Tokyo-facing online scenes and shaped by Tuxedo, Yumi Zouma, Anderson .Paak's polished side and the Japanese city-pop and French-touch revivalists — 100-118 BPM programmed or tightly played funk kit with a clean sixteenth-note hi-hat, slap or synth-octave bass, glassy FM electric-piano and chorused clean guitar chords, and a light, close, often processed or vocoded lead vocal singing over lush major-seventh and ninth harmony.",
   "recipe": "classic mid-2010s metropopolis, functional Song, synthpop branch, pop rock yacht rock, deep house house tropical house. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, TR-808, vocoder, block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 705,
-  "score": 431.39,
+  "score": 431.57,
   "config": {
     "traditions": [
       "metropopolis",
@@ -38,10 +38,10 @@
           "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.7299999999999995,
+          "voice_vibrato": 5.685,
           "voice_articulation": 20.085,
-          "voice_microtone": 38.85000000000001,
-          "voice_tradition": 22.304999999999996,
+          "voice_microtone": 38.89500000000001,
+          "voice_tradition": 22.199999999999996,
           "voice_mechanism_compound": 4.55,
           "voice_estill_quality": 3.5750000000000006,
           "voice_speech_song": 23.205,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.8949999999999998,
           "voice_pitch_organization": 1.395,
           "voice_processing_chain": 15.540000000000001,
-          "voice_multitrack_stack": 11.374999999999996
+          "voice_multitrack_stack": 11.629999999999997
         }
       },
       {
@@ -61,7 +61,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 21.099999999999998,
+          "electronic_technique": 21.144999999999996,
           "poly_archetypes": 9.139999999999999,
           "poly_voices": 0.585,
           "poly_maker_lineage": 0.5200000000000002
@@ -77,10 +77,10 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 21.099999999999998,
+          "electronic_technique": 21.144999999999996,
           "fm_algorithm": 3.3,
           "fm_modulator_ratio": 0.195,
-          "fm_polyphony": 1.72,
+          "fm_polyphony": 1.765,
           "fm_model_lineage": 10.669999999999998
         }
       },
@@ -97,7 +97,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.055,
+          "amp_make": 10.009999999999998,
           "body_wood": 1.8200000000000003,
           "pickup_config": 1.6,
           "string_type": 18.87,
@@ -116,7 +116,7 @@
         },
         "scores": {
           "tr808_voice": 1.8199999999999998,
-          "drum_machine_808_context": 4.915,
+          "drum_machine_808_context": 4.765,
           "tr808_production_origin": 0.3
         }
       },
@@ -166,8 +166,8 @@
         "scores": {
           "electric_technique": 20.874999999999996,
           "amp_make": 9.639999999999999,
-          "body_wood": 1.7750000000000001,
-          "neck_wood": 1.7750000000000001,
+          "body_wood": 1.8200000000000003,
+          "neck_wood": 1.8200000000000003,
           "fretboard": 1.845,
           "pickup_magnet": 0.39,
           "string_material": 0.39,

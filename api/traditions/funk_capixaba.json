@@ -5,7 +5,7 @@
   "lineage": "Espírito Santo regional funk from Vitória and Serra, taking shape from about 2018 through DJ Deivinho ES and local Vila Velha producers — mid-130s BPM tracks over a dry, heavily gated kick-clap pattern with rimshot-driven off-beats, low-passed sub, sparse pitched sirens and looped erotic or provocative MC hooks, often released as long DJ-mixed 'set' files rather than discrete singles.",
   "recipe": "classic Southern American late-2010s funk capixaba, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm funk consciente cameroonian hip hop. vocal fry, rap, slow rate, interlocked note trading. TR-808, melodic pitched sampler, low sub bass analog poly synth, low sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 433,
-  "score": 138.625,
+  "score": 138.43,
   "config": {
     "traditions": [
       "funk_capixaba",
@@ -38,7 +38,7 @@
           "voice_quality": 11.115,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9400000000000004,
+          "voice_vibrato": 2.8950000000000005,
           "voice_articulation": 12.349999999999998,
           "voice_microtone": 11.959999999999994,
           "voice_tradition": 3.9000000000000004,
@@ -78,7 +78,7 @@
           "electronic_technique": 2.415,
           "sampler_archetypes": 1.9949999999999999,
           "sampler_bit_depth": 2.035,
-          "sampler_workflow": 3.1,
+          "sampler_workflow": 2.95,
           "sampler_classic_context": 15.534999999999997
         }
       },

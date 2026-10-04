@@ -2,10 +2,10 @@
   "id": "african_american_classical",
   "name": "African-american classical",
   "family": "classical",
-  "lineage": "African-American classical music encompasses the concert repertoire and performance histories of Black American musicians. Composers including Florence Price and Margaret Bonds contributed distinctive piano, vocal and ensemble works to this continuing tradition.",
-  "recipe": "classic african-american classical, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 221,
-  "score": 45.257,
+  "lineage": "African-american classical is represented here by Florence Price and Margaret Bonds / Michelle Cann — Revival (Curtis Studio, 2023). This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic early-2020s african-american classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 273,
+  "score": 94.552,
   "config": {
     "traditions": [
       "african_american_classical"
@@ -16,38 +16,30 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.5,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.105,
-          "piano_hammer": 7.45,
-          "piano_rim": 7.85575,
-          "piano_soundboard": 7.45,
-          "piano_pinblock": 7.45,
-          "piano_plate": 7.45,
-          "piano_pitch_standard": -0.035
+          "keyboard_technique": 9,
+          "grand_piano_size": 0.3675,
+          "grand_piano_brand": 0.819,
+          "piano_hammer": 15.23025,
+          "piano_rim": 13.0545,
+          "piano_soundboard": 12.93,
+          "piano_pinblock": 13.2435,
+          "piano_plate": 14.8965,
+          "piano_pitch_standard": 15.010749999999998
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -69,15 +61,7 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "keyboard_technique": "keyboard_classical_legato",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "keyboard_technique": "keyboard_classical_legato"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

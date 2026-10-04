@@ -5,7 +5,7 @@
   "lineage": "Israeli folk includes collaborative instrumental ensembles alongside song and spiritual-folk traditions. Groups such as Bustan Abraham bring Middle Eastern plucked strings, wind instruments and improvisation into dialogue with bass and hand percussion.",
   "recipe": "classic modern israeli folk, improv On Frame. Lebanese cedar eastern Mediterranean brass wound bass modern hybrid oud, flute, upright bass, juniper bent frame canonical Maghrebi bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 323,
-  "score": 14.168,
+  "score": 14.704,
   "config": {
     "traditions": [
       "israeli_folk"
@@ -26,10 +26,10 @@
           "plucked_traditional_technique": 1.4315,
           "oud_school": 0.1365,
           "oud_strings": 0.192375,
-          "oud_pick": 0.316125,
+          "oud_pick": 0.223875,
           "oud_body_wood": 0.192375,
-          "oud_soundboard_wood": 1,
-          "oud_string_material": 1.523875
+          "oud_soundboard_wood": 1.063,
+          "oud_string_material": 1.69
         }
       },
       {
@@ -45,7 +45,7 @@
           "wind_articulation": -0.07,
           "flute_size": 0,
           "flute_material": 0.3315,
-          "flute_technique": 1.1666250000000002,
+          "flute_technique": 1.3031250000000003,
           "flute_maker_school": 0.3345
         }
       },
@@ -70,9 +70,9 @@
         },
         "scores": {
           "bendir_snares": 3.12,
-          "bendir_context": 0.94275,
+          "bendir_context": 1.14225,
           "bendir_shell_wood": 2.73,
-          "bendir_head": 0.452625
+          "bendir_head": 0.515625
         }
       }
     ],

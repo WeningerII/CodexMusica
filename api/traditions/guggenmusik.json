@@ -5,7 +5,7 @@
   "lineage": "Swiss carnival brass practice formalized in Basel and Lucerne in the 1930s and expanded through post-war Fasnacht and Fasnet cliques in Switzerland, Alsace and southwest Germany — massed trumpets, trombones, sousaphones and percussion marching at roughly 100-130 BPM playing familiar pop and march tunes deliberately out of tune, with smeared attacks, scooped entries and blown-out fortissimo, driven by bass drum and snare in simple duple patterns.",
   "recipe": "classic mid-1930s guggenmusik, carnival Processional, European branch, American marching groove percussion, European drinking song american drumline tamborazo zacatecano. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass trombone trombone, eb bass oompah march marching sousaphone, silver plated British brass band ceremonial besson sovereign canonical British brass band euphonium, double bass rapid double strokes bass five drum arc kevlar aramid extreme tension nylon tenor drum, softer tone ebonite hard rubber klezmer tradition clarinet. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 815,
-  "score": 109.63,
+  "score": 109.675,
   "config": {
     "traditions": [
       "guggenmusik",
@@ -40,7 +40,7 @@
           "wind_articulation": "wind_dixieland_lead",
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_1half_g",
-          "trombone_mute": "straight_mute_trb",
+          "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
@@ -49,7 +49,7 @@
           "wind_articulation": 2.5999999999999996,
           "trombone_type": 0,
           "trombone_mouthpiece": 3.38,
-          "trombone_mute": 0.195,
+          "trombone_mute": 0.24,
           "trombone_technique": 1.235,
           "trombone_bell_metal": 1.885,
           "trombone_maker_school": 4.549999999999999

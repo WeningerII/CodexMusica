@@ -5,7 +5,7 @@
   "lineage": "Hungarian black-metal discovery field represented by Sear Bliss, formed in Szombathely in 1993, with a documented atmospheric branch featuring amplified metal instruments, synthesizer and brass.",
   "recipe": "classic early-1990s hungarian black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit, analog poly synth, yellow brass canonical 70 30 bach 42 standard bass trombone trombone. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 544,
-  "score": 45.963,
+  "score": 46.232,
   "config": {
     "traditions": [
       "hungarian_black_metal"
@@ -37,9 +37,9 @@
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.10575,
           "string_material": 0.45225,
-          "bridge": 0.8312499999999999,
+          "bridge": 0.9099999999999999,
           "scale_length": 6.629999999999999,
-          "string_gauge": 0.9047499999999999,
+          "string_gauge": 0.9099999999999999,
           "finish": 0.21075,
           "string_tuning": 2.34
         }
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.37424999999999997,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.18
+          "voice_multitrack_stack": 0.26549999999999996
         }
       },
       {
@@ -150,7 +150,7 @@
           "trombone_type": -0.035,
           "trombone_mouthpiece": 1.1049999999999998,
           "trombone_mute": 0.105,
-          "trombone_technique": 0.79975,
+          "trombone_technique": 0.8995,
           "trombone_bell_metal": 1.3315000000000001,
           "trombone_maker_school": 0.5625
         }

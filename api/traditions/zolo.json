@@ -2,10 +2,10 @@
   "id": "zolo",
   "name": "Zolo",
   "family": "pop",
-  "lineage": "Zolo groups eccentric art-pop, new-wave and progressive approaches marked by playful contrasts and unconventional songwriting. Sparks exemplify its theatrical vocal and keyboard-centered strand.",
-  "recipe": "classic zolo, functional Song. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, full lathed both sides lathed drum kit, analog poly synth. live tracking.",
-  "recipe_chars": 199,
-  "score": 11.647,
+  "lineage": "Sparks — 2012 Two Hands One Mouth European tour, complete duo realization. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic early-2010s zolo, ballad Poetry. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. motif xf8 sampled piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 263,
+  "score": 4.769,
   "config": {
     "traditions": [
       "zolo"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,113 +43,26 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_speech_song": 2.3095000000000003,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.6,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "electric_guitar_humbucker",
+        "id": "motif_xf8_sampled_piano",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder_h",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "motif_xf8_sampled_piano_generator": "motif_xf8_sampled_piano_awm2",
+          "motif_xf8_sampled_piano_keyboard": "motif_xf8_sampled_piano_88_hammer",
+          "keyboard_technique": "motif_xf8_sampled_piano_chordal_melodic"
         },
         "scores": {
-          "electric_technique": 5.75,
-          "amp_make": 0,
-          "body_wood": 0,
-          "neck_wood": 0,
-          "fretboard": -0.05,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0,
-          "string_gauge": 0.7,
-          "finish": 0,
-          "string_tuning": 0
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder_h",
-          "pickup_config": "soapbar",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 0,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
-          "snare_wires": "wires_20",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "hand_random_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish"
-        },
-        "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0,
-          "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
-          "shell_thickness": 0,
-          "bearing_edges": 0,
-          "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": -0.1,
-          "cymbal_lathing": 5.2,
-          "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
-        },
-        "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -0.05
+          "motif_xf8_sampled_piano_generator": 0,
+          "motif_xf8_sampled_piano_keyboard": 0,
+          "keyboard_technique": 0.78
         }
       }
     ],
@@ -173,60 +86,21 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "amp_make",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "pickup_winding",
-        "string_material",
-        "bridge",
-        "scale_length",
-        "string_gauge",
-        "finish",
-        "string_tuning"
-      ],
-      "electric_bass": [
-        "amp_make",
-        "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
-      ],
-      "drum_kit": [
-        "drum_technique",
-        "shell_wood",
-        "shell_thickness",
-        "bearing_edges",
-        "drumhead",
-        "snare_wires",
-        "drum_kit_kick_pedal",
-        "cymbal_alloy",
-        "cymbal_hammering",
-        "cymbal_lathing",
-        "cymbal_finish"
-      ],
-      "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
+      "motif_xf8_sampled_piano": [
+        "motif_xf8_sampled_piano_generator",
+        "motif_xf8_sampled_piano_keyboard",
+        "keyboard_technique"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -235,7 +109,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -247,48 +121,23 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electric_technique": "electric_clean_strummed",
-      "amp_make": "amp_unspecified",
-      "body_wood": "alder_h",
-      "neck_wood": "maple_neck_h",
-      "fretboard": "rosewood_fb_h",
-      "pickup_magnet": "alnico_2_h",
-      "pickup_winding": "mid_wind",
-      "string_material": "pure_nickel_h",
-      "bridge": "vibrato_arm",
-      "scale_length": "scale_gibson_h",
-      "string_gauge": "g_10_hum",
-      "finish": "nitro_hum",
-      "string_tuning": "standard_tuning",
-      "pickup_config": "soapbar",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "bass_technique": "fingerstyle_locked",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "drum_technique": "sticks_rock",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
-      "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "electronic_technique": "electronic_pad_drone",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "motif_xf8_sampled_piano_generator": "motif_xf8_sampled_piano_awm2",
+      "motif_xf8_sampled_piano_keyboard": "motif_xf8_sampled_piano_88_hammer",
+      "keyboard_technique": "motif_xf8_sampled_piano_chordal_melodic"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

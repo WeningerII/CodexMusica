@@ -5,7 +5,7 @@
   "lineage": "Armenian indie: Tchamich — Jpta / Ժպտա (2021). Exact track’s soloist, guitar and clarinet credits take precedence over current-bio membership. No extra singer is inferred from “trio”; specific clarinet size and guitar construction are authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic early-2020s armenian indie, functional Song, folk rock branch. solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. martin lifespan sealed strummed open chord ringing overtones dreadnought acoustic guitar, softer tone ebonite hard rubber klezmer tradition clarinet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 15.53,
+  "score": 15.404,
   "config": {
     "traditions": [
       "armenian_indie"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8084999999999999,
-          "voice_ornament_system": 2.6315,
+          "voice_ensemble_config": 1.155,
+          "voice_ornament_system": 2.6,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 2.8520000000000003
+          "voice_multitrack_stack": 2.726
         }
       },
       {
@@ -56,15 +56,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 3.7315,
+          "acoustic_technique": 3.7,
           "string_tuning": 0,
-          "top_wood": 0.231,
-          "back_sides": 0.1785,
-          "string_acoustic": 1.0315
+          "top_wood": 0.2625,
+          "back_sides": 0.105,
+          "string_acoustic": 1
         }
       },
       {
@@ -73,15 +73,15 @@
           "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": -0.1,
-          "clarinet_body": 1.152,
+          "clarinet_body": 1.1204999999999998,
           "clarinet_size": 2.34,
-          "clarinet_reed": 0.1365,
-          "clarinet_articulation": 0.147
+          "clarinet_reed": 0.0315,
+          "clarinet_articulation": 0.0735
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Duo.Hansen — A Portrait of Slytherin and His House, original violin-and-cello duet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic string duo, art Music. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 303,
-  "score": 50.377,
+  "score": 51.588,
   "config": {
     "traditions": [
       "string_duo"
@@ -26,15 +26,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.8314999999999997,
+          "bowed_technique": 2.8,
           "orch_strings": 0.6,
           "orch_top_wood": 2.45,
-          "orch_back_wood": 3.45,
+          "orch_back_wood": 4.485,
           "orch_varnish": 3.25,
-          "orch_setup_period": 3.25,
-          "orch_bow": 0.0315,
-          "orch_bow_stick": 4.16,
-          "orch_articulation": 0.063,
+          "orch_setup_period": 3.2815,
+          "orch_bow": 0,
+          "orch_bow_stick": 3.6830000000000003,
+          "orch_articulation": 0,
           "orch_rosin": 3.55
         }
       },
@@ -52,15 +52,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 2.8314999999999997,
+          "bowed_technique": 2.8,
           "cello_strings": 0.6,
           "cello_top_wood": 2.45,
-          "cello_back_wood": 3.45,
+          "cello_back_wood": 4.485,
           "cello_varnish": 3.25,
-          "cello_setup_period": 3.25,
+          "cello_setup_period": 3.2815,
           "cello_bow_grip": 1.3,
-          "cello_rosin": 5.45,
-          "cello_bow_stick": 4.16
+          "cello_rosin": 5.639,
+          "cello_bow_stick": 3.6830000000000003
         }
       }
     ],

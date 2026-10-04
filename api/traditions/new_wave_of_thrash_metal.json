@@ -5,7 +5,7 @@
   "lineage": "The new wave of thrash metal renews thrash’s rapid riff language for later generations.",
   "recipe": "classic modern new wave of thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, soft attack transient modern metal basswood electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 453,
-  "score": 45.885,
+  "score": 44.9,
   "config": {
     "traditions": [
       "new_wave_of_thrash_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.63,
+          "voice_ensemble_config": 0.8739999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.2819999999999999,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.32475,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 10.628,
+          "electric_technique": 10.5335,
           "amp_make": 9.620000000000001,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.16899999999999998,
-          "fretboard": 0.7974999999999999,
-          "pickup_magnet": 0,
+          "fretboard": 0.5559999999999999,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.2535,
           "string_material": 0.16899999999999998,
-          "bridge": 0.7344999999999999,
+          "bridge": 0.5245,
           "scale_length": 0,
-          "string_gauge": 0.0735,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.108
+          "string_tuning": 0.28800000000000003
         }
       },
       {
@@ -102,9 +102,9 @@
           "body_wood": 4.9399999999999995,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.054,
-          "fretted_or_not": 0.1905,
-          "bass_technique": 4.5945,
+          "scale_length_b": 0.1905,
+          "fretted_or_not": 0.222,
+          "bass_technique": 4.563,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.6445,
+          "drumhead": 0.6024999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

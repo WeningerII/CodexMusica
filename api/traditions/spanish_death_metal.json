@@ -5,7 +5,7 @@
   "lineage": "Spanish death metal includes melodic and atmospheric approaches alongside more direct extreme-metal styles.",
   "recipe": "classic spanish death metal, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension blast beat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 425,
-  "score": 31.504,
+  "score": 31.473,
   "config": {
     "traditions": [
       "spanish_death_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.147,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.126
         }
       },
       {
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 1.4489999999999998,
+          "drum_technique": 1.4175,
           "drumhead": 1.2349999999999999,
           "drum_kit_kick_pedal": 0.39
         }
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.4095,
+          "voice_ensemble_config": 0.37799999999999995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },

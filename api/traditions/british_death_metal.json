@@ -5,7 +5,7 @@
   "lineage": "British death metal grew through underground scenes with connections to grind and other extreme forms. Liverpool’s Carcass exemplify a strand where low guitar tuning and harsh, rhythmically emphatic vocals coexist with melodic guitar writing.",
   "recipe": "classic modern british death metal, distorted Rock, death branch. solo with instrumental accompaniment. marshall plexi amp British rock amp mahogany ebony b standard humbucker electric guitar, marshall plexi amp British rock amp mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 488,
-  "score": 53.968,
+  "score": 54,
   "config": {
     "traditions": [
       "british_death_metal"
@@ -131,7 +131,7 @@
           "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
+          "voice_processing_chain": 0.3315,
           "voice_multitrack_stack": 0.063
         }
       }

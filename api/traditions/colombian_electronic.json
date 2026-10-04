@@ -2,10 +2,10 @@
   "id": "colombian_electronic",
   "name": "Colombian electronic",
   "family": "electronic",
-  "lineage": "Colombian electronic music connects local and diaspora producers with global bass, folktronica and other electronic approaches.",
-  "recipe": "classic colombian electronic, electronic Dance, Latin electric branch. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 211,
-  "score": 0.88,
+  "lineage": "Colombian electronic is represented by Amaru Tribe — Golden Roots electronic-and-vocal core. This documented branch is realized as an authored present-day arrangement.",
+  "recipe": "classic colombian electronic, electronic Dance, Latin electric branch. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 15.555,
   "config": {
     "traditions": [
       "colombian_electronic"
@@ -15,30 +15,30 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "juno_60",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 0,
+          "poly_archetypes": 0.0945,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       },
       {
-        "id": "drum_machine_analog",
+        "id": "sampler_drum_machine",
         "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "kick_voice": 0.0945,
-          "snare_voice": 0.168,
-          "hat_voice": 0.126,
-          "shuffle_quantize": -0.035
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.1995,
+          "sample_swing": 14.5315,
+          "sample_processing": 0.273
         }
       },
       {
@@ -83,16 +83,7 @@
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
-      ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+        "electronic_technique"
       ],
       "voice": [
         "voice_register",
@@ -148,14 +139,7 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "electronic_technique": "electronic_pad_drone",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith",
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize"
+      "electronic_technique": "electronic_pad_drone"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

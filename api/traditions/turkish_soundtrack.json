@@ -5,7 +5,7 @@
   "lineage": "Turkish soundtrack music serves film and television storytelling through composed instrumental cues and songs. Composers such as Ahmet Kenan Bilgiç and Gökhan Kırdar draw on acoustic instruments, electronic production and diverse local musical references.",
   "recipe": "classic turkish soundtrack, art Music. dreadnought acoustic guitar, upright piano, analog poly synth. live tracking.",
   "recipe_chars": 116,
-  "score": -0.163,
+  "score": -0.35,
   "config": {
     "traditions": [
       "turkish_soundtrack"
@@ -25,7 +25,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
-          "string_acoustic": 0.0315
+          "string_acoustic": 0
         }
       },
       {
@@ -37,7 +37,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "upright_use": 0.0315,
+          "upright_use": 0,
           "upright_piano_size": 0
         }
       },
@@ -50,9 +50,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "poly_archetypes": 0,
-          "poly_voices": 0.0945,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.05
         }
       }

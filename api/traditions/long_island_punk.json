@@ -3,9 +3,9 @@
   "name": "Long island punk",
   "family": "rock_punk",
   "lineage": "Long Island punk includes melodic bands developed within the region’s independent scenes.",
-  "recipe": "classic long island punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 328,
-  "score": 40.463,
+  "recipe": "classic long island punk, distorted Rock, punk branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 351,
+  "score": 41.903,
   "config": {
     "traditions": [
       "long_island_punk"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1365,
+          "bridge": 0.4965,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.36,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.108
         }
       },
       {
@@ -112,12 +112,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.444,
-          "voice_ensemble_config": 0.054,
+          "voice_speech_song": 1.11,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.054,
+          "voice_processing_chain": 0.054,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Italian stoner rock combines heavy guitar riffs with psychedelic and fuzz-rock textures.",
   "recipe": "classic italian stoner rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood riff driven humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 61.173,
+  "score": 61.301,
   "config": {
     "traditions": [
       "italian_stoner_rock"
@@ -22,9 +22,9 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.39,
+          "bridge": 0.45825,
           "scale_length": 1.743,
-          "string_gauge": 0.441,
+          "string_gauge": 0.45825,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.042749999999999996
         }
       },
       {

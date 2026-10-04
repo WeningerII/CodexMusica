@@ -5,7 +5,7 @@
   "lineage": "Australian psych: Los Palms — Los Palms (2019). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
   "recipe": "classic late-2010s australian psych, distorted Rock, experimental branch. thick, interlocked note trading, equal tempered, single source phonation. low-mid-thick articulate mahogany maple humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 383,
-  "score": 45.865,
+  "score": 46.432,
   "config": {
     "traditions": [
       "australian_psych"
@@ -37,18 +37,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.378,
+          "voice_vibrato": 0.441,
           "voice_articulation": 4.095000000000001,
-          "voice_microtone": 4.4285000000000005,
+          "voice_microtone": 4.491500000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 6.0315,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.302,
+          "voice_ensemble_config": 1.323,
           "voice_ornament_system": 1.1049999999999998,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 3.1995,
+          "voice_multitrack_stack": 3.2625,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7629999999999999,
+          "electric_technique": 0.7314999999999999,
           "amp_make": -0.07,
-          "body_wood": 1.0945,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.252,
-          "pickup_winding": 0.33599999999999997,
-          "string_material": 0.5145,
-          "bridge": 1.1365,
-          "scale_length": 1.239,
-          "string_gauge": 1.0735,
+          "body_wood": 1.063,
+          "neck_wood": 0.5459999999999999,
+          "fretboard": 0.5459999999999999,
+          "pickup_magnet": 0.357,
+          "pickup_winding": 0.357,
+          "string_material": 0.5459999999999999,
+          "bridge": 1.063,
+          "scale_length": 1.3755000000000002,
+          "string_gauge": 1,
           "finish": 0.1365,
           "string_tuning": 0
         }
@@ -100,10 +100,10 @@
         "scores": {
           "amp_make": -0.07,
           "body_wood": 0.21,
-          "pickup_config": 0.2835,
+          "pickup_config": 0.38849999999999996,
           "string_type": 5.85,
-          "scale_length_b": 0.378,
-          "fretted_or_not": 1.0315,
+          "scale_length_b": 0.483,
+          "fretted_or_not": 1,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 4.5,
-          "drumhead": 0.5145,
+          "drumhead": 0.5459999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

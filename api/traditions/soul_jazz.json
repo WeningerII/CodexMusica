@@ -3,14 +3,14 @@
   "name": "Soul jazz",
   "family": "jazz",
   "lineage": "1955-1975 jazz subgenre built on tonewheel-organ trio (organ-guitar-drums) with R&B / gospel-rooted melodic vocabulary — Jimmy Smith, Jack McDuff, Jimmy McGriff, Lonnie Smith, Big John Patton, the Blue Note organ-trio canon",
-  "recipe": "classic North American mid-1960s soul jazz, improv On Frame, soul jazz branch, American jazz bop, soul R&B functional song bebop classic japanese jazz. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs slow chorale tonewheel organ, Fender blackface amp American 60s amp spring reverb bright chicken-scratch humbucker electric guitar, vintage ambassador asymmetric brushes drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 831,
-  "score": 486.85,
+  "recipe": "classic North American mid-1960s soul jazz, improv On Frame, soul jazz branch, American jazz bop, soul R&B functional song bebop classic r&b. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs slow chorale tonewheel organ, Fender blackface amp American 60s amp spring reverb bright mahogany maple humbucker electric guitar, vintage ambassador asymmetric brushes drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 823,
+  "score": 467.423,
   "config": {
     "traditions": [
       "soul_jazz",
       "bebop",
-      "classic_japanese_jazz"
+      "classic_rb"
     ],
     "instruments": [
       {
@@ -24,12 +24,12 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 15.065625,
-          "drawbar_setting": 37.06500000000001,
-          "rotary_speed": 9.6,
-          "percussion_setting": 36.525000000000006,
-          "tonewheel_model": 52.447500000000005,
-          "leslie_cabinet_model": 1.9899999999999998
+          "keyboard_technique": 21.845625,
+          "drawbar_setting": 30.535000000000007,
+          "rotary_speed": 13.895,
+          "percussion_setting": 29.650000000000006,
+          "tonewheel_model": 47.845625,
+          "leslie_cabinet_model": 2.0949999999999998
         }
       },
       {
@@ -37,11 +37,11 @@
         "slots": {
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "korina",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
@@ -50,17 +50,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 11.595,
-          "amp_make": 19.684375,
-          "body_wood": 0.9356249999999999,
-          "neck_wood": 0.69,
-          "fretboard": 0.6399999999999999,
-          "pickup_magnet": 0.045,
-          "pickup_winding": 0.65,
+          "electric_technique": 16.360625,
+          "amp_make": 25.349999999999998,
+          "body_wood": 1.0799999999999998,
+          "neck_wood": 1.035,
+          "fretboard": 0.9849999999999999,
+          "pickup_magnet": 0.050624999999999996,
+          "pickup_winding": 0.39,
           "string_material": 0.39,
-          "bridge": 0.69,
-          "scale_length": 0.78,
-          "string_gauge": 0.78,
+          "bridge": 1.035,
+          "scale_length": 1.17,
+          "string_gauge": 1.17,
           "finish": 0.3,
           "string_tuning": 2.21
         }
@@ -73,8 +73,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 36.37500000000001,
-          "drumhead": 44.268125000000005,
+          "drum_technique": 29.500000000000007,
+          "drumhead": 37.58187500000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -84,19 +84,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "nickel_silver_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 11.4025,
-          "sax_size": 9.549999999999999,
+          "wind_articulation": 16.4375,
+          "sax_size": 13.799999999999999,
           "sax_reed": 0.39,
-          "sax_body_alloy": 37.62500000000001,
+          "sax_body_alloy": 29.700625000000006,
           "sax_mouthpiece": 0.39,
-          "sax_technique": 36.37500000000001,
-          "sax_maker_school": 43.118125000000006
+          "sax_technique": 29.500000000000007,
+          "sax_maker_school": 35.88125
         }
       },
       {
@@ -111,13 +111,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 11.4025,
+          "wind_articulation": 16.4375,
           "brass_size": 0.39,
-          "trumpet_mouthpiece": 42.823125000000005,
+          "trumpet_mouthpiece": 35.736250000000005,
           "brass_mute": 0.585,
-          "trumpet_technique": 11.4025,
-          "trumpet_bell_metal": 0.28500000000000003,
-          "trumpet_maker_school": 6.434999999999999
+          "trumpet_technique": 16.4375,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 5.654999999999999
         }
       }
     ],

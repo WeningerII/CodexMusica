@@ -2,82 +2,94 @@
   "id": "chill_drill",
   "name": "Chill Drill",
   "family": "hip_hop",
-  "lineage": "Chill drill softens drill’s rhythmic and bass vocabulary through smoother melodic production. Producers balance its syncopated beat language with restrained textures and more relaxed listening moods.",
-  "recipe": "classic chill drill, mc Rhythm, drill branch. upright piano, pitched sub bass 808 style legato glide sampler drum machine. live tracking.",
-  "recipe_chars": 137,
-  "score": 2.25,
+  "lineage": "Jay Cactus — complete Chill Drill FLStudio creation tutorial,18February2025. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "recipe": "classic chill drill, mc Rhythm, drill branch. daw melodic source daw phrase source daw bass source daw percussion source unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 232,
+  "score": 0,
   "config": {
     "traditions": [
       "chill_drill"
     ],
     "instruments": [
       {
-        "id": "upright_piano",
+        "id": "daw_melodic_source_unspecified",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified"
         },
         "scores": {
-          "keyboard_technique": -0.1,
-          "upright_use": 0.39,
-          "upright_piano_size": 0
+          "daw_melodic_source_unspecified_identity": 0
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "daw_phrase_source_unspecified",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "sample_808_legato_slides"
+          "daw_phrase_source_unspecified_identity": "daw_phrase_source_unspecified_architecture_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.39,
-          "sample_swing": -0.05,
-          "sample_processing": 1.69
+          "daw_phrase_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_bass_source_unspecified",
+        "slots": {
+          "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_bass_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_percussion_source_unspecified",
+        "slots": {
+          "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_percussion_source_unspecified_identity": 0
         }
       }
     ],
     "pinned": {
-      "upright_piano": [
-        "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
+      "daw_melodic_source_unspecified": [
+        "daw_melodic_source_unspecified_identity"
       ],
-      "sampler_drum_machine": [
-        "electronic_technique",
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "daw_phrase_source_unspecified": [
+        "daw_phrase_source_unspecified_identity"
+      ],
+      "daw_bass_source_unspecified": [
+        "daw_bass_source_unspecified_identity"
+      ],
+      "daw_percussion_source_unspecified": [
+        "daw_percussion_source_unspecified_identity"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped",
-      "sample_bitdepth": "sixteen_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "sample_808_legato_slides",
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified",
+      "daw_phrase_source_unspecified_identity": "daw_phrase_source_unspecified_architecture_unspecified",
+      "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified",
+      "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

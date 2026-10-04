@@ -5,7 +5,7 @@
   "lineage": "Noise punk combines punk urgency with abrasive electric textures and unstable density.",
   "recipe": "classic noise punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 45.771,
+  "score": 46.099,
   "config": {
     "traditions": [
       "noise_punk"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1365,
+          "bridge": 0.279,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.1425,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.042749999999999996
         }
       },
       {

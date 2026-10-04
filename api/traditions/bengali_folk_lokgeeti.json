@@ -3,9 +3,9 @@
   "name": "Bengali folk (lokgeeti of Bengal and Bangladesh)",
   "family": "global",
   "lineage": "Regional song stock of Bengal and Bangladesh — bhawaiya of Rangpur and Cooch Behar, bhatiali of the river delta, jhumur of the Rarh plateau and gambhira of Chapainawabganj — collected by Abbasuddin Ahmed, Nirmalendu Chowdhury and the Kolkata Folk and Tribal Cultural Centre from the 1930s onward; dotara and ektara supply a bright metallic ostinato under khol or dholak in dadra and keherwa cycles, with long free-breath opening calls and a lightly nasal upper-register male delivery carrying wave-like meend.",
-  "recipe": "classic South Asian mid-1930s bengali folk, field Work, south Asian branch, indian bard ballad poetry, south Asian domestic rhythm, hindu ritual devotional bhojpuri lok geet himalayan folk. thick, breath veiled tone, breath pulsed, interlocked note trading. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara, liturgical khol, dholak, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, vocal male straight harmonium indian, bengali brass manjira. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 692,
-  "score": 293.943,
+  "recipe": "classic South Asian mid-1930s bengali folk, field Work, south Asian branch, indian bard ballad poetry, south Asian domestic rhythm, hindu ritual devotional bhojpuri lok geet himalayan folk. thick, breath veiled tone, breath pulsed, interlocked note trading. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara, liturgical khol, rope laced steel ring dholak, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, vocal male straight harmonium indian, bengali brass manjira. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 714,
+  "score": 295.248,
   "config": {
     "traditions": [
       "bengali_folk_lokgeeti",
@@ -38,17 +38,17 @@
           "voice_quality": 13.454999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3,
+          "voice_vibrato": 2.495,
           "voice_articulation": 23.79,
           "voice_microtone": 23.595,
-          "voice_tradition": 19.265,
+          "voice_tradition": 19.505000000000003,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 6.4350000000000005,
           "voice_speech_song": 28.145000000000003,
           "voice_ensemble_config": 24.245000000000005,
-          "voice_ornament_system": 10.42,
+          "voice_ornament_system": 10.465,
           "voice_pitch_organization": 8.89,
-          "voice_processing_chain": 10.145,
+          "voice_processing_chain": 10.205,
           "voice_multitrack_stack": 2.990000000000001
         }
       },
@@ -89,7 +89,7 @@
         },
         "scores": {
           "khol_form": 5.380000000000001,
-          "khol_repertoire": 1.8499999999999996,
+          "khol_repertoire": 2.2099999999999995,
           "khol_body": -0.035
         }
       },
@@ -102,10 +102,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.38999999999999996,
+          "dholak_use": 0.345,
           "dholak_construction": 1.3,
-          "dholak_head": 0.69,
-          "dholak_tensioning": 0.84
+          "dholak_head": 0.8849999999999999,
+          "dholak_tensioning": 1.035
         }
       },
       {
@@ -118,9 +118,9 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 6.09,
+          "wind_articulation": 6.045,
           "bansuri_length": 6.139999999999999,
-          "bansuri_ornament": 1.16,
+          "bansuri_ornament": 1.3099999999999998,
           "bansuri_body_material": 8.45,
           "bansuri_lineage": 1.95
         }
@@ -134,7 +134,7 @@
           "harmonium_use": "harmonium_qawwali"
         },
         "scores": {
-          "free_reed_technique": 6.04,
+          "free_reed_technique": 5.995,
           "harmonium_action": 1.95,
           "harmonium_voicing": 2.9899999999999998,
           "harmonium_use": 2.145

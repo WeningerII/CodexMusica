@@ -2,10 +2,10 @@
   "id": "garage_punk_blues",
   "name": "Garage punk blues",
   "family": "rock_punk",
-  "lineage": "Garage punk blues joins amplified blues and roots music with garage rock’s rough attack and punk’s economy. Stripped-down groups, one-person bands and acts such as the Jon Spencer Blues Explosion use forceful rhythms and unruly guitar textures.",
-  "recipe": "classic modern garage punk blues, distorted Rock, punk branch. equal tempered, one note per syllable, solo with instrumental accompaniment. single coil electric guitar, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 339,
-  "score": 19.553,
+  "lineage": "A garage/punk/blues discovery field connecting rough-edged amplified roots forms, stripped lineups and forceful rhythm. The selected Jon Spencer Blues Explosion branch is supported by direct musician interviews describing a two-guitar, drums and voice ensemble, with low guitar filtering instead of a regular bass guitarist.",
+  "recipe": "classic modern garage punk blues, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. alder mahogany rosewood single coil electric guitar, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 374,
+  "score": 24.052,
   "config": {
     "traditions": [
       "garage_punk_blues"
@@ -36,18 +36,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
+          "voice_vibrato": 1.2635,
           "voice_articulation": 0,
-          "voice_microtone": 6.000000000000001,
+          "voice_microtone": 7.300000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
+          "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.08,
+          "voice_speech_song": 2.1710000000000003,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_ornament_system": 0.3315,
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 0.0705,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -68,14 +68,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.2315,
+          "electric_technique": -0.07,
           "amp_make": -0.14,
-          "body_wood": 0.3,
-          "neck_wood": 0.39,
-          "fretboard": 0.325,
-          "pickup_magnet": 0,
-          "string_material": 0.0315,
-          "string_gauge": 0.7909999999999999,
+          "body_wood": 1.063,
+          "neck_wood": 1.2415,
+          "fretboard": 1.1915,
+          "pickup_magnet": 0.0315,
+          "string_material": 0,
+          "string_gauge": 0.9099999999999999,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
@@ -91,8 +91,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.289,
-          "drumhead": 0.3,
+          "drum_technique": 3.8205,
+          "drumhead": 1,
           "drum_kit_kick_pedal": 0
         }
       }

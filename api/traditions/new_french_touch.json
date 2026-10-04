@@ -5,7 +5,7 @@
   "lineage": "Fakear — first-person documented 2014 solo sample-pad live practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s new french touch, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 162,
-  "score": 7.123,
+  "score": 7.033,
   "config": {
     "traditions": [
       "new_french_touch"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.2315,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.39,
+          "sampler_bit_depth": 0.3,
           "sampler_workflow": 3.7,
           "sampler_classic_context": 2.0515
         }

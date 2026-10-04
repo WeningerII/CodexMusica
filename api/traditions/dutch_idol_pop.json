@@ -5,7 +5,7 @@
   "lineage": "Dutch idol pop connects singers emerging through televised talent contests with contemporary Dutch popular songwriting.",
   "recipe": "classic dutch idol pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 11.408,
+  "score": 11.354,
   "config": {
     "traditions": [
       "dutch_idol_pop"
@@ -64,7 +64,7 @@
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.354
+          "voice_multitrack_stack": 0.3
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Music for yoga draws on ambient, acoustic, devotional and other repertoires used alongside movement, breathing and quiet attention. Contemporary electronic composers have developed slowly evolving instrumental approaches for this setting.",
   "recipe": "classic yoga, experimental Elec. ambient pad like analog synth.",
   "recipe_chars": 63,
-  "score": 4.419,
+  "score": 4.283,
   "config": {
     "traditions": [
       "yoga"
@@ -21,9 +21,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.8314999999999997,
+          "electronic_technique": 2.8,
           "oscillator": 0.063,
-          "filter_topology": 0.105,
+          "filter_topology": 0,
           "envelope": 1.2835,
           "modulation": 0.1365
         }

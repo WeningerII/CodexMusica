@@ -2,10 +2,10 @@
   "id": "alt_idol",
   "name": "Alt-idol",
   "family": "pop",
-  "lineage": "Alt-idol brings idol performance into contact with alternative rock, electronic and dance-oriented approaches. Artists work in varied duo, band and production-led formats.",
+  "lineage": "Alt-idol is represented here by OYASUMI HOLOGRAM — Kanamil/Ogawa guitar-vocal core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic alt-idol, functional Song, east Asian pop branch. solo with instrumental accompaniment. humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 223,
-  "score": 5.638,
+  "score": 7.434,
   "config": {
     "traditions": [
       "alt_idol"
@@ -15,14 +15,14 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_fender_champ",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.10500000000000001,
-          "amp_make": 1.17,
+          "amp_make": 0.8499999999999999,
           "body_wood": 0.6824999999999999,
           "neck_wood": 0.231,
           "fretboard": 0.0945,
           "pickup_magnet": 0.16799999999999998,
           "pickup_winding": 0.105,
           "string_material": 0.0945,
-          "bridge": 0.231,
+          "bridge": 1.4365,
           "scale_length": 0.609,
-          "string_gauge": 0.3,
+          "string_gauge": 1.3,
           "finish": 0,
-          "string_tuning": 0.0315
+          "string_tuning": 0.3315
         }
       },
       {
@@ -76,7 +76,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

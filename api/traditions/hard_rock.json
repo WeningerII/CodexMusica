@@ -3,13 +3,14 @@
   "name": "Hard rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1980s UK and US hard rock canon codified through Led Zeppelin (Led Zeppelin II 1969 anchoring the heavy-blues-derived foundation), Deep Purple (Machine Head 1972), Black Sabbath (the heavier sludge-pioneering wing), Aerosmith (the US blues-rock crossover), Van Halen (Eddie Van Halens technical-guitar virtuoso revolution from 1978 onward), AC/DC (the Australian-Scottish stripped-down hard rock canon, Back in Black 1980)",
-  "recipe": "classic Northern European 1967-1969 hard rock, distorted Rock, classic branch, nwobhm metal. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb dallas arbiter fuzz face MXR phase 90 ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 721,
-  "score": 346.119,
+  "recipe": "classic Northern European 1967-1969 hard rock, distorted Rock, classic branch, nwobhm metal new wave of speed metal metal paranaense. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb dallas arbiter fuzz face MXR phase 90 ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 754,
+  "score": 330.428,
   "config": {
     "traditions": [
       "hard_rock",
-      "nwobhm"
+      "new_wave_of_speed_metal",
+      "metal_paranaense"
     ],
     "instruments": [
       {
@@ -27,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 36.77500000000001,
-          "voice_quality": 12.089999999999995,
+          "voice_register": 34.850000000000016,
+          "voice_quality": 8.32,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.303499999999998,
-          "voice_articulation": 8.45,
-          "voice_microtone": 26.924999999999997,
-          "voice_tradition": 5.336999999999999,
-          "voice_mechanism_compound": 15.410999999999996,
-          "voice_estill_quality": 2.4049999999999994,
-          "voice_speech_song": 9.424999999999999,
-          "voice_ensemble_config": 9.36,
-          "voice_ornament_system": 0.5849999999999997,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 12.004000000000001,
-          "voice_multitrack_stack": 7.889
+          "voice_vibrato": 9.166999999999998,
+          "voice_articulation": 8.189999999999998,
+          "voice_microtone": 24.999999999999993,
+          "voice_tradition": 4.809999999999999,
+          "voice_mechanism_compound": 20.362999999999996,
+          "voice_estill_quality": 1.5599999999999996,
+          "voice_speech_song": 10.789999999999996,
+          "voice_ensemble_config": 8.514999999999999,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 6.2235,
+          "voice_multitrack_stack": 5.035
         }
       },
       {
@@ -58,28 +59,28 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.764,
-          "amp_make": 19.11,
-          "body_wood": 4.289999999999998,
-          "neck_wood": 1.3,
-          "fretboard": 1.2349999999999999,
-          "pickup_magnet": 1.264,
-          "pickup_winding": 2.4050000000000002,
-          "string_material": 1.04,
-          "bridge": 1.3,
-          "scale_length": 3.3799999999999994,
-          "string_gauge": 1.3,
+          "electric_technique": 22.090999999999998,
+          "amp_make": 15.827499999999999,
+          "body_wood": 6.304999999999998,
+          "neck_wood": 0.808,
+          "fretboard": 0.363,
+          "pickup_magnet": 1.3090000000000002,
+          "pickup_winding": 1.95,
+          "string_material": 0.39,
+          "bridge": 0.808,
+          "scale_length": 6.499999999999999,
+          "string_gauge": 1.04,
           "finish": 0.3445,
           "string_tuning": 22.294999999999998
         }
@@ -87,7 +88,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
@@ -97,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.2825,
-          "body_wood": 1.3,
-          "pickup_config": 0.16899999999999998,
-          "string_type": 32.8215,
-          "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0,
-          "bass_technique": 29.138999999999996,
+          "amp_make": 15.209999999999999,
+          "body_wood": 1.616,
+          "pickup_config": 0.195,
+          "string_type": 31.9055,
+          "scale_length_b": 0.853,
+          "fretted_or_not": 0.195,
+          "bass_technique": 27.548999999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -115,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.3755,
+          "drum_technique": 25.7505,
           "drumhead": 2.2295,
           "drum_kit_kick_pedal": 0
         }

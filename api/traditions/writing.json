@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 5,
-          "upright_use": 0.0315,
+          "keyboard_technique": 5.0315,
+          "upright_use": 0,
           "upright_piano_size": 0.3
         }
       }

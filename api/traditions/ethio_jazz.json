@@ -5,7 +5,7 @@
   "lineage": "Ethiopian Golden Age 1969-1974 Amha-Kaifa-Philips label canon — codified through Mulatu Astatke’s Berklee-and-NYC training brought back to Addis Ababa, the Roha Band and Walias Band as the canonical recording ensembles, Mahmoud Ahmed (Ere Mela Mela 1975), Alemayehu Eshete, and Tilahun Gessesse (also romanized Tlahoun Gèssèssè) as canonical singers; characterized by Ethiopian kignit-modal vocals over jazz-and-soul instrumental beds",
   "recipe": "classic East African mid-1970s ethio-jazz, improv On Frame, Latin jazz branch, vocal drone modal flamenco ukrainian folk. thick, breath veiled tone, straight onset, interlocked note trading. vibraphone, Leslie rotary combo organ, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder flatwound electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, gut ethiopian historical krar.",
   "recipe_chars": 927,
-  "score": 520.582,
+  "score": 527.445,
   "config": {
     "traditions": [
       "ethio_jazz",
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "jazz_scat_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 18.439999999999994,
-          "voice_quality": 10.334999999999994,
+          "voice_register": 18.589999999999993,
+          "voice_quality": 10.529999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.614999999999998,
-          "voice_articulation": 17.939999999999998,
-          "voice_microtone": 23.65999999999999,
-          "voice_tradition": 13.339999999999996,
-          "voice_mechanism_compound": 7.540000000000001,
-          "voice_estill_quality": 7.312500000000001,
-          "voice_speech_song": 21.677499999999995,
-          "voice_ensemble_config": 18.459999999999997,
+          "voice_vibrato": 14.264999999999997,
+          "voice_articulation": 18.199999999999996,
+          "voice_microtone": 24.11499999999999,
+          "voice_tradition": 13.877499999999996,
+          "voice_mechanism_compound": 7.345000000000001,
+          "voice_estill_quality": 7.117500000000001,
+          "voice_speech_song": 22.7825,
+          "voice_ensemble_config": 18.914999999999996,
           "voice_ornament_system": 3.45,
           "voice_pitch_organization": 14.184999999999995,
-          "voice_processing_chain": 4.94,
-          "voice_multitrack_stack": 4.419999999999999
+          "voice_processing_chain": 5.395,
+          "voice_multitrack_stack": 5.069999999999999
         }
       },
       {
@@ -99,7 +99,7 @@
           "wind_articulation": 4.925,
           "sax_size": 3.29,
           "sax_reed": 0,
-          "sax_body_alloy": 14.544999999999996,
+          "sax_body_alloy": 16.169999999999998,
           "sax_mouthpiece": 0.975,
           "sax_technique": 13.624999999999996,
           "sax_maker_school": 17.415
@@ -118,7 +118,7 @@
         },
         "scores": {
           "wind_articulation": 4.925,
-          "brass_size": 1.4300000000000002,
+          "brass_size": 0.39,
           "trumpet_mouthpiece": 15.844999999999999,
           "brass_mute": 0.39,
           "trumpet_technique": 4.925,
@@ -139,7 +139,7 @@
         },
         "scores": {
           "wind_articulation": 4.925,
-          "trombone_type": 15.099999999999998,
+          "trombone_type": 14.299999999999997,
           "trombone_mouthpiece": 14.469999999999999,
           "trombone_mute": 0.39,
           "trombone_technique": 0.975,
@@ -176,7 +176,7 @@
           "bridge": 0.195,
           "scale_length": 1.04,
           "finish": 0.045,
-          "string_tuning": 7.15,
+          "string_tuning": 7.995,
           "single_coil_pickup_construction": 0
         }
       },
@@ -198,7 +198,7 @@
           "pickup_config": 0.195,
           "string_type": 14.299999999999997,
           "scale_length_b": 1.04,
-          "fretted_or_not": 1.4300000000000002,
+          "fretted_or_not": 0.39,
           "bass_technique": 13.249999999999996,
           "electric_bass_string_configuration": 0
         }
@@ -211,7 +211,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.292499999999997,
+          "drum_technique": 26.747499999999995,
           "drumhead": 16.234999999999996,
           "drum_kit_kick_pedal": 0
         }
@@ -225,7 +225,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.01,
+          "percussion_technique": 6.659999999999999,
           "conga_set": 1.4100000000000001,
           "conga_skin": 2.6,
           "conga_shell_wood": 2.6
@@ -239,9 +239,9 @@
           "krar_string_material": "krar_gut_historical"
         },
         "scores": {
-          "krar_strings": 2.8600000000000003,
+          "krar_strings": 3.7049999999999996,
           "krar_body": 0.975,
-          "krar_string_material": 5.284999999999998
+          "krar_string_material": 5.434999999999999
         }
       },
       {
@@ -283,7 +283,7 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.01,
+          "percussion_technique": 6.659999999999999,
           "bongos_skin": 2.535,
           "bongos_context": 0.975,
           "bongos_shell_wood": 2.6

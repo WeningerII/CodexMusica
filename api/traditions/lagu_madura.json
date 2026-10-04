@@ -5,7 +5,7 @@
   "lineage": "Lagu Madura encompasses Madurese-language song, including community play-songs and later popular or concert interpretations. Regional language and repertoire link varied arrangements without requiring a single ensemble.",
   "recipe": "classic lagu madura, art Music. group vocals, live take. shoebox concert hall.",
   "recipe_chars": 78,
-  "score": 2.578,
+  "score": 2.704,
   "config": {
     "traditions": [
       "lagu_madura"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2415,
+          "voice_ensemble_config": 1.2309999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 1.2415,
+          "voice_processing_chain": 0.24149999999999996,
+          "voice_multitrack_stack": 1.2309999999999999,
           "voice_tessitura": 0
         }
       }

@@ -3,14 +3,14 @@
   "name": "West Coast Blues",
   "family": "blues_gospel",
   "lineage": "Piano-led, jazz-adjacent blues that formed in 1940s Los Angeles and Oakland among Texas and Oklahoma migrants and was codified by Charles Brown, Johnny Moore's Three Blazers, Lowell Fulson, Pee Wee Crayton and Percy Mayfield — small combos of piano, clean electric guitar, upright bass, brushed drums and occasional tenor sax, slow 12/8 club ballads and relaxed shuffles at 60-120 BPM, extended seventh and ninth voicings, and an intimate, unhurried crooned vocal.",
-  "recipe": "classic Los Angeles mid-1940s west coast blues, functional Song, blues electric branch, American jazz smooth vocal, crooners functional song dinner jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 790,
-  "score": 397.302,
+  "recipe": "classic Los Angeles mid-1940s west coast blues, functional Song, blues electric branch, American jazz smooth vocal, crooners functional song dinner jazz adult standards. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 809,
+  "score": 393.58,
   "config": {
     "traditions": [
       "west_coast_blues",
       "dinner_jazz",
-      "vocal_jazz"
+      "adult_standards"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 30.09999999999999,
-          "voice_quality": 8.71,
+          "voice_register": 28.449999999999996,
+          "voice_quality": 10.724999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.259999999999998,
-          "voice_articulation": 20.93,
-          "voice_microtone": 20.54,
-          "voice_tradition": 25.5125,
-          "voice_mechanism_compound": 0.845,
-          "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 24.245000000000005,
-          "voice_ensemble_config": 21.710000000000004,
+          "voice_vibrato": 13.51,
+          "voice_articulation": 26.520000000000007,
+          "voice_microtone": 26.130000000000006,
+          "voice_tradition": 18.687499999999996,
+          "voice_mechanism_compound": 1.8849999999999996,
+          "voice_estill_quality": 2.02,
+          "voice_speech_song": 32.11000000000001,
+          "voice_ensemble_config": 26.195000000000007,
           "voice_ornament_system": 1.3495,
           "voice_pitch_organization": 1.195,
-          "voice_processing_chain": 5.525000000000001,
-          "voice_multitrack_stack": 5.2
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 4.225
         }
       },
       {
@@ -57,34 +57,34 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 1.929,
-          "grand_piano_size": 1.4949999999999999,
-          "grand_piano_brand": 1.4995,
-          "piano_hammer": 4.9399999999999995,
-          "piano_rim": 4.29,
-          "piano_soundboard": 2.035,
+          "keyboard_technique": 4.104,
+          "grand_piano_size": 2.145,
+          "grand_piano_brand": 2.145,
+          "piano_hammer": 4.615,
+          "piano_rim": 4.615,
+          "piano_soundboard": 2.465,
           "piano_pinblock": -0.05,
           "piano_plate": 0.78,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": 1.365
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_chicken_scratch",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
-          "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
@@ -95,25 +95,25 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.0749999999999997,
-          "amp_make": 6.89,
-          "body_wood": 1.4949999999999999,
-          "neck_wood": 1.4995,
-          "fretboard": 1.4995,
+          "electric_technique": 3.765,
+          "amp_make": 6.8575,
+          "body_wood": 2.145,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
           "pickup_magnet": 1.4995,
           "string_material": 1.4995,
-          "string_gauge": 3.445,
+          "string_gauge": 4.095,
           "bridge": 0.845,
-          "scale_length": 1.4949999999999999,
+          "scale_length": 2.145,
           "finish": 0.045,
-          "string_tuning": 4.55,
+          "string_tuning": 5.229999999999999,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_breath_quiet",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
@@ -122,13 +122,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.3899999999999997,
-          "sax_size": 2.9844999999999997,
-          "sax_reed": 1.4995,
-          "sax_body_alloy": 18.625,
+          "wind_articulation": 1.9035,
+          "sax_size": 2.8345,
+          "sax_reed": 1.6495,
+          "sax_body_alloy": 13.874999999999998,
           "sax_mouthpiece": 1.4995,
-          "sax_technique": 18.625,
-          "sax_maker_school": 24.1475
+          "sax_technique": 13.874999999999998,
+          "sax_maker_school": 17.9725
         }
       },
       {
@@ -138,8 +138,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 18.625,
-          "upright_play": 18.625
+          "upright_strings": 13.874999999999998,
+          "upright_play": 13.874999999999998
         }
       },
       {
@@ -150,8 +150,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 30.485000000000003,
-          "drumhead": 24.1475,
+          "drum_technique": 32.955,
+          "drumhead": 17.9725,
           "drum_kit_kick_pedal": 0
         }
       }

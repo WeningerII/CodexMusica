@@ -5,7 +5,7 @@
   "lineage": "Portuguese metal is a national discovery umbrella represented by Moonspell’s Brandoa-rooted gothic-metal practice and contemporary guitar, bass, drum, keyboard and vocal roles.",
   "recipe": "classic modern portuguese metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 519,
-  "score": 41.764,
+  "score": 42.103,
   "config": {
     "traditions": [
       "portuguese_metal"
@@ -35,8 +35,8 @@
           "neck_wood": 0.5775,
           "fretboard": 0.315,
           "pickup_magnet": 0.21,
-          "pickup_winding": 0.27299999999999996,
-          "string_material": 0.105,
+          "pickup_winding": 0.37799999999999995,
+          "string_material": 0.21,
           "bridge": 0.9099999999999999,
           "scale_length": 5.85,
           "string_gauge": 0.9099999999999999,
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2149999999999999,
+          "voice_ensemble_config": 1.3125,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,

@@ -5,7 +5,7 @@
   "lineage": "Depressive suicidal black-metal sub-style — codified through Bethlehem (Dictius Te Necare 1996), Forgotten Tomb, Shining (Swedish, V: Halmstad 2007), Silencer (Death - Pierce Me 2001), and Xasthur — characterized by slow-to-mid-tempo dirges, atmospheric-and-melancholic guitar work, false-fold ventricular shrieked vocals, and depressive-themed lyrical content centered on isolation and self-destruction",
   "recipe": "classic North American mid-1990s dsbm, distorted Rock, black branch, doom metal traditional doom funeral doom. thick, false fold engaged, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 574,
-  "score": 275.471,
+  "score": 275.111,
   "config": {
     "traditions": [
       "dsbm_black_metal",
@@ -40,7 +40,7 @@
           "voice_effort": 0,
           "voice_vibrato": 3.77,
           "voice_articulation": 8.905,
-          "voice_microtone": 10.249999999999998,
+          "voice_microtone": 10.294999999999998,
           "voice_tradition": 3.640000000000001,
           "voice_mechanism_compound": 30.723571428571425,
           "voice_estill_quality": 1.885,
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.259999999999998,
-          "amp_make": 16.15767857142857,
+          "electric_technique": 28.304999999999996,
+          "amp_make": 15.96267857142857,
           "body_wood": 11.83,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
@@ -93,17 +93,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.15767857142857,
+          "amp_make": 15.96267857142857,
           "body_wood": 1.3,
           "pickup_config": 0.3,
           "string_type": 14.95,
           "scale_length_b": 1.3,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0.09,
           "bass_technique": 10.645,
           "electric_bass_string_configuration": 0
         }

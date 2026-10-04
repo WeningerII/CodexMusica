@@ -5,7 +5,7 @@
   "lineage": "Frankfurt electronic music connects the city’s dance-music history with independent electronic production, including quieter ambient and experimental strands.",
   "recipe": "classic frankfurt electronic, experimental Elec. evolving modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 160,
-  "score": 7.848,
+  "score": 7.911,
   "config": {
     "traditions": [
       "frankfurt_electronic"
@@ -20,7 +20,7 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 7.031,
+          "electronic_technique": 7.093999999999999,
           "mod_voltage_source": 0.78,
           "mod_patch_density": 0,
           "mod_lineage": 0.03712499999999999

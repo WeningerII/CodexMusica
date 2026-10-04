@@ -5,7 +5,7 @@
   "lineage": "Cinematic post-rock emphasizes evocative instrumental development within the wider post-rock field. Guitar ensembles, piano and electronic textures connect intimate melodic passages with expansive changes in scale and intensity.",
   "recipe": "classic cinematic post-rock, distorted Rock, experimental branch. soft felt lacquer voiced 17 ply hard rock maple grand piano, marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. treated studio. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital digital delay hall reverb.",
   "recipe_chars": 436,
-  "score": 59.787,
+  "score": 59.797,
   "config": {
     "traditions": [
       "cinematic_post_rock"
@@ -27,7 +27,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "grand_piano_size": 0.063,
-          "grand_piano_brand": 0.0705,
+          "grand_piano_brand": 0.03899999999999999,
           "piano_hammer": 5.720000000000001,
           "piano_rim": 5.720000000000001,
           "piano_soundboard": -0.07,
@@ -62,8 +62,8 @@
           "pickup_magnet": 0.39,
           "string_material": 0.39,
           "string_gauge": 0.20799999999999996,
-          "bridge": 0.315,
-          "scale_length": 0.1575,
+          "bridge": 0.42,
+          "scale_length": 0.126,
           "finish": 0.1365,
           "string_tuning": 6.24,
           "single_coil_pickup_construction": 0
@@ -86,8 +86,8 @@
           "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 14.625,
-          "scale_length_b": 0.378,
-          "fretted_or_not": 0.0705,
+          "scale_length_b": 0.483,
+          "fretted_or_not": 0.03899999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -106,7 +106,7 @@
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.102,
-          "cymbal_alloy": -0.1685
+          "cymbal_alloy": -0.2
         }
       },
       {
@@ -120,8 +120,8 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "oscillator": 0.378,
-          "filter_topology": 0.126,
+          "oscillator": 0.273,
+          "filter_topology": 0.1575,
           "envelope": 0.588,
           "modulation": 0.105
         }

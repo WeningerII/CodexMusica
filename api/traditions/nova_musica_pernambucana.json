@@ -3,14 +3,14 @@
   "name": "Nova Música Pernambucana",
   "family": "global",
   "lineage": "Recife/Olinda scene of the late 1990s–2000s that followed manguebeat, codified by Mestre Ambrósio, Cordel do Fogo Encantado, Silvério Pessoa and Otto — rabeca-and-zabumba-led maracatu, coco and forró rhythms (2/4 baião and 4/4 maracatu de baque virado at 100–130 BPM) recombined with electric guitar, sampler loops and declamatory or chanted northeastern vocals.",
-  "recipe": "classic Southern American 1997-1999 nova música pernambucana, functional Song, Brazilian song branch, Brazilian groove percussion, Brazilian carnival processional samba rock pagode. thick, breath veiled tone, straight onset, interlocked note trading. wood baião tradition low stick with high bacalhau buzz zabumba, maracatu tradition alfaia, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, sampler, accordion. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 705,
-  "score": 213.692,
+  "recipe": "classic Southern American 1997-1999 nova música pernambucana, functional Song, Brazilian song branch, Brazilian groove percussion, Brazilian carnival processional samba rock bloco. thick, breath veiled tone, breath pulsed, interlocked note trading. wood baião tradition low stick with high bacalhau buzz zabumba, maracatu tradition alfaia, Fender blackface amp American 60s amp spring reverb bright basswood wenge single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, field sampler, accordion. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 733,
+  "score": 241.5,
   "config": {
     "traditions": [
       "nova_musica_pernambucana",
       "samba_rock",
-      "pagode"
+      "bloco"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 6.700000000000001,
-          "voice_quality": 22.229999999999993,
+          "voice_register": 5.100000000000001,
+          "voice_quality": 24.24499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6649999999999996,
-          "voice_articulation": 19.824999999999996,
-          "voice_microtone": 19.23999999999999,
-          "voice_tradition": 4.68,
-          "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 25.544999999999995,
-          "voice_ensemble_config": 19.954999999999995,
-          "voice_ornament_system": 0.45499999999999996,
-          "voice_pitch_organization": 0.345,
-          "voice_processing_chain": 6.100000000000001,
-          "voice_multitrack_stack": 5.590000000000001
+          "voice_vibrato": 2.145,
+          "voice_articulation": 21.904999999999994,
+          "voice_microtone": 20.86499999999999,
+          "voice_tradition": 7.540000000000001,
+          "voice_mechanism_compound": 5.5,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 32.175,
+          "voice_ensemble_config": 22.229999999999993,
+          "voice_ornament_system": 2.7499999999999996,
+          "voice_pitch_organization": 1.44,
+          "voice_processing_chain": 6,
+          "voice_multitrack_stack": 4.4849999999999985
         }
       },
       {
@@ -59,8 +59,8 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 3.035,
-          "zabumba_technique": 3.8999999999999995
+          "zabumba_shell": 4.984999999999999,
+          "zabumba_technique": 2.535
         }
       },
       {
@@ -71,9 +71,9 @@
           "alfaia_technique": "alfaia_two_sticks"
         },
         "scores": {
-          "alfaia_shell": 0.195,
-          "alfaia_skin": 0.585,
-          "alfaia_technique": 4.095
+          "alfaia_shell": 0.39,
+          "alfaia_skin": 0.18,
+          "alfaia_technique": 3.9
         }
       },
       {
@@ -81,10 +81,10 @@
         "slots": {
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
+          "body_wood": "basswood",
           "neck_wood": "wenge_neck",
           "fretboard": "ebony_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "locking_trem",
@@ -96,16 +96,16 @@
         "scores": {
           "electric_technique": 3.1999999999999997,
           "amp_make": 3.9450000000000003,
-          "body_wood": 0.845,
+          "body_wood": 1.3449999999999998,
           "neck_wood": 1.15,
-          "fretboard": 1.4949999999999999,
-          "pickup_magnet": 0.195,
-          "string_material": 0.15,
-          "string_gauge": 0.845,
+          "fretboard": 1.3,
+          "pickup_magnet": 0.15,
+          "string_material": 0.8,
+          "string_gauge": 0.65,
           "bridge": 1.15,
-          "scale_length": 0.845,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 2.21,
+          "string_tuning": 1.8199999999999998,
           "single_coil_pickup_construction": 0
         }
       },
@@ -113,22 +113,22 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "ernie_ball_slinky_bass",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive",
+          "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.645000000000001,
-          "body_wood": 0.845,
+          "amp_make": 6.595000000000001,
+          "body_wood": 0.65,
           "pickup_config": 0.645,
-          "string_type": 4.549999999999999,
-          "scale_length_b": 0.845,
+          "string_type": 6.255,
+          "scale_length_b": 0.65,
           "fretted_or_not": 1.15,
-          "bass_technique": 3.7349999999999994,
+          "bass_technique": 3.3499999999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -136,24 +136,24 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_one_shot_pitched",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
           "electronic_technique": 0.39999999999999997,
-          "sampler_archetypes": 0.78,
-          "sampler_bit_depth": 0.52,
-          "sampler_workflow": 0.78,
-          "sampler_classic_context": 22.61999999999999
+          "sampler_archetypes": 2.375,
+          "sampler_bit_depth": 0.63,
+          "sampler_workflow": 1.7550000000000001,
+          "sampler_classic_context": 22.489999999999995
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_orchestral_ensemble",
-          "accordion_reed_material": "tipo_a_mano",
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
           "musette_offset": "dry_tuning",
           "reed_config": "lm_only",
           "bellows": "cardboard_leather",
@@ -161,11 +161,11 @@
           "accordion_maker_school": "accordion_petosa_seattle"
         },
         "scores": {
-          "free_reed_technique": 1.7225000000000001,
-          "accordion_reed_material": 0.845,
-          "musette_offset": 0.3,
-          "reed_config": 0.195,
-          "bellows": 0.195,
+          "free_reed_technique": 0.8449999999999999,
+          "accordion_reed_material": 0.9500000000000001,
+          "musette_offset": 1.5999999999999999,
+          "reed_config": 0.585,
+          "bellows": 0.09,
           "voicing_chamber": 0.24,
           "accordion_maker_school": 0.65
         }

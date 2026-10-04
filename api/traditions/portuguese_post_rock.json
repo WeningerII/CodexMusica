@@ -5,7 +5,7 @@
   "lineage": "Portuguese post-rock develops instrumental rock through layered arrangements, bowed-string colour and changing intensity.",
   "recipe": "classic portuguese post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, hard rock maple acer saccharum cremonese post 1740 softer varnish violin orchestral, analog synth, soft felt lacquer voiced 17 ply hard rock maple prepared grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 486,
-  "score": 71.958,
+  "score": 71.906,
   "config": {
     "traditions": [
       "portuguese_post_rock"
@@ -32,16 +32,16 @@
           "electric_technique": -0.07,
           "amp_make": 5.720000000000001,
           "body_wood": 0.5565,
-          "neck_wood": 0.597,
-          "fretboard": 0.597,
+          "neck_wood": 0.5579999999999999,
+          "fretboard": 0.5579999999999999,
           "pickup_magnet": 0.147,
-          "pickup_winding": 0.4345,
-          "string_material": 0.597,
-          "bridge": 0.27099999999999996,
-          "scale_length": 1.2164999999999997,
-          "string_gauge": 0.20799999999999996,
+          "pickup_winding": 0.3045,
+          "string_material": 0.5579999999999999,
+          "bridge": 0.45625,
+          "scale_length": 1.1774999999999998,
+          "string_gauge": 0.39325,
           "finish": 0.1365,
-          "string_tuning": 0.03899999999999999
+          "string_tuning": 0.08174999999999999
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 11.25,
-          "drumhead": 0.597,
+          "drumhead": 0.5579999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -96,12 +96,12 @@
         },
         "scores": {
           "bowed_technique": 0.25,
-          "orch_strings": 0.597,
+          "orch_strings": 0.5579999999999999,
           "orch_top_wood": 0.325,
           "orch_back_wood": 5.785,
           "orch_varnish": 2.535,
           "orch_setup_period": 0.26,
-          "orch_bow": 0.207,
+          "orch_bow": 0.168,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.39,
           "orch_rosin": -0.035
@@ -118,9 +118,9 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "oscillator": 0.8414999999999999,
+          "oscillator": 0.8025,
           "filter_topology": 0.39,
-          "envelope": 0.4464999999999999,
+          "envelope": 0.5927499999999999,
           "modulation": 0.105
         }
       },
@@ -139,8 +139,8 @@
         },
         "scores": {
           "keyboard_technique": 3.8365,
-          "grand_piano_size": 0.32949999999999996,
-          "grand_piano_brand": 0.597,
+          "grand_piano_size": 0.1995,
+          "grand_piano_brand": 0.5579999999999999,
           "piano_hammer": 5.720000000000001,
           "piano_rim": 5.720000000000001,
           "piano_soundboard": -0.035,

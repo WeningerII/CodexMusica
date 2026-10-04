@@ -2,10 +2,10 @@
   "id": "italian_indie_pop",
   "name": "Italian indie pop",
   "family": "pop",
-  "lineage": "Italian indie pop connects independent songwriting with retro-pop, guitar-band and keyboard-based approaches.",
-  "recipe": "classic italian indie pop, functional Song, europop branch. group vocals, live take. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 296,
-  "score": 31.292,
+  "lineage": "Italian indie pop is represented here by Fitness Forever — Personal Train core. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic italian indie pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 306,
+  "score": 47.068,
   "config": {
     "traditions": [
       "italian_indie_pop"
@@ -15,54 +15,54 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_modern_modeling",
-          "body_wood": "basswood_h",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 10.7,
-          "amp_make": 1.17,
-          "body_wood": 0.7875000000000001,
-          "neck_wood": 0.273,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.2415,
-          "pickup_winding": 0.36,
-          "string_material": 0,
-          "bridge": 0.273,
-          "scale_length": 0.5775,
-          "string_gauge": 0.3045,
+          "electric_technique": 12.965499999999999,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.26549999999999996,
+          "neck_wood": 0.1365,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.702,
+          "string_material": 0.0315,
+          "bridge": 1.69,
+          "scale_length": 0.36749999999999994,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "half_round",
-          "scale_length_b": "short_scale_b",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.17,
-          "body_wood": 0.546,
-          "pickup_config": 0.2415,
-          "string_type": 0.273,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.38549999999999995,
+          "amp_make": 2.275,
+          "body_wood": 0.168,
+          "pickup_config": 0.27299999999999996,
+          "string_type": 4.875,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.23399999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 10.805,
+          "drum_technique": 3.7815,
+          "drumhead": 12.731499999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.714,
-          "voice_ornament_system": 0.1365,
+          "voice_ensemble_config": 0.378,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.714
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.063
         }
       },
       {
@@ -129,8 +129,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 0.9570000000000001,
-          "poly_voices": 0.39,
+          "poly_archetypes": 1.95,
+          "poly_voices": 0.231,
           "poly_maker_lineage": -0.035
         }
       }

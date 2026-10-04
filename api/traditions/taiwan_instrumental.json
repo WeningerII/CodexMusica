@@ -5,7 +5,7 @@
   "lineage": "Cicada — Seeking the Sources of Streams, original2022 single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic taiwan instrumental, art Music. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello, cutting modern classical carbon fiber classical nylon-string guitar, grenadilla African blackwood traditional continuous-airflow legato clarinet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 532,
-  "score": 138.831,
+  "score": 139.239,
   "config": {
     "traditions": [
       "taiwan_instrumental"
@@ -26,15 +26,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 4.7815,
+          "bowed_technique": 4.75,
           "orch_strings": 0,
           "orch_top_wood": 4.7,
-          "orch_back_wood": 6.6000000000000005,
+          "orch_back_wood": 7.7235000000000005,
           "orch_varnish": 5.800000000000001,
-          "orch_setup_period": 5.500000000000001,
-          "orch_bow": 0.0315,
-          "orch_bow_stick": 7.085,
-          "orch_articulation": 0.363,
+          "orch_setup_period": 5.531500000000001,
+          "orch_bow": 0,
+          "orch_bow_stick": 5.933,
+          "orch_articulation": 0.3,
           "orch_rosin": 5.500000000000001
         }
       },
@@ -52,15 +52,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 4.7815,
+          "bowed_technique": 4.75,
           "cello_strings": 0.6,
           "cello_top_wood": 4.7,
-          "cello_back_wood": 6.6000000000000005,
+          "cello_back_wood": 7.7235000000000005,
           "cello_varnish": 5.800000000000001,
-          "cello_setup_period": 5.500000000000001,
-          "cello_bow_grip": 2.47,
-          "cello_rosin": 5.800000000000001,
-          "cello_bow_stick": 7.085
+          "cello_setup_period": 5.531500000000001,
+          "cello_bow_grip": 2.383,
+          "cello_rosin": 5.989000000000001,
+          "cello_bow_stick": 5.933
         }
       },
       {
@@ -76,10 +76,10 @@
         "scores": {
           "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
-          "top_wood_classical": 0.189,
-          "bracing_classical": 0.34650000000000003,
-          "string_classical": 2.8600000000000003,
-          "attack_technique_cl": 2.47
+          "top_wood_classical": 0.063,
+          "bracing_classical": 0.1365,
+          "string_classical": 2.6830000000000003,
+          "attack_technique_cl": 2.383
         }
       },
       {
@@ -93,10 +93,10 @@
         },
         "scores": {
           "wind_articulation": 4.7,
-          "clarinet_body": 5.6915000000000004,
-          "clarinet_size": 2.47,
+          "clarinet_body": 5.5865,
+          "clarinet_size": 2.383,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.22049999999999997
+          "clarinet_articulation": 0
         }
       },
       {
@@ -113,15 +113,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 4.75,
+          "keyboard_technique": 4.7815,
           "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.105,
-          "piano_hammer": 5.800000000000001,
-          "piano_rim": 5.894500000000001,
-          "piano_soundboard": 5.5,
-          "piano_pinblock": 6.800000000000001,
+          "grand_piano_brand": 0.063,
+          "piano_hammer": 5.968000000000001,
+          "piano_rim": 6.094000000000001,
+          "piano_soundboard": 5.605,
+          "piano_pinblock": 7.787000000000001,
           "piano_plate": 5.800000000000001,
-          "piano_pitch_standard": 1.1549999999999998
+          "piano_pitch_standard": 1.1759999999999997
         }
       }
     ],

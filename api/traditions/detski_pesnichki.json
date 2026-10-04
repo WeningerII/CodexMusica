@@ -5,7 +5,7 @@
   "lineage": "Detski pesnichki brings Bulgarian children’s songs into educational and everyday singing. Published songbooks help transmit melodies and words across generations.",
   "recipe": "classic detski pesnichki, nursery Rhyme, European branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 2.051,
+  "score": 1.944,
   "config": {
     "traditions": [
       "detski_pesnichki"
@@ -68,11 +68,11 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 1.5415,
+          "grand_piano_brand": 1.405,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }

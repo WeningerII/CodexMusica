@@ -3,14 +3,14 @@
   "name": "New wave",
   "family": "rock_punk",
   "lineage": "Late-1970s through mid-1980s post-punk-derived pop-rock — codified through Blondie, Talking Heads (Remain in Light 1980), Devo (Q: Are We Not Men? A: We Are Devo! 1978), The Cars (The Cars 1978), Elvis Costello (My Aim Is True 1977), and the broader Stiff Records / Sire Records ecosystem; characterized by angular-rhythm-section, ironic-detached vocals, and pop-song-form embrace distinguishing it from punk",
-  "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock belarusian electronic. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
-  "recipe_chars": 691,
-  "score": 526.938,
+  "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock french synthpop. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
+  "recipe_chars": 693,
+  "score": 520.744,
   "config": {
     "traditions": [
       "new_wave",
       "synthpop",
-      "belarusian_electronic"
+      "french_synthpop"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 53.240000000000016,
+          "voice_register": 54.26500000000002,
           "voice_quality": 13.974999999999989,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.813749999999999,
-          "voice_articulation": 18.71999999999999,
-          "voice_microtone": 51.650000000000006,
-          "voice_tradition": 36.294374999999995,
-          "voice_mechanism_compound": 1.3649999999999998,
-          "voice_estill_quality": 1.1699999999999995,
-          "voice_speech_song": 28.404999999999987,
-          "voice_ensemble_config": 19.30499999999999,
+          "voice_vibrato": 5.208749999999999,
+          "voice_articulation": 15.92499999999999,
+          "voice_microtone": 52.67500000000001,
+          "voice_tradition": 37.93937499999999,
+          "voice_mechanism_compound": 2.0149999999999997,
+          "voice_estill_quality": 1.8199999999999996,
+          "voice_speech_song": 25.154999999999987,
+          "voice_ensemble_config": 16.899999999999988,
           "voice_ornament_system": 1.1049999999999995,
-          "voice_pitch_organization": 0.9099999999999997,
-          "voice_processing_chain": 23.621249999999996,
-          "voice_multitrack_stack": 12.439999999999998
+          "voice_pitch_organization": 1.1049999999999995,
+          "voice_processing_chain": 19.496249999999996,
+          "voice_multitrack_stack": 12.894999999999998
         }
       },
       {
@@ -70,7 +70,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 32.019999999999996,
+          "electric_technique": 33.269999999999996,
           "amp_make": 21.614999999999995,
           "body_wood": 1.84,
           "neck_wood": 1.84,
@@ -88,7 +88,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -98,12 +98,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.479999999999997,
+          "amp_make": 12.284999999999997,
           "body_wood": 2.035,
           "pickup_config": 0.585,
           "string_type": 25.75625,
           "scale_length_b": 1.7950000000000002,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.15,
           "bass_technique": 31.194999999999997,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 22.625,
-          "drumhead": 29.774999999999995,
+          "drumhead": 31.024999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,16 +125,16 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "oscillator": "sine_osc",
+          "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
-          "envelope": "pad_env",
+          "envelope": "sustain_env",
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 30.479374999999997,
-          "oscillator": 1.56,
-          "filter_topology": 3.445,
-          "envelope": 0.500625,
+          "electronic_technique": 31.684375,
+          "oscillator": 1.2349999999999999,
+          "filter_topology": 3.0549999999999997,
+          "envelope": 0.65,
           "modulation": 0.15
         }
       },
@@ -148,8 +148,8 @@
         },
         "scores": {
           "electronic_technique": 0.40062499999999995,
-          "sm_voice_count": 5.264999999999999,
-          "sm_chorus": 2.6,
+          "sm_voice_count": 3.119999999999999,
+          "sm_chorus": 3.25,
           "sm_voicing": 0.24
         }
       }

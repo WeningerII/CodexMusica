@@ -2,10 +2,10 @@
   "id": "german_pop",
   "name": "German pop",
   "family": "pop",
-  "lineage": "German pop connects contemporary popular songwriting with varied local singer-songwriter, band and studio-production traditions.",
-  "recipe": "classic german pop, functional Song, europop branch. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 245,
-  "score": 20.612,
+  "lineage": "German pop is represented here by Maria Schüritz & Band — Durch die Nacht core. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic german pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 280,
+  "score": 43.629,
   "config": {
     "traditions": [
       "german_pop"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_champ",
-          "body_wood": "basswood_h",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "high_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_12_hum",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.558,
-          "amp_make": 0.9549999999999998,
-          "body_wood": 0.5145,
-          "neck_wood": 0.273,
-          "fretboard": 0,
-          "pickup_magnet": 0.2415,
-          "pickup_winding": 0.2415,
-          "string_material": 0,
-          "bridge": 0.273,
-          "scale_length": 0.546,
-          "string_gauge": 0.3045,
+          "electric_technique": 12.7945,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.1935,
+          "neck_wood": 0.1365,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.105,
+          "string_material": 0.0315,
+          "bridge": 1.69,
+          "scale_length": 0.36749999999999994,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.39
         }
       },
       {
@@ -50,19 +50,19 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "half_round",
+          "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.325,
-          "body_wood": 0.546,
-          "pickup_config": 0.2415,
-          "string_type": 0.273,
-          "scale_length_b": 0.40349999999999997,
-          "fretted_or_not": 0.39,
+          "amp_make": 2.275,
+          "body_wood": 0.168,
+          "pickup_config": 0.16799999999999998,
+          "string_type": 4.875,
+          "scale_length_b": 0.105,
+          "fretted_or_not": 0.162,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 7.555000000000001,
+          "drum_technique": 3.7815,
+          "drumhead": 12.731499999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.08549999999999999,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 0.063,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.08549999999999999
+          "voice_multitrack_stack": 0.063
         }
       }
     ],

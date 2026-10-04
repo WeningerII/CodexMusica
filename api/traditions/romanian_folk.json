@@ -24,9 +24,9 @@
         "scores": {
           "bowed_technique": 4.9815000000000005,
           "fiddle_strings": 0.39,
-          "fiddle_bow": 0.918,
+          "fiddle_bow": 0.9495,
           "fiddle_mute": 1.3,
-          "fiddle_articulation": 0.0945,
+          "fiddle_articulation": 0.063,
           "fiddle_string_configuration": 0
         }
       },
@@ -40,9 +40,9 @@
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 2.4815,
+          "acoustic_technique": 2.45,
           "string_tuning": 0.26,
-          "top_wood": 0.0315,
+          "top_wood": 0.063,
           "back_sides": 0,
           "string_acoustic": 1.105
         }

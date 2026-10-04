@@ -2,15 +2,30 @@
   "id": "belgian_dnb",
   "name": "Belgian drum and bass",
   "family": "electronic",
-  "lineage": "Belgian drum and bass developed through local producers, clubs, labels and festival networks connected with the wider international scene. Melodic liquid-derived production and crossover songs form an influential strand alongside other approaches.",
-  "recipe": "classic modern belgian drum and bass, bass System, bass descendants branch. continuous-phonation, one note per syllable, solo with instrumental accompaniment, no specific ornament system. sub bass analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 423,
-  "score": 27.711,
+  "lineage": "Belgium’s drum-and-bass production and festival scene, represented here by Netsky’s melodic, break-led production. His first-person account documents developing drum-loop tracks in a bedroom, producing in Ableton and mixing in Logic; the selected model is the melodic liquid-derived branch rather than all Belgian dance music.",
+  "recipe": "classic modern belgian drum and bass, bass System, bass descendants branch. one note per syllable, no specific ornament system. sampler drum machine, sub bass analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 385,
+  "score": 29.211,
   "config": {
     "traditions": [
       "belgian_dnb"
     ],
     "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0,
+          "sample_swing": 0,
+          "sample_processing": 0.25
+        }
+      },
       {
         "id": "analog_synth",
         "slots": {
@@ -21,9 +36,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 7.085,
-          "oscillator": 7.279999999999999,
-          "filter_topology": 0,
+          "electronic_technique": 7.475,
+          "oscillator": 7.669999999999999,
+          "filter_topology": 0.3,
           "envelope": 0,
           "modulation": 0.3
         }
@@ -42,7 +57,7 @@
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0,
           "sampler_workflow": 0.2,
-          "sampler_classic_context": 6.24
+          "sampler_classic_context": 6.629999999999999
         }
       },
       {
@@ -66,18 +81,18 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 0.3,
+          "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.1365,
-          "voice_articulation": 1,
-          "voice_microtone": -0.3,
+          "voice_articulation": 0,
+          "voice_microtone": 1.3877787807814457e-17,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.168,
           "voice_estill_quality": 0.4095,
           "voice_speech_song": 0.546,
-          "voice_ensemble_config": 1.6045,
+          "voice_ensemble_config": 0.3045,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -86,6 +101,11 @@
       }
     ],
     "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
       "analog_synth": [
         "electronic_technique",
         "oscillator",
@@ -140,6 +160,9 @@
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
     "parts": {
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break",
       "electronic_technique": "electronic_bass_sub",
       "oscillator": "sine_osc",
       "filter_topology": "svf",

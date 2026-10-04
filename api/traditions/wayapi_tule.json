@@ -19,7 +19,7 @@
         },
         "scores": {
           "tule_texture": 1.3,
-          "tule_phrasing": 0.0315
+          "tule_phrasing": 0
         }
       },
       {
@@ -50,7 +50,7 @@
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
-          "voice_tradition": 0.168,
+          "voice_tradition": 0.1995,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,

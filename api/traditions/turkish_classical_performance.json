@@ -3,9 +3,9 @@
   "name": "Turkish classical performance",
   "family": "classical",
   "lineage": "Turkish classical performance in this concert-music field connects musicians and institutions with international composed repertoire. Recitals and ensemble performances include historical works and newer composition.",
-  "recipe": "classic turkish classical performance, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 274,
-  "score": 59.582,
+  "recipe": "classic turkish classical performance, art Music, western common practice branch. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 275,
+  "score": 59.143,
   "config": {
     "traditions": [
       "turkish_classical_performance"
@@ -15,10 +15,10 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 7.554,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.798,
+          "grand_piano_size": 0.42299999999999993,
+          "grand_piano_brand": 0.7155,
           "piano_hammer": 9.685,
-          "piano_rim": 8.3635,
-          "piano_soundboard": 8.6865,
+          "piano_rim": 8.277,
+          "piano_soundboard": 8.4135,
           "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.8805000000000005,
-          "piano_pitch_standard": 8.6695
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 8.713000000000001
         }
       }
     ],

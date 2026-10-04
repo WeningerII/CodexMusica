@@ -3,14 +3,14 @@
   "name": "Chamber Folk",
   "family": "pop_rock",
   "lineage": "Anglo-American acoustic songwriting recorded with classical chamber forces, traceable to Robert Kirby's string arrangements for Nick Drake (1969-70) and revived from the late 1990s by Sufjan Stevens, Andrew Bird and Ólöf Arnalds — slow-to-moderate tempo, aeolian and phrygian modal harmony, fingerpicked or nylon guitar doubled by cello, violin, clarinet and harmonium, brushed or absent drums, and close, breathy, low-vibrato vocal delivery.",
-  "recipe": "classic North American 1997-1999 chamber folk, ballad Poetry, indie folk branch, anglo singer song britfolk, western common practice art music, anglo singer song confessional60s chinese classical performance classical cello. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut steel silk fingerpicked acoustic guitar, silver wound lamb gut core norway spruce European alpine European maple cello, silver wound lamb gut core norway spruce European alpine European maple violin orchestral, low mid rich spectrum traditional gut gut string celtic harp, legato pump organ harmonium, grenadilla African blackwood traditional continuous-airflow legato clarinet. hexham head studio pa chamber folk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 846,
-  "score": 358.22,
+  "recipe": "classic North American 1997-1999 chamber folk, ballad Poetry, indie folk branch, anglo singer song britfolk, western common practice art music, anglo singer song confessional60s classical baritone classical contralto. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut steel silk fingerpicked acoustic guitar, norway spruce European alpine European maple bosnian source flamed figure cello, plain gut sheep gut unsplit norway spruce European alpine violin orchestral, low mid rich spectrum traditional gut gut string celtic harp, legato pump organ harmonium, grenadilla African blackwood traditional continuous-airflow legato clarinet. hexham head studio pa chamber folk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 827,
+  "score": 350.36,
   "config": {
     "traditions": [
       "chamber_folk",
-      "chinese_classical_performance",
-      "classical_cello"
+      "classical_baritone",
+      "classical_contralto"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 11.7,
-          "voice_quality": 4.290000000000002,
+          "voice_quality": 3.9650000000000016,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.545,
-          "voice_articulation": 13.779999999999994,
-          "voice_microtone": 14.039999999999992,
-          "voice_tradition": 13.689999999999998,
-          "voice_mechanism_compound": 8.344999999999999,
-          "voice_estill_quality": 16.884999999999998,
-          "voice_speech_song": 17.289999999999996,
-          "voice_ensemble_config": 13.064999999999994,
-          "voice_ornament_system": 8.584999999999999,
-          "voice_pitch_organization": 8.194999999999999,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 3.640000000000001
+          "voice_vibrato": 13.295,
+          "voice_articulation": 8.645,
+          "voice_microtone": 9.75,
+          "voice_tradition": 13.04,
+          "voice_mechanism_compound": 9.395000000000001,
+          "voice_estill_quality": 17.634999999999998,
+          "voice_speech_song": 12.999999999999998,
+          "voice_ensemble_config": 8.58,
+          "voice_ornament_system": 9.335,
+          "voice_pitch_organization": 8.945,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 5.720000000000001
         }
       },
       {
@@ -62,8 +62,8 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 2.0349999999999997,
-          "top_wood": 1.4949999999999999,
+          "string_tuning": 2.3349999999999995,
+          "top_wood": 1.3,
           "back_sides": 1.3,
           "string_acoustic": 1.69,
           "acoustic_om_technique": 13.584999999999999
@@ -72,8 +72,8 @@
       {
         "id": "cello",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
-          "cello_strings": "silver_wound_lamb_gut_cello",
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
           "cello_top_wood": "norway_spruce_alpine_cello",
           "cello_back_wood": "bosnian_flamed_maple_cello",
           "cello_varnish": "oil_amber_varnish_cello",
@@ -83,42 +83,42 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 11.25,
-          "cello_strings": 1.4299999999999997,
-          "cello_top_wood": 9.245,
-          "cello_back_wood": 8.35,
-          "cello_varnish": 8.2,
-          "cello_setup_period": 8.739999999999998,
-          "cello_bow_grip": 4.29,
-          "cello_rosin": 10.239999999999998,
-          "cello_bow_stick": 10.174999999999999
+          "bowed_technique": 9,
+          "cello_strings": 0.7499999999999999,
+          "cello_top_wood": 9.995,
+          "cello_back_wood": 9.1,
+          "cello_varnish": 8.95,
+          "cello_setup_period": 9.489999999999998,
+          "cello_bow_grip": 4.68,
+          "cello_rosin": 10.19,
+          "cello_bow_stick": 10.924999999999999
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
-          "orch_strings": "silver_wound_lamb_gut_violin",
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "norway_spruce_alpine_violin",
           "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "pizz_orch",
+          "orch_articulation": "arco_orch",
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 11.25,
-          "orch_strings": 1.4299999999999997,
-          "orch_top_wood": 9.245,
-          "orch_back_wood": 8.35,
-          "orch_varnish": 8.2,
-          "orch_setup_period": 8.739999999999998,
+          "bowed_technique": 9,
+          "orch_strings": 1.145,
+          "orch_top_wood": 9.995,
+          "orch_back_wood": 9.1,
+          "orch_varnish": 8.95,
+          "orch_setup_period": 9.489999999999998,
           "orch_bow": 0.42,
-          "orch_bow_stick": 10.174999999999999,
-          "orch_articulation": 0.3,
-          "orch_rosin": 8.545
+          "orch_bow_stick": 10.924999999999999,
+          "orch_articulation": 0.49499999999999994,
+          "orch_rosin": 9.295
         }
       },
       {
@@ -130,8 +130,8 @@
         },
         "scores": {
           "acoustic_technique": -0.07,
-          "celtic_harp_levers": 4.225,
-          "celtic_harp_strings": 7.084999999999999
+          "celtic_harp_levers": 4.029999999999999,
+          "celtic_harp_strings": 7.279999999999999
         }
       },
       {
@@ -142,8 +142,8 @@
           "pump_organ_stops": "pump_organ_diapason_stop"
         },
         "scores": {
-          "keyboard_technique": 8.25,
-          "pump_organ_construction": 13.129999999999997,
+          "keyboard_technique": 9,
+          "pump_organ_construction": 9.035,
           "pump_organ_stops": 0.22499999999999998
         }
       },
@@ -157,9 +157,9 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 8.44,
-          "clarinet_body": 8.374999999999998,
-          "clarinet_size": 4.29,
+          "wind_articulation": 9.190000000000001,
+          "clarinet_body": 9.125,
+          "clarinet_size": 4.68,
           "clarinet_reed": 0.5399999999999999,
           "clarinet_articulation": 0
         }

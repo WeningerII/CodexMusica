@@ -2,10 +2,10 @@
   "id": "trap_beats",
   "name": "Trap beats",
   "family": "hip_hop",
-  "lineage": "The instrumental beatmaking, beat-tape and backing-track branch of trap.",
+  "lineage": "Instrumental beat-tape and backing-track branch, distinguished from the catalog’s vocal trap model.",
   "recipe": "classic modern trap beats, mc Rhythm, intl hip hop branch. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 223,
-  "score": 2.89,
+  "score": 6,
   "config": {
     "traditions": [
       "trap_beats"
@@ -19,22 +19,22 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.397,
-          "drum_machine_808_context": 0.42000000000000004,
-          "tr808_production_origin": 0.1785
+          "tr808_voice": 2.847,
+          "drum_machine_808_context": 0.34650000000000003,
+          "tr808_production_origin": 0.39
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "va_archetypes": "nord_lead",
-          "digital_subtractive_context": "digital_subtractive_pop"
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "va_archetypes": 0,
-          "digital_subtractive_context": -0.035
+          "electronic_technique": 0.2,
+          "va_archetypes": 0.1365,
+          "digital_subtractive_context": 2.08
         }
       }
     ],
@@ -45,9 +45,7 @@
         "tr808_production_origin"
       ],
       "digital_subtractive": [
-        "electronic_technique",
-        "va_archetypes",
-        "digital_subtractive_context"
+        "electronic_technique"
       ]
     },
     "room": "studio_auteur_home_pro",
@@ -72,9 +70,7 @@
       "tr808_voice": "tr808_kick_long",
       "drum_machine_808_context": "drum_machine_808_trap",
       "tr808_production_origin": "tr808_tr_8s_modern",
-      "electronic_technique": "electronic_pluck_short",
-      "digital_subtractive_context": "digital_subtractive_pop",
-      "va_archetypes": "nord_lead"
+      "electronic_technique": "electronic_pluck_short"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

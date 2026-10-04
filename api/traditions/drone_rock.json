@@ -2,10 +2,10 @@
   "id": "drone_rock",
   "name": "Drone rock",
   "family": "rock",
-  "lineage": "Rock music centered on repeated figures, prolonged guitar sustain and feedback. Emerging through experimental and psychedelic rock, it uses the band’s rhythmic foundation to support extended passages with limited harmonic movement.",
-  "recipe": "classic modern drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
-  "recipe_chars": 630,
-  "score": 99.535,
+  "lineage": "A rock practice that builds extended passages from repetitive accompaniment and sustained guitar feedback. Spacemen 3’s live Geneva album is explicitly described as drone rock by its label; Sonic Boom’s firsthand notes describe sustained keys and feedback guitars. The modern recording chain and instrument build choices are representative, not a reconstruction of the 1989 stage rig.",
+  "recipe": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
+  "recipe_chars": 634,
+  "score": 111.145,
   "config": {
     "traditions": [
       "drone_rock",
@@ -23,26 +23,26 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 9.954999999999998,
+          "electric_technique": 12.454999999999998,
           "amp_make": 0,
           "body_wood": 0.48000000000000004,
-          "neck_wood": 1.24,
-          "fretboard": 1.24,
-          "pickup_magnet": 1.285,
-          "string_material": 1.24,
-          "string_gauge": 0.48000000000000004,
-          "bridge": 0.195,
+          "neck_wood": 1.54,
+          "fretboard": 1.54,
+          "pickup_magnet": 1.585,
+          "string_material": 1.54,
+          "string_gauge": 0.845,
+          "bridge": 1.09,
           "scale_length": 0.9600000000000002,
-          "finish": 0.845,
-          "string_tuning": 16.51,
+          "finish": 0.195,
+          "string_tuning": 17.679999999999996,
           "single_coil_pickup_construction": 0
         }
       },
@@ -51,9 +51,9 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -61,9 +61,9 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0.9600000000000002,
-          "pickup_config": 0.195,
-          "string_type": 33.585,
-          "scale_length_b": 0.48000000000000004,
+          "pickup_config": 1.09,
+          "string_type": 35.175,
+          "scale_length_b": 1.18,
           "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.875000000000004,
-          "drumhead": 0.42,
+          "drum_technique": 30.374999999999996,
+          "drumhead": 0.195,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4949999999999999,
+          "voice_ensemble_config": 2.535,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 3.315000000000001,
-          "voice_processing_chain": 0.15,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 2.08
         }
       }
     ],

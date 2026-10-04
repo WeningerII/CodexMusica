@@ -5,7 +5,7 @@
   "lineage": "Polish post-rock develops instrumental rock through layered arrangements, recurring figures and changing intensity.",
   "recipe": "classic polish post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 346,
-  "score": 42.085,
+  "score": 41.98,
   "config": {
     "traditions": [
       "polish_post_rock"
@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -62,7 +62,7 @@
           "pickup_config": 0.2835,
           "string_type": 14.625,
           "scale_length_b": 0.378,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -87,7 +87,7 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0.105,
+          "electronic_keyboard_identity": 0.0315,
           "keyboard_technique": 0.105
         }
       }

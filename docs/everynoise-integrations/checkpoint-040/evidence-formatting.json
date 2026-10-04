@@ -1,0 +1,47 @@
+{
+  "note": "Repository formatter changes JSON whitespace only. Input hashes in independent reports identify original workspace receipts; this map binds them to published files without changing any evidence values. All original approved-entry records remain intact apart from an explicit current-subset disposition.",
+  "files": [
+    {
+      "file": "deferred-proposals.json",
+      "workspace_input_sha256": "526a84036bd975f97968a4db903fdccbc65eaae9ac819619282741b7770487ea",
+      "published_sha256": "42218ba5ca7e1423ec0e56686fbb526c5a0c45be0562f5f1eea505fc16937df5",
+      "json_values_identical": true
+    },
+    {
+      "file": "frozen-exact-ci.json",
+      "workspace_input_sha256": "d385e93736ecc2c36c5066db3d5ea8a15807a1b923ea68dcf507bd351e511b33",
+      "published_sha256": "7ec30abae920a764b4785550c0d6b9de1acbec9cfa288588f76f00330481ef0c",
+      "json_values_identical": true
+    },
+    {
+      "file": "musical-qualification.json",
+      "workspace_input_sha256": "33950cfe3c890a752d1ed34126b98dc5d8f43abbcc20a0c47708fe688b334e2c",
+      "published_sha256": "33950cfe3c890a752d1ed34126b98dc5d8f43abbcc20a0c47708fe688b334e2c",
+      "json_values_identical": true
+    },
+    {
+      "file": "regression-data-causes.json",
+      "workspace_input_sha256": "dd35d3c3729f3615b1d41e5c8eda7e8596182fffb0b761ac5d6555c07d81351e",
+      "published_sha256": "1b65779ede87e843fc940e4cd53c4f4340026db44d68bb471284c1d9406e9f1d",
+      "json_values_identical": true
+    },
+    {
+      "file": "original-three-data-proposal.json",
+      "workspace_input_sha256": "837373fefc1f0b64b2c340aeb244493a7d346867e55f1c1a3c2322b6e31edbde",
+      "published_sha256": "c7265fda490193e80bea924fb14068f84f70a7bc8dc1c869b1e421c7d01701e2",
+      "json_values_identical": true
+    },
+    {
+      "file": "original-three-data-result.json",
+      "workspace_input_sha256": "ee2e720852a3eae9cf5bdee23e2a2a37e1b46103a192d8161f0a560d9e515781",
+      "published_sha256": "ba16ba2f154e4b53acc3de92a6ddf91bf1dfec19231bc6334a4eb4b339a3143a",
+      "json_values_identical": true
+    },
+    {
+      "file": "original-three-data-review.json",
+      "workspace_input_sha256": "d8127cff77cf494867219fb222b815296f876056df7d01904a53ac8ed4675ba8",
+      "published_sha256": "d8127cff77cf494867219fb222b815296f876056df7d01904a53ac8ed4675ba8",
+      "json_values_identical": true
+    }
+  ]
+}

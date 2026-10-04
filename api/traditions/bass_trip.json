@@ -5,7 +5,7 @@
   "lineage": "Bass trip connects jazz, funk and beat-oriented improvisation within a cross-style discovery field. Groups such as BRZZVLL bring live instrumental interaction into dance-oriented grooves.",
   "recipe": "classic bass trip, groove Percussion. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electronic keyboard unspecified, humbucker electric guitar, pocket fingerstyle locked electric bass, dark bronze bell bronze drum kit. live tracking.",
   "recipe_chars": 270,
-  "score": 21.439,
+  "score": 22.505,
   "config": {
     "traditions": [
       "bass_trip"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": -0.05,
+          "sax_size": -0.035,
           "sax_reed": 0,
-          "sax_body_alloy": -0.07,
+          "sax_body_alloy": -0.1,
           "sax_mouthpiece": 0,
           "sax_technique": 5.75,
-          "sax_maker_school": 5.805
+          "sax_maker_school": 5.7315
         }
       },
       {
@@ -40,7 +40,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.0315
+          "keyboard_technique": 0
         }
       },
       {
@@ -71,9 +71,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.063,
-          "string_gauge": 0.8365,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.273
         }
       },
       {
@@ -116,13 +116,13 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.399,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 6.4,
+          "cymbal_alloy": 6.5680000000000005,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0

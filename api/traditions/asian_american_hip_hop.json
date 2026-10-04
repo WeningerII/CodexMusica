@@ -2,10 +2,10 @@
   "id": "asian_american_hip_hop",
   "name": "Asian-American hip hop",
   "family": "hip_hop",
-  "lineage": "Asian-American hip-hop encompasses varied communities, local scenes and recording approaches. Los Angeles rapper Dumbfoundead exemplifies one connection between neighborhood MC practice and contemporary electronically produced rap.",
-  "recipe": "classic modern asian-american hip hop, mc Rhythm, us hip hop branch. rap, solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. sampled chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "lineage": "Asian-American hip-hop communities; selected Dumbfoundead electronic-rap branch",
+  "recipe": "classic modern asian-american hip hop, mc Rhythm, west coast branch. rap, retune speed 0ms hard correction robot effect, single lead single track no stacking. sampled chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 329,
-  "score": 40.055,
+  "score": 38.865,
   "config": {
     "traditions": [
       "asian_american_hip_hop"
@@ -19,7 +19,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "spoken_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
@@ -29,27 +29,25 @@
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_aural_relative",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 15.08,
+          "voice_quality": 13,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.1995,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 8.45,
-          "voice_multitrack_stack": 0.399,
-          "voice_tessitura": 0
+          "voice_pitch_organization": 0.0315,
+          "voice_processing_chain": 8.918,
+          "voice_multitrack_stack": 0.78
         }
       },
       {
@@ -62,11 +60,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.2,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.1365,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 10.205
+          "electronic_technique": 5.3260000000000005,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 7.6049999999999995
         }
       }
     ],
@@ -87,8 +85,7 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
+        "voice_multitrack_stack"
       ],
       "sampler_classic": [
         "electronic_technique",
@@ -109,30 +106,31 @@
       "amp": null,
       "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
+    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "spoken_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_aural_relative",
       "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",

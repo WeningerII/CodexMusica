@@ -5,7 +5,7 @@
   "lineage": "Bill T. Miller — Discernible Excursions. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic industrial noise, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 8.37,
+  "score": 8.401,
   "config": {
     "traditions": [
       "industrial_noise"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": 4.957000000000001,
-          "mod_voltage_source": 0.0315,
+          "mod_voltage_source": 0.063,
           "mod_patch_density": 0,
           "mod_lineage": 3.3809999999999993
         }

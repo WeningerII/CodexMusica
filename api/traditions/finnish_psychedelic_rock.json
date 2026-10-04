@@ -5,7 +5,7 @@
   "lineage": "Finnish psychedelic rock represented by Jess and the Ancient Ones’ Vertigo-era turn toward guitar-and-organ-centered garage psychedelia. This authored arrangement keeps singing, electric guitar, organ and synthesizer colors, bass and drums. The selected phase is not collapsed into the band’s earlier triple-guitar metal arrangements.",
   "recipe": "classic finnish psychedelic rock, distorted Rock, experimental branch. one note per syllable. marshall plexi amp British rock amp single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, analog poly synth, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital spring reverb silicon fuzz.",
   "recipe_chars": 453,
-  "score": 53.14,
+  "score": 53.471,
   "config": {
     "traditions": [
       "finnish_psychedelic_rock"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.19949999999999998
+          "voice_multitrack_stack": 0.26249999999999996
         }
       },
       {
@@ -71,13 +71,13 @@
           "electric_technique": 0.25,
           "amp_make": 4.42,
           "body_wood": 0.21,
-          "neck_wood": 0.522,
-          "fretboard": 0.522,
+          "neck_wood": 0.5145,
+          "fretboard": 0.5145,
           "pickup_magnet": 0.105,
           "string_material": 0,
           "string_gauge": 0.063,
-          "bridge": 0.315,
-          "scale_length": 0.1575,
+          "bridge": 0.42,
+          "scale_length": 0.126,
           "finish": 0.1365,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0
@@ -132,10 +132,10 @@
         "scores": {
           "amp_make": 6.175,
           "body_wood": 0.21,
-          "pickup_config": 0.2835,
+          "pickup_config": 0.38849999999999996,
           "string_type": 0,
-          "scale_length_b": 0.378,
-          "fretted_or_not": 1.0315,
+          "scale_length_b": 0.483,
+          "fretted_or_not": 1.039,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -152,7 +152,7 @@
           "drum_technique": 8.75,
           "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.522
+          "shell_wood": 0.5145
         }
       }
     ],

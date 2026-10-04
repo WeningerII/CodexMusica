@@ -3,9 +3,9 @@
   "name": "Ethereal Wave",
   "family": "rock",
   "lineage": "British gothic-rock offshoot of 1983-1990 defined by Cocteau Twins, This Mortal Coil and Dead Can Dance on 4AD under producers John Fryer and Ivo Watts-Russell, built from chorused and heavily reverberant guitar, fretless or chorused bass, drum machine, and wordless soprano vocals stacked in cathedral-scale reverb over slow modal 60-100 BPM cycles.",
-  "recipe": "classic Northern European mid-1980s ethereal wave, distorted Rock, gothic rock branch, experimental distorted rock, ambient experimental electric hauntology. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, drum machine analog, sustained pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, 2000s elastic pitch edited stack multitrack vocal stack. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 870,
-  "score": 227.528,
+  "recipe": "classic Northern European mid-1980s ethereal wave, distorted Rock, gothic rock branch, experimental distorted rock, ambient experimental electric hauntology. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp fretless bass, drum machine analog, sustained pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, 2000s elastic pitch edited stack multitrack vocal stack. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 834,
+  "score": 228.428,
   "config": {
     "traditions": [
       "ethereal_wave",
@@ -46,9 +46,9 @@
           "voice_estill_quality": 2.9899999999999998,
           "voice_speech_song": 19.435,
           "voice_ensemble_config": 18.72,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 2.665,
-          "voice_processing_chain": 10.305,
+          "voice_ornament_system": 0.09,
+          "voice_pitch_organization": 2.71,
+          "voice_processing_chain": 10.245,
           "voice_multitrack_stack": 3.8675
         }
       },
@@ -72,13 +72,13 @@
         "scores": {
           "electric_technique": 4.452500000000001,
           "amp_make": 11.049999999999997,
-          "body_wood": 0.585,
-          "neck_wood": 0.7350000000000001,
-          "fretboard": 0.7350000000000001,
-          "pickup_magnet": 0.7350000000000001,
-          "string_material": 0.7350000000000001,
+          "body_wood": 0.5399999999999999,
+          "neck_wood": 0.7800000000000001,
+          "fretboard": 0.7800000000000001,
+          "pickup_magnet": 0.7800000000000001,
+          "string_material": 0.7800000000000001,
           "string_gauge": 1.54,
-          "bridge": 0.44999999999999996,
+          "bridge": 0.6,
           "scale_length": 0.585,
           "finish": 0.195,
           "string_tuning": 9.035,
@@ -98,25 +98,25 @@
         "scores": {
           "electric_technique": -0.05,
           "amp_make": 9.425,
-          "fretless_use": 0.585,
+          "fretless_use": 0.5399999999999999,
           "fretless_bass_construction": 0.045,
-          "fretless_fingerboard_wood": 1.04,
+          "fretless_fingerboard_wood": 0.995,
           "fretless_bass_strings": 0.845
         }
       },
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "bridged_t_kick",
+          "kick_voice": "fm_pair_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.39,
-          "snare_voice": 0.36,
+          "kick_voice": 0.51,
+          "snare_voice": 0.51,
           "hat_voice": 0,
-          "shuffle_quantize": 0.36
+          "shuffle_quantize": 0.51
         }
       },
       {
@@ -128,9 +128,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.91,
+          "electronic_technique": 7.015,
           "poly_archetypes": 7.8,
-          "poly_voices": 0.32999999999999996,
+          "poly_voices": 0.38999999999999996,
           "poly_maker_lineage": 0.78
         }
       },
@@ -159,7 +159,7 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.38999999999999996,
+          "multitrack_stack_density": 0.48,
           "multitrack_stack_era_aesthetic": 2.145,
           "multitrack_stack_processing": 0.325
         }

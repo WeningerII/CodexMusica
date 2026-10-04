@@ -5,7 +5,7 @@
   "lineage": "Veikko Ahvenainen — Muistoja Marseillesta in Konserttisooloja1955–2021. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2020s harmonikka, art Music. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 152,
-  "score": 0.563,
+  "score": 0.4,
   "config": {
     "traditions": [
       "harmonikka"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "free_reed_technique": -0.1,
-          "accordion_reed_material": 0.0315,
-          "musette_offset": 0.105,
+          "accordion_reed_material": 0,
+          "musette_offset": 0.0315,
           "reed_config": 0,
           "bellows": 0.1365,
           "voicing_chamber": 0,
-          "accordion_maker_school": 0.39
+          "accordion_maker_school": 0.3315
         }
       }
     ],

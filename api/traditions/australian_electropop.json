@@ -5,7 +5,7 @@
   "lineage": "Australian electropop: Parralox — Artificial (2017). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
   "recipe": "classic late-2010s australian electropop, functional Song, synthpop branch. thick, interlocked note trading, equal tempered, single source phonation. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular synth, ernie ball slinky electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 381,
-  "score": 50.216,
+  "score": 50.08,
   "config": {
     "traditions": [
       "australian_electropop"
@@ -37,18 +37,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.2415,
+          "voice_vibrato": 0.1365,
           "voice_articulation": 5.265,
           "voice_microtone": 8.049999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 6.768,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.1655,
+          "voice_ensemble_config": 1.0605,
           "voice_ornament_system": 1.5315,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 4.855499999999999,
+          "voice_multitrack_stack": 4.991999999999999,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": 0.7999999999999998,
-          "mod_voltage_source": 0.9314999999999999,
+          "mod_voltage_source": 0.8999999999999999,
           "mod_patch_density": 0.3465,
           "mod_lineage": 1.885
         }
@@ -85,7 +85,7 @@
           "pickup_config": 0.1995,
           "string_type": 4.875,
           "scale_length_b": 0.1365,
-          "fretted_or_not": 1.1365,
+          "fretted_or_not": 1.105,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

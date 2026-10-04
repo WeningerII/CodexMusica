@@ -5,7 +5,7 @@
   "lineage": "Aggro chileno emerged through Chile’s alternative-metal scene during the 1990s. Groups such as Rékiem combined heavy international influences with local band networks, and events such as Aggrofest helped bring the scene together.",
   "recipe": "classic mid-1990s aggro chileno, distorted Rock, metal branch. solo with instrumental accompaniment. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 43.403,
+  "score": 43.462,
   "config": {
     "traditions": [
       "aggro_chileno"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.309,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -103,8 +103,8 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.609,
-          "fretted_or_not": 0.231,
-          "bass_technique": 3.7945,
+          "fretted_or_not": 0.2625,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },

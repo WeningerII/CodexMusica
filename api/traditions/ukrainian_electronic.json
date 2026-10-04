@@ -5,7 +5,7 @@
   "lineage": "Ukrainian electronic music encompasses dance production and experimental composition, including encounters between electronic synthesis and vocal traditions.",
   "recipe": "classic ukrainian electronic, experimental Elec. solo with instrumental accompaniment. evolving modular modular synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 219,
-  "score": 8.811,
+  "score": 8.979,
   "config": {
     "traditions": [
       "ukrainian_electronic"
@@ -20,7 +20,7 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 7.093999999999999,
+          "electronic_technique": 7.157,
           "mod_voltage_source": 0.39,
           "mod_patch_density": 0.39,
           "mod_lineage": 0
@@ -61,7 +61,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.105,
           "voice_multitrack_stack": 0.126
         }
       }

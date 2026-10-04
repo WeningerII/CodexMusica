@@ -5,7 +5,7 @@
   "lineage": "Codified in Atlanta between 2003 and 2012 by T.I., Young Jeezy and Gucci Mane with producers Shawty Redd, Zaytoven, Drumma Boy, Lex Luger and Metro Boomin, defined by 130-150 BPM half-time feel, long-decay tuned 808 kick-bass, machine-rolled 32nd and triplet hi-hats, tightly gated layered claps and snares, minor-key orchestral or Zaytoven organ/piano loops, and drawled ad-lib-saturated first-person street narrative.",
   "recipe": "classic Southern American early-2000s atl trap, mc Rhythm, southern branch, us hip hop modern, drill MC rhythm türkçe drill detroit trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, low sub bass analog poly synth, hand clap, 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 712,
-  "score": 285.282,
+  "score": 285.327,
   "config": {
     "traditions": [
       "atl_trap",
@@ -83,7 +83,7 @@
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
@@ -94,13 +94,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.5749999999999997,
+          "keyboard_technique": 1.5750000000000002,
           "grand_piano_size": 1.105,
           "grand_piano_brand": 1.3,
           "piano_hammer": 7.9625,
           "piano_rim": 6.365,
           "piano_soundboard": 6.215,
-          "piano_pinblock": 4.749999999999999,
+          "piano_pinblock": 4.794999999999999,
           "piano_plate": 6.175,
           "piano_pitch_standard": 14.3
         }

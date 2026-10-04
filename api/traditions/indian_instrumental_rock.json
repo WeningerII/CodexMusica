@@ -5,7 +5,7 @@
   "lineage": "Indian instrumental rock explores patterned guitar interplay and dynamic expansion.",
   "recipe": "classic indian instrumental rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, credited sound effect unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 21.885,
+  "score": 22.294,
   "config": {
     "traditions": [
       "indian_instrumental_rock"
@@ -31,12 +31,12 @@
         "scores": {
           "electric_technique": 0.18150000000000002,
           "amp_make": 4.42,
-          "body_wood": 0.693,
-          "neck_wood": 0.6255,
+          "body_wood": 0.7979999999999999,
+          "neck_wood": 0.657,
           "fretboard": 0.063,
           "pickup_magnet": 0.105,
-          "pickup_winding": 0.252,
-          "string_material": 0.6255,
+          "pickup_winding": 0.357,
+          "string_material": 0.657,
           "bridge": 0.063,
           "scale_length": 0,
           "string_gauge": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 0.693,
+          "body_wood": 0.7979999999999999,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.6255,
+          "drumhead": 0.657,
           "drum_kit_kick_pedal": 0
         }
       },

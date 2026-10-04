@@ -5,7 +5,7 @@
   "lineage": "Boston-area metal includes a strong exchange with hardcore and experimental heavy music. Andover-founded Converge exemplify a rhythmically intricate strand shaped through band interaction and self-produced recording practice.",
   "recipe": "classic modern boston metal, distorted Rock, metal branch, punk distorted rock modern hardcore alabama hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
   "recipe_chars": 573,
-  "score": 94.035,
+  "score": 96.155,
   "config": {
     "traditions": [
       "boston_metal",
@@ -32,18 +32,18 @@
         },
         "scores": {
           "electric_technique": 15.650000000000002,
-          "amp_make": 18.330000000000002,
+          "amp_make": 17.94,
           "body_wood": 0.585,
           "neck_wood": 0.09,
           "fretboard": 0.39,
           "pickup_magnet": 0,
-          "pickup_winding": 0.65,
+          "pickup_winding": 0.845,
           "string_material": 0.09,
           "bridge": 0.585,
           "scale_length": 0,
           "string_gauge": 0.585,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.585
         }
       },
       {
@@ -62,7 +62,7 @@
           "amp_make": 5.330000000000001,
           "body_wood": 0.585,
           "pickup_config": 0,
-          "string_type": 0.65,
+          "string_type": 0.845,
           "scale_length_b": 0,
           "fretted_or_not": 0,
           "bass_technique": 16.045,
@@ -90,11 +90,11 @@
           "drum_kit_kick_pedal": 0.585,
           "shell_wood": 0.135,
           "shell_thickness": 0,
-          "bearing_edges": 0.65,
+          "bearing_edges": 0.845,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 10.84,
-          "cymbal_lathing": 10.45,
+          "cymbal_hammering": 11.215,
+          "cymbal_lathing": 10.825,
           "cymbal_finish": 0
         }
       },
@@ -130,7 +130,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.885,
+          "voice_ensemble_config": 2.34,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,

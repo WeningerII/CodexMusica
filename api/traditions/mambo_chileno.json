@@ -5,7 +5,7 @@
   "lineage": "Chilean adaptation of Cuban mambo taken up by Santiago dance orchestras after Perez Prado's South American tours of the early 1950s, carried by Orquesta Huambaly and Orquesta Ritmo y Juventud — 2/3 clave-based 4/4 at brisk dance tempo, riffing saxophone sections answered by high-screaming trumpets, piano guajeo, upright bass tumbao, congas and timbales, with Spanish vocal refrains and shouted interjections",
   "recipe": "classic South American 1950-1953 mambo chileno, groove Percussion, son salsa branch, charanga danza Cuban, American jazz Latin jazz afro-cuban jazz. thick, breath veiled tone, straight onset, interlocked note trading. bach stradivarius 180 canonical American orchestral jazz balance trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, maracas. large tracking room 1920-1965 mid tier odeon rca buenos aires. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 884,
-  "score": 538.343,
+  "score": 533.209,
   "config": {
     "traditions": [
       "mambo_chileno",
@@ -27,7 +27,7 @@
         "scores": {
           "wind_articulation": 4,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 30.71775000000001,
+          "trumpet_mouthpiece": 29.00925000000001,
           "brass_mute": 0.65,
           "trumpet_technique": 4,
           "trumpet_bell_metal": 0.845,
@@ -52,7 +52,7 @@
           "sax_body_alloy": 26.750000000000007,
           "sax_mouthpiece": 0.195,
           "sax_technique": 25.500000000000007,
-          "sax_maker_school": 31.267750000000007
+          "sax_maker_school": 29.559250000000006
         }
       },
       {
@@ -93,10 +93,10 @@
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.65,
           "grand_piano_brand": 0.195,
-          "piano_hammer": 6.045,
+          "piano_hammer": 5.743125,
           "piano_rim": 4.94,
           "piano_soundboard": 1.305,
-          "piano_pinblock": 1.25,
+          "piano_pinblock": 1.355,
           "piano_plate": 1.86875,
           "piano_pitch_standard": 4.16
         }
@@ -121,8 +121,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 15.419999999999996,
-          "conga_set": 1,
+          "percussion_technique": 15.451499999999998,
+          "conga_set": 1.0315,
           "conga_skin": 8.125,
           "conga_shell_wood": 8.125
         }
@@ -135,7 +135,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 15.419999999999996,
+          "percussion_technique": 15.451499999999998,
           "timbales_shell": 13.260000000000003,
           "timbales_context": 6.24
         }
@@ -147,7 +147,7 @@
           "maracas_filling": "maracas_beads"
         },
         "scores": {
-          "maracas_construction": 0,
+          "maracas_construction": 0.0315,
           "maracas_filling": 0.7149999999999997
         }
       },
@@ -176,17 +176,17 @@
           "voice_quality": 11.699999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.685625000000005,
+          "voice_vibrato": 25.790625000000006,
           "voice_articulation": 17.289999999999996,
           "voice_microtone": 25.250000000000004,
-          "voice_tradition": 32.218625,
+          "voice_tradition": 30.315125000000005,
           "voice_mechanism_compound": 4.355,
           "voice_estill_quality": 3.9650000000000007,
           "voice_speech_song": 20.799999999999997,
           "voice_ensemble_config": 18.264999999999997,
           "voice_ornament_system": 1.45,
           "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 4.91775,
+          "voice_processing_chain": 5.07,
           "voice_multitrack_stack": 3.7049999999999996
         }
       }

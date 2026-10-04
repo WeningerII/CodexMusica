@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s American dubstep subgenre characterized by stripped-back minimal production focused on repetitive percussion-and-bass riddim, mechanical synth-bass-line designs, and minimal melodic content. Infekt, PhaseOne, Eptic, Virtual Riot, and the broader Disciple, Bassrush, and Never Say Die Records rosters anchor the canonical sound.",
   "recipe": "classic riddim dubstep, bass System, bass descendants branch, thrash metal. TR-808, fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion low-gain overdrive.",
   "recipe_chars": 363,
-  "score": 50.255,
+  "score": 51.32,
   "config": {
     "traditions": [
       "riddim_dubstep"
@@ -16,12 +16,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.7749999999999995,
-          "drum_machine_808_context": 7.125,
-          "tr808_production_origin": 0.255
+          "tr808_voice": 6.97,
+          "drum_machine_808_context": 7.319999999999999,
+          "tr808_production_origin": 0.3
         }
       },
       {
@@ -34,11 +34,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 14.975,
-          "oscillator": 7.005,
-          "filter_topology": 9.905,
+          "electronic_technique": 15.17,
+          "oscillator": 7.199999999999999,
+          "filter_topology": 10.099999999999998,
           "envelope": 1.69,
-          "modulation": 0.15
+          "modulation": 0.195
         }
       }
     ],

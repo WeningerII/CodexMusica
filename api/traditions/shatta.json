@@ -5,7 +5,7 @@
   "lineage": "Guadeloupe- and Martinique-centred dance style consolidated around 2014-2018 from Jamaican dancehall, Saint Lucian dennery segment and gwo ka accents, codified by Kalash, Jahyanaï and Bamby over 100-110 BPM tracks with a hard four-on-floor kick, offbeat iron and clave-like snare, minimal minor synth riffs, and shouted Kréyòl deejay vocals cut heavily with sirens and drops.",
   "recipe": "classic 2014-2018 shatta, bass System, reggae diaspora branch, Afro-diasporic MC rhythm, Caribbean carnival processional funk consciente merenrap. extended whistle, rap, interlocked note trading, neutral third half flat. TR-808, sub bass analog poly synth, sub bass monosynth acid bass, agogo, sampler. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
   "recipe_chars": 563,
-  "score": 174.361,
+  "score": 174.301,
   "config": {
     "traditions": [
       "shatta",
@@ -20,7 +20,7 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "sean_nos_tradition",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.17,
+          "voice_register": 1.1549999999999998,
           "voice_quality": 9.489999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -69,13 +69,13 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 4.1925,
-          "poly_archetypes": 0.045,
+          "poly_archetypes": 0,
           "poly_voices": 0.3,
           "poly_maker_lineage": -0.05
         }

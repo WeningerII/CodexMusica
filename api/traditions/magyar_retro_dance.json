@@ -2,10 +2,10 @@
   "id": "magyar_retro_dance",
   "name": "Magyar retro dance",
   "family": "pop",
-  "lineage": "Magyar retro dance revisits established Hungarian electronic-pop and dance repertoire through recordings, nostalgic programming and newer live interpretations.",
-  "recipe": "classic magyar retro dance, functional Song. duet, live take. analog poly synth, pre muffled edge muffled drum kit, humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 243,
-  "score": 8.486,
+  "lineage": "Magyar retro dance is represented here by Unique — Duna TV live band, 5 April 2025. This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic mid-2020s magyar retro dance, functional Song, synthpop branch. duet, live take. sequential lineage canonical prophet 5 1978 san jose ca analog poly synth, pre muffled edge muffled drum kit, soft down tuning humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 20.934,
   "config": {
     "traditions": [
       "magyar_retro_dance"
@@ -15,15 +15,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -0.05
+          "electronic_technique": -0.035,
+          "poly_archetypes": 1.95,
+          "poly_voices": 0.168,
+          "poly_maker_lineage": 1.2349999999999999
         }
       },
       {
@@ -35,7 +35,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 4.95,
+          "drumhead": 6.305000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -43,33 +43,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
-          "scale_length": "scale_baritone_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "finish": "poly_hum",
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": -0.15000000000000002,
-          "amp_make": 0,
-          "body_wood": 0.39,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0.1365,
-          "string_gauge": 0,
-          "finish": 0,
-          "string_tuning": 0.1365
+          "electric_technique": -0.10500000000000001,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.399,
+          "neck_wood": 0.168,
+          "fretboard": 0.16799999999999998,
+          "pickup_magnet": 0.2415,
+          "pickup_winding": 0.1365,
+          "string_material": 0.0315,
+          "bridge": 1.285,
+          "scale_length": 0.3045,
+          "string_gauge": 1.285,
+          "finish": 0.063,
+          "string_tuning": 2.34
         }
       },
       {
@@ -104,20 +104,17 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.5790000000000002,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.4995,
+          "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.5790000000000002
+          "voice_multitrack_stack": 1.4995
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
+        "electronic_technique"
       ],
       "drum_kit": [
         "drum_technique"
@@ -181,10 +178,7 @@
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "electronic_technique": "electronic_arpeggiated",
       "drum_technique": "sticks_disco_four",
-      "electric_technique": "electric_arpeggiated_clean",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "electric_technique": "electric_arpeggiated_clean"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

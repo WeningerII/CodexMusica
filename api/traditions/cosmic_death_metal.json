@@ -5,7 +5,7 @@
   "lineage": "Cosmic death metal is used here for the documented psychedelic/progressive death-metal field, with Blood Incantation’s Absolute Elsewhere as a selected branch. The record juxtaposes heavy guitar, fretless bass and drums with synthesizer textures. The band and producer describe extended ensemble preparation, drums tracked to tape then transferred to a DAW, and a Moog synthesizer beneath heavy sections. This authored five-role model emphasizes that metal/electronic contrast rather than treating the band’s wholly ambient Timewave Zero as death metal.",
   "recipe": "classic modern cosmic death metal, distorted Rock, death branch. unrestrained, solo with instrumental accompaniment, delay throw phrase end send. maple stainless steel steel palm muted humbucker electric guitar, treble-extended stainless steel roundwound electric bass, birch double bass rapid double strokes machine hammered symmetric pattern drum kit, analog mono synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 539,
-  "score": 58.567,
+  "score": 58.513,
   "config": {
     "traditions": [
       "cosmic_death_metal"
@@ -33,7 +33,7 @@
           "amp_make": 0,
           "body_wood": 0.937875,
           "neck_wood": 1.6045,
-          "fretboard": 0.5842499999999999,
+          "fretboard": 0.4604999999999999,
           "pickup_magnet": 0,
           "pickup_winding": 0.273,
           "string_material": 1.6045,
@@ -85,13 +85,13 @@
         "scores": {
           "drum_technique": 3.75,
           "drumhead": 0.9099999999999999,
-          "drum_kit_kick_pedal": 1.69,
+          "drum_kit_kick_pedal": 1.685125,
           "shell_wood": 1.69,
           "shell_thickness": 0.0315,
           "bearing_edges": 1.69,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 3.6500000000000004,
+          "cymbal_hammering": 3.7242500000000005,
           "cymbal_lathing": 3.6815,
           "cymbal_finish": 0
         }

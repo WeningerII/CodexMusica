@@ -3,14 +3,14 @@
   "name": "German pagan metal",
   "family": "rock_punk",
   "lineage": "German pagan metal combines heavy-metal and black-metal influences with folk imagery, mythic themes and regional landscapes. Finsterforst represents its expansive Black Forest branch.",
-  "recipe": "classic modern german pagan metal, distorted Rock, folk metal branch, black metal, post metal metal atmospheric post-metal uk post-metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit, textural melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 638,
-  "score": 137.56,
+  "recipe": "classic modern german pagan metal, distorted Rock, folk metal branch, black metal, post metal metal lithuanian metal atmospheric post-metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit, textural melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 641,
+  "score": 137.44,
   "config": {
     "traditions": [
       "german_pagan_metal",
-      "atmospheric_post_metal",
-      "uk_post_metal"
+      "lithuanian_metal",
+      "atmospheric_post_metal"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 43.582499999999996,
-          "amp_make": 17.809999999999995,
-          "body_wood": 18.004999999999995,
+          "electric_technique": 43.207499999999996,
+          "amp_make": 17.614999999999995,
+          "body_wood": 17.81,
           "neck_wood": 0.39,
           "fretboard": 0.045,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.39,
-          "bridge": 1.045,
+          "bridge": 0.895,
           "scale_length": 0,
           "string_gauge": 0.69,
           "finish": 0,
-          "string_tuning": 0.195
+          "string_tuning": 0.39
         }
       },
       {
@@ -59,8 +59,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.955000000000001,
-          "body_wood": 18.004999999999995,
+          "amp_make": 7.15,
+          "body_wood": 17.81,
           "pickup_config": 0.585,
           "string_type": 15.4375,
           "scale_length_b": 0.69,
@@ -130,7 +130,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 1.8649999999999998,
+          "electronic_technique": 1.7149999999999999,
           "rompler_preset_bank": -0.05,
           "rompler_context": 1.2349999999999999,
           "rompler_lineage": 0

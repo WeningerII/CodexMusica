@@ -5,7 +5,7 @@
   "lineage": "Swedish death metal is known for forceful riff writing and a prominent old-school buzzsaw-guitar lineage.",
   "recipe": "classic swedish death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, blast beat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 390,
-  "score": 38.227,
+  "score": 37.792,
   "config": {
     "traditions": [
       "swedish_death_metal"
@@ -33,15 +33,15 @@
           "amp_make": 5.3950000000000005,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.3045,
-          "fretboard": 0.49349999999999994,
+          "fretboard": 0.26249999999999996,
           "pickup_magnet": 0,
           "pickup_winding": 0.39,
           "string_material": 0.3045,
-          "bridge": 0.6405,
+          "bridge": 0.5159999999999999,
           "scale_length": 0,
-          "string_gauge": 0.147,
+          "string_gauge": 0.2535,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.1485
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 4.9399999999999995,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.63,
+          "scale_length_b": 0.399,
           "fretted_or_not": 0.0315,
-          "bass_technique": 4.1575,
+          "bass_technique": 4.126,
           "electric_bass_string_configuration": 0
         }
       },
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "blast_beat_single_strokes",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 1.4400000000000002,
-          "drumhead": 1.0185,
+          "drum_technique": 1.4085,
+          "drumhead": 0.975,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9450000000000001,
+          "voice_ensemble_config": 0.9884999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.11699999999999999,
+          "voice_multitrack_stack": 0.171,
           "voice_tessitura": 0
         }
       }

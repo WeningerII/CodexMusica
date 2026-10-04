@@ -5,7 +5,7 @@
   "lineage": "The lo-fi tradition — a deliberately low-fidelity production aesthetic foregrounding warmth, hiss, and imperfection, popularized through bedroom recording and the lo-fi-hip-hop streaming scene",
   "recipe": "classic modern lo-fi, experimental Elec, lofi branch. glitched textural sampler, hammer low mid emphasis tremolo rhodes electric, mahogany thomastik infeld low tension jazz warm electric bass, TR-808, oversize maple tension resonator European spruce norway spruce European tradition grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 403,
-  "score": 59.957,
+  "score": 60.02,
   "config": {
     "traditions": [
       "lo_fi"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sampler_archetypes": 7.8389999999999995,
+          "sampler_archetypes": 7.901999999999999,
           "sampler_bit_depth": 4.73525,
           "sampler_workflow": 3.91575,
           "sampler_classic_context": 5.329999999999999

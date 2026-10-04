@@ -2,10 +2,10 @@
   "id": "fantasy_metal",
   "name": "Fantasy metal",
   "family": "rock_punk",
-  "lineage": "Fantasy-themed metal organizes songs around imagined worlds and narratives, often drawing on symphonic power metal.",
-  "recipe": "classic fantasy metal, distorted Rock, power branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation, choir ensemble. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 431,
-  "score": 58.758,
+  "lineage": "Fantasy metal is represented here by Twilight Force. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic fantasy metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, a cappella small 3 to 8 one per part choir ensemble. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 607,
+  "score": 64.465,
   "config": {
     "traditions": [
       "fantasy_metal"
@@ -17,38 +17,38 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "ceramic_h",
-          "pickup_winding": "high_wind",
-          "string_material": "nickel_plated_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
           "bridge": "string_thru",
-          "scale_length": "scale_fender_h",
+          "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "poly_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 19.759999999999998,
-          "amp_make": 5.655000000000001,
-          "body_wood": 5.85,
+          "electric_technique": 17.55,
+          "amp_make": 5.135,
+          "body_wood": 5.329999999999999,
           "neck_wood": 0,
-          "fretboard": 0.5579999999999999,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "fretboard": 0.29024999999999995,
+          "pickup_magnet": 0.31575,
+          "pickup_winding": 0.0735,
           "string_material": 0,
-          "bridge": 0.6315,
-          "scale_length": 0,
-          "string_gauge": 0.0735,
+          "bridge": 1.3,
+          "scale_length": 5.329999999999999,
+          "string_gauge": 1.3,
           "finish": 0,
-          "string_tuning": 0.0315
+          "string_tuning": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "basswood_h",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 5.85,
-          "pickup_config": 0.5579999999999999,
+          "body_wood": 0.29024999999999995,
+          "pickup_config": 0.29024999999999995,
           "string_type": 4.875,
-          "scale_length_b": 0.21674999999999997,
-          "fretted_or_not": 0.348,
-          "bass_technique": 4.0360000000000005,
+          "scale_length_b": 0.1425,
+          "fretted_or_not": 0.21674999999999997,
+          "bass_technique": 4.04725,
           "electric_bass_string_configuration": 0
         }
       },
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.0735,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -111,12 +111,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.37949999999999995,
-          "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.042749999999999996,
-          "voice_multitrack_stack": 0.168
+          "voice_processing_chain": 0.37424999999999997,
+          "voice_multitrack_stack": 0.43050000000000005
         }
       },
       {
@@ -124,28 +124,28 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "rompler_preset_bank": "rompler_preset_oriental_arranger",
-          "rompler_context": "rompler_context_township_midi",
-          "rompler_lineage": "rompler_yamaha_psr_casio"
+          "rompler_context": "rompler_context_arranger_party",
+          "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.231,
-          "rompler_context": 0.273,
-          "rompler_lineage": 0.39
+          "rompler_preset_bank": 0.46199999999999997,
+          "rompler_context": 1.3,
+          "rompler_lineage": 1.3
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "chamber_choir",
-          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 0.5265,
+          "choir_size": 2.47,
           "choir_polyphonic_configuration": 0.39,
-          "choir_regional_canonical_configuration": 0.325,
+          "choir_regional_canonical_configuration": 0.7149999999999999,
           "choir_ensemble_repertoire": 0.39
         }
       }
@@ -153,20 +153,9 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "pickup_winding",
-        "string_material",
-        "bridge",
-        "scale_length",
-        "string_gauge",
-        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -235,17 +224,7 @@
       "bass_technique": "pick_aggressive",
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_double",
-      "electronic_technique": "electronic_pad_drone",
-      "body_wood": "basswood_h",
-      "neck_wood": "maple_neck_h",
-      "fretboard": "ebony_fb_h",
-      "string_material": "nickel_plated_h",
-      "scale_length": "scale_fender_h",
-      "string_gauge": "g_10_hum",
-      "finish": "poly_hum",
-      "bridge": "string_thru",
-      "pickup_magnet": "ceramic_h",
-      "pickup_winding": "high_wind"
+      "electronic_technique": "electronic_pad_drone"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

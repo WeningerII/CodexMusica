@@ -5,7 +5,7 @@
   "lineage": "Belgian modern jazz develops through contemporary ensembles and local scenes that connect jazz composition with responsive improvisation.",
   "recipe": "classic belgian modern jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 74.847,
+  "score": 74.856,
   "config": {
     "traditions": [
       "belgian_modern_jazz"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.147,
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.0735,
           "grand_piano_brand": 0.105,
-          "piano_hammer": 5.5485,
-          "piano_rim": 5.766,
-          "piano_soundboard": 5.163,
-          "piano_pinblock": 4.95,
+          "piano_hammer": 5.4825,
+          "piano_rim": 6.12025,
+          "piano_soundboard": 5.058,
+          "piano_pinblock": 5.30425,
           "piano_plate": 4.95,
-          "piano_pitch_standard": 6.263
+          "piano_pitch_standard": 5.82275
         }
       },
       {

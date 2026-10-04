@@ -5,7 +5,7 @@
   "lineage": "Polish folk metal combines metal and rock instrumentation with folk-song materials and timbres.",
   "recipe": "classic modern polish folk metal, distorted Rock, folk metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, hard rock maple liebenzeller metal infused cello. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 476,
-  "score": 67.797,
+  "score": 67.918,
   "config": {
     "traditions": [
       "polish_folk_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 18.8965,
+          "electric_technique": 19.009,
           "amp_make": 7.605,
           "body_wood": 7.8,
           "neck_wood": 0.0315,
           "fretboard": 0.168,
           "pickup_magnet": 0,
-          "pickup_winding": 0.0315,
+          "pickup_winding": 0.08549999999999999,
           "string_material": 0.0315,
           "bridge": 0.9099999999999999,
           "scale_length": 0,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.063
         }
       },
       {
@@ -128,7 +128,7 @@
           "cello_strings": "cello_steel",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
-          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_varnish": "spirit_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "german_bow_grip",
           "cello_rosin": "liebenzeller_metal_rosin_cello",
@@ -139,7 +139,7 @@
           "cello_strings": 0.0315,
           "cello_top_wood": -0.035,
           "cello_back_wood": 3.185,
-          "cello_varnish": -0.035,
+          "cello_varnish": -0.05,
           "cello_setup_period": 0.26,
           "cello_bow_grip": 0.1365,
           "cello_rosin": 7.67,

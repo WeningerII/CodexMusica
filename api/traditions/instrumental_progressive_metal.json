@@ -5,7 +5,7 @@
   "lineage": "Instrumental progressive metal represented by Animals as Leaders’ two-guitar-and-drums practice, with synthesizer color. Exact defaults are an authored contemporary realization.",
   "recipe": "classic modern instrumental progressive metal, distorted Rock, prog branch. eight string electric, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 279,
-  "score": 9.186,
+  "score": 9.399,
   "config": {
     "traditions": [
       "instrumental_progressive_metal"
@@ -31,7 +31,7 @@
         },
         "scores": {
           "drum_technique": 4.605,
-          "drumhead": 0.5315,
+          "drumhead": 0.563,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -44,9 +44,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 0.2315,
           "poly_archetypes": 2.34,
-          "poly_voices": 1.0315,
+          "poly_voices": 1.2415,
           "poly_maker_lineage": -0.035
         }
       }

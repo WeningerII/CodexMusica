@@ -2,100 +2,28 @@
   "id": "alaska_hip_hop",
   "name": "Alaska hip hop",
   "family": "hip_hop",
-  "lineage": "Alaska hip-hop connects MCs, DJs, producers and local performance networks across the state. Events and collaborations bring regional voices into conversation with wider hip-hop practice.",
-  "recipe": "classic alaska hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. live tracking.",
-  "recipe_chars": 151,
-  "score": 46.924,
+  "lineage": "Complete opening DJ hour, 10–11pm, at the July8 Tubby and Friends Denali Park event at The Salmon Bake: organizer James Tubby Storlie names Gre, Polo and Bee One and positively separates their programme from the later rapper performances beginning at11pm. The three DJs share the source-unspecified playback/mixing role; this does not reduce their human count to one or assert three simultaneous decks. Embedded recordings and vocals remain intact and unknown in number. No separately performing singer is credited within this opening programme. The later rappers and closing DJ set are outside this positively delimited complete opening programme, not omitted from a supposed reconstruction of the entire event. No heard recording, tracklist, equipment type or event year asserted; the2026 archive date is not the event date. Authored regional US hip-hop DJ rendition with a source-unspecified playback/mixing owner preserving the complete recorded layers. No vinyl, software, deck model, synthesis patch, scratch gesture, measured tempo, original microphone, global tuning or embedded vocal physiology is invented. Neutral axes are editorial placeholders. Authored treated live-room spatial model is not measured Salmon Bake acoustics.",
+  "recipe": "classic alaska hip hop, mc Rhythm, us hip hop branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 100,
+  "score": 0.137,
   "config": {
     "traditions": [
       "alaska_hip_hop"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "rap_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 12.09,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 12.025,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
-          "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_twelve_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_hiphop"
-        },
-        "scores": {
-          "electronic_technique": -0.035,
-          "sampler_archetypes": 7.1595,
-          "sampler_bit_depth": -0.05,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 13.325
+          "dj_playback_mixing_identity": 0.1365
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "live_room",
@@ -115,28 +43,7 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "rap_voice",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "spoken_voice",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_sustained_layering",
-      "sampler_archetypes": "akai_mpc",
-      "sampler_bit_depth": "sampler_twelve_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_hiphop"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true
   }

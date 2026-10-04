@@ -3,9 +3,9 @@
   "name": "Uk pop punk",
   "family": "rock_punk",
   "lineage": "UK pop punk links melodic guitar bands through local independent recording and performance networks.",
-  "recipe": "classic uk pop punk, distorted Rock, pop punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 334,
-  "score": 44.615,
+  "recipe": "classic uk pop punk, distorted Rock, pop punk branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 45.697,
   "config": {
     "traditions": [
       "uk_pop_punk"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0.18899999999999997,
+          "bridge": 0.39899999999999997,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.21,
           "finish": 0,
-          "string_tuning": 0.0315
+          "string_tuning": 0.0945
         }
       },
       {
@@ -112,12 +112,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.4515,
-          "voice_ensemble_config": 0.19949999999999998,
+          "voice_speech_song": 0.9029999999999999,
+          "voice_ensemble_config": 0.27299999999999996,
           "voice_ornament_system": 0.0735,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0.105,
           "voice_tessitura": 0
         }
       }

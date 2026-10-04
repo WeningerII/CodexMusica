@@ -5,7 +5,7 @@
   "lineage": "Swedish techno connects Stockholm production networks with international club and label circuits. Successive generations combine forceful grooves, hands-on synthesis and exploratory electronic textures.",
   "recipe": "classic modern swedish techno, electronic Dance, techno branch. analog synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 303,
-  "score": 10.416,
+  "score": 10.489,
   "config": {
     "traditions": [
       "swedish_techno"
@@ -22,8 +22,8 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "oscillator": 0.173625,
-          "filter_topology": 0.641875,
+          "oscillator": 0.255375,
+          "filter_topology": 0.6028749999999999,
           "envelope": 0.39,
           "modulation": 0.1365
         }
@@ -37,7 +37,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0.03712499999999999,
           "sample_swing": 9.09725,
           "sample_processing": 0

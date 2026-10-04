@@ -2,10 +2,10 @@
   "id": "japanese_vocal_jazz",
   "name": "Japanese vocal jazz",
   "family": "jazz",
-  "lineage": "Japanese vocal jazz connects singers and local performance scenes with the wider jazz-song tradition. Personal interpretation and responsive accompaniment shape the performances.",
-  "recipe": "classic japanese vocal jazz, improv On Frame, smooth vocal branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, notated speech melody. grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 350,
-  "score": 69.839,
+  "lineage": "Japanese vocal jazz: Kimiko Itoh — Blue Note Tokyo program, 21 November 2020. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic early-2020s japanese vocal jazz, improv On Frame, smooth vocal branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, small note groups per syllable. Japanese factory birch laminated maple laminated a 441 Japanese orchestral grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 453,
+  "score": 58.152,
   "config": {
     "traditions": [
       "japanese_vocal_jazz"
@@ -24,10 +24,10 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
@@ -38,41 +38,41 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 13.499999999999998,
+          "voice_microtone": 10.999999999999998,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 4.485,
-          "voice_ensemble_config": 4.16,
-          "voice_ornament_system": 0.26,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.168
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 1.6360000000000001,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 1.126,
+          "voice_pitch_organization": 0.063,
+          "voice_processing_chain": 0.064,
+          "voice_multitrack_stack": 0.399
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 0.325,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.2415,
-          "piano_hammer": -0.07,
-          "piano_rim": 0.26,
-          "piano_soundboard": 0.26,
-          "piano_pinblock": -0.1,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.609,
+          "grand_piano_brand": 0.609,
+          "piano_hammer": 2.005,
+          "piano_rim": 1.9629999999999999,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": 0.26,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 3.835
         }
       },
       {
@@ -83,7 +83,7 @@
         },
         "scores": {
           "upright_strings": 0.0315,
-          "upright_play": 13.75
+          "upright_play": 11.25
         }
       },
       {
@@ -94,9 +94,34 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.399999999999999,
-          "drumhead": 17.81,
+          "drum_technique": 6.890000000000001,
+          "drumhead": 14.559999999999999,
           "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "bernardel_rosin_cello",
+          "cello_bow_stick": "brazilwood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "cello_strings": 0.105,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": -0.035,
+          "cello_varnish": -0.035,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.0315,
+          "cello_rosin": -0.05,
+          "cello_bow_stick": -0.05
         }
       }
     ],
@@ -113,15 +138,7 @@
         "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "keyboard_technique"
       ],
       "upright_bass": [
         "upright_strings",
@@ -129,6 +146,9 @@
       ],
       "drum_kit": [
         "drum_technique"
+      ],
+      "cello": [
+        "bowed_technique"
       ]
     },
     "room": "live_room",
@@ -158,19 +178,12 @@
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_articulation": "voice_articulation_source_unspecified",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "bowed_technique": "bowed_legato_classical"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

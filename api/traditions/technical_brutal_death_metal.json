@@ -5,7 +5,7 @@
   "lineage": "Technical brutal death metal combines dense, demanding instrumental writing with the weight and force of brutal death metal.",
   "recipe": "classic technical brutal death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 43.241,
+  "score": 42.287,
   "config": {
     "traditions": [
       "technical_brutal_death_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.983,
+          "electric_technique": 11.71,
           "amp_make": 5.655000000000001,
           "body_wood": 5.85,
-          "neck_wood": 0.3045,
-          "fretboard": 0.49349999999999994,
+          "neck_wood": 0.1995,
+          "fretboard": 0.23099999999999998,
           "pickup_magnet": 0,
-          "pickup_winding": 0.273,
-          "string_material": 0.3045,
-          "bridge": 0.6405,
+          "pickup_winding": 0.2415,
+          "string_material": 0.1995,
+          "bridge": 0.5894999999999999,
           "scale_length": 0,
-          "string_gauge": 0.147,
+          "string_gauge": 0.3585,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.1485
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 5.85,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.63,
+          "scale_length_b": 0.3675,
           "fretted_or_not": 0.0315,
-          "bass_technique": 3.8575000000000004,
+          "bass_technique": 3.8687500000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "blast_beat_single_strokes",
-          "drumhead": "double_coated",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
           "drum_technique": 0.39,
-          "drumhead": 1.0185,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0.78
         }
       },
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       }

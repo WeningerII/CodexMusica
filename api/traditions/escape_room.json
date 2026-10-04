@@ -2,124 +2,52 @@
   "id": "escape_room",
   "name": "Escape Room",
   "family": "pop",
-  "lineage": "Escape room is a named discovery community connecting experimental pop, hip-hop and R&B. Its artists blur established genre expectations through independent production, socially engaged expression and unconventional approaches to popular-song material.",
-  "recipe": "classic escape room, functional Song, pop rock branch. solo with instrumental accompaniment. analog synth, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 214,
-  "score": 7.074,
+  "lineage": "Dario D’aversa’s complete five-page Signature Artist instrumental-solo adaptation of Lizzo’s Truth Hurts, Musicnotes MN0200435. Publisher explicitly specifies piano only, solo form and no lyrics; no singer, flute or original pop-recording production is imported. Public complete-edition metadata was read; purchased score pages and full performance audio were not inspected. Key C major and stated76BPM belong to this arrangement; they do not establish a measured temperament or the original-master instrumentation. One nine-foot Steinway-D grand with matching conventional construction and block-chord pop gesture is an authored realization of the publisher piano role, not an asserted source keyboard make or literal bar-by-bar transcription. All nine merged owner parts protected. Room and capture chain are editorial new recording choices; global tuning omitted. functionalSong.popRock is the existing Anglo-American pop-song branch for the selected US repertoire and its authored functional-harmonic song rendition, not a classification as art music merely because it has notation.",
+  "recipe": "classic escape room, functional Song, pop rock branch. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 220,
+  "score": 37.57,
   "config": {
     "traditions": [
       "escape_room"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "grand_piano",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_neumatic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.0945,
-          "voice_ensemble_config": 1.27125,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39,
-          "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "analog_synth",
-        "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "oscillator": "saw_super",
-          "filter_topology": "svf",
-          "envelope": "pad_env",
-          "modulation": "lfo_filter"
-        },
-        "scores": {
-          "electronic_technique": -0.035,
-          "oscillator": -0.035,
-          "filter_topology": 0.0315,
-          "envelope": 0.063,
-          "modulation": 0
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_edm"
-        },
-        "scores": {
-          "electronic_technique": -0.035,
-          "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.46199999999999997,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 4.9399999999999995
+          "keyboard_technique": 22.740999999999993,
+          "grand_piano_size": 1.3945,
+          "grand_piano_brand": 0.2625,
+          "piano_hammer": 1.8199999999999998,
+          "piano_rim": 3.5100000000000002,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": 1.563,
+          "piano_plate": 1.263,
+          "piano_pitch_standard": 5.085999999999999
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "analog_synth": [
-        "electronic_technique",
-        "oscillator",
-        "filter_topology",
-        "envelope",
-        "modulation"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -139,32 +67,15 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_neumatic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_sustained_layering",
-      "oscillator": "saw_super",
-      "filter_topology": "svf",
-      "envelope": "pad_env",
-      "modulation": "lfo_filter",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_edm"
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

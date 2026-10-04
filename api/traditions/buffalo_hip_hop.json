@@ -5,7 +5,7 @@
   "lineage": "Buffalo hip hop includes the Griselda network and other local artists. The selected WWCD-era branch centers the collective’s MC voices and Daringer/Beat Butcha’s sample-like, self-recorded production.",
   "recipe": "classic modern buffalo hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler, sampled chopped sampler drum machine, soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 363,
-  "score": 62.517,
+  "score": 62.375,
   "config": {
     "traditions": [
       "buffalo_hip_hop"
@@ -88,7 +88,7 @@
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
@@ -103,13 +103,13 @@
           "electric_technique": -0.15000000000000002,
           "amp_make": 0,
           "body_wood": 0.9554999999999998,
-          "neck_wood": 0.23399999999999999,
+          "neck_wood": 0.1995,
           "fretboard": 0.24150000000000002,
           "pickup_magnet": 0.21,
           "pickup_winding": 0.168,
-          "string_material": 0.23399999999999999,
+          "string_material": 0.18,
           "bridge": 0.1995,
-          "scale_length": 1.3259999999999998,
+          "scale_length": 1.2719999999999998,
           "string_gauge": 0.3045,
           "finish": 0.0315,
           "string_tuning": 2.1735

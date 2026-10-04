@@ -2,115 +2,52 @@
   "id": "german_hyperpop",
   "name": "German Hyperpop",
   "family": "pop",
-  "lineage": "German-language hyperpop connects internet-led pop culture with rave, rap and emotionally direct songwriting. Artists including Baby B3ns, Domiziana and Abor & Tynna move between electronic pop, club energy and influences from emo and guitar music. The field extends beyond national borders through its language and online communities.",
-  "recipe": "classic german hyperpop, functional Song. solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. singing lead digital subtractive, drum machine analog. treated studio.",
-  "recipe_chars": 197,
-  "score": 15.136,
+  "lineage": "Abor & Tynna — Baller, complete five-page Michael Habrom piano-solo edition, A0.1615944. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. German-language hyperpop discovery network, not an assertion that each performer holds German nationality. Exact creator map includes Vienna-based Abor & Tynna alongside Baby B3ns, Domiziana and Verifiziert. Artist-agency primary explicitly describes German-language hyperpop as a generation-linked internet-subculture practice, and Baby B3ns label confirms hyperpop with emo/grunge/rave crossover. This narrower language and scene network overlaps broad hyperpop and German pop but is not equivalent to either; it is not defined by birthplace alone. The piano score realizes one member’s pop-song repertoire rather than defining the category as acoustic or classical. Broad functionalSong uses a disclosed authored functional-harmonic verse/refrain realization of the published pop song; the detailed source harmony/form is not claimed transcribed. Nine-foot Steinway D, block-chord pop touch and modern grand-piano construction are authored performance choices, not original recording hardware. Controlled studio capture is editorial, with apparatus and global tuning omitted.",
+  "recipe": "classic german hyperpop, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio.",
+  "recipe_chars": 131,
+  "score": 63.069,
   "config": {
     "traditions": [
       "german_hyperpop"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "grand_piano",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_neumatic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.366,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.4000000000000004,
-          "voice_multitrack_stack": 0,
-          "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "digital_subtractive",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_pop"
-        },
-        "scores": {
-          "electronic_technique": 8.565999999999999,
-          "va_archetypes": 0,
-          "digital_subtractive_context": -0.05
-        }
-      },
-      {
-        "id": "drum_machine_analog",
-        "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
-        },
-        "scores": {
-          "kick_voice": 0.054,
-          "snare_voice": 0,
-          "hat_voice": 0,
-          "shuffle_quantize": 2.5
+          "keyboard_technique": 18.799999999999997,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": 6.5,
+          "piano_rim": 8.100000000000001,
+          "piano_soundboard": 6.6365,
+          "piano_pinblock": 9.1,
+          "piano_plate": 6.800000000000001,
+          "piano_pitch_standard": 6.422999999999999
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "digital_subtractive": [
-        "electronic_technique",
-        "va_archetypes",
-        "digital_subtractive_context"
-      ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -130,30 +67,15 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_neumatic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize",
-      "electronic_technique": "electronic_lead_line",
-      "va_archetypes": "access_virus",
-      "digital_subtractive_context": "digital_subtractive_pop"
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true
   }

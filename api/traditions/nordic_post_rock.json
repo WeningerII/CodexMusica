@@ -5,7 +5,7 @@
   "lineage": "Nordic post-rock develops dynamic instrumental interplay between guitar textures and a rock rhythm section.",
   "recipe": "classic nordic post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 295,
-  "score": 31.768,
+  "score": 32.052,
   "config": {
     "traditions": [
       "nordic_post_rock"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.105,
           "pickup_winding": 0.147,
           "string_material": 0.688,
-          "bridge": 0.063,
+          "bridge": 0.18674999999999997,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.12374999999999999,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.03712499999999999
         }
       },
       {

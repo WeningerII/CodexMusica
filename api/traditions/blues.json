@@ -5,7 +5,7 @@
   "lineage": "The blues tradition — African-American vernacular form built on the twelve-bar progression, blue notes, and call-and-response, originating in the Deep South at the turn of the 20th century and electrified in postwar Chicago",
   "recipe": "classic Midwestern American mid-1970s blues, functional Song, blues electric branch. thick, breath veiled tone, wide pitch sway, interlocked note trading. rock blues lower tension down tuning single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, electric bass, jazz-trained brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. electric blues defining room 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 691,
-  "score": 176.132,
+  "score": 176.822,
   "config": {
     "traditions": [
       "blues"
@@ -40,14 +40,14 @@
           "voice_articulation": 6.824999999999999,
           "voice_microtone": 11.52375,
           "voice_tradition": 10.399999999999999,
-          "voice_mechanism_compound": 1.33275,
+          "voice_mechanism_compound": 1.5180000000000002,
           "voice_estill_quality": 0.5499999999999998,
           "voice_speech_song": 8.384999999999998,
           "voice_ensemble_config": 6.369999999999999,
-          "voice_ornament_system": 2.1407499999999997,
+          "voice_ornament_system": 2.275,
           "voice_pitch_organization": 0.38925,
           "voice_processing_chain": 1.755,
-          "voice_multitrack_stack": 1.0290000000000001
+          "voice_multitrack_stack": 1.3995
         }
       },
       {

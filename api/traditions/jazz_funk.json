@@ -5,7 +5,7 @@
   "lineage": "Consolidated 1969-1977 in New York and Los Angeles around Creed Taylor's CTI, Blue Note's later roster and Herbie Hancock's Headhunters, it fuses jazz soloing with a sixteenth-note funk rhythm section — electric bass playing composed slap or fingered ostinatos, drums locked to a syncopated one-drop backbeat around 95-110 BPM, Fender Rhodes and clavinet comping, and horn or saxophone leads over static two-chord vamps with congas layered on top.",
   "recipe": "classic North American mid-1970s jazz-funk, improv On Frame, fusion branch, American jazz soul jazz, funk percussive groove percussion brit funk. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, hohner d6 canonical 1971 1981 funk era ostinato clavinet, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, lead open slap hand drum congas. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre.",
   "recipe_chars": 993,
-  "score": 541.741,
+  "score": 542.026,
   "config": {
     "traditions": [
       "jazz_funk",
@@ -25,7 +25,7 @@
         },
         "scores": {
           "keyboard_technique": 24.07,
-          "rhodes_model": 34.709500000000006,
+          "rhodes_model": 34.469500000000004,
           "rhodes_use": 0.78,
           "rhodes_tine_material": 2.9899999999999998,
           "rhodes_hammer_tip": 3.705,
@@ -54,7 +54,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "split_coil",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -62,10 +62,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 20.189,
+          "amp_make": 20.114,
           "body_wood": 0.585,
-          "pickup_config": 0.15,
-          "string_type": 37.08,
+          "pickup_config": 0,
+          "string_type": 37.56,
           "scale_length_b": 0.78,
           "fretted_or_not": 1.885,
           "bass_technique": 33.25,
@@ -81,7 +81,7 @@
         },
         "scores": {
           "drum_technique": 40.559999999999995,
-          "drumhead": 37.42,
+          "drumhead": 37.795,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -97,13 +97,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 11.349499999999999,
+          "wind_articulation": 11.0495,
           "sax_size": 8.024999999999999,
           "sax_reed": 0.585,
           "sax_body_alloy": 33.295,
           "sax_mouthpiece": 0.585,
           "sax_technique": 33.295,
-          "sax_maker_school": 36.515
+          "sax_maker_school": 37.04
         }
       },
       {
@@ -114,15 +114,15 @@
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 11.349499999999999,
+          "wind_articulation": 11.0495,
           "brass_size": 0.585,
-          "trumpet_mouthpiece": 36.325,
+          "trumpet_mouthpiece": 36.85,
           "brass_mute": 0.65,
-          "trumpet_technique": 11.349499999999999,
+          "trumpet_technique": 11.0495,
           "trumpet_bell_metal": 0.65,
           "trumpet_maker_school": 6.37
         }
@@ -137,7 +137,7 @@
           "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "locking_trem",
           "scale_length": "scale_short",
           "finish": "oil_satin",
@@ -145,8 +145,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 24.349999999999998,
-          "amp_make": 32.2595,
+          "electric_technique": 24.214999999999996,
+          "amp_make": 32.1845,
           "body_wood": 0.585,
           "neck_wood": 1.885,
           "fretboard": 1.885,
@@ -170,7 +170,7 @@
         },
         "scores": {
           "percussion_technique": 4.3875,
-          "conga_set": 1.285,
+          "conga_set": 1.24,
           "conga_skin": 0.585,
           "conga_shell_wood": 0.24
         }

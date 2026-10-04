@@ -2,102 +2,33 @@
   "id": "taiwan_hip_hop",
   "name": "Taiwan hip hop",
   "family": "hip_hop",
-  "lineage": "Taiwanese hip-hop developed through local MCs, DJs, independent releases and university-club networks, with Mandarin and Taiyu rap alongside instrumental beatmaking.",
-  "recipe": "classic modern taiwan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 327,
-  "score": 56.935,
+  "lineage": "Taiwan hip hop includes Taipei beatmaker 3MITSU’s instrumental releases. Defaults are a present-day authored realization, not a historical session reconstruction.",
+  "recipe": "classic modern taiwan hip hop, mc Rhythm, intl hip hop branch. pitched chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 29.684,
   "config": {
     "traditions": [
       "taiwan_hip_hop"
     ],
     "instruments": [
       {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "rap_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 13.39,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 13.019,
-          "voice_ensemble_config": 3.38,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.522,
-          "voice_tessitura": 0
-        }
-      },
-      {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.2,
-          "sampler_archetypes": 5.358,
-          "sampler_bit_depth": 0.213,
-          "sampler_workflow": 5.15,
-          "sampler_classic_context": 10.594999999999999
+          "electronic_technique": 5.704,
+          "sampler_archetypes": 9.879999999999999,
+          "sampler_bit_depth": 0.21,
+          "sampler_workflow": 5.699999999999999,
+          "sampler_classic_context": 8.189999999999998
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
-      ]
-    },
     "room": "studio_auteur_home_pro",
     "inline_chain": {
       "mic": "dynamic_mic",
@@ -116,31 +47,8 @@
   "source": {
     "tuning": "aural_relative",
     "room": "studio_auteur_home_pro",
-    "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "rap_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_sample_chopped",
-      "sampler_archetypes": "akai_mpc",
-      "sampler_bit_depth": "sampler_sixteen_bit",
-      "sampler_workflow": "sampler_chopped_breaks",
-      "sampler_classic_context": "sampler_classic_hiphop"
-    },
-    "pin_parts": true,
+    "parts": {},
+    "pin_parts": false,
     "chain_mic": "dynamic_mic",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_none",

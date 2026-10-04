@@ -2,10 +2,10 @@
   "id": "french_synthpop",
   "name": "French synthpop",
   "family": "pop",
-  "lineage": "French synthpop connects melodic electronic songwriting with independent French synth and post-punk scenes.",
-  "recipe": "classic french synthpop, functional Song. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 220,
-  "score": 1.189,
+  "lineage": "French synthpop is represented here by Minuit Machine — Infrarouge (2019). This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic late-2010s french synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 4.558,
   "config": {
     "traditions": [
       "french_synthpop"
@@ -15,30 +15,30 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -0.05
+          "electronic_technique": -0.035,
+          "poly_archetypes": 1.95,
+          "poly_voices": 0.168,
+          "poly_maker_lineage": -0.035
         }
       },
       {
-        "id": "drum_machine_analog",
+        "id": "sampler_drum_machine",
         "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "kick_voice": 0,
-          "snare_voice": 0,
-          "hat_voice": 0,
-          "shuffle_quantize": -0.05
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.1365,
+          "sample_swing": -0.035,
+          "sample_processing": 0
         }
       },
       {
@@ -74,25 +74,21 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.03899999999999999
+          "voice_multitrack_stack": 0.9982500000000001
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
+        "electronic_technique"
       ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ],
       "voice": [
         "voice_register",
@@ -149,13 +145,9 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electronic_technique": "electronic_arpeggiated",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith",
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize"
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

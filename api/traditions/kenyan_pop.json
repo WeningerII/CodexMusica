@@ -2,10 +2,10 @@
   "id": "kenyan_pop",
   "name": "Kenyan pop",
   "family": "pop",
-  "lineage": "Kenyan pop connects local singers and songwriting communities with contemporary popular arrangements and international influences.",
-  "recipe": "classic kenyan pop, functional Song, African pop branch. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 224,
-  "score": 13.165,
+  "lineage": "Kenyan pop is represented here by Sauti Sol — early Penya acoustic lineup. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic kenyan pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 251,
+  "score": 14.979,
   "config": {
     "traditions": [
       "kenyan_pop"
@@ -17,15 +17,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 11.2,
+          "acoustic_technique": 12.286,
           "string_tuning": 0,
-          "top_wood": 0.3045,
-          "back_sides": 0.147,
-          "string_acoustic": 0.6405000000000001
+          "top_wood": 0.2415,
+          "back_sides": 0.063,
+          "string_acoustic": 0.3045
         }
       },
       {
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.315,
-          "voice_ornament_system": 0.168,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 1.6,
+          "voice_multitrack_stack": 0.063
         }
       }
     ],

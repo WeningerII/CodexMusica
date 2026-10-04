@@ -3,9 +3,9 @@
   "name": "Guatemalan metal",
   "family": "rock_punk",
   "lineage": "Guatemalan metal connects local electric-band scenes with wider Central American metal networks. Metal Requiem exemplifies its thrash/death crossover.",
-  "recipe": "classic modern guatemalan metal, distorted Rock, metal branch, thrash metal, death metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 590,
-  "score": 107.805,
+  "recipe": "classic modern guatemalan metal, distorted Rock, metal branch, thrash metal, death metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 628,
+  "score": 110.475,
   "config": {
     "traditions": [
       "guatemalan_metal",
@@ -31,19 +31,19 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 26.8825,
-          "amp_make": 12.674999999999997,
-          "body_wood": 13.455,
+          "electric_technique": 26.492500000000003,
+          "amp_make": 12.024999999999999,
+          "body_wood": 12.805,
           "neck_wood": 0.195,
           "fretboard": 0.39,
           "pickup_magnet": 0,
           "pickup_winding": 0.105,
           "string_material": 0.195,
-          "bridge": 0.8449999999999999,
+          "bridge": 1.4949999999999999,
           "scale_length": 0,
           "string_gauge": 0.8475,
           "finish": 0,
-          "string_tuning": 0.78
+          "string_tuning": 0.39
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.4350000000000005,
-          "body_wood": 13.455,
+          "amp_make": 7.280000000000001,
+          "body_wood": 12.805,
           "pickup_config": 0.975,
           "string_type": 14.3,
           "scale_length_b": 0.8475,
           "fretted_or_not": 0.195,
-          "bass_technique": 11.167500000000002,
+          "bass_technique": 11.592500000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -73,12 +73,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_punk",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.12999999999999998,
-          "drumhead": 0.52,
+          "drum_technique": 0.375,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 2.535,
+          "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.195
+          "voice_multitrack_stack": 1.4300000000000002
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Czech jazz",
   "family": "jazz",
   "lineage": "Czech jazz includes instrumental ensembles and vocal songwriters connecting local musical life with contemporary jazz practice. Czech-language song is one strand within the wider scene.",
-  "recipe": "classic czech jazz, improv On Frame, American jazz branch. solo with instrumental accompaniment. one piece 17 ply hard rock maple grand piano, humbucker electric guitar, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 343,
-  "score": 54.994,
+  "recipe": "classic czech jazz, improv On Frame, American jazz branch. solo with instrumental accompaniment. one piece 17 ply hard rock maple grand piano, soft down tuning humbucker electric guitar, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 53.534,
   "config": {
     "traditions": [
       "czech_jazz"
@@ -44,9 +44,9 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 3.77,
-          "voice_ornament_system": 0.1365,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3045,
+          "voice_processing_chain": 0.1995,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -65,12 +65,12 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.1905,
+          "grand_piano_size": 0.0735,
+          "grand_piano_brand": 0.213,
           "piano_hammer": -0.07,
           "piano_rim": 1.17,
           "piano_soundboard": 0.26,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.7149999999999999
         }
@@ -82,30 +82,30 @@
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "dadgad"
+          "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 1.6899999999999997,
-          "body_wood": 0.9135,
-          "neck_wood": 0.21,
-          "fretboard": 0.34650000000000003,
-          "pickup_magnet": 0.5985,
-          "pickup_winding": 0.46199999999999997,
-          "string_material": 0.34650000000000003,
-          "bridge": 0.21000000000000002,
-          "scale_length": 0.7979999999999999,
-          "string_gauge": 0.693,
+          "body_wood": 0.42,
+          "neck_wood": 0.105,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0.315,
+          "pickup_winding": 0.1785,
+          "string_material": 0.1365,
+          "bridge": 0.7304999999999999,
+          "scale_length": 0.34650000000000003,
+          "string_gauge": 0.741,
           "finish": 0,
-          "string_tuning": 0.9974999999999998
+          "string_tuning": 1.269
         }
       },
       {

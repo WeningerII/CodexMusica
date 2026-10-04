@@ -2,10 +2,10 @@
   "id": "austrian_jazz",
   "name": "Austrian jazz",
   "family": "jazz",
-  "lineage": "Austrian jazz connects local musicians with international improvising networks, drawing on modern jazz harmony, lyrical composition and exploratory ensemble playing. Acoustic rhythm sections, keyboards, brass and amplified guitar support diverse small-group approaches.",
-  "recipe": "classic modern austrian jazz, improv On Frame, American jazz branch. acoustic leaning carved top solid spruce Gibson canon thomastik archtop, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 583,
-  "score": 136.062,
+  "lineage": "Austria-connected jazz musicians working in international ensembles. Wolfgang Muthspiel’s Rising Grace quintet supplies this selected branch: electric guitar, trumpet and piano converse above acoustic bass and drums.",
+  "recipe": "classic modern austrian jazz, improv On Frame, bop branch. acoustic leaning carved top solid spruce Gibson canon thomastik archtop, bach stradivarius 180 canonical American orchestral trumpet, grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 433,
+  "score": 91.504,
   "config": {
     "traditions": [
       "austrian_jazz"
@@ -24,10 +24,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "archtop_body": 13.892125,
-          "archtop_pickup": 8.45,
-          "archtop_top_wood": 13.75,
-          "archtop_strings": 17.875,
+          "archtop_body": 11.350125,
+          "archtop_pickup": 7.54,
+          "archtop_top_wood": 11.313,
+          "archtop_strings": 14.625,
           "archtop_technique": -0.035,
           "archtop_string_tuning": 0
         }
@@ -44,12 +44,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.2037499999999999,
-          "brass_size": 0.168,
-          "trumpet_mouthpiece": 2.4815,
-          "brass_mute": 0.0735,
+          "wind_articulation": 0.325,
+          "brass_size": 0.1365,
+          "trumpet_mouthpiece": -0.07,
+          "brass_mute": 0,
           "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 1.22875,
+          "trumpet_bell_metal": 0.1365,
           "trumpet_maker_school": 1.95
         }
       },
@@ -67,15 +67,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0735,
-          "grand_piano_brand": 0.105,
-          "piano_hammer": 2.9435000000000002,
-          "piano_rim": 2.988125,
-          "piano_soundboard": 2.4871250000000003,
-          "piano_pinblock": 2.45,
-          "piano_plate": 2.45,
-          "piano_pitch_standard": 3.25
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -85,8 +85,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.063,
-          "upright_play": 13.75
+          "upright_strings": 0.168,
+          "upright_play": 11.25
         }
       },
       {
@@ -105,17 +105,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.789999999999996,
-          "drumhead": 0.03712499999999999,
+          "drum_technique": 9.49,
+          "drumhead": 0.06862499999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.11062499999999999,
+          "shell_wood": 0.07424999999999998,
           "shell_thickness": 0,
-          "bearing_edges": 0.21075,
-          "snare_wires": 0.11062499999999999,
-          "cymbal_alloy": 13.797249999999998,
-          "cymbal_hammering": 14.141,
-          "cymbal_lathing": 2.6414999999999997,
-          "cymbal_finish": 0
+          "bearing_edges": 0.17924999999999996,
+          "snare_wires": 0.03712499999999999,
+          "cymbal_alloy": 11.099999999999998,
+          "cymbal_hammering": 11.367999999999999,
+          "cymbal_lathing": -0.11850000000000002,
+          "cymbal_finish": 0.0315
         }
       }
     ],

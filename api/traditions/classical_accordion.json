@@ -2,10 +2,10 @@
   "id": "classical_accordion",
   "name": "Classical accordion",
   "family": "classical",
-  "lineage": "Classical accordion brings the free-reed instrument into concert repertoire through original works and transcriptions. Solo playing and chamber collaboration explore its capacity for sustained tone, polyphony and dynamic control.",
-  "recipe": "classic classical accordion, art Music. accordion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 151,
-  "score": 0.89,
+  "lineage": "Classical accordion is represented by Samuele Telari — Bach Goldberg Variations. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic classical accordion, art Music, western early branch. accordion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 173,
+  "score": 2.058,
   "config": {
     "traditions": [
       "classical_accordion"
@@ -15,20 +15,20 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_bellows_articulated",
-          "accordion_reed_material": "steel_reeds",
+          "accordion_reed_material": "a_mano",
           "musette_offset": "dry_tuning",
-          "reed_config": "lmmh",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 0.254,
-          "accordion_reed_material": 0.0315,
-          "musette_offset": 0.054,
-          "reed_config": 0.414,
-          "bellows": 0.1365,
-          "voicing_chamber": 0,
+          "free_reed_technique": 0.2,
+          "accordion_reed_material": 0.22049999999999997,
+          "musette_offset": 0.441,
+          "reed_config": 0.8925000000000001,
+          "bellows": 0,
+          "voicing_chamber": 0.3045,
           "accordion_maker_school": 0
         }
       }
@@ -36,11 +36,6 @@
     "pinned": {
       "accordion": [
         "free_reed_technique",
-        "accordion_reed_material",
-        "musette_offset",
-        "reed_config",
-        "bellows",
-        "voicing_chamber",
         "accordion_maker_school"
       ]
     },
@@ -64,12 +59,7 @@
     "room": "treated_studio",
     "parts": {
       "free_reed_technique": "free_reed_bellows_articulated",
-      "accordion_maker_school": "accordion_maker_unspecified",
-      "accordion_reed_material": "steel_reeds",
-      "musette_offset": "dry_tuning",
-      "reed_config": "lmmh",
-      "bellows": "cardboard_leather",
-      "voicing_chamber": "cassotto"
+      "accordion_maker_school": "accordion_maker_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

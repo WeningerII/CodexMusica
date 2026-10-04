@@ -5,7 +5,7 @@
   "lineage": "Soul and R&B made in Britain from the mid-1960s onward — Dusty Springfield's Atlantic-styled orchestral soul, the Northern Soul club circuit's uptempo four-on-the-floor imports, and the decisive 1980s London wave of Soul II Soul, Loose Ends and Mica Paris working out of Black community studios in Brent and Brixton, using swung 90-110 BPM breakbeat programming, dubwise bass weight, lush string and Rhodes pads, and a restrained, melisma-light lead vocal over stacked group harmony.",
   "recipe": "classic Western European 1964-1966 british soul, functional Song, soul R&B branch, Afro-diasporic electric groove percussion, pop rock functional song 1960s girl group skiffle. thick, blues-shouter, straight onset, narrative. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track natural blend light common bus EQ multitrack vocal stack, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sampler, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone. brent black community studio london. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 966,
-  "score": 577.473,
+  "score": 577.455,
   "config": {
     "traditions": [
       "british_soul",
@@ -60,7 +60,7 @@
           "multitrack_stack_processing": "multitrack_processing_natural"
         },
         "scores": {
-          "multitrack_stack_density": 3.135,
+          "multitrack_stack_density": 3.1875,
           "multitrack_stack_era_aesthetic": 7.43,
           "multitrack_stack_processing": 1
         }
@@ -147,7 +147,7 @@
         },
         "scores": {
           "electronic_technique": 13.184999999999999,
-          "poly_archetypes": 5.2825,
+          "poly_archetypes": 5.2124999999999995,
           "poly_voices": 0.18,
           "poly_maker_lineage": 1.1049999999999998
         }

@@ -5,7 +5,7 @@
   "lineage": "Indonesian black-metal discovery field represented by Vallendusk’s Jakarta melodic/atmospheric black-metal practice, using the named roles on Heralds Of Strife.",
   "recipe": "classic modern indonesian black metal, distorted Rock, black branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, blast beat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 426,
-  "score": 30.487,
+  "score": 30.657,
   "config": {
     "traditions": [
       "indonesian_black_metal"
@@ -37,9 +37,9 @@
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.363,
           "string_material": 0.39,
-          "bridge": 0.8312499999999999,
+          "bridge": 0.9099999999999999,
           "scale_length": 6.629999999999999,
-          "string_gauge": 0.9047499999999999,
+          "string_gauge": 0.9099999999999999,
           "finish": 0.39,
           "string_tuning": 2.34
         }
@@ -93,7 +93,7 @@
           "voice_ornament_system": 0.37424999999999997,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.6945
+          "voice_multitrack_stack": 0.78
         }
       },
       {

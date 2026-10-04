@@ -2,10 +2,10 @@
   "id": "afrobeat_brasileiro",
   "name": "Afrobeat brasileiro",
   "family": "vernacular",
-  "lineage": "Brazilian Afrobeat brings the ensemble language of Afrobeat into dialogue with Afro-Brazilian rhythmic traditions. Rio de Janeiro groups such as Abayomy Orquestra connect this practice with ijexá, coco, afoxé and maracatu, alongside jazz and Yoruba-language song.",
-  "recipe": "classic afrobeat brasileiro, groove Percussion, Afro-diasporic electric branch. group vocals, live take. humbucker electric guitar, pocket fingerstyle locked electric bass, dark bronze bell bronze drum kit, tenor selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, trumpet, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 422,
-  "score": 27.421,
+  "lineage": "Abayomy Orquestra — Adar. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic afrobeat brasileiro, groove Percussion, Afro-diasporic electric branch. group vocals. humbucker electric guitar, pocket fingerstyle locked electric bass, dark musical bronze bell bronze drum kit, round tenor saxophone, trumpet, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 353,
+  "score": 11.823,
   "config": {
     "traditions": [
       "afrobeat_brasileiro"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 1.363,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.3989999999999999,
-          "string_gauge": 0.105,
+          "string_gauge": 1.405,
           "finish": 0.0315,
           "string_tuning": 0
         }
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0.16799999999999998,
-          "bass_technique": 7.4,
+          "bass_technique": 3.1500000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -131,7 +131,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.273,
           "snare_wires": 0,
-          "cymbal_alloy": 2.3500000000000005,
+          "cymbal_alloy": 1.0999999999999999,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0.378
@@ -150,12 +150,12 @@
         },
         "scores": {
           "wind_articulation": -0.07,
-          "sax_size": 7.431500000000001,
+          "sax_size": 3.1815,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.063,
-          "sax_technique": 2.5315,
-          "sax_maker_school": 2.9015000000000004
+          "sax_technique": -0.035,
+          "sax_maker_school": -0.07
         }
       },
       {
@@ -190,7 +190,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 0,
-          "poly_voices": 0,
+          "poly_voices": 0.3,
           "poly_maker_lineage": -0.035
         }
       }

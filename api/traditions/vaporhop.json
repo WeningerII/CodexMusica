@@ -5,7 +5,7 @@
   "lineage": "Online-scene fusion of vaporwave sampling with boom-bap hip-hop production, circulating from roughly 2012 onward on Bandcamp and Tumblr — 80-95 BPM swung breakbeats, dusty filtered loops taken from 1980s Japanese city pop, muzak and corporate video libraries, MPC-style chopping with audible sample truncation, and instrumental-first tracks where any vocal is a looped, unintelligible fragment rather than a rapped verse.",
   "recipe": "classic mid-1980s vaporhop, experimental Elec, retro aesthetic branch, lofi experimental electric, us hip hop east coast mafioso rap new york city rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, TR-808, low sub bass analog poly synth, pocket ostinato electric piano tine. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 443,
-  "score": 244.267,
+  "score": 243.982,
   "config": {
     "traditions": [
       "vaporhop",
@@ -23,8 +23,8 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 9.049999999999999,
-          "sampler_archetypes": 11.454285714285714,
+          "electronic_technique": 9.004999999999999,
+          "sampler_archetypes": 11.544285714285714,
           "sampler_bit_depth": 3.9000000000000004,
           "sampler_workflow": 12.059999999999999,
           "sampler_classic_context": 27.982499999999998
@@ -37,7 +37,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 9.049999999999999,
+          "electronic_technique": 9.004999999999999,
           "turntable_technique": 11.118214285714284
         }
       },
@@ -85,7 +85,7 @@
           "voice_tradition": 10.959642857142855,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 5.135,
-          "voice_speech_song": 17.447857142857142,
+          "voice_speech_song": 17.162857142857142,
           "voice_ensemble_config": 15.664999999999996,
           "voice_ornament_system": 3.317500000000001,
           "voice_pitch_organization": 1.755,

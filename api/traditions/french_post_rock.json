@@ -5,7 +5,7 @@
   "lineage": "French post-rock represented by Rennes quartet Totorro’s instrumental Home Alone/late2010s branch, which crosses into melodic math rock. The model keeps interlocking electric guitars, bass and drums and does not transfer the earlier screamo vocals into the later instrumental lineup.",
   "recipe": "classic french post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital digital delay.",
   "recipe_chars": 302,
-  "score": 31.939,
+  "score": 32.436,
   "config": {
     "traditions": [
       "french_post_rock"
@@ -32,15 +32,15 @@
           "electric_technique": 0.18150000000000002,
           "amp_make": 6.11,
           "body_wood": 0.7,
-          "neck_wood": 0.483,
-          "fretboard": 0.483,
+          "neck_wood": 0.5145,
+          "fretboard": 0.5145,
           "pickup_magnet": 0.105,
-          "string_material": 0.483,
-          "string_gauge": 0.7,
-          "bridge": 0.315,
-          "scale_length": 0.1575,
+          "string_material": 0.5145,
+          "string_gauge": 0.860875,
+          "bridge": 0.42,
+          "scale_length": 0.126,
           "finish": 0.1365,
-          "string_tuning": 0,
+          "string_tuning": 0.03712499999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -52,7 +52,7 @@
           "pickup_config": "dual_single",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -60,9 +60,9 @@
           "amp_make": 7.865,
           "body_wood": 0.21,
           "pickup_config": 0,
-          "string_type": 0.7349999999999999,
+          "string_type": 0.8714999999999999,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.06862499999999999,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -77,9 +77,9 @@
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 0.483,
+          "drumhead": 0.5145,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.483
+          "shell_wood": 0.5145
         }
       }
     ],

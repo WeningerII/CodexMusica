@@ -5,7 +5,7 @@
   "lineage": "Israeli jazz connects local composers and improvisers with international jazz networks. Contemporary ensembles explore melodic composition, rhythmic complexity and close interaction between bass, keyboards, percussion and other instrumental voices.",
   "recipe": "classic modern israeli jazz, improv On Frame, American jazz branch. upright bass, grand piano, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 308,
-  "score": 54.762,
+  "score": 54.632,
   "config": {
     "traditions": [
       "israeli_jazz"
@@ -70,7 +70,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
           "snare_wires": 0.186,
-          "cymbal_alloy": 13.876999999999997,
+          "cymbal_alloy": 13.746999999999998,
           "cymbal_hammering": 14.141,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

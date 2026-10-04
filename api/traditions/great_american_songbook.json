@@ -5,7 +5,7 @@
   "lineage": "1920s-1950s American popular-song repertoire from Tin Pan Alley, Broadway, and Hollywood (Gershwin, Berlin, Porter, Kern, Rodgers-and-Hart-and-Hammerstein) as interpreted by mid-century vocal jazz singers — Sinatra, Ella Fitzgerald, Sarah Vaughan, Tony Bennett, Nat King Cole",
   "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 804,
-  "score": 371.633,
+  "score": 371.973,
   "config": {
     "traditions": [
       "great_american_songbook",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 2.3450000000000006,
           "voice_speech_song": 8.58,
           "voice_ensemble_config": 7.605,
-          "voice_ornament_system": 0.24,
+          "voice_ornament_system": 0.5700000000000001,
           "voice_pitch_organization": 0.195,
           "voice_processing_chain": 7.605,
           "voice_multitrack_stack": 7.735
@@ -61,7 +61,7 @@
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
@@ -71,8 +71,8 @@
           "grand_piano_brand": 2.0799999999999996,
           "piano_hammer": 6.24,
           "piano_rim": 6.629999999999999,
-          "piano_soundboard": 3.945,
-          "piano_pinblock": 1.25,
+          "piano_soundboard": 4.14,
+          "piano_pinblock": 1.4849999999999999,
           "piano_plate": 1.625,
           "piano_pitch_standard": 1.625
         }
@@ -126,7 +126,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_cool_lyrical",
-          "brass_size": "flugelhorn",
+          "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_out",
           "trumpet_technique": "trumpet_dixieland_lead",
@@ -135,7 +135,7 @@
         },
         "scores": {
           "wind_articulation": 2.2800000000000002,
-          "brass_size": 0.345,
+          "brass_size": 0.045,
           "trumpet_mouthpiece": 21.45,
           "brass_mute": 1.04,
           "trumpet_technique": 0.06499999999999999,
@@ -150,16 +150,16 @@
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
           "trombone_mute": "cup_mute_trb",
-          "trombone_technique": "classical_trb",
+          "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
           "wind_articulation": 0.06499999999999999,
-          "trombone_type": 16.845,
+          "trombone_type": 16.545,
           "trombone_mouthpiece": 19.585,
           "trombone_mute": 0,
-          "trombone_technique": 0.105,
+          "trombone_technique": 0.28500000000000003,
           "trombone_bell_metal": 0.3,
           "trombone_maker_school": 6.305
         }

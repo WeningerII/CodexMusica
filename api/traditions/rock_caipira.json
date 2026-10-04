@@ -3,9 +3,9 @@
   "name": "Rock Caipira",
   "family": "rock",
   "lineage": "Brazilian interior fusion emerging in the 1980s-90s in São Paulo, Minas and the Center-West, setting viola caipira tunings, moda de viola melodies and dupla third-singing against a distorted electric-guitar rock rhythm section, popularized by Almir Sater's crossover work and by bands blending cateretê and pagode-de-viola rhythms with 4/4 rock backbeat at 110-140 BPM.",
-  "recipe": "classic North American mid-1980s rock caipira, distorted Rock, regional branch, Brazilian song functional song, country rock country modern country rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, Fender blackface amp American 60s amp spring reverb bright mahogany maple humbucker electric steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 888,
-  "score": 562.68,
+  "recipe": "classic North American mid-1980s rock caipira, distorted Rock, regional branch, Brazilian song functional song, country rock country modern country rock. thick, breath veiled tone, straight note core, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, Fender blackface amp American 60s amp spring reverb bright mahogany maple humbucker electric steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 891,
+  "score": 550.387,
   "config": {
     "traditions": [
       "rock_caipira",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 56.490000000000016,
+          "voice_register": 55.615000000000016,
           "voice_quality": 8.515,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.999999999999996,
-          "voice_articulation": 12.609999999999996,
+          "voice_vibrato": 19.689999999999994,
+          "voice_articulation": 11.309999999999995,
           "voice_microtone": 34.20000000000001,
-          "voice_tradition": 6.5649999999999995,
+          "voice_tradition": 6.305000000000001,
           "voice_mechanism_compound": 3.0000000000000004,
-          "voice_estill_quality": 24.084999999999994,
-          "voice_speech_song": 17.939999999999998,
-          "voice_ensemble_config": 12.869999999999996,
+          "voice_estill_quality": 23.209999999999994,
+          "voice_speech_song": 16.639999999999993,
+          "voice_ensemble_config": 12.414999999999994,
           "voice_ornament_system": 2.085,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 7.345000000000001,
-          "voice_multitrack_stack": 5.0375
+          "voice_processing_chain": 6.995,
+          "voice_multitrack_stack": 5.485
         }
       },
       {
@@ -63,9 +63,9 @@
           "viola_caipira_strings": "viola_caipira_steel_doubled"
         },
         "scores": {
-          "plucked_traditional_technique": 4.68,
+          "plucked_traditional_technique": 4.485,
           "viola_caipira_courses": 0.78,
-          "viola_caipira_context": 8.32,
+          "viola_caipira_context": 8.125,
           "viola_caipira_top_wood": 2.405,
           "viola_caipira_back_wood": 2.21,
           "viola_caipira_strings": 1.95
@@ -82,26 +82,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
           "finish": "poly_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 19.624999999999996,
-          "amp_make": 20.15,
+          "electric_technique": 18.749999999999993,
+          "amp_make": 19.124999999999993,
           "body_wood": 1.69,
           "neck_wood": 0.6900000000000001,
           "fretboard": 0.195,
-          "pickup_magnet": 0.65,
-          "pickup_winding": 0.65,
+          "pickup_magnet": 0.845,
+          "pickup_winding": 0.845,
           "string_material": 0.9899999999999999,
-          "bridge": 0.6900000000000001,
+          "bridge": 0.845,
           "scale_length": 1.38,
           "string_gauge": 0.93,
           "finish": 0.15,
-          "string_tuning": 14.635
+          "string_tuning": 14.785
         }
       },
       {
@@ -111,17 +111,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 19.774999999999995,
+          "amp_make": 18.899999999999995,
           "body_wood": 1.38,
-          "pickup_config": 0.65,
+          "pickup_config": 0.845,
           "string_type": 33.55,
-          "scale_length_b": 0.65,
+          "scale_length_b": 0.845,
           "fretted_or_not": 1.6,
           "bass_technique": 33.35000000000001,
           "electric_bass_string_configuration": 0
@@ -135,8 +135,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 34.7,
-          "drumhead": 2.32,
+          "drum_technique": 34.550000000000004,
+          "drumhead": 2.695,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -144,14 +144,14 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "open_d",
+          "string_tuning": "drop_d",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 21.819999999999997,
-          "string_tuning": 0.7499999999999999,
+          "acoustic_technique": 20.944999999999993,
+          "string_tuning": 1.0250000000000001,
           "top_wood": 0.7350000000000001,
           "back_sides": 0.435,
           "string_acoustic": 1.4
@@ -165,19 +165,19 @@
           "pickup_steel": "humbucker_steel",
           "string_setup": "standard_e9",
           "bar_material": "brass_bar",
-          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_brand": "mullen_d10",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 21.875,
-          "amp_make": 20.15,
+          "electric_technique": 20.999999999999996,
+          "amp_make": 19.124999999999993,
           "pickup_steel": 0.6900000000000001,
-          "string_setup": 8.944999999999999,
+          "string_setup": 8.594999999999999,
           "bar_material": 1.69,
-          "pedal_steel_brand": 20.505,
-          "pedal_steel_neck_config": 20.719999999999995,
-          "pedal_steel_strings": 19.775
+          "pedal_steel_brand": 19.894999999999996,
+          "pedal_steel_neck_config": 19.84499999999999,
+          "pedal_steel_strings": 19.049999999999994
         }
       }
     ],

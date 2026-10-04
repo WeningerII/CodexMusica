@@ -3,14 +3,14 @@
   "name": "Anison (anime song)",
   "family": "pop",
   "lineage": "Japanese screen-tied popular song formed with television animation in Tokyo from 1963 (Tetsuwan Atomu) and industrialized as a distinct chart category from the late 1970s through Columbia, Nippon Animation and later King Records — brisk 130-180 BPM major-key song forms with a compulsory 90-second edit, brass-and-string sweetened rock rhythm section, wide-interval anthemic choruses sung in bright forward head-voice, and modulating final choruses that lift a semitone or a whole tone",
-  "recipe": "classic East Asian 1977-1979 anison, functional Song, east Asian pop branch, western modern art music post-minimalism soundtrack. thick, breath veiled tone, slow rate, interlocked note trading. polychordal major seven nine eleven stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, soldano slo amp boutique high gain basswood maple alnico humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, wide brass string machine, red brass 90 10 darkest yamaha xeno modern Japanese standard rim orchestral balance legato trumpet. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 947,
-  "score": 310.563,
+  "recipe": "classic East Asian 1977-1979 anison, functional Song, east Asian pop branch, western modern art music cambridge choir cathedral choir. thick, breath veiled tone, straight onset, interlocked note trading. polychordal major seven nine eleven stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, basswood maple alnico nickel plated steel nickel humbucker electric guitar, alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, wide brass string machine, red brass 90 10 darkest yamaha xeno modern Japanese student friendly legato trumpet. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 906,
+  "score": 252.153,
   "config": {
     "traditions": [
       "anison_anime_song",
-      "post_minimalism",
-      "screen_soundtrack_hybrid"
+      "cambridge_choir",
+      "cathedral_choir"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.974999999999994,
-          "voice_quality": 9.165000000000001,
+          "voice_register": 14.699999999999996,
+          "voice_quality": 5.525,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.434999999999999,
-          "voice_articulation": 17.809999999999995,
-          "voice_microtone": 22.233,
-          "voice_tradition": 16.839,
-          "voice_mechanism_compound": 6.639,
-          "voice_estill_quality": 5.629,
-          "voice_speech_song": 26.064999999999998,
-          "voice_ensemble_config": 18.784999999999993,
+          "voice_vibrato": 4.030000000000001,
+          "voice_articulation": 9.099999999999998,
+          "voice_microtone": 20.708000000000002,
+          "voice_tradition": 16.689,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 3.5100000000000002,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 14.689999999999994,
           "voice_ornament_system": 2.6400000000000006,
-          "voice_pitch_organization": 2.7950000000000004,
-          "voice_processing_chain": 5.984,
-          "voice_multitrack_stack": 9.945
+          "voice_pitch_organization": 2.9850000000000003,
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 8.254999999999999
         }
       },
       {
@@ -69,39 +69,39 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_soldano_slo100",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 10.804,
-          "amp_make": 3.455,
-          "body_wood": 3.705,
-          "neck_wood": 0.845,
+          "electric_technique": 9.554,
+          "amp_make": 2.7300000000000004,
+          "body_wood": 2.8600000000000003,
+          "neck_wood": 0.5700000000000001,
           "fretboard": 1.48,
           "pickup_magnet": 2.8600000000000003,
-          "pickup_winding": 3.055,
-          "string_material": 0.45499999999999996,
-          "bridge": 1.2349999999999999,
-          "scale_length": 3.055,
-          "string_gauge": 1.04,
+          "pickup_winding": 2.8600000000000003,
+          "string_material": 1.17,
+          "bridge": 1.6,
+          "scale_length": 2.8600000000000003,
+          "string_gauge": 1.885,
           "finish": 0,
-          "string_tuning": 3.055
+          "string_tuning": 2.8600000000000003
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -111,13 +111,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.575,
-          "body_wood": 1.105,
-          "pickup_config": 3.3150000000000004,
-          "string_type": 7.302999999999999,
-          "scale_length_b": 3.055,
+          "amp_make": 2.7300000000000004,
+          "body_wood": 1.305,
+          "pickup_config": 3.055,
+          "string_type": 4.225,
+          "scale_length_b": 2.8600000000000003,
           "fretted_or_not": 0,
-          "bass_technique": 7.130000000000001,
+          "bass_technique": 5.98,
           "electric_bass_string_configuration": 0
         }
       },
@@ -129,8 +129,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.874999999999996,
-          "drumhead": 13.624,
+          "drum_technique": 9.165,
+          "drumhead": 13.124,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -140,13 +140,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 7.129999999999999,
-          "poly_archetypes": 3.7979999999999996,
+          "poly_archetypes": 2.9479999999999995,
           "poly_voices": 1.04,
-          "poly_maker_lineage": -0.7350000000000001
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -158,9 +158,9 @@
           "sm_voicing": "sm_brass"
         },
         "scores": {
-          "electronic_technique": 1.8499999999999996,
+          "electronic_technique": -0.07,
           "sm_voice_count": 0,
-          "sm_chorus": 2.33,
+          "sm_chorus": 2.18,
           "sm_voicing": 2.3
         }
       },
@@ -169,7 +169,7 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
           "brass_mute": "straight_mute",
           "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_red_brass",
@@ -177,8 +177,8 @@
         },
         "scores": {
           "wind_articulation": 2.695,
-          "brass_size": 0.195,
-          "trumpet_mouthpiece": 8.3,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 8,
           "brass_mute": 2.5,
           "trumpet_technique": 2.695,
           "trumpet_bell_metal": 2.6,

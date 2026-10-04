@@ -5,7 +5,7 @@
   "lineage": "Classical organ music draws on liturgical and concert traditions across historical periods. The pipe organ’s manuals, pedals and varied stops support both independent lines and large sustained sonorities.",
   "recipe": "classic classical organ, art Music, western common practice branch. cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient pneumatic canonical late 19th century romantic legato pipe organ. cathedral. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 367,
-  "score": 19.543,
+  "score": 18.587,
   "config": {
     "traditions": [
       "classical_organ"
@@ -26,10 +26,10 @@
           "keyboard_technique": 8.154,
           "pipe_organ_class": 0.33,
           "pipe_organ_context": 5.2,
-          "pipe_organ_voicing_school": 1.743,
+          "pipe_organ_voicing_school": 1.3335000000000001,
           "pipe_organ_pipe_alloy": 1.69,
-          "pipe_organ_temperament": 0.8820000000000001,
-          "pipe_organ_action": 1.5435
+          "pipe_organ_temperament": 0.7455,
+          "pipe_organ_action": 1.1340000000000001
         }
       }
     ],

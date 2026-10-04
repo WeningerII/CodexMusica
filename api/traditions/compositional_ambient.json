@@ -3,23 +3,23 @@
   "name": "Compositional ambient (notated post-minimal ambient)",
   "family": "classical",
   "lineage": "Compositional ambient emerged where post-minimalist concert writing met ambient production, from Harold Budd and Gavin Bryars in the late 1970s through Max Richter, Ólafur Arnalds, Nils Frahm and Hania Rani after 2000 — slow through-written string and piano writing in diatonic or Aeolian modes, notated parts rather than loops, close-miked felted piano with audible mechanism, long convolution and plate reverb tails, and pieces of 4-12 minutes built on gradual additive layering.",
-  "recipe": "classic 1977-1979 compositional ambient, experimental Elec, ambient branch, western modern art music, musique concrete experimental electric classical guitar quartet polish classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, sustained pad analog poly sustained pad modular synth, concert harp, legato celesta, mixed satb canonical 4 part western drone plus voices sustained pedal under melody choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 770,
-  "score": 356.07,
+  "recipe": "classic 1977-1979 compositional ambient, experimental Elec, ambient branch, western modern art music, musique concrete experimental electric canadian classical caucasian classical. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, sustained pad analog poly doepfer eurorack canonical 1995 present small format standardization pad modular synth, concert harp, legato celesta, three voice polyphonic regional choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 775,
+  "score": 369.36,
   "config": {
     "traditions": [
       "compositional_ambient",
-      "classical_guitar_quartet",
-      "polish_classical"
+      "canadian_classical",
+      "caucasian_classical"
     ],
     "instruments": [
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "yamaha_cfx",
-          "piano_hammer": "renner_blue_hammer",
+          "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -27,21 +27,21 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.5,
-          "grand_piano_size": 0.39,
+          "keyboard_technique": 8.25,
+          "grand_piano_size": 0.84,
           "grand_piano_brand": 0.6299999999999999,
-          "piano_hammer": 15.940000000000001,
-          "piano_rim": 13.435,
-          "piano_soundboard": 14,
-          "piano_pinblock": 13,
-          "piano_plate": 16.55,
-          "piano_pitch_standard": 14.490000000000002
+          "piano_hammer": 16.824999999999996,
+          "piano_rim": 14.185,
+          "piano_soundboard": 14.75,
+          "piano_pinblock": 14.05,
+          "piano_plate": 17.6,
+          "piano_pitch_standard": 14.14
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
+          "bowed_technique": "bowed_legato_classical",
           "orch_strings": "synthetic_orch",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
@@ -53,22 +53,22 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.375,
+          "bowed_technique": 8.4,
           "orch_strings": 1.035,
-          "orch_top_wood": 7.89,
-          "orch_back_wood": 13.39,
-          "orch_varnish": 13,
-          "orch_setup_period": 15.75,
+          "orch_top_wood": 8.64,
+          "orch_back_wood": 14.14,
+          "orch_varnish": 13.75,
+          "orch_setup_period": 16,
           "orch_bow": 0.78,
-          "orch_bow_stick": 14.45,
+          "orch_bow_stick": 15.2,
           "orch_articulation": 1.035,
-          "orch_rosin": 15.445
+          "orch_rosin": 16.195
         }
       },
       {
         "id": "cello",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
+          "bowed_technique": "bowed_legato_classical",
           "cello_strings": "cello_synthetic",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
@@ -79,15 +79,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 8.375,
+          "bowed_technique": 8.4,
           "cello_strings": 2.8600000000000003,
-          "cello_top_wood": 7.89,
-          "cello_back_wood": 13.39,
-          "cello_varnish": 13,
-          "cello_setup_period": 15.75,
-          "cello_bow_grip": 3.9,
-          "cello_rosin": 13.195,
-          "cello_bow_stick": 14.45
+          "cello_top_wood": 8.64,
+          "cello_back_wood": 14.14,
+          "cello_varnish": 13.75,
+          "cello_setup_period": 16,
+          "cello_bow_grip": 4.29,
+          "cello_rosin": 13.945,
+          "cello_bow_stick": 15.2
         }
       },
       {
@@ -96,13 +96,13 @@
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "prophet_5",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 16.849999999999998,
           "poly_archetypes": 0.84,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -1.085
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -112,8 +112,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 5.3950000000000005,
-          "harp_pedals": 3.9
+          "harp_strings": 4.29,
+          "harp_pedals": 4.29
         }
       },
       {
@@ -124,8 +124,8 @@
           "celesta_context": "celesta_film"
         },
         "scores": {
-          "keyboard_technique": 7.5,
-          "celesta_model": 2.6,
+          "keyboard_technique": 8.25,
+          "celesta_model": 1.6,
           "celesta_context": 2.8600000000000003
         }
       },
@@ -141,21 +141,21 @@
           "electronic_technique": 16.849999999999998,
           "mod_voltage_source": 0.39,
           "mod_patch_density": 6.805,
-          "mod_lineage": 0.39
+          "mod_lineage": 2.08
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "mixed_4_part_satb",
-          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_size": "chamber_choir",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 4.16,
-          "choir_polyphonic_configuration": 1.69,
-          "choir_regional_canonical_configuration": 0.9,
+          "choir_size": 4.29,
+          "choir_polyphonic_configuration": 1.5600000000000003,
+          "choir_regional_canonical_configuration": 0.39,
           "choir_ensemble_repertoire": 2.8600000000000003
         }
       }

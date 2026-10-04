@@ -2,10 +2,10 @@
   "id": "hmong_pop",
   "name": "Hmong pop",
   "family": "pop",
-  "lineage": "Hmong pop connects Hmong-language and bilingual songwriting with contemporary pop and R&B production across homeland and diaspora communities.",
-  "recipe": "classic hmong pop, functional Song. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 196,
-  "score": 2.73,
+  "lineage": "Hmong pop is represented here by Ka Lia Universe — Hmonglish vocal/beat core. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic hmong pop, functional Song, pop rock branch. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 213,
+  "score": 1.674,
   "config": {
     "traditions": [
       "hmong_pop"
@@ -16,14 +16,14 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 0.75,
-          "sample_processing": 0
+          "sample_bitdepth": 0.29400000000000004,
+          "sample_swing": 0,
+          "sample_processing": 0.0315
         }
       },
       {
@@ -58,21 +58,15 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.11699999999999999
         }
       }
     ],
     "pinned": {
-      "sampler_drum_machine": [
-        "electronic_technique",
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
-      ],
       "voice": [
         "voice_register",
         "voice_quality",
@@ -126,11 +120,7 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_sample_chopped",
-      "sample_bitdepth": "sixteen_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "voice_multitrack_stack": "voice_multitrack_single_lead"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -5,7 +5,7 @@
   "lineage": "Atmospheric post-rock centers instrumental guitar texture and gradual changes in density.",
   "recipe": "classic atmospheric post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 21.274,
+  "score": 21.318,
   "config": {
     "traditions": [
       "atmospheric_post_rock"
@@ -32,16 +32,16 @@
           "electric_technique": -0.11850000000000002,
           "amp_make": 4.42,
           "body_wood": 0.693,
-          "neck_wood": 0.522,
+          "neck_wood": 0.417,
           "fretboard": 0.063,
           "pickup_magnet": 0.105,
           "pickup_winding": 0.252,
-          "string_material": 0.522,
-          "bridge": 0.063,
+          "string_material": 0.417,
+          "bridge": 0.223875,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.160875,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.03712499999999999
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.522,
+          "drumhead": 0.417,
           "drum_kit_kick_pedal": 0
         }
       }

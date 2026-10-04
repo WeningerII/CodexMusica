@@ -2,121 +2,28 @@
   "id": "arab_trap",
   "name": "Arab Trap",
   "family": "hip_hop",
-  "lineage": "Arab trap connects trap production with Arabic-language rap and reworked Arabic musical repertoire. Producers such as DJ Kaboo draw older recordings and melodic material into contemporary electronic circulation alongside other approaches in the field.",
-  "recipe": "classic arab trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, drum machine analog. treated studio.",
-  "recipe_chars": 170,
-  "score": 29.361,
+  "lineage": "DJ Kaboo: complete nineteen-selection DJcity Podcast mix issued10June2019. Retain all recorded programme layers, including Arab Trap1/2, Arabic repertoire remixes, and international hip-hop/pop/dancehall crossover selections. This is positively documented DJ playback and mixing, not reconstruction of the constituent original productions. Source does not identify playback hardware/media or additional live musicians; all embedded singers and instrumental layers remain recorded and their counts unknown. Existing source-medium-unspecified DJ owner preserves actual full mixed programme without guessed synthesis or acoustic instruments. Authored treated-studio listening environment is not source venue geometry. No global tuning or optional apparatus asserted. International hip-hop parent applies to the selected documented rap/trap-led DJ repertoire with recorded rhythmic verse, not a claim every Arab Trap release has a live MC.",
+  "recipe": "classic arab trap, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 98,
+  "score": 0,
   "config": {
     "traditions": [
       "arab_trap"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "rap_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 9.1,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 9.035,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
-          "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_twelve_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_hiphop"
-        },
-        "scores": {
-          "electronic_technique": 0.2815,
-          "sampler_archetypes": 2.25,
-          "sampler_bit_depth": -0.05,
-          "sampler_workflow": 0.2,
-          "sampler_classic_context": 6.694999999999999
-        }
-      },
-      {
-        "id": "drum_machine_analog",
-        "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
-        },
-        "scores": {
-          "kick_voice": 0,
-          "snare_voice": 0.1785,
-          "hat_voice": 0,
-          "shuffle_quantize": -0.05
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
-      ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "treated_studio",
@@ -136,32 +43,7 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "rap_voice",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "spoken_voice",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_sustained_layering",
-      "sampler_archetypes": "akai_mpc",
-      "sampler_bit_depth": "sampler_twelve_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_hiphop",
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true
   }

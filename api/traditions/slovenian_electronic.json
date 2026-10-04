@@ -2,10 +2,10 @@
   "id": "slovenian_electronic",
   "name": "Slovenian electronic",
   "family": "pop",
-  "lineage": "Slovenian electronic music includes local and cross-border collaborations working with synthesis, machine rhythms and electronic songwriting. Slovene-language synthwave forms one part of this wider field.",
-  "recipe": "classic slovenian electronic, functional Song. solo with instrumental accompaniment, vocoder 16 band broadband. analog mono synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 252,
-  "score": 12.244,
+  "lineage": "Slovenian electronic is represented by 6YPAH — Prozorno Mesto synth-machine-vocal core. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic slovenian electronic, functional Song, synthpop branch. solo with instrumental accompaniment, vocoder 16 band broadband, single lead single track no stacking. analog mono synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 16.224,
   "config": {
     "traditions": [
       "slovenian_electronic"
@@ -16,31 +16,31 @@
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
           "mono_oscillator": "mono_voltage_controlled",
-          "mono_filter": "arp_2600_filter",
-          "mono_archetypes": "arp_odyssey",
-          "mono_maker_lineage": "mono_arp_pearlman"
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 2.5,
-          "mono_oscillator": 0.3,
-          "mono_filter": 0,
-          "mono_archetypes": 0,
-          "mono_maker_lineage": -0.05
+          "electronic_technique": 0.975,
+          "mono_oscillator": 0.168,
+          "mono_filter": 0.3045,
+          "mono_archetypes": 0.6509999999999999,
+          "mono_maker_lineage": -0.035
         }
       },
       {
-        "id": "drum_machine_analog",
+        "id": "sampler_drum_machine",
         "slots": {
-          "kick_voice": "bridged_t_kick",
-          "snare_voice": "tone_noise_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "kick_voice": 0,
-          "snare_voice": 0,
-          "hat_voice": 0,
-          "shuffle_quantize": -0.05
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.1365,
+          "sample_swing": 5.7815,
+          "sample_processing": 0
         }
       },
       {
@@ -75,27 +75,22 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 0.819,
+          "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 7.8,
-          "voice_multitrack_stack": 0.054
+          "voice_processing_chain": 6.186499999999999,
+          "voice_multitrack_stack": 1.1265
         }
       }
     ],
     "pinned": {
       "analog_mono_synth": [
-        "electronic_technique",
-        "mono_oscillator",
-        "mono_filter",
-        "mono_archetypes",
-        "mono_maker_lineage"
+        "electronic_technique"
       ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ],
       "voice": [
         "voice_register",
@@ -152,14 +147,9 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electronic_technique": "electronic_arpeggiated",
-      "kick_voice": "bridged_t_kick",
-      "snare_voice": "tone_noise_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize",
-      "mono_oscillator": "mono_voltage_controlled",
-      "mono_filter": "arp_2600_filter",
-      "mono_archetypes": "arp_odyssey",
-      "mono_maker_lineage": "mono_arp_pearlman"
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

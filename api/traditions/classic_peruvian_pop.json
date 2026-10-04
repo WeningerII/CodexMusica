@@ -2,10 +2,10 @@
   "id": "classic_peruvian_pop",
   "name": "Classic peruvian pop",
   "family": "pop",
-  "lineage": "Classic Peruvian pop includes established mainstream pop-rock from Lima’s radio and recording culture. Arena Hash’s late-1980s work exemplifies a guitar-band approach enriched by keyboards and backing vocals.",
-  "recipe": "classic 1987-1989 classic peruvian pop, functional Song. group vocals. soft down tuning clean strummed single coil electric guitar, analog poly synth, electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 362,
-  "score": 26.388,
+  "lineage": "Peruvian historical mainstream pop-rock represented by late-1980s Arena Hash: voice, guitar, keyboard, bass and drums within Lima radio and recording culture. This selected band strand does not equate Peruvian pop with Andean folk instrumentation.",
+  "recipe": "classic 1987-1989 classic peruvian pop, functional Song, pop rock branch. solo with instrumental accompaniment. marshall plexi amp British rock amp soft down tuning clean strummed single coil electric guitar, analog poly synth, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 485,
+  "score": 72.442,
   "config": {
     "traditions": [
       "classic_peruvian_pop"
@@ -25,12 +25,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
           "voice_register": 0,
@@ -43,45 +42,44 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.3,
+          "voice_speech_song": 0.063,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.1365,
-          "voice_tessitura": 0
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.45149999999999996
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder",
-          "neck_wood": "maple",
-          "fretboard": "maple_fb",
-          "pickup_magnet": "alnico_2",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_3",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "eb_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 11.05,
-          "amp_make": 0,
-          "body_wood": 0,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0,
-          "string_material": 0,
-          "string_gauge": 0,
-          "bridge": 0,
-          "scale_length": 0,
+          "electric_technique": 15.357499999999998,
+          "amp_make": 6.11,
+          "body_wood": 0.063,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.0315,
+          "string_material": 0.0315,
+          "string_gauge": 0.1995,
+          "bridge": 0.1365,
+          "scale_length": 0.378,
           "finish": 0,
-          "string_tuning": 3,
+          "string_tuning": 4.9399999999999995,
           "single_coil_pickup_construction": 0
         }
       },
@@ -89,36 +87,36 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -2.05
+          "electronic_technique": -0.07,
+          "poly_archetypes": 3.6399999999999997,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.435
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder",
-          "pickup_config": "dual_single",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
+          "amp_make": 7.865,
+          "body_wood": 0.063,
+          "pickup_config": 0.3045,
+          "string_type": 9.099999999999998,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -131,8 +129,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 2.6365,
-          "drumhead": 9.95,
+          "drum_technique": 7.031499999999999,
+          "drumhead": 15.4415,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -154,30 +152,19 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
+        "voice_multitrack_stack"
       ],
       "electric_guitar_single_coil": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "string_material"
       ],
       "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
+        "electronic_technique"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
+        "bass_technique"
       ],
       "drum_kit": [
         "drum_technique"
@@ -194,45 +181,37 @@
       "amp": null,
       "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
+    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
       "electric_technique": "electric_clean_strummed",
       "electronic_technique": "electronic_pad_drone",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
       "body_wood": "alder",
-      "string_material": "nickel_plated",
-      "amp_make": "amp_unspecified",
-      "pickup_config": "dual_single",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "string_material": "nickel_plated"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

@@ -2,10 +2,10 @@
   "id": "kinderchor",
   "name": "Kinderchor",
   "family": "classical",
-  "lineage": "Children’s choirs — group singing in educational, community and concert traditions.",
-  "recipe": "classic kinderchor, art Music. group vocals. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 217,
-  "score": 16.332,
+  "lineage": "Wolfram Graf — Gertrud, die Singemaus, op.210 (2014), scored realization. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2010s kinderchor, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 236,
+  "score": 39.812,
   "config": {
     "traditions": [
       "kinderchor"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.5415,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0.27299999999999996,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 1.705,
-          "piano_hammer": 2.45,
-          "piano_rim": 2.5445,
-          "piano_soundboard": 2.45,
-          "piano_pinblock": 2.45,
-          "piano_plate": 2.45,
-          "piano_pitch_standard": 0.325
+          "grand_piano_size": 0.588,
+          "grand_piano_brand": 0.4095,
+          "piano_hammer": 6.25,
+          "piano_rim": 6.55,
+          "piano_soundboard": 6.25,
+          "piano_pinblock": 7.55,
+          "piano_plate": 6.25,
+          "piano_pitch_standard": 5.265
         }
       }
     ],

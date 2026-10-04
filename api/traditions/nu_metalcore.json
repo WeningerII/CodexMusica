@@ -5,7 +5,7 @@
   "lineage": "Nu-metalcore combines nu-metal’s syncopated weight with metalcore and hardcore attack.",
   "recipe": "classic modern nu-metalcore, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, low mid scooped soft attack transient basswood electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 417,
-  "score": 43.92,
+  "score": 43.983,
   "config": {
     "traditions": [
       "nu_metalcore"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0.39,
           "fretted_or_not": 0,
-          "bass_technique": 3.7,
+          "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Sergio Suazo Lang — Tema y variación sobre Candú, violin-and-piano arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic musica hondurena, art Music. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 302,
-  "score": 34.542,
+  "score": 36.531,
   "config": {
     "traditions": [
       "musica_hondurena"
@@ -26,15 +26,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.5315,
+          "bowed_technique": 2.5,
           "orch_strings": 0,
           "orch_top_wood": 2.45,
-          "orch_back_wood": 3.75,
+          "orch_back_wood": 4.8735,
           "orch_varnish": 2.45,
-          "orch_setup_period": 2.45,
-          "orch_bow": 0.0315,
-          "orch_bow_stick": 3.1200000000000006,
-          "orch_articulation": 0.063,
+          "orch_setup_period": 2.4815,
+          "orch_bow": 0,
+          "orch_bow_stick": 2.8830000000000005,
+          "orch_articulation": 0,
           "orch_rosin": 2.45
         }
       },
@@ -52,13 +52,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5,
+          "keyboard_technique": 2.5315,
           "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.105,
-          "piano_hammer": 2.45,
-          "piano_rim": 2.5445,
-          "piano_soundboard": 2.45,
-          "piano_pinblock": 2.45,
+          "grand_piano_brand": 0.063,
+          "piano_hammer": 2.6180000000000003,
+          "piano_rim": 2.744,
+          "piano_soundboard": 2.555,
+          "piano_pinblock": 3.185,
           "piano_plate": 2.45,
           "piano_pitch_standard": -0.035
         }

@@ -5,7 +5,7 @@
   "lineage": "Estonian electronic music includes independent production, experimental synthesis and electro-acoustic sound work. Musicians connect local practice with wider electronic-music institutions and communities.",
   "recipe": "classic estonian electronic, experimental Elec. glitched textural modular synth, field textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 184,
-  "score": 23.255,
+  "score": 23.044,
   "config": {
     "traditions": [
       "estonian_electronic"
@@ -38,7 +38,7 @@
         "scores": {
           "electronic_technique": 6.5,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0,
           "sampler_workflow": 8.0145,
           "sampler_classic_context": 1.3
         }

@@ -5,7 +5,7 @@
   "lineage": "Japanese progressive rock encompasses composition-focused bands, experimental ensembles and free-rock collaborations. Artists including KENSO, Ars Nova, Ruins and Koenjihyakkei draw on differing progressive traditions rather than a single national sound.",
   "recipe": "classic japanese prog, distorted Rock, experimental branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 206,
-  "score": 37.279,
+  "score": 37.112,
   "config": {
     "traditions": [
       "japanese_prog"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": -0.1,
           "amp_make": 0,
           "body_wood": 0.063,
           "neck_wood": 0.39,
@@ -38,8 +38,8 @@
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.1575,
-          "string_gauge": 0.7735,
+          "scale_length": 0.126,
+          "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0
         }
@@ -90,7 +90,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0,
-          "cymbal_alloy": -0.1685,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 11.244499999999999,
           "cymbal_lathing": 11.181499999999998,
           "cymbal_finish": 0

@@ -2,56 +2,15 @@
   "id": "turkish_alternative",
   "name": "Turkish Alternative",
   "family": "rock",
-  "lineage": "Turkish alternative music connects independent songwriting, guitar bands and electronic experimentation across a varied national scene. Artists such as Taner Öngür and Tuğçe Şenoğul illustrate exchanges among rock, psychedelic textures and contemporary song production.",
-  "recipe": "classic turkish alternative, distorted Rock, alternative branch. single lead single track no stacking. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
-  "recipe_chars": 251,
-  "score": 30.377,
+  "lineage": "Taner Öngür and 43.75 — Water Cycle, complete fourteen-track instrumental live studio release (2020). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic early-2020s turkish alternative, distorted Rock, alternative branch. conventional tuning standard pitch single coil electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 332,
+  "score": 47.075,
   "config": {
     "traditions": [
       "turkish_alternative"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_neumatic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.546,
-          "voice_tessitura": 0
-        }
-      },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
@@ -70,18 +29,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.26,
           "amp_make": 0,
-          "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
-          "fretboard": -0.035,
+          "body_wood": 0.78,
+          "neck_wood": 0.39,
+          "fretboard": 0.325,
           "pickup_magnet": 0.1365,
-          "string_material": 0,
-          "string_gauge": 0.9099999999999999,
+          "string_material": 0.3,
+          "string_gauge": 2.173,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0,
+          "string_tuning": 1.9000000000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -90,7 +49,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder",
-          "pickup_config": "soapbar",
+          "pickup_config": "split_coil",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,19 +58,19 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.40950000000000003,
-          "pickup_config": 0.40950000000000003,
-          "string_type": 0,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.0735,
-          "bass_technique": -0.15000000000000002,
+          "body_wood": 0.78,
+          "pickup_config": 0,
+          "string_type": 0.3,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.3735,
+          "bass_technique": 0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt",
           "shell_wood": "maple_shell",
@@ -124,40 +83,21 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.75,
-          "drumhead": 0.1365,
+          "drum_technique": 9.229999999999997,
+          "drumhead": 1.7365000000000002,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.2415,
+          "shell_wood": 2.4415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 8.681499999999998,
-          "cymbal_lathing": 9.0865,
+          "cymbal_hammering": 12.181499999999994,
+          "cymbal_lathing": 13.186499999999995,
           "cymbal_finish": 0
         }
       }
     ],
     "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
       "electric_guitar_single_coil": [
         "electric_technique",
         "amp_make",
@@ -197,15 +137,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +154,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
@@ -229,13 +169,13 @@
       "finish": "nitro",
       "string_tuning": "standard_tuning",
       "single_coil_pickup_construction": "single_coil_construction_unspecified",
-      "pickup_config": "soapbar",
+      "pickup_config": "split_coil",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "drum_technique": "sticks_rock",
+      "drum_technique": "brushes_and_sticks",
       "shell_wood": "maple_shell",
       "shell_thickness": "thin_shell",
       "bearing_edges": "edge_45",
@@ -245,25 +185,14 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_neumatic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

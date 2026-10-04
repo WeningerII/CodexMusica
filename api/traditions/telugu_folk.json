@@ -5,7 +5,7 @@
   "lineage": "Telugu folk is represented by Chowraasta — Maya (2019 original). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
   "recipe": "classic late-2010s telugu folk, functional Song, folk rock branch. marshall plexi amp British rock amp basswood alnico soft down tuning humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 405,
-  "score": 72.246,
+  "score": 71.337,
   "config": {
     "traditions": [
       "telugu_folk"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1995,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3885,
-          "voice_multitrack_stack": 0.33599999999999997,
+          "voice_processing_chain": 0.2835,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -70,16 +70,16 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 3.7315,
+          "electric_technique": 3.7,
           "amp_make": 3.7700000000000005,
           "body_wood": 1.69,
-          "neck_wood": 0.1995,
-          "fretboard": 0.126,
-          "pickup_magnet": 1.5790000000000002,
-          "pickup_winding": 1.5790000000000002,
-          "string_material": 0.189,
+          "neck_wood": 0.231,
+          "fretboard": 0.0945,
+          "pickup_magnet": 1.5902500000000002,
+          "pickup_winding": 1.5902500000000002,
+          "string_material": 0.126,
           "bridge": 1.69,
-          "scale_length": 1.642,
+          "scale_length": 1.69,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 5.59
@@ -99,11 +99,11 @@
         },
         "scores": {
           "amp_make": 3.835,
-          "body_wood": 0.399,
-          "pickup_config": 1.5790000000000002,
+          "body_wood": 0.46199999999999997,
+          "pickup_config": 1.5902500000000002,
           "string_type": 9.75,
-          "scale_length_b": 1.6735,
-          "fretted_or_not": 0.2055,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.07425,
           "bass_technique": 7.4815000000000005,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 7.5,
-          "drumhead": 7.168,
+          "drumhead": 7,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,7 +130,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 4,
+          "electronic_technique": 3.83725,
           "poly_archetypes": 3.9,
           "poly_voices": 0.39,
           "poly_maker_lineage": -0.035

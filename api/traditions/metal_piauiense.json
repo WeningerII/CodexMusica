@@ -2,10 +2,10 @@
   "id": "metal_piauiense",
   "name": "Metal piauiense",
   "family": "rock_punk",
-  "lineage": "Metal piauiense connects Piauí’s metal communities, including Teresina’s melodic-death scene.",
-  "recipe": "classic modern metal piauiense, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 384,
-  "score": 32.653,
+  "lineage": "Piauí metal represented by Headwolf’s Teresina melodic-death ensemble. Exact defaults are an authored present-day recording model.",
+  "recipe": "classic modern metal piauiense, distorted Rock, death branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 460,
+  "score": 37.838,
   "config": {
     "traditions": [
       "metal_piauiense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.21,
+          "voice_processing_chain": 0.354,
+          "voice_multitrack_stack": 0.78,
           "voice_tessitura": 0
         }
       },
@@ -58,53 +58,53 @@
           "electric_technique": "electric_tremolo_picking",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "ceramic_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_fender_h",
-          "string_gauge": "g_11_hum",
-          "finish": "poly_hum",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 0.49999999999999994,
-          "amp_make": 5.655000000000001,
-          "body_wood": 5.85,
-          "neck_wood": 0.105,
-          "fretboard": 0.222,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.23399999999999999,
-          "string_material": 0.105,
-          "bridge": 0.222,
-          "scale_length": 0,
-          "string_gauge": 0.6315000000000001,
-          "finish": 0,
-          "string_tuning": 0.18
+          "electric_technique": 0.26,
+          "amp_make": 4.745,
+          "body_wood": 4.9399999999999995,
+          "neck_wood": 0.831,
+          "fretboard": 0.3165,
+          "pickup_magnet": 0.5384999999999999,
+          "pickup_winding": 0.5069999999999999,
+          "string_material": 0.3045,
+          "bridge": 1.3,
+          "scale_length": 4.9399999999999995,
+          "string_gauge": 1.3,
+          "finish": 0.0315,
+          "string_tuning": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.885,
-          "body_wood": 5.85,
-          "pickup_config": 0.23399999999999999,
+          "amp_make": 2.275,
+          "body_wood": 1.662,
+          "pickup_config": 0.37049999999999994,
           "string_type": 4.875,
-          "scale_length_b": 0.6779999999999999,
-          "fretted_or_not": 0.105,
-          "bass_technique": 3.7,
+          "scale_length_b": 1.077,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 3.934,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 0.39,
-          "drumhead": 0.6315000000000001,
+          "drumhead": 0.9045000000000001,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -144,21 +144,9 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "pickup_winding",
-        "string_material",
-        "bridge",
-        "scale_length",
-        "string_gauge",
-        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -204,18 +192,7 @@
       "electric_technique": "electric_tremolo_picking",
       "string_tuning": "d_standard",
       "drum_technique": "blast_beat_single_strokes",
-      "bass_technique": "pick_aggressive",
-      "body_wood": "basswood_h",
-      "neck_wood": "maple_neck_h",
-      "fretboard": "ebony_fb_h",
-      "string_material": "nickel_plated_h",
-      "scale_length": "scale_fender_h",
-      "finish": "poly_hum",
-      "bridge": "string_thru",
-      "pickup_magnet": "ceramic_h",
-      "pickup_winding": "high_wind",
-      "string_gauge": "g_11_hum",
-      "amp_make": "amp_mesa_dual_rectifier"
+      "bass_technique": "pick_aggressive"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

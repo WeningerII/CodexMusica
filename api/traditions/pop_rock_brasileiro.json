@@ -2,10 +2,10 @@
   "id": "pop_rock_brasileiro",
   "name": "Pop rock brasileiro",
   "family": "rock_punk",
-  "lineage": "Brazilian pop rock joins melodic popular songwriting with amplified guitar-band arrangements.",
-  "recipe": "classic pop rock brasileiro, functional Song. solo with instrumental accompaniment. clean strummed humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic chordal electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 370,
-  "score": 33.082,
+  "lineage": "Pop rock brasileiro is represented here by Skank — Carrossel. This documented branch is realized as an authored present-day recording arrangement.",
+  "recipe": "classic pop rock brasileiro, functional Song, pop rock branch. solo with instrumental accompaniment. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, plucked short envelope analog synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 428,
+  "score": 69.401,
   "config": {
     "traditions": [
       "pop_rock_brasileiro"
@@ -16,53 +16,53 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 6.5,
-          "amp_make": 2.2,
-          "body_wood": 0.40950000000000003,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0.1365,
-          "string_gauge": 0,
+          "electric_technique": 9.6075,
+          "amp_make": 4.8100000000000005,
+          "body_wood": 0.6194999999999999,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.1365,
+          "string_material": 0.0315,
+          "bridge": 1.4365,
+          "scale_length": 0.6405000000000001,
+          "string_gauge": 1.4995,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.3
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.55,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 5.75,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.40950000000000003,
+          "amp_make": 4.875,
+          "body_wood": 0.378,
+          "pickup_config": 0.3045,
+          "string_type": 12.041,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 5.8865,
-          "drumhead": 5.699999999999999,
+          "drum_technique": 9.5315,
+          "drumhead": 9.6915,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,22 +112,28 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.2285000000000001,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
         }
       },
       {
-        "id": "electronic_keyboard_unspecified",
+        "id": "analog_synth",
         "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_keyboard_identity": 1,
-          "keyboard_technique": 1
+          "electronic_technique": 9.5865,
+          "oscillator": 0.3255,
+          "filter_topology": 0.16799999999999998,
+          "envelope": 1.4365,
+          "modulation": 0.0735
         }
       }
     ],
@@ -160,10 +166,6 @@
         "voice_pitch_organization",
         "voice_processing_chain",
         "voice_multitrack_stack"
-      ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity",
-        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -205,9 +207,7 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      "drum_kit_kick_pedal": "dk_kick_single_felt"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

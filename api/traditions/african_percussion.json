@@ -2,10 +2,10 @@
   "id": "african_percussion",
   "name": "African percussion",
   "family": "vernacular",
-  "lineage": "African percussion encompasses many regional traditions of drumming and rhythmic ensemble performance. Malinke djembe practice, carried by musicians such as Guinea’s Bolokada Conde through community events, teaching and international workshops, is one prominent strand.",
+  "lineage": "Bolokada Conde — Malinke djembe lead and teaching practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic african percussion, groove Percussion. djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 153,
-  "score": 0.168,
+  "score": 0.441,
   "config": {
     "traditions": [
       "african_percussion"
@@ -19,7 +19,7 @@
           "djembe_play": "djembe_traditional_3"
         },
         "scores": {
-          "djembe_wood": 0.1365,
+          "djembe_wood": 0.40950000000000003,
           "djembe_skin": 0,
           "djembe_play": 0.0315
         }

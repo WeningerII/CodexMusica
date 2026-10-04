@@ -5,7 +5,7 @@
   "lineage": "Mexican thrash metal connects older thrash influences with newer Mexican bands, including Mexico City’s Spinne.",
   "recipe": "classic modern mexican thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 416,
-  "score": 44.153,
+  "score": 44.399,
   "config": {
     "traditions": [
       "mexican_thrash_metal"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 10.360499999999998,
+          "electric_technique": 10.265999999999998,
           "amp_make": 8.58,
           "body_wood": 4.55,
           "neck_wood": 0.1365,
           "fretboard": 0.39,
-          "pickup_magnet": 0,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.1785,
           "string_material": 0.1365,
           "bridge": 0.39,
           "scale_length": 0,
-          "string_gauge": 0.0735,
+          "string_gauge": 0.18,
           "finish": 0,
-          "string_tuning": 0.063
+          "string_tuning": 0.2115
         }
       },
       {
@@ -103,8 +103,8 @@
           "pickup_config": 0.39,
           "string_type": 4.875,
           "scale_length_b": 0.5459999999999999,
-          "fretted_or_not": 0.168,
-          "bass_technique": 3.7945,
+          "fretted_or_not": 0.1995,
+          "bass_technique": 3.817,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.6194999999999999,
+          "drumhead": 0.5774999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

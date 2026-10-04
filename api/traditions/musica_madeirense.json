@@ -5,7 +5,7 @@
   "lineage": "Gorete Vieira and Gilberto Reis — Despique madeirense, Domingo há Desgarrada, 2 November2025. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic musica madeirense, improv On Frame. braguinha viola arame madeira. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 173,
-  "score": 1.587,
+  "score": 1.377,
   "config": {
     "traditions": [
       "musica_madeirense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.2625,
+          "voice_ensemble_config": 0.29400000000000004,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.2625,
+          "voice_multitrack_stack": 0.29400000000000004,
           "voice_tessitura": 0
         }
       },
@@ -59,7 +59,7 @@
           "braguinha_madeira_gesture": "braguinha_madeira_strummed"
         },
         "scores": {
-          "braguinha_madeira_identity": 0.33599999999999997,
+          "braguinha_madeira_identity": 0.1995,
           "braguinha_madeira_gesture": 0
         }
       },
@@ -70,7 +70,7 @@
           "viola_arame_madeira_gesture": "viola_arame_madeira_strummed"
         },
         "scores": {
-          "viola_arame_madeira_identity": 0.33599999999999997,
+          "viola_arame_madeira_identity": 0.1995,
           "viola_arame_madeira_gesture": 0
         }
       }

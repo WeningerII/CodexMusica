@@ -5,7 +5,7 @@
   "lineage": "Experimental black-metal practice represented by Norwegian Dødheimsgard, whose turn from raw black metal toward eclectic composition is documented by Peaceville. Black Medium Current (2023) extends the amplified core with reflective piano passages and contrasting atmospheres. This seed selects tremolo guitar and sustained piano against a rough solo vocal, modeling sectional contrast rather than the whole record’s changing ensemble.",
   "recipe": "classic early-2020s avant-garde black metal, distorted Rock, black branch, avant metal, ambient experimental electric mathcore cybergrind. interlocked note trading, equal tempered, solo with instrumental accompaniment, no specific ornament system. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 653,
-  "score": 110.075,
+  "score": 110.36,
   "config": {
     "traditions": [
       "avant_garde_black_metal",
@@ -26,7 +26,7 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
@@ -41,8 +41,8 @@
           "string_material": 0.435,
           "bridge": 0.045,
           "scale_length": 0.09,
-          "string_gauge": 0.045,
-          "finish": 1.195,
+          "string_gauge": 0.15,
+          "finish": 1.24,
           "string_tuning": 0.845
         }
       },
@@ -102,7 +102,7 @@
           "piano_hammer": 9.425,
           "piano_rim": 9.815,
           "piano_soundboard": 1.56,
-          "piano_pinblock": 1.3499999999999999,
+          "piano_pinblock": 1.395,
           "piano_plate": 1.56,
           "piano_pitch_standard": 6.46
         }
@@ -142,8 +142,8 @@
           "voice_ensemble_config": 4.029999999999999,
           "voice_ornament_system": 0.9500000000000001,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 1.145
+          "voice_processing_chain": 0.09,
+          "voice_multitrack_stack": 1.19
         }
       }
     ],

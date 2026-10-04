@@ -2,10 +2,10 @@
   "id": "turkish_electronic",
   "name": "Turkish electronic",
   "family": "pop",
-  "lineage": "Turkish electronic music includes synthesizer-based songs, independent bands and instrumental production. Local synth-pop groups connect electronic colour with popular songwriting.",
-  "recipe": "classic turkish electronic, functional Song. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 202,
-  "score": 3.19,
+  "lineage": "Turkish electronic is represented by Jakuzi — Hata Payı launch concert synth-and-vocal core. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic turkish electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 257,
+  "score": 4.274,
   "config": {
     "traditions": [
       "turkish_electronic"
@@ -15,15 +15,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -0.05
+          "electronic_technique": -0.035,
+          "poly_archetypes": 1.95,
+          "poly_voices": 0.168,
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -58,20 +58,17 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.0605,
+          "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3
+          "voice_multitrack_stack": 0.9555
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
+        "electronic_technique"
       ],
       "voice": [
         "voice_register",
@@ -127,10 +124,7 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_arpeggiated",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "electronic_technique": "electronic_arpeggiated"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",
