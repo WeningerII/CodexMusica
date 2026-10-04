@@ -193,8 +193,9 @@ epigraph over a Hemans poem), not the poem itself.
 Applied:
 
 - **1,344 lines** take `# APPARATUS:` in place (890 read + 454 confirmed
-  neighbours), and **330 marks** whose every lyric line became apparatus take
-  it too. That is 59 files, 1,344 rows out of the reader, nothing deleted,
+  neighbours), and **323 marks** whose every lyric line became apparatus take
+  it too (7 Burns `[CHORUS]` marks over a bare printed "Chorus" label were
+  kept: the section reader joins label and stanza, so the mark is structure). That is 59 files, 1,344 rows out of the reader, nothing deleted,
   renumbered or reworded. The classes are 627 editorial notes, 142 speaker
   names and stage directions, 139 headings, 88 scholarly references, 86
   numerals, 61 other, 55 attribution lines, 42 performance directions, 30

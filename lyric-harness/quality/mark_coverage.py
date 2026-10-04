@@ -281,7 +281,13 @@ PINNED = {
     # 2026-10-04: typed ~~76,909~~ 75,639, exactly +372 marks from the 73
     # Otterbein refrain hymns and -1,642 [VERSE] marks M-25(a) annotated as
     # apparatus; decided and undecided UNMOVED (125,501 / 32).
-    "typed": 75639, "decided": 125501, "undecided": 32, "apparatus": 1,
+    # then the same day's label and apparatus pass: typed ~~75,639~~ 75,318,
+    # exactly the 321 typed marks it annotated (257 VERSE, 60 REFRAIN, 4
+    # BURDEN; the 7 Burns [CHORUS] marks it kept); undecided ~~32~~ 31, and
+    # the one that left is not a decision: `[GEORGE]` was the opening bracket
+    # of a Lovelace editor's note ("[George] Sandys published, in 1615...")
+    # that the census read as a mark, and the note is now apparatus.
+    "typed": 75318, "decided": 125501, "undecided": 31, "apparatus": 1,
     "declared_functions": 22, "witnessed": 5,
 }
 

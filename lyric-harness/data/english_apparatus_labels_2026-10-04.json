@@ -5436,7 +5436,7 @@
     {
       "file": "eng_celtic_robert_burns.txt",
       "before_sha256": "283234a0882089a7f85a4219e1f5abff9932f4956f4379aab7843bd651c6c2ec",
-      "after_sha256": "146c148fe52762b8fcc31ebec9fd1521f8265870669dcfa5c732a119171c8050",
+      "after_sha256": "b6eacb440d0adf35d6c1d632b2754ed80751382e6c848aa156320dfde97e15fa",
       "replacements": {
         "4348": {
           "before": "Chorus",
@@ -5632,41 +5632,6 @@
           "before": "Tune--“Buy Broom Besoms.”",
           "after": "# APPARATUS: Tune--“Buy Broom Besoms.”",
           "reason": "meter-or-tune"
-        },
-        "4347": {
-          "before": "[CHORUS]",
-          "after": "# APPARATUS: [CHORUS]",
-          "reason": "stanza-label-attached-only-to-apparatus"
-        },
-        "4414": {
-          "before": "[CHORUS]",
-          "after": "# APPARATUS: [CHORUS]",
-          "reason": "stanza-label-attached-only-to-apparatus"
-        },
-        "4529": {
-          "before": "[CHORUS]",
-          "after": "# APPARATUS: [CHORUS]",
-          "reason": "stanza-label-attached-only-to-apparatus"
-        },
-        "4562": {
-          "before": "[CHORUS]",
-          "after": "# APPARATUS: [CHORUS]",
-          "reason": "stanza-label-attached-only-to-apparatus"
-        },
-        "4595": {
-          "before": "[CHORUS]",
-          "after": "# APPARATUS: [CHORUS]",
-          "reason": "stanza-label-attached-only-to-apparatus"
-        },
-        "4635": {
-          "before": "[CHORUS]",
-          "after": "# APPARATUS: [CHORUS]",
-          "reason": "stanza-label-attached-only-to-apparatus"
-        },
-        "4649": {
-          "before": "[CHORUS]",
-          "after": "# APPARATUS: [CHORUS]",
-          "reason": "stanza-label-attached-only-to-apparatus"
         },
         "6935": {
           "before": "[VERSE 6]",
@@ -8927,7 +8892,7 @@
     "files": 59,
     "files_with_label_prefixes": 30,
     "apparatus_lines": 1344,
-    "section_labels_attached_only_to_apparatus": 330,
+    "section_labels_attached_only_to_apparatus": 323,
     "label_prefixes_declared": 348,
     "lyric_rows_removed_from_reader": 1344,
     "deleted_physical_lines": 0,
@@ -8946,7 +8911,7 @@
       "scholarly-abbreviation": 88,
       "section-or-part-name": 30,
       "speaker-or-stage-direction": 142,
-      "stanza-label-attached-only-to-apparatus": 330,
+      "stanza-label-attached-only-to-apparatus": 323,
       "title-or-heading": 139
     }
   },
@@ -31139,5 +31104,17 @@
     "proposed_by_both_readers": 454,
     "confirmed_by_two_more_readers_and_applied": 454,
     "not_confirmed_left_as_staged": 0
+  },
+  "burns_chorus_marks_kept": {
+    "lines": [
+      4347,
+      4414,
+      4529,
+      4562,
+      4595,
+      4635,
+      4649
+    ],
+    "reason": "Each [CHORUS] mark here precedes a bare printed label 'Chorus' and then the chorus stanza; quality/grid.py's _printed_chorus_labels joins label and stanza into the CHORUS block. The label line is apparatus and stays annotated; the mark is structure and is kept."
   }
 }

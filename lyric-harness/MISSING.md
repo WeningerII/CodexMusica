@@ -8193,7 +8193,7 @@ The non-English one-line population is untouched: 428 Finnish, 28 Sanskrit,
 **WIDENED THE SAME DAY TO EVERY MARK AND TO LABELS INSIDE LINES.** The owner asked
 why only `[VERSE]` was read. The same two-blind-reader protocol, searched by
 the draft `quality/APPARATUS_CHECKLIST.md`, read 3,697 candidate lines under
-every mark and inside multi-line blocks. 1,344 lines and 330 marks now carry
+every mark and inside multi-line blocks. 1,344 lines and 323 marks now carry
 `# APPARATUS:` (1,344 includes 454 note lines both readers named and two more
 readers confirmed). 348 labels standing in front of sung words (speaker names,
 `Chorus.--`) are declared per line in `data/lyric_label_prefixes.json` and

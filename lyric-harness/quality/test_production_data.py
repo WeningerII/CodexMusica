@@ -117,7 +117,7 @@ print("WordNet staging contract holds")
     APPARATUS_RECEIPTS = (
         ("data/english_nonlyric_apparatus.json", (253, 9, 136)),
         ("data/english_apparatus_m25_2026-10-04.json", (1639, 0, 1642)),
-        ("data/english_apparatus_labels_2026-10-04.json", (1344, 0, 330)),
+        ("data/english_apparatus_labels_2026-10-04.json", (1344, 0, 323)),
     )
 
     def test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics(self):
