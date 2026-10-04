@@ -3,14 +3,13 @@
   "name": "Outsider House",
   "family": "electronic",
   "lineage": "New York, Glasgow and London circa 2011-2015 around L.I.E.S., Mister Saturday Night and Trilogy Tapes, with Ron Morelli, Legowelt, DJ Slugo-influenced raw-hardware producers and Huerco S. — 118-126 BPM house tracked live from drum machines and cheap samplers to cassette or one-take stereo, deliberately overdriven and detuned, with hiss, clipping and mis-timed loops kept in the mix.",
-  "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric finnish electronic skweee. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 364,
-  "score": 18.83,
+  "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric finnish electronic. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 357,
+  "score": 16.425,
   "config": {
     "traditions": [
       "outsider_house",
-      "finnish_electronic",
-      "skweee"
+      "finnish_electronic"
     ],
     "instruments": [
       {
@@ -20,8 +19,8 @@
           "drum_machine_707_context": "drum_machine_707_chicago_house"
         },
         "scores": {
-          "tr707_voice": 0.585,
-          "drum_machine_707_context": 6.76
+          "tr707_voice": 0.39,
+          "drum_machine_707_context": 5.265
         }
       },
       {
@@ -38,17 +37,17 @@
       {
         "id": "analog_mono_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_bass_sub",
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
           "mono_maker_lineage": "mono_korg_kato"
         },
         "scores": {
-          "electronic_technique": 0.52,
+          "electronic_technique": 0.16249999999999998,
           "mono_oscillator": 0.105,
           "mono_filter": -0.35,
-          "mono_archetypes": 0.195,
+          "mono_archetypes": 0.32999999999999996,
           "mono_maker_lineage": -1.435
         }
       },
@@ -61,9 +60,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.5199999999999999,
+          "electronic_technique": 0.22749999999999998,
           "sample_bitdepth": 0.39,
-          "sample_swing": 12.5,
+          "sample_swing": 9.125,
           "sample_processing": 0.285
         }
       },

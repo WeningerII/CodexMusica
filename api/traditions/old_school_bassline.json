@@ -1,0 +1,50 @@
+{
+  "id": "old_school_bassline",
+  "name": "Old School Bassline",
+  "family": "electronic",
+  "lineage": "Old school bassline revisits the northern-English and Midlands club records that connected speed garage, four-to-the-floor beats, organ hooks and weighty bass movement. Niche-era DJs and subsequent reunion nights keep this repertoire circulating alongside newer bassline styles.",
+  "recipe": "classic old school bassline, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 107,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "old_school_bassline"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

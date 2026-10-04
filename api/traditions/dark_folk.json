@@ -3,14 +3,14 @@
   "name": "Dark Folk",
   "family": "vernacular",
   "lineage": "Britain and Central Europe from the mid-1980s, codified by Douglas P. of Death in June, Tony Wakeford's Sol Invictus and David Tibet's Current 93 out of the post-industrial scene — slow minor and Phrygian-modal songs on strummed and picked acoustic guitar with hurdy-gurdy, bowed strings and tolling percussion, chanted or intoned baritone vocals with declamatory apocalyptic texts, tracked live to tape in small independent studios.",
-  "recipe": "classic North American 1984-1986 dark folk, ballad Poetry, britfolk branch, industrial noise experimental electric old school ebm futurepop. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, tubular bells, melodic straight piano accordion, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 733,
-  "score": 178.04,
+  "recipe": "classic North American 1984-1986 dark folk, ballad Poetry, britfolk branch, industrial noise experimental electric british industrial old school ebm. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, tubular bells, melodic straight piano accordion, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 742,
+  "score": 166.037,
   "config": {
     "traditions": [
       "dark_folk",
-      "old_school_ebm",
-      "futurepop"
+      "british_industrial",
+      "old_school_ebm"
     ],
     "instruments": [
       {
@@ -42,7 +42,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -51,22 +51,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.365000000000001,
-          "voice_quality": 7.93,
+          "voice_register": 4.015000000000001,
+          "voice_quality": 4.615000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.7050000000000005,
           "voice_articulation": 14.884999999999994,
-          "voice_microtone": 18.71999999999999,
+          "voice_microtone": 17.874999999999993,
           "voice_tradition": 7.995,
-          "voice_mechanism_compound": 6.909999999999999,
-          "voice_estill_quality": 5.069999999999999,
-          "voice_speech_song": 19.109999999999992,
-          "voice_ensemble_config": 17.744999999999994,
+          "voice_mechanism_compound": 6.109999999999999,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 18.849999999999994,
+          "voice_ensemble_config": 17.09499999999999,
           "voice_ornament_system": 1.3949999999999998,
           "voice_pitch_organization": 2.275,
-          "voice_processing_chain": 7.6899999999999995,
-          "voice_multitrack_stack": 4.745
+          "voice_processing_chain": 8.815,
+          "voice_multitrack_stack": 4.290000000000001
         }
       },
       {
@@ -106,7 +106,7 @@
           "cello_strings": 1.625,
           "cello_top_wood": 1.17,
           "cello_back_wood": 1.105,
-          "cello_varnish": 1.065,
+          "cello_varnish": 0.8775,
           "cello_setup_period": 0.42249999999999993,
           "cello_bow_grip": 0,
           "cello_rosin": 0.42249999999999993,
@@ -132,7 +132,7 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 4.985000000000001,
+          "free_reed_technique": 4.1850000000000005,
           "pa_size": 1.6,
           "pa_use": 1.6
         }
@@ -146,13 +146,18 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 3.365,
-          "choir_polyphonic_configuration": 2.34,
+          "choir_size": 4.3149999999999995,
+          "choir_polyphonic_configuration": 1.4949999999999999,
           "choir_regional_canonical_configuration": 0.975,
           "choir_ensemble_repertoire": 3.9
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_estill_quality"
+      ]
+    },
     "room": "hexham_head_studio_pa_chamber_folk",
     "archetype": "arch_80s_indie_commercial_us",
     "inline_chain": {
@@ -172,6 +177,10 @@
   "source": {
     "tuning": "folk_noir_aeolian_phrygian_chamber",
     "room": "hexham_head_studio_pa_chamber_folk",
+    "parts": {
+      "voice_estill_quality": "voice_estill_quality_source_unspecified"
+    },
+    "pin_parts": true,
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_neve_1073_input",
     "chain_comp": "comp_la2a_optical",

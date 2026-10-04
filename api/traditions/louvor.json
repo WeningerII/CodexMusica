@@ -5,7 +5,7 @@
   "lineage": "Louvor connects Portuguese-language praise songs with church communities, devotional recordings and shared Christian listening. Solo singers, vocal groups and congregations circulate familiar songs alongside newly composed repertoire.",
   "recipe": "classic louvor, ritual Devotional, christian gospel branch. small note groups per syllable, solo with instrumental accompaniment. upright piano. live tracking.",
   "recipe_chars": 159,
-  "score": 5.288,
+  "score": 5.112,
   "config": {
     "traditions": [
       "louvor"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.573,
-          "voice_ensemble_config": 3.1654999999999998,
+          "voice_ensemble_config": 3.146,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.15599999999999997,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
