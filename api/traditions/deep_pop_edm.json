@@ -5,7 +5,7 @@
   "lineage": "Deep Pop EDM is a melodic dance-pop discovery field connecting electronic producers, songwriters and featured singers. Catchy melodies and relaxed house-inflected movement coexist with acoustic instrumental colors and radio-oriented arrangements.",
   "recipe": "classic deep pop edm, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. upright piano, saxophone, credited programming unspecified. live tracking.",
   "recipe_chars": 181,
-  "score": 5.521,
+  "score": 5.719,
   "config": {
     "traditions": [
       "deep_pop_edm"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.281625,
+          "voice_speech_song": 0.31875,
           "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.498,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 1.535125,
+          "voice_multitrack_stack": 0.12374999999999999,
           "voice_tessitura": 0
         }
       },

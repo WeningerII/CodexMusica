@@ -5,7 +5,7 @@
   "lineage": "German rockabilly represented by The Baseballs’ three-singer revival/crossover band. Its modern-song rearrangements draw on1950s rock-and-roll practice while remaining contemporary performances, not archival recordings.",
   "recipe": "classic german rockabilly, distorted Rock, regional branch. one note per syllable. Fender tweed amp American 50s amp tweed breakup archtop, upright bass, sticks backbeat drum kit, upright piano. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital tape echo.",
   "recipe_chars": 296,
-  "score": 15.901,
+  "score": 15.87,
   "config": {
     "traditions": [
       "german_rockabilly"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.773625,
+          "voice_speech_song": 0.78,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,7 +62,7 @@
           "archtop_string_tuning": "archtop_tuning_source_unspecified"
         },
         "scores": {
-          "amp_make": 5.160125000000001,
+          "amp_make": 5.123,
           "archtop_body": 0.25,
           "archtop_pickup": 0,
           "archtop_top_wood": 0.168,

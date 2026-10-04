@@ -5,7 +5,7 @@
   "lineage": "Contemporary jangle pop carries bright interlocking electric-guitar figures and melodic songwriting into independent guitar music. It continues earlier jangle traditions while absorbing lo-fi pop, dreamier textures and power-pop energy.",
   "recipe": "classic modern jangle pop, functional Song, pop rock branch. conversational, equal tempered, modern pop training. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 262,
-  "score": 96.007,
+  "score": 96.224,
   "config": {
     "traditions": [
       "modern_jangle_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 23.789999999999996,
           "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0.35700000000000004,
-          "voice_speech_song": 0.063,
+          "voice_speech_song": 0.11699999999999999,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.8355,
+          "drum_technique": 3.8895,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
@@ -132,8 +132,8 @@
           "bearing_edges": 1.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 22.1925,
-          "cymbal_lathing": 22.472999999999995,
+          "cymbal_hammering": 22.2465,
+          "cymbal_lathing": 22.526999999999997,
           "cymbal_finish": 0
         }
       }

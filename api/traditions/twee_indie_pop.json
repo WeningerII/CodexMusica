@@ -5,7 +5,7 @@
   "lineage": "Twee indie pop links small-label guitar-pop songs, understated vocals and bright melodic hooks across international independent scenes. Its discovery repertoire connects older DIY releases with later bands and collaborations, sharing the intimate scale and melodic directness associated with twee pop.",
   "recipe": "classic twee indie pop, functional Song, pop rock branch. conversational, equal tempered, modern pop training, solo with instrumental accompaniment. arpeggiated clean single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 315,
-  "score": 99.378,
+  "score": 99.594,
   "config": {
     "traditions": [
       "twee_indie_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 21.45,
           "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0.35700000000000004,
-          "voice_speech_song": 0.063,
+          "voice_speech_song": 0.11699999999999999,
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.0815,
+          "drum_technique": 4.1354999999999995,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
@@ -132,8 +132,8 @@
           "bearing_edges": 0.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 21.3925,
-          "cymbal_lathing": 21.673,
+          "cymbal_hammering": 21.4465,
+          "cymbal_lathing": 21.727,
           "cymbal_finish": 0
         }
       }

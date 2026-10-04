@@ -5,7 +5,7 @@
   "lineage": "Deep soft rock is a discovery label around melodic soft-rock songwriters and musicians whose work often crosses pop, jazz and soul. Piano-led arrangements, expressive sung melodies and supple rhythm sections sit alongside the broader guitar-led and richly arranged repertoire.",
   "recipe": "classic deep soft rock, functional Song, pop rock branch. solo with instrumental accompaniment. pocket fingerstyle locked electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, block chord upright piano. live tracking.",
   "recipe_chars": 257,
-  "score": 59.931,
+  "score": 60.198,
   "config": {
     "traditions": [
       "deep_soft_rock"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.20049999999999998,
+          "voice_speech_song": 0.23199999999999998,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.06862499999999999,
-          "voice_multitrack_stack": 0.126,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -112,8 +112,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 6.5045,
-          "upright_use": 0.23199999999999998,
+          "keyboard_technique": 6.641,
+          "upright_use": 0.33699999999999997,
           "upright_piano_size": 0
         }
       }

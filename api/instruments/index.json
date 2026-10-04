@@ -1,5 +1,5 @@
 {
-  "count": 1664,
+  "count": 1666,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9984,6 +9984,18 @@
       "name": "Flamenco zapateado shoes",
       "family": "percussion",
       "href": "instruments/flamenco_zapateado_shoes.json"
+    },
+    {
+      "id": "produced_cowbell",
+      "name": "Produced cowbell sound",
+      "family": "electronic",
+      "href": "instruments/produced_cowbell.json"
+    },
+    {
+      "id": "russian_seven_string_guitar",
+      "name": "Russian seven-string guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/russian_seven_string_guitar.json"
     }
   ]
 }

@@ -5,7 +5,7 @@
   "lineage": "Environmental listening centered on the sound of the sea and coastal landscapes.",
   "recipe": "classic ocean, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 173,
-  "score": 11.269,
+  "score": 11.348,
   "config": {
     "traditions": [
       "ocean"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 4.085145833333334,
+          "electronic_technique": 4.0693125,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.3095,
-          "sampler_workflow": 5.608875,
+          "sampler_bit_depth": 0.3045,
+          "sampler_workflow": 5.7093125,
           "sampler_classic_context": 1.3
         }
       }

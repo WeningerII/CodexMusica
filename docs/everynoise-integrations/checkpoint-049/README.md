@@ -1,5 +1,7 @@
 # Checkpoint 049
 
+**STATUS:** SHIPPED — merged as `6936dcc98e6c1eec9cc09ec0e9496124308664dd`; historical counts below describe that checkpoint.
+
 This checkpoint adds 28 individually reviewed genre profiles and two isolated instrument definitions, Apple ES2 software synthesis and flamenco zapateado shoes. Four source-supported partial corrections update Plunderphonics, Música Jíbara, Guitarrada Portuguesa and Kapuka. The expected catalogue contains 6932 traditions and 1664 instruments. The original engine, schema and all existing instrument definitions remain unchanged.
 
 The full 31-addition proposal and its causal checks are preserved. Stomp Pop, Desi Emo Rap and Glitchbreak remain outside this checkpoint because their combined effects introduced specific unsupported settings in existing recipes. Their source approvals remain available for later work. The Kapuka correction preserves three otherwise compatible rap additions without accepting the unsupported borrowed pitch and vocal mechanisms.
