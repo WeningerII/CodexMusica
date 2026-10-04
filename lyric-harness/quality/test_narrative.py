@@ -493,11 +493,15 @@ def test_the_wired_draw():
     #: recorded as no entry at all.
     #: REPINNED 2026-09-28: the 31-line cap is deleted (owner ruling), so
     #: seed 31 draws 18 lines again instead of the capped floor 12; its
-    #: groups spelling is 272 characters and it still carries no label.
-    check("seed 31 draws 18 lines again, with a 272-character groups "
-          "spelling and 0 labels; the capped 12/79/0 draw is recorded above",
+    #: groups spelling is ~~272~~ characters and it still carries no label.
+    #: REPINNED 2026-10-04 (measured): the planner ties rhymes only at line
+    #: ends (owner's ruling), so the mid-line bindings leave the spelling:
+    #: 272 -> 29 characters; lines and labels do not move.
+    check("seed 31 draws 18 lines again, with a 29-character groups "
+          "spelling (end rhyme only) and 0 labels; the capped 12/79/0 draw "
+          "is recorded above",
           pl["total_lines"] == 18
-          and len(pl["groups"]) == 272 and len(pl["relations"]) == 0,
+          and len(pl["groups"]) == 29 and len(pl["relations"]) == 0,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is

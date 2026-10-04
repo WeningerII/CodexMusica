@@ -1304,12 +1304,14 @@ function lyRunChecks(model) {
     if (typeof t.banned_pairs === 'number' && t.banned_pairs > 0)
       add({
         id: `banned:${t.name}`,
-        tone: 'issue',
+        tone: 'note',
         category: 'Banned pairs',
-        title: `${uiCount(t.banned_pairs, 'banned pair')} standing`,
+        title: uiCount(t.banned_pairs, 'banned pair'),
         where: t.name,
         lines: [],
-        text: 'The two-tier ban is unskippable: this song is not finished while they stand.',
+        // Was 'The two-tier ban is unskippable: this song is not finished while they
+        // stand.' — report-only since 2026-10-04 (owner's ruling).
+        text: 'Reported as notes. They do not stop the song finishing.',
         actions: [],
       });
     if (t.error)

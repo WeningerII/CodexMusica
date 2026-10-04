@@ -6687,9 +6687,9 @@ the quality layer (each says which module answered):
                           writer's brief and NO RENDER — the render call
                           sits after the loop's return, so there is no
                           path to a presented song that skipped the loop.
-                          The two-tier ban rides the loop's own
-                          MANDATORY_PURSUE, so banned pairs hold their
-                          lines open rather than riding out on a stamp.
+                          Banned pairs (the two-tier ban) are reported
+                          as notes and hold no line open (owner's ruling
+                          2026-10-04; MANDATORY_PURSUE is empty).
                           Exit 0 converged clean, 3 a stop condition with
                           lines still open (the stamp names them), 4
                           suspended awaiting an answer, 2 refused
@@ -7565,10 +7565,22 @@ class _NeedProposal(Exception):
 
 
 # These are decoded compact UTF-8 JSON bounds, not gzip estimates. The outer
-# connector reserves another 32 KiB for declarations under its 512 KiB codec.
+# connector reserves another 32 KiB for declarations under its ~~512 KiB~~
+# 1152 KiB codec (STATE_DECODED_BYTES, raised 2026-10-04).
 # Working journals leave 64 KiB for the final accepted draft and stop metadata.
-JOURNAL_WORK_BYTES = 384 * 1024
-JOURNAL_BYTES = 448 * 1024
+#: RAISED 2026-10-04 (owner's ruling) from ~~384 * 1024~~ and ~~448 * 1024~~.
+#: The cap is checked against the record PLUS a worst-case reserve for the
+#: next answer — about 7.3 KB per asked line when a question is asked
+#: (`_suspend`), whatever the lines actually hold. A whole-song repair on a
+#: 104-line song reserves ~765 KB on top of a ~33 KB record, so the old cap
+#: stopped every such run the moment the loop asked one (measured 2026-10-03:
+#: journal_capacity with 15-53 KB actually recorded). 1 MiB admits a
+#: whole-song question on songs up to ~135 lines; line and group questions
+#: fit far beyond that.
+#: The connector's WORKER_STATE_BYTES / STATE_DECODED_BYTES
+#: (mcp/state_codec.js) move with it.
+JOURNAL_WORK_BYTES = 1024 * 1024
+JOURNAL_BYTES = (1024 + 64) * 1024
 JOURNAL_LINE_CHARS = 200
 
 
@@ -10229,6 +10241,8 @@ def main():
                   f"{note}")
         print(f"  GROUPS : {the_plan['groups']}")
         print(f"  RETURNS: {the_plan['returns'] or '(none)'}")
+        # No plan has drawn a density since 2026-10-04 (rhymes tie only line
+        # ends); a plan file written before then still prints its own.
         _dn = the_plan["choices"].get("density")
         if _dn:
             print(f"  DENSITY: binding cap {_dn['binding_cap']} — "
@@ -11004,10 +11018,12 @@ def main():
         # runs to a STOP CONDITION, and the rendered song exists ONLY past
         # one — a suspended run (exit 4) emits the writer's question and
         # no render, structurally, because the render call sits after the
-        # loop's return. The two-tier ban rides in for free: the loop's
+        # loop's return. ~~The two-tier ban rides in for free: the loop's
         # MANDATORY_PURSUE holds banned-pair lines open, so a draft whose
         # rhymes are on the ban cannot converge onto them — the "banned
-        # pairs are unskippable" stamp made mechanical.
+        # pairs are unskippable" stamp made mechanical.~~ ENDED 2026-10-04
+        # (owner's ruling): MANDATORY_PURSUE is empty, banned pairs are
+        # reported as notes and hold no line open.
         finish_plan = None
         finish_seed = None
         if cmd in ("finish", "tryline"):
@@ -12237,6 +12253,11 @@ def main():
                 # any exit code"*, was true of the loop and false of the
                 # verb, and a song could be certified without the ban ever
                 # being applied to it (`MISSING.md` M-88).
+                #
+                # ENDED 2026-10-04 (owner's ruling): MANDATORY_PURSUE is
+                # empty, so `banned_lines` is always empty and the ban no
+                # longer moves this verb's exit code; the pairs are still
+                # reported as notes. The history below is kept as it was.
                 #
                 # IT MOVES THE EXIT CODE AND NOTHING ELSE, which is the whole
                 # design. The severity is untouched and `verify()` is

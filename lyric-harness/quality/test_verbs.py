@@ -2865,16 +2865,21 @@ def test_the_loop_pursues_a_note_it_can_brief():
     # all-modal draft was reported SUCCESS. `quality/loop.py` now carries
     # `MANDATORY_PURSUE` (owner's standing order, recorded on the constant):
     # the union is below every invocation, so a bare `revise` pursues too.
+    # ~~WITHOUT --pursue the loop pursues ANYWAY — mandatory, unskippable~~
+    # RESTATED 2026-10-04: the owner emptied `MANDATORY_PURSUE`, so pursuit
+    # is opt-in again; the set it held is declared below to keep pinning the
+    # mechanism a caller can ask for.
+    PURSUE_OLD = "--pursue=MODAL_RHYME,HOMEOTELEUTON,PREDICTABLE_RHYME,SHARED_SUFFIX"
     rc1, base, _ = run("revise", draft, mand)
-    check("WITHOUT --pursue the loop pursues ANYWAY — mandatory, unskippable",
-          rc1 == 0 and "FINAL DRAFT" in base,
-          "the flagless-but-modal draft is revised on a bare invocation")
+    check("WITHOUT --pursue the loop pursues nothing — the note is reported "
+          "and the bare run succeeds (owner's ruling 2026-10-04)",
+          rc1 == 0 and "PURSUING" not in base,
+          "the flagless-but-modal draft is left as written on a bare invocation")
 
-    rc2, out2, _ = run("revise", draft, mand, "--pursue=MODAL_RHYME")
-    check("naming the code explicitly is a no-op — `pursue` is ADDITIVE over "
-          "a mandatory floor, not the switch that turns enforcement on",
+    rc2, out2, _ = run("revise", draft, mand, PURSUE_OLD)
+    check("naming the codes turns pursuit on — the loop revises the note",
           rc2 == 0 and "FINAL DRAFT" in out2 and "PURSUING" in out2,
-          "same draft, same proposer, same outcome either way")
+          "the declared codes are pursued")
     changed = [l for l in out2.splitlines() if l.strip().startswith("* L")]
     check("and the lines it changed are the ones carrying the note",
           len(changed) == 2 and "L3" in changed[0] and "L4" in changed[1],
@@ -2888,7 +2893,7 @@ def test_the_loop_pursues_a_note_it_can_brief():
     with open(decl_mod, "w") as fh:
         fh.write("def make():\n"
                  "    return lambda prompt: 'no.'\n")
-    rc3, out3, _ = run("revise", draft, mand,
+    rc3, out3, _ = run("revise", draft, mand, PURSUE_OLD,
                        "--propose=call:declining_adapter:make",
                        expect_rc=3, env={"PYTHONPATH": d})
     check("a run ending with pursued lines UNRESOLVED exits 3, not 0 — "
@@ -4470,8 +4475,9 @@ def test_fill_reads_a_draft_the_way_every_other_verb_does():
 
 
 def test_the_ban_is_unskippable_at_the_grading_verb_too():
-    print("\n42. THE TWO-TIER BAN GATES `song`, not only `revise` "
-          "(`MISSING.md` M-88)")
+    print("\n42. ~~THE TWO-TIER BAN GATES `song`, not only `revise` "
+          "(`MISSING.md` M-88)~~ ENDED 2026-10-04: the ban is reported on "
+          "`song`, and gates neither verb")
     # FOUND BY BEING ASKED WHY A SONG HAD NOT GONE THROUGH `revise`. The
     # honest answer was that the session skipped it — and the sharper one is
     # that NOTHING STOPPED IT. `loop.MANDATORY_PURSUE` holds a line open
@@ -4537,23 +4543,18 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
             paths.append(f2.name)
             return f2.name
     try:
+        # ~~a draft carrying a TIER-1 banned pair may not exit 0 from the
+        # GRADING verb~~, ~~the refusal NAMES the code and the line~~, ~~the
+        # severity did not move~~ — RESTATED 2026-10-04: the owner emptied
+        # `MANDATORY_PURSUE`, so the ban no longer moves this verb's exit
+        # code. It is still graded and named, as a note.
         rc, out, err = run("song", bpath, _draft(banned), "--groups=1,2",
-                           expect_rc=3)
+                           expect_rc=0)
         blob = out + err
-        check("a draft carrying a TIER-1 banned pair may not exit 0 from the "
-              "GRADING verb — until now the ban was enforced only inside "
-              "`revise`, so choosing the other verb skipped it",
-              rc == 3 and "HOMEOTELEUTON" in blob, f"rc={rc}")
-        check("...and the refusal NAMES the code and the line rather than "
-              "saying a count, so a writer knows which pair to screen",
-              "the two-tier ban STANDS" in blob and "L2" in blob,
-              [l for l in blob.splitlines() if "ban STANDS" in l][:1])
-        check("...and it says out loud that the SEVERITY did not move — the "
-              "note stays a note and `verify()` is untouched, because a pair "
-              "that RHYMES sits inside the region doctrine 7 forbids a floor "
-              "to re-order. Re-typing it as a flag is the `MODAL_RHYME` "
-              "error this repo already paid for",
-              "stay notes" in blob and "verify()" in blob)
+        check("a draft carrying a TIER-1 banned pair exits 0 from the GRADING "
+              "verb and the ban is still NAMED, as a note",
+              rc == 0 and "HOMEOTELEUTON" in blob
+              and "the two-tier ban STANDS" not in blob, f"rc={rc}")
         # THE CONTROL, and it must pass on BOTH trees: an unbanned pair on the
         # identical fixture still exits 0. Without it this section would pass
         # on a build that refused every draft.
@@ -5262,8 +5263,10 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     with open(banned, "w", encoding="utf-8") as fh:
         fh.write("I ran my fingers through her hair\n"
                  "and set the bottle on the chair\n")
+    # `--pursue=HOMEOTELEUTON` DECLARED since 2026-10-04: the owner emptied
+    # the mandatory pursue set, so the note is pursued only when asked for.
     rc2, out2, _ = run("revise", banned, "--groups=1,2", "--attempts=0",
-                       "--backtrack=0")
+                       "--backtrack=0", "--pursue=HOMEOTELEUTON")
     m2 = re.search(r"FINDING \[NOTE\] HOMEOTELEUTON: L1/L2", out2)
     check("a pursued note standing at the stop is printed as "
           "`FINDING [NOTE] HOMEOTELEUTON: L1/L2 …` — the spelling the "
@@ -5279,6 +5282,9 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     that made 12 its draw is deleted (owner ruling), so the length is stated
     and the lines are rewritten for the plan it now draws (1.T6/2.head/3,
     4.T5/5.T4, 6.T5/7.T4 and the three end pairs, 6->8 and 7->9 returned).
+    REPINNED 2026-10-04: the plan now ties rhymes only at line ends
+    (1,2,3;4,5;6,7), so L3's ~~'cheap cologne'~~ (bound to L1's T6 and L2's
+    head before) ends on 'afternoon' to stand with 'balloon'/'June'.
     Lines using 'into' and 'towels' have disputed pronunciation; the explicit
     negative below ensures those cannot acquire the certified control's
     success by sharing its flags.
@@ -5288,7 +5294,7 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     draft = os.path.join(d, "whole176.txt")
     lines = ['Buttons gleam where wheat was sown by a balloon',
              "Bone cold, my mother's herbs came up in June",
-             'The kettle smells of smoke and cheap cologne',
+             'The kettle smells of smoke all afternoon',
              'Blue shadows drag the doubt across the floor',
              'Before the long drought we kept salt in the drawer',
              'Each night the slow crawl wakes the rain',
@@ -5454,14 +5460,15 @@ def test_the_plan_report_discloses_density_and_audibility():
     rc, out, _ = run("plan", "--seed=31", f"--out={bp}", expect_rc=0)
     with open(bp, encoding="utf-8") as fh:
         plan = _json.load(fh)
-    dn = plan["choices"]["density"]
     au = plan["choices"]["audible"]
-    m = re.search(r"^\s*DENSITY: binding cap (\d+) — (.+)$", out, re.M)
-    check("the report prints the density cap the plan drew, with how it "
-          "was chosen, and the number is the plan's own",
-          rc == 0 and m is not None and int(m.group(1)) == dn["binding_cap"]
-          and "uniform over 1.." in m.group(2),
-          f"rc {rc}; {m.group(0)[:90] if m else 'no DENSITY line'}")
+    # ~~the report prints the density cap the plan drew~~ — REPINNED
+    # 2026-10-04: the density draw is gone (owner's ruling: rhymes tie only
+    # line ends), so the plan carries no `density` and prints no DENSITY line.
+    check("the plan draws no density cap and the report prints no DENSITY "
+          "line (removed 2026-10-04)",
+          rc == 0 and "density" not in plan["choices"]
+          and not re.search(r"^\s*DENSITY:", out, re.M),
+          f"rc {rc}")
     m2 = re.search(r"^\s*AUDIBLE: (\d+) of (\d+) end-bound group\(s\) require a "
                    r"schema heard as END RHYME", out, re.M)
     check("...and the AUDIBLE line partitions the end-bound groups with the "
@@ -5496,9 +5503,13 @@ def test_the_plan_report_discloses_density_and_audibility():
           and 'none declared and none drawn' not in out_declared,
           str(declared))
     brief = plan.get("writer_brief", "")
-    check("the writer brief carried in the blueprint has the legend and the "
-          "capacity line the writer reads (M-192)",
-          "Where a binding sits" in brief
+    # REPINNED 2026-10-04 from ~~"Where a binding sits" in brief~~: the plan
+    # binds every member at its line's end now (owner's ruling), and the
+    # legend prints only when a binding sits somewhere else.
+    check("the writer brief carried in the blueprint has the capacity line "
+          "the writer reads (M-192), and no placement legend when every "
+          "binding is a line end",
+          "Where a binding sits" not in brief
           # No relation is drawn (N-relation model): the bare plan names
           # none, and each group is briefed to stand in at least one.
           and "What each named relation asks" not in brief
@@ -6120,9 +6131,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # and a denser web. The batch is ~~[3, 5, 7]~~ [3, 5]: L7's groups no
     # longer leave it independent of the others, so the M-305 member it
     # carried is not reproduced by this fixture and its parity checks go.
+    # RE-MEASURED 2026-10-04: the plan ties rhymes only at line ends now
+    # (4,5;6,7,10,11;8,9 — owner's ruling), so L9's 'stone' no longer stands
+    # with L8's 'about' and joins the batch: ~~[3, 5]~~ [3, 5, 9].
     check("the loop suspends on the fixture with a batch open",
           rc == 4 and pend.get("kind") == "propose_batch"
-          and members == [3, 5],
+          and members == [3, 5, 9],
           f"{rc} {pend.get('kind')} {members}")
     # while nothing has moved, the state and the file are the same draft.
     # ~~'Stay by the door and pray'~~ — 'pray' is in L5's forbidden modal
@@ -6135,9 +6149,9 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "that nothing has moved yet",
           rc == 0 and row.get("against") == "state"
           and row.get("moved_since_handed_in") == []
-          and row.get("open_question") == [3, 5]
+          and row.get("open_question") == [3, 5, 9]
           and "AGAINST: the loop's CURRENT draft" in out
-          and "OPEN   : the loop's open question is L3, L5" in out,
+          and "OPEN   : the loop's open question is L3, L5, L9" in out,
           out[-600:])
     l5_before = bool(row.get("accepted"))
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
@@ -6164,8 +6178,11 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # ANSWER THE BATCH with lines the verb accepted, and let the loop fold
     # ~~"L8: A shore as old as the vein"~~ — L8 is no longer in the batch
     # since M-305; the third row answers L7 with the candidate accepted above
+    # L9 joined the batch 2026-10-04; its answer is REJECTED (measured), so
+    # the fold below is unchanged: L3 and L5 accepted, L2 riding with L3.
     stj["pending"]["answer"] = ("L3: nothing here is very still\n"
-                                "L5: Stay by the door until the holiday")
+                                "L5: Stay by the door until the holiday\n"
+                                "L9: carry the cold stones out")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
     rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
@@ -6328,7 +6345,10 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               # lines draws longer lines and a different web; the claim —
               # the declined run is not certified and names its refusals —
               # is unchanged.
-              and coverage.get("pairs_mandated") == 10
+              # REPINNED 2026-10-04, MEASURED: ~~10~~ -> 4 mandated, 4/0. The
+              # plan ties rhymes only at line ends now (2,3;4,5;8,9;10,11 —
+              # owner's ruling); the two meter refusals still stand.
+              and coverage.get("pairs_mandated") == 4
               # REPINNED 2026-09-22 (N-relation model), MEASURED by this
               # run: ~~3/6~~ -> 2/7. The reading-consensus check is
               # membership over the pair's relation SET now, so one more
@@ -6343,7 +6363,7 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               # certify: the meter layer's two refusals, present before the
               # ruling too, are what stand. superseded: judged 3, refused 7
               # (rhyme:2:3:0/1, 8:9:4/5/6, 10:11:7/9) plus prominence:L2.
-              and coverage.get("pairs_judged") == 10
+              and coverage.get("pairs_judged") == 4
               and coverage.get("pairs_refused") == 0
               and coverage.get("refused_obligations")
               == ["meter:COUNT_IS_A_LOWER_BOUND:L2",

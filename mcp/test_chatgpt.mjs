@@ -698,7 +698,8 @@ test('one connection exposes both workflows, preserving independent sessions acr
   for (const phrase of [
     /NO coherence fences/,
     /never guess ids/,
-    /UNSKIPPABLE/,
+    // ~~/UNSKIPPABLE/~~ — the ban is report-only since 2026-10-04 (owner's ruling).
+    /reported as notes: they hold no/,
     /lyric_recover FIRST/,
   ])
     assert.match(client.getInstructions(), phrase);

@@ -9,8 +9,8 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | WRAPPED_FOLLOW_MAX | 20 | `lyric_harness.py` |
 | BRACKET_VERSE_FOLLOW_MAX | 40 | `lyric_harness.py` |
 | ROLLUP_MIN_LINES | 4 | `lyric_harness.py` |
-| JOURNAL_WORK_BYTES | 393,216 (384 KB) | `lyric_harness.py` |
-| JOURNAL_BYTES | 458,752 (448 KB) | `lyric_harness.py` |
+| JOURNAL_WORK_BYTES | 1,048,576 (1,024 KB) | `lyric_harness.py` |
+| JOURNAL_BYTES | 1,114,112 (1,088 KB) | `lyric_harness.py` |
 | JOURNAL_LINE_CHARS | 200 | `lyric_harness.py` |
 | MATTR_WINDOW | 50 | `quality/features.py` |
 | BIN_MIN_TAIL | 200 | `quality/length_curve_calibration.py` |
@@ -59,11 +59,11 @@ Connector:
 | MIN_PER_PART | 4 | `../mcp/engine.js` |
 | RECIPE_FINISH_MS | 10,000 | `../mcp/gemini_agent.js` |
 | DEFAULT_TTL_MS | 86,400,000 | `../mcp/job_store.js` |
-| MAX_RECORD_BYTES | 8,388,608 (8,192 KB) | `../mcp/job_store.js` |
+| MAX_RECORD_BYTES | 18,874,368 (18,432 KB) | `../mcp/job_store.js` |
 | INTENT_BYTES | 2,097,152 (2,048 KB) | `../mcp/job_store.js` |
-| CHECKPOINT_BYTES | 3,145,728 (3,072 KB) | `../mcp/job_store.js` |
+| CHECKPOINT_BYTES | 7,077,888 (6,912 KB) | `../mcp/job_store.js` |
 | PROGRESS_BYTES | 2,097,152 (2,048 KB) | `../mcp/job_store.js` |
-| RESPONSE_BYTES | 4,194,304 (4,096 KB) | `../mcp/job_store.js` |
+| RESPONSE_BYTES | 9,437,184 (9,216 KB) | `../mcp/job_store.js` |
 | DEFAULT_MAX_BYTES | 268,435,456 (262,144 KB) | `../mcp/job_store.js` |
 | MAX_WORDS | 12 | `../mcp/lyric_tools.js` |
 | MAX_WORD_CHARS | 40 | `../mcp/lyric_tools.js` |
@@ -74,20 +74,20 @@ Connector:
 | MAX_WANTS | 13 | `../mcp/lyric_tools.js` |
 | MAX_WANT_CHARS | 80 | `../mcp/lyric_tools.js` |
 | MAX_ANSWER_CHARS | 4,000 | `../mcp/lyric_tools.js` |
-| MAX_OUTPUT_BYTES | 4,194,304 (4,096 KB) | `../mcp/lyric_tools.js` |
+| MAX_OUTPUT_BYTES | 9,437,184 (9,216 KB) | `../mcp/lyric_tools.js` |
 | CONNECTOR_ATTEMPTS | 1 | `../mcp/lyric_tools.js` |
 | KITCHEN_ATTEMPTS | 3 | `../mcp/lyric_tools.js` |
 | REFUSAL_HEADLINE_MAX | 400 | `../mcp/lyric_tools.js` |
 | MAX_LEDGER_BYTES | 1,048,576 (1,024 KB) | `../mcp/paid_budget.js` |
-| HTTP_REQUEST_BYTES | 2,097,152 (2,048 KB) | `../mcp/payload_limits.js` |
-| STATE_WIRE_BYTES | 1,048,576 (1,024 KB) | `../mcp/payload_limits.js` |
-| CONTROL_CAP | 8,388,608 | `../mcp/python_bridge.js` |
+| STATE_WIRE_BYTES | 2,359,296 (2,304 KB) | `../mcp/payload_limits.js` |
+| HTTP_REQUEST_BYTES | 4,718,592 (4,608 KB) | `../mcp/payload_limits.js` |
+| CONTROL_CAP | 18,874,368 | `../mcp/python_bridge.js` |
 | RUN_TTL_MS | 21,600,000 | `../mcp/run_store.js` |
 | RUN_CAP | 64 | `../mcp/run_store.js` |
 | MAX_TRADITIONS_PER_CALL | 16 | `../mcp/schemas.js` |
 | MAX_EDITS_PER_CALL | 64 | `../mcp/schemas.js` |
 | MAX_WORKSPACE_CARDS | 512 | `../mcp/schemas.js` |
 | HEADER_LOG_LIMIT | 300 | `../mcp/server_http.js` |
-| STATE_DECODED_BYTES | 524,288 (512 KB) | `../mcp/state_codec.js` |
-| WORKER_STATE_BYTES | 458,752 (448 KB) | `../mcp/state_codec.js` |
+| WORKER_STATE_BYTES | 1,114,112 (1,088 KB) | `../mcp/state_codec.js` |
+| STATE_DECODED_BYTES | 1,179,648 (1,152 KB) | `../mcp/state_codec.js` |
 | CONNECTOR_DECLARATION_BYTES | 32,768 (32 KB) | `../mcp/state_codec.js` |

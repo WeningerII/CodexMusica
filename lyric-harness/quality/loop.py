@@ -458,8 +458,15 @@ def swap_at_slot(text, slot, new_word):
 #: changes what the loop ASKS FOR, never what it rejects, and this finding
 #: fires only where a measured profile declared its threshold, so a draft
 #: inside the band is asked nothing.
-MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
-                              "PREDICTABLE_RHYME", "SHARED_SUFFIX"})
+#: EMPTIED 2026-10-04 by the owner's ruling: these four codes no longer hold
+#: a line open and no longer move an exit code. They are still graded and
+#: reported as notes. Was ~~frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
+#: "PREDICTABLE_RHYME", "SHARED_SUFFIX"})~~ — on a 104-line pasted song
+#: (2026-10-03) the loop took 13 revise calls and 37 recorded answers, kept
+#: reopening the same rhyme pairs (L56/L74, L61/L77: fixing one side reopened
+#: the other) and stopped on the record cap unfinished; with the set empty and
+#: the cap raised, the same draft finished at exit 0 after three answers.
+MANDATORY_PURSUE = frozenset()
 #: `SHARED_SUFFIX` JOINED 2026-08-23 (`MISSING.md` M-85, owner's ruling to
 #: promote it out of disclosed-only). `gate_census` had it as a
 #: PROMOTE_CANDIDATE on an argument that is doctrine 1's own: it names THE SAME

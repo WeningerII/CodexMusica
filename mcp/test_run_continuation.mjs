@@ -97,7 +97,10 @@ try {
   assert.match(stale.content[0].text, /stale run revision/);
   assert.equal(RUNS.byId(initial.run_id).revision, 2);
   const nearCapacity = decodeState(initial.state);
-  nearCapacity.capacity_test_evidence = 'retained journal evidence '.repeat(15500);
+  // ~~repeat(15500)~~ (403 KB, between the old 384 KiB working cap and the
+  // 448 KiB worker limit) -> repeat(40800) (1.06 MB, between the 1 MiB working
+  // cap and the 1088 KiB worker limit) since the caps rose 2026-10-04.
+  nearCapacity.capacity_test_evidence = 'retained journal evidence '.repeat(40800);
   const stopped = verdict(
     await call(a, {
       state: encodeState(nearCapacity),
@@ -187,7 +190,11 @@ try {
   // 5; measured): small words anchor at declared slots, so L1 is a group
   // pivot asked before the door and L2 takes its place among the seven.
   // superseded: [1, 14, 15, 17, 19, 21, 23].
-  const originalIndependent = [2, 14, 15, 17, 19, 21, 23];
+  // ~~[2, 14, 15, 17, 19, 21, 23]~~ REPINNED 2026-10-04 (measured): the plan
+  // ties rhymes only at line ends and the record cap rose to 1 MiB (owner's
+  // ruling), so no group pivot precedes the door, which opens on continuation
+  // 0 with eleven independent briefs, all admitted (118608 state bytes).
+  const originalIndependent = [1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -276,7 +283,8 @@ try {
   // test_production_journal.py's oversized-prompt cases.
   // ~~[1, 14, 15, 17, 19, 21, 23]~~ [2, 14, 15, 17, 19, 21, 23] (2026-10-01,
   // any-reading rule; measured): L1 is asked as a pivot before the door.
-  assert.deepEqual(firstSubset, [2, 14, 15, 17, 19, 21, 23]);
+  // ~~[2, 14, 15, 17, 19, 21, 23]~~ -> all eleven (2026-10-04; measured).
+  assert.deepEqual(firstSubset, [1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)

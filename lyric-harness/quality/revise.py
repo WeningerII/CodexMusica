@@ -286,6 +286,8 @@ class ReviseDeclaration:
     #: set with its own `MANDATORY_PURSUE` (owner's standing order; see the
     #: constant), so `MODAL_RHYME` is pursued on every run and no value of
     #: this field can switch that off. This field is the ADDITIVE half only.
+    #: SINCE 2026-10-04 the mandatory set is EMPTY (owner's ruling), so this
+    #: field is the whole of pursuit again: empty pursues nothing beyond flags.
     #:
     #: THE DEFECT THIS EXISTS FOR, found by writing a song through the loop.
     #: `MODAL_RHYME` and `PREDICTABLE_RHYME` are in `RHYME_FINDINGS`, so

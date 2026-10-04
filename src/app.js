@@ -23362,14 +23362,15 @@ function _chatRenderReply(payload,request) {
       // verdict only the model ever saw protects nobody. Recipe tools have
       // neither and keep the bare name.
       const banned = typeof t.banned_pairs === 'number' && t.banned_pairs > 0;
-      chip.className = 'chat-tool' + (t.error ? ' is-error' : banned || (typeof t.exit_code === 'number' && (t.exit_code !== 0 || t.certified === false)) ? ' is-alert' : '');
+      // Banned pairs no longer raise the alert (2026-10-04, owner's ruling): they are notes.
+      chip.className = 'chat-tool' + (t.error ? ' is-error' : typeof t.exit_code === 'number' && (t.exit_code !== 0 || t.certified === false) ? ' is-alert' : '');
       let label = t.name;
       if (typeof t.exit_code === 'number') label += ` · exit ${t.exit_code}`;
       if (banned) label += ` · ${t.banned_pairs} banned`;
       chip.textContent = label;
       if (t.error) chip.title = t.error;
       else if (banned)
-        chip.title = `${t.banned_pairs} banned pair(s) standing — the two-tier ban is unskippable; this song is not finished`;
+        chip.title = `${t.banned_pairs} banned pair(s) — reported as notes; they do not stop the song finishing`;
       trace.appendChild(chip);
     }
     node.appendChild(trace);

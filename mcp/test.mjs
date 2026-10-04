@@ -1865,7 +1865,8 @@ await check('validation: actionable errors', () => {
           { whole_flags: 1 },
           { loop_unresolved: 1 },
           { loop_whole_flags: 1 },
-          { banned_pairs: 1 },
+          // ~~{ banned_pairs: 1 },~~ — report-only since 2026-10-04 (owner's
+          // ruling); pinned as NOT blocking just below.
           { final_draft: null },
           { coverage: { certified: true } },
           { coverage: { ...coverage, certified: false } },
@@ -1884,6 +1885,11 @@ await check('validation: actionable errors', () => {
           },
         ])
           assert.equal(VI.loopStatusOf(0, { ...result, ...change }), 'uncertified');
+        assert.equal(
+          VI.loopStatusOf(0, { ...result, banned_pairs: 3 }),
+          'finished_clean',
+          'banned pairs are reported, not a condition of finishing (2026-10-04)'
+        );
       }
       assert.equal(
         VI.loopStatusOf(0, { certified: true, loop_stop_reason: 'SUCCESS' }),
@@ -7636,10 +7642,12 @@ try {
     // Seed 176 at a DECLARED 12 lines: the 31-line cap that made 12 its
     // draw is deleted (owner ruling 2026-09-28), so every seed-176 call
     // below states the length, and the lines are written for that plan.
+    // REPINNED 2026-10-04: the plan ties rhymes only at line ends now
+    // (1,2,3;4,5;6,7), so L3 ends ~~'cheap cologne'~~ 'afternoon'.
     const qualifiedDraft = [
       'Buttons gleam where wheat was sown by a balloon',
       "Bone cold, my mother's herbs came up in June",
-      'The kettle smells of smoke and cheap cologne',
+      'The kettle smells of smoke all afternoon',
       'Blue shadows drag the doubt across the floor',
       'Before the long drought we kept salt in the drawer',
       'Each night the slow crawl wakes the rain',
@@ -7968,8 +7976,11 @@ try {
     }
     assert.equal(splitState.pending.kind, 'propose_batch');
     assert.ok(splitState.pending.record.records.length > 1);
-    assert.ok(splitState.pending.record.records.length < 9);
-    assert.ok(Buffer.byteLength(JSON.stringify(splitState), 'utf8') < 384 * 1024);
+    // ~~records.length < 9~~ and ~~state < 384 * 1024~~ — REPINNED 2026-10-04
+    // with the raised record cap (JOURNAL_WORK_BYTES 1 MiB): this fixture's
+    // independent lines now fit one batch, so the split is no longer forced
+    // here; the bound that still holds is the cap itself.
+    assert.ok(Buffer.byteLength(JSON.stringify(splitState), 'utf8') < 1024 * 1024);
     assert.ok(splitRes.content[0].text.includes(splitState.pending.prompt));
     console.log(
       `  ok  lyric_revise live: seed ${planSeed}, ${nLines} lines, first batch ` +
@@ -8332,10 +8343,13 @@ try {
     assert.equal(checked.banned_pairs, 1, 'exactly one banned pair is surfaced');
     assert.equal(checked.banned[0].code, 'HOMEOTELEUTON', 'named by the ban tier that caught it');
     assert.deepEqual(checked.banned[0].lines, [1, 2], 'with the lines to revise');
-    assert.ok(checked.standing.some((s) => s.startsWith('L1/L2: FINDING [NOTE] HOMEOTELEUTON:')));
+    // REPINNED 2026-10-04 (owner's ruling): a banned pair is reported, not
+    // standing — ~~`standing` carries it~~, ~~the contract says "unskippable
+    // at any exit code"~~.
+    assert.ok(!checked.standing.some((s) => s.includes('HOMEOTELEUTON')));
     assert.ok(
-      /unskippable at any exit code/i.test(lyric.find((t) => t.name === 'lyric_check').description),
-      'the actual advertised tool contract requires action on the authenticated ban at any exit'
+      /reported as notes/i.test(lyric.find((t) => t.name === 'lyric_check').description),
+      'the advertised tool contract says the ban is reported as notes'
     );
     console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;
