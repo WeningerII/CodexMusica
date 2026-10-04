@@ -8202,6 +8202,31 @@ stay as sung. Receipt `data/english_apparatus_labels_2026-10-04.json`; the
 results file §2b records it. What (a) still leaves open is unchanged: the false-unit
 splits, the non-English blocks, and the section-mark reader, which reads
 prefixed lines whole.
+**RESIDUE FOUND AT THE FINAL CLOSING SITTING, 2026-10-04: the pass annotated
+editorial-note paragraphs but left single lines of them as sung.** Its
+candidates came from the checklist's terms plus the continuation lines the
+readers proposed, so a note line that matched no term and that no reader named
+was never read. Measured by comparing every item the two passes touched before
+and after (items reduced to 3 sung lines or fewer, or to under a third of
+their lines): **15 items now consist of 37 leftover lines**. Lovelace has 10
+of them (his editor's notes section, staged as titled items), Herrick and
+Browning 2 each, Burns 1: `eng_british_richard_lovelace` 634, 688, 799, 879,
+1137, 1307, 1316, 1464, 2367, 3351; `eng_british_robert_browning` 176, 463;
+`eng_british_robert_herrick` 4933, 9562; `eng_celtic_robert_burns` 10520
+(title lines). Before the pass these items were wholly editorial and scored as
+sung, so this is what is left of an older error, not a new one. It is still
+the pass's own gap, and one figure shows it: the shortest calibration item is
+now Lovelace's `Mart. lib. I. Epig. 26.` (4 tokens), so the `lyric` curves
+report a calibrated range of 4–3,244 tokens. Partial notes inside items that
+are otherwise sung are not counted here. Sung rows sitting next to prose the
+pass annotated total 819 in 43 files, but most are correct (Watts's stanzas
+under their annotated scripture headings are 393 of them), so this is an
+upper bound for the next reading to work through, not a count. **Ordering
+(this sitting's call, under the owner's "finish closing the batch first"; the
+owner has not ruled on it):** the closing sitting finishes as it stands. Read
+these lines with the same two-blind-reader protocol at the start of the next
+batch, so that batch's closing sitting absorbs them instead of this one being
+run a third time.
 
 **Found 2026-08-21. Each is a file whose own header or content contradicts how
 it is marked, and none is visible to any current check.**
