@@ -158,4 +158,38 @@ Not done, and why:
 
 ## 3. Closing sitting
 
-Pending in this batch.
+Run on the tree carrying both changes, in the order
+`quality/CORPUS_LOADING_PROTOCOL.md` prescribes. Every output named here is in
+`quality/results/otterbein_m25_2026-10-04/`. Each changed constant carries a
+dated note beside its superseded value.
+
+| lane | before | after | verdict |
+|---|---|---|---|
+| rhyme-position tables (`quality/build_song_frequency.py`) | 13,836 end types; 23,762 pair types | 13,787; 23,736 (248,874 / 190,860 occurrences) | rebuilt; `frequency.py` pin moved |
+| meter bands | density [5, 12], prominence [2, 7] | same, over 231,798 lines | HOLDS |
+| structure census D1 | pool 4,390,056; agreement 681/689 | pool 4,351,811; 712/717 | repinned (a re-draw of the seeded 1,000 pairs from a changed pool; the judge did not move) |
+| mark coverage | typed 76,909 | 75,639 (+372 Otterbein, −1,642 annotated) | repinned; decided and undecided unmoved |
+| chorus pointers | 1,163 / 442 / 35 / 686 | 1,144 / 442 / 35 / 667 | the 19 that left were scripture-reference `&c.` and note lines |
+| section marks | VERSE 74,177 lines; REFRAIN 707 / 40 files | 72,829; 785 / 92 files | remeasured |
+| capacity witnesses | 81 certified | 81, every one re-verified unchanged (0 repair rounds); max certified chain 39 | table header only; runtime verification 81/81; `capacity.py --check` PASS |
+| calibration rows | 8,536 works | 8,609 works, 279,503 sung lines (3,958 s, 4 workers) | rebuilt |
+| `lyric` length curves (the active floor) | range 10–3,244; picks mattr C1, fwr C1, anaphora C2, cv CK, predictability CK | range 9–3,244; mattr C1, **fwr C2**, anaphora C2, **cv C2**, predictability CK; every check passes every bin | re-adopted; `SHIPPED_MODEL` repinned as a set; check HOLDS |
+| superseded `song` / `short` bands | 150–400 / 50–150 | 200–400 / 50–150 | re-recorded as bookkeeping; never applied (`MISSING.md` M-317) |
+| manifest | 1,430 files, 2026-09-15 | 1,477 files, 2026-10-04 | written; `--check` byte-identical |
+| runtime asset pins | | rhyme tables, `sources.tsv`, capacity table, section marks | repinned; `release_assets.py --integrity` clean |
+
+The two curve-model moves are the registered pick's own answer (fewest free
+parameters passing every bin, `quality/LENGTH_CURVE_PREREGISTRATION.md` §4).
+The straight line for the function-word ratio fails bin 20 (480–752 tokens,
+9.09% held-out against an upper bound of 8.08%). For line-length variation, the
+quadratic now passes all 22 bins and has fewer parameters than the knot
+table. Both quadratics turn inside the corpus range (N = 406 and N = 2,888),
+which the fit discloses under E3. The predictability curve first becomes
+informative at 141 tokens (was 166).
+
+The superseded `song` band moved because 18 of the new hymns fall in its
+150–200-token sub-bin, and 8 of them score a perfect 1.0 on rhyme
+predictability. That puts the sub-bin's 95th percentile at its ceiling.
+Without the hymns the band holds at 150–400. The profile grades nothing, so
+this is recorded and parked rather than acted on. The same concentration is a
+fact about hymnal text (`MISSING.md` K-1a), and the active curves absorb it.
