@@ -39611,12 +39611,6 @@
     "Bradford",
     "Europe"
   ],
-  "cumbia_cristiana": [
-    -38.4161,
-    -63.6167,
-    "Argentina",
-    "Latin America & Caribbean"
-  ],
   "cumbia_ecuatoriana": [
     -3.9931,
     -79.2042,
@@ -39639,12 +39633,6 @@
     52.0907,
     5.1214,
     "Utrecht",
-    "Europe"
-  ],
-  "experimental_big_band": [
-    53.0793,
-    8.8017,
-    "Bremen",
     "Europe"
   ],
   "festigal": [
@@ -39899,12 +39887,6 @@
     "Ituri",
     "Africa"
   ],
-  "musique_urbaine_brazzaville": [
-    -4.2634,
-    15.2429,
-    "Brazzaville",
-    "Africa"
-  ],
   "nasheed": [
     43.6532,
     -79.3832,
@@ -39928,12 +39910,6 @@
     -73.7851,
     "Saratoga Springs",
     "North America"
-  ],
-  "oeteldonk": [
-    51.6978,
-    5.3037,
-    "'s-Hertogenbosch",
-    "Europe"
   ],
   "old_school_nederhop": [
     52.3667,
@@ -40109,12 +40085,6 @@
     "Los Angeles",
     "North America"
   ],
-  "vintage_italian_soundtrack": [
-    41.9028,
-    12.4964,
-    "Rome",
-    "Europe"
-  ],
   "violao_classico": [
     -23.55,
     -46.6333,
@@ -40265,12 +40235,6 @@
     "Tirupati",
     "South Asia"
   ],
-  "jain_bhajan": [
-    22.3,
-    71.2,
-    "Gujarat",
-    "South Asia"
-  ],
   "pop_boliviano": [
     -16.5,
     -68.15,
@@ -40288,12 +40252,6 @@
     119.4327,
     "Makassar",
     "Southeast Asia"
-  ],
-  "reading": [
-    60,
-    8,
-    "Norway",
-    "Europe"
   ],
   "finnish_trap": [
     60.1699,

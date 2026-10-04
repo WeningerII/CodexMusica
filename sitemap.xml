@@ -6611,12 +6611,10 @@
   <url><loc>https://codexmusica.com/api/traditions/chinese_bgm.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/chinese_drama_ost.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/classic_bhangra.json</loc></url>
-  <url><loc>https://codexmusica.com/api/traditions/cumbia_cristiana.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/cumbia_ecuatoriana.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/cumbia_santafesina.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/double_drumming.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/ethnotronica.json</loc></url>
-  <url><loc>https://codexmusica.com/api/traditions/experimental_big_band.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/festigal.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/focus.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/folklore_peruano.json</loc></url>
@@ -6659,12 +6657,10 @@
   <url><loc>https://codexmusica.com/api/traditions/musica_triste_brasileira.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/musica_urbana_oaxaquena.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/musique_traditionnelle_congolaise.json</loc></url>
-  <url><loc>https://codexmusica.com/api/traditions/musique_urbaine_brazzaville.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/nasheed.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/new_hampshire_indie.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/norrbotten_indie.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/ny_roots.json</loc></url>
-  <url><loc>https://codexmusica.com/api/traditions/oeteldonk.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/old_school_nederhop.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/oldschool_deutschrap.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/otacore.json</loc></url>
@@ -6694,7 +6690,6 @@
   <url><loc>https://codexmusica.com/api/traditions/telugu_indie.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/telugu_remix.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/vintage_hollywood.json</loc></url>
-  <url><loc>https://codexmusica.com/api/traditions/vintage_italian_soundtrack.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/violao_classico.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/volkstumliche_musik.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/german_dark_minimal_techno.json</loc></url>
@@ -6720,11 +6715,9 @@
   <url><loc>https://codexmusica.com/api/traditions/musik_anak_anak.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/tibetan_folk_pop.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/telugu_devotional.json</loc></url>
-  <url><loc>https://codexmusica.com/api/traditions/jain_bhajan.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/pop_boliviano.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/cantautor_catala.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/lagu_bugis.json</loc></url>
-  <url><loc>https://codexmusica.com/api/traditions/reading.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/finnish_trap.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/greek_drill.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/iowa_hip_hop.json</loc></url>

@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6732,
+  "count": 6725,
   "items": [
     {
       "id": "honky_tonk",
@@ -8926,8 +8926,8 @@
       "id": "cumbia_420",
       "name": "Cumbia 420",
       "family": "electronic",
-      "recipe": "classic 2015-2018 cumbia 420, electronic Dance, Latin electric branch, reggaeton MC rhythm, Latin am groove percussion, Latin house house freestyle house. vocal fry, full chest belt, straight note core, interlocked note trading. organ preset one man band yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, guiro, brass open slap hand drum timbales, TR-808, sub bass digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 560
+      "recipe": "classic 2015-2018 cumbia 420, electronic Dance, Latin electric branch, reggaeton MC rhythm, Latin am groove percussion, Latin house house cumbia pop freestyle house. thick, full chest belt, straight onset, interlocked note trading. organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, guiro, open slap hand drum timbales, roland tr 8s modern aira digital recreation TR-808, sub bass digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 588
     },
     {
       "id": "social_media_pop",
@@ -11467,8 +11467,8 @@
       "id": "cape_jazz",
       "name": "Cape Jazz",
       "family": "jazz",
-      "recipe": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz experimental big band. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-      "recipe_chars": 939
+      "recipe": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz swiss experimental. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "recipe_chars": 936
     },
     {
       "id": "chamber_jazz",
@@ -12545,8 +12545,8 @@
       "id": "cumbia_ranchera",
       "name": "Cumbia ranchera",
       "family": "global",
-      "recipe": "classic Southwestern American mid-1970s cumbia ranchera, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia cristiana. thick, full chest belt, slow rate, interlocked note trading. castagnari Italian premium folk music chordal accordion, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, guiro, kevlar aramid extreme tension brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, lead open slap hand drum congas. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 735
+      "recipe": "classic Southwestern American mid-1970s cumbia ranchera, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia pop. thick, full chest belt, straight note core, interlocked note trading. castagnari Italian premium folk music chordal accordion, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, guiro, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, lead open slap hand drum congas. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 736
     },
     {
       "id": "cumbia_editada",
@@ -17151,14 +17151,14 @@
       "id": "cumbia_argentina",
       "name": "Cumbia Argentina",
       "family": "global",
-      "recipe": "classic 1999-2002 cumbia argentina, functional Song, tropical song branch, Latin am groove percussion, iberian Latin protest song rap político nueva canción. thick, full chest belt, fast rate, interlocked note trading. sub bass analog poly synth, la bella flats Detroit soul bass canon sub heavy electric bass, guiro, lead open slap hand drum congas, open slap hand drum timbales, hohner gola canonical premium German concert accordion. no single room 2015-present distributed distributed production. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-      "recipe_chars": 646
+      "recipe": "classic 1999-2002 cumbia argentina, functional Song, tropical song branch, Latin am groove percussion, iberian Latin protest song cumbia pop cumbia villera. extended whistle, full chest belt, breath pulsed, interlocked note trading. singing lead analog poly synth, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass, guiro, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, open slap hand drum timbales, hohner gola canonical premium German concert accordion. no single room 2015-present distributed distributed production. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+      "recipe_chars": 752
     },
     {
       "id": "tecnocumbia",
       "name": "Tecnocumbia",
       "family": "global",
-      "recipe": "classic 1994-1996 tecnocumbia, functional Song, tropical song branch, Latin am groove percussion, Latin electric electronic dance cumbia 420 freestyle. thick, full chest belt, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead analog poly synth, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, drum machine analog, open slap hand drum timbales, guiro. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+      "recipe": "classic 1994-1996 tecnocumbia, functional Song, tropical song branch, Latin am groove percussion, Latin electric electronic dance cumbia pop cumbia 420. extended whistle, full chest belt, breath pulsed, interlocked note trading. yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm sub bass analog poly synth, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, drum machine analog, open slap hand drum timbales, guiro. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
       "recipe_chars": 631
     },
     {
@@ -46219,13 +46219,6 @@
       "recipe_chars": 129
     },
     {
-      "id": "cumbia_cristiana",
-      "name": "Cumbia Cristiana",
-      "family": "global",
-      "recipe": "classic cumbia cristiana, groove Percussion, Latin am branch. small note groups per syllable, group vocals, live take. electronic keyboard unspecified, electric bass, sticks rhythmic timbales stick played, guiro. live tracking.",
-      "recipe_chars": 227
-    },
-    {
       "id": "cumbia_ecuatoriana",
       "name": "Cumbia Ecuatoriana",
       "family": "vernacular",
@@ -46252,13 +46245,6 @@
       "family": "electronic",
       "recipe": "classic ethnotronica, electronic Dance. bansuri, indian rosewood rosewood copper tabla, sampler. live tracking.",
       "recipe_chars": 111
-    },
-    {
-      "id": "experimental_big_band",
-      "name": "Experimental Big Band",
-      "family": "jazz",
-      "recipe": "classic experimental big band, improv On Frame, avant branch. saxophone section tenor baritone, expressive clarinet jazz bass clarinet, upright piano, double bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking.",
-      "recipe_chars": 247
     },
     {
       "id": "festigal",
@@ -46555,13 +46541,6 @@
       "recipe_chars": 114
     },
     {
-      "id": "musique_urbaine_brazzaville",
-      "name": "Musique urbaine Brazzaville",
-      "family": "global",
-      "recipe": "classic musique urbaine brazzaville, functional Song, African pop branch, intl hip hop MC rhythm czsk emo rap detroit trap brasileiro. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
-      "recipe_chars": 256
-    },
-    {
       "id": "nasheed",
       "name": "Nasheed",
       "family": "global",
@@ -46588,13 +46567,6 @@
       "family": "vernacular",
       "recipe": "classic ny roots, ballad Poetry, anglo singer song branch. dreadnought acoustic guitar. shoebox concert hall.",
       "recipe_chars": 109
-    },
-    {
-      "id": "oeteldonk",
-      "name": "Oeteldonk",
-      "family": "global",
-      "recipe": "classic oeteldonk, carnival Processional. trumpet, trombone, saxophone section alto tenor, baritone horn bb, tuba, drum kit. live tracking.",
-      "recipe_chars": 139
     },
     {
       "id": "old_school_nederhop",
@@ -46800,13 +46772,6 @@
       "recipe_chars": 149
     },
     {
-      "id": "vintage_italian_soundtrack",
-      "name": "Vintage Italian Soundtrack",
-      "family": "global",
-      "recipe": "classic mid-1960s vintage italian soundtrack, groove Percussion, funk percussive branch, art music khmer pinpeat royal-court ensemble canadian contemporary classical. alnico nickel clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato tonewheel organ. treated studio.",
-      "recipe_chars": 491
-    },
-    {
       "id": "violao_classico",
       "name": "Violão Clássico",
       "family": "classical",
@@ -46982,13 +46947,6 @@
       "recipe_chars": 332
     },
     {
-      "id": "jain_bhajan",
-      "name": "Jain bhajan",
-      "family": "global",
-      "recipe": "classic jain bhajan, ritual Devotional, hindu ritual devotional, indian subcontinent praise song mappila paattu naat. small note groups per syllable, solo with instrumental accompaniment. indian rosewood rosewood copper tabla, suited to female vocal drone like modal tanpura. shoebox concert hall.",
-      "recipe_chars": 297
-    },
-    {
       "id": "pop_boliviano",
       "name": "Pop Boliviano",
       "family": "pop",
@@ -47008,13 +46966,6 @@
       "family": "vernacular",
       "recipe": "classic lagu bugis, ballad Poetry. text forward plain direct line one note per syllable syllabic singing one note per syllable human voice ensemble unspecified. shoebox concert hall.",
       "recipe_chars": 182
-    },
-    {
-      "id": "reading",
-      "name": "Reading",
-      "family": "global",
-      "recipe": "classic reading, experimental Elec, ambient branch, experimental electric acid idm. upright piano. live tracking.",
-      "recipe_chars": 113
     },
     {
       "id": "finnish_trap",

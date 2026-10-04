@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 6732,
+  "count": 6725,
   "items": [
     {
       "id": "honky_tonk",
@@ -233493,40 +233493,6 @@
       ]
     },
     {
-      "id": "cumbia_cristiana",
-      "name": "Cumbia Cristiana",
-      "family": "global",
-      "lineage": "Cumbia cristiana brings Christian lyrics and devotional themes into cumbia’s dance-song traditions. Bands and singers connect congregational and family audiences with the rhythmic vocabulary of contemporary Latin American popular music.",
-      "parent": "groovePercussion.latinAm",
-      "axes": [
-        -1,
-        2,
-        0,
-        2,
-        0,
-        -1,
-        -1,
-        1,
-        0,
-        2,
-        0,
-        1,
-        2
-      ],
-      "instruments": [
-        "voice",
-        "electronic_keyboard_unspecified",
-        "electric_bass",
-        "timbales_stick_played",
-        "guiro"
-      ],
-      "description": "Sung verses and recurring refrains ride a repeating bass line and interlocking percussion. Keyboards supply melody and chordal accompaniment, while güiro scraping and timbales accents sustain the dance pulse. Accordion, piano and electronic percussion add further colours in some bands.",
-      "exemplars": [
-        "Lucho Dee Jay — complete Mix Remix CRISTIANOS / Cumbia WORSHIP programme, May 24, 2024",
-        "Nueva Adoración"
-      ]
-    },
-    {
       "id": "cumbia_ecuatoriana",
       "name": "Cumbia Ecuatoriana",
       "family": "vernacular",
@@ -233662,41 +233628,6 @@
       "exemplars": [
         "Filter Coffee",
         "DJ Rafadelic"
-      ]
-    },
-    {
-      "id": "experimental_big_band",
-      "name": "Experimental Big Band",
-      "family": "jazz",
-      "lineage": "Experimental Big Band extends large-ensemble jazz through collective improvisation, unconventional orchestration and the meeting of composed structures with open forms. Free-jazz orchestras and later creative big bands offer different approaches within this field.",
-      "parent": "improvOnFrame.americanJazz.avant",
-      "axes": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        -2,
-        0,
-        0,
-        0
-      ],
-      "instruments": [
-        "saxophone_section_tenor_baritone",
-        "bass_clarinet",
-        "upright_piano",
-        "double_bass",
-        "drum_kit"
-      ],
-      "description": "Contrasting reed registers, low winds and rhythm-section textures can build dense collective passages or open into sparse exchanges. Sectional writing and individual improvisation interact, with some ensembles also drawing on rock or minimalism.",
-      "exemplars": [
-        "Peter Brötzmann Octet",
-        "Darcy James Argue’s Secret Society",
-        "Globe Unity Orchestra"
       ]
     },
     {
@@ -235049,42 +234980,6 @@
       ]
     },
     {
-      "id": "musique_urbaine_brazzaville",
-      "name": "Musique urbaine Brazzaville",
-      "family": "global",
-      "lineage": "Contemporary urban music in the Republic of the Congo connects rap, slam and popular dance-song communities through Brazzaville, recording studios, festivals and online networks.",
-      "parent": "functionalSong.africanPop",
-      "axes": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2,
-        0,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "credited_beat_unspecified"
-      ],
-      "description": "Rhythmic speech, melodic hooks and produced beats circulate alongside local dance rhythms and rumba-derived approaches. Artists move between rap, slam, Afro-pop and other popular forms, making this a shared regional scene rather than a single instrumental formula. A rapper over a produced beat represents one active branch.",
-      "exemplars": [
-        "Jessy B",
-        "Paterne Maestro",
-        "Tidiane Mario",
-        "Mwasi Moyindo"
-      ],
-      "crossRefs": [
-        "mcRhythm.intlHipHop"
-      ]
-    },
-    {
       "id": "nasheed",
       "name": "Nasheed",
       "family": "global",
@@ -235207,43 +235102,6 @@
       "exemplars": [
         "Sawyer Fredericks",
         "Donna the Buffalo"
-      ]
-    },
-    {
-      "id": "oeteldonk",
-      "name": "Oeteldonk",
-      "family": "global",
-      "lineage": "Oeteldonk music belongs to the carnival culture of ’s-Hertogenbosch, sustained by local clubs, song competitions and community celebrations. New carnival songs join familiar refrains in the Kwèkfestijn and a shared repertoire associated with the city’s festive identity.",
-      "parent": "carnivalProcessional",
-      "axes": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "trumpet",
-        "trombone",
-        "saxophone_section_alto_tenor",
-        "baritone_horn_bb",
-        "tuba",
-        "drum_kit"
-      ],
-      "description": "Projecting voices, memorable refrains and lively wind-band responses invite collective participation. Trumpets, trombones, saxophones and low brass combine with rhythmic percussion, while humorous texts and theatrical presentation animate the songs.",
-      "exemplars": [
-        "Wim Kersten",
-        "De Twee Pinten",
-        "Van Alles Wè"
       ]
     },
     {
@@ -236169,45 +236027,6 @@
       ]
     },
     {
-      "id": "vintage_italian_soundtrack",
-      "name": "Vintage Italian Soundtrack",
-      "family": "global",
-      "lineage": "Vintage Italian soundtrack music draws on the film and studio archives of the 1960s–80s, where jazz, orchestral writing, pop, funk and psychedelic textures served comedy, crime, horror and other screen genres. Reissue and licensing communities around CAM Sugar and Sonor Music Editions have renewed circulation of this repertoire. Alongside orchestral scores, studio groups such as I Marc 4 supplied compact, groove-led themes built from guitar, organ, bass and drums.",
-      "parent": "groovePercussion.funkPercussive",
-      "axes": [
-        1,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        -2,
-        1,
-        1,
-        1
-      ],
-      "instruments": [
-        "electric_guitar_single_coil",
-        "electric_bass",
-        "drum_kit",
-        "tonewheel_organ"
-      ],
-      "description": "Short thematic cues move between memorable melody, rhythmic accompaniment and contrasting instrumental colours. Electric organ, guitar and a bass-and-drum rhythm section support the jazz-funk studio-combo strand, while the wider archival field also includes orchestral, electronic and vocal film music.",
-      "exemplars": [
-        "I Marc 4",
-        "Gianni Ferrio",
-        "Piero Umiliani",
-        "CAM Sugar",
-        "Sonor Music Editions"
-      ],
-      "crossRefs": [
-        "artMusic"
-      ]
-    },
-    {
       "id": "violao_classico",
       "name": "Violão Clássico",
       "family": "classical",
@@ -237028,38 +236847,6 @@
       ]
     },
     {
-      "id": "jain_bhajan",
-      "name": "Jain bhajan",
-      "family": "global",
-      "lineage": "Jain bhajan, also called stavan, praises the Jinas and expresses Jain devotional ideals. Regional languages and folk-derived melodies connect temple, domestic and public singing, while modern recordings also draw on art-music and popular arrangements.",
-      "parent": "ritualDevotional",
-      "axes": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2,
-        0,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "tabla",
-        "tanpura"
-      ],
-      "description": "Devotional singing gives the text a clear melodic shape, with repetition and expressive phrasing supporting contemplation. A recorded art-music branch uses tabla and a sustained drone, alongside communal traditions with different accompaniment.",
-      "crossRefs": [
-        "ritualDevotional.hindu",
-        "praiseSong.indianSubcontinent"
-      ]
-    },
-    {
       "id": "pop_boliviano",
       "name": "Pop Boliviano",
       "family": "pop",
@@ -237147,35 +236934,6 @@
       "description": "Melody and Bugis-language phrasing carry the song, with personal feeling and shared cultural values held in the lyric. This profile represents the vocal-ensemble branch: connected group singing lets the text and melodic line remain prominent without making a particular choir size or harmonization universal.",
       "exemplars": [
         "PSM Universitas Hasanuddin"
-      ]
-    },
-    {
-      "id": "reading",
-      "name": "Reading",
-      "family": "global",
-      "lineage": "Music for reading is a functional listening field cultivated by composers, publishers and playlist curators. Quiet piano, ambient textures and restrained instrumental arrangements provide a continuous backdrop to books and other sustained reading.",
-      "parent": "experimentalElec.ambient",
-      "axes": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "instruments": [
-        "upright_piano"
-      ],
-      "description": "Connected melodic phrases and unobtrusive harmony leave space around the listener’s attention. Gentle dynamics and slowly unfolding musical continuity favor immersion over abrupt changes or foreground vocal storytelling.",
-      "crossRefs": [
-        "experimentalElec"
       ]
     },
     {

@@ -1,74 +1,48 @@
 {
-  "status": "DRAFT_NOT_MERGE_QUALIFIED",
-  "freeze_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
-  "selected_entries": 194,
+  "status": "LOCAL_QUALIFICATION_PASS_PENDING_EXACT_HEAD_CI",
+  "selected_entries": 187,
   "selected_dependencies": 15,
+  "frozen_sha256": "c8171af4363aef7273f8a8190846c37d4cf4625b28172048dcb5866efb6e2803",
   "source_proposals_preserved": 200,
-  "held_entries": [
-    "haitian_traditional",
-    "hyperpop_en_espanol",
-    "russian_hyperpop",
-    "chhattisgarhi_pop",
-    "japanese_buddhist_chant",
-    "samba_moderno"
-  ],
-  "original_queue_holds": [
-    "detroit_trap_en_espanol",
-    "malayalam_hip_hop",
-    "carnaval_limburg",
-    "ghanaian_alternative",
-    "nuevo_tango",
-    "workout_product"
-  ],
-  "source_binding_gaps": [],
-  "pending": [
-    "Resolve actual compiled API musical differences; do not merge this draft",
-    "Final formatting and exact-head CI"
-  ],
-  "snapshots_updated": false,
-  "no_repository_mutations": false,
-  "completed_independent_gates": [
-    "Exact194 source projection and original6538/1638 preservation",
-    "Actual old27641 browser cards unchanged; new582cards5041applicable pins valid",
-    "Full1174fixture-definition graph coverage plus17 exact musical-config replays",
-    "All776 literal outputs reviewed by119(first98) and116(additional96), unchanged from respective196 outputs",
-    "Original final194 full serial regression1149/1149, exact log independently read"
-  ],
-  "original_full_serial_regression": {
-    "status": "PASS",
-    "result": "REGRESSION: 1149/1149 fixture(s) match snapshot.",
-    "path": "/tmp/batch041/qualified/regression.log",
-    "sha256": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
-    "snapshot_updates": false
-  },
-  "static_api": {
-    "traditions": 6732,
+  "held_additions": 13,
+  "older_queue_holds": 6,
+  "api": {
+    "traditions": 6725,
     "instruments": 1653,
     "failures": 0,
-    "seconds": 647.5,
-    "structural_validation": "PASS",
-    "musical_validation": "PENDING:4 unsupported new context blends;23 changed old rows,43slots,6recipes"
+    "seconds": 707.5,
+    "new_full_configs_match_review": 187,
+    "old_musical_differences": 0,
+    "old_numeric_score_differences": 14,
+    "compatible_existing_recipe_disclosures": 1
   },
+  "regression": {
+    "matches": 1149,
+    "fixtures": 1149,
+    "snapshots_updated": false
+  },
+  "engine_schema_unchanged": true,
+  "pending": ["exact-head CI and final remote content checks"],
   "supporting_checks": [
     {
       "check": "regression_prefaces",
       "exit_code": 0,
-      "seconds": 0.7
+      "seconds": 0.9
     },
     {
       "check": "check_slot_picks",
       "exit_code": 0,
-      "seconds": 2.3
+      "seconds": 2.5
     },
     {
       "check": "app_recipe_regression",
       "exit_code": 0,
-      "seconds": 10.4
+      "seconds": 10.3
     },
     {
       "check": "equivalence",
       "exit_code": 0,
-      "seconds": 11.2
+      "seconds": 11.0
     },
     {
       "check": "check_lazy_app",
@@ -78,12 +52,12 @@
     {
       "check": "check_minified_equivalence",
       "exit_code": 0,
-      "seconds": 28.4
+      "seconds": 29.1
     },
     {
       "check": "check_connector_parity",
       "exit_code": 0,
-      "seconds": 0.9
+      "seconds": 0.8
     },
     {
       "check": "check_workspace_ops",
@@ -93,22 +67,22 @@
     {
       "check": "check_app_parity",
       "exit_code": 0,
-      "seconds": 107.1
+      "seconds": 110.9
     },
     {
       "check": "check_edit_parity",
       "exit_code": 0,
-      "seconds": 5.1
+      "seconds": 5.3
     },
     {
       "check": "check_edit_differential",
       "exit_code": 0,
-      "seconds": 48.7
+      "seconds": 50.6
     },
     {
       "check": "check_connector_contract",
       "exit_code": 0,
-      "seconds": 1.7
+      "seconds": 1.8
     },
     {
       "check": "check_name_isolation",
@@ -123,7 +97,7 @@
     {
       "check": "eval_capabilities",
       "exit_code": 0,
-      "seconds": 53.6
+      "seconds": 52.9
     }
   ],
   "lint": "PASS"

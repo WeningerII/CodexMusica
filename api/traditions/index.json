@@ -1,5 +1,5 @@
 {
-  "count": 6732,
+  "count": 6725,
   "items": [
     {
       "id": "honky_tonk",
@@ -39614,12 +39614,6 @@
       "href": "traditions/classic_bhangra.json"
     },
     {
-      "id": "cumbia_cristiana",
-      "name": "Cumbia Cristiana",
-      "family": "global",
-      "href": "traditions/cumbia_cristiana.json"
-    },
-    {
       "id": "cumbia_ecuatoriana",
       "name": "Cumbia Ecuatoriana",
       "family": "vernacular",
@@ -39642,12 +39636,6 @@
       "name": "Ethnotronica",
       "family": "electronic",
       "href": "traditions/ethnotronica.json"
-    },
-    {
-      "id": "experimental_big_band",
-      "name": "Experimental Big Band",
-      "family": "jazz",
-      "href": "traditions/experimental_big_band.json"
     },
     {
       "id": "festigal",
@@ -39902,12 +39890,6 @@
       "href": "traditions/musique_traditionnelle_congolaise.json"
     },
     {
-      "id": "musique_urbaine_brazzaville",
-      "name": "Musique urbaine Brazzaville",
-      "family": "global",
-      "href": "traditions/musique_urbaine_brazzaville.json"
-    },
-    {
       "id": "nasheed",
       "name": "Nasheed",
       "family": "global",
@@ -39930,12 +39912,6 @@
       "name": "NY Roots",
       "family": "vernacular",
       "href": "traditions/ny_roots.json"
-    },
-    {
-      "id": "oeteldonk",
-      "name": "Oeteldonk",
-      "family": "global",
-      "href": "traditions/oeteldonk.json"
     },
     {
       "id": "old_school_nederhop",
@@ -40112,12 +40088,6 @@
       "href": "traditions/vintage_hollywood.json"
     },
     {
-      "id": "vintage_italian_soundtrack",
-      "name": "Vintage Italian Soundtrack",
-      "family": "global",
-      "href": "traditions/vintage_italian_soundtrack.json"
-    },
-    {
       "id": "violao_classico",
       "name": "Violão Clássico",
       "family": "classical",
@@ -40268,12 +40238,6 @@
       "href": "traditions/telugu_devotional.json"
     },
     {
-      "id": "jain_bhajan",
-      "name": "Jain bhajan",
-      "family": "global",
-      "href": "traditions/jain_bhajan.json"
-    },
-    {
       "id": "pop_boliviano",
       "name": "Pop Boliviano",
       "family": "pop",
@@ -40290,12 +40254,6 @@
       "name": "Lagu Bugis",
       "family": "vernacular",
       "href": "traditions/lagu_bugis.json"
-    },
-    {
-      "id": "reading",
-      "name": "Reading",
-      "family": "global",
-      "href": "traditions/reading.json"
     },
     {
       "id": "finnish_trap",
