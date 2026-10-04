@@ -2,7 +2,7 @@
 
 Remote preservation checkpoint; **not ready to merge**.
 
-- 1,890 reviewed existing-genre profile repairs are applied to the two source data files. 183 are explicitly prose-only partial repairs with musical blockers still open.
+- 2,003 reviewed existing-genre profile repairs are applied to the two source data files. 262 are explicitly prose-only partial repairs with musical blockers still open.
 - 178 reviewed additions are preserved in the adjacent evidence file but are **not imported** into the live catalog. Seven other queued rows remain held outside this checkpoint.
 - The original baseline cohort (2,638 records, including extras) remains unchanged; the live catalog contains 6,538 traditions. No shared engine, schema or pipeline changes.
 - Exact prior records, source evidence and root review decisions are retained in reviewed-repairs.json. Local absolute receipt paths identify workspace provenance and are not portable commands.
