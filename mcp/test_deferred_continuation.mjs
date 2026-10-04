@@ -90,7 +90,9 @@ try {
   // Carry an otherwise valid journal near its decoded capacity. Retained
   // metadata cannot be discarded merely because it is expensive to transport.
   const nearLimit = decodeState(first.state);
-  nearLimit.retained_metadata = 'x'.repeat(400 * 1024);
+  // ~~400 * 1024~~ -> 1040 * 1024 since the caps rose 2026-10-04 (1 MiB working
+  // cap, 1088 KiB worker limit): still admitted, still too near to answer.
+  nearLimit.retained_metadata = 'x'.repeat(1040 * 1024);
   const capacity = verdict(await call({ state: encodeState(nearLimit), answer: proposed[0] }));
   assert.equal(capacity.status, 'journal_capacity');
   assert.equal(capacity.new_run_required, true);

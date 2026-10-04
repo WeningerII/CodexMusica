@@ -408,9 +408,18 @@ stamp rides under the rendered song inside the verbatim block, so the
 seed and the verdict reach the user through a client that relays
 nothing; the chat page's tool chips print the exit code and banned
 count from the same harvested verdict; and the instructions now say
-the ban is unskippable at any exit code. All connector-side
+~~the ban is unskippable at any exit code~~ (SUPERSEDED 2026-10-04, owner's
+ruling: banned pairs are reported as notes, hold no line open and do not
+stop a song finishing; the count and the stamp stay). All connector-side
 (`mcp/lyric_tools.js`, `gemini_agent.js`, `chat.js`, the page) — the
 harness itself is untouched.
+
+**THE PLANNER TIES RHYMES ONLY TO LINE ENDS AGAIN (2026-10-04, owner's
+ruling).** `quality/plan.py` binds every member of every drawn group at the end
+of its line; the web draw of extra mid-line groups and its density cap
+(`binding_cap`, M-191) are gone. Placement is still a declared coordinate: a
+caller's own `--groups=1.T1,...` and a pasted song's declared placements are
+judged as before. The 2026-08-23 ruling below is kept as it was.
 
 **THE END-RHYME PROJECTION IS NO LONGER THE ARCHITECTURE — PLACEMENT IS A
 DECLARED COORDINATE (2026-08-23, `MISSING.md` M-67).** The owner's ruling,
@@ -944,7 +953,8 @@ A frequency-of-rhyme fallback for unevidenced calls is a SEPARATE decision
 nobody has made (`BACKLOG.md` RULINGS WANTED #26). Both tiers land in
 `joint_field`'s forbidden set (the offers) AND the proactive pair check
 (`HOMEOTELEUTON` / `MODAL_RHYME` notes, both in
-`MANDATORY_PURSUE` — unskippable). The counterweight that keeps the ban
+`MANDATORY_PURSUE` — ~~unskippable~~ report-only since 2026-10-04, when the
+owner emptied the set). The counterweight that keeps the ban
 from closing rhyme classes is `Declaration.admit`: what satisfies a
 mandate is a DECLARED set. **THE DEFAULT IS ALL FOUR SINCE 2026-08-22
 (owner ruling)** and DERIVES from `ADMITTABLE_RELATIONS` rather than
@@ -1772,7 +1782,12 @@ BYTE-IDENTICAL with the note pursued. The pair composes doctrine 9 end to end
 `modal_taken` rejection refuses an answer that takes one. `--pursue=CODE,CODE`
 on the CLI; ~~empty by default, so every earlier run reads unchanged~~; a code
 `brief()` cannot offer a field for REFUSES rather than sitting inert.
-**THE DEFAULT IS NOT EMPTY SINCE THE BAN WENT UNSKIPPABLE, AND
+**EMPTIED 2026-10-04 BY OWNER RULING: `loop.MANDATORY_PURSUE` is
+`frozenset()`. On a 104-line song the loop kept reopening the same rhyme pairs
+(fixing one side reopened the other) and never finished; the four codes are
+still graded and reported as notes, and `--pursue` opts a run back in. The
+history below is kept as it was.** ~~THE DEFAULT IS NOT EMPTY SINCE THE BAN
+WENT UNSKIPPABLE, AND
 `PREDICTABLE_RHYME` JOINED IT 2026-08-23 BY OWNER RULING (`MISSING.md`
 M-66).** `loop.MANDATORY_PURSUE` is
 `{MODAL_RHYME, HOMEOTELEUTON, PREDICTABLE_RHYME}` and the CLI flag only ever

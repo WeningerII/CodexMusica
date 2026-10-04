@@ -1067,9 +1067,19 @@ def _abs_groups(code, first_line):
 
 
 def _place_group(group, rng, max_token, used):
-    """-> the group's members SPELLED with a placement (`quality/slots.py`).
+    """-> the group's members, each bound at the END of its line.
 
-    THE PLANNER STOPS PLANNING AROUND END RHYME HERE (2026-08-23, the owner's
+    END RHYME ONLY (2026-10-04, the owner's ruling, reversing 2026-08-23's
+    below). A 104-line plan drawn under the old rule tied up to seven words of
+    a line to words of other lines — 67 groups, 1,668 mandated pairs — and one
+    grade of it took 39.5 minutes against a 10-minute tool limit. Declared as
+    plain line-end groups, the same 104 lines checked in under 2 minutes. Every
+    member is now the bare line number, which is the default slot: the last
+    word. `rng` and `max_token` are kept in the signature so callers and the
+    draw order around this call are unchanged.
+
+    SUPERSEDED 2026-10-04 — the 2026-08-23 rule, kept as it was:
+    ~~THE PLANNER STOPS PLANNING AROUND END RHYME HERE (2026-08-23, the owner's
     ruling). A group's members were emitted as bare line numbers, which is the
     default slot — the end of the line — so every plan this generator has ever
     produced bound every requirement to the last word of its lines. Not
@@ -1091,21 +1101,12 @@ def _place_group(group, rng, max_token, used):
     asks for the n-th word only where the calibration says a line carries
     that many; asking for the fortieth word of a line the grid holds seven
     words of is a binding no writer can fill, and an unfillable plan is the
-    "move 37" ban's own shape pointed at placement.
+    "move 37" ban's own shape pointed at placement.~~
     """
     out = []
     for ln in group:
-        free = [p for p in _PLACE_POOL(max_token)
-                if placement_word(p) not in used.get(ln, ())]
-        if not free:
-            # Every WORD this path can bind is already spoken for on this
-            # line. The group is DROPPED rather than doubled onto one: two
-            # groups on one word are a joint constraint on one word, which is
-            # the question a plan cannot answer.
-            return []
-        place = rng.choice(free)
-        used.setdefault(ln, set()).add(placement_word(place))
-        out.append(str(ln) if place == "end" else f"{ln}.{place}")
+        used.setdefault(ln, set()).add(placement_word("end"))
+        out.append(str(ln))
     return out
 
 
@@ -2137,13 +2138,8 @@ SWEEP_MEASURES = {
                 "recur without a second set of rhyme pins fighting the first",
                 lambda p: len([g for g in str(p.get("returns") or "").split(";")
                                if g.strip()])),
-    "binding_cap": ("the plan's own DENSITY coordinate: the most "
-                    "web bindings any line was ASKED to draw, 1 (one web "
-                    "binding a line — the classic end-rhyme song) to the "
-                    "line-binding ceiling (the old draw); "
-                    "`bound_words_per_line` is what the draw then measured",
-                    lambda p: int(p["choices"].get("density", {})
-                                  .get("binding_cap", 0))),
+    # "binding_cap" (the density draw's cap, M-191) REMOVED 2026-10-04 with
+    # the draw itself: rhymes tie only line ends (owner's ruling).
     "pins_per_line": ("the most words any one line is bound at — a "
                       "disclosure; no calibrated ceiling exists for it",
                       lambda p: max(_sweep_pins(p).values() or [0])),
@@ -2921,8 +2917,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # recurrence rule, each of the five having drawn its chorus once — and
     # not here. The end-rhyme pass is unchanged and still binds free line
     # ends on top of this.
-    _pool_ceiling = line_binding_ceiling(_max_token)
-    binding_cap = random.Random(f"{seed}:density").randint(1, _pool_ceiling)
+    # ~~The draw above~~ REMOVED 2026-10-04 with the web bindings below: the
+    # owner ruled that rhymes tie only line ends, so there is no density to
+    # draw. `bound_words_per_line` still measures what a plan binds.
 
     # Lay out sections and line slots.
     sections, line_slots = [], []
@@ -3010,61 +3007,11 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             # over covers would weight a shape by how many memberships it
             # admits, which is the enumeration bias v2's own smoke run found
             # in the meter sampler.
-            sec_lines = list(range(first, line_no))
-            if len(sec_lines) >= 2:
-                # HOW MUCH WEB, and it is a PER-LINE draw. The owner's
-                # framing: *"I don't think that literally every word need N
-                # pairs of rhymes but there's just no way that we can only be
-                # contemplating the last word of every line."* Both ends of
-                # that sentence are refusals — of a plan that binds only line
-                # ends, and of one that binds everything — so the count is
-                # drawn rather than chosen at either extreme.
-                #
-                # EACH LINE DRAWS ITS OWN PARTICIPATION, uniform over what
-                # the placement pool admits. Uniform over [1, |pool|]
-                # privileges no count: a line carrying exactly one binding —
-                # the classic end rhyme and nothing else — is as likely as
-                # any other, and so is a line woven into several. Drawing a
-                # number of extra GROUPS instead was measured at 100% of
-                # plans overlapping with a median of 22 groups a song, which
-                # is the density decided by the shape of the loop rather than
-                # by a coordinate.
-                # THE CEILING IS WHAT A LINE CAN CARRY, not how many names
-                # the placement table happens to hold. A binding occupies a
-                # SPAN, and distinct bindings on one line need distinct
-                # spans, so the number a line can carry is bounded by its
-                # syllables — and the number the planner volunteers is
-                # bounded by what this plan's shortest line can carry
-                # (`line_binding_ceiling`; ~~the calibrated density band's
-                # floor~~, removed 2026-09-28 by owner ruling). Bounding by
-                # the pool size instead would let a plan ask a short line for
-                # more distinct bound spans than it has words.
-                # AND THE POOL IS COUNTED IN WORDS, not in names: `end` and
-                # `endword` are one word between them and so are `head`,
-                # `headrime` and `T1`, so the number of names overstates what
-                # a line can carry (M-80).
-                pool_n = min(binding_cap, line_binding_ceiling(_max_token))
-                want = {ln: rng.randint(1, pool_n) for ln in sec_lines}
-                have = {ln: sum(1 for g in groups
-                                for m in g
-                                if int(str(m).split(".")[0]) == ln)
-                        for ln in sec_lines}
-                for _ in range(len(sec_lines) * pool_n):
-                    short = [ln for ln in sec_lines
-                             if have[ln] < want[ln]]
-                    if len(short) < 2:
-                        break
-                    hi = min(len(short), _max_group)
-                    members = rng.sample(short, rng.randint(2, hi))
-                    spelled = _place_group(sorted(members), rng,
-                                           _max_token, used)
-                    if not spelled:
-                        break
-                    if spelled in groups:
-                        continue
-                    groups.append(spelled)
-                    for ln in members:
-                        have[ln] += 1
+            # THE WEB DRAW (extra mid-line groups per line, M-191) WAS HERE
+            # until 2026-10-04, REMOVED by the owner's ruling that rhymes tie
+            # only line ends. It added groups at word positions inside lines
+            # on top of the scheme's own groups; the scheme's groups above are
+            # now the whole rhyme plan.
 
     total = line_no - 1
 
@@ -3188,42 +3135,17 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             # taste question, and the pool and its measure are printed here
             # so the answer can be given to a coordinate rather than to a
             # rewrite.
-            "placements": {"pool": list(_PLACE_POOL(_max_token)),
-                           "words": sorted(
-                               {str(placement_word(p))
-                                for p in _PLACE_POOL(_max_token)}),
-                           "measure": "uniform per MEMBER over the pool; "
-                                      "per member and not per group because "
-                                      f"{sum(1 for _s in _RL.REGISTRY.values() if _s.spans[0].anchor != _s.spans[-1].anchor)}"
-                                      f" of the {len(_RL.REGISTRY)} registered "
-                                      "schemas anchor their two members "
-                                      "differently (spans[0].anchor != "
-                                      "spans[-1].anchor)",
-                           "token_ceiling": _max_token,
-                           "token_ceiling_from":
-                               "the smaller of the floor's measured "
-                               f"tokens-per-line floor "
-                               f"{tokens_per_line_band()[0]:.2f} and this "
-                               f"plan's own shortest line ({_cap_lo} "
-                               f"syllable(s) after its pickup) less one for "
-                               f"the last word — a plan asks for the n-th "
-                               f"word only where BOTH the calibration and "
-                               f"this meter say a line carries that many"},
+            "placements": {"pool": ["end"],
+                           "words": [str(placement_word("end"))],
+                           "measure": "every member is bound at the end of "
+                                      "its line (owner's ruling 2026-10-04: "
+                                      "rhymes tie only line ends)"},
             "schemes": scheme_meta,
             "structures": struct_meta,
             "anacrusis": {fn: {"value": v, "chosen_from": ana_choices}
                           for fn, v in anacrusis.items()},
             "bars_per_line": bars,
             "subdivision": sub,
-            "density": {"binding_cap": binding_cap,
-                        "chosen_from": (f"uniform over 1..{_pool_ceiling} per "
-                                        f"PLAN (the line-binding ceiling), "
-                                        f"from a stream seeded on (seed, "
-                                        f"'density'); each line then draws "
-                                        f"its participation uniform over "
-                                        f"1..{binding_cap}, and the end-rhyme "
-                                        f"pass binds free line ends on top "
-                                        f"(M-191)")},
         },
         "total_lines": total,
         "sections": sections,

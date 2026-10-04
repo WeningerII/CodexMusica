@@ -118,8 +118,8 @@ request never executed. It must not trigger transparent resubmission.
 
 ## Capacity and identity
 
-The `/chat` store is bounded to 128 full payloads, 8192 receipt identifiers, 8 MiB per record
-and 256 MiB total. Connector sessions have their own store with limits sized for
+The `/chat` store is bounded to 128 full payloads, 8192 receipt identifiers, ~~8 MiB~~ 18 MiB per record
+(raised 2026-10-04 with the run record cap) and 256 MiB total. Connector sessions have their own store with limits sized for
 connector traffic (`SESSION_STORE_LIMITS` in `mcp/workflow_sessions.js`); the same
 retirement rules apply to it. To admit new requests within these limits, the oldest completed
 or interrupted payload can be retired early. Its small `retired` tombstone retains

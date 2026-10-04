@@ -106,8 +106,10 @@ const BUILD_IDENTITY_FIELDS = ['release_id', ...BUILD_HASH_FIELDS];
 if (args['require-recovery'] && !EXPECTED_COMMIT) {
   throw new Error('--require-recovery requires --commit for a pinned measurement');
 }
-const MAX_HTTP_RESPONSE_BYTES = 4 * 1024 * 1024; // deployed receipt's whole-record ceiling
-const MAX_REQUEST_BYTES = 2 * 1024 * 1024; // server_http express.json limit
+// ~~4 MiB~~ / ~~2 MiB~~ until 2026-10-04: both mirror deployed limits that rose
+// x2.25 with STATE_DECODED_BYTES (mcp/job_store.js, mcp/payload_limits.js).
+const MAX_HTTP_RESPONSE_BYTES = 9 * 1024 * 1024; // deployed receipt's response ceiling
+const MAX_REQUEST_BYTES = (4 * 1024 + 512) * 1024; // server_http express.json limit
 const JOURNAL_SEGMENT_BYTES = 8 * 1024 * 1024;
 const RECORDING_RESERVE_BYTES = 64 * 1024 * 1024;
 const NONSEGMENTED_RESERVE_BYTES = 16 * 1024 * 1024;

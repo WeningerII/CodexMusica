@@ -2,7 +2,7 @@
 
 Every finding code the harness can emit (from `quality/gate_census.py`). **Stops a song** says what can refuse on it: a flag fails grading and holds the line open in revise; `MANDATORY_PURSUE` (`quality/loop.py`) holds a line open on a note; `LENGTH_GATE_CODES` (`quality/floor.py`) blocks exit 0. Codes marked nothing are reported and stop nothing.
 
-Held open even as notes (`MANDATORY_PURSUE`): HOMEOTELEUTON, MODAL_RHYME, PREDICTABLE_RHYME, SHARED_SUFFIX.
+Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ruling).
 
 | code | severity | stops a song | emitted in |
 |---|---|---|---|
@@ -10,19 +10,15 @@ Held open even as notes (`MANDATORY_PURSUE`): HOMEOTELEUTON, MODAL_RHYME, PREDIC
 | BEAT_OUTSIDE_CYCLE | flag | severity flag | fit.py |
 | CLICHE_PAIR | flag | severity flag | floor.py |
 | FUNCTION_WORD_HEAVY | flag | severity flag | floor.py |
-| HOMEOTELEUTON | note | MANDATORY_PURSUE | revise.py |
 | HOOK_ABSENT | flag | severity flag | grid.py |
 | HOOK_DOES_NOT_RECUR | flag | severity flag | grid.py |
 | LEXICAL_MONOTONY | flag | severity flag | floor.py |
 | MATTR_WINDOW_UNCALIBRATED | note | LENGTH_GATE_CODES | floor.py |
-| MODAL_RHYME | note | MANDATORY_PURSUE | revise.py |
 | OUT_OF_CALIBRATED_LENGTH | note | LENGTH_GATE_CODES | floor.py |
 | OVERRUNS_SECTION | flag | severity flag | fit.py |
-| PREDICTABLE_RHYME | note | MANDATORY_PURSUE | floor.py |
 | REPEAT_IN_VERSE | flag | severity flag | floor.py |
 | RETURN_NOT_VERBATIM | flag | severity flag | revise.py |
 | SCHEME_VIOLATION | flag | severity flag | revise.py |
-| SHARED_SUFFIX | note | MANDATORY_PURSUE | floor.py |
 | SLOTS_EXCEEDED | flag | severity flag | fit.py |
 | STACKED_DRAFT | flag | severity flag | sentencehood.py |
 | START_BEFORE_SECTION | flag | severity flag | fit.py |
@@ -42,6 +38,7 @@ Held open even as notes (`MANDATORY_PURSUE`): HOMEOTELEUTON, MODAL_RHYME, PREDIC
 | FLOOR_LOCUS_SCOPE | note | — | revise.py |
 | GROUPS_DECLARED_RETURN | note | — | revise.py |
 | HEADS_EXCEED_UNITS | note | — | fit.py |
+| HOMEOTELEUTON | note | — | revise.py |
 | HOOK_CONFINED | note | — | grid.py |
 | LATE_ENTRY | note | — | fit.py |
 | LEXICAL_REPETITION_DECLARED | note | — | floor.py |
@@ -50,8 +47,10 @@ Held open even as notes (`MANDATORY_PURSUE`): HOMEOTELEUTON, MODAL_RHYME, PREDIC
 | MANDATE_NOT_INDEPENDENT | note | — | revise.py |
 | MANDATE_SCOPE_DECLARED | note | — | revise.py |
 | METER_LOCKED | note | — | grid.py |
+| MODAL_RHYME | note | — | revise.py |
 | OVERLAPPING_SPANS | note | — | fit.py |
 | PHRASE_LENGTH_LOCKED | note | — | grid.py |
+| PREDICTABLE_RHYME | note | — | floor.py |
 | PROMINENCE_CANNOT_ALIGN | note | — | fit.py |
 | PROMINENCE_EXCEEDS_HEADS | note | — | fit.py |
 | PROMINENCE_OFF_HEAD | note | — | fit.py |
@@ -72,6 +71,7 @@ Held open even as notes (`MANDATORY_PURSUE`): HOMEOTELEUTON, MODAL_RHYME, PREDIC
 | SECTION_NOT_ADJACENT | note | — | grid.py |
 | SECTION_NOT_AT_BOUNDARY | note | — | grid.py |
 | SECTION_REQUIREMENT_ABSENT | note | — | grid.py |
+| SHARED_SUFFIX | note | — | floor.py |
 | SINGLE_USE_RECURRED | note | — | grid.py |
 | SPARSE | note | — | fit.py |
 | STACKED_LINE | note | — | sentencehood.py |

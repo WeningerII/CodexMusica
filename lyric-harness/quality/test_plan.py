@@ -1881,8 +1881,9 @@ def test_the_form_is_read():
 
 
 def test_the_planner_plans_the_whole_line():
-    print("\n. the planner binds WHERE, not only at the ends — and draws "
-          "overlapping covers, which an RGS partition cannot express")
+    print("\n. ~~the planner binds WHERE, not only at the ends — and draws "
+          "overlapping covers~~ RESTATED 2026-10-04 (owner's ruling): the "
+          "planner ties rhymes ONLY to line ends, one binding a line")
     from collections import Counter
     import quality.schemes as SC
     places, part, overlap, sizes = Counter(), Counter(), 0, []
@@ -1924,12 +1925,12 @@ def test_the_planner_plans_the_whole_line():
           "planner emits is the spelling the declaration layer reads, which "
           "is the only shape that proves the coordinate crossed the seam",
           n > 0 and len(sizes) == n, f"{n} plans, {len(sizes)} mandates")
-    check("placements other than the line's end are DRAWN, not merely "
-          "declarable: the head, the whole end word, the head read as a "
-          "rhyme span, and indexed words all appear",
-          {"head", "endword", "headrime"} <= set(places)
-          and any(k.startswith("T") for k in places),
-          f"{dict(places.most_common(6))}")
+    # ~~placements other than the line's end are DRAWN: head, endword,
+    # headrime and indexed words all appear~~ — REPINNED 2026-10-04, owner's
+    # ruling: rhymes tie only line ends. Other placements stay DECLARABLE.
+    check("every drawn placement is the line's END — head, endword, headrime "
+          "and indexed words are declarable, never drawn",
+          set(places) == {"end"}, f"{dict(places.most_common(6))}")
     end_share = places["end"] / max(1, sum(places.values()))
     drawn_share = drawn["end"] / max(1, sum(drawn.values()))
     # REPINNED 2026-09-01 (`MISSING.md` M-191): this pin read the share over
@@ -1939,19 +1940,18 @@ def test_the_planner_plans_the_whole_line():
     # share of a smaller whole (measured 28.3% over these seeds) — and the
     # web draw, which is what this check is ABOUT, did not move. The two
     # are counted apart now (doctrine 79) and the pin is on the draw.
-    check("and `end` is ONE placement among them rather than the axis "
-          "everything is measured against — the WEB DRAW's own share is near "
-          "the uniform share of the pool, which is the correction stated as "
-          "a measure; the end-rhyme pass then binds free ends ON TOP and is "
-          "counted apart",
-          drawn_share < 0.25,
+    # ~~drawn_share < 0.25 (`end` is ONE placement among them)~~ — REPINNED
+    # 2026-10-04: the draw puts every member at the end (owner's ruling).
+    check("...so `end` is the whole of the draw, counted apart from the "
+          "end-rhyme pass's additions",
+          drawn_share == 1.0,
           f"web draw: end at {drawn_share:.1%} of its members; with the "
           f"end-rhyme pass's additions {end_share:.1%}, over {n} plans")
-    check("OVERLAPPING covers are reached by the DRAW. Doctrine 2 says "
-          "maximal cliques may overlap and the mandate layer has always "
-          "accepted them; the generator could not produce one, so that "
-          "class of song had probability exactly zero from the front door",
-          overlap > 0, f"{overlap}/{n} plans put some line in >1 group")
+    # ~~OVERLAPPING covers are reached by the DRAW (overlap > 0)~~ — REPINNED
+    # 2026-10-04: a line's end carries one binding, so a drawn plan puts no
+    # line in two groups; overlapping covers stay DECLARABLE (doctrine 2).
+    check("no drawn plan puts a line in two groups — one end, one binding",
+          overlap == 0, f"{overlap}/{n} plans put some line in >1 group")
     # REPOINTED 2026-08-29 (`MISSING.md` M-171), and the old pin is why it had
     # to be. It read `max(part) <= DENSITY floor` under a message ending "than
     # it has syllables" — but `<=` PERMITS EQUALITY, and equality is a line
@@ -1979,9 +1979,10 @@ def test_the_planner_plans_the_whole_line():
           "own grid can carry",
           not bound_full, f"participation {dict(sorted(part.items()))}; "
           f"fully bound lines {bound_full[:5]}")
-    check("...and it is not pinned at either extreme: lines carrying ONE "
-          "binding and lines carrying several are both ordinary",
-          part[1] > 0 and sum(v for k, v in part.items() if k >= 2) > 0,
+    # ~~lines carrying ONE binding and lines carrying several are both
+    # ordinary~~ — REPINNED 2026-10-04: a line carries none or one.
+    check("...and every line carries at most ONE binding, and most carry one",
+          part[1] > 0 and set(part) <= {0, 1},
           f"participation {dict(sorted(part.items()))}")
     # No rhyme-family ceiling (owner, 2026-09-28); a group size the writer
     # DECLARES is still honoured.
@@ -2141,50 +2142,35 @@ def test_the_joint_gate():
     # for.
     real_place = PLN._place_group
     blind_refused, blind_codes = 0, set()
-    blind_by_cap = {}
-    # THE CAP IS A PURE FUNCTION OF THE SEED (M-191: a stream of its own)
-    # and the mutation touches only `_place_group`, so the shipped plan's
-    # cap is the mutant's cap, refused or not.
-    caps = {k: make_plan(seed=k)["choices"]["density"]["binding_cap"]
-            for k in range(JOINT_SWEEP)}
     try:
         PLN._place_group = _place_group_keyed_on_the_name
         for k in range(JOINT_SWEEP):
             try:
                 make_plan(seed=k)
-                blind_by_cap.setdefault(caps[k], [0, 0])[1] += 1
             except PlanRefused as exc:
                 blind_refused += 1
-                blind_by_cap.setdefault(caps[k], [0, 0])[0] += 1
                 blind_codes |= {c for c in PLN.JOINT_CODES if c in str(exc)}
     finally:
         PLN._place_group = real_place
-    multi = [k for k in range(JOINT_SWEEP) if caps[k] >= 2]
-    multi_refused = sum(v[0] for c, v in blind_by_cap.items() if c >= 2)
-    single_refused = blind_by_cap.get(1, [0, 0])[0]
-    # REPINNED 2026-09-01 (`MISSING.md` M-191): this read `> JOINT_SWEEP //
-    # 2` over ALL seeds and measured 38/40 at M-80. Under the density cap a
-    # cap-1 line draws ONE web binding and has nothing to collide with, so
-    # the mutation's reach is a share of the seeds whose cap is 2 or more —
-    # measured 20 of 28, with 0 of the 12 cap-1 seeds — which is the cap
-    # working and not the gate sleeping. Pinned by cap, never summed.
-    check("keying the collision test on the placement NAME instead of the "
-          "WORD makes `make_plan` REFUSE most seeds whose lines draw MORE "
-          "THAN ONE web binding — so the repair is READ and the sweep's 0 "
-          "above is an answer, not a check that stopped checking",
-          multi and multi_refused * 2 > len(multi) and blind_refused > 0,
-          f"{blind_refused}/{JOINT_SWEEP} seeds refused when the word is "
-          f"spelled as a placement name: {multi_refused}/{len(multi)} of "
-          f"the seeds with cap >= 2, {single_refused}/"
-          f"{JOINT_SWEEP - len(multi)} with cap 1 (refused, planned by "
-          f"cap: {dict(sorted(blind_by_cap.items()))})")
-    check("...and NO cap-1 seed is refused by the mutation — one binding a "
-          "line cannot meet another, which is what the density coordinate's "
-          "cap of 1 says a line draws",
-          single_refused == 0, f"cap-1 refused {single_refused}")
-    check("...and the cause it names is the collision, not something the "
-          "mutation broke sideways",
-          blind_codes == {"TWO_GROUPS_ONE_WORD"}, f"{sorted(blind_codes)}")
+    # ~~keying the collision test on the placement NAME instead of the WORD
+    # makes `make_plan` REFUSE most seeds whose lines draw MORE THAN ONE web
+    # binding (measured 20 of 28 cap>=2 seeds, 0 of 12 cap-1)~~ — REPINNED
+    # 2026-10-04 (owner's ruling: rhymes tie only line ends). The web draw
+    # and its density cap are gone, so a line carries at most ONE binding
+    # and two groups cannot meet on it whatever the collision test is keyed
+    # on. MEASURED: the name-keyed mutant refuses 0 of 40. The gate itself
+    # is still shown READ by the planted-finding refusal above.
+    check("with rhymes only at line ends no two groups can meet on a line, "
+          "so even the name-keyed collision test refuses nothing — the 0 "
+          "above is structural, and the planted finding shows the gate "
+          "still refuses",
+          blind_refused == 0 and refused is not None,
+          f"{blind_refused}/{JOINT_SWEEP} seeds refused by the mutant "
+          f"({sorted(blind_codes)})")
+    # ~~...and NO cap-1 seed is refused by the mutation~~ and ~~...the cause
+    # it names is the collision~~ — REMOVED 2026-10-04 with the density cap:
+    # every line now draws one binding, so the mutant refuses no seed and
+    # names no cause (pinned just above).
     check("...and the restoration held: the clean sweep is clean again",
           all(PLN.joint_findings(make_plan(seed=k)) == []
               for k in range(4)))
@@ -2265,11 +2251,14 @@ def test_the_seed_sweep_is_a_verb():
     # whole time with no predicate able to name them. Thirteen names before,
     # sixteen after, and the derived count moves with the base one.
     _base = sorted(m for m in PLN.SWEEP_MEASURES if "." not in m)
+    # REPINNED 2026-10-04: ~~"binding_cap"~~ left with the density draw
+    # (owner's ruling: rhymes tie only line ends), 16 names -> 15.
     check("the BASE measure table is pinned by name — the three scheme "
-          "coordinates took it from 13 names to 16 (`MISSING.md` I-2) — and "
+          "coordinates took it from 13 names to 16 (`MISSING.md` I-2), and "
+          "`binding_cap`'s removal to 15 — and "
           "the derived names are exactly three per roster function",
           _base == ["adjacencies", "bars_per_line", "beats_per_line",
-                    "binding_cap", "bound_words_per_line", "crossings",
+                    "bound_words_per_line", "crossings",
                     "group", "hook", "lines", "lines_per_section",
                     "n_sounds", "pins_per_line", "returns", "sections",
                     "slots_per_line", "story_lineups"]
@@ -3102,7 +3091,9 @@ def test_the_end_rhyme_pass_is_additive(FAILURES=None):
           "own declared `rgs` names, and every one of them reaches the "
           "emitted plan — it re-realises a scheme the plan already drew, "
           "invents no grouping, and drops none of what it claims",
-          all_added > 0 and mirrored == all_added,
+          # ~~all_added > 0~~ — REPINNED 2026-10-04: every drawn member is
+          # bound at its end already (owner's ruling), so the pass adds 0.
+          all_added == 0 and mirrored == all_added,
           f"{mirrored} of {all_added} added group(s) mirror a declared "
           f"block AND appear in `groups`")
     check("NO line has its end bound twice — the collision "
@@ -3125,9 +3116,11 @@ def test_the_end_rhyme_pass_is_additive(FAILURES=None):
           "and puts 26 lines over, so this assertion IS the enforcement",
           not over_ceiling,
           f"ceiling {ceiling}, over: {over_ceiling[:3]}")
+    # ~~added_n > 0~~ — REPINNED 2026-10-04: nothing is left for the pass to
+    # add once the planner binds every member at its end (owner's ruling).
     check("THREE COUNTS, NEVER SUMMED (doctrine 79): added / blocked / "
-          "narrow, and all three are populated so none is decorative",
-          added_n > 0 and blocked_n > 0 and narrow_n >= 0,
+          "narrow, kept apart; added is 0 since every end is already bound",
+          added_n == 0 and blocked_n > 0 and narrow_n >= 0,
           f"added {added_n}, blocked {blocked_n}, narrow {narrow_n}")
     # THE LIFT, STATED AS A RATE (doctrine 22). This is the owner's own
     # complaint measured: "the word(s) at the end of a line are at a 1 in 8
@@ -3835,51 +3828,26 @@ def test_the_delegated_rulings(FAILURES=None):
           f"moved {len(moved)}, same {len(SEEDS) - len(moved)}; "
           f"moved == once-drawn: {set(moved) == set(m_once)}")
 
-    # ── M-191: the plan draws its own density cap ──
-    caps = Counter(p["choices"]["density"]["binding_cap"]
-                   for p in plans.values())
-    ceilings = {k: _PL.line_binding_ceiling(_PL.plan_max_token(p))
-                for k, p in plans.items()}
-    check("M-191: every plan discloses a DENSITY cap, drawn uniform over "
-          "1..the line-binding ceiling — 1 is the classic end-rhyme song "
-          "with one web binding a line, the ceiling is the pre-ruling draw",
-          all(1 <= p["choices"]["density"]["binding_cap"] <= ceilings[k]
-              for k, p in plans.items())
-          and 1 in caps and len(caps) >= 3,
-          f"cap distribution over 1-40: {dict(sorted(caps.items()))}; "
-          f"ceilings {sorted(set(ceilings.values()))}")
-    check("...from a stream of its OWN, seeded on (seed, 'density'), so the "
-          "main stream is undisturbed and the cap is a pure function of the "
-          "seed",
-          all(p["choices"]["density"]["binding_cap"]
-              == random.Random(f"{k}:density").randint(1, ceilings[k])
-              for k, p in plans.items()))
+    # ── M-191: ~~the plan draws its own density cap~~ ──
+    # SUPERSEDED 2026-10-04 (owner's ruling: rhymes tie only line ends). The
+    # density cap, its own random stream and the `binding_cap` measure were
+    # removed with the web draw they capped; the checks that pinned them
+    # (cap in 1..ceiling, a pure function of `{seed}:density`, the SPARSE
+    # band reachable, the cap moving the mean, the sweep asking for it) are
+    # replaced by the one fact left: every bound word is a line's last.
+    check("M-191 SUPERSEDED: no plan discloses a DENSITY cap and the sweep "
+          "has no `binding_cap` measure",
+          all("density" not in p["choices"] for p in plans.values())
+          and "binding_cap" not in _PL.SWEEP_MEASURES)
     bwpl = {k: _PL.SWEEP_MEASURES["bound_words_per_line"][1](p)
             for k, p in plans.items()}
-    sparse = [k for k, v in bwpl.items() if v <= 1.5]
-    check("...and the SPARSE band M-181's five songs occupy (M-181, wording struck M-238: "
-          "<= 1.5 bound words a line) is REACHABLE — `plan --sweep=1-100 "
-          "--want=bound_words_per_line<=1.5` accepted 0 of 99 before the "
-          "ruling and 26 after",
-          len(sparse) > 0, f"{len(sparse)} of 40 seeds at <= 1.5: "
-          f"{sparse[:8]}")
-    by_cap = {}
-    for k, p in plans.items():
-        by_cap.setdefault(p["choices"]["density"]["binding_cap"], []).append(bwpl[k])
-    means = {c: sum(v) / len(v) for c, v in by_cap.items()}
-    check("...the cap MOVES the density it names: mean bound words a line "
-          "is lower at cap 1 than at the ceiling (measured 1.23 / 1.61 / "
-          "1.93 / 2.22 at caps 1-4 over seeds 1-100)",
-          means[min(means)] < means[max(means)],
-          f"mean bound_words_per_line by cap: "
-          f"{ {c: round(m, 2) for c, m in sorted(means.items())} }")
-    check("...and the sweep can ASK for it by name — `binding_cap` reads the "
-          "plan's own coordinate, so a writer selects the classic shape by "
-          "declaring it rather than by re-rolling",
-          all(_PL.SWEEP_MEASURES["binding_cap"][1](p)
-              == p["choices"]["density"]["binding_cap"]
+    check("...every group binds its members at the END of the line, so no "
+          "line carries more than one bound word (the SPARSE band M-181's "
+          "five songs occupy is now every plan)",
+          all(p["choices"]["placements"]["pool"] == ["end"]
               for p in plans.values())
-          and "binding_cap" in _PL.SWEEP_MEASURES)
+          and all(v <= 1 for v in bwpl.values()),
+          f"max bound words a line over 1-40: {max(bwpl.values()):.2f}")
 
     # ── M-192: three disclosures ──
     aud = {n: RL.audible_as_end_rhyme(RL.REGISTRY[n])
@@ -3901,14 +3869,17 @@ def test_the_delegated_rulings(FAILURES=None):
     # words and reported per pair (`relations.audible_relations`).
     m120_eb = sum(p["choices"]["audible"]["end_bound"] for p in plans.values())
     m120_bare = sum(p["choices"]["audible"]["bare"] for p in plans.values())
+    # REPINNED 2026-10-04: ~~1314~~ -> 2293 end-bound groups. The planner
+    # binds every member at its line's end now (owner's ruling), so every
+    # drawn scheme group is end-bound; the claim is unchanged.
     # REPINNED 2026-09-28: ~~156~~ -> 1314 end-bound groups. The 31-line cap
     # that held every plan to 12..31 lines is deleted (owner ruling), so
     # seeds 1-40 draw their full lengths and carry more groups; the claim —
     # every one of them bare — is unchanged.
     check("M-120 superseded: over seeds 1-40 every END-BOUND group is bare "
-          "(judged against every relation) — 1314 end-bound groups, 1314 "
+          "(judged against every relation) — 2293 end-bound groups, 2293 "
           "bare, none carries an audible or inaudible drawn schema",
-          m120_eb == m120_bare == 1314
+          m120_eb == m120_bare == 2293
           and not any(p["choices"]["audible"]["inaudible"]
                       or p["choices"]["audible"]["audible"]
                       for p in plans.values())
@@ -4158,11 +4129,12 @@ def test_the_published_vocabulary_names_no_ticket():
           "three dicts the WANT line reads",
           not leaks, f"{len(_published)} glosses, {len(leaks)} leak(s): {leaks}")
     # NON-VACUOUS BY CONSTRUCTION: the check above passes on an EMPTY dict
-    # too, so the population is asserted. 78 today (76 + 1 + 1); pinned as a
+    # too, so the population is asserted. ~~78~~ 77 since 2026-10-04, when
+    # `binding_cap` left with the density draw; pinned as a
     # floor rather than an equality, because a new coordinate is a question
     # for a person and not a merge conflict.
     check("the gate examined the whole published vocabulary",
-          len(_published) >= 78, f"{len(_published)} glosses examined")
+          len(_published) >= 77, f"{len(_published)} glosses examined")
     # THE GATE IS OVER THE PUBLISHED SURFACE AND NOT OVER THE FILE: the
     # comments in `plan.py` cite tickets on purpose (doctrine 17 keeps a
     # superseded value visible), and a check over the source text would
