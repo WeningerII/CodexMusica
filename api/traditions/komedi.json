@@ -5,7 +5,7 @@
   "lineage": "Swedish-language comedy — stand-up, sketches and comic performance.",
   "recipe": "classic komedi, spoken Word. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 127,
-  "score": 0.936,
+  "score": 0.904,
   "config": {
     "traditions": [
       "komedi"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.357,
+          "voice_speech_song": 0.3884999999999999,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.15749999999999997,
+          "voice_multitrack_stack": 0.09449999999999999,
           "voice_tessitura": 0
         }
       }

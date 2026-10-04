@@ -2,10 +2,10 @@
   "id": "latvian_pop",
   "name": "Latvian pop",
   "family": "vernacular",
-  "lineage": "Elizabete Balčus — CONARIUM (2016), voice/flute core of Latvian art pop. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic mid-2010s latvian pop, functional Song. single lead single track no stacking. flute. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 184,
-  "score": 2.922,
+  "lineage": "Latvian pop encompasses contemporary songwriters and performing artists working across melodic popular styles. Riga’s Elizabete Balčus represents an adventurous art-pop branch joining songwriting with electro-acoustic experimentation.",
+  "recipe": "classic latvian pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. flute. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 4.666,
   "config": {
     "traditions": [
       "latvian_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 2.08,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },

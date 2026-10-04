@@ -5,7 +5,7 @@
   "lineage": "Swedish children's storytelling includes author readings, narrated audiobooks and dramatized adaptations.",
   "recipe": "classic barnsagor, spoken Word, narration branch. conversational. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 164,
-  "score": 1.874,
+  "score": 1.401,
   "config": {
     "traditions": [
       "barnsagor"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0.8310000000000002,
+          "voice_quality": 0.558,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.2535,
+          "voice_ensemble_config": 0.222,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.2625,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       }

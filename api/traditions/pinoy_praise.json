@@ -5,7 +5,7 @@
   "lineage": "Pinoy praise encompasses Philippine Christian praise repertoires and performance communities across languages and denominations. Tagalog and English songs circulate through Catholic and evangelical ministries, choirs and popular recordings.",
   "recipe": "classic pinoy praise, ritual Devotional. human voice ensemble unspecified. shoebox concert hall.",
   "recipe_chars": 96,
-  "score": 0.472,
+  "score": 0.546,
   "config": {
     "traditions": [
       "pinoy_praise"
@@ -46,7 +46,7 @@
           "voice_speech_song": 0.4095,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.1365,
           "human_voice_ensemble_source_status": 0,
           "human_voice_tracking_source_status": 0,
           "voice_tessitura": 0

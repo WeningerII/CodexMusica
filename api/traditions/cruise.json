@@ -2,10 +2,10 @@
   "id": "cruise",
   "name": "Cruise",
   "family": "electronic",
-  "lineage": "DJ Tobzy Imole Giwa — CRUISE BEAT (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s cruise, electronic Dance, African dance branch. sampler, digital subtractive, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 218,
-  "score": 16.019,
+  "lineage": "Cruise, also called freebeat, developed within Lagos’s online dance and DJ culture. Producers such as DJ Tobzy Imole Giwa combine West African popular music with fragments of other club styles, circulating tracks through social platforms and local performance spaces.",
+  "recipe": "classic cruise, electronic Dance, African dance branch. sampler, digital subtractive, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 7.804,
   "config": {
     "traditions": [
       "cruise"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.3,
-          "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 8.059999999999999
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": -0.035,
+          "sampler_classic_context": 3.6399999999999997
         }
       },
       {
@@ -37,8 +37,8 @@
         },
         "scores": {
           "electronic_technique": -0.05,
-          "va_archetypes": 0.39,
-          "digital_subtractive_context": 4.939999999999999
+          "va_archetypes": 0.3045,
+          "digital_subtractive_context": 3.3799999999999994
         }
       },
       {
@@ -51,7 +51,7 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sample_bitdepth": 0.3,
+          "sample_bitdepth": 0,
           "sample_swing": 0,
           "sample_processing": 0.0945
         }

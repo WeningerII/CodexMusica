@@ -5,7 +5,7 @@
   "lineage": "Musica per bambini connects Italian children’s musical publishing and performance, including songs, lullabies, choral repertoire and narrated musical stories. Educational and cultural institutions bring these forms to different ages and listening settings.",
   "recipe": "classic musica per bambini, spoken Word, narration branch. upright piano. live tracking.",
   "recipe_chars": 88,
-  "score": 1.353,
+  "score": 1.143,
   "config": {
     "traditions": [
       "musica_per_bambini"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.29400000000000004,
+          "voice_speech_song": 0.2205,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.231,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "upright_use": 0.3045,
+          "upright_use": 0.33599999999999997,
           "upright_piano_size": 0.0315
         }
       }

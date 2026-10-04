@@ -5,7 +5,7 @@
   "lineage": "Vocaloid metal joins synthesized singing with heavy guitar-based composition and production. Producers use virtual singers in arrangements that connect metal and hard-rock sounds with online Vocaloid culture.",
   "recipe": "classic vocaloid metal, distorted Rock. software singing synthesis, distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 236,
-  "score": 37.746,
+  "score": 37.497,
   "config": {
     "traditions": [
       "vocaloid_metal"
@@ -42,7 +42,7 @@
         "scores": {
           "electric_technique": 10.9375,
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -69,8 +69,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "pickup_config": 0.063,
+          "body_wood": 0,
+          "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -99,11 +99,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 8.649999999999999,
-          "cymbal_lathing": 8.681499999999998,
+          "cymbal_lathing": 8.649999999999999,
           "cymbal_finish": 0
         }
       }

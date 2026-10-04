@@ -2,10 +2,10 @@
   "id": "australian_experimental",
   "name": "Australian experimental",
   "family": "electronic",
-  "lineage": "Australian experimental: Modular Theme Time Sessions — Quantum Burst (2025). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic mid-2020s australian experimental, experimental Elec. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 252,
-  "score": 13.898,
+  "lineage": "Australian experimental music includes collaborative electronic practices built around shared processes and unconventional sound-making. Melbourne’s Modular Theme Time community brings artists together for live sessions and exchanges of recorded material across Australia and New Zealand.",
+  "recipe": "classic australian experimental, experimental Elec. evolving modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 182,
+  "score": 11.183,
   "config": {
     "traditions": [
       "australian_experimental"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 12.156999999999996,
+          "electronic_technique": 10.656999999999998,
           "mod_voltage_source": 0.1365,
-          "mod_patch_density": 0.3045,
-          "mod_lineage": 1.3
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0
         }
       }
     ],
@@ -31,6 +31,7 @@
       "modular_synth": [
         "electronic_technique",
         "mod_voltage_source",
+        "mod_patch_density",
         "mod_lineage"
       ]
     },
@@ -44,18 +45,17 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "electronic_technique": "electronic_modular_patch",
       "mod_lineage": "mod_doepfer_eurorack",
-      "mod_voltage_source": "mod_random"
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

@@ -2,10 +2,10 @@
   "id": "cyberpunk",
   "name": "Cyberpunk",
   "family": "vernacular",
-  "lineage": "Gustavo Jobim — Nova! (2026), synthesizer/sampler core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s cyberpunk, experimental Elec. digital subtractive, analog mono synth, glitched textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 213,
-  "score": 11.25,
+  "lineage": "Cyberpunk music draws on technological and dystopian imagery across electronic composition, game-inspired work and darker synthesizer music. Artists such as Gustavo Jobim use electronic instruments to evoke imagined urban environments and narratives.",
+  "recipe": "classic cyberpunk, experimental Elec. digital subtractive, analog mono synth, glitched textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 10.785,
   "config": {
     "traditions": [
       "cyberpunk"
@@ -19,9 +19,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.7314999999999999,
+          "electronic_technique": 0.2315,
           "va_archetypes": 0,
-          "digital_subtractive_context": 4.159999999999999
+          "digital_subtractive_context": 5.459999999999999
         }
       },
       {
@@ -34,10 +34,10 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 0.7314999999999999,
-          "mono_oscillator": 0.39,
-          "mono_filter": 0.39,
-          "mono_archetypes": 0.105,
+          "electronic_technique": 0.2315,
+          "mono_oscillator": 0.105,
+          "mono_filter": 0.21,
+          "mono_archetypes": 0.39,
           "mono_maker_lineage": -0.035
         }
       },
@@ -52,9 +52,9 @@
         },
         "scores": {
           "electronic_technique": 3.7315,
-          "sampler_archetypes": 0.39,
+          "sampler_archetypes": 0.105,
           "sampler_bit_depth": -0.05,
-          "sampler_workflow": 0.2,
+          "sampler_workflow": -0.1,
           "sampler_classic_context": 0.5055
         }
       }

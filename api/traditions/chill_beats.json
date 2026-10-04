@@ -2,10 +2,10 @@
   "id": "chill_beats",
   "name": "Chill beats",
   "family": "electronic",
-  "lineage": "Mujo情 — Yutori (2024), instrumental sampler beat core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic mid-2020s chill beats, experimental Elec, lofi branch. sampler. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 163,
-  "score": 4.52,
+  "lineage": "Chill beats connects instrumental hip-hop beatmaking with relaxed listening and jazz-colored samples. Producers such as Mujo circulate compact beat tapes through independent online platforms.",
+  "recipe": "classic chill beats, experimental Elec, lofi branch. chopped sampler. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 161,
+  "score": 10.715,
   "config": {
     "traditions": [
       "chill_beats"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "sampler_archetypes": 1.7915,
+          "electronic_technique": 1.981,
+          "sampler_archetypes": 2.7415,
           "sampler_bit_depth": 0.16799999999999998,
-          "sampler_workflow": -0.10500000000000001,
-          "sampler_classic_context": 2.4050000000000002
+          "sampler_workflow": 1.7945,
+          "sampler_classic_context": 4.03
         }
       }
     ],

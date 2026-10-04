@@ -5,7 +5,7 @@
   "lineage": "Disco-informed deep-house intersection represented by COEO and the Toy Tonics network: sample-based funk, soul and disco material joins a rounded bass pocket and chordal accompaniment. This selected strand uses the deeper harmonic groove rather than requiring the heavy filter-sweep arrangement of the broad disco-house record.",
   "recipe": "classic modern deep disco house, electronic Dance, deep house branch, soul R&B functional song british soul detroit house. sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, chordal centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, drum machine analog. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter phaser.",
   "recipe_chars": 483,
-  "score": 149.86,
+  "score": 148.442,
   "config": {
     "traditions": [
       "deep_disco_house",
@@ -43,11 +43,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 23.498374999999996,
+          "amp_make": 23.418874999999996,
           "body_wood": 1.04,
-          "pickup_config": 0.3765,
-          "string_type": 26.173374999999993,
-          "scale_length_b": 1.04,
+          "pickup_config": 0.3315,
+          "string_type": 25.718874999999993,
+          "scale_length_b": 1.0295,
           "fretted_or_not": 0.15,
           "bass_technique": 23.282125,
           "electric_bass_string_configuration": 0
@@ -65,9 +65,9 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "rhodes_model": 3.6925,
-          "rhodes_use": 2.6175,
-          "rhodes_tine_material": 0.2025,
+          "rhodes_model": 3.328,
+          "rhodes_use": 2.253,
+          "rhodes_tine_material": 0.153,
           "rhodes_hammer_tip": -0.2799999999999999,
           "rhodes_pickup_position": 1.2349999999999999
         }
@@ -84,7 +84,7 @@
           "kick_voice": 6.694999999999999,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0.0495
+          "shuffle_quantize": 0
         }
       }
     ],

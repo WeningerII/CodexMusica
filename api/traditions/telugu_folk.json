@@ -2,10 +2,10 @@
   "id": "telugu_folk",
   "name": "Telugu folk",
   "family": "vernacular",
-  "lineage": "Telugu folk is represented by Chowraasta — Maya (2019 original). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic late-2010s telugu folk, functional Song, folk rock branch. marshall plexi amp British rock amp basswood alnico soft down tuning humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 405,
-  "score": 71.337,
+  "lineage": "Telugu folk music comprises orally transmitted songs and regional performance traditions associated with Telugu-speaking communities. Contemporary musicians also bring folk melodies and vernacular expression into amplified popular music, including reggae-influenced and band-based arrangements.",
+  "recipe": "classic telugu folk, functional Song, folk rock branch. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 376,
+  "score": 65.903,
   "config": {
     "traditions": [
       "telugu_folk"
@@ -57,32 +57,32 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.7,
+          "electric_technique": 6,
           "amp_make": 3.7700000000000005,
-          "body_wood": 1.69,
+          "body_wood": 0.39,
           "neck_wood": 0.231,
           "fretboard": 0.0945,
-          "pickup_magnet": 1.5902500000000002,
-          "pickup_winding": 1.5902500000000002,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.39,
           "string_material": 0.126,
-          "bridge": 1.69,
-          "scale_length": 1.69,
-          "string_gauge": 1.69,
+          "bridge": 1.0530000000000002,
+          "scale_length": 0.46199999999999997,
+          "string_gauge": 0.9900000000000002,
           "finish": 0,
-          "string_tuning": 5.59
+          "string_tuning": 3.9
         }
       },
       {
@@ -98,12 +98,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.835,
+          "amp_make": 4.225,
           "body_wood": 0.46199999999999997,
-          "pickup_config": 1.5902500000000002,
+          "pickup_config": 0.39,
           "string_type": 9.75,
-          "scale_length_b": 1.69,
-          "fretted_or_not": 0.07425,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.37424999999999997,
           "bass_technique": 7.4815000000000005,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 7.5,
-          "drumhead": 7,
+          "drumhead": 6,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,9 +130,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 3.83725,
+          "electronic_technique": 5.637250000000001,
           "poly_archetypes": 3.9,
-          "poly_voices": 0.39,
+          "poly_voices": 1.62175,
           "poly_maker_lineage": -0.035
         }
       }

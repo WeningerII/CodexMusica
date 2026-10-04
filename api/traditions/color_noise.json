@@ -2,10 +2,10 @@
   "id": "color_noise",
   "name": "Color Noise",
   "family": "electronic",
-  "lineage": "bodhaia — 1 hour sleepy noise (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2020s color noise, experimental Elec, ambient branch. sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 183,
-  "score": 4.717,
+  "lineage": "Color noise organizes sound around broad noise spectra rather than conventional melodies. Different spectral balances and layered noise textures form sustained listening environments.",
+  "recipe": "classic color noise, experimental Elec, ambient branch. layered sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 181,
+  "score": 9.019,
   "config": {
     "traditions": [
       "color_noise"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 3.981,
+          "electronic_technique": 5.981,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.4515,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 0.39
+          "sampler_workflow": 0.9314999999999999,
+          "sampler_classic_context": 1.69
         }
       }
     ],
@@ -48,13 +48,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "electronic_technique": "electronic_sustained_layering",

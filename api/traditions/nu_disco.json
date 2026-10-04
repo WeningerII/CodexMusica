@@ -5,7 +5,7 @@
   "lineage": "European and American dance-production style consolidating in the mid-2000s from the Norwegian space-disco scene (Lindstrøm, Prins Thomas, Todd Terje) and French filter-house lineage, codified through labels Permanent Vacation, Eskimo and Feedelity — 100-120 BPM four-on-the-floor with live-feel or sampled disco drums, chorused electric-bass or synth-bass octave lines, Rhodes and string-machine chord pads, long linear arrangements with slow filter and delay builds, and mostly instrumental or lightly-sung vocal treatment.",
   "recipe": "classic 2004-2006 nu disco, electronic Dance, house branch, deep house house, italo house house, pop rock yacht rock. thick, chest mix belt, straight onset, interlocked note trading. TR-909, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, mark 7 modern tine post 2007 reissue neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, string machine, singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 831,
-  "score": 375.912,
+  "score": 374.472,
   "config": {
     "traditions": [
       "nu_disco",
@@ -39,9 +39,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.459999999999999,
+          "amp_make": 8.564999999999998,
           "body_wood": 2.64,
-          "pickup_config": 0.49499999999999994,
+          "pickup_config": 0.44999999999999996,
           "string_type": 13.874999999999998,
           "scale_length_b": 3.6849999999999996,
           "fretted_or_not": 0,
@@ -60,9 +60,9 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 7.924999999999998,
-          "rhodes_model": 5.285,
-          "rhodes_use": 5.84,
+          "keyboard_technique": 7.879999999999998,
+          "rhodes_model": 5.24,
+          "rhodes_use": 5.795,
           "rhodes_tine_material": 1.04,
           "rhodes_hammer_tip": 3.2800000000000002,
           "rhodes_pickup_position": 1.7349999999999999
@@ -92,10 +92,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 6.579999999999999,
+          "electronic_technique": 6.534999999999999,
           "poly_archetypes": 5.894999999999999,
           "poly_voices": 0.45499999999999996,
-          "poly_maker_lineage": -0.3150000000000001
+          "poly_maker_lineage": -0.3600000000000001
         }
       },
       {
@@ -117,7 +117,7 @@
         },
         "scores": {
           "electric_technique": 6.374999999999998,
-          "amp_make": 5.845,
+          "amp_make": 5.8,
           "body_wood": 2.49,
           "neck_wood": 2.49,
           "fretboard": 2.4400000000000004,
@@ -127,7 +127,7 @@
           "bridge": 0.345,
           "scale_length": 2.58,
           "finish": 0.045,
-          "string_tuning": 8.004999999999999,
+          "string_tuning": 8.11,
           "single_coil_pickup_construction": 0
         }
       },
@@ -152,11 +152,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 23.63999999999999,
-          "voice_quality": 9.434999999999999,
+          "voice_register": 23.59499999999999,
+          "voice_quality": 9.389999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.795,
+          "voice_vibrato": 5.6,
           "voice_articulation": 15.794999999999993,
           "voice_microtone": 22.519999999999996,
           "voice_tradition": 8.384999999999998,
@@ -165,9 +165,9 @@
           "voice_speech_song": 17.874999999999993,
           "voice_ensemble_config": 18.32999999999999,
           "voice_ornament_system": 2.6500000000000004,
-          "voice_pitch_organization": 3.4000000000000004,
+          "voice_pitch_organization": 2.815,
           "voice_processing_chain": 19.325,
-          "voice_multitrack_stack": 16.044999999999998
+          "voice_multitrack_stack": 15.849999999999998
         }
       },
       {
@@ -184,7 +184,7 @@
           "sampler_archetypes": 0.75,
           "sampler_bit_depth": 3.0400000000000005,
           "sampler_workflow": 0.325,
-          "sampler_classic_context": 44.935
+          "sampler_classic_context": 44.665
         }
       }
     ],

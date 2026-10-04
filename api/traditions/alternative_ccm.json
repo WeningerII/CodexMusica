@@ -5,7 +5,7 @@
   "lineage": "Alternative CCM connects contemporary Christian music audiences with alternative rock. Bands such as San Diego’s Switchfoot developed a following across both markets, bringing spiritually engaged songwriting into guitar-led rock performance.",
   "recipe": "classic alternative ccm, distorted Rock, alternative branch. equal tempered, notated speech melody, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, digital subtractive, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 454,
-  "score": 57.716,
+  "score": 57.224,
   "config": {
     "traditions": [
       "alternative_ccm"
@@ -39,7 +39,7 @@
           "voice_effort": 0,
           "voice_vibrato": 0.4724999999999999,
           "voice_articulation": 0,
-          "voice_microtone": 8.859999999999996,
+          "voice_microtone": 8.499999999999996,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.5999999999999999,
+          "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
       },
@@ -63,9 +63,9 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
@@ -76,11 +76,11 @@
           "neck_wood": 0.441,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.768,
+          "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.453,
+          "bridge": 0.441,
           "scale_length": 1.743,
-          "string_gauge": 0.45299999999999996,
+          "string_gauge": 0.441,
           "finish": 0,
           "string_tuning": 4.55
         }

@@ -5,7 +5,7 @@
   "lineage": "Handpan music centers on hand-played tuned steel shells, developing from the Hang and related contemporary instruments. Solo improvisation, composition and ensemble collaboration circulate through maker communities, recordings and live performance.",
   "recipe": "classic handpan, improv On Frame. handpan. live tracking.",
   "recipe_chars": 57,
-  "score": 1.468,
+  "score": 1.437,
   "config": {
     "traditions": [
       "handpan"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "handpan_scale": 1.3,
-          "handpan_maker": 0.168
+          "handpan_maker": 0.1365
         }
       }
     ],

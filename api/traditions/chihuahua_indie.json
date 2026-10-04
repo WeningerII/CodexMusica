@@ -2,10 +2,10 @@
   "id": "chihuahua_indie",
   "name": "Chihuahua indie",
   "family": "vernacular",
-  "lineage": "Dromedarios Mágicos — Diego Puerta’s early acoustic guitar and vocal core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic chihuahua indie, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dreadnought acoustic guitar. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 268,
-  "score": 4.442,
+  "lineage": "Chihuahua’s independent songwriting includes the bedroom-folk beginnings of Dromedarios Mágicos. Diego Puerta’s intimate guitar-led songs developed from the mid-2010s toward a wider range of collaborative and band settings.",
+  "recipe": "classic 2014-2016 chihuahua indie, functional Song. solo with instrumental accompaniment, single lead single track no stacking. dreadnought acoustic guitar. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 2.298,
   "config": {
     "traditions": [
       "chihuahua_indie"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.068,
-          "voice_multitrack_stack": 1.69,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },

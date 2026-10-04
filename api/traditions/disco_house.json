@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s house subgenre built in Chicago, New York and Paris from looped and filtered 1970s disco records, codified by Daft Punk, DJ Sneak, Armand Van Helden and Basement Jaxx circa 1995-2000 — 118-128 BPM four-on-the-floor with 909 kick and open hat on the upbeat, a chopped string or guitar loop swept through a resonant low-pass filter, sidechained pumping on every bar, and clipped diva vocal snippets used as rhythmic hooks rather than sung verses",
   "recipe": "classic mid-1990s disco house, electronic Dance, house branch, deep house house, chicago house house, garage house u s house ballroom. thick, breath veiled tone, slow rate, interlocked note trading. turntable, looped layered sampler, TR-909, ampeg b15 amp American 60s bass amp flip top character mahogany electric bass, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 543,
-  "score": 310.475,
+  "score": 306.425,
   "config": {
     "traditions": [
       "disco_house",
@@ -20,7 +20,7 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 2.4400000000000004,
+          "electronic_technique": 2.29,
           "turntable_technique": 0.995
         }
       },
@@ -34,11 +34,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.4400000000000004,
+          "electronic_technique": 2.29,
           "sampler_archetypes": 0.78,
-          "sampler_bit_depth": 2.8600000000000003,
-          "sampler_workflow": 1.64,
-          "sampler_classic_context": 62.43000000000001
+          "sampler_bit_depth": 2.74,
+          "sampler_workflow": 1.535,
+          "sampler_classic_context": 60.99
         }
       },
       {
@@ -50,8 +50,8 @@
         },
         "scores": {
           "tr909_voice": 34.44500000000001,
-          "drum_machine_909_context": 7.540000000000001,
-          "tr909_production_origin": 0.78
+          "drum_machine_909_context": 6.835000000000001,
+          "tr909_production_origin": 0.6
         }
       },
       {
@@ -68,10 +68,10 @@
         },
         "scores": {
           "amp_make": 3.9000000000000012,
-          "body_wood": 3.9299999999999997,
-          "pickup_config": 0.49499999999999994,
-          "string_type": 3.735,
-          "scale_length_b": 3.585,
+          "body_wood": 3.63,
+          "pickup_config": 0.44999999999999996,
+          "string_type": 3.585,
+          "scale_length_b": 3.4349999999999996,
           "fretted_or_not": 0,
           "bass_technique": 2.45,
           "electric_bass_string_configuration": 0
@@ -89,7 +89,7 @@
           "electronic_technique": 1.2999999999999998,
           "poly_archetypes": 0.345,
           "poly_voices": 0.345,
-          "poly_maker_lineage": -1.4649999999999999
+          "poly_maker_lineage": -1.555
         }
       },
       {
@@ -120,7 +120,7 @@
           "voice_vibrato": 4.225,
           "voice_articulation": 20.604999999999997,
           "voice_microtone": 20.214999999999996,
-          "voice_tradition": 9.045000000000002,
+          "voice_tradition": 8.580000000000002,
           "voice_mechanism_compound": 2.08,
           "voice_estill_quality": 3.9750000000000005,
           "voice_speech_song": 21.384999999999998,

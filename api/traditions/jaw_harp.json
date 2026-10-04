@@ -5,7 +5,7 @@
   "lineage": "Jaw-harp traditions shape a vibrating tongue through the performer’s oral resonator. Hungarian doromb playing is one regional branch within this widespread family of musical practices.",
   "recipe": "classic jaw harp, drone Modal. doromb hungarian. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 153,
-  "score": 1.026,
+  "score": 1.093,
   "config": {
     "traditions": [
       "jaw_harp"
@@ -20,8 +20,8 @@
         },
         "scores": {
           "doromb_construction": 0.063,
-          "doromb_excitation": 0.9314999999999999,
-          "doromb_resonator": 0.0315
+          "doromb_excitation": 0.954,
+          "doromb_resonator": 0.0765
         }
       }
     ],

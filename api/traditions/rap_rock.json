@@ -5,7 +5,7 @@
   "lineage": "Rap rock joins rapped delivery with rock-derived guitar and performance energy. The selected Beastie Boys branch grows from lower Manhattan punk into rap, guitar collaborations and layered sampling.",
   "recipe": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 42.386,
+  "score": 41.095,
   "config": {
     "traditions": [
       "rap_rock"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 8.781499999999998,
+          "voice_speech_song": 8.749999999999998,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4095,
-          "voice_multitrack_stack": 0.39
+          "voice_processing_chain": 0.378,
+          "voice_multitrack_stack": 0.363
         }
       },
       {
@@ -61,8 +61,8 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.063,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": -0.15000000000000002,
           "sampler_classic_context": 3.7049999999999996
         }
@@ -79,7 +79,7 @@
           "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
@@ -87,15 +87,15 @@
         "scores": {
           "electric_technique": 2.45,
           "amp_make": 8.905000000000001,
-          "body_wood": 0.063,
+          "body_wood": 0.0945,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0.105,
-          "pickup_winding": 0.3315,
+          "pickup_winding": 0.3,
           "string_material": 0,
-          "bridge": 0.6825000000000001,
-          "scale_length": 0.0315,
-          "string_gauge": 0.714,
+          "bridge": 0.1365,
+          "scale_length": 0,
+          "string_gauge": 0.1365,
           "finish": 0,
           "string_tuning": 5.85
         }

@@ -5,7 +5,7 @@
   "lineage": "Literary verse presented aloud through author readings and other spoken performance traditions.",
   "recipe": "classic poetry, spoken Word. no pitch organization speech. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 157,
-  "score": 1.478,
+  "score": 1.415,
   "config": {
     "traditions": [
       "poetry"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.131,
-          "voice_ensemble_config": 0.1575,
+          "voice_speech_song": 1.1624999999999999,
+          "voice_ensemble_config": 0.126,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.15749999999999997,
+          "voice_multitrack_stack": 0.09449999999999999,
           "voice_tessitura": 0
         }
       }

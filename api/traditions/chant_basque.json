@@ -2,10 +2,10 @@
   "id": "chant_basque",
   "name": "Chant basque",
   "family": "vernacular",
-  "lineage": "Lurodei — Maylis Raynal and Manon Irigoyen vocal-polyphony branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic chant basque, ballad Poetry. unprocessed natural acoustic. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 165,
-  "score": 0.6,
+  "lineage": "Basque singing encompasses oral repertoire, unaccompanied traditions and newer songs in euskara. From the 1960s, singer-songwriters expanded the repertoire, while contemporary groups continue to explore polyphony and new arrangements.",
+  "recipe": "classic mid-1960s chant basque, ballad Poetry. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 145,
+  "score": 0.3,
   "config": {
     "traditions": [
       "chant_basque"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.6,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

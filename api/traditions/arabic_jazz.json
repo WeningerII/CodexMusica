@@ -5,7 +5,7 @@
   "lineage": "Arabic jazz brings Arab musical traditions into dialogue with jazz composition and improvisation. Transnational ensembles explore modal melody, ornament and responsive accompaniment through varied combinations of traditional and modern instruments.",
   "recipe": "classic European early-1970s arabic jazz, improv On Frame, American jazz branch. pyramid nylon arab school oud, expressive clarinet jazz bass clarinet, upright bass. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 288,
-  "score": 27.815,
+  "score": 27.834,
   "config": {
     "traditions": [
       "arabic_jazz"
@@ -26,8 +26,8 @@
           "plucked_traditional_technique": 0.15000000000000002,
           "oud_school": 0.39,
           "oud_strings": 0.1995,
-          "oud_pick": 0.1175,
-          "oud_body_wood": 0.21,
+          "oud_pick": 0,
+          "oud_body_wood": 0.315,
           "oud_soundboard_wood": 0.105,
           "oud_string_material": 1.21
         }
@@ -50,7 +50,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.16799999999999998,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 13.75
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Rozprávky connects Slovak fairy tales and storytelling with oral transmission, literature, radio and recorded narration. Familiar stories circulate through family listening and professional and community readers.",
   "recipe": "classic rozprávky, spoken Word, narration branch. no pitch organization speech. treated studio.",
   "recipe_chars": 95,
-  "score": 1.538,
+  "score": 1.369,
   "config": {
     "traditions": [
       "rozpravky"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.231,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       }

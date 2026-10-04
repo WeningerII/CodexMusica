@@ -5,7 +5,7 @@
   "lineage": "OZFERTI — Tigrigna XPRMNT (2021 complete four-rework program). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s tigrigna pop, experimental Elec. sampler, conventional tuning standard pitch clean strummed humbucker electric guitar, singing lead rompler workstation, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 302,
-  "score": 18.052,
+  "score": 17.608,
   "config": {
     "traditions": [
       "tigrigna_pop"
@@ -24,7 +24,7 @@
           "electronic_technique": -0.07,
           "sampler_archetypes": 0.75,
           "sampler_bit_depth": 0.3,
-          "sampler_workflow": -0.07,
+          "sampler_workflow": -0.1,
           "sampler_classic_context": 3.5500000000000003
         }
       },
@@ -56,9 +56,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.21,
-          "string_gauge": 1.8655,
+          "string_gauge": 1.6315000000000002,
           "finish": 0,
-          "string_tuning": 1.597
+          "string_tuning": 1.363
         }
       },
       {
@@ -70,7 +70,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 3.2315,
+          "electronic_technique": 3.2855000000000003,
           "rompler_preset_bank": 0,
           "rompler_context": 3.2815,
           "rompler_lineage": 0

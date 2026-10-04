@@ -5,7 +5,7 @@
   "lineage": "Danish folk includes inherited dance tunes and contemporary roots ensembles. Trio Mio’s documented Scandinavian practice supplies this selected modern branch: fiddle, piano and guitar working between composed tunes and improvisation.",
   "recipe": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 384,
-  "score": 28.061,
+  "score": 26.614,
   "config": {
     "traditions": [
       "danish_folk"
@@ -23,10 +23,10 @@
         },
         "scores": {
           "bowed_technique": 0.39,
-          "fiddle_strings": 1.063,
-          "fiddle_bow": 2.5945,
-          "fiddle_mute": 0.756,
-          "fiddle_articulation": 0.102,
+          "fiddle_strings": 1.0315,
+          "fiddle_bow": 2.5315,
+          "fiddle_mute": 0.2415,
+          "fiddle_articulation": 0.207,
           "fiddle_string_configuration": 0
         }
       },
@@ -40,19 +40,19 @@
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": -0.05,
           "grand_piano_size": 0,
           "grand_piano_brand": 1.4615,
-          "piano_hammer": 2.765,
+          "piano_hammer": 2.66,
           "piano_rim": 2.8445,
-          "piano_soundboard": 3.185,
-          "piano_pinblock": 3.0905000000000005,
-          "piano_plate": 2.5130000000000003,
-          "piano_pitch_standard": 3.4930000000000003
+          "piano_soundboard": 2.6915,
+          "piano_pinblock": 2.6495,
+          "piano_plate": 2.5,
+          "piano_pitch_standard": 3.5875
         }
       },
       {
@@ -65,11 +65,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 0.3,
+          "top_wood": 0.3315,
           "back_sides": 0,
-          "string_acoustic": 1.063
+          "string_acoustic": 1.0315
         }
       }
     ],

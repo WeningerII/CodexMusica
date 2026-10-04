@@ -5,7 +5,7 @@
   "lineage": "Tone-based listening music foregrounds sustained pitches, overtones and subtle changes in sound. Electronic tone recordings provide one approach within ambient and experimental listening.",
   "recipe": "classic tone, experimental Elec, ambient branch. analog sine oscillator z3000. live tracking.",
   "recipe_chars": 93,
-  "score": 5.277,
+  "score": 5.511,
   "config": {
     "traditions": [
       "tone"
@@ -17,7 +17,7 @@
           "z3000_signal_identity": "z3000_direct_sine_signal"
         },
         "scores": {
-          "z3000_signal_identity": 5.2765
+          "z3000_signal_identity": 5.5105
         }
       }
     ],

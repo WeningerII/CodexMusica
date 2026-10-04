@@ -3,9 +3,9 @@
   "name": "Polish ambient",
   "family": "electronic",
   "lineage": "Poland’s contemporary ambient scene encompasses electronic composition, field recording and processed acoustic ensembles. Independent musicians connect chamber-instrument timbres with experimental studio methods, alongside more purely electronic approaches.",
-  "recipe": "classic modern polish ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art animal singing. field textural sampler, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, equal temperament modern concert standard prepared harpsichord, clarinet. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
-  "recipe_chars": 463,
-  "score": 78.473,
+  "recipe": "classic modern polish ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art animal singing. field textural sampler, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, prepared harpsichord, clarinet. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
+  "recipe_chars": 421,
+  "score": 77.673,
   "config": {
     "traditions": [
       "polish_ambient",
@@ -26,7 +26,7 @@
           "electronic_technique": 13.495000000000003,
           "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.45499999999999996,
-          "sampler_workflow": 16.3,
+          "sampler_workflow": 16.150000000000002,
           "sampler_classic_context": 15.250000000000002
         }
       },
@@ -73,7 +73,7 @@
           "harpsichord_context": 7.0200000000000005,
           "harpsichord_maker_school": 0.845,
           "harpsichord_plectrum": 0.45499999999999996,
-          "harpsichord_temperament": 1.105
+          "harpsichord_temperament": 0.45499999999999996
         }
       },
       {

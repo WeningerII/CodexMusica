@@ -5,7 +5,7 @@
   "lineage": "The Psalms Sung — Psalm139 to Highland Cathedral (A Capella),2017 single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2010s psalms, ritual Devotional. group vocals, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 1.846,
+  "score": 1.92,
   "config": {
     "traditions": [
       "psalms"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.9944999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.15749999999999997,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.6945,
           "voice_tessitura": 0
         }

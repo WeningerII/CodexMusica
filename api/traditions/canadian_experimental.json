@@ -2,10 +2,10 @@
   "id": "canadian_experimental",
   "name": "Canadian experimental",
   "family": "vernacular",
-  "lineage": "Ice Locus — modular synthesis and sampled-field-recording practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic canadian experimental, experimental Elec. doepfer eurorack canonical 1995 present small format standardization textural modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 265,
-  "score": 26.799,
+  "lineage": "Canada’s experimental music includes independent sound-design and electroacoustic practices. Projects such as Ice Locus combine electronic systems, recorded environments and acoustic sound in exploratory composition and performance.",
+  "recipe": "classic canadian experimental, experimental Elec. glitched textural modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 205,
+  "score": 34.81,
   "config": {
     "traditions": [
       "canadian_experimental"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 6.9815,
-          "mod_voltage_source": 1.3,
+          "electronic_technique": 8.731499999999999,
+          "mod_voltage_source": 0.39,
           "mod_patch_density": 0.3045,
-          "mod_lineage": 1.3
+          "mod_lineage": 0
         }
       },
       {
@@ -36,11 +36,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 6.9815,
+          "electronic_technique": 8.731499999999999,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 9.200999999999999,
-          "sampler_classic_context": 0.78
+          "sampler_workflow": 12.950999999999999,
+          "sampler_classic_context": 3.7515
         }
       }
     ],

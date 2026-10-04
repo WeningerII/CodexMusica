@@ -5,7 +5,7 @@
   "lineage": "Relaxation-oriented listening music used in massage settings, including gentle improvised piano.",
   "recipe": "classic massage, improv On Frame. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 206,
-  "score": 16.095,
+  "score": 15.78,
   "config": {
     "traditions": [
       "massage"
@@ -31,9 +31,9 @@
           "piano_hammer": 2.45,
           "piano_rim": 2.576,
           "piano_soundboard": 2.45,
-          "piano_pinblock": 3.0905000000000005,
+          "piano_pinblock": 2.6495,
           "piano_plate": 2.45,
-          "piano_pitch_standard": 3.1464999999999996
+          "piano_pitch_standard": 3.2725
         }
       }
     ],

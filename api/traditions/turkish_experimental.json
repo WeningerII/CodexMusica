@@ -5,7 +5,7 @@
   "lineage": "Turkish experimental music connects sound exploration, composition and improvisation across acoustic and electronic practices. Cevdet Erek’s percussion work is one example within this broad field.",
   "recipe": "classic turkish experimental, improv On Frame, jam free branch. davul experimental solo. live tracking.",
   "recipe_chars": 103,
-  "score": 0.105,
+  "score": 0.273,
   "config": {
     "traditions": [
       "turkish_experimental"
@@ -20,10 +20,10 @@
           "davul_experimental_solo_tension": "davul_experimental_solo_lower_than_customary"
         },
         "scores": {
-          "davul_experimental_solo_form": 0,
+          "davul_experimental_solo_form": 0.105,
           "davul_experimental_solo_implements": 0,
           "davul_experimental_solo_technique": 0,
-          "davul_experimental_solo_tension": 0.105
+          "davul_experimental_solo_tension": 0.168
         }
       }
     ],

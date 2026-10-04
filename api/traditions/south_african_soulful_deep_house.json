@@ -5,7 +5,7 @@
   "lineage": "A soulful branch of South African deep-house production and DJ culture, combining melodic electronic textures, sustained bass grooves and influences from gospel, jazz and disco.",
   "recipe": "classic south african soulful deep house, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 106,
-  "score": 0.1,
+  "score": 0.069,
   "config": {
     "traditions": [
       "south_african_soulful_deep_house"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.10012499999999999
+          "dj_playback_mixing_identity": 0.06862499999999999
         }
       }
     ],

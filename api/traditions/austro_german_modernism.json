@@ -2,10 +2,10 @@
   "id": "austro_german_modernism",
   "name": "Austro-german modernism",
   "family": "classical",
-  "lineage": "Austro-german modernism: Arnold Schönberg — Three Piano Pieces op. 11 (1909/10). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic late-1900s austro-german modernism, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 267,
-  "score": 55.622,
+  "lineage": "Austro-German modernism grew from the transformation of the German-language concert tradition around the beginning of the twentieth century. Schönberg’s early modernist works extend inherited motivic and formal thinking while moving beyond the organizing role of tonal harmony.",
+  "recipe": "classic austro-german modernism, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 256,
+  "score": 44.967,
   "config": {
     "traditions": [
       "austro_german_modernism"
@@ -17,7 +17,7 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.25,
+          "keyboard_technique": 2.5,
           "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.819,
-          "piano_hammer": 10.455,
-          "piano_rim": 8.354500000000002,
-          "piano_soundboard": 7.8675,
-          "piano_pinblock": 7.8205,
-          "piano_plate": 9.53775,
-          "piano_pitch_standard": 7.15
+          "piano_hammer": 8.125,
+          "piano_rim": 7.5545,
+          "piano_soundboard": 6.3675,
+          "piano_pinblock": 6.3205,
+          "piano_plate": 8.037749999999999,
+          "piano_pitch_standard": 4.875
         }
       }
     ],

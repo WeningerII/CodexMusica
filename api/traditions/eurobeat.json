@@ -3,53 +3,55 @@
   "name": "Eurobeat",
   "family": "electronic",
   "lineage": "Italian-produced, Japan-exported hi-NRG dance style codified from 1990 onward by Milanese and Roman studios (A-Beat C, Delta, Time Records) for the Super Eurobeat compilation series — 150-160 BPM, driving straight kick and octave-jumping synth bass, twin-lead sawtooth riffs in the eight-bar break, English-language power vocals sung by session singers under stage aliases, and a rigid intro-verse-break-chorus template.",
-  "recipe": "classic early-1990s eurobeat, electronic Dance, eurodance branch, continental electronic dance, trance electronic dance hard trance tech trance. vocal fry, breath veiled tone, straight note core, interlocked note trading. digital subtractive, regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, TR-909, analog poly synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 638,
-  "score": 189.51,
+  "recipe": "classic early-1990s eurobeat, electronic Dance, eurodance branch, continental electronic dance, trance electronic dance hard trance euro hi-nrg. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. sub bass digital subtractive, regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits sub bass rompler workstation, TR-909, sub bass analog poly synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 687,
+  "score": 68.555,
   "config": {
     "traditions": [
       "eurobeat",
       "hard_trance",
-      "tech_trance"
+      "euro_hi_nrg"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 1.4949999999999999,
-          "voice_quality": 8.645,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 2.5800000000000005,
-          "voice_articulation": 17.419999999999998,
-          "voice_microtone": 17.419999999999995,
-          "voice_tradition": 5.719999999999999,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 5.329999999999999,
-          "voice_speech_song": 16.574999999999996,
-          "voice_ensemble_config": 17.29,
-          "voice_ornament_system": 3.1500000000000004,
-          "voice_pitch_organization": 1.2349999999999999,
-          "voice_processing_chain": 20.860000000000003,
-          "voice_multitrack_stack": 6.890000000000001
+          "voice_effort": 0.195,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.845,
+          "voice_ensemble_config": 2.535,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.345,
+          "voice_processing_chain": 0.045,
+          "voice_multitrack_stack": 2.9899999999999998,
+          "voice_tessitura": 0
         }
       },
       {
@@ -60,9 +62,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.99,
-          "va_archetypes": 5.4399999999999995,
-          "digital_subtractive_context": 18.46
+          "electronic_technique": 3.6400000000000006,
+          "va_archetypes": 3.09,
+          "digital_subtractive_context": 17.42
         }
       },
       {
@@ -74,8 +76,8 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 2.99,
-          "rompler_preset_bank": 3.185,
+          "electronic_technique": 3.6400000000000006,
+          "rompler_preset_bank": 3.835,
           "rompler_context": 0.9750000000000001,
           "rompler_lineage": 3.425
         }
@@ -98,13 +100,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 2.99,
+          "electronic_technique": 3.6400000000000006,
           "poly_archetypes": 0.69,
-          "poly_voices": 0.195,
+          "poly_voices": 0,
           "poly_maker_lineage": -1.4200000000000002
         }
       },
@@ -113,19 +115,45 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 0.52,
           "sampler_archetypes": 1.2349999999999999,
-          "sampler_bit_depth": 0.195,
+          "sampler_bit_depth": 0.26,
           "sampler_workflow": 0.45500000000000007,
-          "sampler_classic_context": 20.02
+          "sampler_classic_context": 17.68
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "analog_poly_synth": [
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ]
+    },
     "room": "studio_auteur_home_pro",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
@@ -145,6 +173,29 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "poly_archetypes": "oberheim_obxa",
+      "poly_voices": "poly_8_voice",
+      "poly_maker_lineage": "poly_oberheim_tom"
+    },
+    "pin_parts": true,
     "chain_mic": "condenser_fet",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_distressor_modern",

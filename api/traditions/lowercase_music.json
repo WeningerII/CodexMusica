@@ -3,9 +3,9 @@
   "name": "Lowercase",
   "family": "electronic",
   "lineage": "Formulated around 1998-2004 by Steve Roden in Los Angeles, Bernhard Gunter in Germany and Richard Chartier and the 12k and Line labels in New York — extreme-quiet composition built from close-miked microsound (paper, water, insects, small objects) and digital silence, presented near the noise floor at levels that force the listener to raise playback volume, with long silences, no beat, no harmony and near-total absence of dynamic gesture.",
-  "recipe": "classic mid-2000s lowercase, experimental Elec, ambient branch, idm glitch experimental electric, musique concrete experimental electric laptronica abstract. glitched textural granular glitched textural modular synth, prepared piano, glass harmonica, rin singing bowl, glitched textural sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 410,
-  "score": 116.618,
+  "recipe": "classic mid-2000s lowercase, experimental Elec, ambient branch, idm glitch experimental electric, musique concrete experimental electric laptronica abstract. evolving modular granular evolving modular modular synth, prepared piano, glass harmonica, rin singing bowl, glitched textural sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 408,
+  "score": 116.403,
   "config": {
     "traditions": [
       "lowercase_music",
@@ -16,12 +16,12 @@
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_modular_patch",
           "granular_use": "granular_idm",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 19.7428125,
+          "electronic_technique": 19.845000000000006,
           "granular_use": 0.585,
           "granular_synth_source": 7.475000000000001
         }
@@ -55,16 +55,16 @@
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_modular_patch",
           "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 19.7428125,
+          "electronic_technique": 19.845000000000006,
           "mod_voltage_source": 0.7200000000000001,
-          "mod_patch_density": 2.9899999999999998,
-          "mod_lineage": -0.35
+          "mod_patch_density": 3.6399999999999997,
+          "mod_lineage": -0.7
         }
       },
       {
@@ -92,7 +92,7 @@
         "scores": {
           "electronic_technique": 19.7428125,
           "sampler_archetypes": 1.3849999999999998,
-          "sampler_bit_depth": 0.585,
+          "sampler_bit_depth": 0.39,
           "sampler_workflow": 19.800000000000004,
           "sampler_classic_context": 19
         }

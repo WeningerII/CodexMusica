@@ -5,7 +5,7 @@
   "lineage": "London, Ontario independent music — Canadian local bands across rock and punk-derived styles.",
   "recipe": "classic london on indie, distorted Rock. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 271,
-  "score": 34.752,
+  "score": 34.019,
   "config": {
     "traditions": [
       "london_on_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4095,
+          "voice_processing_chain": 0.378,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.714,
+          "string_gauge": 0.1365,
           "finish": 0,
           "string_tuning": 0
         }
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.8999999999999995,
-          "cymbal_lathing": 6.9315,
+          "cymbal_lathing": 6.8999999999999995,
           "cymbal_finish": 0
         }
       }

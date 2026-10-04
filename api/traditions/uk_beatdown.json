@@ -5,7 +5,7 @@
   "lineage": "UK beatdown develops within the British heavy hardcore scene.",
   "recipe": "classic uk beatdown, distorted Rock. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 305,
-  "score": 20.208,
+  "score": 19.224,
   "config": {
     "traditions": [
       "uk_beatdown"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.0499999999999998,
+          "voice_ensemble_config": 1.533,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4095,
-          "voice_multitrack_stack": 0.189,
+          "voice_processing_chain": 0.378,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 1.2999999999999998,
           "amp_make": 0,
-          "body_wood": 0.3315,
+          "body_wood": 0.3,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 0.0315,
+          "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0.6825000000000001,
+          "bridge": 0.1365,
           "scale_length": 0,
-          "string_gauge": 0.714,
+          "string_gauge": 0.1365,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.3315,
+          "body_wood": 0.3,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.6500000000000004,
-          "cymbal_lathing": 3.6815,
+          "cymbal_lathing": 3.6500000000000004,
           "cymbal_finish": 0
         }
       }

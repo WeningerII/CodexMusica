@@ -64,7 +64,7 @@
           "string_tuning": 0,
           "top_wood": 0.2625,
           "back_sides": 0.105,
-          "string_acoustic": 0.609
+          "string_acoustic": 0.504
         }
       },
       {
@@ -78,7 +78,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 8.19,
-          "poly_voices": 0.3045,
+          "poly_voices": 0.40950000000000003,
           "poly_maker_lineage": -0.035
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Central African forest music documented in the Ituri recordings of Colin Turnbull and Francis Chapman during the 1950s. The historical archival label encompasses several communities and musical practices: initiation and forest-devotion singing, hunting and gathering songs, social dances, and instrumental music. Mbuti and Efe repertoires sit within this wider field alongside related regional traditions.",
   "recipe": "classic mid-1950s pygmy music, ritual Devotional. forest clearing.",
   "recipe_chars": 66,
-  "score": 0.702,
+  "score": 0.775,
   "config": {
     "traditions": [
       "pygmy_music"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.48149999999999993,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }

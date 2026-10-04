@@ -3,9 +3,9 @@
   "name": "Vlaamse cabaret",
   "family": "vernacular",
   "lineage": "Han Solo — Multikul (2009), documented political stand-up performance. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Global tuning omitted, not a claim of equal temperament. Exact materials, makes, playing settings, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2000s vlaamse cabaret, spoken Word, stage performance branch. solo unaccompanied. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 193,
-  "score": 3.313,
+  "recipe": "classic late-2000s vlaamse cabaret, spoken Word, stage performance branch. no pitch organization speech, solo unaccompanied. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 3.69,
   "config": {
     "traditions": [
       "vlaamse_cabaret"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.2415,
-          "voice_ensemble_config": 2.3995,
+          "voice_speech_song": 0.584625,
+          "voice_ensemble_config": 2.4653125,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,
-          "voice_multitrack_stack": 0.4305,
+          "voice_multitrack_stack": 0.399,
           "voice_tessitura": 0
         }
       }

@@ -1,0 +1,67 @@
+{
+  "id": "deep_rai",
+  "name": "Deep Rai",
+  "family": "global",
+  "lineage": "Deep rai is a discovery label connecting Algerian and wider Maghrebi popular-song repertoires with diaspora producers and DJs. Its listening network includes singers such as Zahouania and Cheb Faycal alongside producers including DJ Kim, keeping older raï songs in circulation through contemporary records and dance programmes.",
+  "recipe": "classic deep rai, electronic Dance. dj playback mixing electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 102,
+  "score": 0.326,
+  "config": {
+    "traditions": [
+      "deep_rai"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.063
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0.26349999999999996
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
+    },
+    "pin_parts": true
+  }
+}

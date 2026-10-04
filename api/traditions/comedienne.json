@@ -2,10 +2,10 @@
   "id": "comedienne",
   "name": "Comedienne",
   "family": "vernacular",
-  "lineage": "Giulia Rozzi — True Love / An Embarrassing Story About Spring Break. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Comedienne highlights women’s comic performance across stand-up, storytelling and recorded comedy. Performers such as Giulia Rozzi bring personal experience and social observation into live and recorded routines.",
   "recipe": "classic comedienne, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 157,
-  "score": 1.452,
+  "score": 1.335,
   "config": {
     "traditions": [
       "comedienne"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.4305,
+          "voice_speech_song": 0.2415,
+          "voice_ensemble_config": 0.462,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,
@@ -84,13 +84,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",

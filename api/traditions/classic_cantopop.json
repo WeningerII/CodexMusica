@@ -1,0 +1,58 @@
+{
+  "id": "classic_cantopop",
+  "name": "Classic Cantopop",
+  "family": "pop",
+  "lineage": "Classic Cantopop brings enduring Hong Kong popular songs and television and film themes into renewed listening and performance. Cantonese songwriting developed alongside Western pop and rock influences, with singers and songwriters such as Sam Hui helping establish its local voice.",
+  "recipe": "classic classic cantopop, functional Song, east Asian pop branch. block chord upright piano. live tracking.",
+  "recipe_chars": 107,
+  "score": 8.826,
+  "config": {
+    "traditions": [
+      "classic_cantopop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 8.763,
+          "upright_use": 0.063,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

@@ -2,10 +2,10 @@
   "id": "cocuk_sarkilari",
   "name": "Cocuk Sarkilari",
   "family": "vernacular",
-  "lineage": "Şebnem Ünal and Verda Karaçil Cerit — Çocuk Şarkıları ve Ninniler, March2019. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic cocuk sarkilari, functional Song. solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 191,
-  "score": 0.216,
+  "lineage": "Çocuk şarkıları includes Turkish songs composed and shared for children, alongside familiar lullabies. The repertoire circulates through family singing, educational settings and concert interpretations.",
+  "recipe": "classic cocuk sarkilari, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 1.329,
   "config": {
     "traditions": [
       "cocuk_sarkilari"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6000000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -68,9 +68,9 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_brand": 1.1365,
           "piano_hammer": -0.07,
-          "piano_rim": -0.07,
+          "piano_rim": 0.254,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,

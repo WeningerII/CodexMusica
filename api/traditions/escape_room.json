@@ -5,7 +5,7 @@
   "lineage": "Escape room is a named discovery community connecting experimental pop, hip-hop and R&B. Its artists blur established genre expectations through independent production, socially engaged expression and unconventional approaches to popular-song material.",
   "recipe": "classic escape room, functional Song, pop rock branch. solo with instrumental accompaniment. analog synth, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 7.074,
+  "score": 7.359,
   "config": {
     "traditions": [
       "escape_room"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.0945,
-          "voice_ensemble_config": 1.27125,
+          "voice_ensemble_config": 1.55625,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

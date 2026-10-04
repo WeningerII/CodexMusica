@@ -2,10 +2,10 @@
   "id": "cdmx_indie",
   "name": "CDMX indie",
   "family": "vernacular",
-  "lineage": "Useless Youth — Youth (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s cdmx indie, functional Song. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 300,
-  "score": 11.701,
+  "lineage": "Mexico City’s independent scene includes self-producing guitar bands and home-recorded pop projects. Useless Youth connects local collaboration with indie-rock, bedroom-pop and twee-pop songwriting.",
+  "recipe": "classic cdmx indie, functional Song. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 282,
+  "score": 31.401,
   "config": {
     "traditions": [
       "cdmx_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7,
+          "electric_technique": 7.45,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0,
@@ -80,9 +80,9 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.8865000000000001,
-          "drumhead": 1.3,
+          "drum_technique": 2.6365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.354,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 1.504,
-          "cymbal_lathing": 1.7499999999999998,
+          "cymbal_hammering": 10.004,
+          "cymbal_lathing": 10.25,
           "cymbal_finish": 0
         }
       }

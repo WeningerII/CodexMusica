@@ -2,10 +2,10 @@
   "id": "atmospheric_doom",
   "name": "Atmospheric doom",
   "family": "rock",
-  "lineage": "Atmospheric doom: Alizam — Exilium Vitae (2025), credited string/vocal core. Only positively credited string/vocal core. No drum kit is inferred from the metal label. Piano and violin expressly described for closing Elegy of Dust and Dusk are outside the selected string/vocal reduction, not added to every track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic mid-2020s atmospheric doom, distorted Rock, doom branch. no specific ornament system, single lead single track no stacking. low mid rich spectrum cedar classical nylon-string basswood low output no compression riff driven humbucker electric guitar, rock canon ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 386,
-  "score": 39.822,
+  "lineage": "Atmospheric doom brings doom metal into contact with immersive textures and introspective songwriting. Its overlap with dark folk is heard in artists such as Iran’s Alizam, formed in 2019, whose music combines electric and classical guitar sonorities.",
+  "recipe": "classic late-2010s atmospheric doom, distorted Rock, doom branch. solo with instrumental accompaniment. cedar carbon fiber classical nylon-string basswood riff driven humbucker electric guitar, rock canon ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 43.568,
   "config": {
     "traditions": [
       "atmospheric_doom"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.483,
-          "voice_ornament_system": 1.3,
+          "voice_ensemble_config": 2.783,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 3.041
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.44099999999999995
         }
       },
       {
@@ -56,17 +56,17 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "fan_torres_cl",
-          "string_classical": "gut_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "carbon_cl",
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.5499999999999998,
+          "acoustic_technique": 2.3000000000000007,
           "string_tuning": 0,
-          "top_wood_classical": 1.197,
-          "bracing_classical": 0.43049999999999994,
-          "string_classical": 0.49350000000000005,
-          "attack_technique_cl": 0.75
+          "top_wood_classical": 2.6,
+          "bracing_classical": 1.1365,
+          "string_classical": 1,
+          "attack_technique_cl": 2.5
         }
       },
       {
@@ -82,22 +82,22 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.639,
+          "electric_technique": 11.389,
           "amp_make": -0.07,
-          "body_wood": 3.6399999999999997,
+          "body_wood": 3.25,
           "neck_wood": 0.36750000000000005,
           "fretboard": 0.2625,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 1.6675,
+          "pickup_winding": 0.36750000000000005,
           "string_material": 0.2625,
-          "bridge": 1.3,
-          "scale_length": 3.6399999999999997,
-          "string_gauge": 1.1785,
+          "bridge": 0.44100000000000006,
+          "scale_length": 3.25,
+          "string_gauge": 1.029,
           "finish": 0,
           "string_tuning": 0.26249999999999996
         }
@@ -110,7 +110,7 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -120,7 +120,7 @@
           "pickup_config": 0,
           "string_type": 8.125,
           "scale_length_b": 0.5565,
-          "fretted_or_not": 0.063,
+          "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

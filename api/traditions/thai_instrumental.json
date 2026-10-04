@@ -5,7 +5,7 @@
   "lineage": "Thai instrumental connects traditional ensembles and contemporary instrumental artists across a varied national listening field. Piano, guitar, traditional instruments and other approaches circulate through recordings and live performance.",
   "recipe": "classic thai instrumental, improv On Frame. upright piano. live tracking.",
   "recipe_chars": 73,
-  "score": -0.05,
+  "score": -0.035,
   "config": {
     "traditions": [
       "thai_instrumental"
@@ -19,7 +19,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "upright_use": 0,
           "upright_piano_size": 0
         }

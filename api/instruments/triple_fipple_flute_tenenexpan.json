@@ -1,0 +1,182 @@
+{
+  "id": "triple_fipple_flute_tenenexpan",
+  "name": "Tenenexpan triple duct flute",
+  "short": "triple-flute",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "tenenexpan_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "tenenexpan_ceramic_replica",
+          "name": "Handmade fired-clay experimental replica",
+          "default": true,
+          "descriptors": [
+            "ceramic",
+            "clay",
+            "handmade"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenenexpan_bores",
+      "name": "Resonator layout",
+      "variants": [
+        {
+          "id": "tenenexpan_three_bores",
+          "name": "Three tubular resonators: two shorter and one longer",
+          "default": true,
+          "descriptors": [
+            "polyphonic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenenexpan_airways",
+      "name": "Mouthpiece and excitation",
+      "variants": [
+        {
+          "id": "tenenexpan_three_ducts",
+          "name": "Common mouthpiece with three independent ducts directed at three edges",
+          "default": true,
+          "descriptors": [
+            "breathing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenenexpan_fingerholes",
+      "name": "Finger-hole distribution",
+      "variants": [
+        {
+          "id": "tenenexpan_four_two_one",
+          "name": "Four, two and one finger holes on the respective tubes",
+          "default": true,
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "wind_articulation",
+      "name": "Breath and phrase articulation",
+      "variants": [
+        {
+          "id": "tenenexpan_articulated_phrases",
+          "name": "Naturally separated breath phrases with fingered melodic combinations",
+          "default": true,
+          "descriptors": [
+            "articulated"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "A ceramic triple duct flute of the Tenenexpan type. Separate air ducts feed three tubular resonators together; unequal bore lengths and finger-hole distributions permit simultaneous contrasting pitches. Experimental replicas support present-day investigation and improvisation without recovering a lost ancient repertoire.",
+  "sources": [
+    "https://cid-albertobeltran.cultura.gob.mx/catalogo-en-linea-fonoteca/grabaciones-de-samuel-marti-grabacion-sonora-3/",
+    "https://www.geocities.ws/curinguri/flautatriple/ftriple.html",
+    "https://journals.iai.spk-berlin.de/index.php/indiana/article/download/2945/2399/6567"
+  ],
+  "_ownParts": [
+    {
+      "id": "tenenexpan_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "tenenexpan_ceramic_replica",
+          "name": "Handmade fired-clay experimental replica",
+          "default": true,
+          "descriptors": [
+            "ceramic",
+            "clay",
+            "handmade"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenenexpan_bores",
+      "name": "Resonator layout",
+      "variants": [
+        {
+          "id": "tenenexpan_three_bores",
+          "name": "Three tubular resonators: two shorter and one longer",
+          "default": true,
+          "descriptors": [
+            "polyphonic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenenexpan_airways",
+      "name": "Mouthpiece and excitation",
+      "variants": [
+        {
+          "id": "tenenexpan_three_ducts",
+          "name": "Common mouthpiece with three independent ducts directed at three edges",
+          "default": true,
+          "descriptors": [
+            "breathing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenenexpan_fingerholes",
+      "name": "Finger-hole distribution",
+      "variants": [
+        {
+          "id": "tenenexpan_four_two_one",
+          "name": "Four, two and one finger holes on the respective tubes",
+          "default": true,
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "wind_articulation",
+      "name": "Breath and phrase articulation",
+      "variants": [
+        {
+          "id": "tenenexpan_articulated_phrases",
+          "name": "Naturally separated breath phrases with fingered melodic combinations",
+          "default": true,
+          "descriptors": [
+            "articulated"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

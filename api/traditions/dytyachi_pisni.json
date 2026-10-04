@@ -5,7 +5,7 @@
   "lineage": "Dytyachi pisni encompasses Ukrainian-language children’s songs shared through families, schools, choirs and recordings. Traditional melodies and newly composed repertoire connect language, celebrations and everyday play.",
   "recipe": "classic dytyachi pisni, nursery Rhyme. upright piano. shoebox concert hall.",
   "recipe_chars": 75,
-  "score": 3.518,
+  "score": 3.473,
   "config": {
     "traditions": [
       "dytyachi_pisni"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.354,
+          "voice_ensemble_config": 0.3315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.054,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },

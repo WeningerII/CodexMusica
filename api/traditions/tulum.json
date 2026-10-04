@@ -5,7 +5,7 @@
   "lineage": "Tulum music centers the double-chanter bagpipe traditions of the eastern Black Sea region. Hemşin, Laz and related communities use its sustained, ornamented sound in dance, wedding and other local repertoires.",
   "recipe": "classic tulum, improv On Frame. eastern black sea dance pulse tulum. live tracking.",
   "recipe_chars": 83,
-  "score": 9.563,
+  "score": 9.783,
   "config": {
     "traditions": [
       "tulum"
@@ -19,8 +19,8 @@
           "tulum_skin_reed": "tulum_goatskin_cane"
         },
         "scores": {
-          "tulum_form": 6.078,
-          "tulum_play": 3.5545,
+          "tulum_form": 6.1725,
+          "tulum_play": 3.6805,
           "tulum_skin_reed": -0.07
         }
       }

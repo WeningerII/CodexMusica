@@ -5,7 +5,7 @@
   "lineage": "Post-screamo extends screamo through experimental, post-rock and other expansive approaches. Bands such as Our Wits connect its vocal intensity with improvisation, spoken-word influences and contrasting instrumental textures.",
   "recipe": "classic post-screamo, distorted Rock. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 222,
-  "score": 30.969,
+  "score": 30.661,
   "config": {
     "traditions": [
       "post_screamo"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4095,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0.378,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -99,8 +99,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "pickup_config": 0.063,
+          "body_wood": 0,
+          "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.15,
-          "cymbal_lathing": 6.181500000000001,
+          "cymbal_lathing": 6.15,
           "cymbal_finish": 0
         }
       }

@@ -2,15 +2,15 @@
   "id": "barcadi",
   "name": "Barcadi",
   "family": "electronic",
-  "lineage": "Barcadi: DJ Spoko — Azange / documented Bacardi house studio practice (2013). DJ Spoko’s explicitly named Bacardi/Barcadi house studio practice predates the later amapiano category: sampled composite snare and synthesized strings are documented by his own first-person account. This branch includes the positively identified two singers on Azange and software-sequenced rhythm/synth roles. It does not substitute an acoustic upright bass, invent acoustic drum players, or import a required amapiano log-drum/piano role. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2010s barcadi, electronic Dance, African dance branch, house electronic dance g-house ballroom. group vocals, unprocessed natural acoustic. sampled chopped sampler drum machine, sub bass digital subtractive. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 307,
-  "score": 27.095,
+  "lineage": "Bacardi, also spelled Barcadi, is a township house style associated with Atteridgeville near Pretoria. DJ Spoko developed its computer-produced sound from the late 1990s and passed production techniques and samples to younger musicians including DJ Mujava.",
+  "recipe": "classic 1997-1999 barcadi, electronic Dance, African dance branch, house electronic dance ballroom g-house. group vocals. sampler drum machine, sub bass digital subtractive. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 259,
+  "score": 20.5,
   "config": {
     "traditions": [
       "barcadi",
-      "g_house",
-      "ballroom_house"
+      "ballroom_house",
+      "g_house"
     ],
     "instruments": [
       {
@@ -45,10 +45,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.845,
+          "voice_ensemble_config": 1.235,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.195
         }
       },
@@ -61,9 +61,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 3.5500000000000003,
+          "electronic_technique": 2.25,
           "sample_bitdepth": 0.09,
-          "sample_swing": 16.920000000000005,
+          "sample_swing": 16.92,
           "sample_processing": 0.195
         }
       },
@@ -75,9 +75,9 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 4.055000000000001,
+          "electronic_technique": 3.0550000000000006,
           "va_archetypes": 0.15,
-          "digital_subtractive_context": 2.65
+          "digital_subtractive_context": -0.035
         }
       }
     ],

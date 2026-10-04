@@ -5,7 +5,7 @@
   "lineage": "Hel connects a discovery community around dramatic vocal music and rock-associated performers. Acoustic reinterpretations offer one approach alongside more elaborate amplified arrangements.",
   "recipe": "classic hel, distorted Rock. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 285,
-  "score": 14.522,
+  "score": 14.444,
   "config": {
     "traditions": [
       "hel"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.1575,
+          "voice_speech_song": 1.189,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 0.189,
+          "voice_processing_chain": 1.2730000000000001,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.0945,
           "piano_hammer": 4.42,
           "piano_rim": 5.720000000000001,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
-          "piano_plate": -0.07,
-          "piano_pitch_standard": 1.181
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.2229999999999999
         }
       }
     ],

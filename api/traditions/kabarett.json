@@ -5,7 +5,7 @@
   "lineage": "German-language Kabarett — theatrical satire, political commentary and comic performance.",
   "recipe": "classic kabarett, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 155,
-  "score": 1.344,
+  "score": 1.376,
   "config": {
     "traditions": [
       "kabarett"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.2415,
-          "voice_ensemble_config": 0.4305,
+          "voice_ensemble_config": 0.462,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,

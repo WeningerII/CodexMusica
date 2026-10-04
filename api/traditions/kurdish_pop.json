@@ -2,10 +2,10 @@
   "id": "kurdish_pop",
   "name": "Kurdish pop",
   "family": "vernacular",
-  "lineage": "Rewşan — documented singer/violinist core, authored reduced arrangement. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic kurdish pop, functional Song. single lead single track no stacking. European maple bosnian source flamed figure violin orchestral. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 230,
-  "score": 4.183,
+  "lineage": "Kurdish pop connects Kurdish-language song and inherited melodies with contemporary songwriting and concert production. Singers such as Rewşan bring collected repertoire and new compositions to audiences across Kurdish communities and the diaspora.",
+  "recipe": "classic kurdish pop, functional Song. solo with instrumental accompaniment. violin orchestral. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 186,
+  "score": 5.912,
   "config": {
     "traditions": [
       "kurdish_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.69,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,13 +70,13 @@
           "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.56,
-          "orch_varnish": 0.2,
-          "orch_setup_period": -0.07,
-          "orch_bow": 0,
-          "orch_bow_stick": -0.10500000000000001,
+          "orch_back_wood": -0.07,
+          "orch_varnish": 0.7,
+          "orch_setup_period": 0.754,
+          "orch_bow": 0.3,
+          "orch_bow_stick": 0.8299999999999998,
           "orch_articulation": 0.3,
-          "orch_rosin": -0.1
+          "orch_rosin": 0.7
         }
       }
     ],

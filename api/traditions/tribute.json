@@ -5,7 +5,7 @@
   "lineage": "Music made in homage to another artist, repertoire or musical legacy. Tribute projects cross genres and may closely recall their source or reshape it through a different instrumental and interpretive approach.",
   "recipe": "classic tribute, improv On Frame. upright piano. live tracking.",
   "recipe_chars": 63,
-  "score": 0.265,
+  "score": 0.25,
   "config": {
     "traditions": [
       "tribute"
@@ -19,7 +19,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": -0.05,
           "upright_use": 0,
           "upright_piano_size": 0.3
         }

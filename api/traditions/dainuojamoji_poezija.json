@@ -2,10 +2,10 @@
   "id": "dainuojamoji_poezija",
   "name": "Dainuojamoji poezija",
   "family": "vernacular",
-  "lineage": "Saulius Bareikis — solo acoustic-guitar bard branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic dainuojamoji poezija, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 241,
-  "score": 6.558,
+  "lineage": "Dainuojamoji poezija is Lithuania’s sung-poetry tradition, joining literary language with personal musical expression. Performers such as Saulius Bareikis and Olegas Ditkovskis carry this bard practice into solo concerts and larger collaborations.",
+  "recipe": "classic dainuojamoji poezija, ballad Poetry. solo with instrumental accompaniment. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 6.328,
   "config": {
     "traditions": [
       "dainuojamoji_poezija"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.47,
+          "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -64,9 +64,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.035,
+          "back_sides": 0.325,
           "string_acoustic": 0,
-          "acoustic_om_technique": 2.823
+          "acoustic_om_technique": 2.323
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Sergei Lyapunov — Douze études d’exécution transcendante, performed by Konstantin Scherbakov, Steinway & Sons STNS30098 (2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2010s russian romanticism, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 255,
-  "score": 29.223,
+  "score": 29.043,
   "config": {
     "traditions": [
       "russian_romanticism"
@@ -29,7 +29,7 @@
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.78,
           "piano_hammer": 4.1365,
-          "piano_rim": 4.648,
+          "piano_rim": 4.468,
           "piano_soundboard": 4,
           "piano_pinblock": 5.6000000000000005,
           "piano_plate": 4.3629999999999995,

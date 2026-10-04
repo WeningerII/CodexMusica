@@ -2,10 +2,10 @@
   "id": "clarinet_ensemble",
   "name": "Clarinet ensemble",
   "family": "vernacular",
-  "lineage": "John McCowen — Clarinet Quartets nos.1 & 2 (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s clarinet ensemble, art Music. clarinet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 156,
-  "score": 2.276,
+  "lineage": "Clarinet ensembles bring several players of the clarinet family together in chamber performance. Repertoire includes composed works and contemporary experimental pieces, as illustrated by John McCowen’s clarinet quartets.",
+  "recipe": "classic clarinet ensemble, art Music. clarinet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 146,
+  "score": 1.769,
   "config": {
     "traditions": [
       "clarinet_ensemble"
@@ -21,9 +21,9 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 0.7,
-          "clarinet_body": 0.7865,
-          "clarinet_size": 0.39,
+          "wind_articulation": -0.1,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 1.575,
           "clarinet_reed": 0.0315,
           "clarinet_articulation": 0.3675
         }
