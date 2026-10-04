@@ -302,7 +302,7 @@ PROFILE_PRED_MAX = {"song": None, "short": 200}
 # rule's answer back to 150-400, and a correlation over a band's dated
 # authors moves with the band -- 405 of 878 authors dated, anaphora still no
 # period signal (p_perm 0.7868 against a Bonferroni cut of 0.0100).
-PROFILE_PERIOD = {'song': (-0.014, 0.7868), 'short': (0.166, 0.0012)}
+PROFILE_PERIOD = {'song': (-0.019, 0.7341), 'short': (0.168, 0.0007)}
 #: The anaphora period rho each profile's note must keep VISIBLE as a struck
 #: figure (doctrine 17), or None where nothing was ever struck: the `song`
 #: row withdrew +0.275 on 2026-08-20; the `short` row was adopted with its

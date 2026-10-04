@@ -842,7 +842,7 @@ PROFILES = [
  'pre-registered features were run on.')),
     Profile(
         name="song", unit='whole lyric sheet, 150-400 tokens',
-        lo=150, hi=400, n_lines=0, n_human=3533, n_generated=0,
+        lo=200, hi=400, n_lines=0, n_human=2237, n_generated=0,
         superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,
         #: RE-ADOPTED 2026-09-24 AS A SET, AND THE BAND MOVED BACK FOR THE
@@ -956,35 +956,34 @@ PROFILES = [
         #: reader gives the true MATTR of this corpus, so the constant moves
         #: rather than the drift being ruled.
         percentiles={'anaphora_max': 0.3,
- 'line_length_cv_min': 0.10939281388850974,
- 'function_word_ratio_max': 0.4776852961798566,
- 'mattr_min': 0.7127694818441452,
+ 'line_length_cv_min': 0.11051273658503008,
+ 'function_word_ratio_max': 0.4798917445329013,
+ 'mattr_min': 0.7158231894587366,
  'predictable_pair_fraction_max': 0.9285714285714286},
         #: EMPTY ON PURPOSE. There is no generated song class in this repo, so
         #: there is no separation to report and this profile may not borrow the
         #: sonnet's. `held_out_fpr` is what it has instead.
         measured_auc={},
-        held_out_fpr={'ANY': (19.25, 14.47, 25.12),
- 'anaphora': (4.71, 2.92, 7.28),
- 'cliche': (6.78, 5.41, 7.89),
- 'line_length_cv': (5.09, 3.58, 6.73),
- 'function_word_ratio': (4.92, 3.14, 7.52),
- 'mattr': (4.68, 2.87, 8.43),
- 'predictability': (4.69, 2.87, 6.79)},
-        source=(('Re-adopted 2026-09-24 under the N-relation comparator (M-309, #375; PR #380): the unchanged '
- 'five-check band rule returns 150-400 again, 3533 items / 878 author files, from the committed, '
- 'provenance-verified rows in quality/results/n_relation_2026-09-22/. Full 200 author-held-out '
- 'splits and 2000 period draws. ~~Re-adopted 2026-09-15 after annotating 253 nonlyric rows as '
- 'preserved apparatus, using the current tokenizer: 2231 items / 663 author files, 200-400 tokens. '
- 'Full 200 author-held-out splits and 2000 period draws; unchanged registered band selection. See '
- 'quality/RESULTS_ENGLISH_NONLYRIC_2026-09-15.md.~~')),
+        held_out_fpr={'ANY': (19.68, 15.77, 24.26),
+ 'anaphora': (4.98, 3.06, 7.91),
+ 'cliche': (8.1, 6.31, 9.69),
+ 'line_length_cv': (4.97, 3.29, 7.27),
+ 'function_word_ratio': (5.11, 3.41, 7.79),
+ 'mattr': (4.9, 2.87, 8.22),
+ 'predictability': (4.76, 3.27, 7.21)},
+        source=((('Re-adopted 2026-10-04 after the Otterbein refrain hymns (73 staged) and the M-25(a) apparatus '
+ 'annotations (1,642 one-line blocks), using the current tokenizer: 2237 items / 669 author files, '
+ '200-400 tokens. Full 200 author-held-out splits and 2000 period draws; unchanged registered band '
+ 'selection. See quality/RESULTS_OTTERBEIN_M25_2026-10-04.md.'))),
         note=(
-            (('CURRENT 2026-09-24 measurements supersede the historical values below: 3533 works over 878 '
- 'files, 150-400 tokens, re-adopted as a set when the N-relation comparator moved the band rule\'s '
- 'answer back from 200-400 (the prior row is quality/results/n_relation_2026-09-22/'
- 'song-profile-before.json). The 2026-09-15 figures that follow describe the 200-400 band. '
- 'CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations '
- 'are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
+            ((('CURRENT 2026-10-04 measurements supersede the historical values below; prior full declarations '
+ 'are in quality/results/otterbein_m25_2026-10-04/profiles-before.json. CURRENT 2026-09-24 '
+ 'measurements supersede the historical values below: 3533 works over 878 files, 150-400 tokens, '
+ "re-adopted as a set when the N-relation comparator moved the band rule's answer back from "
+ '200-400 (the prior row is quality/results/n_relation_2026-09-22/song-profile-before.json). The '
+ '2026-09-15 figures that follow describe the 200-400 band. CURRENT 2026-09-15 measurements '
+ 'supersede the historical values below; prior full declarations are in '
+ 'quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
  'remeasurement after Unicode/apostrophe normalization: 2231 works over 663 files, 200-400 tokens. '
  'The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun '
  'together; full-precision thresholds and instrument-precision rates are archived in '
@@ -1092,7 +1091,7 @@ PROFILES = [
  'rather than merely smaller. An author-weighted alternative -- one median per author, n=663 '
  '(~~n=108~~) -- gives 0.7214 / 0.4786 / 0.2799 / 0.1134 / 0.8750, so the two still disagree most '
  'on anaphora and now also on predictability. Item-weighted ships because the rate the gate '
- 'delivers is an item rate.'))),
+ 'delivers is an item rate.')))),
     ),
 ]
 
@@ -1119,26 +1118,28 @@ PROFILES = [
 PROFILES.append(
     Profile(
         name="short", unit='whole lyric sheet, 50-150 tokens',
-        lo=50, hi=150, n_lines=0, n_human=3650, n_generated=0,
+        lo=50, hi=150, n_lines=0, n_human=3714, n_generated=0,
         superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,  # declared, see note: the union FPR FALLS with the factor here
         percentiles={'anaphora_max': 0.375,
- 'line_length_cv_min': 0.09603236703696856,
- 'function_word_ratio_max': 0.4941992689860565,
- 'mattr_min': 0.6686815789473685},
+ 'line_length_cv_min': 0.0951921127121333,
+ 'function_word_ratio_max': 0.4941180452145661,
+ 'mattr_min': 0.6649947865754318},
         measured_auc={},
-        held_out_fpr={'ANY': (16.31, 11.27, 22.93),
- 'anaphora': (3.83, 3.1, 7.57),
- 'cliche': (3.98, 3.35, 4.73),
- 'line_length_cv': (5.42, 3.52, 7.21),
- 'function_word_ratio': (5.16, 3.01, 8.2),
- 'mattr': (5.4, 1.9, 10.42)},
-        source=(('Re-adopted 2026-09-15 after annotating 253 nonlyric rows as preserved apparatus, using the '
- 'current tokenizer: 3650 items / 693 author files, 50-150 tokens. Full 200 author-held-out splits '
- 'and 2000 period draws; unchanged registered band selection. See '
- 'quality/RESULTS_ENGLISH_NONLYRIC_2026-09-15.md.')),
-        note=(('CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations '
- 'are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
+        held_out_fpr={'ANY': (15.1, 11.48, 22.03),
+ 'anaphora': (3.79, 3.2, 7.05),
+ 'cliche': (4.47, 3.94, 5.04),
+ 'line_length_cv': (4.85, 3.32, 6.63),
+ 'function_word_ratio': (4.7, 2.74, 7.83),
+ 'mattr': (4.8, 1.94, 9.89)},
+        source=((('Re-adopted 2026-10-04 after the Otterbein refrain hymns (73 staged) and the M-25(a) apparatus '
+ 'annotations (1,642 one-line blocks), using the current tokenizer: 3714 items / 728 author files, '
+ '50-150 tokens. Full 200 author-held-out splits and 2000 period draws; unchanged registered band '
+ 'selection. See quality/RESULTS_OTTERBEIN_M25_2026-10-04.md.'))),
+        note=((('CURRENT 2026-10-04 measurements supersede the historical values below; prior full declarations '
+ 'are in quality/results/otterbein_m25_2026-10-04/profiles-before.json. CURRENT 2026-09-15 '
+ 'measurements supersede the historical values below; prior full declarations are in '
+ 'quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
  'remeasurement after Unicode/apostrophe normalization: 3650 works over 693 files, 50-150 tokens. '
  'The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun '
  'together; full-precision thresholds and instrument-precision rates are archived in '
@@ -1175,7 +1176,7 @@ PROFILES.append(
  "statistic's own ceiling, at a held-out FPR of 0.00% on 200 of 200 seeds -- a check that could "
  'not fail (doctrine 48); an item this short carries one or two rhyme pairs, so the fraction is '
  '0/1-valued and piles at 1. PREDICTABLE_RHYME is silent on this band until a pair-count floor is '
- 'preregistered (RESULTS_SHORT_SONG_FLOOR.md 7).')),
+ 'preregistered (RESULTS_SHORT_SONG_FLOOR.md 7).'))),
     ))
 
 #: THE LYRIC-SHEET PROFILE: thresholds depend on length. Re-adopted
@@ -1235,96 +1236,70 @@ PROFILES.append(
 #: precision and input provenance in that directory's curve-adoption.json.
 PROFILES.append(
     Profile(
-        name="lyric", unit='whole lyric sheet, 10-3244 tokens, thresholds a function of ln N',
-        mattr_ttr_population={'window': 50, 'items': 532},
-        lo=10, hi=3244, n_lines=0, n_human=8536, n_generated=0,
+        name="lyric", unit='whole lyric sheet, 9-3244 tokens, thresholds a function of ln N',
+        mattr_ttr_population={'window': 50, 'items': 535},
+        lo=9, hi=3244, n_lines=0, n_human=8609, n_generated=0,
         tolerance=1.0,
         percentiles={},
-        curves={'anaphora_max': (1.1413067296229165, -0.24203952493270758, 0.01609986645877518),
- 'line_length_cv_min': {'knots': [(3.5553480614894135, 0.0642758144161543),
-                                  (3.970291913552122, 0.07687396557320486),
-                                  (4.23410650459726, 0.08939000052740793),
-                                  (4.418840607796598, 0.10125329436833069),
-                                  (4.543294782270004, 0.10859689655932389),
-                                  (4.634728988229636, 0.10505215778924569),
-                                  (4.718498871295094, 0.09485293865439588),
-                                  (4.795790545596741, 0.08936628962222717),
-                                  (4.882801922586371, 0.10046559979015844),
-                                  (4.955827057601261, 0.10157929403030734),
-                                  (5.0238805208462765, 0.10451121708338629),
-                                  (5.10594547390058, 0.10552011308194521),
-                                  (5.204006687076795, 0.11131137204336959),
-                                  (5.293304824724492, 0.10984553939705685),
-                                  (5.389071729816501, 0.10723211967491855),
-                                  (5.493061443340548, 0.10995489690875815),
-                                  (5.598421958998375, 0.11208072349964783),
-                                  (5.726847747587197, 0.10897059587748434),
-                                  (5.877735781779639, 0.1178199701019257),
-                                  (6.077642243349034, 0.1207357179013369),
-                                  (6.52649485957079, 0.12958145466845883)]},
- 'function_word_ratio_max': (0.5604841642384619, -0.014308228025864213),
- 'mattr_min': (0.49968978828344063, 0.03751889880962087),
+        curves={'anaphora_max': (1.1671150114554951, -0.24886513211737182, 0.01655058974921954),
+ 'line_length_cv_min': (-0.07474368494724848, 0.051530457601385124, -0.003233448550671671),
+ 'function_word_ratio_max': (0.7688993714465175, -0.09721818712254968, 0.008092208483608511),
+ 'mattr_min': (0.4811426829978859, 0.04046071164486815),
  'predictable_pair_fraction_max': {'knots': [(3.5553480614894135, 1.0),
                                              (3.970291913552122, 1.0),
                                              (4.23410650459726, 1.0),
                                              (4.418840607796598, 1.0),
                                              (4.543294782270004, 1.0),
-                                             (4.634728988229636, 1.0),
-                                             (4.718498871295094, 1.0),
-                                             (4.795790545596741, 1.0),
-                                             (4.882801922586371, 1.0),
-                                             (4.955827057601261, 1.0),
-                                             (5.0238805208462765, 1.0),
-                                             (5.10594547390058, 1.0),
-                                             (5.204006687076795, 0.9233516483516482),
-                                             (5.293304824724492, 0.9285714285714286),
-                                             (5.389071729816501, 0.9333333333333333),
-                                             (5.493061443340548, 0.9333333333333333),
-                                             (5.598421958998375, 0.9009090909090907),
-                                             (5.726847747587197, 0.9002380952380951),
-                                             (5.877735781779639, 0.9090909090909091),
-                                             (6.077642243349034, 0.8751893939393938),
-                                             (6.52649485957079, 0.8383783783783784)]}},
+                                             (4.624972813284271, 1.0),
+                                             (4.709530201312334, 1.0),
+                                             (4.77912349311153, 1.0),
+                                             (4.867534450455582, 1.0),
+                                             (4.941642422609304, 1.0),
+                                             (5.0106352940962555, 0.9526315789473666),
+                                             (5.093750200806762, 1.0),
+                                             (5.181783550292085, 0.9375),
+                                             (5.272999558563747, 0.9230769230769231),
+                                             (5.365976015021851, 0.9333333333333333),
+                                             (5.472270673671475, 0.9335416666666665),
+                                             (5.579729825986222, 0.9294642857142854),
+                                             (5.697093486505405, 0.9002380952380951),
+                                             (5.84354441703136, 0.9090909090909091),
+                                             (6.031886461606898, 0.8823529411764706),
+                                             (6.3569753397091135, 0.8484848484848485),
+                                             (6.88653164253051, 0.8195804195804196)]}},
         measured_auc={},
-        held_out_fpr={'ANY': (18.876224663705436, 14.706711506749462, 23.952028655635036),
- 'anaphora': (5.073459809061301, 3.398645369121104, 7.195041533385808),
- 'line_length_cv': (5.38784457868143, 4.335087108973651, 6.712013944745906),
- 'function_word_ratio': (5.127842004244493, 3.1918900906069143, 7.7374183014857785),
- 'mattr': (4.862200557796703, 2.9214234943210267, 7.861976917583954),
- 'predictability': (3.087909801059635, 1.4265919032848167, 5.004286544609124)},
-        held_out_scope={'predictability': '. This rate pools all 10-3244-token works, including lengths through 165 where '
+        held_out_fpr={'ANY': (18.516615417461875, 14.703063237855849, 23.56087579186396),
+ 'anaphora': (4.99818524970964, 3.4923663735553787, 6.927362388377979),
+ 'line_length_cv': (5.126979289465224, 3.9575176992020955, 6.4124062918898215),
+ 'function_word_ratio': (5.095223248089491, 3.2710475718558065, 7.3842814898887),
+ 'mattr': (4.851619711019912, 3.0952211077673626, 7.822712911411618),
+ 'predictability': (3.0345253032477704, 1.5990469875967745, 4.587518540398882)},
+        held_out_scope={'predictability': '. This rate pools all 9-3244-token works, including lengths through 140 where '
                    'the threshold equals 1.0 and cannot fire. It is not conditional on lengths '
                    'where the check can fire.'},
-        source=((('Re-adopted 2026-09-15 after nonlyric apparatus annotations: 8536 nonempty works / 1296 files, '
- '10-3244 tokens. All five checks pass every length bin over 200 author-held-out splits. '
- 'Preregistered model choices: anaphora C2, cv CK, fwr C1, mattr C1, predictability CK. '
- 'Predictability CK retains the existing anti-vacuity exception to C0 and first falls below 1.0 at '
- '166 tokens. Full precision and input provenance for mattr, fwr, anaphora and cv in '
- 'quality/results/english_nonlyric_2026-09-15/curve-adoption.json; those four re-derive BIT-FOR-BIT '
- 'from the 2026-09-16 recomputation. ~~and for predictability in that same file~~ PREDICTABILITY '
- 'REPINNED 2026-09-16 under a moved comparator fingerprint, ~~full precision in '
- 'quality/results/comparator_repin_2026-09-16/curve-adoption.json; five of its 21 knots moved, all '
- 'at 182 tokens and above, held-out rate 2.7698% -> 2.8491%~~ and REPINNED AGAIN 2026-09-24 under '
- 'the N-relation model (M-309, #375; PR #380), full precision in '
- 'quality/results/n_relation_2026-09-22/curve-adoption.json: seven of its 21 knots moved, all at '
- '182 tokens and above, six down and one up; held-out rate 2.8491% -> 3.0879%. The other four '
- 'curves re-derive to the digit under that comparator.'))),
-        note=((('CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations '
- 'are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
- 'adoption supersedes every older value in the following historical note. CURRENT 2026-09-08 '
- 'adoption above supersedes the 2026-09-04 coefficients and denominators. The generic knot '
- 'evaluator serves CV and predictability identically. Historical source registration: '
- 'corpus/song/eng_*.txt, every `--- TITLE:` item (8,667 over 1,297 files, 4-3,245 tokens), no '
- 'sample; thresholds fit by the pinball loss in ln N over the whole corpus and held out '
- 'AUTHOR-wise on 200 file-level 50/50 splits, the rate tested in 22 fixed bins of ~400 items, the '
- 'last 267 (RESULTS_LENGTH_CURVE.md §5). predictable_pair_fraction_max is a knot table (§9) that '
- 'fires only from 164 tokens: through 163 a one- or two-pair song makes the fraction 0/1-valued '
- 'and the human 95th percentile IS the ceiling, so PREDICTABLE_RHYME is silent there by '
- "resolution, not by choice — the `short` profile's stage B refusal, carried as a disclosed "
- 'under-resolved run rather than as an absent threshold. Historical note: Supersedes `song` '
- '(200-400) and `short` (50-150), which stay above for their own drift checks. A finding under '
- "this row names the threshold EVALUATED AT THIS TEXT'S LENGTH beside the formula, because the "
- 'number differs at every N.'))),
+        source=(((('Re-adopted 2026-10-04 after the Otterbein refrain hymns and the M-25(a) apparatus annotations: '
+ '8609 nonempty works / 1343 files, 9-3244 tokens. All five checks pass every length bin over 200 '
+ 'author-held-out splits. Preregistered model choices: anaphora C2, cv C2, fwr C2, mattr C1, '
+ 'predictability CK. Predictability CK retains the existing anti-vacuity exception to C0 and first '
+ 'falls below 1.0 at 141 tokens. Full precision and input provenance in '
+ 'quality/results/otterbein_m25_2026-10-04/curve-adoption.json.')))),
+        note=(((('CURRENT 2026-10-04 measurements supersede the historical values below; prior full declarations '
+ 'are in quality/results/otterbein_m25_2026-10-04/profiles-before.json. CURRENT 2026-09-15 '
+ 'measurements supersede the historical values below; prior full declarations are in '
+ 'quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 adoption '
+ 'supersedes every older value in the following historical note. CURRENT 2026-09-08 adoption above '
+ 'supersedes the 2026-09-04 coefficients and denominators. The generic knot evaluator serves CV '
+ 'and predictability identically. Historical source registration: corpus/song/eng_*.txt, every '
+ '`--- TITLE:` item (8,667 over 1,297 files, 4-3,245 tokens), no sample; thresholds fit by the '
+ 'pinball loss in ln N over the whole corpus and held out AUTHOR-wise on 200 file-level 50/50 '
+ 'splits, the rate tested in 22 fixed bins of ~400 items, the last 267 (RESULTS_LENGTH_CURVE.md '
+ '§5). predictable_pair_fraction_max is a knot table (§9) that fires only from 164 tokens: through '
+ '163 a one- or two-pair song makes the fraction 0/1-valued and the human 95th percentile IS the '
+ 'ceiling, so PREDICTABLE_RHYME is silent there by resolution, not by choice — the `short` '
+ "profile's stage B refusal, carried as a disclosed under-resolved run rather than as an absent "
+ 'threshold. Historical note: Supersedes `song` (200-400) and `short` (50-150), which stay above '
+ 'for their own drift checks. A finding under this row names the threshold EVALUATED AT THIS '
+ "TEXT'S LENGTH beside the formula, because the number differs at every N.")))),
     ))
 
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}
