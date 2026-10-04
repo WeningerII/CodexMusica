@@ -1,0 +1,190 @@
+{
+  "id": "dholki_nal",
+  "name": "Dholki / nal",
+  "short": "dholki-nal",
+  "family": "percussion",
+  "class": "dholki_nal",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "description": "A wooden double-headed barrel drum with a thin loaded treble membrane and an internally weighted bass membrane, sounded with the hands.",
+  "sources": [
+    "https://chandrakantha.com/music-and-dance/instrumental-music/indian-instruments/dholki/",
+    "https://www.asiainch.org/craft/musical-instruments-and-sound-objects-of-maharashtra/",
+    "https://forum.chandrakantha.com/post/lavani-from-maharastra-8665623?trail=30"
+  ],
+  "parts": [
+    {
+      "id": "dholki_nal_shell",
+      "name": "shell",
+      "variants": [
+        {
+          "id": "dholki_nal_shell_documented",
+          "name": "Wooden barrel shell; dimensions and wood species unspecified",
+          "default": true,
+          "descriptors": [
+            "wooden-shell",
+            "double-headed"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_treble_head",
+      "name": "treble head",
+      "variants": [
+        {
+          "id": "dholki_nal_treble_head_documented",
+          "name": "Goatskin stitched to iron ring with thin central syahi",
+          "default": true,
+          "descriptors": [
+            "goatskin",
+            "iron"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_bass_head",
+      "name": "bass head",
+      "variants": [
+        {
+          "id": "dholki_nal_bass_head_documented",
+          "name": "Membrane with oil-based mass on its inner surface",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "membranophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_tension",
+      "name": "tension",
+      "variants": [
+        {
+          "id": "dholki_nal_tension_documented",
+          "name": "Metal turnbuckles; modern documented nal construction",
+          "default": true,
+          "descriptors": [
+            "bolt-tuned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_excitation",
+      "name": "excitation",
+      "variants": [
+        {
+          "id": "dholki_nal_excitation_documented",
+          "name": "Hand and finger strokes across the two membranes",
+          "default": true,
+          "descriptors": [
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dholki_nal_shell",
+      "name": "shell",
+      "variants": [
+        {
+          "id": "dholki_nal_shell_documented",
+          "name": "Wooden barrel shell; dimensions and wood species unspecified",
+          "default": true,
+          "descriptors": [
+            "wooden-shell",
+            "double-headed"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_treble_head",
+      "name": "treble head",
+      "variants": [
+        {
+          "id": "dholki_nal_treble_head_documented",
+          "name": "Goatskin stitched to iron ring with thin central syahi",
+          "default": true,
+          "descriptors": [
+            "goatskin",
+            "iron"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_bass_head",
+      "name": "bass head",
+      "variants": [
+        {
+          "id": "dholki_nal_bass_head_documented",
+          "name": "Membrane with oil-based mass on its inner surface",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "membranophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_tension",
+      "name": "tension",
+      "variants": [
+        {
+          "id": "dholki_nal_tension_documented",
+          "name": "Metal turnbuckles; modern documented nal construction",
+          "default": true,
+          "descriptors": [
+            "bolt-tuned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "dholki_nal_excitation",
+      "name": "excitation",
+      "variants": [
+        {
+          "id": "dholki_nal_excitation_documented",
+          "name": "Hand and finger strokes across the two membranes",
+          "default": true,
+          "descriptors": [
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

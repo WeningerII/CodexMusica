@@ -5,7 +5,7 @@
   "lineage": "Canary Islands Spanish-language hip-hop, active in Las Palmas and Santa Cruz de Tenerife from the mid-1990s and prominent nationally from the 2010s through Cruz Cafuné, Bejo, La Pantera and the Elton Mackay circle — 80-140 BPM beats built in the DAW over trap hi-hat rolls or dembow-leaning bounce, melodic autotuned hooks, and rapping in the Canarian accent with island slang, guagua-and-barrio imagery and frequent code-switching into Latin American Spanish and English.",
   "recipe": "classic 1994-1996 rap canario, mc Rhythm, intl hip hop branch, reggaeton MC rhythm, us hip hop modern, Latin electric electronic dance detroit trap cloud rap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass analog poly sub bass wavetable synth, Fender blackface amp American 60s amp spring reverb bright mahogany clean single coil electric guitar, sampled chopped turntable. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 587,
-  "score": 308.966,
+  "score": 308.822,
   "config": {
     "traditions": [
       "rap_canario",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.64,
-          "voice_quality": 26.0135,
+          "voice_quality": 25.955000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7,
@@ -44,7 +44,7 @@
           "voice_tradition": 11.77,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 4.2250000000000005,
-          "voice_speech_song": 26.188499999999998,
+          "voice_speech_song": 26.144999999999996,
           "voice_ensemble_config": 19.694999999999997,
           "voice_ornament_system": 7.540000000000002,
           "voice_pitch_organization": 0.9749999999999996,
@@ -76,7 +76,7 @@
         "scores": {
           "electronic_technique": 10.319999999999999,
           "sample_bitdepth": 2.795,
-          "sample_swing": 14.621999999999998,
+          "sample_swing": 14.579999999999998,
           "sample_processing": 1.3
         }
       },

@@ -3,14 +3,14 @@
   "name": "Miami Electro (Miami Bass)",
   "family": "hip_hop",
   "lineage": "Miami and Fort Lauderdale bass music of 1984-1995 codified by MC ADE, Amos Larkins II, Luke Skyywalker Records and the 2 Live Crew, running 120-145 BPM over a TR-808 pattern with extreme long-decay tuned kick, rapid sixteenth hi-hats and hand-clap fills, terse synth stabs and call-and-response party chants recorded loud for car subwoofer playback.",
-  "recipe": "classic North American mid-1990s miami electro, mc Rhythm, southern branch, electronic dance, bass descendants bass system hard trance ghettotech. vocal fry, rap, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, sampled chopped turntable, roland lineage canonical sh 101 tb 303 1982 1984 osaka sub bass analog mono synth, mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. boombox portable speaker. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 641,
-  "score": 224.302,
+  "recipe": "classic North American mid-1990s miami electro, mc Rhythm, southern branch, electronic dance, bass descendants bass system ghettotech uk hard house. vocal fry, rap, fast rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, sampled chopped turntable, roland lineage canonical sh 101 tb 303 1982 1984 osaka sub bass analog mono synth, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. boombox portable speaker. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 591,
+  "score": 216.732,
   "config": {
     "traditions": [
       "miami_electro",
-      "hard_trance",
-      "ghettotech"
+      "ghettotech",
+      "uk_hard_house"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 12.303749999999997,
-          "drum_machine_808_context": 10.14,
+          "tr808_voice": 11.95375,
+          "drum_machine_808_context": 9.49,
           "tr808_production_origin": 1.3
         }
       },
@@ -31,16 +31,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.914375,
+          "electronic_technique": 4.064375,
           "sampler_archetypes": 3.21,
-          "sampler_bit_depth": 0.39,
+          "sampler_bit_depth": 0.26,
           "sampler_workflow": 3.5137500000000004,
-          "sampler_classic_context": 31.264999999999997
+          "sampler_classic_context": 33.14999999999999
         }
       },
       {
@@ -50,7 +50,7 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 3.914375,
+          "electronic_technique": 4.064375,
           "turntable_technique": 2.64
         }
       },
@@ -61,10 +61,10 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -76,20 +76,20 @@
         },
         "scores": {
           "voice_register": 1.6899999999999997,
-          "voice_quality": 6.925,
+          "voice_quality": 7.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2349999999999999,
-          "voice_articulation": 20.864999999999995,
-          "voice_microtone": 20.214999999999993,
-          "voice_tradition": 4.615,
-          "voice_mechanism_compound": 3.6849999999999996,
-          "voice_estill_quality": 3.2350000000000003,
-          "voice_speech_song": 20.214999999999996,
-          "voice_ensemble_config": 21.384999999999994,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 20.214999999999996,
+          "voice_microtone": 19.629999999999992,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 3.5349999999999997,
+          "voice_estill_quality": 3.0850000000000004,
+          "voice_speech_song": 20.019999999999996,
+          "voice_ensemble_config": 21.18999999999999,
           "voice_ornament_system": 2.860000000000001,
           "voice_pitch_organization": 1.2349999999999999,
-          "voice_processing_chain": 12.265625,
+          "voice_processing_chain": 12.115625,
           "voice_multitrack_stack": 2.795
         }
       },
@@ -99,31 +99,36 @@
           "electronic_technique": "electronic_bass_sub",
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
-          "mono_archetypes": "tb_303",
+          "mono_archetypes": "sh_101",
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 12.353749999999998,
+          "electronic_technique": 12.003749999999997,
           "mono_oscillator": 0.105,
           "mono_filter": 0.585,
-          "mono_archetypes": 1.125,
-          "mono_maker_lineage": 2.275
+          "mono_archetypes": 0.635,
+          "mono_maker_lineage": 1.2349999999999999
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_octave_double",
-          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
           "multitrack_stack_density": 0.5887499999999999,
-          "multitrack_stack_era_aesthetic": 1.2349999999999997,
+          "multitrack_stack_era_aesthetic": -0.035,
           "multitrack_stack_processing": 3.635625
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_tradition"
+      ]
+    },
     "room": "boombox_portable_speaker",
     "archetype": "arch_80s_indie_commercial_us",
     "inline_chain": {
@@ -143,6 +148,10 @@
   "source": {
     "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
     "room": "boombox_portable_speaker",
+    "parts": {
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
     "chain_mic": "mic_sm58_dynamic_shure",
     "chain_pre": "transformer_solid_state",
     "chain_comp": "comp_dbx_160_vca",

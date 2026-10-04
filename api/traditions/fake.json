@@ -1,0 +1,58 @@
+{
+  "id": "fake",
+  "name": "Fake",
+  "family": "pop",
+  "lineage": "Fake is a catalogue discovery label encompassing tribute recordings, karaoke versions and instrumental remakes of familiar popular songs. Its repertoire ranges from dance remixes and sound-alike performances to acoustic and piano adaptations, with song recognition linking otherwise different arrangements.",
+  "recipe": "classic fake, functional Song. upright piano. live tracking.",
+  "recipe_chars": 60,
+  "score": 2.45,
+  "config": {
+    "traditions": [
+      "fake"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.45,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

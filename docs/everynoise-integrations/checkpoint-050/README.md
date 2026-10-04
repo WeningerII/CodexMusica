@@ -1,5 +1,7 @@
 # Checkpoint 050
 
+**STATUS:** SHIPPED — merged as `8c361e84c6d960d41846c694c9135a7f78435e22`; historical counts below describe that checkpoint.
+
 This checkpoint adds 39 independently reviewed genre profiles, produced cowbell and Russian seven-string guitar instrument definitions, and five scoped receiver corrections. The resulting catalogue contains 6971 traditions and 1666 instruments. The engine and schema are unchanged.
 
 The five partial corrections concern K-rap, Indie Pop, Reggae Fusion, Balearic Beat and Marimba Mexicana. Their source-backed controls address the specific generated conflicts documented in the independent reviews. Balearic Beat retains its mid-1980s origins while its recording window now covers the continuing practice. Inherited unrelated limitations remain disclosed and unapproved.
