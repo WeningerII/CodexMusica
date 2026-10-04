@@ -5,7 +5,7 @@
   "lineage": "Deep adult standards is a listening field around mid-century popular singers and the older songs that remained in their repertoires. Recorded hits, reissues and published arrangements connect traditional pop, jazz standards and country-pop crossover songs.",
   "recipe": "classic deep adult standards, functional Song. slow rate, one note per syllable, solo with instrumental accompaniment. upright piano. treated studio.",
   "recipe_chars": 149,
-  "score": 3.757,
+  "score": 3.937,
   "config": {
     "traditions": [
       "deep_adult_standards"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.18,
           "voice_multitrack_stack": 0.160875,
           "voice_tessitura": 0
         }

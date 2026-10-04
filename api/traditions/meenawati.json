@@ -1,0 +1,50 @@
+{
+  "id": "meenawati",
+  "name": "Meenawati",
+  "family": "pop",
+  "lineage": "Meenawati song circulates through Meena communities in eastern Rajasthan, linking local storytelling and devotional singing with recorded popular music. Community gatherings and regional digital releases carry these songs into dance and DJ-remix settings.",
+  "recipe": "classic meenawati, functional Song, south Asian pop branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 106,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "meenawati"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

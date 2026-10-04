@@ -1,5 +1,7 @@
 # Checkpoint 051
 
+**STATUS:** SHIPPED — merged as `c86909cf88b0b02cb1a05eff7e4e4c129b83b257`; historical counts below describe that checkpoint.
+
 This checkpoint adds 34 independently reviewed genre profiles, a dholki/nal instrument definition, two additive instrument vocabulary extensions and six scoped receiver corrections. The resulting catalogue contains 7005 traditions and 1667 instruments. The engine, schema and user interface behavior are unchanged.
 
 The receiver corrections concern J-core, Electro Industrial, Sheffield Bleep Techno, Dancefloor DnB, Miami Electro and Texas Conjunto. These are limited source-supported corrections; unrelated inherited limitations remain disclosed and unapproved. Two new profiles retain their historical origins while explicitly allowing continuing renditions: Deep Eurodance and Deep Classic Garage Rock.

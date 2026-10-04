@@ -3,9 +3,9 @@
   "name": "Russian Pixel",
   "family": "hip_hop",
   "lineage": "Russian Pixel connects Russian-language game-video creators and their song audiences. Minecraft references, online characters and playful personal stories circulate through rap, pop songs and collaborative releases by creators including Фиксай, Топовский, Yellow Fire and Компот.",
-  "recipe": "classic russian pixel, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch. credited beat unspecified. treated studio.",
-  "recipe_chars": 128,
-  "score": 10.25,
+  "recipe": "classic russian pixel, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+  "recipe_chars": 166,
+  "score": 10.742,
   "config": {
     "traditions": [
       "russian_pixel"
@@ -38,17 +38,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.378,
+          "voice_articulation": 0.354,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.425,
-          "voice_ensemble_config": 0.4075,
+          "voice_ensemble_config": 0.9089999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.03899999999999999,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },

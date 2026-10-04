@@ -5,7 +5,7 @@
   "lineage": "Soda pop gathers romantic vocal-group pop and its revival performers, drawing especially on doo-wop and early rhythm-and-blues harmonies. Lead melodies, answering voices and repeated backing syllables carry compact songs; contemporary vocal ensembles keep this repertoire in circulation alongside historical recordings.",
   "recipe": "classic soda pop, functional Song. group vocals. live tracking.",
   "recipe_chars": 63,
-  "score": 1.846,
+  "score": 1.749,
   "config": {
     "traditions": [
       "soda_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.40950000000000003,
+          "voice_speech_song": 0.312,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

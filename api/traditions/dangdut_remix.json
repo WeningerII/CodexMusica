@@ -1,0 +1,50 @@
+{
+  "id": "dangdut_remix",
+  "name": "Dangdut Remix",
+  "family": "electronic",
+  "lineage": "Indonesian dance-remix practice reshaping dangdut recordings through digital editing, rhythmic replacement and sampled cross-genre additions. It developed within the cassette and studio-production economy of the 1990s and continues in electronic dance circulation.",
+  "recipe": "classic mid-1990s dangdut remix, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
+  "recipe_chars": 104,
+  "score": 0.063,
+  "config": {
+    "traditions": [
+      "dangdut_remix"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

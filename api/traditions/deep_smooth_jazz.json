@@ -1,0 +1,58 @@
+{
+  "id": "deep_smooth_jazz",
+  "name": "Deep Smooth Jazz",
+  "family": "jazz",
+  "lineage": "Deep Smooth Jazz gathers melodic contemporary jazz players whose work connects polished instrumental songs, jazz-pop harmony and relaxed grooves. Saxophone, guitar and keyboard leads move through small-group recordings and intimate arrangements, with collaborations linking emerging players to established smooth-jazz musicians.",
+  "recipe": "classic deep smooth jazz, art Music. upright piano. live tracking.",
+  "recipe_chars": 66,
+  "score": -0.019,
+  "config": {
+    "traditions": [
+      "deep_smooth_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

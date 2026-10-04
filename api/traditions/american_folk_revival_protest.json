@@ -5,7 +5,7 @@
   "lineage": "American protest-song tradition continuous from Industrial-Workers-of-the-World early-20th-century labor anthems (Joe Hill, \"Solidarity Forever\") through the 1930s Almanac Singers and Popular Front lineage through 1960s civil-rights-and-anti-war folk-revival continuous into the modern indie-protest singer-songwriter scene",
   "recipe": "classic North American mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country british folk revival texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning martin lifespan fingerpicked acoustic guitar, bamboo bronze harmonica, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string. dry but alive 1948-1965 indie-commercial early tape us small. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 644,
-  "score": 257.604,
+  "score": 257.061,
   "config": {
     "traditions": [
       "american_folk_revival_protest",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 25.97499999999999,
+          "voice_register": 26.019999999999992,
           "voice_quality": 13.129999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.121375,
+          "voice_vibrato": 7.023875,
           "voice_articulation": 13.389999999999993,
           "voice_microtone": 13.844999999999992,
-          "voice_tradition": 23.499874999999996,
+          "voice_tradition": 22.882374999999996,
           "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 8.64125,
+          "voice_estill_quality": 8.986249999999998,
           "voice_speech_song": 25.609999999999992,
           "voice_ensemble_config": 13.714999999999995,
-          "voice_ornament_system": 3.4850000000000003,
+          "voice_ornament_system": 3.5300000000000007,
           "voice_pitch_organization": 3.5749999999999993,
           "voice_processing_chain": 1.95,
           "voice_multitrack_stack": 4.517500000000001
@@ -65,8 +65,8 @@
           "string_tuning": 3.075,
           "top_wood": 0.45124999999999993,
           "back_sides": 0.45124999999999993,
-          "string_acoustic": 1.9601250000000001,
-          "acoustic_om_technique": 30.399374999999992
+          "string_acoustic": 1.700125,
+          "acoustic_om_technique": 30.444374999999994
         }
       },
       {
@@ -83,7 +83,7 @@
           "harmonica_type": 0.585,
           "harmonica_comb": 3.9055,
           "harmonica_reed": 3.4,
-          "harmonica_technique": 26.571999999999996,
+          "harmonica_technique": 26.523249999999997,
           "harmonica_maker_school": 0.5849999999999999,
           "harmonica_tuning": 0.39
         }

@@ -5,7 +5,7 @@
   "lineage": "Historical country-to-pop crossover repertoire, here represented by Glen Campbell’s late-1960s and 1970s songbook. Campbell’s singing and guitar playing sit at the center of a deliberately reduced acoustic/electric guitar arrangement; the model does not claim to reconstruct the original orchestral sessions.",
   "recipe": "classic 1967-1969 classic country pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. acoustic guitar 12 string, Fender blackface amp American 60s amp spring reverb bright soft down tuning single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 441,
-  "score": 24.848,
+  "score": 24.632,
   "config": {
     "traditions": [
       "classic_country_pop"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.252875,
+          "voice_speech_song": 1.5055,
+          "voice_ensemble_config": 1.2285000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 1.792375,
-          "voice_multitrack_stack": 0.36112500000000003
+          "voice_processing_chain": 1.6315000000000002,
+          "voice_multitrack_stack": 0.20025
         }
       },
       {
@@ -84,13 +84,13 @@
           "electric_technique": 5.75,
           "amp_make": 6.2219999999999995,
           "body_wood": 0.363,
-          "neck_wood": 0.1365,
+          "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.07425,
           "string_material": 0.0315,
           "string_gauge": 0.39,
           "bridge": 0.1365,
-          "scale_length": 0.168,
+          "scale_length": 0.378,
           "finish": 0,
           "string_tuning": 3.25,
           "single_coil_pickup_construction": 0

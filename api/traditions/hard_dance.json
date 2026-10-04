@@ -3,26 +3,26 @@
   "name": "Hard Dance",
   "family": "electronic",
   "lineage": "Umbrella British club idiom of the late 1990s and 2000s consolidated around London's Trade and Frantic nights and labels like Tidy Trax and Nukleuz, at 145-155 BPM with a punchy four-on-the-floor kick, offbeat bass, long filtered risers, hoover and stab leads, sharp snare rolls and diva or shouted vocal hooks over rigid sixteen-bar build-and-drop structures.",
-  "recipe": "classic British 1997-1999 hard dance, electronic Dance, hardstyle branch, trance electronic dance, tech house house, continental electronic dance hard trance makina. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, sub bass analog mono sub bass analog poly synth, sub bass digital subtractive, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 553,
-  "score": 243.119,
+  "recipe": "classic British 1997-1999 hard dance, electronic Dance, hardstyle branch, trance electronic dance, tech house house, continental electronic dance makina bouncy techno. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, sub bass analog mono sub bass analog poly synth, sub bass digital subtractive, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 555,
+  "score": 227.526,
   "config": {
     "traditions": [
       "hard_dance",
-      "hard_trance",
-      "makina"
+      "makina",
+      "bouncy_techno"
     ],
     "instruments": [
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
           "tr909_voice": 5.095625,
-          "drum_machine_909_context": 1.3,
+          "drum_machine_909_context": 2.34,
           "tr909_production_origin": 0.195
         }
       },
@@ -30,17 +30,17 @@
         "id": "analog_mono_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "mono_oscillator": "mono_digitally_controlled",
+          "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
-          "mono_archetypes": "tb_303",
-          "mono_maker_lineage": "mono_roland_kakehashi"
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 3.8400000000000003,
-          "mono_oscillator": 0,
-          "mono_filter": -0.245,
-          "mono_archetypes": 0.9750000000000001,
-          "mono_maker_lineage": -0.875
+          "electronic_technique": 3.390000000000001,
+          "mono_oscillator": -0.8049999999999999,
+          "mono_filter": -0.35,
+          "mono_archetypes": 0.49874999999999997,
+          "mono_maker_lineage": -2.3493749999999998
         }
       },
       {
@@ -51,9 +51,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.8400000000000003,
-          "va_archetypes": 5.199999999999999,
-          "digital_subtractive_context": 22.685000000000002
+          "electronic_technique": 3.390000000000001,
+          "va_archetypes": 2.795,
+          "digital_subtractive_context": 20.8
         }
       },
       {
@@ -65,10 +65,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 3.8400000000000003,
+          "electronic_technique": 3.390000000000001,
           "poly_archetypes": 0.57,
           "poly_voices": 0.57,
-          "poly_maker_lineage": -1.564375
+          "poly_maker_lineage": -1.714375
         }
       },
       {
@@ -82,10 +82,10 @@
         },
         "scores": {
           "electronic_technique": 0.52,
-          "sampler_archetypes": 0.17500000000000002,
+          "sampler_archetypes": 0.65,
           "sampler_bit_depth": 0.195,
-          "sampler_workflow": 0.45500000000000007,
-          "sampler_classic_context": 31.85
+          "sampler_workflow": 0.9500000000000001,
+          "sampler_classic_context": 30.16
         }
       },
       {
@@ -104,30 +104,41 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 2.535,
-          "voice_quality": 9.23,
+          "voice_register": 2.73,
+          "voice_quality": 8.84,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 23.14,
-          "voice_microtone": 22.489999999999995,
-          "voice_tradition": 6.500000000000001,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 22.880000000000003,
-          "voice_ensemble_config": 25.155,
-          "voice_ornament_system": 1.6856249999999997,
-          "voice_pitch_organization": 1.0399999999999998,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 20.799999999999997,
+          "voice_microtone": 20.604999999999993,
+          "voice_tradition": 7.540000000000001,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 21.384999999999998,
+          "voice_ensemble_config": 24.114999999999995,
+          "voice_ornament_system": 1.1856249999999997,
+          "voice_pitch_organization": 0.845,
           "voice_processing_chain": 25.004375,
-          "voice_multitrack_stack": 3.835
+          "voice_multitrack_stack": 4.03
         }
       }
     ],
+    "pinned": {
+      "drum_machine_909": [
+        "tr909_voice"
+      ],
+      "analog_mono_synth": [
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ]
+    },
     "room": "studio_british_class_a_commercial",
     "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
@@ -147,6 +158,14 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "studio_british_class_a_commercial",
+    "parts": {
+      "tr909_voice": "tr909_kick",
+      "mono_archetypes": "minimoog",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_maker_lineage": "mono_moog_robert"
+    },
+    "pin_parts": true,
     "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_pumping",

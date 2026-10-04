@@ -1,0 +1,66 @@
+{
+  "id": "japanese_chillhop",
+  "name": "Japanese Chillhop",
+  "family": "electronic",
+  "lineage": "Japanese chillhop connects Japan’s instrumental hip-hop and sampling communities with international online listening culture. Nujabes’ legacy, independent beatmakers and exchanges through labels and streaming compilations helped shape its mellow, melody-conscious production.",
+  "recipe": "classic japanese chillhop, experimental Elec. sampler. treated studio.",
+  "recipe_chars": 70,
+  "score": 8.99,
+  "config": {
+    "traditions": [
+      "japanese_chillhop"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.5205,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.3,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 7.02
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "pin_parts": true
+  }
+}

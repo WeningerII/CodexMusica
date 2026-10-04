@@ -1,5 +1,5 @@
 {
-  "count": 7005,
+  "count": 7078,
   "items": [
     {
       "id": "honky_tonk",
@@ -42030,6 +42030,444 @@
       "name": "Glitchbreak",
       "family": "electronic",
       "href": "traditions/glitchbreak.json"
+    },
+    {
+      "id": "experimental_big_band",
+      "name": "Experimental Big Band",
+      "family": "jazz",
+      "href": "traditions/experimental_big_band.json"
+    },
+    {
+      "id": "funk_das_antigas",
+      "name": "Funk das Antigas",
+      "family": "electronic",
+      "href": "traditions/funk_das_antigas.json"
+    },
+    {
+      "id": "plug_brasileiro",
+      "name": "Plug Brasileiro",
+      "family": "hip_hop",
+      "href": "traditions/plug_brasileiro.json"
+    },
+    {
+      "id": "deep_uplifting_trance",
+      "name": "Deep Uplifting Trance",
+      "family": "electronic",
+      "href": "traditions/deep_uplifting_trance.json"
+    },
+    {
+      "id": "goa_psytrance",
+      "name": "Goa Psytrance",
+      "family": "electronic",
+      "href": "traditions/goa_psytrance.json"
+    },
+    {
+      "id": "dubstep_product",
+      "name": "Dubstep Product",
+      "family": "electronic",
+      "href": "traditions/dubstep_product.json"
+    },
+    {
+      "id": "filthstep",
+      "name": "Filthstep",
+      "family": "electronic",
+      "href": "traditions/filthstep.json"
+    },
+    {
+      "id": "desi_emo_rap",
+      "name": "Desi Emo Rap",
+      "family": "hip_hop",
+      "href": "traditions/desi_emo_rap.json"
+    },
+    {
+      "id": "vintage_schlager",
+      "name": "Vintage Schlager",
+      "family": "pop",
+      "href": "traditions/vintage_schlager.json"
+    },
+    {
+      "id": "tape_club",
+      "name": "Tape Club",
+      "family": "pop",
+      "href": "traditions/tape_club.json"
+    },
+    {
+      "id": "vintage_tollywood",
+      "name": "Vintage Tollywood",
+      "family": "vernacular",
+      "href": "traditions/vintage_tollywood.json"
+    },
+    {
+      "id": "swedish_trap_pop",
+      "name": "Swedish Trap Pop",
+      "family": "hip_hop",
+      "href": "traditions/swedish_trap_pop.json"
+    },
+    {
+      "id": "persian_trap",
+      "name": "Persian Trap",
+      "family": "hip_hop",
+      "href": "traditions/persian_trap.json"
+    },
+    {
+      "id": "futuristic_swag",
+      "name": "Futuristic Swag",
+      "family": "hip_hop",
+      "href": "traditions/futuristic_swag.json"
+    },
+    {
+      "id": "gbvfi",
+      "name": "GbVfi",
+      "family": "rock_punk",
+      "href": "traditions/gbvfi.json"
+    },
+    {
+      "id": "corrosion",
+      "name": "Corrosion",
+      "family": "rock",
+      "href": "traditions/corrosion.json"
+    },
+    {
+      "id": "indie_rockism",
+      "name": "Indie Rockism",
+      "family": "pop",
+      "href": "traditions/indie_rockism.json"
+    },
+    {
+      "id": "deep_smooth_jazz",
+      "name": "Deep Smooth Jazz",
+      "family": "jazz",
+      "href": "traditions/deep_smooth_jazz.json"
+    },
+    {
+      "id": "gymcore",
+      "name": "Gymcore",
+      "family": "rock",
+      "href": "traditions/gymcore.json"
+    },
+    {
+      "id": "vintage_chinese_pop",
+      "name": "Vintage Chinese Pop",
+      "family": "pop",
+      "href": "traditions/vintage_chinese_pop.json"
+    },
+    {
+      "id": "modern_dream_pop",
+      "name": "Modern Dream Pop",
+      "family": "pop",
+      "href": "traditions/modern_dream_pop.json"
+    },
+    {
+      "id": "pop_r_and_b",
+      "name": "Pop R&B",
+      "family": "pop",
+      "href": "traditions/pop_r_and_b.json"
+    },
+    {
+      "id": "flamenco_urbano",
+      "name": "Flamenco Urbano",
+      "family": "hip_hop",
+      "href": "traditions/flamenco_urbano.json"
+    },
+    {
+      "id": "dubsteppe",
+      "name": "Dubsteppe",
+      "family": "electronic",
+      "href": "traditions/dubsteppe.json"
+    },
+    {
+      "id": "deep_ragga",
+      "name": "Deep Ragga",
+      "family": "global",
+      "href": "traditions/deep_ragga.json"
+    },
+    {
+      "id": "corridos_adictivos",
+      "name": "Corridos Adictivos",
+      "family": "global",
+      "href": "traditions/corridos_adictivos.json"
+    },
+    {
+      "id": "classic_bangla_pop",
+      "name": "Classic Bangla Pop",
+      "family": "pop",
+      "href": "traditions/classic_bangla_pop.json"
+    },
+    {
+      "id": "classic_thai_pop",
+      "name": "Classic Thai Pop",
+      "family": "pop",
+      "href": "traditions/classic_thai_pop.json"
+    },
+    {
+      "id": "deep_dance_pop",
+      "name": "Deep Dance Pop",
+      "family": "pop",
+      "href": "traditions/deep_dance_pop.json"
+    },
+    {
+      "id": "kinnauri_pop",
+      "name": "Kinnauri Pop",
+      "family": "pop",
+      "href": "traditions/kinnauri_pop.json"
+    },
+    {
+      "id": "speed_up_turkce",
+      "name": "Speed Up Türkçe",
+      "family": "hip_hop",
+      "href": "traditions/speed_up_turkce.json"
+    },
+    {
+      "id": "zambian_pop",
+      "name": "Zambian Pop",
+      "family": "pop",
+      "href": "traditions/zambian_pop.json"
+    },
+    {
+      "id": "classic_kollywood",
+      "name": "Classic Kollywood",
+      "family": "pop",
+      "href": "traditions/classic_kollywood.json"
+    },
+    {
+      "id": "classic_tollywood",
+      "name": "Classic Tollywood",
+      "family": "pop",
+      "href": "traditions/classic_tollywood.json"
+    },
+    {
+      "id": "musica_sinaloense",
+      "name": "Música Sinaloense",
+      "family": "vernacular",
+      "href": "traditions/musica_sinaloense.json"
+    },
+    {
+      "id": "nova_musica_paulista",
+      "name": "Nova Música Paulista",
+      "family": "pop",
+      "href": "traditions/nova_musica_paulista.json"
+    },
+    {
+      "id": "modern_alternative_pop",
+      "name": "Modern Alternative Pop",
+      "family": "pop",
+      "href": "traditions/modern_alternative_pop.json"
+    },
+    {
+      "id": "vintage_dutch_pop",
+      "name": "Vintage Dutch Pop",
+      "family": "pop",
+      "href": "traditions/vintage_dutch_pop.json"
+    },
+    {
+      "id": "korean_hyperpop",
+      "name": "Korean Hyperpop",
+      "family": "pop",
+      "href": "traditions/korean_hyperpop.json"
+    },
+    {
+      "id": "khandeshi_pop",
+      "name": "Khandeshi Pop",
+      "family": "pop",
+      "href": "traditions/khandeshi_pop.json"
+    },
+    {
+      "id": "spanish_invasion",
+      "name": "Spanish Invasion",
+      "family": "rock",
+      "href": "traditions/spanish_invasion.json"
+    },
+    {
+      "id": "dangdut_remix",
+      "name": "Dangdut Remix",
+      "family": "electronic",
+      "href": "traditions/dangdut_remix.json"
+    },
+    {
+      "id": "neo_r_and_b",
+      "name": "Neo R&B",
+      "family": "pop",
+      "href": "traditions/neo_r_and_b.json"
+    },
+    {
+      "id": "indonesian_hyperpop",
+      "name": "Indonesian Hyperpop",
+      "family": "pop",
+      "href": "traditions/indonesian_hyperpop.json"
+    },
+    {
+      "id": "marwadi_pop",
+      "name": "Marwadi Pop",
+      "family": "pop",
+      "href": "traditions/marwadi_pop.json"
+    },
+    {
+      "id": "japanese_chillhop",
+      "name": "Japanese Chillhop",
+      "family": "electronic",
+      "href": "traditions/japanese_chillhop.json"
+    },
+    {
+      "id": "indie_fuzzpop",
+      "name": "Indie Fuzzpop",
+      "family": "pop",
+      "href": "traditions/indie_fuzzpop.json"
+    },
+    {
+      "id": "japanese_hyperpop",
+      "name": "Japanese Hyperpop",
+      "family": "pop",
+      "href": "traditions/japanese_hyperpop.json"
+    },
+    {
+      "id": "kavkaz",
+      "name": "Kavkaz",
+      "family": "pop",
+      "href": "traditions/kavkaz.json"
+    },
+    {
+      "id": "pinoy_city_pop",
+      "name": "Pinoy city pop",
+      "family": "pop",
+      "href": "traditions/pinoy_city_pop.json"
+    },
+    {
+      "id": "indian_lo_fi",
+      "name": "Indian Lo-Fi",
+      "family": "electronic",
+      "href": "traditions/indian_lo_fi.json"
+    },
+    {
+      "id": "balkan_drill",
+      "name": "Balkan drill",
+      "family": "hip_hop",
+      "href": "traditions/balkan_drill.json"
+    },
+    {
+      "id": "re_techno",
+      "name": "Re:techno",
+      "family": "electronic",
+      "href": "traditions/re_techno.json"
+    },
+    {
+      "id": "musica_potosina",
+      "name": "Música Potosina",
+      "family": "global",
+      "href": "traditions/musica_potosina.json"
+    },
+    {
+      "id": "krajiska_muzika",
+      "name": "Krajiška muzika",
+      "family": "global",
+      "href": "traditions/krajiska_muzika.json"
+    },
+    {
+      "id": "rhythm_and_boogie",
+      "name": "Rhythm and Boogie",
+      "family": "pop",
+      "href": "traditions/rhythm_and_boogie.json"
+    },
+    {
+      "id": "modern_power_pop",
+      "name": "Modern Power Pop",
+      "family": "pop",
+      "href": "traditions/modern_power_pop.json"
+    },
+    {
+      "id": "pop_nacional_antigas",
+      "name": "Pop Nacional Antigas",
+      "family": "pop",
+      "href": "traditions/pop_nacional_antigas.json"
+    },
+    {
+      "id": "radio_symphony",
+      "name": "Radio symphony",
+      "family": "classical",
+      "href": "traditions/radio_symphony.json"
+    },
+    {
+      "id": "violao",
+      "name": "Violão",
+      "family": "global",
+      "href": "traditions/violao.json"
+    },
+    {
+      "id": "meenawati",
+      "name": "Meenawati",
+      "family": "pop",
+      "href": "traditions/meenawati.json"
+    },
+    {
+      "id": "nu_age",
+      "name": "Nu Age",
+      "family": "electronic",
+      "href": "traditions/nu_age.json"
+    },
+    {
+      "id": "musica_colimense",
+      "name": "Música Colimense",
+      "family": "vernacular",
+      "href": "traditions/musica_colimense.json"
+    },
+    {
+      "id": "musica_morelense",
+      "name": "Música Morelense",
+      "family": "vernacular",
+      "href": "traditions/musica_morelense.json"
+    },
+    {
+      "id": "musique_mariage_algerien",
+      "name": "Musique Mariage Algérien",
+      "family": "vernacular",
+      "href": "traditions/musique_mariage_algerien.json"
+    },
+    {
+      "id": "indiecoustica",
+      "name": "Indiecoustica",
+      "family": "pop",
+      "href": "traditions/indiecoustica.json"
+    },
+    {
+      "id": "plugg_francais",
+      "name": "Plugg Français",
+      "family": "hip_hop",
+      "href": "traditions/plugg_francais.json"
+    },
+    {
+      "id": "sirmauri_pop",
+      "name": "Sirmauri Pop",
+      "family": "pop",
+      "href": "traditions/sirmauri_pop.json"
+    },
+    {
+      "id": "gospel_antigas",
+      "name": "Gospel Antigas",
+      "family": "blues_gospel",
+      "href": "traditions/gospel_antigas.json"
+    },
+    {
+      "id": "son_cubano_clasico",
+      "name": "Son Cubano Clásico",
+      "family": "global",
+      "href": "traditions/son_cubano_clasico.json"
+    },
+    {
+      "id": "philly_drill",
+      "name": "Philly Drill",
+      "family": "hip_hop",
+      "href": "traditions/philly_drill.json"
+    },
+    {
+      "id": "cumbia",
+      "name": "Cumbia",
+      "family": "vernacular",
+      "href": "traditions/cumbia.json"
+    },
+    {
+      "id": "italo_beats",
+      "name": "Italo Beats",
+      "family": "electronic",
+      "href": "traditions/italo_beats.json"
     }
   ]
 }

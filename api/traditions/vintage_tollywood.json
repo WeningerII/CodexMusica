@@ -1,0 +1,60 @@
+{
+  "id": "vintage_tollywood",
+  "name": "Vintage Tollywood",
+  "family": "vernacular",
+  "lineage": "Vintage Tollywood foregrounds legacy Telugu-film songs and their continuing circulation through playback recordings, concerts and instrumental interpretations. Composers and singers such as Ghantasala, P. Leela and P. Susheela connect older cinema melodies with later generations of performers and listeners.",
+  "recipe": "classic vintage tollywood, functional Song. upright piano. live tracking.",
+  "recipe_chars": 73,
+  "score": -0.016,
+  "config": {
+    "traditions": [
+      "vintage_tollywood"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "upright_use": 0.054,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

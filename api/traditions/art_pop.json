@@ -3,53 +3,53 @@
   "name": "Art pop",
   "family": "global",
   "lineage": "High-concept songwriter pop with avant-garde production sensibility — Kate Bush, Peter Gabriel, Brian Eno, Talk Talk Spirit of Eden, Bjork, Sufjan Stevens, Joanna Newsom, FKA twigs, Bon Iver",
-  "recipe": "classic North American modern art pop, functional Song, pop rock branch, pop experimental experimental electric glitch pop bubblegum bass. thick, chest mix belt, wide pitch sway, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico soft down tuning clean strummed humbucker electric guitar, 2000s elastic pitch edited stack formant shifted left right stereo width multitrack vocal stack. greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 724,
-  "score": 270.382,
+  "recipe": "classic North American modern art pop, functional Song, pop rock branch, pop experimental experimental electric glitch pop indonesian hyperpop. equal tempered, modern pop training, solo with instrumental accompaniment, no specific ornament system. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, analog poly synth, string quartet inst, alnico clean strummed humbucker electric guitar, multitrack vocal stack. greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 654,
+  "score": 166.245,
   "config": {
     "traditions": [
       "art_pop",
       "glitch_pop",
-      "bubblegum_bass"
+      "indonesian_hyperpop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "mix_voice",
           "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.564999999999994,
-          "voice_quality": 3.3100000000000005,
+          "voice_register": 0,
+          "voice_quality": -0.38499999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.52,
-          "voice_articulation": 9.035,
-          "voice_microtone": 23.574999999999996,
-          "voice_tradition": 23.934999999999995,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 2.6000000000000005,
-          "voice_speech_song": 14.039999999999996,
-          "voice_ensemble_config": 8.58,
-          "voice_ornament_system": 1.56,
-          "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 8.655,
-          "voice_multitrack_stack": 4.517500000000001
+          "voice_vibrato": -0.035,
+          "voice_articulation": 0,
+          "voice_microtone": 23.074999999999996,
+          "voice_tradition": 23.659999999999997,
+          "voice_mechanism_compound": 0.135,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.32999999999999996,
+          "voice_ensemble_config": 2.795,
+          "voice_ornament_system": 1.035,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 0.15,
+          "voice_multitrack_stack": 1.625
         }
       },
       {
@@ -66,28 +66,28 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 19.95,
+          "keyboard_technique": 19.825,
           "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.195,
-          "piano_hammer": 18.305,
-          "piano_rim": 18.2,
-          "piano_soundboard": 18.245,
+          "grand_piano_brand": 0.24,
+          "piano_hammer": 18.68,
+          "piano_rim": 18.575,
+          "piano_soundboard": 19.12,
           "piano_pinblock": -0.05,
-          "piano_plate": 1.17,
-          "piano_pitch_standard": 2.0799999999999996
+          "piano_plate": 1.8199999999999998,
+          "piano_pitch_standard": 0.78
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 18.865,
-          "poly_archetypes": 2.705,
+          "electronic_technique": -0.1,
+          "poly_archetypes": 2.34,
           "poly_voices": 0.15,
           "poly_maker_lineage": -2.05
         }
@@ -110,48 +110,91 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "korina",
+          "body_wood": "alder_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_12_hum",
+          "string_material": "nickel_plated_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_10_hum",
           "finish": "poly_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 18.625,
-          "amp_make": 2.515,
-          "body_wood": 0.845,
-          "neck_wood": 0.195,
+          "electric_technique": 19,
+          "amp_make": 2.165,
+          "body_wood": 0.045,
+          "neck_wood": 0.045,
           "fretboard": 0.39,
           "pickup_magnet": 1.2850000000000001,
           "pickup_winding": 0.63,
-          "string_material": 0.195,
-          "bridge": 0.195,
-          "scale_length": 0.195,
-          "string_gauge": 0.195,
-          "finish": 0.65,
-          "string_tuning": 3.445
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0.39499999999999996,
+          "finish": 0.15,
+          "string_tuning": 0.845
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_5_part_cluster",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
-          "multitrack_stack_processing": "multitrack_processing_formant_split_stereo"
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_natural"
         },
         "scores": {
-          "multitrack_stack_density": 0.48,
-          "multitrack_stack_era_aesthetic": 2.8600000000000003,
-          "multitrack_stack_processing": 1.69
+          "multitrack_stack_density": 0.38999999999999996,
+          "multitrack_stack_era_aesthetic": -1.6599999999999997,
+          "multitrack_stack_processing": 0.045
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "piano_pitch_standard"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique"
+      ],
+      "string_quartet_inst": [
+        "bowed_technique",
+        "quartet_school",
+        "string_quartet_inst_era"
+      ],
+      "electric_guitar_humbucker": [
+        "body_wood",
+        "pickup_magnet",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_tuning"
+      ],
+      "multitrack_vocal_stack": [
+        "multitrack_stack_density",
+        "multitrack_stack_era_aesthetic",
+        "multitrack_stack_processing"
+      ]
+    },
     "room": "electric_lady_studios_nyc",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
@@ -199,8 +242,10 @@
       "string_tuning": "standard_tuning",
       "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
       "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
-      "multitrack_stack_processing": "multitrack_processing_natural"
+      "multitrack_stack_processing": "multitrack_processing_natural",
+      "voice_articulation": "voice_articulation_source_unspecified"
     },
+    "pin_parts": true,
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_neve_1073_input",
     "chain_comp": "comp_smart_c1_bus",
