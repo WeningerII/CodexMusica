@@ -28856,3 +28856,26 @@ its own M-311 and #398 takes M-312.
 **NOT CLAIMED.** That the rap chain is fully modelled: a declared pair is judged as a pair, and "each new member laid against the ESTABLISHED CHAIN" (the schema's note) over three or more members is still asked by no route. Nor that the default rule is right to ignore chain rhyme — that is the owner's ruling, recorded here, and changing it moves the three oracles above.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~370~~ -> **371**.
+
+### M-317 · The superseded `song` and `short` band profiles are re-measured and re-recorded by every closing sitting, and nothing applies them `OPEN` — parked 2026-10-04 by the owner
+
+**Found 2026-10-04 in the Otterbein / M-25(a) closing sitting.** Both profiles
+carry `superseded_by="lyric"` in `quality/floor.py` (M-239) and are never
+applied to a song; they stay "for their own drift check", so each closing
+sitting measures both bands (200 author-held-out splits, 2,000 period draws)
+and re-records them. This sitting the unchanged band rule moved `song` from
+150–400 to 200–400 tokens — 18 Otterbein hymns in the 150–200 bin put its
+predictability 95th percentile at the 1.0 ceiling — and that read as a live
+decision until `superseded_by` was checked. The cost is compute every sitting
+and a recurring false alarm; the active `lyric` length curves carry the drift
+check that matters.
+
+**Remedy when picked up:** retire or freeze the two profiles (stop
+re-measuring them, drop them from the closing sitting and the manifest's
+calibrated list, keep their last values as dated history) after mapping what
+still reads them — the band-control audit, the band red-team, the FWER
+studies and any threshold a checker re-derives from `quality/floor.py`.
+**Owner ruling 2026-10-04: not now** — parked so a later sitting does not
+re-raise a band move as a decision. This sitting re-recorded both as
+bookkeeping; the measurements are in
+`quality/results/otterbein_m25_2026-10-04/`.
