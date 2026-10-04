@@ -1,0 +1,248 @@
+{
+  "entries": [
+    {
+      "source_label": "hip hop boliviano",
+      "source_url": "https://everynoise.com/engenremap-hiphopboliviano.html",
+      "suggested_id": "hip_hop_boliviano",
+      "allocation_ordinal": 313,
+      "allocation_group_id": "013",
+      "status": "frozen_for_independent_review",
+      "id": "hip_hop_boliviano",
+      "tradition": {
+        "id": "hip_hop_boliviano",
+        "name": "Hip hop boliviano",
+        "family": "hip_hop",
+        "lineage": "Santa Mala — complete reported Festival Mucho2020 performance, streamed19September2020 from Edifício Martinelli,SãoPaulo. Event presenter and eyewitness Miguel Arcanjo Prado identifies the three sisters Jenny,Pamela and Abigail Llanque alongside DJ DeLaPaz. All four named people and both live-voice and DJ playback roles retained. This is the whole documented SantaMala act, not other festival performers or a reconstructed studio album. Exact setlist,duration,deck medium and embedded playback voices unknown. No assistant attendance or audio audition claimed. Three distinct named vocalists aggregate as authored live group/live-ensemble; no claim all sing every phrase. Source describes rapping and singing, so speech/song, pitch and physiology remain unspecified; neutral unprocessed delivery is authored rather than recovered effect settings. Existing neutral DJ owner retains whole actual live playback without inventing a studio-master sampler, medium or embedded voice count. Controlled live-room presentation and brisk up-tempo vocal/exuberant playback affect are editorial festival-rendition choices, not measured rooftop acoustics or BPM. No global tuning or invented auxiliary instruments.",
+        "instruments": [
+          "voice",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Santa Mala — complete reported Festival Mucho2020 performance, streamed19September2020 from Edifício Martinelli,SãoPaulo. Event presenter and eyewitness Miguel Arcanjo Prado identifies the three sisters Jenny,Pamela and Abigail Llanque alongside DJ DeLaPaz. All four named people and both live-voice and DJ playback roles retained. This is the whole documented SantaMala act, not other festival performers or a reconstructed studio album. Exact setlist,duration,deck medium and embedded playback voices unknown. No assistant attendance or audio audition claimed. Municipal cultural-programme primary independently presents SantaMala as a Bolivian Spanish-language rap trio and includes Abigail first-person description; festival presenter explicitly locates their practice in LaPaz and SãoPaulo rap scenes and their Bolivian diaspora identity. The requested national/diasporic hip-hop field is broader than existing trap_boliviano, whose full text specifies SantaCruz electronic trap, not every Bolivian hip-hop practice. It overlaps Latin and Spanish-language hip-hop and migrant SãoPaulo scenes without becoming coextensive with any of them. This is not classification by birthplace alone: the artist/community institutions affirm continuing Bolivian hip-hop identity. No claim all Bolivian rap is feminist, immigrant-led or performed by this lineup; no exact creator-member assertion without retrieval. Three distinct named vocalists aggregate as authored live group/live-ensemble; no claim all sing every phrase. Source describes rapping and singing, so speech/song, pitch and physiology remain unspecified; neutral unprocessed delivery is authored rather than recovered effect settings. Existing neutral DJ owner retains whole actual live playback without inventing a studio-master sampler, medium or embedded voice count. Controlled live-room presentation and brisk up-tempo vocal/exuberant playback affect are editorial festival-rendition choices, not measured rooftop acoustics or BPM. No global tuning or invented auxiliary instruments.",
+        "exemplars": [
+          "Santa Mala with DJ DeLaPaz — Festival Mucho2020 complete act"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -23.5505,
+        -46.6333,
+        "São Paulo",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Documented diaspora performance city, explicitly distinguished from LaPaz origin; not whole-category birthplace.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.blogdoarcanjo.com/2020/09/20/santa-mala-sacode-festival-mucho-com-forca-boliviana/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11730view0 complete original event-presenter report supplies3named sisters+DJDeLaPaz,19September2020SãoPaulo streamed act and explicit LaPaz/diaspora rap identity."
+        },
+        {
+          "url": "https://prefeitura.sp.gov.br/web/cultura/w/noticias/27195",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11727view0 municipal2019programme includes Abigail firsthand quotation and positively identifies Bolivian Spanish-language rap trio; separate earlier event not merged into2020roster."
+        }
+      ],
+      "neighbor_distinction": "Municipal cultural-programme primary independently presents SantaMala as a Bolivian Spanish-language rap trio and includes Abigail first-person description; festival presenter explicitly locates their practice in LaPaz and SãoPaulo rap scenes and their Bolivian diaspora identity. The requested national/diasporic hip-hop field is broader than existing trap_boliviano, whose full text specifies SantaCruz electronic trap, not every Bolivian hip-hop practice. It overlaps Latin and Spanish-language hip-hop and migrant SãoPaulo scenes without becoming coextensive with any of them. This is not classification by birthplace alone: the artist/community institutions affirm continuing Bolivian hip-hop identity. No claim all Bolivian rap is feminist, immigrant-led or performed by this lineup; no exact creator-member assertion without retrieval.",
+      "model_policy": "Three distinct named vocalists aggregate as authored live group/live-ensemble; no claim all sing every phrase. Source describes rapping and singing, so speech/song, pitch and physiology remain unspecified; neutral unprocessed delivery is authored rather than recovered effect settings. Existing neutral DJ owner retains whole actual live playback without inventing a studio-master sampler, medium or embedded voice count. Controlled live-room presentation and brisk up-tempo vocal/exuberant playback affect are editorial festival-rendition choices, not measured rooftop acoustics or BPM. No global tuning or invented auxiliary instruments.",
+      "classification_evidence": {
+        "mode": "municipal_artist_testimony_and_firsthand_festival_presenter",
+        "note": "Municipal cultural-programme primary independently presents SantaMala as a Bolivian Spanish-language rap trio and includes Abigail first-person description; festival presenter explicitly locates their practice in LaPaz and SãoPaulo rap scenes and their Bolivian diaspora identity. The requested national/diasporic hip-hop field is broader than existing trap_boliviano, whose full text specifies SantaCruz electronic trap, not every Bolivian hip-hop practice. It overlaps Latin and Spanish-language hip-hop and migrant SãoPaulo scenes without becoming coextensive with any of them. This is not classification by birthplace alone: the artist/community institutions affirm continuing Bolivian hip-hop identity. No claim all Bolivian rap is feminist, immigrant-led or performed by this lineup; no exact creator-member assertion without retrieval."
+      },
+      "vocal_count_audit": {
+        "selected_count": 3,
+        "names": [
+          "Jenny Llanque",
+          "Pamela Llanque",
+          "Abigail Llanque"
+        ],
+        "embedded_playback_voices": "unknown",
+        "reason": "Three named sisters are vocal group; fourth named person specificallyDJ, no invented extra live singer."
+      },
+      "instrument_role_audit": {
+        "scope": "Santa Mala — complete reported Festival Mucho2020 performance, streamed19September2020 from Edifício Martinelli,SãoPaulo. Event presenter and eyewitness Miguel Arcanjo Prado identifies the three sisters Jenny,Pamela and Abigail Llanque alongside DJ DeLaPaz. All four named people and both live-voice and DJ playback roles retained. This is the whole documented SantaMala act, not other festival performers or a reconstructed studio album. Exact setlist,duration,deck medium and embedded playback voices unknown. No assistant attendance or audio audition claimed.",
+        "roles": {
+          "voice": "Three named sisters rap/sing",
+          "dj_playback_mixing_unspecified": "DJ DeLaPaz complete act accompaniment"
+        },
+        "authored_defaults": "Three distinct named vocalists aggregate as authored live group/live-ensemble; no claim all sing every phrase. Source describes rapping and singing, so speech/song, pitch and physiology remain unspecified; neutral unprocessed delivery is authored rather than recovered effect settings. Existing neutral DJ owner retains whole actual live playback without inventing a studio-master sampler, medium or embedded voice count. Controlled live-room presentation and brisk up-tempo vocal/exuberant playback affect are editorial festival-rendition choices, not measured rooftop acoustics or BPM. No global tuning or invented auxiliary instruments."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Three distinct named vocalists aggregate as authored live group/live-ensemble; no claim all sing every phrase. Source describes rapping and singing, so speech/song, pitch and physiology remain unspecified; neutral unprocessed delivery is authored rather than recovered effect settings. Existing neutral DJ owner retains whole actual live playback without inventing a studio-master sampler, medium or embedded voice count. Controlled live-room presentation and brisk up-tempo vocal/exuberant playback affect are editorial festival-rendition choices, not measured rooftop acoustics or BPM. No global tuning or invented auxiliary instruments."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Three distinct named vocalists aggregate as authored live group/live-ensemble; no claim all sing every phrase. Source describes rapping and singing, so speech/song, pitch and physiology remain unspecified; neutral unprocessed delivery is authored rather than recovered effect settings. Existing neutral DJ owner retains whole actual live playback without inventing a studio-master sampler, medium or embedded voice count. Controlled live-room presentation and brisk up-tempo vocal/exuberant playback affect are editorial festival-rendition choices, not measured rooftop acoustics or BPM. No global tuning or invented auxiliary instruments."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All18 owning controls explicitly protected, no fallback. Three named live vocalists grouped; all embedded playback content retained."
+      },
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638
+      },
+      "verification_status": "Author original-loader checks PASS18protected parts,zero fallbacks,1638old owners unchanged; exact historicalphoto receipt matched and all4actual original app formats inspected. Final integrated CI not claimed.",
+      "source_scope_limitation": "Santa Mala — complete reported Festival Mucho2020 performance, streamed19September2020 from Edifício Martinelli,SãoPaulo. Event presenter and eyewitness Miguel Arcanjo Prado identifies the three sisters Jenny,Pamela and Abigail Llanque alongside DJ DeLaPaz. All four named people and both live-voice and DJ playback roles retained. This is the whole documented SantaMala act, not other festival performers or a reconstructed studio album. Exact setlist,duration,deck medium and embedded playback voices unknown. No assistant attendance or audio audition claimed.",
+      "primary_retrieval_refs": [
+        "turn11730view0",
+        "turn11727view0"
+      ],
+      "source_retrieval_caveat": "Original eyewitness report is by one of the festival presenters, independently identified in article. Municipal published artist statement verifies Bolivian Spanish-language identity. Later academic-zine turntable profile not transferred into2020 apparatus; actual hardware unspecified.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "hip_hop_boliviano",
+          "name": "Hip hop boliviano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not SantaMala, DJDeLaPaz or actual Martinelli rooftop apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11621view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11621view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11621view3"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

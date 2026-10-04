@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume117-36-plugg-en-espanol-geo-corrected117.json",
+  "sha256": "e6d1f63407cc8338f263479fe377886298a8befd5ef99cdc25233976b33c9434",
+  "peer_review": "/tmp/batch040/resume117-36-plugg-en-espanol-geo-corrected117-independent-review-sourceaudit.json",
+  "checked_at": "2026-10-04T04:52:55.132458+00:00",
+  "checks": [
+    "Root read complete existing plugg,pluggnb,latin_trap,trap_argentino,trap_mexicano records and extras. Positive Spanish-language producer community is a documented overlapping regional field; no claim broad plugg excludes this repertoire.",
+    "Fresh indexed artist biography turn14608search0 supports artist plugg involvement; university fieldwork turn14609search0 supports local plugg and explicitly different short-bass practices. Full PDF and direct artist body unavailable; independent peer fuller indexed biography preserved without claiming root reproduced it.",
+    "Fresh founding-producer first-person turn14608view1 supports keyboard/computer-created melodies and shared production basis. Specific Jupiter and digital808 authored recording choices, not artist rig claims. Long-bass branch not claimed universal.",
+    "Root read all4 unchanged browser/connector formats, maximum545characters, parityPASS;24 valid protected owning controls, no errors. Rhythmic spoken lead/synth melodic lead/808 bass compatible selected branch. Instrument origin is not cultural performance provenance.",
+    "Fresh Commons turn14608view0 confirms attribution/license; exact inherited preview download and personal visual receipt preserved with honest historical scope. Metadata exact against immutable source. Separate evidence queue only; no new source integration or frozenPR480 changes."
+  ],
+  "runtime": "/tmp/batch040/plugg-root-runtime.json",
+  "controls": "/tmp/batch040/plugg-root-controls.json"
+}

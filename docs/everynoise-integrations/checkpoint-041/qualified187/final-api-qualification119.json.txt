@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "scope": "Independent source/browser/full musical configuration and completed actual static API qualification for187 additions. Supporting/UI/format/CI publication gates remain root-owned and pending where not separately reported.",
+  "freeze_sha256": "c8171af4363aef7273f8a8190846c37d4cf4625b28172048dcb5866efb6e2803",
+  "baseline_commit": "2765a5e5e1dc1523ff9180625b089af3f04089b2",
+  "counts": {
+    "new_traditions": 187,
+    "new_instruments": 15,
+    "total_traditions": 6725,
+    "total_instruments": 1653,
+    "new_cards": 555,
+    "new_control_slots": 4847,
+    "protected_new_control_slots": 4847,
+    "new_fallbacks": 0,
+    "preserved_old_traditions": 6538,
+    "preserved_old_raw_and_merged_owners": 1638,
+    "all_proposals_retained": 200,
+    "held_proposals": 13,
+    "older_queue_holds": 6
+  },
+  "actual_api": {
+    "new187_full_configs_and_recipes_equal_reviewed_counterfactual": true,
+    "unsupported_new_contexts": 0,
+    "old_unchanged_payloads": 6524,
+    "old_changed_payloads": 14,
+    "old_changed_musical_slots": 0,
+    "old_changed_rosters": 0,
+    "old_changed_protected_slots": 0,
+    "old_changed_environments": 0,
+    "old_changed_recipes": 1,
+    "compatible_recipe_change": "thai_bl_ost: previously pinned voice_syllabic_singing becomes explicit one note per syllable when score crosses original0.5 surfacing threshold; full musical config unchanged",
+    "old_instrument_payload_changes": 0,
+    "new_owner_projection_errors": 0
+  },
+  "fixture_qualification": {
+    "all_definitions": 1174,
+    "unique_snapshot_ids": 1149,
+    "graph_affected_definitions": 14,
+    "all_affected_full_configs_and_outputs_equal_baseline": true,
+    "original_serial_regression": "1149/1149 PASS; no snapshot edits",
+    "log_sha256": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18"
+  },
+  "geo_note": "PinoyPraise east-longitude correction verified in currentdata; exactreceipt qualified/geo-amendment.json; no musical input changed.",
+  "limitations": [
+    "Preserves legacy baseline defects rather than claiming to correct them.",
+    "Generic unspecified vocal roles remain in full config even where compressed recipe prose does not repeat voice noun.",
+    "Thirteen whole proposals remain held with complete source evidence; they were not deleted or silently accepted."
+  ],
+  "evidence": [
+    {
+      "path": "/tmp/batch041/qualified187-causal-review119.json",
+      "sha256": "84403092a9ccd28ade92b20ae435c93deb1fbdb0228608c58be2ca1f8b357163"
+    },
+    {
+      "path": "/tmp/batch041/qualified187-projection119.json",
+      "sha256": "9acf101e557db4db3bf305e9aa0968262d73f7ed87a252c32364f30333dda51a"
+    },
+    {
+      "path": "/tmp/batch041/qualified187-source-owning-preservation119.json",
+      "sha256": "d7534e80f73d4abd30861f828bad66db15e7912b3dbeed463d8a17c4128f5f1e"
+    },
+    {
+      "path": "/tmp/batch041/qualified187-new-browser-preservation119.json",
+      "sha256": "36c3c7846e04672230898ea3fb0faf667a22cc07253de0a1c59b142994b500e1"
+    },
+    {
+      "path": "/tmp/batch041/qualified187-fixture-review119.json",
+      "sha256": "25358146d7580e9f7377e82240c67e133ea1a7bc22f103425cf583dc54723a21"
+    },
+    {
+      "path": "/tmp/batch041/api187-actual-counterfactual-review119.json",
+      "sha256": "3405af94053ae257991eebe9d770f35a8913d68975ce0ea0c63166f2ce52df91"
+    },
+    {
+      "path": "/tmp/batch041/api187-delta-independent-review119.json",
+      "sha256": "9bb433684e9c2b553fce1da3562db08a024119083ccbf6b6cdf4f00940d840f5"
+    },
+    {
+      "path": "/tmp/batch041/api187-validation-details119.json",
+      "sha256": "22d6f82eb7ce2063d29679108a7da39ef34641ea538755180a72acee52d993f3"
+    },
+    {
+      "path": "/tmp/batch041/api187-projection-review119.json",
+      "sha256": "f9c93272d9261a188d47ce46bf6dab969b35cc24713062033952e700a9bdef58"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "entries": [
+    {
+      "source_label": "myanmar gospel",
+      "source_url": "https://everynoise.com/engenremap-myanmargospel.html",
+      "suggested_id": "myanmar_gospel",
+      "allocation_ordinal": 2617,
+      "allocation_group_id": "105",
+      "id": "myanmar_gospel",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "myanmar_gospel",
+        "name": "Myanmar gospel",
+        "family": "vernacular",
+        "lineage": "Myanmar gospel — Church of Almighty God, complete Myanmar-language praise-song edition Joy to Be an Honest Person, explicitly issued as A Cappella on1June2018. Publisher provides the whole separately titled vocal-only programme and full Burmese lyrics. One count-and-tracking-unspecified human voice owner preserves all vocal layers; no number of performers, scored parts, overdub method or singer identity is inferred. This is not a vocal reduction of an accompanied song. No audio audition or visual performer count is claimed. Unknown physiology, personal singing lineage, ornament, pitch organization, vocal headcount and tracking remain unspecified. Neutral tract/moderate effort and an unprocessed vocal rendition are authored scaffolding, not measured source recording settings. Controlled studio acoustics are an editorial listening rendition, not the original venue. No global tuning or recording apparatus asserted.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Myanmar gospel — Church of Almighty God, complete Myanmar-language praise-song edition Joy to Be an Honest Person, explicitly issued as A Cappella on1June2018. Publisher provides the whole separately titled vocal-only programme and full Burmese lyrics. One count-and-tracking-unspecified human voice owner preserves all vocal layers; no number of performers, scored parts, overdub method or singer identity is inferred. This is not a vocal reduction of an accompanied song. No audio audition or visual performer count is claimed. Issuer positively names a Myanmar Praise Song and publishes its Burmese-language Christian devotional repertoire. This supports a language-defined Myanmar gospel field, not a claim the church represents all Myanmar Christians or that the recording took place in Myanmar. The selected unaccompanied edition overlaps full existing christian_a_cappella; that format category crosses languages, whereas this devotional-language field also need not be unaccompanied. Existing gospel is explicitly rooted in the African-American Black-church tradition; no such lineage is assigned here. Burmese pop is a broader secular/commercial melodic field and explicitly does not absorb all Myanmar language/religious practices. Existing Burmese mahagita and hsaing-waing concern different established classical/instrumental practices. Parent ritualDevotional.christianGospel follows the source-positive Christian praise function without imposing a named Western church singing lineage. Unknown physiology, personal singing lineage, ornament, pitch organization, vocal headcount and tracking remain unspecified. Neutral tract/moderate effort and an unprocessed vocal rendition are authored scaffolding, not measured source recording settings. Controlled studio acoustics are an editorial listening rendition, not the original venue. No global tuning or recording apparatus asserted.",
+        "exemplars": [
+          "Church of Almighty God — Joy to Be an Honest Person, Myanmar A Cappella edition (2018)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        16.8661,
+        96.1951,
+        "Myanmar",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Approximate Myanmar land anchor for the named language/repertoire field, not a source recording-location claim.",
+      "sources": [
+        {
+          "url": "https://my.kingdomsalvation.org/videos/joy-to-be-an-honest-person-mv.html",
+          "title": "Issuer complete Myanmar praise song A Cappella edition",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed primary turn12156search0 and12152search0 reproduce full title/date/lyrics. Direct12153view0 timed out. Unmodified actual successful tool response retained in myanmar-gospel-primary-raw119.json."
+        },
+        {
+          "url": "https://my.kingdomsalvation.org/videos/come-to-zion-with-praising-mv.html",
+          "title": "Issuer further Myanmar praise repertoire",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh primary12156search1,21November2020. Category repertoire context only; not combined with selected2018 programme."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Issuer positively names a Myanmar Praise Song and publishes its Burmese-language Christian devotional repertoire. This supports a language-defined Myanmar gospel field, not a claim the church represents all Myanmar Christians or that the recording took place in Myanmar. The selected unaccompanied edition overlaps full existing christian_a_cappella; that format category crosses languages, whereas this devotional-language field also need not be unaccompanied. Existing gospel is explicitly rooted in the African-American Black-church tradition; no such lineage is assigned here. Burmese pop is a broader secular/commercial melodic field and explicitly does not absorb all Myanmar language/religious practices. Existing Burmese mahagita and hsaing-waing concern different established classical/instrumental practices. Parent ritualDevotional.christianGospel follows the source-positive Christian praise function without imposing a named Western church singing lineage.",
+      "classification_evidence": "Issuer positively names a Myanmar Praise Song and publishes its Burmese-language Christian devotional repertoire. This supports a language-defined Myanmar gospel field, not a claim the church represents all Myanmar Christians or that the recording took place in Myanmar. The selected unaccompanied edition overlaps full existing christian_a_cappella; that format category crosses languages, whereas this devotional-language field also need not be unaccompanied. Existing gospel is explicitly rooted in the African-American Black-church tradition; no such lineage is assigned here. Burmese pop is a broader secular/commercial melodic field and explicitly does not absorb all Myanmar language/religious practices. Existing Burmese mahagita and hsaing-waing concern different established classical/instrumental practices. Parent ritualDevotional.christianGospel follows the source-positive Christian praise function without imposing a named Western church singing lineage.",
+      "model_policy": "Unknown physiology, personal singing lineage, ornament, pitch organization, vocal headcount and tracking remain unspecified. Neutral tract/moderate effort and an unprocessed vocal rendition are authored scaffolding, not measured source recording settings. Controlled studio acoustics are an editorial listening rendition, not the original venue. No global tuning or recording apparatus asserted.",
+      "source_scope_limitation": "Myanmar gospel — Church of Almighty God, complete Myanmar-language praise-song edition Joy to Be an Honest Person, explicitly issued as A Cappella on1June2018. Publisher provides the whole separately titled vocal-only programme and full Burmese lyrics. One count-and-tracking-unspecified human voice owner preserves all vocal layers; no number of performers, scored parts, overdub method or singer identity is inferred. This is not a vocal reduction of an accompanied song. No audio audition or visual performer count is claimed.",
+      "source_retrieval_caveat": "Successful full indexed issuer text retained; direct fetch timed out. No personal audio/video inspection, measured singer count or creator playlist membership claimed.",
+      "instrument_role_audit": {
+        "whole_scope": "Complete separately issued2018 A Cappella praise song",
+        "positive_families": [
+          "human voices"
+        ],
+        "omitted_positive_roles": [],
+        "performer_count": "unknown"
+      },
+      "vocal_count_audit": {
+        "actual_human_count": "unknown/not documented",
+        "tracking": "unknown/not documented",
+        "voice_cards": 1,
+        "count_policy": "One owner represents all documented vocal content without assigning solo/group cardinality."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Unknown physiology, personal singing lineage, ornament, pitch organization, vocal headcount and tracking remain unspecified. Neutral tract/moderate effort and an unprocessed vocal rendition are authored scaffolding, not measured source recording settings. Controlled studio acoustics are an editorial listening rendition, not the original venue. No global tuning or recording apparatus asserted."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All seventeen owning controls protected; unknown count and tracking use existing neutral variants."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "myanmar_gospel",
+          "name": "Myanmar gospel",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not the Myanmar singers, church, source equipment or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn12134view1 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn12134view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12134view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

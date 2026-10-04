@@ -1,0 +1,537 @@
+{
+  "entries": [
+    {
+      "source_label": "moorish traditional",
+      "source_url": "https://everynoise.com/engenremap-moorishtraditional.html",
+      "suggested_id": "moorish_traditional",
+      "allocation_ordinal": 3810,
+      "allocation_group_id": "153",
+      "id": "moorish_traditional",
+      "tradition": {
+        "id": "moorish_traditional",
+        "name": "Moorish Traditional",
+        "family": "global",
+        "lineage": "Dimi Mint Abba and Khalifa Ould Eide — complete Moorish Music from Mauritania (1990), as inventoried by its issuer World Circuit. Retain Dimi voice/ardin, Khalifa voice/tidinit/electric guitar, daughters backing voices (plural but precise count unspecified), and tbal drum. Five sounding families; exact total musicians and singers remain unknown. The later2006 keyboard performance is a different event, not part of this album. This is a complete publisher-credited album palette, not a track-by-track transcription or claim that every family sounds continuously. Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "ardin",
+          "tidinit",
+          "electric_guitar_single_coil",
+          "tbal_mauritanian"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "ardin_body": "ardin_large_calabash",
+          "ardin_technique": "ardin_arpeggiated",
+          "tidinit_form": "tidinit_traditional",
+          "tidinit_mode": "tidinit_lkhal",
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "tbal_shell": "tbal_hollow_wood",
+          "tbal_head": "tbal_cowhide",
+          "tbal_tension": "tbal_tension_unspecified",
+          "tbal_gesture": "tbal_bare_hands"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Dimi Mint Abba and Khalifa Ould Eide — complete Moorish Music from Mauritania (1990), as inventoried by its issuer World Circuit. Retain Dimi voice/ardin, Khalifa voice/tidinit/electric guitar, daughters backing voices (plural but precise count unspecified), and tbal drum. Five sounding families; exact total musicians and singers remain unknown. The later2006 keyboard performance is a different event, not part of this album. This is a complete publisher-credited album palette, not a track-by-track transcription or claim that every family sounds continuously. Moorish Traditional is the ethnocultural hereditary azawan/iggawin heritage field within, and overlapping, the broader national musique_mauritanienne category. The full existing national entry explicitly includes a Moorish electric branch and is not defined solely by its Noura exemplar. Philharmonie ethnomusicologist Michel Guignard distinguishes Mauritania’s Moorish, Pulaar, Soninke and Wolof patrimonies and identifies the Moorish professional lineage; this positive ethnocultural scope, not a different artist/date, supports the narrower category. Exact creator playlist7khkEkukvAQWdDapKh1lVt includes this Dimi/Khalifa pairing. Full existing sahel_praise explicitly includes Mauritania and contemporary regional praise recordings, so there is genuine overlap in praise-function material. Moorish azawan heritage also encompasses love, dance and codified modal repertoire, broader in function but narrower ethnoculturally than that transregional praise field. Existing Mande kora/jeli categories overlap professional praise practices but do not define all Moorish modal heritage. This category can include modern electric realizations of inherited repertoire, without claiming an acoustic-only or premodern boundary. Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions.",
+        "exemplars": [
+          "Dimi Mint Abba and Khalifa Ould Eide — Moorish Music from Mauritania (1990)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        20,
+        -12,
+        "Mauritania",
+        "Africa"
+      ],
+      "geo_rationale": "Approximate inland national editorial anchor for the documented Mauritanian heritage; not the London recording site or a performer residence.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.worldcircuit.co.uk/artists/dimi-mint-abba/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11249view0 complete1990 album inventory; later2006 performance excluded."
+        },
+        {
+          "url": "https://edutheque.philharmoniedeparis.fr/0798621-musiques-mauritanie-contexte-culturel.aspx?_lg=fr-FR",
+          "checked_date": "2026-10-03",
+          "support_notes": "Earlier direct11213view0 primary ethnomusicologist differentiates national ethnolinguistic patrimonies; fresh direct11253view1 failed honestly."
+        },
+        {
+          "url": "https://edutheque.philharmoniedeparis.fr/0799133-musiques-mauritanie-musique-azawan.aspx?_lg=fr-FR",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11260search0 codified azawan mode system; earlier11210 indexed read, direct repeat failed."
+        },
+        {
+          "url": "https://edutheque.philharmoniedeparis.fr/0801120-musiques-mauritanie-tbal.aspx?_lg=fr-FR",
+          "checked_date": "2026-10-03",
+          "support_notes": "Earlier full11205view0; fresh indexed11253search0 construction and11259search0 bare-hand rhythmic practice."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7khkEkukvAQWdDapKh1lVt",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh directly retrieved11260view0 exact creator category and artist pairing."
+        }
+      ],
+      "neighbor_distinction": "Moorish Traditional is the ethnocultural hereditary azawan/iggawin heritage field within, and overlapping, the broader national musique_mauritanienne category. The full existing national entry explicitly includes a Moorish electric branch and is not defined solely by its Noura exemplar. Philharmonie ethnomusicologist Michel Guignard distinguishes Mauritania’s Moorish, Pulaar, Soninke and Wolof patrimonies and identifies the Moorish professional lineage; this positive ethnocultural scope, not a different artist/date, supports the narrower category. Exact creator playlist7khkEkukvAQWdDapKh1lVt includes this Dimi/Khalifa pairing. Full existing sahel_praise explicitly includes Mauritania and contemporary regional praise recordings, so there is genuine overlap in praise-function material. Moorish azawan heritage also encompasses love, dance and codified modal repertoire, broader in function but narrower ethnoculturally than that transregional praise field. Existing Mande kora/jeli categories overlap professional praise practices but do not define all Moorish modal heritage. This category can include modern electric realizations of inherited repertoire, without claiming an acoustic-only or premodern boundary.",
+      "model_policy": "Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions.",
+      "dependency_audit": {
+        "new_instruments": [
+          "tbal_mauritanian"
+        ],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified",
+          "ardin",
+          "tidinit",
+          "electric_guitar_single_coil"
+        ],
+        "baseline_existing_instruments": 1638
+      },
+      "classification_evidence": {
+        "mode": "primary_issuer_ethnocultural_institution_and_creator",
+        "note": "Moorish Traditional is the ethnocultural hereditary azawan/iggawin heritage field within, and overlapping, the broader national musique_mauritanienne category. The full existing national entry explicitly includes a Moorish electric branch and is not defined solely by its Noura exemplar. Philharmonie ethnomusicologist Michel Guignard distinguishes Mauritania’s Moorish, Pulaar, Soninke and Wolof patrimonies and identifies the Moorish professional lineage; this positive ethnocultural scope, not a different artist/date, supports the narrower category. Exact creator playlist7khkEkukvAQWdDapKh1lVt includes this Dimi/Khalifa pairing. Full existing sahel_praise explicitly includes Mauritania and contemporary regional praise recordings, so there is genuine overlap in praise-function material. Moorish azawan heritage also encompasses love, dance and codified modal repertoire, broader in function but narrower ethnoculturally than that transregional praise field. Existing Mande kora/jeli categories overlap professional praise practices but do not define all Moorish modal heritage. This category can include modern electric realizations of inherited repertoire, without claiming an acoustic-only or premodern boundary."
+      },
+      "vocal_count_audit": {
+        "singers": null,
+        "speakers": 0,
+        "known_named_singers": [
+          "Dimi Mint Abba",
+          "Khalifa Ould Eide"
+        ],
+        "additional_singers": "Daughters, plural; exact number unspecified",
+        "basis": "Dimi Mint Abba and Khalifa Ould Eide — complete Moorish Music from Mauritania (1990), as inventoried by its issuer World Circuit. Retain Dimi voice/ardin, Khalifa voice/tidinit/electric guitar, daughters backing voices (plural but precise count unspecified), and tbal drum. Five sounding families; exact total musicians and singers remain unknown. The later2006 keyboard performance is a different event, not part of this album. This is a complete publisher-credited album palette, not a track-by-track transcription or claim that every family sounds continuously."
+      },
+      "instrument_role_audit": {
+        "rationale": "Dimi Mint Abba and Khalifa Ould Eide — complete Moorish Music from Mauritania (1990), as inventoried by its issuer World Circuit. Retain Dimi voice/ardin, Khalifa voice/tidinit/electric guitar, daughters backing voices (plural but precise count unspecified), and tbal drum. Five sounding families; exact total musicians and singers remain unknown. The later2006 keyboard performance is a different event, not part of this album. This is a complete publisher-credited album palette, not a track-by-track transcription or claim that every family sounds continuously.",
+        "authored_defaults": "Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions."
+        },
+        {
+          "instrument": "ardin",
+          "parts": {
+            "ardin_body": "ardin_large_calabash",
+            "ardin_technique": "ardin_arpeggiated"
+          },
+          "policy": "Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions."
+        },
+        {
+          "instrument": "tidinit",
+          "parts": {
+            "tidinit_form": "tidinit_traditional",
+            "tidinit_mode": "tidinit_lkhal"
+          },
+          "policy": "Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_arpeggiated_clean",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions."
+        },
+        {
+          "instrument": "tbal_mauritanian",
+          "parts": {
+            "tbal_shell": "tbal_hollow_wood",
+            "tbal_head": "tbal_cowhide",
+            "tbal_tension": "tbal_tension_unspecified",
+            "tbal_gesture": "tbal_bare_hands"
+          },
+          "policy": "Broad artMusic is scoped to the positively codified azawan modal system and hereditary specialist transmission documented by the Philharmonie; no Western notation, concert-only function or universal through-composition is inferred. Authored acoustic concert-hall listening realization retains every credited role. All human vocal controls are retained with source-unspecified physiology, training, ornament and pitch; count/tracking remain unknown. Source confirms singing but detailed word-setting remains unspecified. Existing large-calabash ardin with rippling accompaniment and traditional tidinit with grave modal-way coloring are authored representative choices, not a claim all album tracks use one mode. Electric guitar uses an explicitly authored alder/maple single-coil, clean arpeggiated modal accompaniment technique and standard tuning, without measured original gear or temperament claims. The tbal uses museum-documented hollow wooden hemispherical shell, cowhide head and bare-hand metric variation; exact diameter, wood species, tension attachment and original player remain unspecified. No extra vocalist or instrument is inferred from institutional practice descriptions."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "moorish_traditional",
+          "name": "Moorish Traditional",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not Dimi, the ensemble, a tbal or documented session equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11260view1 confirms the exact Commons CC BY2.5 credit and permitted crop; inherited023 binary/visual receipt remains historical, no new transfer.",
+          "fresh_review_ref": "turn11260view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11260view1"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "Every applicable owning part explicitly pinned. Distinct owner keys; no implicit shared-key fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn11249view0",
+        "turn11213view0",
+        "turn11260search0",
+        "turn11253search0",
+        "turn11259search0",
+        "turn11260view0"
+      ],
+      "source_retrieval_caveat": "Issuer and creator freshly direct; museum detailed pages independently indexed after repeat direct failures. Actual returned objects retained; no reconstructed transcript.",
+      "source_scope_limitation": "Dimi Mint Abba and Khalifa Ould Eide — complete Moorish Music from Mauritania (1990), as inventoried by its issuer World Circuit. Retain Dimi voice/ardin, Khalifa voice/tidinit/electric guitar, daughters backing voices (plural but precise count unspecified), and tbal drum. Five sounding families; exact total musicians and singers remain unknown. The later2006 keyboard performance is a different event, not part of this album. This is a complete publisher-credited album palette, not a track-by-track transcription or claim that every family sounds continuously.",
+      "status": "ready_for_independent_review"
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "tbal_mauritanian",
+        "name": "Tbal (Moorish hemispherical hand drum)",
+        "family": "percussion",
+        "class": "single_headed_drum",
+        "short": "Moorish-tbal",
+        "axes": {
+          "pitchFix": -2,
+          "sustain": 0,
+          "polyphony": -2,
+          "harmonicity": -2,
+          "register": -1,
+          "range": -1,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 1
+        },
+        "parts": [
+          {
+            "id": "tbal_shell",
+            "name": "Resonator construction",
+            "variants": [
+              {
+                "id": "tbal_hollow_wood",
+                "name": "Hemispherical shell carved from a tree trunk; species and diameter unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "wooden",
+                  "resonant"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "tbal_head",
+            "name": "Sounding membrane",
+            "variants": [
+              {
+                "id": "tbal_cowhide",
+                "name": "Cowhide sounding cover",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "deep"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "tbal_tension",
+            "name": "Attachment and tension",
+            "surface": false,
+            "variants": [
+              {
+                "id": "tbal_tension_unspecified",
+                "name": "Attachment and tension system unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "tbal_gesture",
+            "name": "Sounding action",
+            "variants": [
+              {
+                "id": "tbal_bare_hands",
+                "name": "Bare hands: base pulse with rhythmic variation",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "hand-drum",
+                  "percussive-attack"
+                ]
+              }
+            ]
+          }
+        ],
+        "sources": [
+          "https://edutheque.philharmoniedeparis.fr/0801120-musiques-mauritanie-tbal.aspx?_lg=fr-FR",
+          "https://www.worldcircuit.co.uk/artists/dimi-mint-abba/"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "tbal_mauritanian",
+        "name": "Tbal (Moorish hemispherical hand drum)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording microphone context; explicitly not a depiction of the tbal or its construction.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "tbal_mauritanian",
+          "name": "Tbal (Moorish hemispherical hand drum)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; explicitly not a depiction of the tbal or its construction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11260view1 confirms the exact Commons CC BY2.5 credit and permitted crop; inherited023 binary/visual receipt remains historical, no new transfer.",
+          "fresh_review_ref": "turn11260view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11260view1"
+        ]
+      },
+      "dependency_rationale": "No current tbal owner. The existing dhumsa is an eastern Indian iron-shell stick drum with Chhau/Santal context; it cannot truthfully represent the documented Moorish wooden cowhide hand drum. New local controls retain construction, membrane, unspecified attachment and sounding gesture without changing existing family parts.",
+      "primary_sources": [
+        {
+          "url": "https://edutheque.philharmoniedeparis.fr/0801120-musiques-mauritanie-tbal.aspx?_lg=fr-FR",
+          "checked_date": "2026-10-03",
+          "note": "Construction and bare-hand action; exact source instrument dimensions unspecified."
+        },
+        {
+          "url": "https://www.worldcircuit.co.uk/artists/dimi-mint-abba/",
+          "checked_date": "2026-10-03",
+          "note": "Positive tbal album role."
+        }
+      ]
+    }
+  ]
+}

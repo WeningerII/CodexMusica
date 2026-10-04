@@ -1,0 +1,318 @@
+{
+  "entries": [
+    {
+      "source_label": "zomi pop",
+      "source_url": "https://everynoise.com/engenremap-zomipop.html",
+      "suggested_id": "zomi_pop",
+      "allocation_ordinal": 1945,
+      "allocation_group_id": "078",
+      "id": "zomi_pop",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "zomi_pop",
+        "name": "Zomi pop",
+        "family": "pop",
+        "lineage": "Zomi pop carries contemporary song through Zomi-speaking communities and their diaspora. Singers bring local language and identity into popular arrangements, while community concerts and celebrations help circulate the repertoire across generations and national borders.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Melodic singing is supported by guitar, bass, drums and keyboards in live-band settings. Solo and group vocals share the stage, joining contemporary popular-song arrangements with community expression.",
+        "exemplars": [
+          "Zomi community bands and popular singers"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.9072,
+        -77.0369,
+        "Washington, D.C.",
+        "North America"
+      ],
+      "geo_rationale": "Documented diaspora community practice anchor; not sole genre origin or recording-site claim.",
+      "sources": [
+        {
+          "url": "https://zomidc.org/news2008.htm",
+          "title": "Zomi Innkuan Washington D.C.: 2008 community news",
+          "support_notes": "First-party community report repeatedly documents Zomi singers and music band; January1 entry expressly lists guitar/lead guitar/bass/drums/keyboards and solo/group songs. Fresh13412view0/13415view2."
+        },
+        {
+          "url": "https://www.researchgate.net/publication/374657803_Ethnicity_Culture_and_Religion",
+          "title": "Ethnicity, Culture and Religion, Myanmar: Politics, Economy and Society",
+          "support_notes": "Original scholarly chapter identifies modern popular music and Tedim singer Thang Pii with Zomi identity/accent. Fresh indexed13412search5/15. Primary institutional Zomi-band practice supplies instrumentation independently; not an inferred ThangPii recording."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Zomi community popular-song field spans Myanmar/India and diaspora practice; positive source identifies Zomi/Tedim community rather than merely Myanmar nationality. Existing Burmese/Myanmar national and Northeast Indian popular umbrellas overlap; no exclusion is inferred from one band. Mizo popular music involves an adjacent but separately named linguistic community; no claim of a uniquely exclusive timbre.",
+      "model_policy": "Genre-level representative live popular-song band, supported by actual community descriptions. Unknown singer counts retained; guitar and lead guitar share one family role without erasing either function. Clean single-coil guitar, conventional fingerstyle bass, stick-played kit and melodic/chordal keyboard are meaningful representative choices, not claims about 2008 equipment. Functional harmony and repeated song sections are an authored pop arrangement; no measured score or original BPM asserted. Brisk live-band pacing is representative, not universal.",
+      "source_scope_limitation": "Community musical practice, not reconstruction of the entire New Year event. No event speeches, unknown visiting acts or background audio are claimed absent from that event; they do not define this genre-level band profile.",
+      "instrument_role_audit": {
+        "roles": {
+          "human_voice_ensemble_unspecified": "Solo and group singers, exact count unspecified",
+          "electric_guitar_single_coil": "Guitar and lead-guitar band roles",
+          "electric_bass": "Bass guitar",
+          "drum_kit": "Drums",
+          "electronic_keyboard_unspecified": "Keyboard, synthesis architecture unspecified"
+        }
+      },
+      "vocal_count_audit": {
+        "headcount": "unspecified",
+        "tracking": "unspecified"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative live popular-song band, supported by actual community descriptions. Unknown singer counts retained; guitar and lead guitar share one family role without erasing either function. Clean single-coil guitar, conventional fingerstyle bass, stick-played kit and melodic/chordal keyboard are meaningful representative choices, not claims about 2008 equipment. Functional harmony and repeated song sections are an authored pop arrangement; no measured score or original BPM asserted. Brisk live-band pacing is representative, not universal."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Genre-level representative live popular-song band, supported by actual community descriptions. Unknown singer counts retained; guitar and lead guitar share one family role without erasing either function. Clean single-coil guitar, conventional fingerstyle bass, stick-played kit and melodic/chordal keyboard are meaningful representative choices, not claims about 2008 equipment. Functional harmony and repeated song sections are an authored pop arrangement; no measured score or original BPM asserted. Brisk live-band pacing is representative, not universal."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Genre-level representative live popular-song band, supported by actual community descriptions. Unknown singer counts retained; guitar and lead guitar share one family role without erasing either function. Clean single-coil guitar, conventional fingerstyle bass, stick-played kit and melodic/chordal keyboard are meaningful representative choices, not claims about 2008 equipment. Functional harmony and repeated song sections are an authored pop arrangement; no measured score or original BPM asserted. Brisk live-band pacing is representative, not universal."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Genre-level representative live popular-song band, supported by actual community descriptions. Unknown singer counts retained; guitar and lead guitar share one family role without erasing either function. Clean single-coil guitar, conventional fingerstyle bass, stick-played kit and melodic/chordal keyboard are meaningful representative choices, not claims about 2008 equipment. Functional harmony and repeated song sections are an authored pop arrangement; no measured score or original BPM asserted. Brisk live-band pacing is representative, not universal."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Genre-level representative live popular-song band, supported by actual community descriptions. Unknown singer counts retained; guitar and lead guitar share one family role without erasing either function. Clean single-coil guitar, conventional fingerstyle bass, stick-played kit and melodic/chordal keyboard are meaningful representative choices, not claims about 2008 equipment. Functional harmony and repeated song sections are an authored pop arrangement; no measured score or original BPM asserted. Brisk live-band pacing is representative, not universal."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": []
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "zomi_pop",
+          "name": "Zomi pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13261view1 confirms Iain Fergusson/Binksternet and CC BY2.5; historical verified bytes retained.",
+          "fresh_review_ref": "turn13261view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Historical exact microphone receipts retained; no fresh download claimed.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13261view1"
+        ],
+        "fresh_rights_review": "Fresh13261view1 license and credit; inherited byte and visual receipts unchanged."
+      },
+      "verification_status": "Four original browser/connector formats PASS, literal semantics inspected; optional tuning deliberately omitted."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

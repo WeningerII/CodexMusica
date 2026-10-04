@@ -1,0 +1,372 @@
+{
+  "id": "karbi_pop",
+  "name": "Karbi Pop",
+  "family": "global",
+  "lineage": "Karbi pop connects contemporary Karbi-language song, video and performance communities in Assam, including modern treatments of inherited melodies.",
+  "recipe": "classic karbi pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited bamboo flute unspecified, muri tongpo, muri jangkek, stick and hand cheng pi, cheng burup. live tracking.",
+  "recipe_chars": 375,
+  "score": 30.803,
+  "config": {
+    "traditions": [
+      "karbi_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 1.224,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 4.95,
+          "amp_make": 0,
+          "body_wood": 0,
+          "neck_wood": 0.054,
+          "fretboard": -0.05,
+          "pickup_magnet": 0,
+          "string_material": 0.054,
+          "string_gauge": 0.9099999999999999,
+          "bridge": 1,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.1,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.054,
+          "shell_thickness": 0,
+          "bearing_edges": 1.054,
+          "snare_wires": 0,
+          "cymbal_alloy": 0.7799999999999998,
+          "cymbal_hammering": 7.5040000000000004,
+          "cymbal_lathing": 7.45,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 0.3,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "muri_tongpo",
+        "slots": {
+          "muri_tongpo_reed": "muri_tongpo_reed_idioglot",
+          "muri_tongpo_tube": "muri_tongpo_tube_bamboo",
+          "muri_tongpo_bell": "muri_tongpo_bell_wood"
+        },
+        "scores": {
+          "muri_tongpo_reed": 0.6,
+          "muri_tongpo_tube": 0.3,
+          "muri_tongpo_bell": 0
+        }
+      },
+      {
+        "id": "muri_jangkek",
+        "slots": {
+          "muri_jangkek_reed": "muri_jangkek_reed_idioglot",
+          "muri_jangkek_tube": "muri_jangkek_tube_bamboo",
+          "muri_jangkek_bell": "muri_jangkek_bell_animal_horn"
+        },
+        "scores": {
+          "muri_jangkek_reed": 0.6,
+          "muri_jangkek_tube": 0.3,
+          "muri_jangkek_bell": 0
+        }
+      },
+      {
+        "id": "cheng_pi",
+        "slots": {
+          "cheng_pi_body": "cheng_pi_body_gmelina",
+          "cheng_pi_lacing_configuration": "cheng_pi_lacing_configuration_double_laced",
+          "cheng_pi_playing": "cheng_pi_playing_stick_hand"
+        },
+        "scores": {
+          "cheng_pi_body": 0,
+          "cheng_pi_lacing_configuration": 0,
+          "cheng_pi_playing": 2.47
+        }
+      },
+      {
+        "id": "cheng_burup",
+        "slots": {
+          "cheng_burup_body": "cheng_burup_body_tapered",
+          "cheng_burup_configuration": "cheng_burup_configuration_paired",
+          "cheng_burup_playing": "cheng_burup_playing_sticks"
+        },
+        "scores": {
+          "cheng_burup_body": 0,
+          "cheng_burup_configuration": 0,
+          "cheng_burup_playing": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning",
+        "single_coil_pickup_construction"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "muri_tongpo": [
+        "muri_tongpo_reed",
+        "muri_tongpo_tube",
+        "muri_tongpo_bell"
+      ],
+      "muri_jangkek": [
+        "muri_jangkek_reed",
+        "muri_jangkek_tube",
+        "muri_jangkek_bell"
+      ],
+      "cheng_pi": [
+        "cheng_pi_body",
+        "cheng_pi_lacing_configuration",
+        "cheng_pi_playing"
+      ],
+      "cheng_burup": [
+        "cheng_burup_body",
+        "cheng_burup_configuration",
+        "cheng_burup_playing"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning",
+      "single_coil_pickup_construction": "single_coil_construction_unspecified",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "muri_tongpo_reed": "muri_tongpo_reed_idioglot",
+      "muri_tongpo_tube": "muri_tongpo_tube_bamboo",
+      "muri_tongpo_bell": "muri_tongpo_bell_wood",
+      "muri_jangkek_reed": "muri_jangkek_reed_idioglot",
+      "muri_jangkek_tube": "muri_jangkek_tube_bamboo",
+      "muri_jangkek_bell": "muri_jangkek_bell_animal_horn",
+      "cheng_pi_body": "cheng_pi_body_gmelina",
+      "cheng_pi_lacing_configuration": "cheng_pi_lacing_configuration_double_laced",
+      "cheng_pi_playing": "cheng_pi_playing_stick_hand",
+      "cheng_burup_body": "cheng_burup_body_tapered",
+      "cheng_burup_configuration": "cheng_burup_configuration_paired",
+      "cheng_burup_playing": "cheng_burup_playing_sticks"
+    },
+    "pin_parts": true
+  }
+}

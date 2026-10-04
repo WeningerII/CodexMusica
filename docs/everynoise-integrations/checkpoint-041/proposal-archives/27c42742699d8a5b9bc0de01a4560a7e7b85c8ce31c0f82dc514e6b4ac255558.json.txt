@@ -1,0 +1,538 @@
+{
+  "entries": [
+    {
+      "source_label": "otacore",
+      "source_url": "https://everynoise.com/engenremap-otacore.html",
+      "suggested_id": "otacore",
+      "allocation_ordinal": 4091,
+      "allocation_group_id": "164",
+      "id": "otacore",
+      "tradition": {
+        "id": "otacore",
+        "name": "Otacore",
+        "family": "pop",
+        "lineage": "Otacore connects fan-made songs and remixes inspired by games, cartoons and other screen worlds. Newgrounds, YouTube and related fandom networks helped artists circulate character narratives and original pop songs across national and stylistic boundaries.",
+        "instruments": [
+          "voice",
+          "fm_synth",
+          "software_sample_playback",
+          "vocoder",
+          "upright_piano"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7",
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_saw_carrier",
+          "voc_modulator": "voc_voice_mod"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Character-led singing meets keyboard melodies, synthesized bass and bright electronic figures, with arranged samples and vocoded color expanding the texture. Direct hooks and contrasting song sections support theatrical or emotionally expressive storytelling across a varied fan-music field.",
+        "exemplars": [
+          "The Living Tombstone",
+          "Black Gryph0n",
+          "Baasik",
+          "4everfreebrony"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        -27.4698,
+        153.0251,
+        "Brisbane",
+        "Oceania & Pacific"
+      ],
+      "geo_rationale": "Arranger platform own biography identifies Andrew Wrangell and Samuel Dickenson as Brisbane musicians. Editorial selected-edition production-community anchor; not origin or exclusive location of the global fandom category, and not a claim of the source recording room.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Otacore is treated as the named transnational fan-created-media-song discovery community, not a physical sound or synonym for all anime music. Exact creator corpus includes MLP-associated Frozen Night24 and 4everfreebrony26, Hazbin fan-song Insane87 and Addict38, FNAF works58/61/64/68/81/88, and Doki Doki Literature Club fan song90. Landau firsthand describes the wider internet practice of producing songs/remixes for fans of games, cartoons, films and shows; that community evidence is not a claim that The Living Tombstone appears in the currently returned first100. Selected Black Gryph0n/Baasik exact-song membership is separately positive. Full nerdcore and queued anime_rap are rap-specific geek/anime narrative fields and overlap without exhausting the cross-style fan-song corpus. Full geek_rock/geek_folk likewise overlap geek storytelling but are not all cross-media fandom production; no distinction rests on a different pianist. Anison and anison_anime_song are commissioned Japanese animation-title industries, while video_game_music concerns interactive scores and gaming_edm licensed gameplay background music. Fan-created character songs may later become licensed or involve voice actors; Otacore is not asserted wholly amateur, unofficial or disjoint from these industries. Existing anime_piano scopes arrangements of anime songs and does not exhaust Western game/cartoon fan works. Broad soundtrack/cartoon fields also overlap, but their original-production repertoire does not make all independent fan retellings identical.",
+      "classification_evidence": {
+        "note": "Otacore is treated as the named transnational fan-created-media-song discovery community, not a physical sound or synonym for all anime music. Exact creator corpus includes MLP-associated Frozen Night24 and 4everfreebrony26, Hazbin fan-song Insane87 and Addict38, FNAF works58/61/64/68/81/88, and Doki Doki Literature Club fan song90. Landau firsthand describes the wider internet practice of producing songs/remixes for fans of games, cartoons, films and shows; that community evidence is not a claim that The Living Tombstone appears in the currently returned first100. Selected Black Gryph0n/Baasik exact-song membership is separately positive. Full nerdcore and queued anime_rap are rap-specific geek/anime narrative fields and overlap without exhausting the cross-style fan-song corpus. Full geek_rock/geek_folk likewise overlap geek storytelling but are not all cross-media fandom production; no distinction rests on a different pianist. Anison and anison_anime_song are commissioned Japanese animation-title industries, while video_game_music concerns interactive scores and gaming_edm licensed gameplay background music. Fan-created character songs may later become licensed or involve voice actors; Otacore is not asserted wholly amateur, unofficial or disjoint from these industries. Existing anime_piano scopes arrangements of anime songs and does not exhaust Western game/cartoon fan works. Broad soundtrack/cartoon fields also overlap, but their original-production repertoire does not make all independent fan retellings identical."
+      },
+      "model_policy": "Genre-level electronic fan-song production replaces a solo-piano transcription as universal default. Landau firsthand testimony describes loop arrangement, piano-roll keyboard writing, synth/bass design and vocoder-treated singing. Preserve voice, synthesizer, software sample arrangement, vocoder and piano roles. Author a six-operator harmonic polyphonic FM instrument with short envelopes as a representative melodic/bass sound-design option; DX7 lineage is a concrete authored alternative, not a claim that Sytrus/Harmor is a DX7. Modern upright is an authored piano-tone rendition of the positive keyboard role, not source acoustic hardware. Twenty-plus-band saw-carrier vocal processing is authored, not a measured VocodeX preset. No whole-master sampler or invented exact band roster. Prior licensed solo-piano edition remains archived; functional-harmonic verse/chorus/bridge form is the authored song realization.",
+      "source_scope_limitation": "Representative broader fan-song production; source digital tools do not establish this authored physical gear or exact controls. No claim to reconstruct the Insane master.",
+      "vocal_count_audit": {
+        "current_default": "Group/lead-support vocal rendition, count unspecified; not a named master reconstruction."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Positive fan-song keyboard/electronic/vocal production role; meaningful authored realization."
+        },
+        {
+          "instrument": "fm_synth",
+          "role": "Positive fan-song keyboard/electronic/vocal production role; meaningful authored realization."
+        },
+        {
+          "instrument": "software_sample_playback",
+          "role": "Positive fan-song keyboard/electronic/vocal production role; meaningful authored realization."
+        },
+        {
+          "instrument": "vocoder",
+          "role": "Positive fan-song keyboard/electronic/vocal production role; meaningful authored realization."
+        },
+        {
+          "instrument": "upright_piano",
+          "role": "Positive fan-song keyboard/electronic/vocal production role; meaningful authored realization."
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level electronic fan-song production replaces a solo-piano transcription as universal default. Landau firsthand testimony describes loop arrangement, piano-roll keyboard writing, synth/bass design and vocoder-treated singing. Preserve voice, synthesizer, software sample arrangement, vocoder and piano roles. Author a six-operator harmonic polyphonic FM instrument with short envelopes as a representative melodic/bass sound-design option; DX7 lineage is a concrete authored alternative, not a claim that Sytrus/Harmor is a DX7. Modern upright is an authored piano-tone rendition of the positive keyboard role, not source acoustic hardware. Twenty-plus-band saw-carrier vocal processing is authored, not a measured VocodeX preset. No whole-master sampler or invented exact band roster. Prior licensed solo-piano edition remains archived; functional-harmonic verse/chorus/bridge form is the authored song realization."
+        },
+        {
+          "instrument": "fm_synth",
+          "parts": {
+            "electronic_technique": "electronic_pluck_short",
+            "fm_algorithm": "fm_classic",
+            "fm_modulator_ratio": "fm_harmonic",
+            "fm_polyphony": "fm_poly",
+            "fm_model_lineage": "fm_yamaha_dx7"
+          },
+          "policy": "Genre-level electronic fan-song production replaces a solo-piano transcription as universal default. Landau firsthand testimony describes loop arrangement, piano-roll keyboard writing, synth/bass design and vocoder-treated singing. Preserve voice, synthesizer, software sample arrangement, vocoder and piano roles. Author a six-operator harmonic polyphonic FM instrument with short envelopes as a representative melodic/bass sound-design option; DX7 lineage is a concrete authored alternative, not a claim that Sytrus/Harmor is a DX7. Modern upright is an authored piano-tone rendition of the positive keyboard role, not source acoustic hardware. Twenty-plus-band saw-carrier vocal processing is authored, not a measured VocodeX preset. No whole-master sampler or invented exact band roster. Prior licensed solo-piano edition remains archived; functional-harmonic verse/chorus/bridge form is the authored song realization."
+        },
+        {
+          "instrument": "software_sample_playback",
+          "parts": {
+            "software_sample_playback_identity": "software_sample_playback_digital"
+          },
+          "policy": "Genre-level electronic fan-song production replaces a solo-piano transcription as universal default. Landau firsthand testimony describes loop arrangement, piano-roll keyboard writing, synth/bass design and vocoder-treated singing. Preserve voice, synthesizer, software sample arrangement, vocoder and piano roles. Author a six-operator harmonic polyphonic FM instrument with short envelopes as a representative melodic/bass sound-design option; DX7 lineage is a concrete authored alternative, not a claim that Sytrus/Harmor is a DX7. Modern upright is an authored piano-tone rendition of the positive keyboard role, not source acoustic hardware. Twenty-plus-band saw-carrier vocal processing is authored, not a measured VocodeX preset. No whole-master sampler or invented exact band roster. Prior licensed solo-piano edition remains archived; functional-harmonic verse/chorus/bridge form is the authored song realization."
+        },
+        {
+          "instrument": "vocoder",
+          "parts": {
+            "voc_band_count": "voc_many_bands",
+            "voc_carrier": "voc_saw_carrier",
+            "voc_modulator": "voc_voice_mod"
+          },
+          "policy": "Genre-level electronic fan-song production replaces a solo-piano transcription as universal default. Landau firsthand testimony describes loop arrangement, piano-roll keyboard writing, synth/bass design and vocoder-treated singing. Preserve voice, synthesizer, software sample arrangement, vocoder and piano roles. Author a six-operator harmonic polyphonic FM instrument with short envelopes as a representative melodic/bass sound-design option; DX7 lineage is a concrete authored alternative, not a claim that Sytrus/Harmor is a DX7. Modern upright is an authored piano-tone rendition of the positive keyboard role, not source acoustic hardware. Twenty-plus-band saw-carrier vocal processing is authored, not a measured VocodeX preset. No whole-master sampler or invented exact band roster. Prior licensed solo-piano edition remains archived; functional-harmonic verse/chorus/bridge form is the authored song realization."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Genre-level electronic fan-song production replaces a solo-piano transcription as universal default. Landau firsthand testimony describes loop arrangement, piano-roll keyboard writing, synth/bass design and vocoder-treated singing. Preserve voice, synthesizer, software sample arrangement, vocoder and piano roles. Author a six-operator harmonic polyphonic FM instrument with short envelopes as a representative melodic/bass sound-design option; DX7 lineage is a concrete authored alternative, not a claim that Sytrus/Harmor is a DX7. Modern upright is an authored piano-tone rendition of the positive keyboard role, not source acoustic hardware. Twenty-plus-band saw-carrier vocal processing is authored, not a measured VocodeX preset. No whole-master sampler or invented exact band roster. Prior licensed solo-piano edition remains archived; functional-harmonic verse/chorus/bridge form is the authored song realization."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "Complete applicable control pins; FM short envelope is applied only to FM owner; software sample arrangement keeps its own identity control."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/sheet-music-boss/insane/MN0286084",
+          "title": "Publisher complete Signature Artist solo-piano edition",
+          "support_notes": "Fresh12455view0 exact six-page piano instrumental-solo/no-lyrics/AndrewWrangell/Gabriel-NathanaelBrown/moderate-swing metadata. Full paid score uninspected; no source grand/upright subtype specified."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5UBQfw8fKxi6ADXxUdUT2K",
+          "title": "Exact Otacore creator corpus",
+          "support_notes": "Fresh12450view0 all100 items; selected Insane87 BlackGryph0n/Baasik, cross-media repertoire examples retained, no current TLT membership asserted."
+        },
+        {
+          "url": "https://www.image-line.com/artists/the-living-tombstone-yoav-landau",
+          "title": "Firsthand creator explanation of cross-media fan music practice",
+          "support_notes": "Fresh12455view1 personally describes songs/remixes for fans of games/cartoons/films/shows and Newgrounds/YouTube communities. General field-practice testimony; no original production tools transferred into selected piano edition."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=juJkNKodgdE",
+          "title": "Official artist-channel Insane release",
+          "support_notes": "Fresh indexed12460youtube12/12452youtube13 exacttitle/artist. Direct12458view0 returns minimaltext; no full original description or audio audition claimed."
+        },
+        {
+          "url": "https://socialcounts.org/youtube-video-live-view-count/juJkNKodgdE",
+          "title": "Explicitly mirrored artist description, supporting source-song context",
+          "support_notes": "Fresh12458search0 mirrors firstperson story of independent Hazbin song and Viv approval; secondary transport of author statement, not independently authenticated full primary-page capture. Not used for actual recording palette."
+        },
+        {
+          "url": "https://sheetmusicboss.com/about/",
+          "title": "Arranger own institutional and locality statement",
+          "support_notes": "Fresh12461view1 identifies Brisbane AndrewWrangell/SamuelDickenson and official Musicnotes licensed editions. Generic platform MIDI/software apparatus is not claimed the source edition instrumentation."
+        },
+        {
+          "url": "https://www.image-line.com/artists/the-living-tombstone-yoav-landau",
+          "title": "Landau firsthand fan-song production account",
+          "support_notes": "Fresh13768view0 explicitly loop arrangement, FL Keys piano-roll writing, Sytrus/Harmor synth and bass design, and VocodeX on singing. These are positive genre-practice roles, not an exact Insane recording claim."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "kamba_pop",
+          "name": "Kamba Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context, not a fan-song artist or source session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12536view2 Commons confirms CC BY2.5 and Iain Fergusson/Binksternet crop; historical023 bytes retained.",
+          "fresh_review_ref": "turn12536view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12536view2"
+        ],
+        "fresh_rights_review": "Fresh12536view2 rights only; historical bytes and visual receipt unchanged."
+      },
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "verification_status": "Original merged three controls protected,1638 existing owners unchanged,four formats clean refined upright, exact023 photo inheritance confirmed; independent review pending.",
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-11.json",
+        "original_sha256": "7a27ee5e223c332d5f514119285b1c9fca3fd0110eba96e13c52f00f4f2ec7d7",
+        "prior_entry": {
+          "source_label": "otacore",
+          "source_url": "https://everynoise.com/engenremap-otacore.html",
+          "suggested_id": "otacore",
+          "allocation_ordinal": 4091,
+          "allocation_group_id": "164",
+          "id": "otacore",
+          "tradition": {
+            "id": "otacore",
+            "name": "Otacore",
+            "family": "pop",
+            "lineage": "Complete six-page Andrew Wrangell / Sheet Music Boss piano-solo arrangement of Insane, Musicnotes Signature Artist edition MN0286084, composition by Gabriel and Nathanael Brown (Black Gryph0n and Baasik). Publisher explicitly specifies instrumental solo, piano, no lyrics and moderate swing. One pianist and zero voices in this separately issued complete arrangement, not a reduction by the researcher of the original sung/electronic recording. Full paid notation and audio were not inspected; exact voicing, piano subtype and source performance details are unknown. The selected song is exact creator Otacore item87. Official artist-channel metadata calls it a Hazbin Hotel song; mirrored artist description explains its independent character-song creation and approval by the show creator. The mirror is explicitly attributed, not claimed freshly retrieved full YouTube description or proof it is an official soundtrack cue. Source-unspecified piano subtype is rendered as an authored standard studio upright with connected melodic legato phrasing, compatible with the published moderate-swing rhythm and not a claim that legato means straight rhythm or classical repertoire. Controlled live-room space is an editorial recording presentation. Broad functionalSong is an authored verse–chorus–bridge rendition organized over functional chord progressions, not a claim that the unseen six-page score follows every structural choice. All source composition material remains within the selected complete piano edition; no original vocalist, synthesizer or drums are discarded from a claimed full master. No global tuning, measured room, capture equipment or original keyboard implementation is invented.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Complete six-page Andrew Wrangell / Sheet Music Boss piano-solo arrangement of Insane, Musicnotes Signature Artist edition MN0286084, composition by Gabriel and Nathanael Brown (Black Gryph0n and Baasik). Publisher explicitly specifies instrumental solo, piano, no lyrics and moderate swing. One pianist and zero voices in this separately issued complete arrangement, not a reduction by the researcher of the original sung/electronic recording. Full paid notation and audio were not inspected; exact voicing, piano subtype and source performance details are unknown. The selected song is exact creator Otacore item87. Official artist-channel metadata calls it a Hazbin Hotel song; mirrored artist description explains its independent character-song creation and approval by the show creator. The mirror is explicitly attributed, not claimed freshly retrieved full YouTube description or proof it is an official soundtrack cue. Otacore is treated as the named transnational fan-created-media-song discovery community, not a physical sound or synonym for all anime music. Exact creator corpus includes MLP-associated Frozen Night24 and 4everfreebrony26, Hazbin fan-song Insane87 and Addict38, FNAF works58/61/64/68/81/88, and Doki Doki Literature Club fan song90. Landau firsthand describes the wider internet practice of producing songs/remixes for fans of games, cartoons, films and shows; that community evidence is not a claim that The Living Tombstone appears in the currently returned first100. Selected Black Gryph0n/Baasik exact-song membership is separately positive. Full nerdcore and queued anime_rap are rap-specific geek/anime narrative fields and overlap without exhausting the cross-style fan-song corpus. Full geek_rock/geek_folk likewise overlap geek storytelling but are not all cross-media fandom production; no distinction rests on a different pianist. Anison and anison_anime_song are commissioned Japanese animation-title industries, while video_game_music concerns interactive scores and gaming_edm licensed gameplay background music. Fan-created character songs may later become licensed or involve voice actors; Otacore is not asserted wholly amateur, unofficial or disjoint from these industries. Existing anime_piano scopes arrangements of anime songs and does not exhaust Western game/cartoon fan works. Broad soundtrack/cartoon fields also overlap, but their original-production repertoire does not make all independent fan retellings identical. Source-unspecified piano subtype is rendered as an authored standard studio upright with connected melodic legato phrasing, compatible with the published moderate-swing rhythm and not a claim that legato means straight rhythm or classical repertoire. Controlled live-room space is an editorial recording presentation. Broad functionalSong is an authored verse–chorus–bridge rendition organized over functional chord progressions, not a claim that the unseen six-page score follows every structural choice. All source composition material remains within the selected complete piano edition; no original vocalist, synthesizer or drums are discarded from a claimed full master. No global tuning, measured room, capture equipment or original keyboard implementation is invented.",
+            "exemplars": [
+              "Andrew Wrangell / Sheet Music Boss — complete six-page solo-piano Insane edition MN0286084"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            -27.4698,
+            153.0251,
+            "Brisbane",
+            "Oceania & Pacific"
+          ],
+          "geo_rationale": "Arranger platform own biography identifies Andrew Wrangell and Samuel Dickenson as Brisbane musicians. Editorial selected-edition production-community anchor; not origin or exclusive location of the global fandom category, and not a claim of the source recording room.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Otacore is treated as the named transnational fan-created-media-song discovery community, not a physical sound or synonym for all anime music. Exact creator corpus includes MLP-associated Frozen Night24 and 4everfreebrony26, Hazbin fan-song Insane87 and Addict38, FNAF works58/61/64/68/81/88, and Doki Doki Literature Club fan song90. Landau firsthand describes the wider internet practice of producing songs/remixes for fans of games, cartoons, films and shows; that community evidence is not a claim that The Living Tombstone appears in the currently returned first100. Selected Black Gryph0n/Baasik exact-song membership is separately positive. Full nerdcore and queued anime_rap are rap-specific geek/anime narrative fields and overlap without exhausting the cross-style fan-song corpus. Full geek_rock/geek_folk likewise overlap geek storytelling but are not all cross-media fandom production; no distinction rests on a different pianist. Anison and anison_anime_song are commissioned Japanese animation-title industries, while video_game_music concerns interactive scores and gaming_edm licensed gameplay background music. Fan-created character songs may later become licensed or involve voice actors; Otacore is not asserted wholly amateur, unofficial or disjoint from these industries. Existing anime_piano scopes arrangements of anime songs and does not exhaust Western game/cartoon fan works. Broad soundtrack/cartoon fields also overlap, but their original-production repertoire does not make all independent fan retellings identical.",
+          "classification_evidence": {
+            "note": "Otacore is treated as the named transnational fan-created-media-song discovery community, not a physical sound or synonym for all anime music. Exact creator corpus includes MLP-associated Frozen Night24 and 4everfreebrony26, Hazbin fan-song Insane87 and Addict38, FNAF works58/61/64/68/81/88, and Doki Doki Literature Club fan song90. Landau firsthand describes the wider internet practice of producing songs/remixes for fans of games, cartoons, films and shows; that community evidence is not a claim that The Living Tombstone appears in the currently returned first100. Selected Black Gryph0n/Baasik exact-song membership is separately positive. Full nerdcore and queued anime_rap are rap-specific geek/anime narrative fields and overlap without exhausting the cross-style fan-song corpus. Full geek_rock/geek_folk likewise overlap geek storytelling but are not all cross-media fandom production; no distinction rests on a different pianist. Anison and anison_anime_song are commissioned Japanese animation-title industries, while video_game_music concerns interactive scores and gaming_edm licensed gameplay background music. Fan-created character songs may later become licensed or involve voice actors; Otacore is not asserted wholly amateur, unofficial or disjoint from these industries. Existing anime_piano scopes arrangements of anime songs and does not exhaust Western game/cartoon fan works. Broad soundtrack/cartoon fields also overlap, but their original-production repertoire does not make all independent fan retellings identical."
+          },
+          "model_policy": "Source-unspecified piano subtype is rendered as an authored standard studio upright with connected melodic legato phrasing, compatible with the published moderate-swing rhythm and not a claim that legato means straight rhythm or classical repertoire. Controlled live-room space is an editorial recording presentation. Broad functionalSong is an authored verse–chorus–bridge rendition organized over functional chord progressions, not a claim that the unseen six-page score follows every structural choice. All source composition material remains within the selected complete piano edition; no original vocalist, synthesizer or drums are discarded from a claimed full master. No global tuning, measured room, capture equipment or original keyboard implementation is invented.",
+          "source_scope_limitation": "Complete six-page Andrew Wrangell / Sheet Music Boss piano-solo arrangement of Insane, Musicnotes Signature Artist edition MN0286084, composition by Gabriel and Nathanael Brown (Black Gryph0n and Baasik). Publisher explicitly specifies instrumental solo, piano, no lyrics and moderate swing. One pianist and zero voices in this separately issued complete arrangement, not a reduction by the researcher of the original sung/electronic recording. Full paid notation and audio were not inspected; exact voicing, piano subtype and source performance details are unknown. The selected song is exact creator Otacore item87. Official artist-channel metadata calls it a Hazbin Hotel song; mirrored artist description explains its independent character-song creation and approval by the show creator. The mirror is explicitly attributed, not claimed freshly retrieved full YouTube description or proof it is an official soundtrack cue.",
+          "vocal_count_audit": {
+            "selected_singer_count": 0,
+            "selected_pianist_count": 1,
+            "decision": "Publisher explicit full instrumental solo edition, not removal of voices from original recording."
+          },
+          "instrument_role_audit": {
+            "scope": "Complete six-page Andrew Wrangell / Sheet Music Boss piano-solo arrangement of Insane, Musicnotes Signature Artist edition MN0286084, composition by Gabriel and Nathanael Brown (Black Gryph0n and Baasik). Publisher explicitly specifies instrumental solo, piano, no lyrics and moderate swing. One pianist and zero voices in this separately issued complete arrangement, not a reduction by the researcher of the original sung/electronic recording. Full paid notation and audio were not inspected; exact voicing, piano subtype and source performance details are unknown. The selected song is exact creator Otacore item87. Official artist-channel metadata calls it a Hazbin Hotel song; mirrored artist description explains its independent character-song creation and approval by the show creator. The mirror is explicitly attributed, not claimed freshly retrieved full YouTube description or proof it is an official soundtrack cue.",
+            "roles": {
+              "upright_piano": "Complete one-pianist six-page edition; upright subtype authored"
+            },
+            "authored_defaults": "Source-unspecified piano subtype is rendered as an authored standard studio upright with connected melodic legato phrasing, compatible with the published moderate-swing rhythm and not a claim that legato means straight rhythm or classical repertoire. Controlled live-room space is an editorial recording presentation. Broad functionalSong is an authored verse–chorus–bridge rendition organized over functional chord progressions, not a claim that the unseen six-page score follows every structural choice. All source composition material remains within the selected complete piano edition; no original vocalist, synthesizer or drums are discarded from a claimed full master. No global tuning, measured room, capture equipment or original keyboard implementation is invented."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_classical_legato",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Source-unspecified piano subtype is rendered as an authored standard studio upright with connected melodic legato phrasing, compatible with the published moderate-swing rhythm and not a claim that legato means straight rhythm or classical repertoire. Controlled live-room space is an editorial recording presentation. Broad functionalSong is an authored verse–chorus–bridge rendition organized over functional chord progressions, not a claim that the unseen six-page score follows every structural choice. All source composition material remains within the selected complete piano edition; no original vocalist, synthesizer or drums are discarded from a claimed full master. No global tuning, measured room, capture equipment or original keyboard implementation is invented."
+            }
+          ],
+          "flat_pin_resolution": "All three actual upright parts explicitly protected, no fallback or conflict.",
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "upright_piano"
+            ]
+          },
+          "sources": [
+            {
+              "url": "https://www.musicnotes.com/sheetmusic/sheet-music-boss/insane/MN0286084",
+              "title": "Publisher complete Signature Artist solo-piano edition",
+              "support_notes": "Fresh12455view0 exact six-page piano instrumental-solo/no-lyrics/AndrewWrangell/Gabriel-NathanaelBrown/moderate-swing metadata. Full paid score uninspected; no source grand/upright subtype specified."
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/5UBQfw8fKxi6ADXxUdUT2K",
+              "title": "Exact Otacore creator corpus",
+              "support_notes": "Fresh12450view0 all100 items; selected Insane87 BlackGryph0n/Baasik, cross-media repertoire examples retained, no current TLT membership asserted."
+            },
+            {
+              "url": "https://www.image-line.com/artists/the-living-tombstone-yoav-landau",
+              "title": "Firsthand creator explanation of cross-media fan music practice",
+              "support_notes": "Fresh12455view1 personally describes songs/remixes for fans of games/cartoons/films/shows and Newgrounds/YouTube communities. General field-practice testimony; no original production tools transferred into selected piano edition."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=juJkNKodgdE",
+              "title": "Official artist-channel Insane release",
+              "support_notes": "Fresh indexed12460youtube12/12452youtube13 exacttitle/artist. Direct12458view0 returns minimaltext; no full original description or audio audition claimed."
+            },
+            {
+              "url": "https://socialcounts.org/youtube-video-live-view-count/juJkNKodgdE",
+              "title": "Explicitly mirrored artist description, supporting source-song context",
+              "support_notes": "Fresh12458search0 mirrors firstperson story of independent Hazbin song and Viv approval; secondary transport of author statement, not independently authenticated full primary-page capture. Not used for actual recording palette."
+            },
+            {
+              "url": "https://sheetmusicboss.com/about/",
+              "title": "Arranger own institutional and locality statement",
+              "support_notes": "Fresh12461view1 identifies Brisbane AndrewWrangell/SamuelDickenson and official Musicnotes licensed editions. Generic platform MIDI/software apparatus is not claimed the source edition instrumentation."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "otacore",
+              "name": "Otacore",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording microphone context, not the authored upright piano, original animated characters, artist or actual session.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12396view2 exact Commons CC BY2.5 IainFergusson/Binksternet crop; historical023 bytes/visual receipts retained only.",
+              "fresh_review_ref": "turn12396view2"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12396view2"
+            ],
+            "fresh_rights_review": "Fresh12396view2 rights, no current binary/visual claim."
+          },
+          "status": "READY_FOR_INDEPENDENT_REVIEW",
+          "verification_status": "Original merged three controls protected,1638 existing owners unchanged,four formats clean refined upright, exact023 photo inheritance confirmed; independent review pending."
+        },
+        "decision": "Genre-level electronic fan-song production replaces a solo-piano transcription as universal default. Landau firsthand testimony describes loop arrangement, piano-roll keyboard writing, synth/bass design and vocoder-treated singing. Preserve voice, synthesizer, software sample arrangement, vocoder and piano roles. Author a six-operator harmonic polyphonic FM instrument with short envelopes as a representative melodic/bass sound-design option; DX7 lineage is a concrete authored alternative, not a claim that Sytrus/Harmor is a DX7. Modern upright is an authored piano-tone rendition of the positive keyboard role, not source acoustic hardware. Twenty-plus-band saw-carrier vocal processing is authored, not a measured VocodeX preset. No whole-master sampler or invented exact band roster. Prior licensed solo-piano edition remains archived; functional-harmonic verse/chorus/bridge form is the authored song realization."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

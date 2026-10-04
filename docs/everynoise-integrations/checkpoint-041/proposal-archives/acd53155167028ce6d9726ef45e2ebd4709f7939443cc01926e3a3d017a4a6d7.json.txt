@@ -1,0 +1,349 @@
+{
+  "entries": [
+    {
+      "source_label": "thai indie pop",
+      "source_url": "https://everynoise.com/engenremap-thaiindiepop.html",
+      "suggested_id": "thai_indie_pop",
+      "allocation_ordinal": 1906,
+      "allocation_group_id": "077",
+      "id": "thai_indie_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "thai_indie_pop",
+        "name": "Thai Indie Pop",
+        "family": "pop",
+        "lineage": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown. Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown. Thai Indie Pop is the positively named pop-oriented branch within Thailand’s broader independent field. The artist’s own First Trip publication uses indie-pop metadata and Chiang Mai locality; the CEIPA/Music Awards Japan presenter explicitly identifies YONLAPA as Thailand’s indie-pop quartet and describes melody-led, soft guitar-pop practice alongside occasional alternative-rock breaks. Exact creator Thai Indie Pop roster also includes Gym and Swim, the selected exemplar of existing thai_indie: overlap is explicit, not a contradiction or exclusion. Full existing thai_indie expressly spans pop and rock; this proposed entry narrows the named popular-song branch rather than claiming the old umbrella is rock-only. Existing thai_indie_rock names the rock-oriented field, which also overlaps artists and songs. Current and queued broad Thai pop/OST discovery fields do not equal this independently produced pop branch. Exact YONLAPA membership in the retrieved100-item creator snapshot is not established; positive issuer and presenting-institution category evidence supplies the bridge, not guessed membership. Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred.",
+        "exemplars": [
+          "YONLAPA — Is That True?, complete issued track"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        18.7883,
+        98.9853,
+        "Chiang Mai",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Artist-owned publication explicitly locates band in Chiang Mai; editorial community anchor, not claimed recording studio.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Thai Indie Pop is the positively named pop-oriented branch within Thailand’s broader independent field. The artist’s own First Trip publication uses indie-pop metadata and Chiang Mai locality; the CEIPA/Music Awards Japan presenter explicitly identifies YONLAPA as Thailand’s indie-pop quartet and describes melody-led, soft guitar-pop practice alongside occasional alternative-rock breaks. Exact creator Thai Indie Pop roster also includes Gym and Swim, the selected exemplar of existing thai_indie: overlap is explicit, not a contradiction or exclusion. Full existing thai_indie expressly spans pop and rock; this proposed entry narrows the named popular-song branch rather than claiming the old umbrella is rock-only. Existing thai_indie_rock names the rock-oriented field, which also overlaps artists and songs. Current and queued broad Thai pop/OST discovery fields do not equal this independently produced pop branch. Exact YONLAPA membership in the retrieved100-item creator snapshot is not established; positive issuer and presenting-institution category evidence supplies the bridge, not guessed membership.",
+      "classification_evidence": "Thai Indie Pop is the positively named pop-oriented branch within Thailand’s broader independent field. The artist’s own First Trip publication uses indie-pop metadata and Chiang Mai locality; the CEIPA/Music Awards Japan presenter explicitly identifies YONLAPA as Thailand’s indie-pop quartet and describes melody-led, soft guitar-pop practice alongside occasional alternative-rock breaks. Exact creator Thai Indie Pop roster also includes Gym and Swim, the selected exemplar of existing thai_indie: overlap is explicit, not a contradiction or exclusion. Full existing thai_indie expressly spans pop and rock; this proposed entry narrows the named popular-song branch rather than claiming the old umbrella is rock-only. Existing thai_indie_rock names the rock-oriented field, which also overlaps artists and songs. Current and queued broad Thai pop/OST discovery fields do not equal this independently produced pop branch. Exact YONLAPA membership in the retrieved100-item creator snapshot is not established; positive issuer and presenting-institution category evidence supplies the bridge, not guessed membership.",
+      "model_policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred.",
+      "source_scope_limitation": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown.",
+      "source_retrieval_caveat": "All listed pages directly read. Original YouTube link returned shell only; no audio audition or original video credits claimed. Performing-artist metadata supplies full credited track roster; paid or hidden extra layers not invented.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "named_singers": [
+          "Yonlapa Pienpanassak"
+        ],
+        "decision": "One credited vocalist; no backing singer fabricated. Original stack count unknown; authored accompanied single lead."
+      },
+      "instrument_role_audit": {
+        "scope": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown.",
+        "roles": {
+          "voice": "Yonlapa credited vocals",
+          "electric_guitar_humbucker": "Arnuphap credited guitar; authored electric pop timbre, no source model claim",
+          "electric_bass": "Nawin credited bass; authored electric bass",
+          "drum_kit": "Chalanthorn credited drums; authored acoustic kit"
+        },
+        "authored_defaults": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All owning parts individually checked; two shared guitar/bass material/amp keys require actual owner compatibility. No hidden source-measured defaults."
+      },
+      "sources": [
+        {
+          "url": "https://www.shazam.com/es-es/song/1736361755/is-that-true",
+          "title": "Apple/Shazam issuer-distributed complete track performance credits",
+          "support_notes": "Fresh841738view1 lines104–124 full four named roles. Whole track identity and official video link; lyrics not copied."
+        },
+        {
+          "url": "https://music.apple.com/th/song/is-that-true/1736363206",
+          "title": "Apple complete track catalogue",
+          "support_notes": "Fresh425892view0 exact track/album; direct page did not expose credits, Shazam Apple subsidiary does."
+        },
+        {
+          "url": "https://otomo.net/contents/950049?locale=en",
+          "title": "CEIPA/Music Awards Japan official firsthand report",
+          "support_notes": "Fresh638118view0 expressly Thailand indie-pop quartet, melody/soft guitar-pop branch. Other live acts and crowd contributions are NOT selected studio track roster."
+        },
+        {
+          "url": "https://yonlapa.bandcamp.com/album/first-trip-ep",
+          "title": "Artist-owned publication and locality",
+          "support_notes": "Fresh841738view0 indie-pop classification and Chiang Mai identity; different EP metadata not used as selected track personnel."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1LtPeF5aJyzljIKcH3VVV5",
+          "title": "Exact Thai Indie Pop creator field",
+          "support_notes": "Fresh394859view0 full snapshot; Gym and Swim25 explicitly shows overlap with older ThaiIndie. No selected YONLAPA membership claim."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn841738view1",
+        "turn425892view0",
+        "turn638118view0",
+        "turn841738view0",
+        "turn394859view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "thai_indie_pop",
+          "name": "Thai Indie Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not YONLAPA, Chiang Mai, source gear or depicted guitar band.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh196595view2 confirms CC BY2.5 credit/crop; exact historical023 receipts retained.",
+          "fresh_review_ref": "turn196595view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn196595view2"
+        ],
+        "fresh_rights_review": "Fresh196595view2 rights/context only; historical bytes and visual unchanged."
+      },
+      "verification_status": "Original actual merged-loader49owning parts protected/no fallback/errors;1638old instruments preserved. Original browser/connector fourformats pass, allfour source cards retained, rich/tags exactly1000characters. No final integrated signatures/static build claim.",
+      "source_review_refs": [
+        "turn841738view1",
+        "turn425892view0",
+        "turn638118view0",
+        "turn841738view0",
+        "turn394859view0"
+      ],
+      "authored_render_scope": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

@@ -1,0 +1,258 @@
+{
+  "entries": [
+    {
+      "source_label": "classic ukrainian pop",
+      "source_url": "https://everynoise.com/engenremap-classicukrainianpop.html",
+      "suggested_id": "classic_ukrainian_pop",
+      "allocation_ordinal": 1670,
+      "allocation_group_id": "067",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "id": "classic_ukrainian_pop",
+      "tradition": {
+        "id": "classic_ukrainian_pop",
+        "name": "Classic Ukrainian Pop",
+        "family": "pop",
+        "lineage": "Ukraine’s classic pop repertoire grew through estrada singers, songwriters and vocal-instrumental ensembles. Lyrical composed songs and folk-inflected melodies entered radio, television and concert circulation, becoming an enduring shared repertoire alongside later revivals.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Expansive melodies and memorable refrains connect this enduring Ukrainian song repertoire. Vocal-instrumental bands, orchestral accompaniments and intimate voice-and-piano settings offer different presentations of the same songs. This quieter branch supports connected singing with clear chordal piano.",
+        "exemplars": [
+          "Nazariy Yaremchuk",
+          "Smerichka",
+          "Volodymyr Ivasyuk"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        48.2915,
+        25.9403,
+        "Chernivtsi",
+        "Ukraine",
+        "Europe"
+      ],
+      "geo_rationale": "Representative Bukovinian/Smerichka estrada centre, not an exclusive national origin or a measured location of every performance.",
+      "signature_tokens": [],
+      "sources": [
+        "https://mediateka.suspilne.media/en/media/7591",
+        "https://open.spotify.com/embed/playlist/0J0tDTwFnu3cY1nz5HyjkE",
+        "https://zemla.studio/",
+        "https://zeitschrift-osteuropa.de/site/assets/files/59771/the-sound-of-resistance.pdf",
+        "https://e.archivelviv.gov.ua/files/261011/"
+      ],
+      "neighbor_distinction": "Full ukrainian_pop is the broad national popular-song field across band, electronic and art-pop production; it is not limited to its Tvaryny exemplar. This overlaps it as the historically transmitted estrada repertoire and performer/ensemble canon, positively curated as such. Full ukrainian_folk_pop concerns inherited or folk-derived material reshaped in popular arrangements; this also overlaps but does not cover all composed classic estrada songs, while classic pop does not include every contemporary folk-pop practice. Neither date alone nor one different artist establishes this boundary.",
+      "model_policy": "Representative intimate voice-and-piano rendition grounded in Ivasyuk’s own songs for that scoring preserved by the State Archive of Lviv, rather than a reduction of the separately documented Smerichka ensemble. Authored functional-harmonic verse–chorus–bridge organization supports functionalSong; no universal or measured manuscript form asserted. Connected syllabic solo singing with accompaniment and an authored single-lead presentation leave physiological register, vocal training and original tracking unknown. Standard studio upright and block-chord support are authored choices for source-unspecified piano construction, not an assertion the manuscripts specify upright or this accompaniment pattern. Furnished parlor is an authored listening environment, not archive venue or original recording room.",
+      "classification_evidence": "Exact creator Classic Ukrainian Pop collection includes Yaremchuk, Ivasyuk, Morozov and numerous vocal-instrumental ensembles. The curator’s HERBARIUM project positively collects Ukrainian estrada as a historical repertoire field, not an arbitrary release-year cutoff. Original cultural-historical analysis describes the distinct late-1960s/1970s vocal-instrumental ensemble and estrada ecosystem and its subsequent rediscovery. The broadcaster’s own 1984 Smerichka archive directly documents a representative band practice. The State Archive of Lviv holds original Ivasyuk Chernivtsi-period vocal works and expressly catalogs multiple songs for voice and piano, including Chervona Ruta. This independently documented song setting supports a representative intimate genre branch; it is not the historical Smerichka band stripped of roles.",
+      "vocal_count_audit": {
+        "source": "Archive positively identifies songs for voice and piano, separately from other choral/ensemble works in the same file.",
+        "model": "Representative solo accompanied singing, not a headcount claim about a sound recording."
+      },
+      "instrument_role_audit": {
+        "voice": "Explicit vocal line in the archived voice/piano songs.",
+        "upright_piano": "Explicit piano accompaniment; upright is authored construction.",
+        "other_branches": "Full six-family Smerichka source retained as wider genre context and in preserved band-render hold; it is not the selected smaller arrangement."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative singing-pianist branch, supported by the municipal presenter’s positive description of Klüber as singer, songwriter and pianist active in the collaborative underground community. Not a reconstruction of the named Mostra event or any issued recording: no claim that its actual full personnel was voice and piano only. The separate large-band Paiol concert is not selected or silently stripped. Authored single accompanied melodic lead, restrained upright-piano block chords and furnished parlor support an intimate popular-song realization. Authored verse–chorus–bridge organization and functional chord movement justify functionalSong; these are not measured score-form claims. Actual instrument size, playing method, physiology and source headcount remain unknown; broader bands, rap and electronic branches remain explicitly part of the field."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Genre-level representative singing-pianist branch, supported by the municipal presenter’s positive description of Klüber as singer, songwriter and pianist active in the collaborative underground community. Not a reconstruction of the named Mostra event or any issued recording: no claim that its actual full personnel was voice and piano only. The separate large-band Paiol concert is not selected or silently stripped. Authored single accompanied melodic lead, restrained upright-piano block chords and furnished parlor support an intimate popular-song realization. Authored verse–chorus–bridge organization and functional chord movement justify functionalSong; these are not measured score-form claims. Actual instrument size, playing method, physiology and source headcount remain unknown; broader bands, rap and electronic branches remain explicitly part of the field."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "primary_retrieval_refs": [
+        "turn14394view2",
+        "turn14396view0",
+        "turn14394view0",
+        "turn14396view1",
+        "turn14411view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "classic_ukrainian_pop",
+          "name": "Classic Ukrainian Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14416view1 confirms CC BY2.5 and credited crop; exact historical023 bytes retained.",
+          "fresh_review_ref": "turn14416view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14416view1"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14416view1 confirms CC BY2.5/crop credit; inherited historical023 bytes and visual receipt, no fresh download or image observation."
+      },
+      "authored_render_scope": "Representative intimate voice-and-piano rendition grounded in Ivasyuk’s own songs for that scoring preserved by the State Archive of Lviv, rather than a reduction of the separately documented Smerichka ensemble. Authored functional-harmonic verse–chorus–bridge organization supports functionalSong; no universal or measured manuscript form asserted. Connected syllabic solo singing with accompaniment and an authored single-lead presentation leave physiological register, vocal training and original tracking unknown. Standard studio upright and block-chord support are authored choices for source-unspecified piano construction, not an assertion the manuscripts specify upright or this accompaniment pattern. Furnished parlor is an authored listening environment, not archive venue or original recording room.",
+      "source_review_refs": [
+        "turn14394view2",
+        "turn14396view0",
+        "turn14394view0",
+        "turn14396view1",
+        "turn14411view0"
+      ],
+      "source_scope_limitation": "Institutional catalogue positively documents voice/piano scoring. Original archive images have not been transcribed and no audio was auditioned. No claim all72 sheets in the file are voice/piano: catalogue separately identifies choir and quartet/ensemble items. General genre branch, not exact manuscript or film reconstruction.",
+      "prior_held_rendition": {
+        "path": "/tmp/batch040/resume117-33-classic-ukrainian-pop-practice.json",
+        "sha256": "87a1b3c14c90dd4c6b5e203e92ac3e6245fb860a8f6fb079da1461867eb50f6b",
+        "reason": "Positive alternative original voice/piano practice, not omitted band roles or parameter fishing."
+      },
+      "runtime_review": {
+        "path": "/tmp/batch040/resume117-33-piano-runtime117.json",
+        "owning_audit": "/tmp/batch040/resume117-33-piano-owning-audit117.json",
+        "protected_controls": 20,
+        "formats": [
+          "rich",
+          "prose",
+          "tags",
+          "compact"
+        ],
+        "semantic_review": "All four original outputs retain connected syllabic singing and upright chordal support. Wabi-rustic/affectionate are soft plain direct acoustic/parlor character, not an imported Japanese repertoire or extra sound source. No static CLI or full regression pass claimed."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

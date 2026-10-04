@@ -1,0 +1,240 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "medimeisterschaften",
+        "name": "Medimeisterschaften",
+        "family": "pop",
+        "lineage": "Medimeisterschaften music grew from the themed songs and fan culture of European medical-student gatherings. University teams write, produce and perform their own annual tracks, tying local identity and playful slogans to costumes, videos and collective festival participation.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.europop",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "Catchy sung lines, rhythmic slogans and produced beats carry university-specific wordplay and shared refrains. Student teams build melody, harmony and rhythm together, record and edit vocals, and bring the songs from bedroom studios to festival stages. Styles vary with each year’s theme and contributors.",
+        "exemplars": [
+          "Medimeister Ulm",
+          "Medimeisterschaften Bonn",
+          "Medimeisterschaften Aachen"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "electronicDance"
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "medimeisterschaften",
+          "name": "Medimeisterschaften",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13704view0 confirms photographer/crop and CC BY2.5; historical bytes/visual observation inherited.",
+          "fresh_review_ref": "turn13704view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13704view0; exact historical bytes/visual receipt retained.",
+        "fresh_rights_retrieval_refs": [
+          "turn13704view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "staccato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level university-song production practice documented by the student creators themselves, not a reconstructed master or an unrelated DJ set from the same festival. Representative rhythmic syllabic group singing over a creator-produced beat retains both positive sound roles. A functional-harmonic verse–chorus–bridge Europop rendition, unprocessed live-ensemble vocal option and controlled studio are authored choices, not a transcription or claim that every annual track has that form or processing. The source explicitly records/edit vocals and composes harmony/melody/rhythm; exact beat architecture and singer headcount remain variable and unspecified. No additional conventional band instruments are inferred."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Genre-level university-song production practice documented by the student creators themselves, not a reconstructed master or an unrelated DJ set from the same festival. Representative rhythmic syllabic group singing over a creator-produced beat retains both positive sound roles. A functional-harmonic verse–chorus–bridge Europop rendition, unprocessed live-ensemble vocal option and controlled studio are authored choices, not a transcription or claim that every annual track has that form or processing. The source explicitly records/edit vocals and composes harmony/melody/rhythm; exact beat architecture and singer headcount remain variable and unspecified. No additional conventional band instruments are inferred."
+        }
+      ],
+      "source_label": "medimeisterschaften",
+      "source_url": "https://everynoise.com/engenremap-medimeisterschaften.html",
+      "suggested_id": "medimeisterschaften",
+      "allocation_ordinal": 3762,
+      "allocation_group_id": "151",
+      "id": "medimeisterschaften",
+      "status": "ready_for_independent_review",
+      "geo": [
+        48.4011,
+        9.9876,
+        "Ulm",
+        "Europe"
+      ],
+      "geo_rationale": "Representative student production collective directly describes its own ongoing practice in Ulm; event and broader community are transregional.",
+      "signature_tokens": [],
+      "model_policy": "Genre-level university-song production practice documented by the student creators themselves, not a reconstructed master or an unrelated DJ set from the same festival. Representative rhythmic syllabic group singing over a creator-produced beat retains both positive sound roles. A functional-harmonic verse–chorus–bridge Europop rendition, unprocessed live-ensemble vocal option and controlled studio are authored choices, not a transcription or claim that every annual track has that form or processing. The source explicitly records/edit vocals and composes harmony/melody/rhythm; exact beat architecture and singer headcount remain variable and unspecified. No additional conventional band instruments are inferred.",
+      "neighbor_distinction": "Full Partyschlager covers party-oriented popular song, and German Pop broader national popular songwriting. Medimeisterschaften is an independently documented event-and-student-production repertoire across universities and countries, defined by annually themed self-made songs, not a new sonic genre or all music played at the festival. It overlaps party pop but is neither all Schlager nor commercial beer-tent repertoire. Full Football describes supporter-associated song; this community began with sport but its annual studio productions and thematic university identities extend across festival activities. Full Oktoberfest is the separate Munich beer-festival repertoire. No distinct rhythm is inferred from the institutional label.",
+      "classification_evidence": "Full Partyschlager covers party-oriented popular song, and German Pop broader national popular songwriting. Medimeisterschaften is an independently documented event-and-student-production repertoire across universities and countries, defined by annually themed self-made songs, not a new sonic genre or all music played at the festival. It overlaps party pop but is neither all Schlager nor commercial beer-tent repertoire. Full Football describes supporter-associated song; this community began with sport but its annual studio productions and thematic university identities extend across festival activities. Full Oktoberfest is the separate Munich beer-festival repertoire. No distinct rhythm is inferred from the institutional label.",
+      "source_scope_limitation": "Genre-level university-song production practice documented by the student creators themselves, not a reconstructed master or an unrelated DJ set from the same festival. Representative rhythmic syllabic group singing over a creator-produced beat retains both positive sound roles. A functional-harmonic verse–chorus–bridge Europop rendition, unprocessed live-ensemble vocal option and controlled studio are authored choices, not a transcription or claim that every annual track has that form or processing. The source explicitly records/edit vocals and composes harmony/melody/rhythm; exact beat architecture and singer headcount remain variable and unspecified. No additional conventional band instruments are inferred.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Student production team records and edits vocals; campus broadcaster interviews participating singers."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Student creator expressly composes melodic/harmonic/rhythmic framework and beat, without specifying instruments or plugins."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "authored rhythmic group vocals",
+        "not_exact_session_count": true
+      },
+      "sources": [
+        {
+          "url": "https://medimeisterulm.de/about/song/",
+          "primary": true,
+          "evidence_ref": "turn13776view0",
+          "supports": "Creator collective directly describes yearly production since2018: composition,beatmaking,words,vocal recording/editing andstageperformance."
+        },
+        {
+          "url": "https://www.medimeisteraachen.de/%C3%BCber-die-medis",
+          "primary": true,
+          "evidence_ref": "turn13776view1",
+          "supports": "Participantorganization defines cross-university themed self-producedsong community, originating2002sportsfestival."
+        },
+        {
+          "url": "https://bonn.fm/alles-mit-bier-gewinnt-die-uni-bonn-das-bonner-team-der-medimeisterschaften-im-interview/",
+          "primary": true,
+          "evidence_ref": "turn13778view0",
+          "supports": "Campus broadcaster owninterview positively identifies participating singers anduniversitysongproduction; audio notauditioned."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

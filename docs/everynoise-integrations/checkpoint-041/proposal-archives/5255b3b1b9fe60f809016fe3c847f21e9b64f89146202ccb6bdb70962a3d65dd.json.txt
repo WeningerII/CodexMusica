@@ -1,0 +1,206 @@
+{
+  "entries": [
+    {
+      "source_label": "cantaditas",
+      "source_url": "https://everynoise.com/engenremap-cantaditas.html",
+      "suggested_id": "cantaditas",
+      "allocation_ordinal": 2961,
+      "allocation_group_id": "119",
+      "id": "cantaditas",
+      "tradition": {
+        "id": "cantaditas",
+        "name": "Cantaditas",
+        "family": "electronic",
+        "lineage": "Javier Galiano — complete separately announced closing DJ programme at REC Remember Festival, La Roda,8July2023 overnight into9July, around06:00. Municipal organizer announcement of22June2023 quotes his personally selected late1990s/early2000s repertoire. Exact duration, tracklist and actual execution remain unknown; this is the announced whole closing unit, not an auditioned recording. Earlier La Luna and Sensity World concerts and other DJ slots are explicitly separate; no live concert roles are subtracted from the chosen programme. Existing neutral DJ playback/mixing owner preserves the documented programme without inventing source generators, decks, samples or embedded voices. Actual live vocal count and embedded singer/instrument counts remain unknown; zero added live-singer cards is not zero actual people. Authored controlled live room and brisk dance pacing suit the announced dance festival, not measured acoustics or BPM. Broad electronicDance reflects positively documented DJ dance-floor use without imposing one trance, makina or Eurodance rhythm across unknown selections. No tuning or recording chain.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Javier Galiano — complete separately announced closing DJ programme at REC Remember Festival, La Roda,8July2023 overnight into9July, around06:00. Municipal organizer announcement of22June2023 quotes his personally selected late1990s/early2000s repertoire. Exact duration, tracklist and actual execution remain unknown; this is the announced whole closing unit, not an auditioned recording. Earlier La Luna and Sensity World concerts and other DJ slots are explicitly separate; no live concert roles are subtracted from the chosen programme. Cantaditas names a Spanish vocal-dance repertoire and circulation field that crosses commercial dance styles. The municipal organizer positively names this repertoire and separately documents its contemporary remember-festival audience and programmes; exact creator corpus includes Head Hornys, DJ Marta, Bandido, Dee Dee and DJ Chumi. It is not an invented synonym for all old electronic music. Full vocal_trance already defines pop vocals over trance and overlaps, while full eurodance_90s defines pan-European rap/sung pairing and production era; makina defines the faster Catalan hard-dance lineage. Cantaditas is a Spanish selection/repertoire community spanning these overlapping styles, not a claim of wholly separate sonic grammar or exclusively Spanish performers/language. Spanish electronic remains a broad national field. Exact creator membership of selected Galiano is not established; organizer explicitly places him in the named festival practice. DJ Chumi, another separately announced headliner, appears at creator item58, corroborating network overlap without transferring his slot to Galiano. Existing neutral DJ playback/mixing owner preserves the documented programme without inventing source generators, decks, samples or embedded voices. Actual live vocal count and embedded singer/instrument counts remain unknown; zero added live-singer cards is not zero actual people. Authored controlled live room and brisk dance pacing suit the announced dance festival, not measured acoustics or BPM. Broad electronicDance reflects positively documented DJ dance-floor use without imposing one trance, makina or Eurodance rhythm across unknown selections. No tuning or recording chain.",
+        "exemplars": [
+          "Javier Galiano — REC Remember Festival closing DJ programme,2023"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        39.2077,
+        -2.1582,
+        "La Roda",
+        "Europe"
+      ],
+      "geo_rationale": "Municipal organizer identifies La Roda Recinto Ferial; editorial host-town point, not exact stage coordinate.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Cantaditas names a Spanish vocal-dance repertoire and circulation field that crosses commercial dance styles. The municipal organizer positively names this repertoire and separately documents its contemporary remember-festival audience and programmes; exact creator corpus includes Head Hornys, DJ Marta, Bandido, Dee Dee and DJ Chumi. It is not an invented synonym for all old electronic music. Full vocal_trance already defines pop vocals over trance and overlaps, while full eurodance_90s defines pan-European rap/sung pairing and production era; makina defines the faster Catalan hard-dance lineage. Cantaditas is a Spanish selection/repertoire community spanning these overlapping styles, not a claim of wholly separate sonic grammar or exclusively Spanish performers/language. Spanish electronic remains a broad national field. Exact creator membership of selected Galiano is not established; organizer explicitly places him in the named festival practice. DJ Chumi, another separately announced headliner, appears at creator item58, corroborating network overlap without transferring his slot to Galiano.",
+      "model_policy": "Existing neutral DJ playback/mixing owner preserves the documented programme without inventing source generators, decks, samples or embedded voices. Actual live vocal count and embedded singer/instrument counts remain unknown; zero added live-singer cards is not zero actual people. Authored controlled live room and brisk dance pacing suit the announced dance festival, not measured acoustics or BPM. Broad electronicDance reflects positively documented DJ dance-floor use without imposing one trance, makina or Eurodance rhythm across unknown selections. No tuning or recording chain.",
+      "source_scope_limitation": "Javier Galiano — complete separately announced closing DJ programme at REC Remember Festival, La Roda,8July2023 overnight into9July, around06:00. Municipal organizer announcement of22June2023 quotes his personally selected late1990s/early2000s repertoire. Exact duration, tracklist and actual execution remain unknown; this is the announced whole closing unit, not an auditioned recording. Earlier La Luna and Sensity World concerts and other DJ slots are explicitly separate; no live concert roles are subtracted from the chosen programme.",
+      "classification_evidence": "Cantaditas names a Spanish vocal-dance repertoire and circulation field that crosses commercial dance styles. The municipal organizer positively names this repertoire and separately documents its contemporary remember-festival audience and programmes; exact creator corpus includes Head Hornys, DJ Marta, Bandido, Dee Dee and DJ Chumi. It is not an invented synonym for all old electronic music. Full vocal_trance already defines pop vocals over trance and overlaps, while full eurodance_90s defines pan-European rap/sung pairing and production era; makina defines the faster Catalan hard-dance lineage. Cantaditas is a Spanish selection/repertoire community spanning these overlapping styles, not a claim of wholly separate sonic grammar or exclusively Spanish performers/language. Spanish electronic remains a broad national field. Exact creator membership of selected Galiano is not established; organizer explicitly places him in the named festival practice. DJ Chumi, another separately announced headliner, appears at creator item58, corroborating network overlap without transferring his slot to Galiano.",
+      "vocal_count_audit": {
+        "selected_count": null,
+        "actual_live_singer_count": null,
+        "embedded_voice_count": null,
+        "added_live_singer_cards": 0,
+        "decision": "No separately credited live singer in closing DJ unit; unknown actual and embedded counts retained."
+      },
+      "instrument_role_audit": {
+        "scope": "Javier Galiano — complete separately announced closing DJ programme at REC Remember Festival, La Roda,8July2023 overnight into9July, around06:00. Municipal organizer announcement of22June2023 quotes his personally selected late1990s/early2000s repertoire. Exact duration, tracklist and actual execution remain unknown; this is the announced whole closing unit, not an auditioned recording. Earlier La Luna and Sensity World concerts and other DJ slots are explicitly separate; no live concert roles are subtracted from the chosen programme.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Javier Galiano selected whole closing DJ programme; source hardware and embedded production roles unknown."
+        },
+        "authored_defaults": "Existing neutral DJ playback/mixing owner preserves the documented programme without inventing source generators, decks, samples or embedded voices. Actual live vocal count and embedded singer/instrument counts remain unknown; zero added live-singer cards is not zero actual people. Authored controlled live room and brisk dance pacing suit the announced dance festival, not measured acoustics or BPM. Broad electronicDance reflects positively documented DJ dance-floor use without imposing one trance, makina or Eurodance rhythm across unknown selections. No tuning or recording chain."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Existing neutral DJ playback/mixing owner preserves the documented programme without inventing source generators, decks, samples or embedded voices. Actual live vocal count and embedded singer/instrument counts remain unknown; zero added live-singer cards is not zero actual people. Authored controlled live room and brisk dance pacing suit the announced dance festival, not measured acoustics or BPM. Broad electronicDance reflects positively documented DJ dance-floor use without imposing one trance, makina or Eurodance rhythm across unknown selections. No tuning or recording chain."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "One existing owning identity control explicitly pinned; no fallbacks or guessed hardware."
+      },
+      "status": "READY_FOR_REVIEW",
+      "verification_status": "Source and original preflight passed:1owning part/1protected pin,1638existing owners unchanged,1exact historical photo receipt and four literal formats. Independent peer pending.",
+      "sources": [
+        {
+          "url": "https://laroda.es/la-roda-organiza-un-festival-remember-con-artistas-internacionales/",
+          "title": "Municipal organizer REC2023 announcement",
+          "support_notes": "Full13220view0 lines72–90: named cantaditas field, separate concerts/DJs and Galiano whole closing slot with firsthand selection statement."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5VGQF5ilaoNOEl3HEI1TgT",
+          "title": "Exact creator Cantaditas corpus",
+          "support_notes": "Full13220view1;100items including Chumi58. Galiano membership not claimed; contextual national repertoire network, not an asserted set tracklist."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cantaditas",
+          "name": "Cantaditas",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Galiano, his DJ hardware, La Roda or the festival.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13220view2 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Historical023 bytes and visual receipt reused without fresh transfer.",
+          "fresh_review_ref": "turn13220view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13220view2"
+        ],
+        "fresh_rights_review": "Fresh Commons13220view2 confirms license/credit/context; historical exact image receipts retained."
+      },
+      "primary_retrieval_refs": [
+        "turn13220view0",
+        "turn13220view1",
+        "turn13220view2"
+      ],
+      "source_review_refs": [
+        "turn13220view0",
+        "turn13220view1"
+      ],
+      "source_retrieval_caveat": "Full municipal announcement and exact100-item creator corpus directly read. No performance audio or actual event execution inspected; no invented tracklist."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

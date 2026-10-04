@@ -1,0 +1,364 @@
+{
+  "entries": [
+    {
+      "source_label": "indie campechano",
+      "source_url": "https://everynoise.com/engenremap-indiecampechano.html",
+      "suggested_id": "indie_campechano",
+      "allocation_ordinal": 3468,
+      "allocation_group_id": "139",
+      "id": "indie_campechano",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "indie_campechano",
+        "name": "Indie campechano",
+        "family": "rock",
+        "lineage": "Campeche’s independent music scene grew through local bands, self-organized concerts and regional recording networks. MOROCA connected underground rock musicians in the 2000s; La Caverna and Indie Fest Campeche later linked this history with new pop, alternative and electronic projects. Studios and community radio supported releases, while Ciudad del Carmen developed its own artist-organized concert activity.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Guitar-led songs, bass lines, drum-kit grooves and sung melodies form a common band foundation, with keyboards adding harmonic layers and electronic colors. The scene encompasses melodic pop, danceable funk and synth textures as well as heavier rock and metal. Independent production and regional collaboration connect these varied sounds.",
+        "exemplars": [
+          "Autumn’s Midnight",
+          "Alpha Phoenix",
+          "Viajeros Ácidos",
+          "Deoscuros",
+          "Indie Fest Campeche"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        19.845,
+        -90.523,
+        "Campeche",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Regional scene anchor in Campeche; Ciudad del Carmen and other state communities remain included.",
+      "sources": [
+        {
+          "url": "https://lacaverna.net/recuerdo-desbloqueado-etereum/amp/",
+          "primary": true,
+          "evidence_ref": "turn13807view0",
+          "supports": "Participant and festival founder recounts MOROCA and local independent-band history; voice, guitar, bass, drums and keyboards documented, with changing personnel and later guttural voice disclosed."
+        },
+        {
+          "url": "https://lacaverna.net/escucha-estos-ultimos-lanzamientos-grabados-en-cr-studio/",
+          "primary": true,
+          "evidence_ref": "turn13798view0",
+          "supports": "Festival founder and recording producer describe Campeche studio, radio and independent-release network across pop and band projects."
+        },
+        {
+          "url": "https://lacaverna.net/escucha-dejate-amar-de-viajeros-acidos/",
+          "primary": true,
+          "evidence_ref": "turn13803view1",
+          "supports": "Festival organizer describes local group, production network and danceable funk/disco branch; firsthand band statement retained."
+        },
+        {
+          "url": "https://www.autumnmidnight.com/rockxcarmen",
+          "primary": true,
+          "evidence_ref": "turn13798view1",
+          "supports": "Artist-organizer explicitly documents Ciudad del Carmen community and local concert network."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3Vj7mQtbuQNH8urnTsidXe",
+          "primary": true,
+          "evidence_ref": "turn13807view1",
+          "supports": "Actual named creator corpus, Autumn’s Midnight item1 and Alpha Phoenix item5; diverse regional field."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Full Mexican indie already covers independent alternative and shoegaze bands nationally; this is an overlapping regional network, not a claim that Mexican indie excludes Campeche. MOROCA, Indie Fest Campeche, La Caverna, CR Studio and Rock X Carmen positively establish recurring local institutions and circulation. The exact creator corpus includes Autumn’s Midnight and Alpha Phoenix along with rap, pop and rock projects, confirming a broader regional discovery field rather than one band’s style. Neighboring Mérida/Yucatán communities share festival exchanges but are not the same regional network. No new sonic grammar or strict artist exclusivity is claimed.",
+      "classification_evidence": "Full Mexican indie already covers independent alternative and shoegaze bands nationally; this is an overlapping regional network, not a claim that Mexican indie excludes Campeche. MOROCA, Indie Fest Campeche, La Caverna, CR Studio and Rock X Carmen positively establish recurring local institutions and circulation. The exact creator corpus includes Autumn’s Midnight and Alpha Phoenix along with rap, pop and rock projects, confirming a broader regional discovery field rather than one band’s style. Neighboring Mérida/Yucatán communities share festival exchanges but are not the same regional network. No new sonic grammar or strict artist exclusivity is claimed.",
+      "model_policy": "Representative melodic band practice with voice, electric guitar, electric bass, drum kit and keyboard, positively documented within the local independent network. This is a genre-level arrangement, not a reconstruction of Etereum, Alpha Phoenix or a named master. Their changing lineups and heavier branches are retained in historical evidence. An accompanied single lead, clean strummed alder/maple guitar, fingerstyle dual-single bass, maple stick-backbeat kit and unspecified electronic keyboard are editable authored choices. Brisk vocal pacing and a functional-harmonic verse–chorus–bridge form are intended for this representative pop-rock treatment, not measured properties of every regional song. No personal vocal lineage, precise original gear, universal headcount or global temperament is claimed.",
+      "source_scope_limitation": "Representative melodic band practice with voice, electric guitar, electric bass, drum kit and keyboard, positively documented within the local independent network. This is a genre-level arrangement, not a reconstruction of Etereum, Alpha Phoenix or a named master. Their changing lineups and heavier branches are retained in historical evidence. An accompanied single lead, clean strummed alder/maple guitar, fingerstyle dual-single bass, maple stick-backbeat kit and unspecified electronic keyboard are editable authored choices. Brisk vocal pacing and a functional-harmonic verse–chorus–bridge form are intended for this representative pop-rock treatment, not measured properties of every regional song. No personal vocal lineage, precise original gear, universal headcount or global temperament is claimed.",
+      "source_retrieval_caveat": "Fresh direct primary organizer/practitioner pages and actual creator playlist read; no audio audition or original equipment identification. Historical photograph bytes and visual inspection inherited explicitly.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Local practitioner describes this role in the independent rock network; representative band realization, not a complete named-session reconstruction."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "basis": "Local practitioner describes this role in the independent rock network; representative band realization, not a complete named-session reconstruction."
+        },
+        {
+          "instrument": "electric_bass",
+          "basis": "Local practitioner describes this role in the independent rock network; representative band realization, not a complete named-session reconstruction."
+        },
+        {
+          "instrument": "drum_kit",
+          "basis": "Local practitioner describes this role in the independent rock network; representative band realization, not a complete named-session reconstruction."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "basis": "Local practitioner describes this role in the independent rock network; representative band realization, not a complete named-session reconstruction."
+        }
+      ],
+      "vocal_count_audit": {
+        "genre_headcount": "variable",
+        "authored_default": "one accompanied lead",
+        "historical_context": "Early Etereum named melodic singer and later added guttural voice; not erased from historical practice or asserted as the default configuration."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative melodic band practice with voice, electric guitar, electric bass, drum kit and keyboard, positively documented within the local independent network. This is a genre-level arrangement, not a reconstruction of Etereum, Alpha Phoenix or a named master. Their changing lineups and heavier branches are retained in historical evidence. An accompanied single lead, clean strummed alder/maple guitar, fingerstyle dual-single bass, maple stick-backbeat kit and unspecified electronic keyboard are editable authored choices. Brisk vocal pacing and a functional-harmonic verse–chorus–bridge form are intended for this representative pop-rock treatment, not measured properties of every regional song. No personal vocal lineage, precise original gear, universal headcount or global temperament is claimed."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Representative melodic band practice with voice, electric guitar, electric bass, drum kit and keyboard, positively documented within the local independent network. This is a genre-level arrangement, not a reconstruction of Etereum, Alpha Phoenix or a named master. Their changing lineups and heavier branches are retained in historical evidence. An accompanied single lead, clean strummed alder/maple guitar, fingerstyle dual-single bass, maple stick-backbeat kit and unspecified electronic keyboard are editable authored choices. Brisk vocal pacing and a functional-harmonic verse–chorus–bridge form are intended for this representative pop-rock treatment, not measured properties of every regional song. No personal vocal lineage, precise original gear, universal headcount or global temperament is claimed."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Representative melodic band practice with voice, electric guitar, electric bass, drum kit and keyboard, positively documented within the local independent network. This is a genre-level arrangement, not a reconstruction of Etereum, Alpha Phoenix or a named master. Their changing lineups and heavier branches are retained in historical evidence. An accompanied single lead, clean strummed alder/maple guitar, fingerstyle dual-single bass, maple stick-backbeat kit and unspecified electronic keyboard are editable authored choices. Brisk vocal pacing and a functional-harmonic verse–chorus–bridge form are intended for this representative pop-rock treatment, not measured properties of every regional song. No personal vocal lineage, precise original gear, universal headcount or global temperament is claimed."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Representative melodic band practice with voice, electric guitar, electric bass, drum kit and keyboard, positively documented within the local independent network. This is a genre-level arrangement, not a reconstruction of Etereum, Alpha Phoenix or a named master. Their changing lineups and heavier branches are retained in historical evidence. An accompanied single lead, clean strummed alder/maple guitar, fingerstyle dual-single bass, maple stick-backbeat kit and unspecified electronic keyboard are editable authored choices. Brisk vocal pacing and a functional-harmonic verse–chorus–bridge form are intended for this representative pop-rock treatment, not measured properties of every regional song. No personal vocal lineage, precise original gear, universal headcount or global temperament is claimed."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Representative melodic band practice with voice, electric guitar, electric bass, drum kit and keyboard, positively documented within the local independent network. This is a genre-level arrangement, not a reconstruction of Etereum, Alpha Phoenix or a named master. Their changing lineups and heavier branches are retained in historical evidence. An accompanied single lead, clean strummed alder/maple guitar, fingerstyle dual-single bass, maple stick-backbeat kit and unspecified electronic keyboard are editable authored choices. Brisk vocal pacing and a functional-harmonic verse–chorus–bridge form are intended for this representative pop-rock treatment, not measured properties of every regional song. No personal vocal lineage, precise original gear, universal headcount or global temperament is claimed."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Compatible shared construction keys; neutral keyboard technique protected with no competing keyboard owner."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_campechano",
+          "name": "Indie campechano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13810view0 confirms Iain Fergusson/Binksternet and CC BY2.5; historical bytes/visual receipt retained.",
+          "fresh_review_ref": "turn13810view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13810view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

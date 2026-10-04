@@ -1,0 +1,54 @@
+{
+  "id": "sound",
+  "name": "Sound",
+  "family": "electronic",
+  "lineage": "Sound-centered listening brings environmental recordings, sustained noise and everyday sonic textures into deliberately chosen listening environments. Household appliances, weather and other continuous sources circulate as recordings whose interest lies in texture and duration rather than conventional songs.",
+  "recipe": "classic sound, experimental Elec, ambient branch. recorded appliance sound. treated studio.",
+  "recipe_chars": 91,
+  "score": 1.032,
+  "config": {
+    "traditions": [
+      "sound"
+    ],
+    "instruments": [
+      {
+        "id": "recorded_appliance_sound",
+        "slots": {
+          "recorded_appliance_source": "recorded_appliance_hairdryer",
+          "recorded_appliance_envelope": "recorded_appliance_gradual_fade"
+        },
+        "scores": {
+          "recorded_appliance_source": 1.0315,
+          "recorded_appliance_envelope": 0
+        }
+      }
+    ],
+    "pinned": {
+      "recorded_appliance_sound": [
+        "recorded_appliance_source",
+        "recorded_appliance_envelope"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "recorded_appliance_source": "recorded_appliance_hairdryer",
+      "recorded_appliance_envelope": "recorded_appliance_gradual_fade"
+    },
+    "pin_parts": true
+  }
+}

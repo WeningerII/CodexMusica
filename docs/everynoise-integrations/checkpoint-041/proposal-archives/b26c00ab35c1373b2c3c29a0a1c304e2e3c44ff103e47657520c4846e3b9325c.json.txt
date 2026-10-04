@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet": "/tmp/batch040/resume119-19-genre-profile119-photo-context119.json",
+  "sha256": "ba493d699906d30b83cc35aa3dd1b631951ab855f26fbf17bf0839c9babd3c16",
+  "id": "classic_bhangra",
+  "sources_independently_reproduced": [
+    "https://anjaana.co.uk/",
+    "https://www.womex.com/virtual/lee_thorp/achanak",
+    "https://open.spotify.com/embed/playlist/7HprIEFoBD1U8U1RfYGagL"
+  ],
+  "source_refs": [
+    "turn13403view0",
+    "turn13402view2",
+    "turn13404view1"
+  ],
+  "source_and_scope_review": "Artist directly offers folk vocals/harmonium/dhol/dholki and separately electronic UK format. Historical Bradford/Kuldeep Manak connection and WOMEX explicit Classic Bhangra designation establish retrospective diaspora repertoire, not merely an arbitrary old date. Existing modern-bhangra full diaspora scope and folk-harvest scope inspected; overlap candid, traditional-band default valid, electronics remain in genre prose rather than falsely excluded.",
+  "profile_review": "Concise history/style and legitimate historical exemplars are retained; exact source configuration and epistemic caveats remain evidence. Generic photo caption repaired by exact-only derivative.",
+  "default_review": "All28 applicable owning controls resolve and are protected; meaningful dhol chaal/sheesham, dholak folk/wood/goatskin/rope and hand-pumped harmonium folk/deep-reed controls remain. Dholki uses documented related dholak family, not tabla substitution.",
+  "runtime": "/tmp/batch040/resume119-19-peer-runtime117.json",
+  "literal_outputs_review": "All four independently regenerated outputs read. Dhol driving dance pulse, hand-drum rhythm and song-supporting harmonium are coherent. Generic witty/cheery affect does not introduce a foreign music lineage. No need parameter redesign.",
+  "photo_review": {
+    "fresh_rights_url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "fresh_ref": "turn13403view2",
+    "license": "CC BY2.5; Iain Fergusson original and Binksternet crop",
+    "receipt": "Exact inherited 250x720 33015-byte SHA7a97c264... preview retained; no fresh download or visual reinspection claimed. Generic recording context only."
+  },
+  "limits": "Task-local original browser/connector four-format parity; not final static API or integrated regression approval."
+}

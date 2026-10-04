@@ -1,0 +1,508 @@
+{
+  "entries": [
+    {
+      "source_label": "musique traditionnelle congolaise",
+      "source_url": "https://everynoise.com/engenremap-musiquetraditionnellecongolaise.html",
+      "suggested_id": "musique_traditionnelle_congolaise",
+      "allocation_ordinal": 3953,
+      "allocation_group_id": "159",
+      "status": "unresolved",
+      "id": "musique_traditionnelle_congolaise",
+      "tradition": {
+        "id": "musique_traditionnelle_congolaise",
+        "name": "Musique traditionnelle congolaise",
+        "family": "vernacular",
+        "lineage": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed. Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements.",
+        "instruments": [
+          "voice",
+          "lukembi_congolese"
+        ],
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "falsetto",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_minimal_undersung",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "lukembi_congolese_key_count": "lukembi_congolese_ten",
+          "lukembi_congolese_tine_material": "lukembi_congolese_recycled_metal",
+          "lukembi_congolese_body": "lukembi_congolese_hollow_wood",
+          "lukembi_congolese_bridge": "lukembi_congolese_bridge_unspecified",
+          "lukembi_congolese_binding": "lukembi_congolese_vine",
+          "lukembi_congolese_tuning": "lukembi_congolese_sliding_keys_local",
+          "lukembi_congolese_technique": "lukembi_congolese_thumb_plucked"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed. The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist. Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements.",
+        "exemplars": [
+          "Abdul Aziz — complete Lukembi and Voice, SFW40401 track12"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        1.75,
+        28.5,
+        "Ituri",
+        "Africa"
+      ],
+      "geo_rationale": "Approximate regional Ituri origin anchor from collector and issuer; not invented precise village or studio coordinates.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40401.pdf",
+          "title": "Collector and reissue editors: full track12 note",
+          "support_notes": "Fresh full indexed primary11330search12/11338search0 describes complete voice+instrument scope, exact construction and quiet falsetto/cadenza. Direct PDF text unavailable, indexed full relevant note successfully reproduced and unmodified tool response saved congo-lukembi-primary-raw024.json.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://folkways.si.edu/mbuti-pygmies-of-the-ituri-rainforest/world/music/album/Smithsonian",
+          "title": "Issuer whole reissue tracklist",
+          "support_notes": "Fresh11333search4 track112 Abdul Aziz2:26,1992SFW40401. No attribution to the different Mbuti player on track113.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://folkways.si.edu/music-of-the-ituri-forest/world/album/smithsonian",
+          "title": "Issuer original collection",
+          "support_notes": "Fresh11333search3 identifies original1957FW04483 track101 Abdul Aziz2:23, northeastern Congo traditional context, collectorTurnbull.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0rvR2tjFUlz37sgKpbbkpd",
+          "title": "Exact creator Musique Traditionnelle Congolaise corpus",
+          "support_notes": "Fresh full11340view0 cross-ethnic national field: Banda-Mono12,Mbuti43,Luba25,Songe26,Konono2,KasaiAllstars5. Selected Abdul Aziz not asserted exact membership.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist.",
+      "model_policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements.",
+      "classification_evidence": {
+        "mode": "exact_creator_broad_corpus_plus_firsthand_traditional_regional_work",
+        "note": "The exact creator corpus establishes a cross-ethnic Congolese traditional and traditional-rooted field: Banda-Mono lamellophone music, Mbuti vocal music, Luba/Songe and other regional repertoires coexist with Konono, Kasai Allstars and modern reinterpretations. This overlaps but is broader than existing baaka_hunting_polyphony, whose full definition explicitly includes wider Mbuti hunting/ritual vocal polyphony; the present BaNgwana accompanied personal song is not that category. Existing congolese_rumba and rumba_congolaise define Cuban-son-influenced urban guitar/dance lineages, not the whole multi-ethnic traditional field. Mbira_tradition, shona_mbira_praise and mbira_dzavadzimu_ceremony are explicitly Zimbabwean Shona ceremonial traditions, not all lamellophone songs. Congolese Gospel and queued Rap Congolais/Kinshasa Urban overlap geographically but have devotional or contemporary urban practice axes. This is not a category inferred merely from a new instrument or a differently named artist. The selected Smithsonian work supplies a documented Congolese traditional branch; Abdul Aziz is not asserted to appear in the creator playlist."
+      },
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "singers": [
+          "Abdul Aziz"
+        ],
+        "decision": "One collector-named singer plays the accompanying lukembi; no choir or extra singer borrowed from album."
+      },
+      "instrument_role_audit": {
+        "scope": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed.",
+        "roles": {
+          "voice": "Abdul Aziz quiet falsetto",
+          "lukembi_congolese": "Abdul Aziz ten-key hollow-body lamellophone"
+        },
+        "authored_defaults": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "falsetto",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_minimal_undersung",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+        },
+        {
+          "instrument": "lukembi_congolese",
+          "parts": {
+            "lukembi_congolese_key_count": "lukembi_congolese_ten",
+            "lukembi_congolese_tine_material": "lukembi_congolese_recycled_metal",
+            "lukembi_congolese_body": "lukembi_congolese_hollow_wood",
+            "lukembi_congolese_bridge": "lukembi_congolese_bridge_unspecified",
+            "lukembi_congolese_binding": "lukembi_congolese_vine",
+            "lukembi_congolese_tuning": "lukembi_congolese_sliding_keys_local",
+            "lukembi_congolese_technique": "lukembi_congolese_thumb_plucked"
+          },
+          "policy": "Complete one-person voice plus lukembi palette retained. Source positively specifies quiet falsetto; other physiology, ornament and exact interval system remain unspecified. A single accompanied lead, natural unprocessed delivery are authored choices, not measured source recording settings. No global tuning, room or capture apparatus imposed. Broad balladPoetry follows the explicitly personal sung lament, words and intimate solo accompaniment rather than treating all Congolese traditions as song-poetry. Dedicated lukembi owner retains documented physical controls; no speculative modern kalimba wood species, Shona calabash, buzzers or string technique is substituted. Numeric axes are neutral editorial scaffolding, not measurements."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 vocal controls and seven documented physical lukembi controls protected. No imported string technique or hidden tuning default."
+      },
+      "dependency_audit": {
+        "new_dependencies": [
+          "lukembi_congolese"
+        ],
+        "rationale": "Existing mbira broad family lacks ten-key count, hollowed body and vine bridge bindings and requires speculative wood species/buzzers; no equivalent source-specific owner among1638. New meaningful physical controls preserve source facts, not a render bypass."
+      },
+      "verification_status": "pending_independent_review",
+      "source_scope_limitation": "Abdul Aziz — whole Lukembi and Voice, track12 of Smithsonian Folkways SFW40401 (1992 reissue),2:26, originally FW04483 sideA track1 (1957,2:23 catalog duration). Collector Colin Turnbull describes one BaNgwana singer accompanying himself on a ten-key lukembi, singing a quiet falsetto personal lament with an instrumental cadenza. This is the complete individually listed work, not the other similarly titled Mbuti or Bira recordings, and no roles from neighboring album tracks are imported. The firsthand source identifies hollowed wood, ten metal keys over a bridge bound with vine, recycled umbrella stays and performer-adjusted local tuning. No audio audition or exact original capture chain claimed.",
+      "primary_retrieval_refs": [
+        "turn11338search0",
+        "turn11333search3",
+        "turn11333search4",
+        "turn11340view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musique_traditionnelle_congolaise",
+          "name": "Musique traditionnelle congolaise",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not a lukembi, Abdul Aziz or the historical source recording apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11343view0 Commons source confirms Iain Fergusson original, Binksternet crop and CC BY2.5; exact023 historical bytes and visual receipts retained without new transfer.",
+          "fresh_review_ref": "turn11343view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11343view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "lukembi_congolese",
+        "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+        "short": "Congolese ten-key lukembi",
+        "family": "plucked_traditional",
+        "class": "plucked_string_lead",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "lukembi_congolese_key_count",
+            "name": "Ten keys",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_ten",
+                "name": "Ten metal keys",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_tine_material",
+            "name": "Key material",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_recycled_metal",
+                "name": "Recycled metal umbrella stays",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_body",
+            "name": "Resonant body",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_hollow_wood",
+                "name": "Hollowed wooden body; species unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_bridge",
+            "name": "Key bridge",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_bridge_unspecified",
+                "name": "Bridge supporting keys; material unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_binding",
+            "name": "Key bindings",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_vine",
+                "name": "Vine bindings at both ends",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_tuning",
+            "name": "Local tuning",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_sliding_keys_local",
+                "name": "Local performer tuning by sliding keys; exact intervals unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "lukembi_congolese_technique",
+            "name": "Key excitation",
+            "surface": false,
+            "variants": [
+              {
+                "id": "lukembi_congolese_thumb_plucked",
+                "name": "Thumb-plucked metal keys",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "lukembi_congolese",
+        "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording microphone context only; not a lukembi, Abdul Aziz or the historical source recording apparatus.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "lukembi_congolese",
+          "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not a lukembi, Abdul Aziz or the historical source recording apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11343view0 Commons source confirms Iain Fergusson original, Binksternet crop and CC BY2.5; exact023 historical bytes and visual receipts retained without new transfer.",
+          "fresh_review_ref": "turn11343view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11343view0"
+        ]
+      },
+      "dependency_rationale": "Existing mbira broad family lacks ten-key count, hollowed body and vine bridge bindings and requires speculative wood species/buzzers; no equivalent source-specific owner among1638. New meaningful physical controls preserve source facts, not a render bypass.",
+      "sources": [
+        {
+          "url": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40401.pdf",
+          "title": "Collector and reissue editors: full track12 note",
+          "support_notes": "Fresh full indexed primary11330search12/11338search0 describes complete voice+instrument scope, exact construction and quiet falsetto/cadenza. Direct PDF text unavailable, indexed full relevant note successfully reproduced and unmodified tool response saved congo-lukembi-primary-raw024.json.",
+          "checked_date": "2026-10-03"
+        }
+      ]
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

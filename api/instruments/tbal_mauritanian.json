@@ -1,0 +1,148 @@
+{
+  "id": "tbal_mauritanian",
+  "name": "Tbal (Moorish hemispherical hand drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "short": "Moorish-tbal",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "tbal_shell",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "tbal_hollow_wood",
+          "name": "Hemispherical shell carved from a tree trunk; species and diameter unspecified",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "wooden",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tbal_head",
+      "name": "Sounding membrane",
+      "variants": [
+        {
+          "id": "tbal_cowhide",
+          "name": "Cowhide sounding cover",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "deep"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tbal_tension",
+      "name": "Attachment and tension",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tbal_tension_unspecified",
+          "name": "Attachment and tension system unspecified",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "tbal_gesture",
+      "name": "Sounding action",
+      "variants": [
+        {
+          "id": "tbal_bare_hands",
+          "name": "Bare hands: base pulse with rhythmic variation",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hand-drum",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://edutheque.philharmoniedeparis.fr/0801120-musiques-mauritanie-tbal.aspx?_lg=fr-FR",
+    "https://www.worldcircuit.co.uk/artists/dimi-mint-abba/"
+  ],
+  "_ownParts": [
+    {
+      "id": "tbal_shell",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "tbal_hollow_wood",
+          "name": "Hemispherical shell carved from a tree trunk; species and diameter unspecified",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "wooden",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tbal_head",
+      "name": "Sounding membrane",
+      "variants": [
+        {
+          "id": "tbal_cowhide",
+          "name": "Cowhide sounding cover",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "deep"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tbal_tension",
+      "name": "Attachment and tension",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tbal_tension_unspecified",
+          "name": "Attachment and tension system unspecified",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "tbal_gesture",
+      "name": "Sounding action",
+      "variants": [
+        {
+          "id": "tbal_bare_hands",
+          "name": "Bare hands: base pulse with rhythmic variation",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hand-drum",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

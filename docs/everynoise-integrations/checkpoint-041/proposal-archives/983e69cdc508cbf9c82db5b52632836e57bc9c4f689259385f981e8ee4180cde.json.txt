@@ -1,0 +1,221 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "ethiopian_hip_hop",
+        "name": "Ethiopian Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Ethiopian rap developed through Addis Ababa and diaspora networks, adapting hip-hop rhythms to Amharic and other local languages.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Ethiopian hip hop combines rhythmic rap with produced beats and local language wordplay. Amharic is prominent alongside Oromo, Tigrinya and English, with themes ranging from everyday life and storytelling to social criticism. Addis Ababa artists and diaspora collaborators connect boom-bap and trap production with Ethiopian cultural references.",
+        "exemplars": [
+          "Teddy Yo",
+          "Yimra",
+          "DJ Same",
+          "Yoni Yoye"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ethiopian_hip_hop",
+          "name": "Ethiopian Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13547view0 confirms IainFergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13547view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13547view0, exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13547view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative accompanied rap over produced beat. Yimra directly describes his own boom-bap roots and lyrics over trap beats, with an Ethiopian collaborative label network. The existing credited-beat owner retains the positively documented beat role without claiming a sampler, synthesizer architecture or exact drum machine; its source-unspecified mechanism is intentional. One lead voice is an authored ordinary arrangement, not an album headcount. No complete named recording is reconstructed; no traditional acoustic instrument is inferred from cultural references. Recording apparatus is authored."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative accompanied rap over produced beat. Yimra directly describes his own boom-bap roots and lyrics over trap beats, with an Ethiopian collaborative label network. The existing credited-beat owner retains the positively documented beat role without claiming a sampler, synthesizer architecture or exact drum machine; its source-unspecified mechanism is intentional. One lead voice is an authored ordinary arrangement, not an album headcount. No complete named recording is reconstructed; no traditional acoustic instrument is inferred from cultural references. Recording apparatus is authored."
+        }
+      ],
+      "source_label": "ethiopian hip hop",
+      "source_url": "https://everynoise.com/engenremap-ethiopianhiphop.html",
+      "suggested_id": "ethiopian_hip_hop",
+      "allocation_ordinal": 288,
+      "allocation_group_id": "012",
+      "id": "ethiopian_hip_hop",
+      "status": "ready_for_independent_review",
+      "geo": [
+        9.03,
+        38.74,
+        "Addis Ababa",
+        "Africa"
+      ],
+      "geo_rationale": "Documented national rap production and live-scene center.",
+      "signature_tokens": [],
+      "model_policy": "Representative accompanied rap over produced beat. Yimra directly describes his own boom-bap roots and lyrics over trap beats, with an Ethiopian collaborative label network. The existing credited-beat owner retains the positively documented beat role without claiming a sampler, synthesizer architecture or exact drum machine; its source-unspecified mechanism is intentional. One lead voice is an authored ordinary arrangement, not an album headcount. No complete named recording is reconstructed; no traditional acoustic instrument is inferred from cultural references. Recording apparatus is authored.",
+      "neighbor_distinction": "Existing EthiopianPop is the broad contemporary popular-song fusion field; AmharicPop is language-based singing and can overlap rap. This entry is the positively documented MC/produced-beat practice and its national/local-language rap community, not nationality alone. Existing Azmari concerns minstrel-poet performance and qenet-based acoustic traditions, while EthiopianTraditional covers inherited multi-community repertoire and Zema/Debtera religious practices. References to fukera or local heritage do not turn rap into those older fields. Neighboring national hip-hop fields overlap internationally but have independently documented institutions and language communities.",
+      "classification_evidence": "Existing EthiopianPop is the broad contemporary popular-song fusion field; AmharicPop is language-based singing and can overlap rap. This entry is the positively documented MC/produced-beat practice and its national/local-language rap community, not nationality alone. Existing Azmari concerns minstrel-poet performance and qenet-based acoustic traditions, while EthiopianTraditional covers inherited multi-community repertoire and Zema/Debtera religious practices. References to fukera or local heritage do not turn rap into those older fields. Neighboring national hip-hop fields overlap internationally but have independently documented institutions and language communities.",
+      "source_scope_limitation": "Representative accompanied rap over produced beat. Yimra directly describes his own boom-bap roots and lyrics over trap beats, with an Ethiopian collaborative label network. The existing credited-beat owner retains the positively documented beat role without claiming a sampler, synthesizer architecture or exact drum machine; its source-unspecified mechanism is intentional. One lead voice is an authored ordinary arrangement, not an album headcount. No complete named recording is reconstructed; no traditional acoustic instrument is inferred from cultural references. Recording apparatus is authored.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Representative accompanied rap over produced beat. Yimra directly describes his own boom-bap roots and lyrics over trap beats, with an Ethiopian collaborative label network. The existing credited-beat owner retains the positively documented beat role without claiming a sampler, synthesizer architecture or exact drum machine; its source-unspecified mechanism is intentional. One lead voice is an authored ordinary arrangement, not an album headcount. No complete named recording is reconstructed; no traditional acoustic instrument is inferred from cultural references. Recording apparatus is authored."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Representative accompanied rap over produced beat. Yimra directly describes his own boom-bap roots and lyrics over trap beats, with an Ethiopian collaborative label network. The existing credited-beat owner retains the positively documented beat role without claiming a sampler, synthesizer architecture or exact drum machine; its source-unspecified mechanism is intentional. One lead voice is an authored ordinary arrangement, not an album headcount. No complete named recording is reconstructed; no traditional acoustic instrument is inferred from cultural references. Recording apparatus is authored."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "authored_default": 1,
+        "basis": "Representative single accompanied MC, not source headcount."
+      },
+      "sources": [
+        {
+          "url": "https://capitalethiopia.com/2021/03/16/from-ethiopia-to-the-world/",
+          "title": "Capital firsthand Yimra interview",
+          "support_notes": "Fresh13563view1: Ethiopian rapper explains boom-bap and trap-beat practice, Amharic/cultural elements, AddisAbaba and P.A.R.C collaborative network. Main primary basis."
+        },
+        {
+          "url": "https://ethioreference.com/archives/3713",
+          "title": "James Jeffrey AlJazeera firsthand report, retained republication",
+          "support_notes": "Fresh13563view0: multiple interviewed rappers and Ethiopian-language community; original reporter/byline explicitly preserved. This is a republication, not original outlet retrieval. Used as corroboration; no political claim or full passage reproduced."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

@@ -5,7 +5,7 @@
   "lineage": "Solo repertory for the Iranian trapezoidal 72-string hammered dulcimer, raised from ensemble accompaniment to a concert instrument in mid-20th-century Tehran by Habib Somai and above all Faramarz Payvar, who wrote its first method books — light wooden mezrab hammers producing rapid tremolo rolls (riz) under free-rhythm avaz, and driving sixteenth-note chaharmezrab passages whose fixed movable bridges force a dastgah-specific retuning before every piece.",
   "recipe": "classic Middle Eastern early-1940s santur, improv On Frame, Persian arab improv branch, middle eastern classical art music, string improv improv on frame, string drone modal persian traditional music. extended whistle, breath veiled tone, slow rate, interlocked note trading. santur, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, brass mulberry bowl canonical double bowl radif tar persian. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 575,
-  "score": 287.556,
+  "score": 286.856,
   "config": {
     "traditions": [
       "santur_persian",
@@ -66,12 +66,12 @@
           "voice_articulation": 14.754999999999995,
           "voice_microtone": 20.214999999999993,
           "voice_tradition": 33.735,
-          "voice_mechanism_compound": 20.5878125,
+          "voice_mechanism_compound": 20.54,
           "voice_estill_quality": 10.657499999999999,
           "voice_speech_song": 13.454999999999995,
           "voice_ensemble_config": 12.544999999999996,
-          "voice_ornament_system": 22.395625,
-          "voice_pitch_organization": 26.662812499999998,
+          "voice_ornament_system": 22.34125,
+          "voice_pitch_organization": 26.401249999999997,
           "voice_processing_chain": 6.175,
           "voice_multitrack_stack": 1.6899999999999997
         }
@@ -109,7 +109,7 @@
           "tar_pick": 11.2775,
           "tar_body_wood": 2.6,
           "tar_string_material": -0.035,
-          "tar_tradition": 8.6775
+          "tar_tradition": 8.34125
         }
       }
     ],

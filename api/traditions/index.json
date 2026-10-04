@@ -1,5 +1,5 @@
 {
-  "count": 6538,
+  "count": 6725,
   "items": [
     {
       "id": "honky_tonk",
@@ -39228,6 +39228,1128 @@
       "name": "Underground Boom Bap",
       "family": "hip_hop",
       "href": "traditions/underground_boom_bap.json"
+    },
+    {
+      "id": "dark_progressive_house",
+      "name": "Dark Progressive House",
+      "family": "electronic",
+      "href": "traditions/dark_progressive_house.json"
+    },
+    {
+      "id": "anime_rap",
+      "name": "Anime Rap",
+      "family": "hip_hop",
+      "href": "traditions/anime_rap.json"
+    },
+    {
+      "id": "armenian_hip_hop",
+      "name": "Armenian Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/armenian_hip_hop.json"
+    },
+    {
+      "id": "botswana_hip_hop",
+      "name": "Botswana Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/botswana_hip_hop.json"
+    },
+    {
+      "id": "classical_drill",
+      "name": "Classical Drill",
+      "family": "hip_hop",
+      "href": "traditions/classical_drill.json"
+    },
+    {
+      "id": "detroit_trap_brasileiro",
+      "name": "Detroit Trap Brasileiro",
+      "family": "hip_hop",
+      "href": "traditions/detroit_trap_brasileiro.json"
+    },
+    {
+      "id": "ethiopian_hip_hop",
+      "name": "Ethiopian Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/ethiopian_hip_hop.json"
+    },
+    {
+      "id": "german_viral_rap",
+      "name": "German Viral Rap",
+      "family": "hip_hop",
+      "href": "traditions/german_viral_rap.json"
+    },
+    {
+      "id": "hip_hop_boliviano",
+      "name": "Hip hop boliviano",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop_boliviano.json"
+    },
+    {
+      "id": "hip_hop_mauritanien",
+      "name": "Hip Hop Mauritanien",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop_mauritanien.json"
+    },
+    {
+      "id": "hip_hop_timur",
+      "name": "Hip Hop Timur",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop_timur.json"
+    },
+    {
+      "id": "hong_kong_hip_hop",
+      "name": "Hong Kong Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/hong_kong_hip_hop.json"
+    },
+    {
+      "id": "icelandic_hip_hop",
+      "name": "Icelandic Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/icelandic_hip_hop.json"
+    },
+    {
+      "id": "israelite_hip_hop",
+      "name": "Israelite hip hop",
+      "family": "hip_hop",
+      "href": "traditions/israelite_hip_hop.json"
+    },
+    {
+      "id": "korean_drill",
+      "name": "Korean Drill",
+      "family": "hip_hop",
+      "href": "traditions/korean_drill.json"
+    },
+    {
+      "id": "korean_underground_rap",
+      "name": "Korean underground rap",
+      "family": "hip_hop",
+      "href": "traditions/korean_underground_rap.json"
+    },
+    {
+      "id": "lao_hip_hop",
+      "name": "Lao Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/lao_hip_hop.json"
+    },
+    {
+      "id": "latvian_hip_hop",
+      "name": "Latvian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/latvian_hip_hop.json"
+    },
+    {
+      "id": "magyar_trap",
+      "name": "Magyar Trap",
+      "family": "hip_hop",
+      "href": "traditions/magyar_trap.json"
+    },
+    {
+      "id": "maltese_hip_hop",
+      "name": "Maltese Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/maltese_hip_hop.json"
+    },
+    {
+      "id": "military_rap",
+      "name": "Military Rap",
+      "family": "hip_hop",
+      "href": "traditions/military_rap.json"
+    },
+    {
+      "id": "mongolian_hip_hop",
+      "name": "Mongolian Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/mongolian_hip_hop.json"
+    },
+    {
+      "id": "northeast_indian_hip_hop",
+      "name": "Northeast Indian Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/northeast_indian_hip_hop.json"
+    },
+    {
+      "id": "norwegian_trap",
+      "name": "Norwegian Trap",
+      "family": "hip_hop",
+      "href": "traditions/norwegian_trap.json"
+    },
+    {
+      "id": "persian_underground_hip_hop",
+      "name": "Persian Underground Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/persian_underground_hip_hop.json"
+    },
+    {
+      "id": "pinoy_alternative_rap",
+      "name": "Pinoy Alternative Rap",
+      "family": "hip_hop",
+      "href": "traditions/pinoy_alternative_rap.json"
+    },
+    {
+      "id": "polish_drill",
+      "name": "Polish Drill",
+      "family": "hip_hop",
+      "href": "traditions/polish_drill.json"
+    },
+    {
+      "id": "polish_old_school_hip_hop",
+      "name": "Polish old school hip hop",
+      "family": "hip_hop",
+      "href": "traditions/polish_old_school_hip_hop.json"
+    },
+    {
+      "id": "polish_underground_rap",
+      "name": "Polish underground rap",
+      "family": "hip_hop",
+      "href": "traditions/polish_underground_rap.json"
+    },
+    {
+      "id": "rap_geek",
+      "name": "Rap Geek",
+      "family": "hip_hop",
+      "href": "traditions/rap_geek.json"
+    },
+    {
+      "id": "surinamese_hip_hop",
+      "name": "Surinamese Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/surinamese_hip_hop.json"
+    },
+    {
+      "id": "swedish_drill",
+      "name": "Swedish Drill",
+      "family": "hip_hop",
+      "href": "traditions/swedish_drill.json"
+    },
+    {
+      "id": "kamba_pop",
+      "name": "Kamba Pop",
+      "family": "pop",
+      "href": "traditions/kamba_pop.json"
+    },
+    {
+      "id": "karbi_pop",
+      "name": "Karbi Pop",
+      "family": "global",
+      "href": "traditions/karbi_pop.json"
+    },
+    {
+      "id": "karen_pop",
+      "name": "Karen Pop",
+      "family": "pop",
+      "href": "traditions/karen_pop.json"
+    },
+    {
+      "id": "kumaoni_pop",
+      "name": "Kumaoni Pop",
+      "family": "pop",
+      "href": "traditions/kumaoni_pop.json"
+    },
+    {
+      "id": "ladakhi_pop",
+      "name": "Ladakhi pop",
+      "family": "pop",
+      "href": "traditions/ladakhi_pop.json"
+    },
+    {
+      "id": "lao_pop",
+      "name": "Lao Pop",
+      "family": "pop",
+      "href": "traditions/lao_pop.json"
+    },
+    {
+      "id": "liberian_pop",
+      "name": "Liberian Pop",
+      "family": "pop",
+      "href": "traditions/liberian_pop.json"
+    },
+    {
+      "id": "maluku_pop",
+      "name": "Maluku Pop",
+      "family": "pop",
+      "href": "traditions/maluku_pop.json"
+    },
+    {
+      "id": "mising_pop",
+      "name": "Mising pop",
+      "family": "pop",
+      "href": "traditions/mising_pop.json"
+    },
+    {
+      "id": "mizo_pop",
+      "name": "Mizo pop",
+      "family": "pop",
+      "href": "traditions/mizo_pop.json"
+    },
+    {
+      "id": "oromo_pop",
+      "name": "Oromo Pop",
+      "family": "pop",
+      "href": "traditions/oromo_pop.json"
+    },
+    {
+      "id": "pahadi_pop",
+      "name": "Pahadi Pop",
+      "family": "pop",
+      "href": "traditions/pahadi_pop.json"
+    },
+    {
+      "id": "palestinian_pop",
+      "name": "Palestinian Pop",
+      "family": "pop",
+      "href": "traditions/palestinian_pop.json"
+    },
+    {
+      "id": "png_pop",
+      "name": "PNG pop",
+      "family": "pop",
+      "href": "traditions/png_pop.json"
+    },
+    {
+      "id": "polish_viral_pop",
+      "name": "Polish Viral Pop",
+      "family": "pop",
+      "href": "traditions/polish_viral_pop.json"
+    },
+    {
+      "id": "pop_flamenco",
+      "name": "Pop Flamenco",
+      "family": "pop",
+      "href": "traditions/pop_flamenco.json"
+    },
+    {
+      "id": "pop_urbaine",
+      "name": "Pop Urbaine",
+      "family": "pop",
+      "href": "traditions/pop_urbaine.json"
+    },
+    {
+      "id": "sambalpuri_pop",
+      "name": "Sambalpuri Pop",
+      "family": "pop",
+      "href": "traditions/sambalpuri_pop.json"
+    },
+    {
+      "id": "santali_pop",
+      "name": "Santali Pop",
+      "family": "pop",
+      "href": "traditions/santali_pop.json"
+    },
+    {
+      "id": "sorani_pop",
+      "name": "Sorani Pop",
+      "family": "global",
+      "href": "traditions/sorani_pop.json"
+    },
+    {
+      "id": "thai_indie_pop",
+      "name": "Thai Indie Pop",
+      "family": "pop",
+      "href": "traditions/thai_indie_pop.json"
+    },
+    {
+      "id": "underground_power_pop",
+      "name": "Underground Power Pop",
+      "family": "rock",
+      "href": "traditions/underground_power_pop.json"
+    },
+    {
+      "id": "zomi_pop",
+      "name": "Zomi pop",
+      "family": "pop",
+      "href": "traditions/zomi_pop.json"
+    },
+    {
+      "id": "viet_edm",
+      "name": "Việt EDM",
+      "family": "electronic",
+      "href": "traditions/viet_edm.json"
+    },
+    {
+      "id": "myanmar_gospel",
+      "name": "Myanmar gospel",
+      "family": "vernacular",
+      "href": "traditions/myanmar_gospel.json"
+    },
+    {
+      "id": "8d",
+      "name": "8D",
+      "family": "electronic",
+      "href": "traditions/8d.json"
+    },
+    {
+      "id": "cantaditas",
+      "name": "Cantaditas",
+      "family": "electronic",
+      "href": "traditions/cantaditas.json"
+    },
+    {
+      "id": "cantonese_worship",
+      "name": "Cantonese Worship",
+      "family": "sacred",
+      "href": "traditions/cantonese_worship.json"
+    },
+    {
+      "id": "cartoni_animati",
+      "name": "Cartoni Animati",
+      "family": "pop",
+      "href": "traditions/cartoni_animati.json"
+    },
+    {
+      "id": "chinese_bgm",
+      "name": "Chinese BGM",
+      "family": "pop",
+      "href": "traditions/chinese_bgm.json"
+    },
+    {
+      "id": "chinese_drama_ost",
+      "name": "Chinese Drama OST",
+      "family": "pop",
+      "href": "traditions/chinese_drama_ost.json"
+    },
+    {
+      "id": "classic_bhangra",
+      "name": "Classic bhangra",
+      "family": "vernacular",
+      "href": "traditions/classic_bhangra.json"
+    },
+    {
+      "id": "cumbia_ecuatoriana",
+      "name": "Cumbia Ecuatoriana",
+      "family": "vernacular",
+      "href": "traditions/cumbia_ecuatoriana.json"
+    },
+    {
+      "id": "cumbia_santafesina",
+      "name": "Cumbia Santafesina",
+      "family": "pop",
+      "href": "traditions/cumbia_santafesina.json"
+    },
+    {
+      "id": "double_drumming",
+      "name": "Double Drumming",
+      "family": "rock",
+      "href": "traditions/double_drumming.json"
+    },
+    {
+      "id": "ethnotronica",
+      "name": "Ethnotronica",
+      "family": "electronic",
+      "href": "traditions/ethnotronica.json"
+    },
+    {
+      "id": "festigal",
+      "name": "Festigal",
+      "family": "pop",
+      "href": "traditions/festigal.json"
+    },
+    {
+      "id": "focus",
+      "name": "Focus",
+      "family": "classical",
+      "href": "traditions/focus.json"
+    },
+    {
+      "id": "folklore_peruano",
+      "name": "Folklore Peruano",
+      "family": "vernacular",
+      "href": "traditions/folklore_peruano.json"
+    },
+    {
+      "id": "frafra",
+      "name": "Frafra",
+      "family": "vernacular",
+      "href": "traditions/frafra.json"
+    },
+    {
+      "id": "french_movie_tunes",
+      "name": "French Movie Tunes",
+      "family": "pop",
+      "href": "traditions/french_movie_tunes.json"
+    },
+    {
+      "id": "grupero_romantico",
+      "name": "Grupero Romántico",
+      "family": "pop",
+      "href": "traditions/grupero_romantico.json"
+    },
+    {
+      "id": "gumbe",
+      "name": "Gumbé",
+      "family": "global",
+      "href": "traditions/gumbe.json"
+    },
+    {
+      "id": "hyperpop_brasileiro",
+      "name": "Hyperpop Brasileiro",
+      "family": "electronic",
+      "href": "traditions/hyperpop_brasileiro.json"
+    },
+    {
+      "id": "ilahiler",
+      "name": "İlahiler",
+      "family": "vernacular",
+      "href": "traditions/ilahiler.json"
+    },
+    {
+      "id": "indie_boliviano",
+      "name": "Indie Boliviano",
+      "family": "rock",
+      "href": "traditions/indie_boliviano.json"
+    },
+    {
+      "id": "indie_catala",
+      "name": "Indie Català",
+      "family": "pop",
+      "href": "traditions/indie_catala.json"
+    },
+    {
+      "id": "indie_cristao",
+      "name": "Indie Cristão",
+      "family": "vernacular",
+      "href": "traditions/indie_cristao.json"
+    },
+    {
+      "id": "indie_liguria",
+      "name": "Indie Liguria",
+      "family": "electronic",
+      "href": "traditions/indie_liguria.json"
+    },
+    {
+      "id": "indie_nica",
+      "name": "Indie Nica",
+      "family": "vernacular",
+      "href": "traditions/indie_nica.json"
+    },
+    {
+      "id": "japanese_psychedelic",
+      "name": "Japanese Psychedelic",
+      "family": "electronic",
+      "href": "traditions/japanese_psychedelic.json"
+    },
+    {
+      "id": "japanese_vgm",
+      "name": "Japanese VGM",
+      "family": "electronic",
+      "href": "traditions/japanese_vgm.json"
+    },
+    {
+      "id": "kabyle_moderne",
+      "name": "Kabyle Moderne",
+      "family": "global",
+      "href": "traditions/kabyle_moderne.json"
+    },
+    {
+      "id": "korean_soundtrack",
+      "name": "Korean Soundtrack",
+      "family": "pop",
+      "href": "traditions/korean_soundtrack.json"
+    },
+    {
+      "id": "korean_talent_show",
+      "name": "Korean Talent Show",
+      "family": "classical",
+      "href": "traditions/korean_talent_show.json"
+    },
+    {
+      "id": "lagu_iban",
+      "name": "Lagu Iban",
+      "family": "rock",
+      "href": "traditions/lagu_iban.json"
+    },
+    {
+      "id": "lagu_jambi",
+      "name": "Lagu Jambi",
+      "family": "vernacular",
+      "href": "traditions/lagu_jambi.json"
+    },
+    {
+      "id": "lagu_maluku",
+      "name": "Lagu Maluku",
+      "family": "vernacular",
+      "href": "traditions/lagu_maluku.json"
+    },
+    {
+      "id": "lagu_tarling",
+      "name": "Lagu Tarling",
+      "family": "pop",
+      "href": "traditions/lagu_tarling.json"
+    },
+    {
+      "id": "lo_fi_brasileiro",
+      "name": "Lo-Fi Brasileiro",
+      "family": "electronic",
+      "href": "traditions/lo_fi_brasileiro.json"
+    },
+    {
+      "id": "louvores_pentecostais",
+      "name": "Louvores Pentecostais",
+      "family": "vernacular",
+      "href": "traditions/louvores_pentecostais.json"
+    },
+    {
+      "id": "magyar_kabare",
+      "name": "Magyar Kabaré",
+      "family": "vernacular",
+      "href": "traditions/magyar_kabare.json"
+    },
+    {
+      "id": "mapouka",
+      "name": "Mapouka",
+      "family": "vernacular",
+      "href": "traditions/mapouka.json"
+    },
+    {
+      "id": "merida_indie",
+      "name": "Mérida Indie",
+      "family": "rock",
+      "href": "traditions/merida_indie.json"
+    },
+    {
+      "id": "middle_eastern_traditional",
+      "name": "Middle Eastern Traditional",
+      "family": "global",
+      "href": "traditions/middle_eastern_traditional.json"
+    },
+    {
+      "id": "moorish_traditional",
+      "name": "Moorish Traditional",
+      "family": "global",
+      "href": "traditions/moorish_traditional.json"
+    },
+    {
+      "id": "musica_aguascalentense",
+      "name": "Música Aguascalentense",
+      "family": "global",
+      "href": "traditions/musica_aguascalentense.json"
+    },
+    {
+      "id": "musica_bautista",
+      "name": "Música Bautista",
+      "family": "blues_gospel",
+      "href": "traditions/musica_bautista.json"
+    },
+    {
+      "id": "musica_coahuilense",
+      "name": "Música Coahuilense",
+      "family": "global",
+      "href": "traditions/musica_coahuilense.json"
+    },
+    {
+      "id": "musica_evangelica_instrumental",
+      "name": "Música Evangélica Instrumental",
+      "family": "global",
+      "href": "traditions/musica_evangelica_instrumental.json"
+    },
+    {
+      "id": "musica_michoacana",
+      "name": "Música michoacana",
+      "family": "vernacular",
+      "href": "traditions/musica_michoacana.json"
+    },
+    {
+      "id": "musica_nayarita",
+      "name": "Música Nayarita",
+      "family": "global",
+      "href": "traditions/musica_nayarita.json"
+    },
+    {
+      "id": "musica_otavalena",
+      "name": "Música Otavaleña",
+      "family": "global",
+      "href": "traditions/musica_otavalena.json"
+    },
+    {
+      "id": "musica_timor_leste",
+      "name": "Música Timor-Leste",
+      "family": "pop",
+      "href": "traditions/musica_timor_leste.json"
+    },
+    {
+      "id": "musica_tlaxcalteca",
+      "name": "Música tlaxcalteca",
+      "family": "vernacular",
+      "href": "traditions/musica_tlaxcalteca.json"
+    },
+    {
+      "id": "musica_triste_brasileira",
+      "name": "Música Triste Brasileira",
+      "family": "pop",
+      "href": "traditions/musica_triste_brasileira.json"
+    },
+    {
+      "id": "musica_urbana_oaxaquena",
+      "name": "Música Urbana Oaxaqueña",
+      "family": "hip_hop",
+      "href": "traditions/musica_urbana_oaxaquena.json"
+    },
+    {
+      "id": "musique_traditionnelle_congolaise",
+      "name": "Musique traditionnelle congolaise",
+      "family": "vernacular",
+      "href": "traditions/musique_traditionnelle_congolaise.json"
+    },
+    {
+      "id": "nasheed",
+      "name": "Nasheed",
+      "family": "global",
+      "href": "traditions/nasheed.json"
+    },
+    {
+      "id": "new_hampshire_indie",
+      "name": "New Hampshire indie",
+      "family": "vernacular",
+      "href": "traditions/new_hampshire_indie.json"
+    },
+    {
+      "id": "norrbotten_indie",
+      "name": "Norrbotten indie",
+      "family": "pop",
+      "href": "traditions/norrbotten_indie.json"
+    },
+    {
+      "id": "ny_roots",
+      "name": "NY Roots",
+      "family": "vernacular",
+      "href": "traditions/ny_roots.json"
+    },
+    {
+      "id": "old_school_nederhop",
+      "name": "Old School Nederhop",
+      "family": "hip_hop",
+      "href": "traditions/old_school_nederhop.json"
+    },
+    {
+      "id": "oldschool_deutschrap",
+      "name": "Oldschool Deutschrap",
+      "family": "hip_hop",
+      "href": "traditions/oldschool_deutschrap.json"
+    },
+    {
+      "id": "otacore",
+      "name": "Otacore",
+      "family": "pop",
+      "href": "traditions/otacore.json"
+    },
+    {
+      "id": "pinoy_praise",
+      "name": "Pinoy Praise",
+      "family": "blues_gospel",
+      "href": "traditions/pinoy_praise.json"
+    },
+    {
+      "id": "polish_alternative",
+      "name": "Polish Alternative",
+      "family": "rock",
+      "href": "traditions/polish_alternative.json"
+    },
+    {
+      "id": "polish_indie",
+      "name": "Polish Indie",
+      "family": "rock",
+      "href": "traditions/polish_indie.json"
+    },
+    {
+      "id": "portuguese_indie",
+      "name": "Portuguese Indie",
+      "family": "rock",
+      "href": "traditions/portuguese_indie.json"
+    },
+    {
+      "id": "prank",
+      "name": "Prank",
+      "family": "global",
+      "href": "traditions/prank.json"
+    },
+    {
+      "id": "psybass",
+      "name": "Psybass",
+      "family": "electronic",
+      "href": "traditions/psybass.json"
+    },
+    {
+      "id": "puerto_rican_indie",
+      "name": "Puerto Rican indie",
+      "family": "rock_punk",
+      "href": "traditions/puerto_rican_indie.json"
+    },
+    {
+      "id": "quebec_indie",
+      "name": "Québec indie",
+      "family": "pop",
+      "href": "traditions/quebec_indie.json"
+    },
+    {
+      "id": "raspe",
+      "name": "Raspe",
+      "family": "electronic",
+      "href": "traditions/raspe.json"
+    },
+    {
+      "id": "ringtone",
+      "name": "Ringtone",
+      "family": "electronic",
+      "href": "traditions/ringtone.json"
+    },
+    {
+      "id": "ritmo_kombina",
+      "name": "Ritmo Kombina",
+      "family": "global",
+      "href": "traditions/ritmo_kombina.json"
+    },
+    {
+      "id": "rumba",
+      "name": "Rumba (Spanish popular song)",
+      "family": "vernacular",
+      "href": "traditions/rumba.json"
+    },
+    {
+      "id": "russian_ccm",
+      "name": "Russian CCM",
+      "family": "pop",
+      "href": "traditions/russian_ccm.json"
+    },
+    {
+      "id": "russian_indie",
+      "name": "Russian Indie",
+      "family": "rock",
+      "href": "traditions/russian_indie.json"
+    },
+    {
+      "id": "russian_plugg",
+      "name": "Russian Plugg",
+      "family": "hip_hop",
+      "href": "traditions/russian_plugg.json"
+    },
+    {
+      "id": "russian_rave",
+      "name": "Russian rave",
+      "family": "electronic",
+      "href": "traditions/russian_rave.json"
+    },
+    {
+      "id": "sound",
+      "name": "Sound",
+      "family": "electronic",
+      "href": "traditions/sound.json"
+    },
+    {
+      "id": "spa",
+      "name": "Spa",
+      "family": "global",
+      "href": "traditions/spa.json"
+    },
+    {
+      "id": "spanish_new_wave",
+      "name": "Spanish new wave",
+      "family": "rock_punk",
+      "href": "traditions/spanish_new_wave.json"
+    },
+    {
+      "id": "taiwan_graduation_song",
+      "name": "Taiwan Graduation Song",
+      "family": "pop",
+      "href": "traditions/taiwan_graduation_song.json"
+    },
+    {
+      "id": "talent_show",
+      "name": "Talent Show",
+      "family": "pop",
+      "href": "traditions/talent_show.json"
+    },
+    {
+      "id": "talentkonkurrence",
+      "name": "Talentkonkurrence",
+      "family": "pop",
+      "href": "traditions/talentkonkurrence.json"
+    },
+    {
+      "id": "talentos_brasileiros",
+      "name": "Talentos Brasileiros",
+      "family": "pop",
+      "href": "traditions/talentos_brasileiros.json"
+    },
+    {
+      "id": "telugu_indie",
+      "name": "Telugu indie",
+      "family": "vernacular",
+      "href": "traditions/telugu_indie.json"
+    },
+    {
+      "id": "telugu_remix",
+      "name": "Telugu remix",
+      "family": "electronic",
+      "href": "traditions/telugu_remix.json"
+    },
+    {
+      "id": "vintage_hollywood",
+      "name": "Vintage Hollywood",
+      "family": "pop",
+      "href": "traditions/vintage_hollywood.json"
+    },
+    {
+      "id": "violao_classico",
+      "name": "Violão Clássico",
+      "family": "classical",
+      "href": "traditions/violao_classico.json"
+    },
+    {
+      "id": "volkstumliche_musik",
+      "name": "Volkstümliche Musik",
+      "family": "pop",
+      "href": "traditions/volkstumliche_musik.json"
+    },
+    {
+      "id": "german_dark_minimal_techno",
+      "name": "German Dark Minimal Techno",
+      "family": "electronic",
+      "href": "traditions/german_dark_minimal_techno.json"
+    },
+    {
+      "id": "malaysian_tamil_rap",
+      "name": "Malaysian Tamil Rap",
+      "family": "hip_hop",
+      "href": "traditions/malaysian_tamil_rap.json"
+    },
+    {
+      "id": "cloud_rap_francais",
+      "name": "Cloud Rap Français",
+      "family": "hip_hop",
+      "href": "traditions/cloud_rap_francais.json"
+    },
+    {
+      "id": "indian_underground_rap",
+      "name": "Indian Underground Rap",
+      "family": "hip_hop",
+      "href": "traditions/indian_underground_rap.json"
+    },
+    {
+      "id": "turkmen_hip_hop",
+      "name": "Turkmen Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/turkmen_hip_hop.json"
+    },
+    {
+      "id": "bouzouki",
+      "name": "Bouzouki",
+      "family": "vernacular",
+      "href": "traditions/bouzouki.json"
+    },
+    {
+      "id": "drill_chileno",
+      "name": "Drill Chileno",
+      "family": "hip_hop",
+      "href": "traditions/drill_chileno.json"
+    },
+    {
+      "id": "indonesian_emo_rap",
+      "name": "Indonesian Emo Rap",
+      "family": "hip_hop",
+      "href": "traditions/indonesian_emo_rap.json"
+    },
+    {
+      "id": "medimeisterschaften",
+      "name": "Medimeisterschaften",
+      "family": "pop",
+      "href": "traditions/medimeisterschaften.json"
+    },
+    {
+      "id": "tamaulipas_rap",
+      "name": "Tamaulipas Rap",
+      "family": "hip_hop",
+      "href": "traditions/tamaulipas_rap.json"
+    },
+    {
+      "id": "north_moroccan_rap",
+      "name": "North Moroccan Rap",
+      "family": "hip_hop",
+      "href": "traditions/north_moroccan_rap.json"
+    },
+    {
+      "id": "indie_campechano",
+      "name": "Indie campechano",
+      "family": "rock",
+      "href": "traditions/indie_campechano.json"
+    },
+    {
+      "id": "malawian_hip_hop",
+      "name": "Malawian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/malawian_hip_hop.json"
+    },
+    {
+      "id": "oc_rap",
+      "name": "OC rap",
+      "family": "hip_hop",
+      "href": "traditions/oc_rap.json"
+    },
+    {
+      "id": "flint_hip_hop",
+      "name": "Flint hip hop",
+      "family": "hip_hop",
+      "href": "traditions/flint_hip_hop.json"
+    },
+    {
+      "id": "rap_angolano",
+      "name": "Rap Angolano",
+      "family": "hip_hop",
+      "href": "traditions/rap_angolano.json"
+    },
+    {
+      "id": "polish_alternative_rap",
+      "name": "Polish Alternative Rap",
+      "family": "hip_hop",
+      "href": "traditions/polish_alternative_rap.json"
+    },
+    {
+      "id": "fan_chant",
+      "name": "Fan chant",
+      "family": "vernacular",
+      "href": "traditions/fan_chant.json"
+    },
+    {
+      "id": "folclor_colombiano",
+      "name": "Folclor Colombiano",
+      "family": "vernacular",
+      "href": "traditions/folclor_colombiano.json"
+    },
+    {
+      "id": "czsk_emo_rap",
+      "name": "CZSK Emo Rap",
+      "family": "hip_hop",
+      "href": "traditions/czsk_emo_rap.json"
+    },
+    {
+      "id": "musik_anak_anak",
+      "name": "Musik Anak-Anak",
+      "family": "vernacular",
+      "href": "traditions/musik_anak_anak.json"
+    },
+    {
+      "id": "tibetan_folk_pop",
+      "name": "Tibetan Folk Pop",
+      "family": "pop",
+      "href": "traditions/tibetan_folk_pop.json"
+    },
+    {
+      "id": "telugu_devotional",
+      "name": "Telugu Devotional",
+      "family": "vernacular",
+      "href": "traditions/telugu_devotional.json"
+    },
+    {
+      "id": "pop_boliviano",
+      "name": "Pop Boliviano",
+      "family": "pop",
+      "href": "traditions/pop_boliviano.json"
+    },
+    {
+      "id": "cantautor_catala",
+      "name": "Cantautor Català",
+      "family": "vernacular",
+      "href": "traditions/cantautor_catala.json"
+    },
+    {
+      "id": "lagu_bugis",
+      "name": "Lagu Bugis",
+      "family": "vernacular",
+      "href": "traditions/lagu_bugis.json"
+    },
+    {
+      "id": "finnish_trap",
+      "name": "Finnish Trap",
+      "family": "hip_hop",
+      "href": "traditions/finnish_trap.json"
+    },
+    {
+      "id": "greek_drill",
+      "name": "Greek Drill",
+      "family": "hip_hop",
+      "href": "traditions/greek_drill.json"
+    },
+    {
+      "id": "iowa_hip_hop",
+      "name": "Iowa Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/iowa_hip_hop.json"
+    },
+    {
+      "id": "irish_drill",
+      "name": "Irish drill",
+      "family": "hip_hop",
+      "href": "traditions/irish_drill.json"
+    },
+    {
+      "id": "swiss_trap",
+      "name": "Swiss Trap",
+      "family": "hip_hop",
+      "href": "traditions/swiss_trap.json"
+    },
+    {
+      "id": "persian_drill",
+      "name": "Persian Drill",
+      "family": "hip_hop",
+      "href": "traditions/persian_drill.json"
+    },
+    {
+      "id": "indie_curitibano",
+      "name": "Indie Curitibano",
+      "family": "pop",
+      "href": "traditions/indie_curitibano.json"
+    },
+    {
+      "id": "classic_ukrainian_pop",
+      "name": "Classic Ukrainian Pop",
+      "family": "pop",
+      "href": "traditions/classic_ukrainian_pop.json"
+    },
+    {
+      "id": "cristiana_para_ninos",
+      "name": "Cristiana para niños",
+      "family": "global",
+      "href": "traditions/cristiana_para_ninos.json"
+    },
+    {
+      "id": "plugg_en_espanol",
+      "name": "Plugg en Español",
+      "family": "hip_hop",
+      "href": "traditions/plugg_en_espanol.json"
+    },
+    {
+      "id": "brockton_hip_hop",
+      "name": "Brockton Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/brockton_hip_hop.json"
+    },
+    {
+      "id": "louange",
+      "name": "Louange",
+      "family": "blues_gospel",
+      "href": "traditions/louange.json"
+    },
+    {
+      "id": "dicsoites",
+      "name": "Dicsőítés",
+      "family": "blues_gospel",
+      "href": "traditions/dicsoites.json"
+    },
+    {
+      "id": "pop_dance",
+      "name": "Pop Dance",
+      "family": "pop",
+      "href": "traditions/pop_dance.json"
+    },
+    {
+      "id": "indie_catracho",
+      "name": "Indie Catracho",
+      "family": "rock",
+      "href": "traditions/indie_catracho.json"
+    },
+    {
+      "id": "chinese_talent_show",
+      "name": "Chinese Talent Show",
+      "family": "pop",
+      "href": "traditions/chinese_talent_show.json"
     }
   ]
 }

@@ -1,0 +1,494 @@
+{
+  "entries": [
+    {
+      "source_label": "german viral rap",
+      "source_url": "https://everynoise.com/engenremap-germanviralrap.html",
+      "suggested_id": "german_viral_rap",
+      "allocation_ordinal": 301,
+      "allocation_group_id": "013",
+      "id": "german_viral_rap",
+      "tradition": {
+        "id": "german_viral_rap",
+        "name": "German Viral Rap",
+        "family": "hip_hop",
+        "lineage": "A German-language rap community shaped by online video creators, collaborations and rapidly circulating songs. Music, comedy, gaming and choreographed video production intersect within the broader Deutschrap field.",
+        "instruments": [
+          "voice",
+          "drum_machine_analog",
+          "analog_synth"
+        ],
+        "room": "studio_auteur_home_pro",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
+          "modulation": "no_mod",
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "straight_quantize"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Rhythmic German-language delivery and memorable refrains ride programmed beats and a defined electronic low end. Vocal character, punchlines and contrasts between rap passages and hooks work closely with the visual presentation, while production draws on contemporary rap and pop.",
+        "exemplars": [
+          "Julien Bam",
+          "Rezo",
+          "Lukas Der Rapper",
+          "Arazhul"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        51.1657,
+        10.4515,
+        "Germany",
+        "Europe"
+      ],
+      "geo_rationale": "Country-level editorial anchor for positively documented German video-creator discovery community, not arranger location or claimed recording venue.",
+      "signature_tokens": [],
+      "neighbor_distinction": "German Viral Rap identifies the German-language video-creator rap discovery community. Exact creator corpus includes Julien Bam, Rezo, Standart Skill, Lukas Der Rapper, Arazhul, ApoRed, gaming songs and creator collaborations; Julien Bam is positively listed. PopNRW institutional artist profile documents music-video production, a specific internet music-video hype and creator collaborations; his own site establishes the combined music/comedy/video practice. German Deutschrap already spans historical and contemporary streaming-dominant rap, not only its early exemplars; this is a narrower creator-production and circulation network within that broad field. Meme Rap already includes internet circulation and comic performance, and Comedy Rap includes comic character/parody as organizing purpose: both overlap substantially, while neither specifies this German-language creator network. German Pop is broad despite its selected songwriter branch; German Hyperpop is a distinct internet-generation sonic/community field, not all online German rap. No mutually exclusive musical boundary is claimed. Positive creator-network/institutional practice, not a different arrangement, artist or viral view count alone, supports the narrower category.",
+      "classification_evidence": {
+        "note": "German Viral Rap identifies the German-language video-creator rap discovery community. Exact creator corpus includes Julien Bam, Rezo, Standart Skill, Lukas Der Rapper, Arazhul, ApoRed, gaming songs and creator collaborations; Julien Bam is positively listed. PopNRW institutional artist profile documents music-video production, a specific internet music-video hype and creator collaborations; his own site establishes the combined music/comedy/video practice. German Deutschrap already spans historical and contemporary streaming-dominant rap, not only its early exemplars; this is a narrower creator-production and circulation network within that broad field. Meme Rap already includes internet circulation and comic performance, and Comedy Rap includes comic character/parody as organizing purpose: both overlap substantially, while neither specifies this German-language creator network. German Pop is broad despite its selected songwriter branch; German Hyperpop is a distinct internet-generation sonic/community field, not all online German rap. No mutually exclusive musical boundary is claimed. Positive creator-network/institutional practice, not a different arrangement, artist or viral view count alone, supports the narrower category."
+      },
+      "model_policy": "Genre-level authored electronic rap arrangement: lead rap voice, synthesized drum programming and subtractive bass. The electronic drum timbres are explicitly authored synthesis choices for broadly documented contemporary rap beat production, not a claim about any recording or source hardware. Full kick/snare/hat/timing controls remain editable; no source role is removed.",
+      "source_scope_limitation": "Genre-level authored electronic rap arrangement: lead rap voice, synthesized drum programming and subtractive bass. The electronic drum timbres are explicitly authored synthesis choices for broadly documented contemporary rap beat production, not a claim about any recording or source hardware. Full kick/snare/hat/timing controls remain editable; no source role is removed.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "drum_machine_analog",
+          "analog_synth"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://note-store.com/notes/julien-bam/opus-dens-zahnfee/piano-solo/",
+          "support_notes": "Fresh12845view0/12847view2 full issuer: PSO0270824, Piano.Solo, available PDF/MIDI, Pop/Rap, complete single-piano melody/accompaniment definition. Tutorial not ready, distinct from available score. Paid score uninspected."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7GdLrGCiNoYrQ2f8onhkkG",
+          "support_notes": "Fresh12852view0 full creator corpus: Julien Bam4/11/48/58; exact artist bridge, not selected work membership. Historical successful map12808view0 link2 led to actual playlist; fresh direct map403 disclosed."
+        },
+        {
+          "url": "https://popnrw.de/julien-bam/",
+          "support_notes": "Fresh12849view0 whole institutional profile: creator career, music-video internet hype and linked collaborations. Earlier historical profile dates retained, not presented as current follower figures."
+        },
+        {
+          "url": "https://www.julienbam.de/",
+          "support_notes": "Fresh12845view1/12847view3 own artist site: German-speaking creator and music/dance/comedy/action practice. Not exhaustive original recording credits."
+        },
+        {
+          "url": "https://phaidra.ustp.at/api/object/o:5282/download",
+          "title": "Lukas Jochum, Veränderung der Wertschöpfung in der modernen Deutschrap-Musikproduktion,2022",
+          "support_notes": "Primary qualitative study of German rap production, fresh full153-page metadata/abstract and contents turn13379view0. Establishes DAW/home-studio beat production and collaborative voice/producer practice. Detailed model settings are editorial, not extracted from a named session. Follow-up find/direct requests timed out; no claim of full153-page close reading."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "german_viral_rap",
+          "name": "German Viral Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context; not a specific artist or recording session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11562view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Exact historical023 byte/visual receipts retained; no fresh download.",
+          "fresh_review_ref": "turn11562view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11562view0"
+        ]
+      },
+      "status": "genre_default_repair_pending_independent_review",
+      "verification_status": "Genre-level repair pending independent source/default review. Original browser and connector four-format parity and ceiling pass; original publisher score retained only as prior evidence.",
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-16.json",
+        "original_sha256": "3d85f1cf1a1d5a80dc09f2b42982e4f8e3c5dd86f060016dfdad6b4a8d970c77",
+        "original_entry": {
+          "source_label": "german viral rap",
+          "source_url": "https://everynoise.com/engenremap-germanviralrap.html",
+          "suggested_id": "german_viral_rap",
+          "allocation_ordinal": 301,
+          "allocation_group_id": "013",
+          "id": "german_viral_rap",
+          "tradition": {
+            "id": "german_viral_rap",
+            "name": "German Viral Rap",
+            "family": "hip_hop",
+            "lineage": "Complete Note-Store Piano.Solo edition PSO0270824 of Opus Dens (Zahnfee), Julien Bam and Georgia Cavallo repertoire (2024). Publisher explicitly defines this edition as the entire melody and accompaniment integrated for one pianist, with no separate vocal or other instrumental parts; its Piano&Vocal edition is separately sold. Available PDF/MIDI purchase is distinct from the unavailable tutorial video. Full paid notation and audio uninspected; page count and arranger identity unspecified. This complete issued adaptation is not a researcher reduction or a reconstruction of the original two-artist produced master. Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the complete piano-only edition. Source piano subtype, playing touch, capture and tuning are unspecified; these are editorial performance choices, not original hardware claims. Broad functionalSong explicitly realizes verse-chorus-bridge over functional progressions for this published popular-song adaptation, not a transcription of unseen formal details. The hip_hop family follows the publisher Rap repertoire classification; no live rap card or original master backing is imported into the separately issued instrumental arrangement.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Complete Note-Store Piano.Solo edition PSO0270824 of Opus Dens (Zahnfee), Julien Bam and Georgia Cavallo repertoire (2024). Publisher explicitly defines this edition as the entire melody and accompaniment integrated for one pianist, with no separate vocal or other instrumental parts; its Piano&Vocal edition is separately sold. Available PDF/MIDI purchase is distinct from the unavailable tutorial video. Full paid notation and audio uninspected; page count and arranger identity unspecified. This complete issued adaptation is not a researcher reduction or a reconstruction of the original two-artist produced master. German Viral Rap identifies the German-language video-creator rap discovery community. Exact creator corpus includes Julien Bam, Rezo, Standart Skill, Lukas Der Rapper, Arazhul, ApoRed, gaming songs and creator collaborations; Julien Bam is positively listed, but this selected Opus Dens composition is not claimed present in that playlist. PopNRW institutional artist profile documents music-video production, a specific internet music-video hype and creator collaborations; his own site establishes the combined music/comedy/video practice. German Deutschrap already spans historical and contemporary streaming-dominant rap, not only its early exemplars; this is a narrower creator-production and circulation network within that broad field. Meme Rap already includes internet circulation and comic performance, and Comedy Rap includes comic character/parody as organizing purpose: both overlap substantially, while neither specifies this German-language creator network. German Pop is broad despite its selected songwriter branch; German Hyperpop is a distinct internet-generation sonic/community field, not all online German rap. No mutually exclusive musical boundary or unique piano sound is claimed. Positive creator-network/institutional practice, not a different arrangement, artist or viral view count alone, supports the narrower category. Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the complete piano-only edition. Source piano subtype, playing touch, capture and tuning are unspecified; these are editorial performance choices, not original hardware claims. Broad functionalSong explicitly realizes verse-chorus-bridge over functional progressions for this published popular-song adaptation, not a transcription of unseen formal details. The hip_hop family follows the publisher Rap repertoire classification; no live rap card or original master backing is imported into the separately issued instrumental arrangement.",
+            "exemplars": [
+              "Julien Bam / Georgia Cavallo repertoire — complete Note-Store Piano.Solo PSO0270824 Opus Dens (Zahnfee)"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            51.1657,
+            10.4515,
+            "Germany",
+            "Europe"
+          ],
+          "geo_rationale": "Country-level editorial anchor for positively documented German video-creator discovery community, not arranger location or claimed recording venue.",
+          "signature_tokens": [],
+          "neighbor_distinction": "German Viral Rap identifies the German-language video-creator rap discovery community. Exact creator corpus includes Julien Bam, Rezo, Standart Skill, Lukas Der Rapper, Arazhul, ApoRed, gaming songs and creator collaborations; Julien Bam is positively listed, but this selected Opus Dens composition is not claimed present in that playlist. PopNRW institutional artist profile documents music-video production, a specific internet music-video hype and creator collaborations; his own site establishes the combined music/comedy/video practice. German Deutschrap already spans historical and contemporary streaming-dominant rap, not only its early exemplars; this is a narrower creator-production and circulation network within that broad field. Meme Rap already includes internet circulation and comic performance, and Comedy Rap includes comic character/parody as organizing purpose: both overlap substantially, while neither specifies this German-language creator network. German Pop is broad despite its selected songwriter branch; German Hyperpop is a distinct internet-generation sonic/community field, not all online German rap. No mutually exclusive musical boundary or unique piano sound is claimed. Positive creator-network/institutional practice, not a different arrangement, artist or viral view count alone, supports the narrower category.",
+          "classification_evidence": {
+            "note": "German Viral Rap identifies the German-language video-creator rap discovery community. Exact creator corpus includes Julien Bam, Rezo, Standart Skill, Lukas Der Rapper, Arazhul, ApoRed, gaming songs and creator collaborations; Julien Bam is positively listed, but this selected Opus Dens composition is not claimed present in that playlist. PopNRW institutional artist profile documents music-video production, a specific internet music-video hype and creator collaborations; his own site establishes the combined music/comedy/video practice. German Deutschrap already spans historical and contemporary streaming-dominant rap, not only its early exemplars; this is a narrower creator-production and circulation network within that broad field. Meme Rap already includes internet circulation and comic performance, and Comedy Rap includes comic character/parody as organizing purpose: both overlap substantially, while neither specifies this German-language creator network. German Pop is broad despite its selected songwriter branch; German Hyperpop is a distinct internet-generation sonic/community field, not all online German rap. No mutually exclusive musical boundary or unique piano sound is claimed. Positive creator-network/institutional practice, not a different arrangement, artist or viral view count alone, supports the narrower category."
+          },
+          "model_policy": "Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the complete piano-only edition. Source piano subtype, playing touch, capture and tuning are unspecified; these are editorial performance choices, not original hardware claims. Broad functionalSong explicitly realizes verse-chorus-bridge over functional progressions for this published popular-song adaptation, not a transcription of unseen formal details. The hip_hop family follows the publisher Rap repertoire classification; no live rap card or original master backing is imported into the separately issued instrumental arrangement.",
+          "source_scope_limitation": "Complete Note-Store Piano.Solo edition PSO0270824 of Opus Dens (Zahnfee), Julien Bam and Georgia Cavallo repertoire (2024). Publisher explicitly defines this edition as the entire melody and accompaniment integrated for one pianist, with no separate vocal or other instrumental parts; its Piano&Vocal edition is separately sold. Available PDF/MIDI purchase is distinct from the unavailable tutorial video. Full paid notation and audio uninspected; page count and arranger identity unspecified. This complete issued adaptation is not a researcher reduction or a reconstruction of the original two-artist produced master.",
+          "vocal_count_audit": {
+            "selected_singer_count": 0,
+            "selected_pianist_count": 1,
+            "decision": "Publisher expressly complete single-pianist melody/accompaniment adaptation; separate vocal edition excluded, original two artists not erased from an asserted original recording."
+          },
+          "instrument_role_audit": {
+            "scope": "Complete Note-Store Piano.Solo edition PSO0270824 of Opus Dens (Zahnfee), Julien Bam and Georgia Cavallo repertoire (2024). Publisher explicitly defines this edition as the entire melody and accompaniment integrated for one pianist, with no separate vocal or other instrumental parts; its Piano&Vocal edition is separately sold. Available PDF/MIDI purchase is distinct from the unavailable tutorial video. Full paid notation and audio uninspected; page count and arranger identity unspecified. This complete issued adaptation is not a researcher reduction or a reconstruction of the original two-artist produced master.",
+            "roles": {
+              "upright_piano": "Whole published one-pianist edition; upright subtype authored"
+            },
+            "authored_defaults": "Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the complete piano-only edition. Source piano subtype, playing touch, capture and tuning are unspecified; these are editorial performance choices, not original hardware claims. Broad functionalSong explicitly realizes verse-chorus-bridge over functional progressions for this published popular-song adaptation, not a transcription of unseen formal details. The hip_hop family follows the publisher Rap repertoire classification; no live rap card or original master backing is imported into the separately issued instrumental arrangement."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_classical_legato",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the complete piano-only edition. Source piano subtype, playing touch, capture and tuning are unspecified; these are editorial performance choices, not original hardware claims. Broad functionalSong explicitly realizes verse-chorus-bridge over functional progressions for this published popular-song adaptation, not a transcription of unseen formal details. The hip_hop family follows the publisher Rap repertoire classification; no live rap card or original master backing is imported into the separately issued instrumental arrangement."
+            }
+          ],
+          "flat_pin_resolution": "All three actual upright parts explicitly protected, no fallback or conflict.",
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "upright_piano"
+            ]
+          },
+          "sources": [
+            {
+              "url": "https://note-store.com/notes/julien-bam/opus-dens-zahnfee/piano-solo/",
+              "support_notes": "Fresh12845view0/12847view2 full issuer: PSO0270824, Piano.Solo, available PDF/MIDI, Pop/Rap, complete single-piano melody/accompaniment definition. Tutorial not ready, distinct from available score. Paid score uninspected."
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/7GdLrGCiNoYrQ2f8onhkkG",
+              "support_notes": "Fresh12852view0 full creator corpus: Julien Bam4/11/48/58; exact artist bridge, not selected work membership. Historical successful map12808view0 link2 led to actual playlist; fresh direct map403 disclosed."
+            },
+            {
+              "url": "https://popnrw.de/julien-bam/",
+              "support_notes": "Fresh12849view0 whole institutional profile: creator career, music-video internet hype and linked collaborations. Earlier historical profile dates retained, not presented as current follower figures."
+            },
+            {
+              "url": "https://www.julienbam.de/",
+              "support_notes": "Fresh12845view1/12847view3 own artist site: German-speaking creator and music/dance/comedy/action practice. Not exhaustive original recording credits."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "german_viral_rap",
+              "name": "German Viral Rap",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic microphone recording context; not the selected upright piano, Julien Bam, or an original session.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12849view1 Commons confirms CC BY2.5 Iain Fergusson/Binksternet crop; historical023 byte/visual receipts unchanged.",
+              "fresh_review_ref": "turn12849view1"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12849view1"
+            ],
+            "fresh_rights_review": "Fresh12849view1 rights/context only; inherited historical byte and visual verification unchanged."
+          },
+          "status": "frozen_for_independent_review",
+          "verification_status": "Complete publisher edition and exact creator artist plus institutional practice verified; three protected existing controls and actual original four-format reports accompany candidate.",
+          "primary_retrieval_refs": [
+            "turn12845view0",
+            "turn12847view2",
+            "turn12852view0",
+            "turn12849view0",
+            "turn12847view3"
+          ]
+        },
+        "reason": "The piano-only commercial arrangement is valid evidence of repertoire but unsuitable as the default architecture of a rap genre. Restore genre-level rap voice and electronic beat production; do not reconstruct the source recording or claim the original two-artist master uses these precise settings.",
+        "drum_control_amendment": {
+          "prior_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-german-viral-rap.json",
+          "reason": "Original drum-sampling card and bass-synth card cannot share a protected electronic_technique value. Use meaningful four-control synthesized drum realization of the existing generic electronic-beat role; no family/schema edits.",
+          "source_scope": "Genre-level representative practice; no fixed drum-sampling method documented or claimed."
+        }
+      },
+      "vocal_count_audit": {
+        "scope": "authored genre arrangement",
+        "selected_lead_voice_cards": 1,
+        "actual_genre_headcount": "not applicable; varies by performance"
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Rap lead and hook delivery"
+        },
+        {
+          "instrument": "drum_machine_analog",
+          "role": "Programmed drum beat; authored rhythm generation, not whole-master playback"
+        },
+        {
+          "instrument": "analog_synth",
+          "role": "Authored subtractive low-frequency accompaniment within electronic rap practice"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level authored electronic rap arrangement: lead rap voice, synthesized drum programming and subtractive bass. The electronic drum timbres are explicitly authored synthesis choices for broadly documented contemporary rap beat production, not a claim about any recording or source hardware. Full kick/snare/hat/timing controls remain editable; no source role is removed."
+        },
+        {
+          "instrument": "drum_machine_analog",
+          "parts": {
+            "kick_voice": "sine_burst_kick",
+            "snare_voice": "tone_noise_snare",
+            "hat_voice": "noise_hat",
+            "shuffle_quantize": "straight_quantize"
+          },
+          "policy": "Genre-level authored electronic rap arrangement: lead rap voice, synthesized drum programming and subtractive bass. The electronic drum timbres are explicitly authored synthesis choices for broadly documented contemporary rap beat production, not a claim about any recording or source hardware. Full kick/snare/hat/timing controls remain editable; no source role is removed."
+        },
+        {
+          "instrument": "analog_synth",
+          "parts": {
+            "electronic_technique": "electronic_bass_sub",
+            "oscillator": "sine_osc",
+            "filter_topology": "svf",
+            "envelope": "gated_env",
+            "modulation": "no_mod"
+          },
+          "policy": "Genre-level authored electronic rap arrangement: lead rap voice, synthesized drum programming and subtractive bass. The electronic drum timbres are explicitly authored synthesis choices for broadly documented contemporary rap beat production, not a claim about any recording or source hardware. Full kick/snare/hat/timing controls remain editable; no source role is removed."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "genre_default_repair_pending_independent_review"
+}

@@ -1,0 +1,401 @@
+{
+  "entries": [
+    {
+      "source_label": "musica aguascalentense",
+      "source_url": "https://everynoise.com/engenremap-musicaaguascalentense.html",
+      "suggested_id": "musica_aguascalentense",
+      "allocation_ordinal": 3824,
+      "allocation_group_id": "153",
+      "id": "musica_aguascalentense",
+      "tradition": {
+        "id": "musica_aguascalentense",
+        "name": "Música Aguascalentense",
+        "family": "global",
+        "lineage": "La Santísima Voladora — complete eight-person ensemble credited by its producer Lukin Music under its2018production statement: Jorge Velazco voice, Pity Raygoza drums, Toro Fierros bass, Lalo Rogero electric guitar/backing voice, Obed Armin trombone, Christian de Anda trumpet, Ficho Hernández percussion, and special guest Jano Jazz keyboards. All eight sound families and both explicit singers retained, including guest keyboard. Selected scope is this full producer-published ensemble practice, not a claim that its credits apply to every album or later tour. Named guests in the separate historical first-album paragraph and the2025eight-or-nine-member profile are not transferred into this bounded roster. No source audio audition or specific hardware inference. Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "trumpet",
+          "trombone",
+          "credited_auxiliary_percussion",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.regional",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "La Santísima Voladora — complete eight-person ensemble credited by its producer Lukin Music under its2018production statement: Jorge Velazco voice, Pity Raygoza drums, Toro Fierros bass, Lalo Rogero electric guitar/backing voice, Obed Armin trombone, Christian de Anda trumpet, Ficho Hernández percussion, and special guest Jano Jazz keyboards. All eight sound families and both explicit singers retained, including guest keyboard. Selected scope is this full producer-published ensemble practice, not a claim that its credits apply to every album or later tour. Named guests in the separate historical first-album paragraph and the2025eight-or-nine-member profile are not transferred into this bounded roster. No source audio audition or specific hardware inference. Música Aguascalentense is a regional circulation field crossing cumbia, norteño, mariachi and hybrid rock/tropical practices, not an equivalence to one national style. Exact creator playlist7Fh0u1Wv41GsgM4kCw8Cxf includes La Santísima Voladora with other local acts at item75. Its producer documents formation and repeated local festival participation in Aguascalientes, while Casa de México describes its distinctive regional tropimetal fusion. The Instituto Cultural de Aguascalientes independently publishes a crossstyle local festival field. Existing latin_rock already includes broad Latin American rhythmic rock beyond Santana, and mexican_indie includes national independent bands beyond Sadfields; both can overlap this regional subset. Existing mexican_pop defines the balada recording industry, while full cumbia_sonidera describes a sound-system/dedication practice and its studio extensions. None is an alternative name for this regional network. Do not universalize the selected metal/cumbia hybrid across all regional music. Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones.",
+        "exemplars": [
+          "La Santísima Voladora — complete Lukin Music credited eight-person ensemble"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        21.8853,
+        -102.2916,
+        "Aguascalientes",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Producer address and named regional formation/circulation; not the Madrid institutional presentation site.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.lukinmusic.com/la-santisima/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11310view1 complete producer credit block lines48–57 and regional circulation. Embeddedvideo not auditioned; credits are scoped to explicitly published producer ensemble."
+        },
+        {
+          "url": "https://www.casademexico.es/noticia/musica-la-santisima-voladora-frecuencia-sonora-rock-eme-equis-2025/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11310view0 institution identifies Aguascalientes roots and tropimetal/Latinrock practice; later roster not used as source credits."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7Fh0u1Wv41GsgM4kCw8Cxf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11311view0 and11313view1 exact creator item75; artist bridge not selected credited production."
+        },
+        {
+          "url": "https://culturaags.blogspot.com/2014/02/anunciados-los-grupos-locales.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11290search4 own cultural institution crossstyle regional selection; Bleak Boys not substituted for the exact creator artist."
+        }
+      ],
+      "neighbor_distinction": "Música Aguascalentense is a regional circulation field crossing cumbia, norteño, mariachi and hybrid rock/tropical practices, not an equivalence to one national style. Exact creator playlist7Fh0u1Wv41GsgM4kCw8Cxf includes La Santísima Voladora with other local acts at item75. Its producer documents formation and repeated local festival participation in Aguascalientes, while Casa de México describes its distinctive regional tropimetal fusion. The Instituto Cultural de Aguascalientes independently publishes a crossstyle local festival field. Existing latin_rock already includes broad Latin American rhythmic rock beyond Santana, and mexican_indie includes national independent bands beyond Sadfields; both can overlap this regional subset. Existing mexican_pop defines the balada recording industry, while full cumbia_sonidera describes a sound-system/dedication practice and its studio extensions. None is an alternative name for this regional network. Do not universalize the selected metal/cumbia hybrid across all regional music.",
+      "model_policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "trumpet",
+          "trombone",
+          "credited_auxiliary_percussion",
+          "electronic_keyboard_unspecified"
+        ],
+        "baseline_existing_instruments": 1638
+      },
+      "classification_evidence": {
+        "mode": "exact_creator_and_firsthand_producer_regional_practice",
+        "note": "Música Aguascalentense is a regional circulation field crossing cumbia, norteño, mariachi and hybrid rock/tropical practices, not an equivalence to one national style. Exact creator playlist7Fh0u1Wv41GsgM4kCw8Cxf includes La Santísima Voladora with other local acts at item75. Its producer documents formation and repeated local festival participation in Aguascalientes, while Casa de México describes its distinctive regional tropimetal fusion. The Instituto Cultural de Aguascalientes independently publishes a crossstyle local festival field. Existing latin_rock already includes broad Latin American rhythmic rock beyond Santana, and mexican_indie includes national independent bands beyond Sadfields; both can overlap this regional subset. Existing mexican_pop defines the balada recording industry, while full cumbia_sonidera describes a sound-system/dedication practice and its studio extensions. None is an alternative name for this regional network. Do not universalize the selected metal/cumbia hybrid across all regional music."
+      },
+      "vocal_count_audit": {
+        "singers": 2,
+        "source": "Jorge voice plus Lalo backingvoice in bounded eight-person credits; guest keyboard retained, no uncredited singers."
+      },
+      "instrument_role_audit": {
+        "rationale": "La Santísima Voladora — complete eight-person ensemble credited by its producer Lukin Music under its2018production statement: Jorge Velazco voice, Pity Raygoza drums, Toro Fierros bass, Lalo Rogero electric guitar/backing voice, Obed Armin trombone, Christian de Anda trumpet, Ficho Hernández percussion, and special guest Jano Jazz keyboards. All eight sound families and both explicit singers retained, including guest keyboard. Selected scope is this full producer-published ensemble practice, not a claim that its credits apply to every album or later tour. Named guests in the separate historical first-album paragraph and the2025eight-or-nine-member profile are not transferred into this bounded roster. No source audio audition or specific hardware inference.",
+        "authored_defaults": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        },
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        },
+        {
+          "instrument": "trombone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "trombone_type": "tenor_trombone",
+            "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+            "trombone_mute": "no_mute_trb",
+            "trombone_technique": "big_band_punch",
+            "trombone_bell_metal": "trombone_yellow_brass",
+            "trombone_maker_school": "trombone_bach_42"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Parent distortedRock.regional represents this explicitly documented Latin rock/metal-fusion ensemble branch, not the full regional category as rock only. Authored modern rendition uses two accompanied singers in a live duet, neutral unmeasured physiology and modest neumatic word-setting; no source singing method or actual tracking inferred. Author a firm power-chord humbucker, coherent alder/mahogany-neck/rosewood construction and firm picked bass; exact original guitars and pickups unspecified. Open B-flat Bach-family trumpet and open tenor trombone receive common punchy section articulation, not measured equipment or classical repertoire. Maple/B20 machine-hammered traditional-finish stick kit is authored. Generic credited extra percussion and keyboards retain source-unspecified identities, rather than guessing congas or synthesis. Spacious concert-hall presentation is an authored room; no global temperament or capture hardware asserted. Shared body_wood alder_h applies to guitar and bass consistently; wind articulation applies to both brass owners. Any rendered aggressive/high-gain bass character belongs to this authored energetic metal/cumbia realization, not observed source equipment or performer biography. Complete source palette is retained. The authored keyboard realization specifically supplies held harmonic chords beneath the active band. Its rendered sustained, drone-like or beat-free character refers only to that held keyboard layer, never to the rhythmic ensemble as a whole. This is a deliberate chordal arrangement choice consistent with the unspecified credited keyboard role, not an observed source technique, synthesizer architecture, or claim that the original performer played drones."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_aguascalentense",
+          "name": "Música Aguascalentense",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not La Santísima Voladora or the original producer hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11260view1 confirms the exact Commons CC BY2.5 credit and permitted crop; inherited023 binary/visual receipt remains historical, no new transfer.",
+          "fresh_review_ref": "turn11260view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11260view1"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [
+          "amp_make",
+          "body_wood",
+          "wind_articulation"
+        ],
+        "rule": "Shared pin applicability checked against each owning part; all effective controls protected without fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn11310view1",
+        "turn11310view0",
+        "turn11311view0",
+        "turn11313view1",
+        "turn11290search4"
+      ],
+      "source_retrieval_caveat": "Producer and cultural institution directly read; no audition or unsupported linkage of credit block to a particular embedded title. Regional festival source indexed; direct monthly archive failed.",
+      "source_scope_limitation": "La Santísima Voladora — complete eight-person ensemble credited by its producer Lukin Music under its2018production statement: Jorge Velazco voice, Pity Raygoza drums, Toro Fierros bass, Lalo Rogero electric guitar/backing voice, Obed Armin trombone, Christian de Anda trumpet, Ficho Hernández percussion, and special guest Jano Jazz keyboards. All eight sound families and both explicit singers retained, including guest keyboard. Selected scope is this full producer-published ensemble practice, not a claim that its credits apply to every album or later tour. Named guests in the separate historical first-album paragraph and the2025eight-or-nine-member profile are not transferred into this bounded roster. No source audio audition or specific hardware inference.",
+      "status": "ready_for_independent_review"
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

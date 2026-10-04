@@ -1,0 +1,477 @@
+{
+  "entries": [
+    {
+      "source_label": "cantautor catala",
+      "source_url": "https://everynoise.com/engenremap-cantautorcatala.html",
+      "suggested_id": "cantautor_catala",
+      "allocation_ordinal": 2962,
+      "allocation_group_id": "119",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "id": "cantautor_catala",
+      "tradition": {
+        "id": "cantautor_catala",
+        "name": "Cantautor Català",
+        "family": "vernacular",
+        "lineage": "Catalan singer-songwriter music draws on the chanson-linked Nova Cançó and the folk revival, with later authors extending its poetic, personal and social concerns into acoustic song, pop and experimental arrangements.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": -1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Words and melodic phrasing lead this varied author-song tradition. Guitar or piano can frame an intimate performance, while fuller bands and electronic textures support other branches. This profile uses expressive singing with restrained piano accompaniment.",
+        "exemplars": [
+          "Gemma Humet",
+          "Ernest Prana"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        41.3851,
+        2.1734,
+        "Barcelona",
+        "Europe"
+      ],
+      "geo_rationale": "Approximate institutional hub of the wider Catalan author-song field, not an exclusive origin or measured performance location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.llull.cat/catala/recursos/musica_cb_pop_rock.cfm",
+          "support_notes": "Fresh turn14200view0: explicitly dual chanson/NovaCanço and North-American folk heritage, varied later author-song field."
+        },
+        {
+          "url": "https://www.gemmahumet.com/",
+          "support_notes": "Fresh turn14200view1 and14197search0: singer-pianist identifies author/protest-song practice and Miralls voice/piano format. Representative branch, not all-genre instrument restriction."
+        },
+        {
+          "url": "https://www.kursaal.cat/upload/kursaal_book/file/toc-hivern-2024-plecsbo-web.pdf",
+          "support_notes": "Primary presenter14197search14 independently identifies Miralls voice+piano and intimate author-song programme."
+        }
+      ],
+      "neighbor_distinction": "Catalan singer-songwriter practice is positively described by Institut Ramon Llull as a field inheriting both French chanson through Nova Cançó and North-American folk through Grup de Folk, with broader independent author-led developments. Full existing catalan_nova_canco includes post-Franco continuation and present-day artists; its actual stated field is the Setze Jutges-aligned language/protest/chanson tradition, not an obsolete date window. Cantautor Català overlaps that entire lineage substantially but the institution explicitly identifies additional folk-derived authorship, not just a different performer or date. Existing musica_catalana is the broader Catalan music umbrella, not limited to Gemma Humet; rock_catala and indie_catala overlap in performers but are not synonymous with songwriter-centered practice. The representative piano-song branch is directly documented by singer-pianist Gemma Humet; broader institutional field evidence supplies the category distinction, not this one artist. No exact inaccessible creator membership, universal political stance, language-purity rule or exclusive national citizenship asserted.",
+      "model_policy": "Representative intimate singing and chordal piano accompaniment, supported by a documented author-song practice. Upright piano construction and furnished-parlor recording acoustics are authored choices, not claims about the source instrument or venue. Neutral voice controls preserve unspecified physiology and tuning; a single accompanied melodic lead is the selected general branch. Broad balladPoetry reflects word-centered authored song rather than a mandatory narrative text or universal genre form. Connected syllabic delivery and chordal keyboard playing are explicit authored representative gestures; they are not measured transcriptions. Wabi-rustic means the existing soft/plain rustic aesthetic, not a Japanese repertoire or technique.",
+      "classification_evidence": "Catalan singer-songwriter practice is positively described by Institut Ramon Llull as a field inheriting both French chanson through Nova Cançó and North-American folk through Grup de Folk, with broader independent author-led developments. Full existing catalan_nova_canco includes post-Franco continuation and present-day artists; its actual stated field is the Setze Jutges-aligned language/protest/chanson tradition, not an obsolete date window. Cantautor Català overlaps that entire lineage substantially but the institution explicitly identifies additional folk-derived authorship, not just a different performer or date. Existing musica_catalana is the broader Catalan music umbrella, not limited to Gemma Humet; rock_catala and indie_catala overlap in performers but are not synonymous with songwriter-centered practice. The representative piano-song branch is directly documented by singer-pianist Gemma Humet; broader institutional field evidence supplies the category distinction, not this one artist. No exact inaccessible creator membership, universal political stance, language-purity rule or exclusive national citizenship asserted.",
+      "vocal_count_audit": {
+        "representative_voice_cards": 1,
+        "basis": "Authored single accompanied singer branch positively supported by artist practice; no universal genre headcount."
+      },
+      "instrument_role_audit": {
+        "voice": "Melodic singer-songwriter lead.",
+        "upright_piano": "Chordal piano support, architecture authored for general source-positive piano role."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative intimate singing and chordal piano accompaniment, supported by a documented author-song practice. Upright piano construction and furnished-parlor recording acoustics are authored choices, not claims about the source instrument or venue. Neutral voice controls preserve unspecified physiology and tuning; a single accompanied melodic lead is the selected general branch. Broad balladPoetry reflects word-centered authored song rather than a mandatory narrative text or universal genre form. Connected syllabic delivery and chordal keyboard playing are explicit authored representative gestures; they are not measured transcriptions. Wabi-rustic means the existing soft/plain rustic aesthetic, not a Japanese repertoire or technique."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Representative intimate singing and chordal piano accompaniment, supported by a documented author-song practice. Upright piano construction and furnished-parlor recording acoustics are authored choices, not claims about the source instrument or venue. Neutral voice controls preserve unspecified physiology and tuning; a single accompanied melodic lead is the selected general branch. Broad balladPoetry reflects word-centered authored song rather than a mandatory narrative text or universal genre form. Connected syllabic delivery and chordal keyboard playing are explicit authored representative gestures; they are not measured transcriptions. Wabi-rustic means the existing soft/plain rustic aesthetic, not a Japanese repertoire or technique."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "primary_retrieval_refs": [
+        "turn14200view0",
+        "turn14200view1",
+        "turn14197search14"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cantautor_catala",
+          "name": "Cantautor Català",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim.",
+          "fresh_review_ref": "turn14117view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14117view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim."
+      },
+      "authored_render_scope": "Representative intimate singing and chordal piano accompaniment, supported by a documented author-song practice. Upright piano construction and furnished-parlor recording acoustics are authored choices, not claims about the source instrument or venue. Neutral voice controls preserve unspecified physiology and tuning; a single accompanied melodic lead is the selected general branch. Broad balladPoetry reflects word-centered authored song rather than a mandatory narrative text or universal genre form. Connected syllabic delivery and chordal keyboard playing are explicit authored representative gestures; they are not measured transcriptions. Wabi-rustic means the existing soft/plain rustic aesthetic, not a Japanese repertoire or technique.",
+      "source_review_refs": [
+        "turn14200view0",
+        "turn14200view1",
+        "turn14197search14"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume117-15.json",
+        "sha256": "070e6919b3b64ea6a28c2974b0f8eee503c52a52dccbbf9d3adcc915c9586b50",
+        "original_entry": {
+          "source_label": "cantautor catala",
+          "source_url": "https://everynoise.com/engenremap-cantautorcatala.html",
+          "suggested_id": "cantautor_catala",
+          "allocation_ordinal": 2962,
+          "allocation_group_id": "119",
+          "id": "cantautor_catala",
+          "tradition": {
+            "id": "cantautor_catala",
+            "name": "Cantautor Català",
+            "family": "vernacular",
+            "lineage": "Ernest Prana — complete solo recital at Sant Pere monastery, Camprodon,12September2025 at19:00, documented by the presenting festival on19September2025. Presenter explicitly states only his voice and guitar throughout an autobiographical programme of his recent Catalan-language compositions, naming Més que una cançó, Arribarà l’agost, Serem un de més and final Cançó per a la meva iaia. One singer and guitarist, same person. Complete concert practice, not a stripped subset of an album; set duration and exhaustive song order unknown. No audio audition or presumed audience performance. Broad balladPoetry models the presenter’s explicitly autobiographical, word-centered singer-songwriter recital. Source-unspecified guitar is realized as an authored steel-string dreadnought with Sitka spruce top, mahogany back/sides, phosphor-bronze strings, standard tuning and ringing strummed chord support; actual guitar architecture, strings, wood, original tuning and exact right-hand technique remain unmeasured. One source-positive accompanied singer retains all seventeen neutral voice controls; unprocessed single-lead realization is authored, not proof of actual recording equipment. Controlled live room is a new recording setting, not the source monastery acoustic. No additional instrumentalists or background vocals are invented; no global tuning or capture chain imposed.",
+            "instruments": [
+              "voice",
+              "acoustic_guitar_dread"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "acoustic_technique": "acoustic_strummed_ringing",
+              "string_tuning": "standard_tuning",
+              "top_wood": "sitka",
+              "back_sides": "mahogany_bs",
+              "string_acoustic": "phosphor_bronze"
+            }
+          },
+          "extras": {
+            "parent": "balladPoetry",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": -1,
+              "intensity": 0,
+              "voice": 1,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Ernest Prana — complete solo recital at Sant Pere monastery, Camprodon,12September2025 at19:00, documented by the presenting festival on19September2025. Presenter explicitly states only his voice and guitar throughout an autobiographical programme of his recent Catalan-language compositions, naming Més que una cançó, Arribarà l’agost, Serem un de més and final Cançó per a la meva iaia. One singer and guitarist, same person. Complete concert practice, not a stripped subset of an album; set duration and exhaustive song order unknown. No audio audition or presumed audience performance. Catalan singer-songwriter practice is positively described by Institut Ramon Llull as a field inheriting both French chanson through Nova Cançó and North-American folk through Grup de Folk, with broader independent author-led developments. Full existing catalan_nova_canco includes post-Franco continuation and present-day artists; its actual stated field is the Setze Jutges-aligned language/protest/chanson tradition, not an obsolete date window. Cantautor Català overlaps that entire lineage substantially but the institution explicitly identifies additional folk-derived authorship, not just a different performer or date. Existing musica_catalana is the broader Catalan music umbrella, not limited to Gemma Humet; rock_catala and indie_catala overlap in performers but are not synonymous with songwriter-centered practice. The selected contemporary autobiographical solo concert is positively described as Catalan compositions and a cantautor recital. No exact inaccessible creator membership, universal political stance, language-purity rule or exclusive national citizenship asserted. Broad balladPoetry models the presenter’s explicitly autobiographical, word-centered singer-songwriter recital. Source-unspecified guitar is realized as an authored steel-string dreadnought with Sitka spruce top, mahogany back/sides, phosphor-bronze strings, standard tuning and ringing strummed chord support; actual guitar architecture, strings, wood, original tuning and exact right-hand technique remain unmeasured. One source-positive accompanied singer retains all seventeen neutral voice controls; unprocessed single-lead realization is authored, not proof of actual recording equipment. Controlled live room is a new recording setting, not the source monastery acoustic. No additional instrumentalists or background vocals are invented; no global tuning or capture chain imposed.",
+            "exemplars": [
+              "Ernest Prana — complete solo Camprodon recital12September2025"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            42.3119,
+            2.3653,
+            "Camprodon",
+            "Europe"
+          ],
+          "geo_rationale": "Presenter positively documents exact concert town; approximate town center rather than measured monastery coordinates or exclusive genre origin.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Catalan singer-songwriter practice is positively described by Institut Ramon Llull as a field inheriting both French chanson through Nova Cançó and North-American folk through Grup de Folk, with broader independent author-led developments. Full existing catalan_nova_canco includes post-Franco continuation and present-day artists; its actual stated field is the Setze Jutges-aligned language/protest/chanson tradition, not an obsolete date window. Cantautor Català overlaps that entire lineage substantially but the institution explicitly identifies additional folk-derived authorship, not just a different performer or date. Existing musica_catalana is the broader Catalan music umbrella, not limited to Gemma Humet; rock_catala and indie_catala overlap in performers but are not synonymous with songwriter-centered practice. The selected contemporary autobiographical solo concert is positively described as Catalan compositions and a cantautor recital. No exact inaccessible creator membership, universal political stance, language-purity rule or exclusive national citizenship asserted.",
+          "classification_evidence": "Catalan singer-songwriter practice is positively described by Institut Ramon Llull as a field inheriting both French chanson through Nova Cançó and North-American folk through Grup de Folk, with broader independent author-led developments. Full existing catalan_nova_canco includes post-Franco continuation and present-day artists; its actual stated field is the Setze Jutges-aligned language/protest/chanson tradition, not an obsolete date window. Cantautor Català overlaps that entire lineage substantially but the institution explicitly identifies additional folk-derived authorship, not just a different performer or date. Existing musica_catalana is the broader Catalan music umbrella, not limited to Gemma Humet; rock_catala and indie_catala overlap in performers but are not synonymous with songwriter-centered practice. The selected contemporary autobiographical solo concert is positively described as Catalan compositions and a cantautor recital. No exact inaccessible creator membership, universal political stance, language-purity rule or exclusive national citizenship asserted.",
+          "model_policy": "Broad balladPoetry models the presenter’s explicitly autobiographical, word-centered singer-songwriter recital. Source-unspecified guitar is realized as an authored steel-string dreadnought with Sitka spruce top, mahogany back/sides, phosphor-bronze strings, standard tuning and ringing strummed chord support; actual guitar architecture, strings, wood, original tuning and exact right-hand technique remain unmeasured. One source-positive accompanied singer retains all seventeen neutral voice controls; unprocessed single-lead realization is authored, not proof of actual recording equipment. Controlled live room is a new recording setting, not the source monastery acoustic. No additional instrumentalists or background vocals are invented; no global tuning or capture chain imposed.",
+          "sources": [
+            {
+              "url": "https://www.fmvc.cat/ca/noticies/1070-ernest-prana-illumina-camprodon-amb-la-seva-i.html",
+              "support_notes": "Presenter eyewitness12606search0 full12September2025 concert scope: only his voice/guitar, own Catalan autobiographical repertoire, exact place/date. Page2026 header not event year."
+            },
+            {
+              "url": "https://www.llull.cat/catala/recursos/musica_cb_pop_rock.cfm",
+              "support_notes": "Institutional field overview12606search1 positively gives dual chanson/NovaCançó and North-American folk/GrupDeFolk heritage, broader authorship field. No instrumentation imported."
+            }
+          ],
+          "vocal_count_audit": {
+            "selected_count": 1,
+            "performer_count": 1,
+            "basis": "Presenter expressly solo, only own voice/guitar; audience listening not extra performers."
+          },
+          "instrument_role_audit": {
+            "voice": "Prana sole singer",
+            "acoustic_guitar_dread": "Prana sole guitarist; source model unspecified, authored coherent steel-string realization."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Broad balladPoetry models the presenter’s explicitly autobiographical, word-centered singer-songwriter recital. Source-unspecified guitar is realized as an authored steel-string dreadnought with Sitka spruce top, mahogany back/sides, phosphor-bronze strings, standard tuning and ringing strummed chord support; actual guitar architecture, strings, wood, original tuning and exact right-hand technique remain unmeasured. One source-positive accompanied singer retains all seventeen neutral voice controls; unprocessed single-lead realization is authored, not proof of actual recording equipment. Controlled live room is a new recording setting, not the source monastery acoustic. No additional instrumentalists or background vocals are invented; no global tuning or capture chain imposed."
+            },
+            {
+              "instrument": "acoustic_guitar_dread",
+              "parts": {
+                "acoustic_technique": "acoustic_strummed_ringing",
+                "string_tuning": "standard_tuning",
+                "top_wood": "sitka",
+                "back_sides": "mahogany_bs",
+                "string_acoustic": "phosphor_bronze"
+              },
+              "policy": "Broad balladPoetry models the presenter’s explicitly autobiographical, word-centered singer-songwriter recital. Source-unspecified guitar is realized as an authored steel-string dreadnought with Sitka spruce top, mahogany back/sides, phosphor-bronze strings, standard tuning and ringing strummed chord support; actual guitar architecture, strings, wood, original tuning and exact right-hand technique remain unmeasured. One source-positive accompanied singer retains all seventeen neutral voice controls; unprocessed single-lead realization is authored, not proof of actual recording equipment. Controlled live room is a new recording setting, not the source monastery acoustic. No additional instrumentalists or background vocals are invented; no global tuning or capture chain imposed."
+            }
+          ],
+          "dependency_audit": "Two existing owners; no instrument dependency or shared edit.",
+          "flat_pin_conflicts": [],
+          "flat_pin_resolution": "All22 owning controls protected, no shared collision or fallback.",
+          "primary_retrieval_refs": [
+            "turn12606search0",
+            "turn12606search1"
+          ],
+          "source_retrieval_caveat": "Fresh indexed presenter complete account12606search0 after direct12605view0 failed; Institut Ramon Llull field overview12606search1. No actual concert audio or original gear inspection.",
+          "source_scope_limitation": "Ernest Prana — complete solo recital at Sant Pere monastery, Camprodon,12September2025 at19:00, documented by the presenting festival on19September2025. Presenter explicitly states only his voice and guitar throughout an autobiographical programme of his recent Catalan-language compositions, naming Més que una cançó, Arribarà l’agost, Serem un de més and final Cançó per a la meva iaia. One singer and guitarist, same person. Complete concert practice, not a stripped subset of an album; set duration and exhaustive song order unknown. No audio audition or presumed audience performance.",
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "cantautor_catala",
+              "name": "Cantautor Català",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording microphone context, not Prana, monastery or actual concert equipment.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh Commons12553view3 confirms Iain Fergusson/Binksternet CC BY2.5 crop; exact historical023 bytes and visual receipt retained.",
+              "fresh_review_ref": "turn12553view3"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12553view3"
+            ]
+          },
+          "verification_status": "Full presenter whole solo practice and materially new institutional dual-heritage category boundary recovered; original four outputs emit unsupported kora-cascading guitar and brisk voice against intimate recital. Not accepted, no physical-parameter fishing.",
+          "status": "render_hold"
+        },
+        "scope": "New source-supported piano branch and concise public genre profile; rejected guitar render retained without silently dropping its source role."
+      },
+      "source_scope_limitation": "Genre-level representative piano-song practice, not a reconstruction of Prana guitar recital or Humet band albums. Wider roles remain described as optional branches."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

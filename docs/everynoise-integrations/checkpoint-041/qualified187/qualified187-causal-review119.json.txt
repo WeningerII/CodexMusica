@@ -1,0 +1,99 @@
+{
+  "status": "PASS_COUNTERFACTUAL187_REQUIRES_COMPLETED_INTEGRATED_BUILD",
+  "baseline_commit": "2765a5e5e1dc1523ff9180625b089af3f04089b2",
+  "preserved194_freeze_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "whole_proposal_holds": [
+    "experimental_big_band",
+    "cumbia_cristiana",
+    "oeteldonk",
+    "musique_urbaine_brazzaville",
+    "vintage_italian_soundtrack",
+    "jain_bhajan",
+    "reading"
+  ],
+  "causes": [
+    {
+      "proposal": "experimental_big_band",
+      "affected": [
+        "cape_jazz"
+      ],
+      "mechanism": "New cross-reference staple candidate changes selected context and two unprotected controls."
+    },
+    {
+      "proposal": "cumbia_cristiana",
+      "affected": [
+        "cumbia_420",
+        "cumbia_argentina",
+        "cumbia_ranchera",
+        "tecnocumbia"
+      ],
+      "mechanism": "New parent-deduplicated staple representative displaces prior candidate and changes 40 unprotected controls."
+    },
+    {
+      "proposal": "oeteldonk",
+      "affected": [
+        "banda_peruana"
+      ],
+      "mechanism": "New scoring neighbor changes saxophone reed despite unchanged recipe."
+    }
+  ],
+  "unprotected_slot_changes_restored": 43,
+  "surviving_new_full_config_and_recipe_equal_194": 187,
+  "old23_musical_config_equal_baseline": 23,
+  "thai_bl_ost": {
+    "decision": "Compatible disclosure of unchanged source-pinned setting",
+    "part": "voice_speech_song",
+    "variant": "voice_syllabic_singing",
+    "baseline_score": 0.4094999999999999,
+    "candidate_score": 0.6944999999999999,
+    "surface_threshold": 0.5,
+    "baseline": "classic thai bl ost, functional Song. solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+    "candidate": "classic thai bl ost, functional Song. one note per syllable, solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+    "evidence": "Original translate.js voice-slot score threshold; original variant name and baseline source.parts already require one note per syllable."
+  },
+  "limits": [
+    "Containment does not approve inherited legacy defects.",
+    "No source objects, engine or snapshots modified by this review.",
+    "Actual integrated187 full API build and full serial regression still require completion and rebinding."
+  ],
+  "evidence": [
+    "api-qualified187-result119.json",
+    "api-qualified187-comparison119.json",
+    "qualified187-fixture-review119.json",
+    "new194-compiled-semantic-review119.json",
+    "api-old-graph-coverage187119.json",
+    "api-old-collateral187-result119.json",
+    "api-old-collateral187-review119.json"
+  ],
+  "integrated187_freeze_sha256": "c8171af4363aef7273f8a8190846c37d4cf4625b28172048dcb5866efb6e2803",
+  "source_projection_report": "qualified187-projection119.json",
+  "per_file_sha256": {
+    "api-qualified187-result119.json": "7e888216b45242cb37583f3b0eb18717be0283eb492f24812379484c83448138",
+    "api-qualified187-comparison119.json": "16844e4e325b9954e0051ab6de190e3b62a0dec5856a8f9338ba36dd8245aaff",
+    "qualified187-fixture-review119.json": "25358146d7580e9f7377e82240c67e133ea1a7bc22f103425cf583dc54723a21",
+    "new194-compiled-semantic-review119.json": "74e308280e3bcef7e5c33835dfc3e389bcaa0d1524ad350e52cbef6561bd9ece",
+    "api-old-graph-coverage187119.json": "2d2c98c396732ee14eaad070109468df23840630568e0de2ffe5567c0b5b5db4",
+    "api-old-collateral187-result119.json": "d9483295dc67e5e456fc80555b3ad56f5614f35db1f3f429ee3641f89fe0f9ba",
+    "api-old-collateral187-review119.json": "c00632c9e578b0bebe62127a0e934176670dde459404707c30a080065fabaf75"
+  },
+  "geo_amendment": {
+    "receipt": "/tmp/batch041/qualified/geo-amendment.json",
+    "current_pinoy_praise": [
+      14.408,
+      121.039,
+      "Muntinlupa",
+      "Southeast Asia"
+    ],
+    "affects_musical_input": false
+  },
+  "all_old_api_coverage": {
+    "baseline_count": 6538,
+    "unchanged_graphs": 6475,
+    "affected_graphs": 63,
+    "all_affected_replayed": true,
+    "old_musical_config_changes": 0,
+    "old_recipe_changes": 1,
+    "recipe_change_id": "thai_bl_ost",
+    "semantic_disposition": "already source-pinned syllabic setting now surfaced; compatible"
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "entries": [
+    {
+      "source_label": "northeast indian hip hop",
+      "source_url": "https://everynoise.com/engenremap-northeastindianhiphop.html",
+      "suggested_id": "northeast_indian_hip_hop",
+      "allocation_ordinal": 417,
+      "allocation_group_id": "017",
+      "id": "northeast_indian_hip_hop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "northeast_indian_hip_hop",
+        "name": "Northeast Indian Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Khasi Bloodz — entire separately identified act at Haq Se Hindustan, Famous Studios Mumbai,14November2019. Organizer Rolling Stone India and Qyuki own preview names three rappers D-Bok, Big Ri and D-Mon; its firsthand postconcert report names backing drummer Gideon Kom, guitarist Imti Kharkongor, bassist Jerry Nelson Ranee and DJ Knack (Duncan Kharmalki). All seven performers/five role families retained. Other festival acts, hosts and their guests are outside this selected act. Audience grooving does not establish extra singing. DJ embedded musical/vocal content remains complete with unknown internal performers/architecture, not an additional inferred live singer. No duration, complete song list, audition or exact recording-session claim. Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Khasi Bloodz — entire separately identified act at Haq Se Hindustan, Famous Studios Mumbai,14November2019. Organizer Rolling Stone India and Qyuki own preview names three rappers D-Bok, Big Ri and D-Mon; its firsthand postconcert report names backing drummer Gideon Kom, guitarist Imti Kharkongor, bassist Jerry Nelson Ranee and DJ Knack (Duncan Kharmalki). All seven performers/five role families retained. Other festival acts, hosts and their guests are outside this selected act. Audience grooving does not establish extra singing. DJ embedded musical/vocal content remains complete with unknown internal performers/architecture, not an additional inferred live singer. No duration, complete song list, audition or exact recording-session claim. Northeast Indian hip hop is a multilingual regional hip-hop community within the full transnational desi_hip_hop umbrella, not excluded by its selected DIVINE model. The actual organizer identifies Khasi Bloodz as representing Northeast youth and describes the shared Anthem for the North East collaboration with Cryptographik Street Poets and Symphonic Movement. Exact creator playlist includes Khasi Bloodz item11, alongside regional rappers across language communities. Existing khasi_pop includes the Khasi-language popular field, not only Summersalt; this regional hip-hop field crosses languages and state boundaries. Existing northeast_indian_indie is likewise a broad overlapping independent regional network, not confined to LOJAL or non-rap music. Positive genre-specific hip-hop organization and regional collaboration distinguish this narrower field; neither artist difference nor live-band instrumentation supplies the boundary. Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported.",
+        "exemplars": [
+          "Khasi Bloodz — complete Haq Se Hindustan act,14November2019"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        25.5788,
+        91.8933,
+        "Shillong",
+        "South Asia"
+      ],
+      "geo_rationale": "Organizer documents Shillong-based crew; editorial scene anchor, not Mumbai concert location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Northeast Indian hip hop is a multilingual regional hip-hop community within the full transnational desi_hip_hop umbrella, not excluded by its selected DIVINE model. The actual organizer identifies Khasi Bloodz as representing Northeast youth and describes the shared Anthem for the North East collaboration with Cryptographik Street Poets and Symphonic Movement. Exact creator playlist includes Khasi Bloodz item11, alongside regional rappers across language communities. Existing khasi_pop includes the Khasi-language popular field, not only Summersalt; this regional hip-hop field crosses languages and state boundaries. Existing northeast_indian_indie is likewise a broad overlapping independent regional network, not confined to LOJAL or non-rap music. Positive genre-specific hip-hop organization and regional collaboration distinguish this narrower field; neither artist difference nor live-band instrumentation supplies the boundary.",
+      "classification_evidence": "Northeast Indian hip hop is a multilingual regional hip-hop community within the full transnational desi_hip_hop umbrella, not excluded by its selected DIVINE model. The actual organizer identifies Khasi Bloodz as representing Northeast youth and describes the shared Anthem for the North East collaboration with Cryptographik Street Poets and Symphonic Movement. Exact creator playlist includes Khasi Bloodz item11, alongside regional rappers across language communities. Existing khasi_pop includes the Khasi-language popular field, not only Summersalt; this regional hip-hop field crosses languages and state boundaries. Existing northeast_indian_indie is likewise a broad overlapping independent regional network, not confined to LOJAL or non-rap music. Positive genre-specific hip-hop organization and regional collaboration distinguish this narrower field; neither artist difference nor live-band instrumentation supplies the boundary.",
+      "model_policy": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported.",
+      "source_scope_limitation": "Khasi Bloodz — entire separately identified act at Haq Se Hindustan, Famous Studios Mumbai,14November2019. Organizer Rolling Stone India and Qyuki own preview names three rappers D-Bok, Big Ri and D-Mon; its firsthand postconcert report names backing drummer Gideon Kom, guitarist Imti Kharkongor, bassist Jerry Nelson Ranee and DJ Knack (Duncan Kharmalki). All seven performers/five role families retained. Other festival acts, hosts and their guests are outside this selected act. Audience grooving does not establish extra singing. DJ embedded musical/vocal content remains complete with unknown internal performers/architecture, not an additional inferred live singer. No duration, complete song list, audition or exact recording-session claim.",
+      "source_retrieval_caveat": "Fresh indexed complete organizer sources reproduce full relevant act and contemporaneous trio. Direct fetch intermittently403; unmodified indexed raw retained. Creator track is different from selected concert songs; membership only.",
+      "primary_retrieval_refs": [
+        "turn13081search0",
+        "turn13081search1",
+        "turn13081search2"
+      ],
+      "sources": [
+        {
+          "url": "https://rollingstoneindia.com/haqsehindustan-lineup-khasi-bloodz/",
+          "title": "Organizers contemporaneous full trio and regional network",
+          "support_notes": "13081search0 independently names three rappers and regional three-crew collaboration.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rollingstoneindia.com/mumbai-unites-haqsehindustan-stellar-performances-incredible-diversity/",
+          "title": "Organizers firsthand complete concert report",
+          "support_notes": "13081search1 section9 positively names all four backing roles for Khasi Bloodz; other acts excluded.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3OB8R31OANTKUVPQOcgdkc",
+          "title": "Exact creator Northeast Indian Hip Hop playlist",
+          "support_notes": "13081search2 Khasi Bloodz item11; source performance differs.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_singers": 3,
+        "people": [
+          "D-Bok (Donbok Kharkongor)",
+          "Big Ri (Ritik Roy Malngiang)",
+          "D-Mon (Lamonte Pakyntein)"
+        ],
+        "decision": "Three positively named contemporaneous rappers; embedded DJ voices unknown, not extra counted live singers."
+      },
+      "instrument_role_audit": {
+        "scope": "Khasi Bloodz — entire separately identified act at Haq Se Hindustan, Famous Studios Mumbai,14November2019. Organizer Rolling Stone India and Qyuki own preview names three rappers D-Bok, Big Ri and D-Mon; its firsthand postconcert report names backing drummer Gideon Kom, guitarist Imti Kharkongor, bassist Jerry Nelson Ranee and DJ Knack (Duncan Kharmalki). All seven performers/five role families retained. Other festival acts, hosts and their guests are outside this selected act. Audience grooving does not establish extra singing. DJ embedded musical/vocal content remains complete with unknown internal performers/architecture, not an additional inferred live singer. No duration, complete song list, audition or exact recording-session claim.",
+        "roles": {
+          "voice": "Three named rappers",
+          "electric_guitar_humbucker": "Imti Kharkongor guitar, electric construction authored",
+          "electric_bass": "Jerry Nelson Ranee bass, construction authored",
+          "drum_kit": "Gideon Kom drums, full kit authored",
+          "dj_playback_mixing_unspecified": "DJ Knack (Duncan Kharmalki), all recorded layers retained"
+        },
+        "authored_defaults": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Authored international hip-hop rendition preserves three live rappers with rhythmic spoken flow and unknown physiological register, pitch and voicing. Source-general guitar becomes a clean-strummed alder/maple humbucker electric, bass a long-scale fretted soapbar roundwound instrument with locked fingerstyle, and drums a full maple stick kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. These are transparent source-compatible construction choices, not measured source gear. Any aggressive/high-gain or brisk editorial affect belongs to this newly authored energetic rap arrangement, not asserted original equipment or BPM. Source explicitly reports intense snarling performance; source-general guitar architecture remains unspecified. DJ playback/mixing retains all recorded layers without invented scratching, controller or medium. Controlled live room and dry capture are authored; no global tuning or studio apparatus imposed. Literal burlesque vocal preface is a candid theatrical/projected rap affect in this authored rendition, not an assertion of cabaret, brass, dancers or source swing. Source reports intense stage delivery; no hidden lexicon instrumentation is imported."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable owning parts pinned; shared wood choices apply to guitar only, no unpinned fallback claimed."
+      },
+      "verification_status": "Original 50 owning controls/48 flat pins,1638-owner preservation and all four literal runtime outputs pass; independent peer pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "northeast_indian_hip_hop",
+          "name": "Northeast Indian Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not these performers, source concert equipment or instrument depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms original Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes unchanged.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only, no new download or visual claim."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

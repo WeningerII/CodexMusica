@@ -1,0 +1,337 @@
+{
+  "entries": [
+    {
+      "source_label": "quebec indie",
+      "source_url": "https://everynoise.com/engenremap-quebecindie.html",
+      "suggested_id": "quebec_indie",
+      "allocation_ordinal": 4190,
+      "allocation_group_id": "168",
+      "id": "quebec_indie",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "quebec_indie",
+        "name": "Québec indie",
+        "family": "pop",
+        "lineage": "Québec indie — Men I Trust, complete four-song Tiny Desk Home concert published16June2021. Issuer NPR lists Emma Proulx voice/guitar, Jessy Caron guitar, Dragos Chiriac keyboard, Cedric Martel bass, Eric Maillet drums. All five people and all five role families are retained; two guitarists share one owner. Whole programme: Show Me How, Lucky Sue, Humming Man, All Night. The separately documented three-person studio-band identity is not substituted for this expanded five-person performance. NPR explicitly describes vocals without studio overdubs/reverb. No audio audition or hardware identification claimed. Authored intimate indie-pop rendition uses one natural accompanied singer, clean strummed alder/maple single-coil electric guitars, fingerstyle dual-single electric bass and maple stick-backbeat drum kit. Construction and playing gestures are candid editorial choices for source-unspecified guitar/bass/drums, not observed source equipment or claims about every original note. Bare credited keyboard keeps unspecified electronic architecture and melodic/chordal support. Controlled live room is an authored acoustic rendition, not measured cabin acoustics. The source programme varies in pace; this authored representative rendition uses brisk vocal pacing, not a measured tempo claim for every original song. No global tuning or signal chain asserted.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.popRock",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Québec indie — Men I Trust, complete four-song Tiny Desk Home concert published16June2021. Issuer NPR lists Emma Proulx voice/guitar, Jessy Caron guitar, Dragos Chiriac keyboard, Cedric Martel bass, Eric Maillet drums. All five people and all five role families are retained; two guitarists share one owner. Whole programme: Show Me How, Lucky Sue, Humming Man, All Night. The separately documented three-person studio-band identity is not substituted for this expanded five-person performance. NPR explicitly describes vocals without studio overdubs/reverb. No audio audition or hardware identification claimed. Full existing indie_quebecois explicitly identifies the independent francophone scene; it is not reduced here to its Safia Nolin voice/guitar exemplar. Exact creator Québec Indie repertoire includes Wolf Parade, Plants and Animals, Land of Talk, Groenland, TOPS, Arcade Fire and bilingual selections: an overlapping provincial indie field beyond exclusively francophone chanson. NTS independently names Men I Trust Québec indie rock, supporting selected membership without claiming the artist occurs in the inspected creator playlist. Montréal indie remains a broad city scene and overlaps substantially; this provincial field is not declared disjoint or inferred solely from different instrumentation. Existing rock_quebecois and pop_quebecois are broader stylistic umbrellas. The selected English-language indie/electro-pop song programme is classified functionalSong.popRock as an authored functional-harmonic verse–chorus–bridge song rendition, not a universal definition of regional indie. Authored intimate indie-pop rendition uses one natural accompanied singer, clean strummed alder/maple single-coil electric guitars, fingerstyle dual-single electric bass and maple stick-backbeat drum kit. Construction and playing gestures are candid editorial choices for source-unspecified guitar/bass/drums, not observed source equipment or claims about every original note. Bare credited keyboard keeps unspecified electronic architecture and melodic/chordal support. Controlled live room is an authored acoustic rendition, not measured cabin acoustics. The source programme varies in pace; this authored representative rendition uses brisk vocal pacing, not a measured tempo claim for every original song. No global tuning or signal chain asserted.",
+        "exemplars": [
+          "Men I Trust — complete Tiny Desk Home concert (2021)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        46.8139,
+        -71.208,
+        "Québec",
+        "North America"
+      ],
+      "geo_rationale": "Editorial provincial capital anchor; issuer only places performance cabin on north shore of St Lawrence in Quebec. No claim the cabin was in Québec City.",
+      "sources": [
+        {
+          "url": "https://www.wfit.org/music/2021-06-16/men-i-trust-tiny-desk-home-concert",
+          "title": "NPR complete Tiny Desk Home programme and musician credits",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn12129view0 lines289–320, all four songs and five musicians; primary NPR reporting syndicated by member station."
+        },
+        {
+          "url": "https://www.nts.live/shows/guests/episodes/men-i-trust-22nd-may-2025",
+          "title": "NTS Men I Trust programme",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn12129view1 explicitly Québec indie rock. Used solely as positive practitioner category evidence, not modeled as a DJ performance or mixed with2021 personnel."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4uRfUMUWYXOtFiSD4pFfbn",
+          "title": "Creator The Sound of Québec Indie",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn12134view0 named field full repertoire; no Men I Trust membership claim."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Full existing indie_quebecois explicitly identifies the independent francophone scene; it is not reduced here to its Safia Nolin voice/guitar exemplar. Exact creator Québec Indie repertoire includes Wolf Parade, Plants and Animals, Land of Talk, Groenland, TOPS, Arcade Fire and bilingual selections: an overlapping provincial indie field beyond exclusively francophone chanson. NTS independently names Men I Trust Québec indie rock, supporting selected membership without claiming the artist occurs in the inspected creator playlist. Montréal indie remains a broad city scene and overlaps substantially; this provincial field is not declared disjoint or inferred solely from different instrumentation. Existing rock_quebecois and pop_quebecois are broader stylistic umbrellas. The selected English-language indie/electro-pop song programme is classified functionalSong.popRock as an authored functional-harmonic verse–chorus–bridge song rendition, not a universal definition of regional indie.",
+      "classification_evidence": "Full existing indie_quebecois explicitly identifies the independent francophone scene; it is not reduced here to its Safia Nolin voice/guitar exemplar. Exact creator Québec Indie repertoire includes Wolf Parade, Plants and Animals, Land of Talk, Groenland, TOPS, Arcade Fire and bilingual selections: an overlapping provincial indie field beyond exclusively francophone chanson. NTS independently names Men I Trust Québec indie rock, supporting selected membership without claiming the artist occurs in the inspected creator playlist. Montréal indie remains a broad city scene and overlaps substantially; this provincial field is not declared disjoint or inferred solely from different instrumentation. Existing rock_quebecois and pop_quebecois are broader stylistic umbrellas. The selected English-language indie/electro-pop song programme is classified functionalSong.popRock as an authored functional-harmonic verse–chorus–bridge song rendition, not a universal definition of regional indie.",
+      "model_policy": "Authored intimate indie-pop rendition uses one natural accompanied singer, clean strummed alder/maple single-coil electric guitars, fingerstyle dual-single electric bass and maple stick-backbeat drum kit. Construction and playing gestures are candid editorial choices for source-unspecified guitar/bass/drums, not observed source equipment or claims about every original note. Bare credited keyboard keeps unspecified electronic architecture and melodic/chordal support. Controlled live room is an authored acoustic rendition, not measured cabin acoustics. The source programme varies in pace; this authored representative rendition uses brisk vocal pacing, not a measured tempo claim for every original song. No global tuning or signal chain asserted.",
+      "source_scope_limitation": "Québec indie — Men I Trust, complete four-song Tiny Desk Home concert published16June2021. Issuer NPR lists Emma Proulx voice/guitar, Jessy Caron guitar, Dragos Chiriac keyboard, Cedric Martel bass, Eric Maillet drums. All five people and all five role families are retained; two guitarists share one owner. Whole programme: Show Me How, Lucky Sue, Humming Man, All Night. The separately documented three-person studio-band identity is not substituted for this expanded five-person performance. NPR explicitly describes vocals without studio overdubs/reverb. No audio audition or hardware identification claimed.",
+      "source_retrieval_caveat": "Fresh issuer text and full scoring credits read; no audio/video audition or visual instrument-model claim.",
+      "instrument_role_audit": {
+        "whole_scope": "All four issued concert songs",
+        "source_people": {
+          "Emma Proulx": "voice and guitar",
+          "Jessy Caron": "guitar",
+          "Dragos Chiriac": "keyboard",
+          "Cedric Martel": "bass",
+          "Eric Maillet": "drums"
+        },
+        "positive_families": 5,
+        "omitted_positive_roles": []
+      },
+      "vocal_count_audit": {
+        "credited_named_singers": 1,
+        "source_voice_processing": "NPR explicitly says vocal overdubs and reverb stripped away",
+        "authored_rendition": "One accompanied unprocessed lead"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All applicable owning parts deliberately pinned; shared guitar/bass parts use compatible authored values."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "All applicable owning parts deliberately pinned; shared guitar/bass parts use compatible authored values."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "All applicable owning parts deliberately pinned; shared guitar/bass parts use compatible authored values."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "All applicable owning parts deliberately pinned; shared guitar/bass parts use compatible authored values."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          }
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Compatible shared construction keys; neutral keyboard technique protected with no competing keyboard owner."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "quebec_indie",
+          "name": "Québec indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not the artists, cabin, regional scene or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn12134view1 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn12134view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12134view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "sha256": "8441321b1df0d2054e0db862be553f975ccb69cabac6b7b16e857b4b09ff6f44",
+  "packet": "/tmp/batch040/transfer461-rap-geek-practice.json",
+  "reviewer": "research117",
+  "sources": [
+    {
+      "url": "https://www.uol.com.br/splash/noticias/2021/01/25/rap-geek-acumula-bilhoes-de-visualizacoes-e-tem-mercado-aquecido.htm",
+      "fresh_ref": "turn13610view0",
+      "finding": "Original firsthand interviews fully read. Producer identifies trap/boom-bap and fictional-character/everyday lyrics; artists trace Brazilian online emergence, named channel network and dedicated GeekMusik label. Positive organized local community, not merely Portuguese translation of nerdcore."
+    },
+    {
+      "url": "https://woomagazine.com.br/yuri-bl4ck-confira-nossa-a-entrevista-com-o-rapper-geek/",
+      "fresh_ref": "turn13610view1",
+      "finding": "Fresh direct timeout; prior author primary observation preserved. First independently reproduced source alone covers anime/comics/films and community; no claim personally re-read game-specific interview."
+    }
+  ],
+  "category_review": "Full actual Nerdcore and Brazilian Hip Hop records read. RapGeek shares nerd subject matter and rap production with global nerdcore umbrella; separate positively documented Brazilian channel/label community supports narrower scene entry, not mutually exclusive genre. Broader than anime-only community repertoire; no artificial exclusive rhythm invented.",
+  "controls": "18 owning controls match independently checked neutral voice+beat configuration; all applicable pins valid, no dependencies or old-owner mutations.",
+  "runtime": "/tmp/batch040/rap-geek-runtime117.json",
+  "semantic_review": "All four actual original outputs independently run and fully read. Spoken rap over mechanism-unspecified beat is faithful general practice; studio/single lead are ordinary authored defaults, no precise source-person count asserted.",
+  "photo_review": "Exact inherited SM58 SHA/bytes/URL receipt matches established023 and Lao peer; generic LOW recording context truthful. Fresh rights turn13591view2 confirms CC BY2.5 Iain Fergusson/Binksternet; no new download/visual claim.",
+  "changes": "None."
+}

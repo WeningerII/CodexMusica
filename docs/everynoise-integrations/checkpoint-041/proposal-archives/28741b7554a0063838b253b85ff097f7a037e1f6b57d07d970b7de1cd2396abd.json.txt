@@ -1,0 +1,340 @@
+{
+  "entries": [
+    {
+      "source_label": "telugu indie",
+      "source_url": "https://everynoise.com/engenremap-teluguindie.html",
+      "suggested_id": "telugu_indie",
+      "allocation_ordinal": 4413,
+      "allocation_group_id": "177",
+      "status": "frozen_pending_independent_review",
+      "id": "telugu_indie",
+      "tradition": {
+        "id": "telugu_indie",
+        "name": "Telugu indie",
+        "family": "vernacular",
+        "lineage": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown. Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown. Telugu indie denotes the cross-style independent Telugu music-making and circulation community. The Pioneer interviews the musicians themselves about self-authored releases, YouTube, mutual promotion and collaborations: ChowRaasta folk/reggae band, Roll Rida rap and Hemachandra independent songwriting all participate. This is a positive community field rather than a synonym for one band or its selected song. Existing telugu_folk already includes contemporary Chowraasta folk/reggae fusion; that overlap is explicit and is not excluded by date, modern instrumentation or independent release. Existing telugu_hip_hop likewise includes independent Roll Rida; the broader independently documented community crosses both folk and rap practices and includes other songwriters. Existing tollywood denotes Telugu cinema playback repertoire; musicians cross between film and independent work, so no personnel exclusion is claimed. The new field is distinguished by the documented independent production/collaboration network, not a different timbre or exemplar alone. No exact EveryNoise membership claimed because its map is inaccessible. Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted.",
+        "exemplars": [
+          "ChowRaasta — full January2020 six-member live practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        17.385,
+        78.4867,
+        "Hyderabad",
+        "South Asia"
+      ],
+      "geo_rationale": "Firsthand source documents Hyderabad pub/college practice; editorial community anchor, not a claimed recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Telugu indie denotes the cross-style independent Telugu music-making and circulation community. The Pioneer interviews the musicians themselves about self-authored releases, YouTube, mutual promotion and collaborations: ChowRaasta folk/reggae band, Roll Rida rap and Hemachandra independent songwriting all participate. This is a positive community field rather than a synonym for one band or its selected song. Existing telugu_folk already includes contemporary Chowraasta folk/reggae fusion; that overlap is explicit and is not excluded by date, modern instrumentation or independent release. Existing telugu_hip_hop likewise includes independent Roll Rida; the broader independently documented community crosses both folk and rap practices and includes other songwriters. Existing tollywood denotes Telugu cinema playback repertoire; musicians cross between film and independent work, so no personnel exclusion is claimed. The new field is distinguished by the documented independent production/collaboration network, not a different timbre or exemplar alone. No exact EveryNoise membership claimed because its map is inaccessible.",
+      "model_policy": "Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted.",
+      "source_scope_limitation": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown.",
+      "instrument_role_audit": {
+        "scope": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown.",
+        "positive_roles": {
+          "Ram": [
+            "vocals"
+          ],
+          "Bala": [
+            "vocals"
+          ],
+          "Yashwant": [
+            "keyboard"
+          ],
+          "Akshay": [
+            "drums"
+          ],
+          "Anant": [
+            "bass guitar"
+          ],
+          "Srinivas": [
+            "guitar"
+          ]
+        },
+        "authored_defaults": "Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted."
+      },
+      "vocal_count_audit": {
+        "selected_count": 2,
+        "named_singers": [
+          "Ram",
+          "Bala"
+        ],
+        "source_tracking_count": "unknown",
+        "decision": "Two named live singers; authored duo rendition, no inferred harmony intervals or studio overdubs."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "Pending independent peer. All51 owning controls protected with zero fallback/errors, original1638 owners unchanged. Four original browser/connector formats inspected with parity, maximum992characters; no unrelated named culture, explicit authored gain/room/playing controls. Source signatures/final integrated static build not exercised.",
+      "sources": [
+        {
+          "url": "https://www.newindianexpress.com/cities/hyderabad/2020/Jan/22/hyderabad-based-band-chowraasta-carves-out-a-niche-in-music-lovers-minds-2092636.html",
+          "support_notes": "Fresh11386view0 firsthand complete current six-person live roles, locality, original/covers and folk/reggae practice.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.dailypioneer.com/uploads/2020/epaper/june/vijayawada-english-edition-2020-06-20.pdf",
+          "support_notes": "Fresh11388search0 full indexed firsthand multi-artist independent-community interview; direct11386view1 PDF text encoding degraded. Primary accounts explicitly connect band, rap and independent songwriting through release/promotion/collaboration practice. June guest collaboration does not add a member to the dated January lineup.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "telugu_indie",
+          "name": "Telugu indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not ChowRaasta or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11331view0 confirms Iain Fergusson/Binksternet crop, CC BY2.5; historical byte/visual receipts unchanged.",
+          "fresh_review_ref": "turn11331view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn11331view0; exact historical byte and visual receipts retained, no new download.",
+        "fresh_rights_retrieval_refs": [
+          "turn11331view0"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable authored controls protected. Shared guitar/bass material keys independently checked against both owners; neutral keyboard retains both applicable controls.",
+        "fallbacks": []
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Source bare keyboard; construction architecture unspecified, playing support authored."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

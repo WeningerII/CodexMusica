@@ -1,0 +1,275 @@
+{
+  "entries": [
+    {
+      "source_label": "pop boliviano",
+      "source_url": "https://everynoise.com/engenremap-popboliviano.html",
+      "suggested_id": "pop_boliviano",
+      "allocation_ordinal": 1831,
+      "allocation_group_id": "074",
+      "status": "READY_FOR_INDEPENDENT_GENRE_PROFILE_REVIEW",
+      "id": "pop_boliviano",
+      "tradition": {
+        "id": "pop_boliviano",
+        "name": "Pop Boliviano",
+        "family": "pop",
+        "lineage": "Pop boliviano connects Bolivian popular-song performers with local, regional and diaspora audiences. Songwriters work across intimate acoustic settings, bands and contemporary studio production.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Lead melodies and recurring refrains can sit over supportive keyboard harmony. A voice-and-piano setting brings the song and its phrasing forward, while other performers use broader instrumental arrangements.",
+        "exemplars": [
+          "Luis Gamarra"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -16.5,
+        -68.15,
+        "La Paz",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Approximate national cultural anchor in Bolivia, not source recording locality; source duo worked remotely in Boston-area locations. Song title is not evidence of a La Paz recording.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://college.berklee.edu/news/berklee-artists-join-forces-for-berkleetogether-concert-series",
+          "support_notes": "Fresh13276view0 producer confirms duo and independent Bolivian Latin/pop field. Other announced concert and earlier large ensemble not imported.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://eldeber.com.bo/gente/luis-gamarra-y-edmar-colon-unidos-por-la-humanidad_204871",
+          "support_notes": "Fresh13276view1 firsthand Gamarra interview and contemporary eyewitness description, voice and keys, nearly five-minute complete collaboration.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://college.berklee.edu/events/luis-gamarra-%C2%A0edmar%C2%A0col%C3%B3n-virtual-performance",
+          "support_notes": "Indexed13143search0 producer event confirms Colon pianist/saxophonist biography; piano supports authored representative keyboard realization, no sax inferred.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1bsWqNpI1sJ9IxP7xYwJSS",
+          "support_notes": "Fresh13276view2 exact creator roster LuisGamarra7 with LuDeLaTower, differentwork explicitly.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Pop Boliviano is the national popular-song field including diaspora artists. The exact creator playlist names LuisGamarra at7 with LuDeLaTower, a different work, and the producer explicitly identifies his Bolivian Latin-pop practice. It overlaps but is broader than national bolivian_rock, cumbia_boliviana, reggae_boliviano and trap_boliviano style fields; these old records are not restricted to their selected exemplars. Queued indie_boliviano is an independent-production community that overlaps this independently producing artist; neither independence nor this duo arrangement alone defines all national pop. The national pop field also includes the creator’s broad mainstream popular-song roster, while latin_pop spans countries and folklore_boliviano documents heritage repertoires rather than all contemporary popular song. This is a national subset of wider Latin pop, not an asserted disjoint style or exclusive artist membership.",
+      "model_policy": "Authored representative intimate popular-song duet: one accompanied singer with neutral physiology and unprocessed single-lead delivery, source original layering unknown. A standard studio upright with supportive block chords deliberately realizes the positively documented keyboard role; exact source keyboard architecture is unknown. All17voice and3piano controls protected. Connected syllabic melody and functional-harmonic verse-chorus-bridge organization are authored song realization, not a measured transcription. Furnished parlor is an authored listening setting, not the two remote source rooms. No source gear, actual tempo, acoustic mechanism or twelve-tone tuning is inferred.",
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [],
+        "distinction": "Existing voice and upright piano used; no instrument identity change."
+      },
+      "classification_evidence": "Pop Boliviano is the national popular-song field including diaspora artists. The exact creator playlist names LuisGamarra at7 with LuDeLaTower, a different work, and the producer explicitly identifies his Bolivian Latin-pop practice. It overlaps but is broader than national bolivian_rock, cumbia_boliviana, reggae_boliviano and trap_boliviano style fields; these old records are not restricted to their selected exemplars. Queued indie_boliviano is an independent-production community that overlaps this independently producing artist; neither independence nor this duo arrangement alone defines all national pop. The national pop field also includes the creator’s broad mainstream popular-song roster, while latin_pop spans countries and folklore_boliviano documents heritage repertoires rather than all contemporary popular song. This is a national subset of wider Latin pop, not an asserted disjoint style or exclusive artist membership.",
+      "vocal_count_audit": {
+        "singers": 1,
+        "total_performers": 2,
+        "basis": "Documented duo singer and keyboardist; representative single-lead rendition, not measured vocal tracking count."
+      },
+      "instrument_role_audit": {
+        "scope": "Representative Bolivian pop voice-and-keyboard duet practice, anchored by Luis Gamarra and Edmar Colon’s 2020 La Paz collaboration. Berklee’s own producer account identifies this Bolivian independent Latin-pop artist and the remotely collaborating duo; contemporaneous first-person interview and eyewitness account describes Gamarra singing and Colon at the keys. The complete issued song is about five minutes; this is not the unrelated large Yo Soy Inmigrante ensemble or the next Berklee World Strings concert. No original keyboard construction, model, exact voicing or tracking mechanism is asserted. Piano is the explicitly authored representative keyboard realization, consistent with Colon’s documented pianist practice, rather than a claim the source keys were an acoustic upright. No saxophone is inferred from his multi-instrumentalist biography.",
+        "cards": 2,
+        "roles": [
+          "Accompanied singing",
+          "Keyboard accompaniment represented by explicitly authored upright piano"
+        ],
+        "defaults": "Authored representative intimate popular-song duet: one accompanied singer with neutral physiology and unprocessed single-lead delivery, source original layering unknown. A standard studio upright with supportive block chords deliberately realizes the positively documented keyboard role; exact source keyboard architecture is unknown. All17voice and3piano controls protected. Connected syllabic melody and functional-harmonic verse-chorus-bridge organization are authored song realization, not a measured transcription. Furnished parlor is an authored listening setting, not the two remote source rooms. No source gear, actual tempo, acoustic mechanism or twelve-tone tuning is inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored representative intimate popular-song duet: one accompanied singer with neutral physiology and unprocessed single-lead delivery, source original layering unknown. A standard studio upright with supportive block chords deliberately realizes the positively documented keyboard role; exact source keyboard architecture is unknown. All17voice and3piano controls protected. Connected syllabic melody and functional-harmonic verse-chorus-bridge organization are authored song realization, not a measured transcription. Furnished parlor is an authored listening setting, not the two remote source rooms. No source gear, actual tempo, acoustic mechanism or twelve-tone tuning is inferred."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Authored representative intimate popular-song duet: one accompanied singer with neutral physiology and unprocessed single-lead delivery, source original layering unknown. A standard studio upright with supportive block chords deliberately realizes the positively documented keyboard role; exact source keyboard architecture is unknown. All17voice and3piano controls protected. Connected syllabic melody and functional-harmonic verse-chorus-bridge organization are authored song realization, not a measured transcription. Furnished parlor is an authored listening setting, not the two remote source rooms. No source gear, actual tempo, acoustic mechanism or twelve-tone tuning is inferred."
+        }
+      ],
+      "verification_status": "Candidate; mechanical and actual four-format checks plus independent peer required.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All17 voice and3 piano controls protected, no shared key collision."
+      },
+      "primary_retrieval_refs": [
+        "turn13276view0",
+        "turn13276view1",
+        "turn13276view2",
+        "turn13143search0"
+      ],
+      "source_scope_limitation": "Representative Bolivian pop voice-and-keyboard duet practice, anchored by Luis Gamarra and Edmar Colon’s 2020 La Paz collaboration. Berklee’s own producer account identifies this Bolivian independent Latin-pop artist and the remotely collaborating duo; contemporaneous first-person interview and eyewitness account describes Gamarra singing and Colon at the keys. The complete issued song is about five minutes; this is not the unrelated large Yo Soy Inmigrante ensemble or the next Berklee World Strings concert. No original keyboard construction, model, exact voicing or tracking mechanism is asserted. Piano is the explicitly authored representative keyboard realization, consistent with Colon’s documented pianist practice, rather than a claim the source keys were an acoustic upright. No saxophone is inferred from his multi-instrumentalist biography.",
+      "source_retrieval_caveat": "Fresh full producer, firsthand interview and creator corpus. Exact original video unavailable; no audition or original keyboard architecture claimed. Representative genre-level arrangement, not exact session reconstruction.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pop_boliviano",
+          "name": "Pop Boliviano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim.",
+          "fresh_review_ref": "turn14117view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14117view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim."
+      },
+      "authored_render_scope": "Authored representative intimate popular-song duet: one accompanied singer with neutral physiology and unprocessed single-lead delivery, source original layering unknown. A standard studio upright with supportive block chords deliberately realizes the positively documented keyboard role; exact source keyboard architecture is unknown. All17voice and3piano controls protected. Connected syllabic melody and functional-harmonic verse-chorus-bridge organization are authored song realization, not a measured transcription. Furnished parlor is an authored listening setting, not the two remote source rooms. No source gear, actual tempo, acoustic mechanism or twelve-tone tuning is inferred.",
+      "source_review_refs": [
+        "turn13276view0",
+        "turn13276view1",
+        "turn13276view2",
+        "turn13143search0"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume117-23.json",
+        "sha256": "6567d41bdc2d2301e102df68bcea0a781c5e8978b1ce7186d92cf5e1ccbf4763",
+        "original_lineage": "Representative Bolivian pop voice-and-keyboard duet practice, anchored by Luis Gamarra and Edmar Colon’s 2020 La Paz collaboration. Berklee’s own producer account identifies this Bolivian independent Latin-pop artist and the remotely collaborating duo; contemporaneous first-person interview and eyewitness account describes Gamarra singing and Colon at the keys. The complete issued song is about five minutes; this is not the unrelated large Yo Soy Inmigrante ensemble or the next Berklee World Strings concert. No original keyboard construction, model, exact voicing or tracking mechanism is asserted. Piano is the explicitly authored representative keyboard realization, consistent with Colon’s documented pianist practice, rather than a claim the source keys were an acoustic upright. No saxophone is inferred from his multi-instrumentalist biography. Authored representative intimate popular-song duet: one accompanied singer with neutral physiology and unprocessed single-lead delivery, source original layering unknown. A standard studio upright with supportive block chords deliberately realizes the positively documented keyboard role; exact source keyboard architecture is unknown. All17voice and3piano controls protected. Connected syllabic melody and functional-harmonic verse-chorus-bridge organization are authored song realization, not a measured transcription. Furnished parlor is an authored listening setting, not the two remote source rooms. No source gear, actual tempo, acoustic mechanism or twelve-tone tuning is inferred.",
+        "original_description": "Representative Bolivian pop voice-and-keyboard duet practice, anchored by Luis Gamarra and Edmar Colon’s 2020 La Paz collaboration. Berklee’s own producer account identifies this Bolivian independent Latin-pop artist and the remotely collaborating duo; contemporaneous first-person interview and eyewitness account describes Gamarra singing and Colon at the keys. The complete issued song is about five minutes; this is not the unrelated large Yo Soy Inmigrante ensemble or the next Berklee World Strings concert. No original keyboard construction, model, exact voicing or tracking mechanism is asserted. Piano is the explicitly authored representative keyboard realization, consistent with Colon’s documented pianist practice, rather than a claim the source keys were an acoustic upright. No saxophone is inferred from his multi-instrumentalist biography. Authored representative intimate popular-song duet: one accompanied singer with neutral physiology and unprocessed single-lead delivery, source original layering unknown. A standard studio upright with supportive block chords deliberately realizes the positively documented keyboard role; exact source keyboard architecture is unknown. All17voice and3piano controls protected. Connected syllabic melody and functional-harmonic verse-chorus-bridge organization are authored song realization, not a measured transcription. Furnished parlor is an authored listening setting, not the two remote source rooms. No source gear, actual tempo, acoustic mechanism or twelve-tone tuning is inferred.",
+        "scope": "Public genre profile restored; documentary source and authored-control policy retained only in evidence. No musical-field changes."
+      },
+      "genre_profile_review": "Fresh firsthand producer and interview pages independently reproduce national popular-song practice and representative voice/keyboard role: turn14151view0/1. Existing controls all retained, with upright piano candidly authored rather than source-measured. Wabi-rustic lexical note is soft/plain rustic aesthetic, not Japanese repertoire identity; compatible intimate singing. No expansion of duet source into universal national instrumentation."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

@@ -5,7 +5,7 @@
   "lineage": "Fretless short-necked pear-bodied lute at the center of Arab, Turkish and Iraqi art music, its modern courses and risha technique settled in Cairo and Baghdad between the 1900s and 1930s and codified by Sharif Muhieddin Haydar, Riyad al-Sunbati, Farid al-Atrash, Munir Bashir and Jamil Bashir, marked by eagle-feather or plastic plectrum tremolo, fretless microtonal sliding within maqam, unmetered taqsim exposition, and characteristic rest-stroke accents against low open-string drones.",
   "recipe": "classic Middle Eastern mid-1900s oud taqsim, improv On Frame, Persian arab improv branch, middle eastern classical art music, string drone modal persian traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, brass jingles canonical takht riq, kanun drone like modal tortoiseshell traditional kanun, arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney, goat skin Turkish darbuka regional iraqi maqam zarb drier finger open slap hand drum darbuka. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 758,
-  "score": 310.411,
+  "score": 310.189,
   "config": {
     "traditions": [
       "oud_taqsim",
@@ -45,7 +45,7 @@
         },
         "scores": {
           "riq_size": 3.9,
-          "riq_context": 1.155,
+          "riq_context": 1.35,
           "riq_shell_wood": 0.585,
           "riq_head_material": 0.845,
           "riq_jingles": 1.4949999999999999
@@ -125,12 +125,12 @@
           "voice_articulation": 21.254999999999995,
           "voice_microtone": 34.38499999999999,
           "voice_tradition": 26.130000000000003,
-          "voice_mechanism_compound": 17.33821428571429,
+          "voice_mechanism_compound": 17.290000000000003,
           "voice_estill_quality": 10.658999999999999,
           "voice_speech_song": 24.244999999999997,
           "voice_ensemble_config": 18.654999999999998,
-          "voice_ornament_system": 19.259428571428572,
-          "voice_pitch_organization": 21.419142857142855,
+          "voice_ornament_system": 19.1555,
+          "voice_pitch_organization": 21.1545,
           "voice_processing_chain": 6.175,
           "voice_multitrack_stack": 1.7549999999999994
         }

@@ -1,0 +1,58 @@
+{
+  "id": "focus",
+  "name": "Focus",
+  "family": "classical",
+  "lineage": "Focus brings together music selected for concentration, including contemporary piano, ambient textures and instrumental beats. Streaming-era listening collections connect these different musical practices through a shared use during study and other sustained tasks.",
+  "recipe": "classic focus, art Music. upright piano. live tracking.",
+  "recipe_chars": 55,
+  "score": 2.531,
+  "config": {
+    "traditions": [
+      "focus"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

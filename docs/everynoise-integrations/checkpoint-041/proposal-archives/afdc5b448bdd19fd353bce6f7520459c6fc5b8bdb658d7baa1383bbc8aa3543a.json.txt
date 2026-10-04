@@ -1,0 +1,477 @@
+{
+  "entries": [
+    {
+      "id": "mapouka",
+      "source_label": "mapouka",
+      "suggested_id": "mapouka",
+      "allocation_ordinal": 3747,
+      "allocation_group_id": "150",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "mapouka",
+        "name": "Mapouka",
+        "family": "vernacular",
+        "lineage": "Mapouka — Ivorian coastal dance and its lively youssoumba vocal-percussion accompaniment.",
+        "instruments": [
+          "voice",
+          "hand_drum_source_unspecified",
+          "credited_bottle"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified",
+          "credited_bottle_material": "credited_bottle_glass",
+          "credited_bottle_geometry": "credited_bottle_geometry_unspecified",
+          "credited_bottle_fill": "credited_bottle_empty",
+          "credited_bottle_excitation": "credited_bottle_struck_wood",
+          "credited_bottle_support": "credited_bottle_handheld"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion",
+        "description": "Mapouka is an Ivorian coastal dance associated with lively youssoumba accompaniment. Lead singing, harmonized responses, drumming and rhythmic bottle playing support its energetic movement; some performers also add spoken toasting. Groups such as Aboutou Roots and Nigui Saff K-Dance helped bring village-rooted practice to commercial recordings and wider stages.",
+        "exemplars": [
+          "Aboutou Roots",
+          "Nigui Saff K-Dance"
+        ],
+        "axes": {
+          "percussion": 2,
+          "soundTech": -1,
+          "intensity": 1
+        }
+      },
+      "geo": [
+        5.14,
+        -5.02,
+        "Grand-Lahou",
+        "Africa"
+      ],
+      "geo_rationale": "Documented coastal roots around Grand-Lahou; editorial locality anchor, not an exact session address.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Existing zouglou_ivorian describes1990Abidjan university participatory/social-commentary field; it shares vocal-percussion ancestry and popular crossover, but does not exhaust this positively named coastal dance/youssoumba tradition. Existing coupe_decale_ivorian describes early2000s Paris/Abidjan electronic club practice, influenced by earlier dance rhythms. Mapouka has positive earlier coastal dance identity, not just a different performer.",
+      "model_policy": "Representative genre-level acoustic vocal/percussion arrangement. Lead, harmonized response and toaster roles remain within combined vocal-group card; number of humans and alternating spoken/sung distribution unspecified. Generic hand drum preserves a physical membrane role without naming local subtype. Bottle is deliberately realized as an empty ordinary glass vessel struck with a wooden implement; no claim these are observed original dimensions/materials/technique. No exact recorded performance reconstructed. Existing live-room capture is an authored ensemble presentation.",
+      "sources": [
+        {
+          "url": "https://my.zikinf.com/aboutouroots",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13407view0 firsthand Aboutou Roots identifies customary drum, bottle, lead/harmonized responding voices plus toaster, and Mapouka Serré dance use. General practice, not exact issued recording."
+        },
+        {
+          "url": "https://www.melo-app.com/notice/mapouka",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13407view1 institutional style profile confirms Ivorian dance field, traditional drum/bottle/soloist/chorus and rhythmic influence on coupé-décalé. Named historical performers and1990s dissemination."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "mapouka",
+          "name": "Mapouka",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13422view0: CC BY2.5 IainFergusson/Binksternet crop verified; exact historical byte and visual receipts retained.",
+          "fresh_review_ref": "turn13422view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13422view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative genre-level acoustic vocal/percussion arrangement. Lead, harmonized response and toaster roles remain within combined vocal-group card; number of humans and alternating spoken/sung distribution unspecified. Generic hand drum preserves a physical membrane role without naming local subtype. Bottle is deliberately realized as an empty ordinary glass vessel struck with a wooden implement; no claim these are observed original dimensions/materials/technique. No exact recorded performance reconstructed. Existing live-room capture is an authored ensemble presentation."
+        },
+        {
+          "instrument": "hand_drum_source_unspecified",
+          "parts": {
+            "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+            "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+            "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+            "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+            "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+          },
+          "policy": "Representative genre-level acoustic vocal/percussion arrangement. Lead, harmonized response and toaster roles remain within combined vocal-group card; number of humans and alternating spoken/sung distribution unspecified. Generic hand drum preserves a physical membrane role without naming local subtype. Bottle is deliberately realized as an empty ordinary glass vessel struck with a wooden implement; no claim these are observed original dimensions/materials/technique. No exact recorded performance reconstructed. Existing live-room capture is an authored ensemble presentation."
+        },
+        {
+          "instrument": "credited_bottle",
+          "parts": {
+            "credited_bottle_material": "credited_bottle_glass",
+            "credited_bottle_geometry": "credited_bottle_geometry_unspecified",
+            "credited_bottle_fill": "credited_bottle_empty",
+            "credited_bottle_excitation": "credited_bottle_struck_wood",
+            "credited_bottle_support": "credited_bottle_handheld"
+          },
+          "policy": "Representative genre-level acoustic vocal/percussion arrangement. Lead, harmonized response and toaster roles remain within combined vocal-group card; number of humans and alternating spoken/sung distribution unspecified. Generic hand drum preserves a physical membrane role without naming local subtype. Bottle is deliberately realized as an empty ordinary glass vessel struck with a wooden implement; no claim these are observed original dimensions/materials/technique. No exact recorded performance reconstructed. Existing live-room capture is an authored ensemble presentation."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "actual_live_singers_count": null,
+        "count_basis": "Lead plus responding singers and toaster explicitly positive; human total and role doubling unknown."
+      },
+      "instrument_role_audit": {
+        "voice": "Lead, harmonized response and toaster retained",
+        "hand_drum_source_unspecified": "Documented tambour; subtype and source construction unknown",
+        "credited_bottle": "Documented rhythmic bottle; authored struck-glass realization"
+      },
+      "dependency_audit": {
+        "new": [
+          "credited_bottle"
+        ],
+        "existing": [
+          "voice",
+          "hand_drum_source_unspecified"
+        ],
+        "old_owners_untouched": true
+      },
+      "source_scope_limitation": "Genre-level representative practice, not reconstruction of a named recording. Bottle physical choices are authored under documented instrumental role.",
+      "classification_evidence": "Institutional explicitMapouka style article and performer ownpractice declaration; percussion-led dance parent preserves actual core architecture.",
+      "source_url": "https://everynoise.com/engenremap-mapouka.html"
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "credited_bottle",
+        "name": "Bottle percussion",
+        "short": "Bottle percussion",
+        "family": "percussion",
+        "class": "credited_bottle",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": -1,
+          "polyphony": -1,
+          "harmonicity": 0,
+          "register": 0,
+          "range": -1,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "credited_bottle_material",
+            "name": "Vessel material",
+            "variants": [
+              {
+                "id": "credited_bottle_glass",
+                "name": "Ordinary glass bottle (authored choice)",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "glass"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "credited_bottle_geometry",
+            "name": "Vessel dimensions and form",
+            "variants": [
+              {
+                "id": "credited_bottle_geometry_unspecified",
+                "name": "Bottle geometry and dimensions unspecified",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "credited_bottle_fill",
+            "name": "Contents and pitch adjustment",
+            "variants": [
+              {
+                "id": "credited_bottle_empty",
+                "name": "Empty vessel, no measured pitch (authored choice)",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "credited_bottle_excitation",
+            "name": "Excitation and implement",
+            "variants": [
+              {
+                "id": "credited_bottle_struck_wood",
+                "name": "Bottle struck with wooden implement (authored choice)",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "struck",
+                  "wooden"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "credited_bottle_support",
+            "name": "Support and damping",
+            "variants": [
+              {
+                "id": "credited_bottle_handheld",
+                "name": "Hand-held bottle; damping from grip (authored choice)",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "hand-held",
+                  "damped"
+                ]
+              }
+            ]
+          }
+        ],
+        "description": "Hand-held glass bottle used as a percussion instrument, with independent choices for vessel form, contents, striking implement and grip damping.",
+        "sources": [
+          "https://my.zikinf.com/aboutouroots",
+          "https://www.melo-app.com/notice/mapouka"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "credited_bottle",
+        "name": "Bottle percussion",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "credited_bottle",
+          "name": "Bottle percussion",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13422view0: CC BY2.5 IainFergusson/Binksternet crop verified; exact historical byte and visual receipts retained.",
+          "fresh_review_ref": "turn13422view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13422view0"
+        ]
+      },
+      "dependency_rationale": "Standalone rhythmic bottle role, distinct from compound bottle-and-bowl household ensemble. Independent vessel material, geometry, contents, excitation and support controls preserve meaningful construction. Glass, empty vessel and wooden striker are representative authored choices; source confirms rhythmic bottle role without these specifications. Standalone rhythmic bottle role, distinct from compound bottle-and-bowl household ensemble. Independent vessel material, geometry, contents, excitation and support controls preserve meaningful construction. Glass, empty vessel and wooden striker are representative authored choices; source confirms rhythmic bottle role without these specifications.",
+      "primary_sources": [
+        {
+          "url": "https://my.zikinf.com/aboutouroots",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13407view0 firsthand Aboutou Roots identifies customary drum, bottle, lead/harmonized responding voices plus toaster, and Mapouka Serré dance use. General practice, not exact issued recording."
+        },
+        {
+          "url": "https://www.melo-app.com/notice/mapouka",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13407view1 institutional style profile confirms Ivorian dance field, traditional drum/bottle/soloist/chorus and rhythmic influence on coupé-décalé. Named historical performers and1990s dissemination."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://my.zikinf.com/aboutouroots",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13407view0 firsthand Aboutou Roots identifies customary drum, bottle, lead/harmonized responding voices plus toaster, and Mapouka Serré dance use. General practice, not exact issued recording."
+        },
+        {
+          "url": "https://www.melo-app.com/notice/mapouka",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13407view1 institutional style profile confirms Ivorian dance field, traditional drum/bottle/soloist/chorus and rhythmic influence on coupé-décalé. Named historical performers and1990s dissemination."
+        }
+      ]
+    }
+  ],
+  "equivalences": [],
+  "blockers": []
+}

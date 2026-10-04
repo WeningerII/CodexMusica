@@ -1,0 +1,263 @@
+{
+  "entries": [
+    {
+      "source_label": "new hampshire indie",
+      "source_url": "https://everynoise.com/engenremap-newhampshireindie.html",
+      "suggested_id": "new_hampshire_indie",
+      "allocation_ordinal": 4001,
+      "allocation_group_id": "161",
+      "status": "unresolved",
+      "id": "new_hampshire_indie",
+      "tradition": {
+        "id": "new_hampshire_indie",
+        "name": "New Hampshire indie",
+        "family": "vernacular",
+        "lineage": "Footings — complete four-song Passerine with Timothy Horgan, issued1August2014 on the artist-owned catalog. Timothy Horgan plays guitars; Eric Gagne sings and contributes guitar on one song. Two credited people, one singer, one guitar family; both guitar contributors retained within that family. All four works O The Golden Light, We Haven’t Aged Just Like Our Folks, A Bomb or Another Ice Age and Will I Take Your Hand are included. This is a separately issued complete release, not a reduced version of the earlier held2018 string-rich album, which remains unchanged. No assumed voices or other instruments imported from current band biography; no original audio audition claimed. All source voices and guitar contributors retained; repeated guitars are one catalog family, not an assertion only one guitar performance occurred. Bare guitars and acoustic tagged context receive authored all-mahogany steel-string OM construction, phosphor-bronze strings and flatpicked single-note phrasing; these are new rendition choices, not measured original hardware/gesture. Neutral vocal physiology and unspecified intonation retained; single accompanied lead is source-coherent, one-track delivery editorial rather than unknown studio layering claim. Controlled live-room setting is an authored new recording environment; no original capture apparatus or global temperament imposed. Broad balladPoetry follows the compact lyric-led voice/guitar song realization. Actual up-tempo voice is explicitly authored brisk pacing, not documented original BPM.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_om"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_flatpicked_lead"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Footings — complete four-song Passerine with Timothy Horgan, issued1August2014 on the artist-owned catalog. Timothy Horgan plays guitars; Eric Gagne sings and contributes guitar on one song. Two credited people, one singer, one guitar family; both guitar contributors retained within that family. All four works O The Golden Light, We Haven’t Aged Just Like Our Folks, A Bomb or Another Ice Age and Will I Take Your Hand are included. This is a separately issued complete release, not a reduced version of the earlier held2018 string-rich album, which remains unchanged. No assumed voices or other instruments imported from current band biography; no original audio audition claimed. The artist-owned catalog locates Footings in Peterborough, New Hampshire and tags the selected release indie/acoustic/folk. The same artist’s release biography documents Gagne’s organizing role at Keene Nova Arts and the Thing in the Spring festival, providing an actual scene/institutional connection rather than birthplace alone. Independent publisher Dead Broke explicitly identifies New Hampshire Notches indie-pop/pop-punk, confirming a regional network spanning different styles. Existing broad indie_rock/indie_folk and US indie overlap musically; queued regional scenes elsewhere do not encompass this New Hampshire community. New England adjacency is acknowledged, not a claim of mutually exclusive sound grammar. The present compact lyrical duo is one complete source branch, not a definition of every regional artist. Exact creator map currently times out, so no fresh individual playlist-membership assertion is made; multiple firsthand artist/publisher regional sources support the actual field. All source voices and guitar contributors retained; repeated guitars are one catalog family, not an assertion only one guitar performance occurred. Bare guitars and acoustic tagged context receive authored all-mahogany steel-string OM construction, phosphor-bronze strings and flatpicked single-note phrasing; these are new rendition choices, not measured original hardware/gesture. Neutral vocal physiology and unspecified intonation retained; single accompanied lead is source-coherent, one-track delivery editorial rather than unknown studio layering claim. Controlled live-room setting is an authored new recording environment; no original capture apparatus or global temperament imposed. Broad balladPoetry follows the compact lyric-led voice/guitar song realization. Actual up-tempo voice is explicitly authored brisk pacing, not documented original BPM.",
+        "exemplars": [
+          "Footings — complete Passerine with Timothy Horgan,2014four-song edition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        42.8706,
+        -71.9517,
+        "Peterborough",
+        "North America"
+      ],
+      "geo_rationale": "Artist identifies Peterborough,New Hampshire; editorial band-community anchor,not exact studio coordinate.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://footings.bandcamp.com/album/passerine-with-timothy-horgan",
+          "title": "Artist-issued complete four-song release",
+          "support_notes": "Fresh11376view2/11378view1 exact complete two-person guitar+voice credits,2014-08-01,full fourtracklist and Peterborough/indie identity.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://footings.bandcamp.com/album/the-worm-moon",
+          "title": "Artist’s firsthand regional scene biography",
+          "support_notes": "Fresh11367search1 Gagne participates Keene Nova Arts and Thing in the Spring Peterborough/Keene festival; later2025musical roster is not imported into2014release.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.deadbrokerecords.com/releases.php",
+          "title": "Independent publisher regional network",
+          "support_notes": "Fresh11381view1 lines81–90 explicitly New Hampshire Notches indie-pop/pop-punk; category-context corroboration only, no sound-role transfer.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "The artist-owned catalog locates Footings in Peterborough, New Hampshire and tags the selected release indie/acoustic/folk. The same artist’s release biography documents Gagne’s organizing role at Keene Nova Arts and the Thing in the Spring festival, providing an actual scene/institutional connection rather than birthplace alone. Independent publisher Dead Broke explicitly identifies New Hampshire Notches indie-pop/pop-punk, confirming a regional network spanning different styles. Existing broad indie_rock/indie_folk and US indie overlap musically; queued regional scenes elsewhere do not encompass this New Hampshire community. New England adjacency is acknowledged, not a claim of mutually exclusive sound grammar. The present compact lyrical duo is one complete source branch, not a definition of every regional artist. Exact creator map currently times out, so no fresh individual playlist-membership assertion is made; multiple firsthand artist/publisher regional sources support the actual field.",
+      "model_policy": "All source voices and guitar contributors retained; repeated guitars are one catalog family, not an assertion only one guitar performance occurred. Bare guitars and acoustic tagged context receive authored all-mahogany steel-string OM construction, phosphor-bronze strings and flatpicked single-note phrasing; these are new rendition choices, not measured original hardware/gesture. Neutral vocal physiology and unspecified intonation retained; single accompanied lead is source-coherent, one-track delivery editorial rather than unknown studio layering claim. Controlled live-room setting is an authored new recording environment; no original capture apparatus or global temperament imposed. Broad balladPoetry follows the compact lyric-led voice/guitar song realization. Actual up-tempo voice is explicitly authored brisk pacing, not documented original BPM.",
+      "classification_evidence": {
+        "mode": "full_artist_issued_roster_and_primary_regional_network",
+        "note": "The artist-owned catalog locates Footings in Peterborough, New Hampshire and tags the selected release indie/acoustic/folk. The same artist’s release biography documents Gagne’s organizing role at Keene Nova Arts and the Thing in the Spring festival, providing an actual scene/institutional connection rather than birthplace alone. Independent publisher Dead Broke explicitly identifies New Hampshire Notches indie-pop/pop-punk, confirming a regional network spanning different styles. Existing broad indie_rock/indie_folk and US indie overlap musically; queued regional scenes elsewhere do not encompass this New Hampshire community. New England adjacency is acknowledged, not a claim of mutually exclusive sound grammar. The present compact lyrical duo is one complete source branch, not a definition of every regional artist. Exact creator map currently times out, so no fresh individual playlist-membership assertion is made; multiple firsthand artist/publisher regional sources support the actual field."
+      },
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "singers": [
+          "Eric Gagne"
+        ],
+        "decision": "Timothy Horgan guitars; Gagne voice and additional guitar on one song. One singer, not a vocal duet."
+      },
+      "instrument_role_audit": {
+        "scope": "Footings — complete four-song Passerine with Timothy Horgan, issued1August2014 on the artist-owned catalog. Timothy Horgan plays guitars; Eric Gagne sings and contributes guitar on one song. Two credited people, one singer, one guitar family; both guitar contributors retained within that family. All four works O The Golden Light, We Haven’t Aged Just Like Our Folks, A Bomb or Another Ice Age and Will I Take Your Hand are included. This is a separately issued complete release, not a reduced version of the earlier held2018 string-rich album, which remains unchanged. No assumed voices or other instruments imported from current band biography; no original audio audition claimed.",
+        "roles": {
+          "voice": "Eric Gagne",
+          "acoustic_guitar_om": "Timothy Horgan guitars; additional Eric Gagne guitar on one song, same authored family"
+        },
+        "authored_defaults": "All source voices and guitar contributors retained; repeated guitars are one catalog family, not an assertion only one guitar performance occurred. Bare guitars and acoustic tagged context receive authored all-mahogany steel-string OM construction, phosphor-bronze strings and flatpicked single-note phrasing; these are new rendition choices, not measured original hardware/gesture. Neutral vocal physiology and unspecified intonation retained; single accompanied lead is source-coherent, one-track delivery editorial rather than unknown studio layering claim. Controlled live-room setting is an authored new recording environment; no original capture apparatus or global temperament imposed. Broad balladPoetry follows the compact lyric-led voice/guitar song realization. Actual up-tempo voice is explicitly authored brisk pacing, not documented original BPM."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All source voices and guitar contributors retained; repeated guitars are one catalog family, not an assertion only one guitar performance occurred. Bare guitars and acoustic tagged context receive authored all-mahogany steel-string OM construction, phosphor-bronze strings and flatpicked single-note phrasing; these are new rendition choices, not measured original hardware/gesture. Neutral vocal physiology and unspecified intonation retained; single accompanied lead is source-coherent, one-track delivery editorial rather than unknown studio layering claim. Controlled live-room setting is an authored new recording environment; no original capture apparatus or global temperament imposed. Broad balladPoetry follows the compact lyric-led voice/guitar song realization. Actual up-tempo voice is explicitly authored brisk pacing, not documented original BPM."
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top_om",
+            "back_sides": "mahogany_bs_om",
+            "string_acoustic": "phosphor_om",
+            "acoustic_om_technique": "om_flatpicked_lead"
+          },
+          "policy": "All source voices and guitar contributors retained; repeated guitars are one catalog family, not an assertion only one guitar performance occurred. Bare guitars and acoustic tagged context receive authored all-mahogany steel-string OM construction, phosphor-bronze strings and flatpicked single-note phrasing; these are new rendition choices, not measured original hardware/gesture. Neutral vocal physiology and unspecified intonation retained; single accompanied lead is source-coherent, one-track delivery editorial rather than unknown studio layering claim. Controlled live-room setting is an authored new recording environment; no original capture apparatus or global temperament imposed. Broad balladPoetry follows the compact lyric-led voice/guitar song realization. Actual up-tempo voice is explicitly authored brisk pacing, not documented original BPM."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All22 owning controls protected; source guitar contributors aggregate within one family without omitting a credited timbre."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "source_scope_limitation": "Footings — complete four-song Passerine with Timothy Horgan, issued1August2014 on the artist-owned catalog. Timothy Horgan plays guitars; Eric Gagne sings and contributes guitar on one song. Two credited people, one singer, one guitar family; both guitar contributors retained within that family. All four works O The Golden Light, We Haven’t Aged Just Like Our Folks, A Bomb or Another Ice Age and Will I Take Your Hand are included. This is a separately issued complete release, not a reduced version of the earlier held2018 string-rich album, which remains unchanged. No assumed voices or other instruments imported from current band biography; no original audio audition claimed.",
+      "primary_retrieval_refs": [
+        "turn11378view1",
+        "turn11367search1",
+        "turn11381view1"
+      ],
+      "source_retrieval_caveat": "Creator map11381view0 times out; no fabricated successful retrieval or exact Footings membership. Full primary community sources independently positive.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "new_hampshire_indie",
+          "name": "New Hampshire indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not the artists, guitars or actual source hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11343view0 Commons source confirms Iain Fergusson original, Binksternet crop and CC BY2.5; exact023 historical bytes and visual receipts retained without new transfer.",
+          "fresh_review_ref": "turn11343view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11343view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

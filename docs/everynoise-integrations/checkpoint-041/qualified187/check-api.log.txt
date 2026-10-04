@@ -1,0 +1,8 @@
+  …validated 6725 tradition files
+  …validated 1653 instrument files
+=== Static API contract (api) ===
+PASS — artifact honors every documented promise:
+  ✓ 6725 traditions complete (index + per-id files + all.json)
+  ✓ 1653 instruments complete
+  ✓ every recipe <= 1000 chars, recipe_chars accurate
+  ✓ every config id resolves against the catalog

@@ -1,0 +1,329 @@
+{
+  "entries": [
+    {
+      "source_label": "puerto rican indie",
+      "source_url": "https://everynoise.com/engenremap-puertoricanindie.html",
+      "suggested_id": "puerto_rican_indie",
+      "allocation_ordinal": 4181,
+      "allocation_group_id": "168",
+      "status": "frozen_pending_independent_review",
+      "id": "puerto_rican_indie",
+      "tradition": {
+        "id": "puerto_rican_indie",
+        "name": "Puerto Rican indie",
+        "family": "rock_punk",
+        "lineage": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously. Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.punk",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously. Puerto Rican indie is the island’s independently organized, cross-style recording and performing community. Artist self-description and tags positively identify Hammmy as Puerto Rican indie rock; FENCast’s first-person local scene documentation explicitly includes Hammmy among independent/alternative/underground events. The exact creator roster spans Campo-Formio1, Superaquello14, Orquesta el Macabeo19, Los Pleneros de la Cresta36 and Siete Nueve37, so this is not exclusively rock or pop and not an exclusion of traditional/rap crossovers. Actual old puerto_rican_rock already includes independent Campo-Formio and puerto_rican_pop explicitly includes Superaquello indie-pop: acknowledge those substantial overlapping subsets rather than falsely restricting them to commercial or historical artists. The new field is the positively documented cross-style independent community axis, not a different album alone. Queued rap_boricua is a specifically rap community; bomba/plena/aguinaldo have specific historical rhythmic/ritual practices. No exact Hammmy creator-playlist membership asserted. Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed.",
+        "exemplars": [
+          "Hammmy — 3 m’s (2022), full nine-track album role union"
+        ],
+        "crossRefs": [],
+        "status": "documented"
+      },
+      "geo": [
+        18.22,
+        -66.59,
+        "Puerto Rico",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Island-level artist home-community anchor explicitly Puerto Rico; not an invented recording city.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Puerto Rican indie is the island’s independently organized, cross-style recording and performing community. Artist self-description and tags positively identify Hammmy as Puerto Rican indie rock; FENCast’s first-person local scene documentation explicitly includes Hammmy among independent/alternative/underground events. The exact creator roster spans Campo-Formio1, Superaquello14, Orquesta el Macabeo19, Los Pleneros de la Cresta36 and Siete Nueve37, so this is not exclusively rock or pop and not an exclusion of traditional/rap crossovers. Actual old puerto_rican_rock already includes independent Campo-Formio and puerto_rican_pop explicitly includes Superaquello indie-pop: acknowledge those substantial overlapping subsets rather than falsely restricting them to commercial or historical artists. The new field is the positively documented cross-style independent community axis, not a different album alone. Queued rap_boricua is a specifically rap community; bomba/plena/aguinaldo have specific historical rhythmic/ritual practices. No exact Hammmy creator-playlist membership asserted.",
+      "model_policy": "Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed.",
+      "source_scope_limitation": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously.",
+      "instrument_role_audit": {
+        "scope": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously.",
+        "positive_roles": {
+          "Xavier Iglesias": [
+            "voice",
+            "guitar",
+            "drums",
+            "bass on h8 2 c it"
+          ],
+          "Renate Rivera": [
+            "bass"
+          ],
+          "Jean Ortiz": [
+            "drums on naisrobi!"
+          ]
+        },
+        "authored_defaults": "Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed."
+      },
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "named_singers": [
+          "Xavier Iglesias"
+        ],
+        "source_tracking_count": "unknown",
+        "decision": "One positively named singer; authored single-lead presentation, no claimed source overdub count."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "Shared body_wood consistently alder material for guitar and bass; amp_make unspecified shared. All49effective owning parts protected by47flat pins.",
+        "fallbacks": []
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://hammyclans.bandcamp.com/album/3-ms",
+          "support_notes": "Fresh turn10999view0 full nine-track album, complete three-person/four-family role credits with two track exceptions, Puerto Rico location and explicit indie rock/emo/punk description.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.ivoox.com/en/podcast-fencast_sq_f1861451_1.html",
+          "support_notes": "Fresh turn11002view1 and turn992238search3 first-person local independent-scene documentation; episode030 expressly covers Hammmy alongside community artists/events.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6RvOIQPUfQg7kGde06Wdas",
+          "support_notes": "Fresh turn11002view0 exact creator playlist demonstrates cross-style community and explicit overlap with existing rock/pop exemplar artists; no selected artist membership claimed.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "puerto_rican_indie",
+          "name": "Puerto Rican indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Hammmy, source session or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10920view3/10921view1 confirms original Iain Fergusson/Binksternet crop and CC BY2.5; historical exact bytes/visual retained without new download claim.",
+          "fresh_review_ref": "turn10920view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn10920view3",
+          "turn10921view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

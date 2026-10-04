@@ -1,0 +1,189 @@
+{
+  "status": "HOLD",
+  "fixture": "freak_folk_2000s",
+  "frozen_sha256": "29b2355724a90f715e61f64d5f0045491bfc63dd36834499c03fa2282190edb2",
+  "baseline": "2765a5e5e1dc1523ff9180625b089af3f04089b2",
+  "method": "Unchanged original seedFromTradition/search(maxIters=100)/translate against exact fixture definition. Counterfactuals remove rows/extras in process memory only before requiring solver. No repository edits.",
+  "source_and_extras_unchanged": true,
+  "seed_unchanged": false,
+  "source_pins_preserved": "Old raw rows/extras and all imported browser cards independently unchanged; these four selected slots are solver fallback changes, not revised source pins.",
+  "before_context": [
+    "freak_folk_2000s",
+    "french_indietronica",
+    "hyperpop_francais"
+  ],
+  "after_context": [
+    "freak_folk_2000s",
+    "french_indietronica",
+    "hyperpop_en_espanol"
+  ],
+  "changed_slots": [
+    {
+      "instrument": "voice",
+      "part": "voice_pitch_organization",
+      "before": "voice_pitch_slendro_5",
+      "after": "voice_pitch_just_intonation"
+    },
+    {
+      "instrument": "violin_orchestral",
+      "part": "orch_rosin",
+      "before": "bernardel_rosin_orch",
+      "after": "magic_rosin_orch"
+    },
+    {
+      "instrument": "violin_orchestral",
+      "part": "orch_varnish",
+      "before": "french_polish_violin",
+      "after": "modern_synthetic_varnish_violin"
+    },
+    {
+      "instrument": "glockenspiel",
+      "part": "glockenspiel_size",
+      "before": "glockenspiel_orch_25",
+      "after": "glockenspiel_orch_3"
+    }
+  ],
+  "render_difference": "Only visible neighbor name hyperpop fran\u00e7ais -> hyperpop en espa\u00f1ol; four material selected-control changes are concealed by the short output.",
+  "counterfactuals": [
+    {
+      "removed": [
+        "dark_progressive_house",
+        "anime_rap",
+        "armenian_hip_hop",
+        "botswana_hip_hop",
+        "classical_drill",
+        "detroit_trap_brasileiro",
+        "ethiopian_hip_hop",
+        "german_viral_rap",
+        "hip_hop_boliviano",
+        "hip_hop_mauritanien",
+        "hip_hop_timur",
+        "hong_kong_hip_hop",
+        "icelandic_hip_hop",
+        "israelite_hip_hop",
+        "korean_drill",
+        "korean_underground_rap",
+        "lao_hip_hop",
+        "latvian_hip_hop",
+        "magyar_trap",
+        "military_rap",
+        "mongolian_hip_hop",
+        "northeast_indian_hip_hop",
+        "norwegian_trap",
+        "persian_underground_hip_hop",
+        "pinoy_alternative_rap",
+        "polish_drill",
+        "polish_old_school_hip_hop",
+        "polish_underground_rap",
+        "rap_geek",
+        "surinamese_hip_hop",
+        "swedish_drill",
+        "kamba_pop",
+        "karen_pop",
+        "ladakhi_pop",
+        "lao_pop",
+        "liberian_pop",
+        "maluku_pop",
+        "mising_pop",
+        "mizo_pop",
+        "oromo_pop",
+        "pahadi_pop",
+        "palestinian_pop",
+        "png_pop",
+        "polish_viral_pop",
+        "pop_flamenco",
+        "pop_urbaine",
+        "sambalpuri_pop",
+        "santali_pop",
+        "sorani_pop",
+        "thai_indie_pop",
+        "underground_power_pop",
+        "zomi_pop",
+        "viet_edm",
+        "myanmar_gospel",
+        "cantaditas",
+        "cantonese_worship",
+        "cartoni_animati",
+        "chinese_bgm",
+        "chinese_drama_ost",
+        "classic_bhangra",
+        "cumbia_cristiana",
+        "cumbia_ecuatoriana",
+        "double_drumming",
+        "ethnotronica",
+        "experimental_big_band",
+        "festigal",
+        "focus",
+        "french_movie_tunes",
+        "grupero_romantico",
+        "gumbe",
+        "hyperpop_brasileiro",
+        "hyperpop_en_espanol",
+        "ilahiler",
+        "indie_boliviano",
+        "indie_catala",
+        "indie_cristao",
+        "indie_liguria",
+        "indie_nica",
+        "japanese_buddhist_chant",
+        "japanese_psychedelic",
+        "japanese_vgm",
+        "kabyle_moderne",
+        "korean_soundtrack",
+        "korean_talent_show",
+        "lagu_iban",
+        "lagu_jambi",
+        "lagu_maluku",
+        "lagu_tarling",
+        "lo_fi_brasileiro",
+        "louvores_pentecostais",
+        "magyar_kabare",
+        "merida_indie",
+        "middle_eastern_traditional",
+        "musica_aguascalentense",
+        "musica_bautista",
+        "musica_coahuilense",
+        "musica_evangelica_instrumental",
+        "musica_michoacana",
+        "musica_nayarita",
+        "musica_timor_leste"
+      ],
+      "full_config_restored": true,
+      "output_restored": true,
+      "score_restored": true
+    },
+    {
+      "removed": [
+        "hyperpop_en_espanol"
+      ],
+      "full_config_restored": true,
+      "output_restored": true,
+      "score_restored": true
+    }
+  ],
+  "minimal_tested_whole_proposal_hold": [
+    "hyperpop_en_espanol"
+  ],
+  "individual_source_review": "Remains PASS as a genre-practice proposal; causal hold concerns integration effect on protected old fixture.",
+  "content_verdict": "Do not refresh snapshot. Replacing a selected five-tone slendro organization with just intonation is a material unsupported old-fixture alteration. The baseline already contains questionable vocal defaults and unrelated context labels; exact restoration is containment, not validation of those legacy choices. Violin surface/rosin and glockenspiel compass also drift without source changes. Holding the one complete new proposal restores all configuration fields and scores while preserving its evidence for later qualification.",
+  "other_1147_and_remaining_fixture_scope": "Root initial serial output pass does not prove hidden full-configuration preservation for other fixtures; full graph/config coverage is pending for consolidated candidate.",
+  "artifacts": {
+    "baseline": {
+      "path": "/tmp/batch041/fixture-baseline119.json",
+      "sha256": "0f8b5eab12f3852c738b3e3cd6571adb0df36b6323de0f2cf4d43242bcb979b2"
+    },
+    "current": {
+      "path": "/tmp/batch041/fixture-current119.json",
+      "sha256": "cfc627d70fe05cd7829c3c2639bc6ce7e88093a0096403fece625593e9dea282"
+    },
+    "without100": {
+      "path": "/tmp/batch041/fixture-without100119.json",
+      "sha256": "0520bd6892cc11050d53734e0b4e204995ad5a441eda9a598508966388c1452c"
+    },
+    "without-hyperpop": {
+      "path": "/tmp/batch041/fixture-without-hyperpop119.json",
+      "sha256": "44b72a55f0a74063d20d715a1e3e79bf4b08133723b3af6487bb7fe39413ab0e"
+    }
+  },
+  "snapshot_update_authorized": false
+}

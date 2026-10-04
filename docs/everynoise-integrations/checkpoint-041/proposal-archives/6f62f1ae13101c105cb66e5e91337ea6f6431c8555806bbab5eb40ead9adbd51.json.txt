@@ -1,0 +1,220 @@
+{
+  "entries": [
+    {
+      "source_label": "spa",
+      "source_url": "https://everynoise.com/engenremap-spa.html",
+      "suggested_id": "spa",
+      "allocation_ordinal": 4326,
+      "allocation_group_id": "174",
+      "id": "spa",
+      "tradition": {
+        "id": "spa",
+        "name": "Spa",
+        "family": "global",
+        "lineage": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted. Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": -1,
+          "density": -2,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -2,
+          "cyclicity": 0
+        },
+        "description": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted. Spa is the cross-style functional music field commissioned or selected for spa spaces and treatment journeys. Myndstream own service and help pages describe multi-zone reception/treatment/relaxation programming and durations matched to treatments. This independently establishes a professional listening-use practice rather than treating an artist named Spa as sufficient evidence. Existing new_age and new_age_piano cover broad contemplative musical styles, including many non-spa listening contexts; spa use can include those styles without being their synonym. Existing massage is the narrower massage listening function, represented by Roger Spees but not restricted to that exemplar. Spa includes massage while extending to reception, hydrothermal areas and other treatments. Existing world_meditation and guided_meditation concern contemplative instrumental or spoken instructional practices, which may overlap spa programmes. No claim of disjoint audiences or therapeutic effectiveness is made. Creator Spa playlist independently confirms a broad functional discovery field including piano, water and other sound sources; no BGMLABO membership or identity with its Relaxing Spa Music artist credit is asserted. Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed.",
+        "exemplars": [
+          "BGMLABO — complete stated solo-piano spa-scoring practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.6762,
+        139.6503,
+        "Tokyo",
+        "East Asia"
+      ],
+      "geo_rationale": "Own issuer describes Japanese original piano and Tokyo among its scene anchors. Tokyo is an editorial national anchor, not a claimed recording location, origin of all spa music or specific company address.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Spa is the cross-style functional music field commissioned or selected for spa spaces and treatment journeys. Myndstream own service and help pages describe multi-zone reception/treatment/relaxation programming and durations matched to treatments. This independently establishes a professional listening-use practice rather than treating an artist named Spa as sufficient evidence. Existing new_age and new_age_piano cover broad contemplative musical styles, including many non-spa listening contexts; spa use can include those styles without being their synonym. Existing massage is the narrower massage listening function, represented by Roger Spees but not restricted to that exemplar. Spa includes massage while extending to reception, hydrothermal areas and other treatments. Existing world_meditation and guided_meditation concern contemplative instrumental or spoken instructional practices, which may overlap spa programmes. No claim of disjoint audiences or therapeutic effectiveness is made. Creator Spa playlist independently confirms a broad functional discovery field including piano, water and other sound sources; no BGMLABO membership or identity with its Relaxing Spa Music artist credit is asserted.",
+      "classification_evidence": {
+        "scope": "Spa is the cross-style functional music field commissioned or selected for spa spaces and treatment journeys. Myndstream own service and help pages describe multi-zone reception/treatment/relaxation programming and durations matched to treatments. This independently establishes a professional listening-use practice rather than treating an artist named Spa as sufficient evidence. Existing new_age and new_age_piano cover broad contemplative musical styles, including many non-spa listening contexts; spa use can include those styles without being their synonym. Existing massage is the narrower massage listening function, represented by Roger Spees but not restricted to that exemplar. Spa includes massage while extending to reception, hydrothermal areas and other treatments. Existing world_meditation and guided_meditation concern contemplative instrumental or spoken instructional practices, which may overlap spa programmes. No claim of disjoint audiences or therapeutic effectiveness is made. Creator Spa playlist independently confirms a broad functional discovery field including piano, water and other sound sources; no BGMLABO membership or identity with its Relaxing Spa Music artist credit is asserted.",
+        "tree_rationale": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed."
+      },
+      "model_policy": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed.",
+      "source_scope_limitation": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted.",
+      "vocal_count_audit": {
+        "selected_singer_count": 0,
+        "performer_count": "unknown",
+        "decision": "Whole selected issuer practice explicitly solo piano and no vocals; do not infer one named human from one instrument role."
+      },
+      "instrument_role_audit": {
+        "scope": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted.",
+        "roles": {
+          "upright_piano": "Whole stated piano-only practice; upright construction authored"
+        },
+        "authored_defaults": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed."
+        }
+      ],
+      "flat_pin_resolution": "All three applicable owning parts protected; original-engine mechanical validation pending.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ],
+        "existing_instruments_changed": false
+      },
+      "sources": [
+        {
+          "url": "https://bgm-labo.com/en/business/spa-music",
+          "title": "Issuer complete solo-piano spa-scoring practice",
+          "support_notes": "Fresh turn120641view0 explicitly whole original solo piano/no vocals, slow/spacious texture and all spa zones. Practice only; inconsistent linked playlist not used for exact programme. No efficacy claims adopted."
+        },
+        {
+          "url": "https://bgm-labo.com/en/spaces/luxury-spa-music",
+          "title": "Issuer stated spa composition and deployment practice",
+          "support_notes": "Fresh turn120641view1 supports whole defined piano-only practice, sparse/soft presentation; publisher branding language not objective quality claim."
+        },
+        {
+          "url": "https://www.myndstream.com/spa-wellness",
+          "title": "Professional spa functional music commissioning and multi-zone service",
+          "support_notes": "Fresh turn120641view2 independently establishes named professional use field and spa-zone programming; no Myndstream membership for BGMLABO or efficacy inference."
+        },
+        {
+          "url": "https://www.myndstream.com/help/spa-wellness",
+          "title": "Provider treatment-duration and programming documentation",
+          "support_notes": "Fresh turn544533view1 identifies 45/60/90/120 minute curated programmes. These are provider examples, not BGMLABO duration claims."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0oRBlN7Dq4UxzVQl7q2bVO",
+          "title": "Creator Spa discovery corpus",
+          "support_notes": "Fresh turn544533view0 full functional programme roster; no exact selected issuer membership claimed."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0VY1ADEkJb7x2dNQfpAIuA",
+          "title": "Disclosed mismatch in issuer listening link",
+          "support_notes": "Fresh turn571955view0 resolves Neon Tokyo Dreams21tracks, rather than page SpaMusic label. Not used to prove whole palette or exact repertoire."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "spa",
+          "name": "Spa",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not the piano, spa rooms or performer.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn310927view0 Commons exact attribution and CC BY2.5; historical023 bytes and visual receipts reused candidly.",
+          "fresh_review_ref": "turn310927view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn310927view0"
+        ],
+        "fresh_rights_review": "Fresh turn310927view0 rights; no current binary or visual claim."
+      },
+      "status": "candidate_pending_independent_review",
+      "verification_status": "Original combined controls/render preflight pending; no integrated build or CI claim."
+    }
+  ],
+  "instrument_dependencies": []
+}

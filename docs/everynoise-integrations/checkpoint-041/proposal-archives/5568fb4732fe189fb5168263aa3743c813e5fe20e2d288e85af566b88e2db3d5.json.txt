@@ -1,0 +1,210 @@
+{
+  "entries": [
+    {
+      "source_label": "korean underground rap",
+      "source_url": "https://everynoise.com/engenremap-koreanundergroundrap.html",
+      "suggested_id": "korean_underground_rap",
+      "allocation_ordinal": 371,
+      "allocation_group_id": "015",
+      "status": "frozen_for_independent_review",
+      "id": "korean_underground_rap",
+      "tradition": {
+        "id": "korean_underground_rap",
+        "name": "Korean underground rap",
+        "family": "hip_hop",
+        "lineage": "Rock Bottom Crew — complete separately scheduled DJ afterparty, The Black Heart,Camden,London,14April2016,22:30–01:00. Preserved promoter announcement explicitly assigns Rock Bottom DJs to this afterparty, distinguished by venue/time/18-plus admission from the earlier Underworld rap concert. Model the whole announced150-minute DJ programme with all embedded musical/vocal layers; unknown deck medium, number of DJs, actual tracklist and embedded vocal headcounts remain unknown. This is announced practice, not an auditioned recording or proof the event occurred exactly as scheduled. Earlier named live rappers and the main-show song examples are not silently transferred to the separate afterparty, and no actual live-vocal count of zero is asserted. Existing neutral DJ playback/mixing retains the actual announced practice and all embedded production layers without guessing individual studio instruments. Its source-medium-unspecified identity is the single applicable protected control. No live singer card is added absent a positive separately announced voice role for this DJ programme; actual live headcount is unknown. No global tuning, capture chain, deck make or source-room measurement inferred. Controlled live-room spatial presentation is authored club listening, not measured BlackHeart acoustics. Broad mcRhythm follows the positively hip-hop community programme. Rendered up-tempo playback is an authored brisk club-rendition choice, not a recovered BPM or universal tempo claim.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rock Bottom Crew — complete separately scheduled DJ afterparty, The Black Heart,Camden,London,14April2016,22:30–01:00. Preserved promoter announcement explicitly assigns Rock Bottom DJs to this afterparty, distinguished by venue/time/18-plus admission from the earlier Underworld rap concert. Model the whole announced150-minute DJ programme with all embedded musical/vocal layers; unknown deck medium, number of DJs, actual tracklist and embedded vocal headcounts remain unknown. This is announced practice, not an auditioned recording or proof the event occurred exactly as scheduled. Earlier named live rappers and the main-show song examples are not silently transferred to the separate afterparty, and no actual live-vocal count of zero is asserted. The promoter explicitly names Rock Bottom as a Korean underground hip-hop crew, describes its earlier Daenamhyup network and collaborative street-culture practice, and schedules a community DJ afterparty. This is a positively documented crew/performance network within Korean hip-hop, not an invented sonic genre based on different personnel. Existing korean_hip_hop includes broad1990s roots and later commercial/television/label scenes; its inclusion of underground origins does not make every contemporary underground-community activity coextensive with the whole national umbrella. Korean trap and old-school fields overlap musically but are stylistic/historical axes rather than this continuing independent crew network. Members have television/idol affiliations, candidly preserved; underground does not assert never-commercial purity. Exact creator corpus was retrieved but named RockBottom member matches were not reproduced; community attribution rests on the explicit promoter announcement, not fabricated exact playlist membership. Existing neutral DJ playback/mixing retains the actual announced practice and all embedded production layers without guessing individual studio instruments. Its source-medium-unspecified identity is the single applicable protected control. No live singer card is added absent a positive separately announced voice role for this DJ programme; actual live headcount is unknown. No global tuning, capture chain, deck make or source-room measurement inferred. Controlled live-room spatial presentation is authored club listening, not measured BlackHeart acoustics. Broad mcRhythm follows the positively hip-hop community programme. Rendered up-tempo playback is an authored brisk club-rendition choice, not a recovered BPM or universal tempo claim. Existing k_rap explicitly already includes the ongoing underground club circuit, cyphers, streaming and ShowMeTheMoney as part of broad non-idol Korean rap; it is not confined to historical underground origins. Overlap is substantial. This requested narrower discovery community is supported by the explicitly self-organized RockBottom/Daenamhyup crew and its dedicated international circulation and afterparty programme, not an assertion that underground practice is excluded from k_rap or that the selected DJs define a new sonic grammar.",
+        "exemplars": [
+          "Rock Bottom Crew DJs — complete announced BlackHeart afterparty2016"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        51.539,
+        -0.142,
+        "London",
+        "Europe"
+      ],
+      "geo_rationale": "Actual announced event city; not Korean-scene origin or a claim all artists are London residents.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://londonkoreanlinks.net/2016/03/28/event-news-rock-bottom-crew/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11686view2 explicit promoter quotation assigns DJs to distinct22:30–01:00 BlackHeart afterparty; named Korean underground crew and DNH history, separate mainshow roster."
+        },
+        {
+          "url": "https://hiphopkr.com/news/events/rock-bottom-crew-x-london/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11686view1/11694search3 corroborates14April2016, separate afterparty time/location/18plus admission. Mainshow songs not asserted to be afterparty tracklist."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0XeoMjDv09XMDKrfpJargo",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11684view1 exact named corpus; no chosen crew member match asserted."
+        }
+      ],
+      "neighbor_distinction": "The promoter explicitly names Rock Bottom as a Korean underground hip-hop crew, describes its earlier Daenamhyup network and collaborative street-culture practice, and schedules a community DJ afterparty. This is a positively documented crew/performance network within Korean hip-hop, not an invented sonic genre based on different personnel. Existing korean_hip_hop includes broad1990s roots and later commercial/television/label scenes; its inclusion of underground origins does not make every contemporary underground-community activity coextensive with the whole national umbrella. Korean trap and old-school fields overlap musically but are stylistic/historical axes rather than this continuing independent crew network. Members have television/idol affiliations, candidly preserved; underground does not assert never-commercial purity. Exact creator corpus was retrieved but named RockBottom member matches were not reproduced; community attribution rests on the explicit promoter announcement, not fabricated exact playlist membership. Existing k_rap explicitly already includes the ongoing underground club circuit, cyphers, streaming and ShowMeTheMoney as part of broad non-idol Korean rap; it is not confined to historical underground origins. Overlap is substantial. This requested narrower discovery community is supported by the explicitly self-organized RockBottom/Daenamhyup crew and its dedicated international circulation and afterparty programme, not an assertion that underground practice is excluded from k_rap or that the selected DJs define a new sonic grammar.",
+      "model_policy": "Existing neutral DJ playback/mixing retains the actual announced practice and all embedded production layers without guessing individual studio instruments. Its source-medium-unspecified identity is the single applicable protected control. No live singer card is added absent a positive separately announced voice role for this DJ programme; actual live headcount is unknown. No global tuning, capture chain, deck make or source-room measurement inferred. Controlled live-room spatial presentation is authored club listening, not measured BlackHeart acoustics. Broad mcRhythm follows the positively hip-hop community programme. Rendered up-tempo playback is an authored brisk club-rendition choice, not a recovered BPM or universal tempo claim.",
+      "classification_evidence": {
+        "mode": "preserved_promoter_announcement_named_underground_network",
+        "note": "The promoter explicitly names Rock Bottom as a Korean underground hip-hop crew, describes its earlier Daenamhyup network and collaborative street-culture practice, and schedules a community DJ afterparty. This is a positively documented crew/performance network within Korean hip-hop, not an invented sonic genre based on different personnel. Existing korean_hip_hop includes broad1990s roots and later commercial/television/label scenes; its inclusion of underground origins does not make every contemporary underground-community activity coextensive with the whole national umbrella. Korean trap and old-school fields overlap musically but are stylistic/historical axes rather than this continuing independent crew network. Members have television/idol affiliations, candidly preserved; underground does not assert never-commercial purity. Exact creator corpus was retrieved but named RockBottom member matches were not reproduced; community attribution rests on the explicit promoter announcement, not fabricated exact playlist membership. Existing k_rap explicitly already includes the ongoing underground club circuit, cyphers, streaming and ShowMeTheMoney as part of broad non-idol Korean rap; it is not confined to historical underground origins. Overlap is substantial. This requested narrower discovery community is supported by the explicitly self-organized RockBottom/Daenamhyup crew and its dedicated international circulation and afterparty programme, not an assertion that underground practice is excluded from k_rap or that the selected DJs define a new sonic grammar."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "actual_live_singer_count": "unknown",
+        "added_live_singer_cards": 0,
+        "embedded_playback_voices": "unknown",
+        "reason": "Whole separately scheduled DJ programme, no source evidence of additional live singers in this programme."
+      },
+      "instrument_role_audit": {
+        "scope": "Rock Bottom Crew — complete separately scheduled DJ afterparty, The Black Heart,Camden,London,14April2016,22:30–01:00. Preserved promoter announcement explicitly assigns Rock Bottom DJs to this afterparty, distinguished by venue/time/18-plus admission from the earlier Underworld rap concert. Model the whole announced150-minute DJ programme with all embedded musical/vocal layers; unknown deck medium, number of DJs, actual tracklist and embedded vocal headcounts remain unknown. This is announced practice, not an auditioned recording or proof the event occurred exactly as scheduled. Earlier named live rappers and the main-show song examples are not silently transferred to the separate afterparty, and no actual live-vocal count of zero is asserted.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Rock Bottom DJs, full separate150-minute announced programme"
+        },
+        "authored_defaults": "Existing neutral DJ playback/mixing retains the actual announced practice and all embedded production layers without guessing individual studio instruments. Its source-medium-unspecified identity is the single applicable protected control. No live singer card is added absent a positive separately announced voice role for this DJ programme; actual live headcount is unknown. No global tuning, capture chain, deck make or source-room measurement inferred. Controlled live-room spatial presentation is authored club listening, not measured BlackHeart acoustics. Broad mcRhythm follows the positively hip-hop community programme."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Existing neutral DJ playback/mixing retains the actual announced practice and all embedded production layers without guessing individual studio instruments. Its source-medium-unspecified identity is the single applicable protected control. No live singer card is added absent a positive separately announced voice role for this DJ programme; actual live headcount is unknown. No global tuning, capture chain, deck make or source-room measurement inferred. Controlled live-room spatial presentation is authored club listening, not measured BlackHeart acoustics. Broad mcRhythm follows the positively hip-hop community programme."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Single applicable DJ identity protected, no inherited technique fallback."
+      },
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638
+      },
+      "verification_status": "Author original-loader1part/full1638preservation/photo check and actual four original app outputs PASS. No source tempo measured; no final integrated CI claim.",
+      "source_scope_limitation": "Rock Bottom Crew — complete separately scheduled DJ afterparty, The Black Heart,Camden,London,14April2016,22:30–01:00. Preserved promoter announcement explicitly assigns Rock Bottom DJs to this afterparty, distinguished by venue/time/18-plus admission from the earlier Underworld rap concert. Model the whole announced150-minute DJ programme with all embedded musical/vocal layers; unknown deck medium, number of DJs, actual tracklist and embedded vocal headcounts remain unknown. This is announced practice, not an auditioned recording or proof the event occurred exactly as scheduled. Earlier named live rappers and the main-show song examples are not silently transferred to the separate afterparty, and no actual live-vocal count of zero is asserted.",
+      "primary_retrieval_refs": [
+        "turn11686view2",
+        "turn11686view1",
+        "turn11694search3",
+        "turn11684view1"
+      ],
+      "source_retrieval_caveat": "Promoter announcement preserved as an explicit block quotation by LondonKoreanLinks and corroborating HiphopKR event notice. Original linked Underworld ticket page now fails; not claimed freshly read. Current exact creator contains broad named field but chosen crew membership not independently reproduced.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "korean_underground_rap",
+          "name": "Korean underground rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not RockBottom DJs, decks or actual BlackHeart apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11621view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11621view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11621view3"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

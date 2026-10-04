@@ -1,0 +1,450 @@
+{
+  "entries": [
+    {
+      "source_label": "japanese psychedelic",
+      "source_url": "https://everynoise.com/engenremap-japanesepsychedelic.html",
+      "suggested_id": "japanese_psychedelic",
+      "allocation_ordinal": 3571,
+      "allocation_group_id": "143",
+      "id": "japanese_psychedelic",
+      "tradition": {
+        "id": "japanese_psychedelic",
+        "name": "Japanese Psychedelic",
+        "family": "electronic",
+        "lineage": "Japanese psychedelic music — experimental rock, electronic exploration and immersive improvisation.",
+        "instruments": [
+          "credited_synthesizer_unspecified"
+        ],
+        "room": "live_room",
+        "chain_fx": [
+          "digital_delay"
+        ],
+        "pin_parts": true,
+        "parts": {
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Japanese psychedelic music spans guitar-driven rock and electronic or improvised exploration. Repetition, timbral transformation and extended textures connect different strands, from distorted bands to synthesizer-led soundscapes. Artists and collectives including C.C.C.C. and Taj Mahal Travellers illustrate its wider experimental network.",
+        "exemplars": [
+          "Fumio Kosakai — Look To The Light (complete21:31 B-side)"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        35.7045,
+        139.6205,
+        "Ogikubo",
+        "East Asia"
+      ],
+      "geo_rationale": "Artist explicitly names Ogikubo Tokyo live venue; broad locality anchor, not measured address.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Japanese Psychedelic is a broader national experimental psychedelic field containing guitar-rock and electronic/improvised lineages. Existing japanese_psychedelic_rock positively covers repeating fuzz rock via Minami Deutsch; overlap is substantial, but its distortedRock.experimental framing does not exhaust the field. Fresh creator map includes C.C.C.C., Taj Mahal Travellers and Hoahio alongside rock artists; issuer independently describes Kosakai psychedelic/electronic underground activity and Riley/Hawkwind-inspired minimalism. Kosakai membership in C.C.C.C. is source-positive; no claim his solo name appears in the map. Existing japanoise overlaps personnel but selected programme is positively electronic minimalism, not inferred extreme noise. Different track or hardware alone is not the boundary. Existing japanese_experimental is already a broad regional experimental umbrella with an acoustic free-improvisation branch: it overlaps this proposal. The narrower psychedelic lineage is independently identified by the issuer via Hawkwind/Space Ritual and Riley inspiration, not only a changed instrument or nationality. Neither national umbrella is asserted to exclude the other.",
+      "classification_evidence": "Japanese Psychedelic is a broader national experimental psychedelic field containing guitar-rock and electronic/improvised lineages. Existing japanese_psychedelic_rock positively covers repeating fuzz rock via Minami Deutsch; overlap is substantial, but its distortedRock.experimental framing does not exhaust the field. Fresh creator map includes C.C.C.C., Taj Mahal Travellers and Hoahio alongside rock artists; issuer independently describes Kosakai psychedelic/electronic underground activity and Riley/Hawkwind-inspired minimalism. Kosakai membership in C.C.C.C. is source-positive; no claim his solo name appears in the map. Existing japanoise overlaps personnel but selected programme is positively electronic minimalism, not inferred extreme noise. Different track or hardware alone is not the boundary. Existing japanese_experimental is already a broad regional experimental umbrella with an acoustic free-improvisation branch: it overlaps this proposal. The narrower psychedelic lineage is independently identified by the issuer via Hawkwind/Space Ritual and Riley inspiration, not only a changed instrument or nationality. Neither national umbrella is asserted to exclude the other.",
+      "dependency_audit": {
+        "policy": "Only existing catalog instrument and FX; no new owner or shared changes."
+      },
+      "flat_pin_resolution": {
+        "rule": "Sole owner identity part explicitly pinned; no shared flat-key collisions or unpinned controls."
+      },
+      "status": "candidate",
+      "verification_status": "Source/mechanics/one protected owning part/1638 original owners/four literal formats pass preflight; independent category and side-binding peer pending.",
+      "sources": [
+        {
+          "url": "https://memoirsofanaesthete.bandcamp.com/album/earth-calling",
+          "title": "Issuing label and artist firsthand whole-side account",
+          "support_notes": "Fresh12766view0 full source: B-side synth+digitaldelay, no added sound; separately distinguished A-side and album union. Psychedelic/electronic lineage and CCCC practice positive."
+        },
+        {
+          "url": "https://memoirsofanaesthete.bandcamp.com/track/look-to-the-light",
+          "title": "Whole separately sold digital track",
+          "support_notes": "Fresh12783view0, separate complete track purchase and album binding."
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-japanesepsychedelic.html",
+          "title": "Original creator field map",
+          "support_notes": "Fresh12766view1 full map with CCCC/TajMahalTravellers/Hoahio and rock network; not claiming exact solo performer membership."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "japanese_psychedelic",
+          "name": "Japanese Psychedelic",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12783view1 exact Commons attribution/license; inherited byte and visual receipt unchanged.",
+          "fresh_review_ref": "turn12783view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12783view1"
+        ],
+        "fresh_rights_review": "Fresh rights only; historical exact bytes and visual review retained."
+      },
+      "primary_retrieval_refs": [
+        "turn12766view0",
+        "turn12766view1",
+        "turn12783view0"
+      ],
+      "source_review_refs": [
+        "turn12766view0",
+        "turn12766view1",
+        "turn12783view0"
+      ],
+      "source_retrieval_caveat": "Actual primary text read; no audio audition. B-side attribution follows label track order/durations and performer side distinction; independent peer should verify scope.",
+      "render_context_audit": {
+        "scope": "All four original formats read; max197characters and parity pass.",
+        "interpretation": "Up-tempo is an authored brisk repetitive presentation, not a measured original BPM; source explicitly describes infinite repetition but does not specify speed. Digital-delay mechanism remains source-positive. No physical synthesizer architecture inferred.",
+        "limitation": "Original final integrated signature/API pipeline still requires review."
+      },
+      "repair_evidence": {
+        "original_source": "/tmp/batch040/resume461-13.json",
+        "original_entry": {
+          "source_label": "japanese psychedelic",
+          "source_url": "https://everynoise.com/engenremap-japanesepsychedelic.html",
+          "suggested_id": "japanese_psychedelic",
+          "allocation_ordinal": 3571,
+          "allocation_group_id": "143",
+          "id": "japanese_psychedelic",
+          "tradition": {
+            "id": "japanese_psychedelic",
+            "name": "Japanese Psychedelic",
+            "family": "electronic",
+            "lineage": "Fumio Kosakai — Look To The Light, complete21:31 B-side of Earth Calling, separately issuer-sold digital track. Artist firsthand account describes this B-side as a small Yamaha synthesizer with digital delay, released as performed without later added sounds. This deliberately selects the complete side, not the whole album: A-side transmitter, environmental tapes, overdubs and album-level bass are not asserted for this explicitly narrower performance. No audio audition or original synthesizer architecture inferred. Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention.",
+            "instruments": [
+              "credited_synthesizer_unspecified"
+            ],
+            "room": "live_room",
+            "chain_fx": [
+              "digital_delay"
+            ],
+            "pin_parts": true,
+            "parts": {
+              "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "experimentalElec",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Fumio Kosakai — Look To The Light, complete21:31 B-side of Earth Calling, separately issuer-sold digital track. Artist firsthand account describes this B-side as a small Yamaha synthesizer with digital delay, released as performed without later added sounds. This deliberately selects the complete side, not the whole album: A-side transmitter, environmental tapes, overdubs and album-level bass are not asserted for this explicitly narrower performance. No audio audition or original synthesizer architecture inferred. Japanese Psychedelic is a broader national experimental psychedelic field containing guitar-rock and electronic/improvised lineages. Existing japanese_psychedelic_rock positively covers repeating fuzz rock via Minami Deutsch; overlap is substantial, but its distortedRock.experimental framing does not exhaust the field. Fresh creator map includes C.C.C.C., Taj Mahal Travellers and Hoahio alongside rock artists; issuer independently describes Kosakai psychedelic/electronic underground activity and Riley/Hawkwind-inspired minimalism. Kosakai membership in C.C.C.C. is source-positive; no claim his solo name appears in the map. Existing japanoise overlaps personnel but selected programme is positively electronic minimalism, not inferred extreme noise. Different track or hardware alone is not the boundary. Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention. Existing japanese_experimental is already a broad regional experimental umbrella with an acoustic free-improvisation branch: it overlaps this proposal. The narrower psychedelic lineage is independently identified by the issuer via Hawkwind/Space Ritual and Riley inspiration, not only a changed instrument or nationality. Neither national umbrella is asserted to exclude the other.",
+            "exemplars": [
+              "Fumio Kosakai — Look To The Light (complete21:31 B-side)"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            35.7045,
+            139.6205,
+            "Ogikubo",
+            "East Asia"
+          ],
+          "geo_rationale": "Artist explicitly names Ogikubo Tokyo live venue; broad locality anchor, not measured address.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Japanese Psychedelic is a broader national experimental psychedelic field containing guitar-rock and electronic/improvised lineages. Existing japanese_psychedelic_rock positively covers repeating fuzz rock via Minami Deutsch; overlap is substantial, but its distortedRock.experimental framing does not exhaust the field. Fresh creator map includes C.C.C.C., Taj Mahal Travellers and Hoahio alongside rock artists; issuer independently describes Kosakai psychedelic/electronic underground activity and Riley/Hawkwind-inspired minimalism. Kosakai membership in C.C.C.C. is source-positive; no claim his solo name appears in the map. Existing japanoise overlaps personnel but selected programme is positively electronic minimalism, not inferred extreme noise. Different track or hardware alone is not the boundary. Existing japanese_experimental is already a broad regional experimental umbrella with an acoustic free-improvisation branch: it overlaps this proposal. The narrower psychedelic lineage is independently identified by the issuer via Hawkwind/Space Ritual and Riley inspiration, not only a changed instrument or nationality. Neither national umbrella is asserted to exclude the other.",
+          "model_policy": "Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention.",
+          "source_scope_limitation": "Fumio Kosakai — Look To The Light, complete21:31 B-side of Earth Calling, separately issuer-sold digital track. Artist firsthand account describes this B-side as a small Yamaha synthesizer with digital delay, released as performed without later added sounds. This deliberately selects the complete side, not the whole album: A-side transmitter, environmental tapes, overdubs and album-level bass are not asserted for this explicitly narrower performance. No audio audition or original synthesizer architecture inferred.",
+          "classification_evidence": "Japanese Psychedelic is a broader national experimental psychedelic field containing guitar-rock and electronic/improvised lineages. Existing japanese_psychedelic_rock positively covers repeating fuzz rock via Minami Deutsch; overlap is substantial, but its distortedRock.experimental framing does not exhaust the field. Fresh creator map includes C.C.C.C., Taj Mahal Travellers and Hoahio alongside rock artists; issuer independently describes Kosakai psychedelic/electronic underground activity and Riley/Hawkwind-inspired minimalism. Kosakai membership in C.C.C.C. is source-positive; no claim his solo name appears in the map. Existing japanoise overlaps personnel but selected programme is positively electronic minimalism, not inferred extreme noise. Different track or hardware alone is not the boundary. Existing japanese_experimental is already a broad regional experimental umbrella with an acoustic free-improvisation branch: it overlaps this proposal. The narrower psychedelic lineage is independently identified by the issuer via Hawkwind/Space Ritual and Riley inspiration, not only a changed instrument or nationality. Neither national umbrella is asserted to exclude the other.",
+          "vocal_count_audit": {
+            "selected_count": 0,
+            "actual_live_singers_count": 0,
+            "count_basis": "Explicit sole synthesizer+digital-delay performance; no additional sounds, per performer, for this complete B-side only."
+          },
+          "instrument_role_audit": {
+            "scope": "Fumio Kosakai — Look To The Light, complete21:31 B-side of Earth Calling, separately issuer-sold digital track. Artist firsthand account describes this B-side as a small Yamaha synthesizer with digital delay, released as performed without later added sounds. This deliberately selects the complete side, not the whole album: A-side transmitter, environmental tapes, overdubs and album-level bass are not asserted for this explicitly narrower performance. No audio audition or original synthesizer architecture inferred.",
+            "roles": {
+              "credited_synthesizer_unspecified": "Complete source small Yamaha synthesizer performance; architecture unknown"
+            },
+            "effects": {
+              "digital_delay": "Explicit source digital delay"
+            },
+            "performers": [
+              "Fumio Kosakai"
+            ],
+            "authored_defaults": "Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention."
+          },
+          "dependency_audit": {
+            "policy": "Only existing catalog instrument and FX; no new owner or shared changes."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "credited_synthesizer_unspecified",
+              "parts": {
+                "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+              },
+              "policy": "Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "Sole owner identity part explicitly pinned; no shared flat-key collisions or unpinned controls."
+          },
+          "status": "candidate",
+          "verification_status": "Source/mechanics/one protected owning part/1638 original owners/four literal formats pass preflight; independent category and side-binding peer pending.",
+          "sources": [
+            {
+              "url": "https://memoirsofanaesthete.bandcamp.com/album/earth-calling",
+              "title": "Issuing label and artist firsthand whole-side account",
+              "support_notes": "Fresh12766view0 full source: B-side synth+digitaldelay, no added sound; separately distinguished A-side and album union. Psychedelic/electronic lineage and CCCC practice positive."
+            },
+            {
+              "url": "https://memoirsofanaesthete.bandcamp.com/track/look-to-the-light",
+              "title": "Whole separately sold digital track",
+              "support_notes": "Fresh12783view0, separate complete track purchase and album binding."
+            },
+            {
+              "url": "https://furia.com/everynoise_public/engenremap-japanesepsychedelic.html",
+              "title": "Original creator field map",
+              "support_notes": "Fresh12766view1 full map with CCCC/TajMahalTravellers/Hoahio and rock network; not claiming exact solo performer membership."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "japanese_psychedelic",
+              "name": "Japanese Psychedelic",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording context, not source synthesizer, performer or actual session equipment.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12783view1 exact Commons attribution/license; inherited byte and visual receipt unchanged.",
+              "fresh_review_ref": "turn12783view1"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12783view1"
+            ],
+            "fresh_rights_review": "Fresh rights only; historical exact bytes and visual review retained."
+          },
+          "primary_retrieval_refs": [
+            "turn12766view0",
+            "turn12766view1",
+            "turn12783view0"
+          ],
+          "source_review_refs": [
+            "turn12766view0",
+            "turn12766view1",
+            "turn12783view0"
+          ],
+          "source_retrieval_caveat": "Actual primary text read; no audio audition. B-side attribution follows label track order/durations and performer side distinction; independent peer should verify scope.",
+          "render_context_audit": {
+            "scope": "All four original formats read; max197characters and parity pass.",
+            "interpretation": "Up-tempo is an authored brisk repetitive presentation, not a measured original BPM; source explicitly describes infinite repetition but does not specify speed. Digital-delay mechanism remains source-positive. No physical synthesizer architecture inferred.",
+            "limitation": "Original final integrated signature/API pipeline still requires review."
+          }
+        },
+        "reason": "Restore general genre profile and preserve exact recording/edition dossier separately; representative instrumental branch remains available.",
+        "default_review": "Existing coherent control choices are authored representative performance settings; exact original-session equipment and personnel not asserted.",
+        "prior_instrument_role_audit": {
+          "scope": "Fumio Kosakai — Look To The Light, complete21:31 B-side of Earth Calling, separately issuer-sold digital track. Artist firsthand account describes this B-side as a small Yamaha synthesizer with digital delay, released as performed without later added sounds. This deliberately selects the complete side, not the whole album: A-side transmitter, environmental tapes, overdubs and album-level bass are not asserted for this explicitly narrower performance. No audio audition or original synthesizer architecture inferred.",
+          "roles": {
+            "credited_synthesizer_unspecified": "Complete source small Yamaha synthesizer performance; architecture unknown"
+          },
+          "effects": {
+            "digital_delay": "Explicit source digital delay"
+          },
+          "performers": [
+            "Fumio Kosakai"
+          ],
+          "authored_defaults": "Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention."
+        },
+        "prior_resolved_parts_audit": [
+          {
+            "instrument": "credited_synthesizer_unspecified",
+            "parts": {
+              "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+            },
+            "policy": "Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention."
+          }
+        ],
+        "prior_vocal_count_audit": {
+          "selected_count": 0,
+          "actual_live_singers_count": 0,
+          "count_basis": "Explicit sole synthesizer+digital-delay performance; no additional sounds, per performer, for this complete B-side only."
+        },
+        "prior_model_policy": "Existing credited_synthesizer_unspecified retains positively named synthesizer identity and unknown architecture/model, with its one meaningful identity control protected. Small keyboard/Yamaha provenance retained in evidence but not encoded as fabricated oscillators/polyphony. Existing digital_delay FX retains the positive effect mechanism; exact feedback/time settings unknown, catalog descriptors are authored rendition defaults. Controlled live-room capture is authored, not original venue geometry; no optional chain or global temperament. Broad experimentalElec follows documented electronic minimalism and repetitive live sound construction, not song-form or dancebeat invention.",
+        "prior_source_scope_limitation": "Fumio Kosakai — Look To The Light, complete21:31 B-side of Earth Calling, separately issuer-sold digital track. Artist firsthand account describes this B-side as a small Yamaha synthesizer with digital delay, released as performed without later added sounds. This deliberately selects the complete side, not the whole album: A-side transmitter, environmental tapes, overdubs and album-level bass are not asserted for this explicitly narrower performance. No audio audition or original synthesizer architecture inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "Existing coherent control choices are authored representative performance settings; exact original-session equipment and personnel not asserted."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate"
+}

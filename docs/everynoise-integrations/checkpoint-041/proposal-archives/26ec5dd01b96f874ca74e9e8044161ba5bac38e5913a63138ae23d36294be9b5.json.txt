@@ -1,0 +1,313 @@
+{
+  "entries": [
+    {
+      "source_label": "vintage italian soundtrack",
+      "source_url": "https://everynoise.com/engenremap-vintageitaliansoundtrack.html",
+      "suggested_id": "vintage_italian_soundtrack",
+      "allocation_ordinal": 4508,
+      "allocation_group_id": "181",
+      "id": "vintage_italian_soundtrack",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "vintage_italian_soundtrack",
+        "name": "Vintage Italian Soundtrack",
+        "family": "global",
+        "lineage": "Vintage Italian soundtrack music draws on the film and studio archives of the 1960s–80s, where jazz, orchestral writing, pop, funk and psychedelic textures served comedy, crime, horror and other screen genres. Reissue and licensing communities around CAM Sugar and Sonor Music Editions have renewed circulation of this repertoire. Alongside orchestral scores, studio groups such as I Marc 4 supplied compact, groove-led themes built from guitar, organ, bass and drums.",
+        "instruments": [
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "tonewheel_organ"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion.funkPercussive",
+        "axes": {
+          "harm": 1,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "Short thematic cues move between memorable melody, rhythmic accompaniment and contrasting instrumental colours. Electric organ, guitar and a bass-and-drum rhythm section support the jazz-funk studio-combo strand, while the wider archival field also includes orchestral, electronic and vocal film music.",
+        "exemplars": [
+          "I Marc 4",
+          "Gianni Ferrio",
+          "Piero Umiliani",
+          "CAM Sugar",
+          "Sonor Music Editions"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "artMusic"
+        ]
+      },
+      "geo": [
+        41.9028,
+        12.4964,
+        "Rome",
+        "Europe"
+      ],
+      "geo_rationale": "CAM founded Rome1960; representative historical studio and archive centre, not a claim about every source recording.",
+      "signature_tokens": [],
+      "model_policy": "Genre-level representative jazz-funk studio-combo strand positively documented by its current publisher, not a reconstructed album or claim that all Italian scores use four instruments. Conventional single-coil electric guitar, passive electric bass, maple drumkit and B3/Leslie with mellow jazz registration, short percussion and slow rotary are authored practical realizations. No precise personal gear attribution. Broad field remains stylistically varied; the chosen default emphasizes repeating rhythm-section grooves, hence funk-percussion parent for this branch rather than genre-wide formal classification. All applicable controls retained. The selected treatment is a lively, pointed jazz-funk groove with a lighter organ response; it is not a claim that every archive cue shares that affect.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Genre-level representative jazz-funk studio-combo strand positively documented by its current publisher, not a reconstructed album or claim that all Italian scores use four instruments. Conventional single-coil electric guitar, passive electric bass, maple drumkit and B3/Leslie with mellow jazz registration, short percussion and slow rotary are authored practical realizations. No precise personal gear attribution. Broad field remains stylistically varied; the chosen default emphasizes repeating rhythm-section grooves, hence funk-percussion parent for this branch rather than genre-wide formal classification. All applicable controls retained. The selected treatment is a lively, pointed jazz-funk groove with a lighter organ response; it is not a claim that every archive cue shares that affect."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Genre-level representative jazz-funk studio-combo strand positively documented by its current publisher, not a reconstructed album or claim that all Italian scores use four instruments. Conventional single-coil electric guitar, passive electric bass, maple drumkit and B3/Leslie with mellow jazz registration, short percussion and slow rotary are authored practical realizations. No precise personal gear attribution. Broad field remains stylistically varied; the chosen default emphasizes repeating rhythm-section grooves, hence funk-percussion parent for this branch rather than genre-wide formal classification. All applicable controls retained. The selected treatment is a lively, pointed jazz-funk groove with a lighter organ response; it is not a claim that every archive cue shares that affect."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Genre-level representative jazz-funk studio-combo strand positively documented by its current publisher, not a reconstructed album or claim that all Italian scores use four instruments. Conventional single-coil electric guitar, passive electric bass, maple drumkit and B3/Leslie with mellow jazz registration, short percussion and slow rotary are authored practical realizations. No precise personal gear attribution. Broad field remains stylistically varied; the chosen default emphasizes repeating rhythm-section grooves, hence funk-percussion parent for this branch rather than genre-wide formal classification. All applicable controls retained. The selected treatment is a lively, pointed jazz-funk groove with a lighter organ response; it is not a claim that every archive cue shares that affect."
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "parts": {
+            "keyboard_technique": "keyboard_ostinato_groove",
+            "drawbar_setting": "jazz_drawbars",
+            "rotary_speed": "slow_chorale",
+            "percussion_setting": "percussion_on_short",
+            "tonewheel_model": "tonewheel_hammond_b3",
+            "leslie_cabinet_model": "leslie_122_canonical"
+          },
+          "policy": "Genre-level representative jazz-funk studio-combo strand positively documented by its current publisher, not a reconstructed album or claim that all Italian scores use four instruments. Conventional single-coil electric guitar, passive electric bass, maple drumkit and B3/Leslie with mellow jazz registration, short percussion and slow rotary are authored practical realizations. No precise personal gear attribution. Broad field remains stylistically varied; the chosen default emphasizes repeating rhythm-section grooves, hence funk-percussion parent for this branch rather than genre-wide formal classification. All applicable controls retained. The selected treatment is a lively, pointed jazz-funk groove with a lighter organ response; it is not a claim that every archive cue shares that affect."
+        }
+      ],
+      "instrument_role_audit": [
+        {
+          "instrument": "electric_guitar_single_coil",
+          "basis": "Publisher identifies this family in I Marc4 studio quartet; representative genre branch, not an exhaustive union of all archive recordings."
+        },
+        {
+          "instrument": "electric_bass",
+          "basis": "Publisher identifies this family in I Marc4 studio quartet; representative genre branch, not an exhaustive union of all archive recordings."
+        },
+        {
+          "instrument": "drum_kit",
+          "basis": "Publisher identifies this family in I Marc4 studio quartet; representative genre branch, not an exhaustive union of all archive recordings."
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "basis": "Publisher identifies this family in I Marc4 studio quartet; representative genre branch, not an exhaustive union of all archive recordings."
+        }
+      ],
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "reason": "Instrumental studio-combo branch; broader archive also contains vocal repertoire."
+      },
+      "source_scope_limitation": "Genre-level representative jazz-funk studio-combo strand positively documented by its current publisher, not a reconstructed album or claim that all Italian scores use four instruments. Conventional single-coil electric guitar, passive electric bass, maple drumkit and B3/Leslie with mellow jazz registration, short percussion and slow rotary are authored practical realizations. No precise personal gear attribution. Broad field remains stylistically varied; the chosen default emphasizes repeating rhythm-section grooves, hence funk-percussion parent for this branch rather than genre-wide formal classification. All applicable controls retained.",
+      "neighbor_distinction": "Full Italian Soundtrack is the wider national screen-music field, not only the Morricone piano realization in its current default. This is a narrower archival and reissue-oriented historic repertoire, positively institutionalized by CAM Sugar archive recovery and Sonor golden-age catalogues; no new sonic language is claimed merely from the adjective vintage. Full Library Music includes Italian1960s–70s production cues and overlaps directly, but is defined by music written to abstract licensing briefs rather than an existing film; this field also includes originally picture-specific scores and subsequent archive discoveries. Classic Soundtrack is broader internationally. The selected quartet is representative of one documented branch and does not itself create the category distinction.",
+      "classification_evidence": "Full Italian Soundtrack is the wider national screen-music field, not only the Morricone piano realization in its current default. This is a narrower archival and reissue-oriented historic repertoire, positively institutionalized by CAM Sugar archive recovery and Sonor golden-age catalogues; no new sonic language is claimed merely from the adjective vintage. Full Library Music includes Italian1960s–70s production cues and overlaps directly, but is defined by music written to abstract licensing briefs rather than an existing film; this field also includes originally picture-specific scores and subsequent archive discoveries. Classic Soundtrack is broader internationally. The selected quartet is representative of one documented branch and does not itself create the category distinction.",
+      "sources": [
+        {
+          "url": "https://camsugarmusic.com/pages/about",
+          "title": "CAM Sugar official archive and catalogue history",
+          "primary": true,
+          "evidence_ref": "turn13684view1",
+          "supports": "Rome archive, historic genre-film scores, previously unissued master recovery and contemporary reissue/listening/sampling field."
+        },
+        {
+          "url": "https://sonormusiceditions.com/about",
+          "title": "Sonor Music Editions official history",
+          "primary": true,
+          "evidence_ref": "turn13684view0",
+          "supports": "Established reissue and licensing field around Italian1970s/80s library and soundtrack repertoire; no source claim that every title was film-specific."
+        },
+        {
+          "url": "https://sonormusiceditions.com/i_marc_4",
+          "title": "Publisher I Marc4 profile",
+          "primary": true,
+          "evidence_ref": "turn13684view2",
+          "supports": "Explicit bass/organ/drums/guitar quartet serving Italian1960s/70s film composers, with jazz/funk/psychedelic practice."
+        },
+        {
+          "url": "https://www.tracklib.com/blog/imarc4-italianlibrary-soundtrack-samples",
+          "title": "Licensed catalogue platform I Marc4 presentation",
+          "primary": true,
+          "evidence_ref": "turn13683search3",
+          "supports": "Explicit Hammond/piano identity and vintage Italian soundtrack/library licensing field; piano is an alternative broader practice, not mandatory for every organ-combo rendition."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "vintage_italian_soundtrack",
+          "name": "Vintage Italian Soundtrack",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13648view2 confirms exact Commons photographer, crop and CC BY2.5; historical preview receipt unchanged.",
+          "fresh_review_ref": "turn13648view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13648view2; historical bytes and visual observations unchanged.",
+        "fresh_rights_retrieval_refs": [
+          "turn13648view2"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -1,0 +1,316 @@
+{
+  "entries": [
+    {
+      "source_label": "oldschool deutschrap",
+      "source_url": "https://everynoise.com/engenremap-oldschooldeutschrap.html",
+      "suggested_id": "oldschool_deutschrap",
+      "allocation_ordinal": 4074,
+      "allocation_group_id": "163",
+      "id": "oldschool_deutschrap",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "oldschool_deutschrap",
+        "name": "Oldschool Deutschrap",
+        "family": "hip_hop",
+        "lineage": "Oldschool Deutschrap gathers the foundational generations of German-language hip hop, from the 1990s scenes of Heidelberg, Stuttgart, Hamburg and Munich to early-2000s street rap. Advanced Chemistry, Die Fantastischen Vier, Freundeskreis, Absolute Beginner and Fettes Brot helped shape its varied approaches to language, identity and everyday life.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "sampler_classic",
+          "turntable"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic verses, boom-bap grooves, sampled phrases and DJ scratching characterize much of the repertoire. Humour, social commentary and street narratives coexist across regional scenes and remain influential in later German rap.",
+        "exemplars": [
+          "Fettes Brot — Echo (Acapella), separately issued2013 full vocal edition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        53.55,
+        9.993,
+        "Hamburg",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial city anchor for the documented Hamburg band, not exact recording location.",
+      "sources": [
+        {
+          "url": "https://soundcloud.com/fettes-brot/echo-acapella",
+          "support_notes": "Fresh13209view0 actual dated full named acapella, artist-addressed remix invitation,159BPM and exact album association."
+        },
+        {
+          "url": "https://www.bigfm.de/webradio/oldschool-deutschrap",
+          "support_notes": "Fresh13214view0 broadcaster own named historical cross-city field,90s/early2000scohorts; not universal date cutoff."
+        },
+        {
+          "url": "https://music.apple.com/de/playlist/fettes-brot-essentials/pl.2f65f745fe184b62bccf5b27268afef3",
+          "support_notes": "Fresh13192search0 editorial explicitly oldschool canon of FettesBrot1995/1996hits."
+        },
+        {
+          "url": "https://www.hiphop.biz/fettes-brot-echo-neue-single-vom-neuen-album-3-is-ne-party",
+          "support_notes": "Fresh13218view0 contemporaneous release identification and Hamburg three-person band; supplementary not exact edition instrumentation."
+        },
+        {
+          "url": "https://www.bigfm.de/webradio/oldschool-deutschrap",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn13441view0 lines51–61: cross-city historical scene and positive boom-bap, scratching and sample practices."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Oldschool Deutschrap is the retrospectively curated historical German-language hip-hop cohort, positively organized as a distinct broadcaster programming field by bigFM across Munich, Heidelberg, Stuttgart, Hamburg and Berlin. Its definition includes1990s pioneers and early2000s street-rap successors, so it is not reduced to pre1992 or to boom-bap alone. Apple Music editorial identifies Fettes Brot’s1995/1996 hits as an established oldschool canon. Existing german_deutschrap is the full historical-to-current German-language umbrella, explicitly including those pioneers and later trap/drill streaming generations: the new field overlaps as a historical-cohort subset rather than claiming the old row omitted its roots. Hamburg hip-hop is locality rather than this cross-city retrospective community. This2013 separately issued rendition by a canonical historical act is a selected continuing practice of that cohort, not a claim that2013 was the birth era or that every later release by an older performer belongs to a distinct sonic style. The source’s lack of accompaniment does not define the category.",
+      "classification_evidence": "Broadcaster genre account explicitly names boom-bap beats, sampled material and scratching. Restored sampler and turntable roles missing from prior acapella-specific preset; retained unspecified vocal headcount. Existing MPC/16-bit/chopped-break defaults are representative production choices, not historical gear claims for every artist. No exact recording reconstruction.",
+      "model_policy": "Broadcaster genre account explicitly names boom-bap beats, sampled material and scratching. Restored sampler and turntable roles missing from prior acapella-specific preset; retained unspecified vocal headcount. Existing MPC/16-bit/chopped-break defaults are representative production choices, not historical gear claims for every artist. No exact recording reconstruction.",
+      "source_scope_limitation": "Genre-level representative sampled-beat and MC practice. Earlier acapella evidence preserved in genre_profile_repair_evidence, not a constraint on this revised palette.",
+      "source_retrieval_caveat": "Fresh direct exact artist-account track13209view0 succeeded and unmodified raw tool response retained oldschool-deutschrap-echo-primary-raw119.json. Artist account profile and current official website fetches failed; do not claim those profile pages independently retrieved. No exact creator map membership is asserted. Fresh broadcaster13214view0 and Apple editorial13192search0 substantiate historical field and selected cohort bridge.",
+      "instrument_role_audit": {
+        "human_voice_ensemble_unspecified": "Representative genre-practice role; original selected-edition personnel retained separately in evidence.",
+        "sampler_classic": "Representative genre-practice role; original selected-edition personnel retained separately in evidence.",
+        "turntable": "Representative genre-practice role; original selected-edition personnel retained separately in evidence."
+      },
+      "vocal_count_audit": {
+        "genre_wide_headcount": "Variable, not fixed by one edition",
+        "preset": "Accompanied singing or rhythmic rap representative setting"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broadcaster genre account explicitly names boom-bap beats, sampled material and scratching. Restored sampler and turntable roles missing from prior acapella-specific preset; retained unspecified vocal headcount. Existing MPC/16-bit/chopped-break defaults are representative production choices, not historical gear claims for every artist. No exact recording reconstruction."
+        },
+        {
+          "instrument": "sampler_classic",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sampler_archetypes": "akai_mpc",
+            "sampler_bit_depth": "sampler_sixteen_bit",
+            "sampler_workflow": "sampler_chopped_breaks",
+            "sampler_classic_context": "sampler_classic_hiphop"
+          },
+          "policy": "Broadcaster genre account explicitly names boom-bap beats, sampled material and scratching. Restored sampler and turntable roles missing from prior acapella-specific preset; retained unspecified vocal headcount. Existing MPC/16-bit/chopped-break defaults are representative production choices, not historical gear claims for every artist. No exact recording reconstruction."
+        },
+        {
+          "instrument": "turntable",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "turntable_technique": "turntable_scratch"
+          },
+          "policy": "Broadcaster genre account explicitly names boom-bap beats, sampled material and scratching. Restored sampler and turntable roles missing from prior acapella-specific preset; retained unspecified vocal headcount. Existing MPC/16-bit/chopped-break defaults are representative production choices, not historical gear claims for every artist. No exact recording reconstruction."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All seventeen owning controls protected; unknown count and tracking use existing neutral variants."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "oldschool_deutschrap",
+          "name": "Oldschool Deutschrap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn13149view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn13149view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Historical exact microphone assets retained; fresh Commons13149view0 verifies CC BY2.5 and attribution. Generic recording context only.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13149view0"
+        ]
+      },
+      "genre_profile_repair_evidence": {
+        "before_lineage": "Fettes Brot — Echo (Acapella), whole separately issued vocal edition published by the Fettes Brot SoundCloud account on23October2013. The issuer explicitly offers the acapella for remixing and identifies the forthcoming3isneParty album. All vocal material in that issued edition is retained; the accompanied album master is not reconstructed or reduced. Exact vocal headcount, alternation, backing doubles and studio layers are unspecified. The group attribution is preserved without inferring three simultaneous voices or absence of uncredited vocal doubles. No independent audio audition or source waveform analysis claimed. All vocal physiology, tradition, pitch system, ornament, ensemble headcount and tracking remain unspecified. Moderate effort, neutral tract and unprocessed voice are authored scaffolding, not measured original technique or evidence of no mastering. Source metadata gives159BPM, retained as source information without fabricating a schema tempo parameter. Treated-studio acoustics are an authored listening realization; original microphone, room and production hardware unknown and omitted. Broad spokenWord describes the selected unaccompanied rap-led vocal edition, not all arrangements of the category.",
+        "before_description": "Fettes Brot — Echo (Acapella), whole separately issued vocal edition published by the Fettes Brot SoundCloud account on23October2013. The issuer explicitly offers the acapella for remixing and identifies the forthcoming3isneParty album. All vocal material in that issued edition is retained; the accompanied album master is not reconstructed or reduced. Exact vocal headcount, alternation, backing doubles and studio layers are unspecified. The group attribution is preserved without inferring three simultaneous voices or absence of uncredited vocal doubles. No independent audio audition or source waveform analysis claimed. Oldschool Deutschrap is the retrospectively curated historical German-language hip-hop cohort, positively organized as a distinct broadcaster programming field by bigFM across Munich, Heidelberg, Stuttgart, Hamburg and Berlin. Its definition includes1990s pioneers and early2000s street-rap successors, so it is not reduced to pre1992 or to boom-bap alone. Apple Music editorial identifies Fettes Brot’s1995/1996 hits as an established oldschool canon. Existing german_deutschrap is the full historical-to-current German-language umbrella, explicitly including those pioneers and later trap/drill streaming generations: the new field overlaps as a historical-cohort subset rather than claiming the old row omitted its roots. Hamburg hip-hop is locality rather than this cross-city retrospective community. This2013 separately issued rendition by a canonical historical act is a selected continuing practice of that cohort, not a claim that2013 was the birth era or that every later release by an older performer belongs to a distinct sonic style. The source’s lack of accompaniment does not define the category. All vocal physiology, tradition, pitch system, ornament, ensemble headcount and tracking remain unspecified. Moderate effort, neutral tract and unprocessed voice are authored scaffolding, not measured original technique or evidence of no mastering. Source metadata gives159BPM, retained as source information without fabricating a schema tempo parameter. Treated-studio acoustics are an authored listening realization; original microphone, room and production hardware unknown and omitted. Broad spokenWord describes the selected unaccompanied rap-led vocal edition, not all arrangements of the category.",
+        "before_tradition": {
+          "id": "oldschool_deutschrap",
+          "name": "Oldschool Deutschrap",
+          "family": "hip_hop",
+          "lineage": "Fettes Brot — Echo (Acapella), whole separately issued vocal edition published by the Fettes Brot SoundCloud account on23October2013. The issuer explicitly offers the acapella for remixing and identifies the forthcoming3isneParty album. All vocal material in that issued edition is retained; the accompanied album master is not reconstructed or reduced. Exact vocal headcount, alternation, backing doubles and studio layers are unspecified. The group attribution is preserved without inferring three simultaneous voices or absence of uncredited vocal doubles. No independent audio audition or source waveform analysis claimed. All vocal physiology, tradition, pitch system, ornament, ensemble headcount and tracking remain unspecified. Moderate effort, neutral tract and unprocessed voice are authored scaffolding, not measured original technique or evidence of no mastering. Source metadata gives159BPM, retained as source information without fabricating a schema tempo parameter. Treated-studio acoustics are an authored listening realization; original microphone, room and production hardware unknown and omitted. Broad spokenWord describes the selected unaccompanied rap-led vocal edition, not all arrangements of the category.",
+          "instruments": [
+            "human_voice_ensemble_unspecified"
+          ],
+          "room": "treated_studio",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          }
+        },
+        "before_model_policy": "All vocal physiology, tradition, pitch system, ornament, ensemble headcount and tracking remain unspecified. Moderate effort, neutral tract and unprocessed voice are authored scaffolding, not measured original technique or evidence of no mastering. Source metadata gives159BPM, retained as source information without fabricating a schema tempo parameter. Treated-studio acoustics are an authored listening realization; original microphone, room and production hardware unknown and omitted. Broad spokenWord describes the selected unaccompanied rap-led vocal edition, not all arrangements of the category.",
+        "reason": "Replace selected-session and audit dossier in public prose with positive genre history and musical practice.",
+        "default_review": "Broadcaster genre account explicitly names boom-bap beats, sampled material and scratching. Restored sampler and turntable roles missing from prior acapella-specific preset; retained unspecified vocal headcount. Existing MPC/16-bit/chopped-break defaults are representative production choices, not historical gear claims for every artist. No exact recording reconstruction.",
+        "prior_role_and_vocal_audits": {
+          "instrument_role_audit": {
+            "human_voice_ensemble_unspecified": "Rhythmic rap vocals, headcount variable",
+            "sampler_classic": "Sampled phrases and chopped breakbeat production",
+            "turntable": "DJ scratching"
+          },
+          "vocal_count_audit": {
+            "credited_artist": "Fettes Brot",
+            "actual_vocal_headcount": "unknown",
+            "tracking": "unknown",
+            "additional_accompaniment_cards": 0,
+            "scope": "Whole expressly acapella edition; exact counts and overdubs not inferred from group biography."
+          },
+          "classification_evidence": {
+            "note": "Oldschool Deutschrap is the retrospectively curated historical German-language hip-hop cohort, positively organized as a distinct broadcaster programming field by bigFM across Munich, Heidelberg, Stuttgart, Hamburg and Berlin. Its definition includes1990s pioneers and early2000s street-rap successors, so it is not reduced to pre1992 or to boom-bap alone. Apple Music editorial identifies Fettes Brot’s1995/1996 hits as an established oldschool canon. Existing german_deutschrap is the full historical-to-current German-language umbrella, explicitly including those pioneers and later trap/drill streaming generations: the new field overlaps as a historical-cohort subset rather than claiming the old row omitted its roots. Hamburg hip-hop is locality rather than this cross-city retrospective community. This2013 separately issued rendition by a canonical historical act is a selected continuing practice of that cohort, not a claim that2013 was the birth era or that every later release by an older performer belongs to a distinct sonic style. The source’s lack of accompaniment does not define the category."
+          }
+        }
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

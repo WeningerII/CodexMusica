@@ -1,0 +1,1009 @@
+{
+  "status": "HOLD",
+  "freeze_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "scope": "All 194 actual generated API recipes read individually; configs checked against source pins and roster. This is not a browser-only review.",
+  "new_count": 194,
+  "source_pins_preserved": 5041,
+  "unexpected_context_rows": {
+    "musique_urbaine_brazzaville": [
+      "czsk_emo_rap",
+      "detroit_trap_brasileiro"
+    ],
+    "vintage_italian_soundtrack": [
+      "khmer_pinpeat",
+      "canadian_contemporary_classical"
+    ],
+    "jain_bhajan": [
+      "mappila_paattu",
+      "naat_south_asian"
+    ],
+    "reading": [
+      "acid_idm"
+    ]
+  },
+  "rows": [
+    {
+      "id": "dark_progressive_house",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "anime_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "armenian_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "botswana_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "classical_drill",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "detroit_trap_brasileiro",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "ethiopian_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "german_viral_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "hip_hop_boliviano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "hip_hop_mauritanien",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "hip_hop_timur",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "hong_kong_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "icelandic_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "israelite_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "korean_drill",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "korean_underground_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lao_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "latvian_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "magyar_trap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "maltese_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "military_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "mongolian_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "northeast_indian_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "norwegian_trap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "persian_underground_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "pinoy_alternative_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "polish_drill",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "polish_old_school_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "polish_underground_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "rap_geek",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "surinamese_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "swedish_drill",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "kamba_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "karbi_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "karen_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "kumaoni_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "ladakhi_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lao_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "liberian_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "maluku_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "mising_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "mizo_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "oromo_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "pahadi_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "palestinian_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "png_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "polish_viral_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "pop_flamenco",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "pop_urbaine",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "sambalpuri_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "santali_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "sorani_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "thai_indie_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "underground_power_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "zomi_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "viet_edm",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "myanmar_gospel",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "8d",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cantaditas",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cantonese_worship",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cartoni_animati",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "chinese_bgm",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "chinese_drama_ost",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "classic_bhangra",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cumbia_cristiana",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cumbia_ecuatoriana",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cumbia_santafesina",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "double_drumming",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "ethnotronica",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "experimental_big_band",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "festigal",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "focus",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "folklore_peruano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "frafra",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "french_movie_tunes",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "grupero_romantico",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "gumbe",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "hyperpop_brasileiro",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "ilahiler",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_boliviano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_catala",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_cristao",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_liguria",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_nica",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "japanese_psychedelic",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "japanese_vgm",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "kabyle_moderne",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "korean_soundtrack",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "korean_talent_show",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lagu_iban",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lagu_jambi",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lagu_maluku",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lagu_tarling",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lo_fi_brasileiro",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "louvores_pentecostais",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "magyar_kabare",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "mapouka",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "merida_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "middle_eastern_traditional",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "moorish_traditional",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_aguascalentense",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_bautista",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_coahuilense",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_evangelica_instrumental",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_michoacana",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_nayarita",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_otavalena",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_timor_leste",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_tlaxcalteca",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_triste_brasileira",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musica_urbana_oaxaquena",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musique_traditionnelle_congolaise",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musique_urbaine_brazzaville",
+      "status": "HOLD",
+      "reason": "Unsupported additional genre context in compiled config and recipe"
+    },
+    {
+      "id": "nasheed",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "new_hampshire_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "norrbotten_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "ny_roots",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "oeteldonk",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "old_school_nederhop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "oldschool_deutschrap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "otacore",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "pinoy_praise",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "polish_alternative",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "polish_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "portuguese_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "prank",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "psybass",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "puerto_rican_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "quebec_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "raspe",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "ringtone",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "ritmo_kombina",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "rumba",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "russian_ccm",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "russian_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "russian_plugg",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "russian_rave",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "sound",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "spa",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "spanish_new_wave",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "taiwan_graduation_song",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "talent_show",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "talentkonkurrence",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "talentos_brasileiros",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "telugu_indie",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "telugu_remix",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "vintage_hollywood",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "vintage_italian_soundtrack",
+      "status": "HOLD",
+      "reason": "Unsupported additional genre context in compiled config and recipe"
+    },
+    {
+      "id": "violao_classico",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "volkstumliche_musik",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "german_dark_minimal_techno",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "malaysian_tamil_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cloud_rap_francais",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indian_underground_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "turkmen_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "bouzouki",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "drill_chileno",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indonesian_emo_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "medimeisterschaften",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "tamaulipas_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "north_moroccan_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_campechano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "malawian_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "oc_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "flint_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "rap_angolano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "polish_alternative_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "fan_chant",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "folclor_colombiano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "czsk_emo_rap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "musik_anak_anak",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "tibetan_folk_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "telugu_devotional",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "jain_bhajan",
+      "status": "HOLD",
+      "reason": "Unsupported additional genre context in compiled config and recipe"
+    },
+    {
+      "id": "pop_boliviano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cantautor_catala",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "lagu_bugis",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "reading",
+      "status": "HOLD",
+      "reason": "Unsupported additional genre context in compiled config and recipe"
+    },
+    {
+      "id": "finnish_trap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "greek_drill",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "iowa_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "irish_drill",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "swiss_trap",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "persian_drill",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_curitibano",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "classic_ukrainian_pop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "cristiana_para_ninos",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "plugg_en_espanol",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "brockton_hip_hop",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "louange",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "dicsoites",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "pop_dance",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "indie_catracho",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    },
+    {
+      "id": "chinese_talent_show",
+      "status": "PASS_WITH_COMPRESSION_LIMIT",
+      "reason": "Actual recipe compatible with representative source practice and protected instrument controls; abbreviated text does not enumerate every retained config role."
+    }
+  ],
+  "limitations": [
+    "190 compatible recipe readings do not qualify the full catalog: old API delta remains under causal review.",
+    "Some unspecified vocal owners are compressed out of prose while retained in config.",
+    "Generic tonal, spatial and historical descriptors assessed using existing lexicon/source context, not interpreted automatically as extra instrumental personnel."
+  ],
+  "old_delta_summary": {
+    "changed_payloads": 23,
+    "changed_recipes": 6,
+    "changed_unprotected_slots": 43,
+    "protected_changes": 0
+  },
+  "geo_amendment": "/tmp/batch041/qualified/geo-amendment.json",
+  "repository_mutations": false
+}

@@ -1,0 +1,249 @@
+{
+  "entries": [
+    {
+      "source_label": "ladakhi pop",
+      "source_url": "https://everynoise.com/engenremap-ladakhipop.html",
+      "suggested_id": "ladakhi_pop",
+      "allocation_ordinal": 1779,
+      "allocation_group_id": "072",
+      "status": "ready_independent_review",
+      "id": "ladakhi_pop",
+      "tradition": {
+        "id": "ladakhi_pop",
+        "name": "Ladakhi pop",
+        "family": "pop",
+        "lineage": "Ladakhi pop — Rigzin Norbu's acoustic cover of Lungspo ju ju, as personally heard and described by ethnomusicologist Noé Dinnerstein. The published field account identifies a named song rendition for voice and guitar, not an excerpt transcription or an imagined reduction. Exact performance date, duration, singer count, who sings, and tracking are unspecified. The selected rendition is separate from the original arranged recording and from Da-Shugs' six-person Samvaad programme. Authored intimate song-poetry rendition with source-unspecified vocal physiology/count/tracking and an all-mahogany dreadnought acoustic guitar, phosphor-bronze strings and flatpicked articulation. Guitar construction, string setup, touch and dry treated-studio acoustic are editorial choices, not measurements of Rigzin's instrument or field venue. No global tuning or recording chain asserted.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "acoustic_guitar_dread"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze",
+          "acoustic_technique": "acoustic_flatpicked"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Ladakhi pop — Rigzin Norbu's acoustic cover of Lungspo ju ju, as personally heard and described by ethnomusicologist Noé Dinnerstein. The published field account identifies a named song rendition for voice and guitar, not an excerpt transcription or an imagined reduction. Exact performance date, duration, singer count, who sings, and tracking are unspecified. The selected rendition is separate from the original arranged recording and from Da-Shugs' six-person Samvaad programme. Ladakhi-language popular song has a documented regional media and practitioner history, with rural heritage and neighbouring Himalayan influences. It overlaps Himalayan folk, Tibetan pop and Nepali pop without being coextensive: the full existing Himalayan folk covers village repertories across the mid-Himalayan belt; Nepali pop is a Kathmandu-centred Nepali-language industry; Tibetan pop remains a broad Tibetan popular field, not merely its current experimental exemplar. This selected intimate acoustic love-song cover supports balladPoetry, not a claim that all Ladakhi pop has two sound families. Authored intimate song-poetry rendition with source-unspecified vocal physiology/count/tracking and an all-mahogany dreadnought acoustic guitar, phosphor-bronze strings and flatpicked articulation. Guitar construction, string setup, touch and dry treated-studio acoustic are editorial choices, not measurements of Rigzin's instrument or field venue. No global tuning or recording chain asserted.",
+        "exemplars": [
+          "Rigzin Norbu — Lungspo ju ju, firsthand documented acoustic rendition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        34.16,
+        77.58,
+        "Leh",
+        "South Asia"
+      ],
+      "geo_rationale": "Editorial Ladakhi regional music/media centre from field study, not asserted location of the private rendition.",
+      "sources": [
+        {
+          "url": "https://digitalcommons.macalester.edu/himalaya/vol38/iss1/14/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Official2018 journal landing page; linked PDF returned error. Full author-uploaded text independently retrieved below."
+        },
+        {
+          "url": "https://www.researchgate.net/publication/326186596_Himalayan_hybridity_and_the_evolution_of_Ladakhi_popular_music",
+          "checked_date": "2026-10-03",
+          "support_notes": "Firsthand ethnomusicological field study. Full text turn11488view0, p109 named voice/guitar cover at lines1988–1991; p104 identifies song authorship and romantic seasonal verse. Original recording orchestration is discussed separately. No audio audition or singer-number inference."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Ladakhi-language popular song has a documented regional media and practitioner history, with rural heritage and neighbouring Himalayan influences. It overlaps Himalayan folk, Tibetan pop and Nepali pop without being coextensive: the full existing Himalayan folk covers village repertories across the mid-Himalayan belt; Nepali pop is a Kathmandu-centred Nepali-language industry; Tibetan pop remains a broad Tibetan popular field, not merely its current experimental exemplar. This selected intimate acoustic love-song cover supports balladPoetry, not a claim that all Ladakhi pop has two sound families.",
+      "model_policy": "Authored intimate song-poetry rendition with source-unspecified vocal physiology/count/tracking and an all-mahogany dreadnought acoustic guitar, phosphor-bronze strings and flatpicked articulation. Guitar construction, string setup, touch and dry treated-studio acoustic are editorial choices, not measurements of Rigzin's instrument or field venue. No global tuning or recording chain asserted.",
+      "classification_evidence": "Ladakhi-language popular song has a documented regional media and practitioner history, with rural heritage and neighbouring Himalayan influences. It overlaps Himalayan folk, Tibetan pop and Nepali pop without being coextensive: the full existing Himalayan folk covers village repertories across the mid-Himalayan belt; Nepali pop is a Kathmandu-centred Nepali-language industry; Tibetan pop remains a broad Tibetan popular field, not merely its current experimental exemplar. This selected intimate acoustic love-song cover supports balladPoetry, not a claim that all Ladakhi pop has two sound families.",
+      "instrument_role_audit": {
+        "full_selected_scope": "Ladakhi pop — Rigzin Norbu's acoustic cover of Lungspo ju ju, as personally heard and described by ethnomusicologist Noé Dinnerstein. The published field account identifies a named song rendition for voice and guitar, not an excerpt transcription or an imagined reduction. Exact performance date, duration, singer count, who sings, and tracking are unspecified. The selected rendition is separate from the original arranged recording and from Da-Shugs' six-person Samvaad programme.",
+        "source_families": [
+          "voice",
+          "acoustic guitar"
+        ],
+        "retained_other_programme": "Official Samvaad2021 Da-Shugs roster independently preserved in pri119ten-raw.json: guitar, voice, Daman, kopong/Dranyan, bass, djembe. None is silently omitted from a claimed six-person rendition; that programme is not this selected source.",
+        "closure_limit": "The author calls it an acoustic cover of the named song, with no excerpt qualification. Entire named rendition is the selected scope; timing and recordings are unavailable, and unobserved completeness is not claimed as audio inspection."
+      },
+      "vocal_count_audit": {
+        "actual_singer_count": "unknown",
+        "actual_tracking": "unknown",
+        "known_named_participant": "Rigzin Norbu",
+        "voice_cards": 1,
+        "card_semantics": "One source-role owner preserves unknown number; not a one-singer assertion."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "All17 vocal controls protected; human headcount and tracking unspecified, sung-song role without an invented lineage or measured register."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze",
+            "acoustic_technique": "acoustic_flatpicked"
+          },
+          "policy": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts."
+        }
+      ],
+      "dependency_audit": {
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified",
+          "acoustic_guitar_dread"
+        ],
+        "new_instruments": []
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All22 applicable owning parts pinned."
+      },
+      "source_scope_limitation": "Ladakhi pop — Rigzin Norbu's acoustic cover of Lungspo ju ju, as personally heard and described by ethnomusicologist Noé Dinnerstein. The published field account identifies a named song rendition for voice and guitar, not an excerpt transcription or an imagined reduction. Exact performance date, duration, singer count, who sings, and tracking are unspecified. The selected rendition is separate from the original arranged recording and from Da-Shugs' six-person Samvaad programme.",
+      "source_retrieval_caveat": "Official journal download failed; author-uploaded full text succeeded and actual tool receipts are retained. No video, audio or score-figure visual inspection claimed.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ladakhi_pop",
+          "name": "Ladakhi pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not Rigzin, Ladakh, the acoustic guitar or the source performance.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh file-specific Commons rights/credit read turn11501view0; full/thumbnail/visual receipts remain inherited unchanged from historical source.",
+          "fresh_review_ref": "turn11501view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11501view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

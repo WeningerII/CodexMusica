@@ -1,0 +1,250 @@
+{
+  "entries": [
+    {
+      "source_label": "hong kong hip hop",
+      "source_url": "https://everynoise.com/engenremap-hongkonghiphop.html",
+      "suggested_id": "hong_kong_hip_hop",
+      "allocation_ordinal": 322,
+      "allocation_group_id": "013",
+      "id": "hong_kong_hip_hop",
+      "tradition": {
+        "id": "hong_kong_hip_hop",
+        "name": "Hong Kong Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Complete announced acapella challenge format at VEEHK/Dai Pai Dong 讚美之王 Rap Battle,18 February2026, Hong Kong: 麻成 against the winner of the qualifier, each participant delivering two sixty-second rounds. Preserve two alternating rap participants; the challenger identity is not supplied. This is the specific complete challenge within the event, not the whole evening, its guest concerts or audience games. The organiser positively identifies the battle as acapella; no beat, DJ, instruments or sung chorus inferred. This is a documented announced practice, not a claim to have watched a complete recording or confirmed event execution. The organiser explicitly names Hong Kong Hip Hop and VEEHK, local WavySoundHK/SpecialPlan/M4-linked participants and Hong Kong/Macau performance circuits. This gives a local institutional rap field beyond nationality alone. Full Chinese Hip Hop already spans languages and regions, not only its Higher Brothers/Chengdu example; Hong Kong is an overlapping narrower city-community branch, not a disjoint invention of rap. Cantopop covers Cantonese popular song and can contain rap, but does not exhaust this specifically documented competitive hip-hop institution. Hong Kong Rock and TV Drama are different practice/function fields. No exact creator-map performer membership asserted: both direct map and1d retrieval failed, while organiser category evidence is explicit. All current and accepted queued regional rap scopes compared. mcRhythm.intlHipHop models the positive rap practice. Existing live-duet/live-ensemble controls represent the complete two-person pair across alternating rounds, not simultaneous harmony or a recorded choir. Physiological details and pitch organisation remain source-unspecified; rhythmic spoken articulation is supported by the stated rap battle. One voice card covers both participants, no extra musical audience inferred. Studio room and chain are an authored controlled rendition, not the outdoor carnival venue; global tuning omitted.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Complete announced acapella challenge format at VEEHK/Dai Pai Dong 讚美之王 Rap Battle,18 February2026, Hong Kong: 麻成 against the winner of the qualifier, each participant delivering two sixty-second rounds. Preserve two alternating rap participants; the challenger identity is not supplied. This is the specific complete challenge within the event, not the whole evening, its guest concerts or audience games. The organiser positively identifies the battle as acapella; no beat, DJ, instruments or sung chorus inferred. This is a documented announced practice, not a claim to have watched a complete recording or confirmed event execution. The organiser explicitly names Hong Kong Hip Hop and VEEHK, local WavySoundHK/SpecialPlan/M4-linked participants and Hong Kong/Macau performance circuits. This gives a local institutional rap field beyond nationality alone. Full Chinese Hip Hop already spans languages and regions, not only its Higher Brothers/Chengdu example; Hong Kong is an overlapping narrower city-community branch, not a disjoint invention of rap. Cantopop covers Cantonese popular song and can contain rap, but does not exhaust this specifically documented competitive hip-hop institution. Hong Kong Rock and TV Drama are different practice/function fields. No exact creator-map performer membership asserted: both direct map and1d retrieval failed, while organiser category evidence is explicit. All current and accepted queued regional rap scopes compared. mcRhythm.intlHipHop models the positive rap practice. Existing live-duet/live-ensemble controls represent the complete two-person pair across alternating rounds, not simultaneous harmony or a recorded choir. Physiological details and pitch organisation remain source-unspecified; rhythmic spoken articulation is supported by the stated rap battle. One voice card covers both participants, no extra musical audience inferred. Studio room and chain are an authored controlled rendition, not the outdoor carnival venue; global tuning omitted.",
+        "exemplars": [
+          "VEEHK 讚美之王 — complete announced two-participant acapella challenge,18 February2026"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        22.281,
+        114.165,
+        "Hong Kong",
+        "East Asia"
+      ],
+      "geo_rationale": "Actual event at9 Lung Wo Road, Hong Kong; city-level editorial anchor, no claimed studio address.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.zicket.co/zh-hant/events/rap-battle-1981086982494",
+          "title": "VEEHK/Dai Pai Dong — 讚美之王 Rap Battle organiser announcement",
+          "support_notes": "Complete announced acapella challenge format at VEEHK/Dai Pai Dong 讚美之王 Rap Battle,18 February2026, Hong Kong: 麻成 against the winner of the qualifier, each participant delivering two sixty-second rounds. Preserve two alternating rap participants; the challenger identity is not supplied. This is the specific complete challenge within the event, not the whole evening, its guest concerts or audience games. The organiser positively identifies the battle as acapella; no beat, DJ, instruments or sung chorus inferred. This is a documented announced practice, not a claim to have watched a complete recording or confirmed event execution. The organiser explicitly names Hong Kong Hip Hop and VEEHK, local WavySoundHK/SpecialPlan/M4-linked participants and Hong Kong/Macau performance circuits. This gives a local institutional rap field beyond nationality alone. Full Chinese Hip Hop already spans languages and regions, not only its Higher Brothers/Chengdu example; Hong Kong is an overlapping narrower city-community branch, not a disjoint invention of rap. Cantopop covers Cantonese popular song and can contain rap, but does not exhaust this specifically documented competitive hip-hop institution. Hong Kong Rock and TV Drama are different practice/function fields. No exact creator-map performer membership asserted: both direct map and1d retrieval failed, while organiser category evidence is explicit. All current and accepted queued regional rap scopes compared.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11543view0"
+        }
+      ],
+      "neighbor_distinction": "The organiser explicitly names Hong Kong Hip Hop and VEEHK, local WavySoundHK/SpecialPlan/M4-linked participants and Hong Kong/Macau performance circuits. This gives a local institutional rap field beyond nationality alone. Full Chinese Hip Hop already spans languages and regions, not only its Higher Brothers/Chengdu example; Hong Kong is an overlapping narrower city-community branch, not a disjoint invention of rap. Cantopop covers Cantonese popular song and can contain rap, but does not exhaust this specifically documented competitive hip-hop institution. Hong Kong Rock and TV Drama are different practice/function fields. No exact creator-map performer membership asserted: both direct map and1d retrieval failed, while organiser category evidence is explicit. All current and accepted queued regional rap scopes compared.",
+      "model_policy": "mcRhythm.intlHipHop models the positive rap practice. Existing live-duet/live-ensemble controls represent the complete two-person pair across alternating rounds, not simultaneous harmony or a recorded choir. Physiological details and pitch organisation remain source-unspecified; rhythmic spoken articulation is supported by the stated rap battle. One voice card covers both participants, no extra musical audience inferred. Studio room and chain are an authored controlled rendition, not the outdoor carnival venue; global tuning omitted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing original merged voice owner unchanged; all17 applicable merged parts pinned."
+      },
+      "classification_evidence": {
+        "mode": "organizer_direct_category_and_complete_announced_format",
+        "url": "https://www.zicket.co/zh-hant/events/rap-battle-1981086982494",
+        "matched_artist": "麻成 and unnamed qualifier winner",
+        "note": "The organiser explicitly names Hong Kong Hip Hop and VEEHK, local WavySoundHK/SpecialPlan/M4-linked participants and Hong Kong/Macau performance circuits. This gives a local institutional rap field beyond nationality alone. Full Chinese Hip Hop already spans languages and regions, not only its Higher Brothers/Chengdu example; Hong Kong is an overlapping narrower city-community branch, not a disjoint invention of rap. Cantopop covers Cantonese popular song and can contain rap, but does not exhaust this specifically documented competitive hip-hop institution. Hong Kong Rock and TV Drama are different practice/function fields. No exact creator-map performer membership asserted: both direct map and1d retrieval failed, while organiser category evidence is explicit. All current and accepted queued regional rap scopes compared."
+      },
+      "vocal_count_audit": {
+        "credited_selected_singers": [
+          "麻成",
+          "Qualifier winner, identity unspecified"
+        ],
+        "selected_count": 2,
+        "selected_MC_or_vocalist_count": 2,
+        "actual_live_singers_count": null,
+        "count_basis": "Two specified rap contestants over the entire challenge; no sung roles separately documented, no false zero-total-voice claim.",
+        "decision": "mcRhythm.intlHipHop models the positive rap practice. Existing live-duet/live-ensemble controls represent the complete two-person pair across alternating rounds, not simultaneous harmony or a recorded choir. Physiological details and pitch organisation remain source-unspecified; rhythmic spoken articulation is supported by the stated rap battle. One voice card covers both participants, no extra musical audience inferred. Studio room and chain are an authored controlled rendition, not the outdoor carnival venue; global tuning omitted."
+      },
+      "instrument_role_audit": {
+        "rationale": "Complete announced acapella challenge format at VEEHK/Dai Pai Dong 讚美之王 Rap Battle,18 February2026, Hong Kong: 麻成 against the winner of the qualifier, each participant delivering two sixty-second rounds. Preserve two alternating rap participants; the challenger identity is not supplied. This is the specific complete challenge within the event, not the whole evening, its guest concerts or audience games. The organiser positively identifies the battle as acapella; no beat, DJ, instruments or sung chorus inferred. This is a documented announced practice, not a claim to have watched a complete recording or confirmed event execution.",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Two alternating unaccompanied rappers",
+            "count": 2
+          }
+        ],
+        "scope_limit": "Whole announced challenge only, all four60-second turns. Other guest sets and audience contest separate; no arbitrary deletion within the selected full format."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "mcRhythm.intlHipHop models the positive rap practice. Existing live-duet/live-ensemble controls represent the complete two-person pair across alternating rounds, not simultaneous harmony or a recorded choir. Physiological details and pitch organisation remain source-unspecified; rhythmic spoken articulation is supported by the stated rap battle. One voice card covers both participants, no extra musical audience inferred. Studio room and chain are an authored controlled rendition, not the outdoor carnival venue; global tuning omitted."
+        }
+      ],
+      "verification_status": "Source ready; independent semantic and complete original runtime review required.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "hong_kong_hip_hop",
+          "name": "Hong Kong Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only, not the performers, their voice instrument or source event equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh file-specific CC BY 2.5 and Iain Fergusson/Binksternet attribution read turn9713view1. Exact inherited historical byte/dimension/visual receipt retained; no fresh transfer claimed.",
+          "fresh_review_ref": "turn11487view2; turn11489view0/1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh Commons turn9713view1 confirms attribution and CC BY 2.5; LOW generic recording context only."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "Single voice owner; all17 original merged owning controls explicitly pinned, no cross-owner fallback."
+      },
+      "status": "independent_review_pending",
+      "source_access_limitation": "Complete organiser announcement read directly; no full recording/audio audition claimed. Creator map unavailable; no inferred membership. Exact historical023 image receipts inherited with fresh current Commons rights."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "source_ready_pending_independent_review"
+}

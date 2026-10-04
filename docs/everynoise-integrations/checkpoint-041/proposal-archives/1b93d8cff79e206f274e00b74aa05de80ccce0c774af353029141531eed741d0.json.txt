@@ -1,0 +1,275 @@
+{
+  "entries": [
+    {
+      "source_label": "dicsoites",
+      "source_url": "https://everynoise.com/engenremap-dicsoites.html",
+      "suggested_id": "dicsoites",
+      "allocation_ordinal": 3187,
+      "allocation_group_id": "128",
+      "id": "dicsoites",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "dicsoites",
+        "name": "Dicsőítés",
+        "family": "blues_gospel",
+        "lineage": "Dicsőítés is Hungarian Christian praise and worship music practiced in churches, prayer communities and ministry gatherings. Shared songbooks and worship teaching connect congregational participation with contemporary devotional songwriting.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Clear sung melodies and repeated praise texts invite participation. Guitar-led singing provides an intimate setting, while other worship groups use fuller instrumental ensembles.",
+        "exemplars": [
+          "Szent András Evangelizációs Iskola — Énekfüzet"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        47.16,
+        19.5,
+        "Hungary",
+        "Europe"
+      ],
+      "geo_rationale": "Country-level Hungarian-language ministry/repertoire anchor, not asserted individual lesson filming place.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Dicsőítés names the Hungarian-speaking contemporary Christian praise field, supported by the school’s own Hungarian worship-leader training and community song circulation. Its songbook explicitly serves songs used in prayer on courses and in community meetings, while the separately documented Reformed Oázis practice demonstrates the same function across a different church institution. Full CCM and Contemporary Worship remain broad international fields; French Worship and other language-community entries overlap global translated repertoire without exhausting this Hungarian-language institutional practice. Secular Hungarian pop/folk and historical sacred concert repertoire are not equivalent. The chosen modest teaching rendition is not itself a fabricated genre boundary, and no inaccessible creator membership is asserted.",
+      "classification_evidence": "Dicsőítés names the Hungarian-speaking contemporary Christian praise field, supported by the school’s own Hungarian worship-leader training and community song circulation. Its songbook explicitly serves songs used in prayer on courses and in community meetings, while the separately documented Reformed Oázis practice demonstrates the same function across a different church institution. Full CCM and Contemporary Worship remain broad international fields; French Worship and other language-community entries overlap global translated repertoire without exhausting this Hungarian-language institutional practice. Secular Hungarian pop/folk and historical sacred concert repertoire are not equivalent. The chosen modest teaching rendition is not itself a fabricated genre boundary, and no inaccessible creator membership is asserted.",
+      "model_policy": "Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain. Syllabic word-setting is an authored participatory worship-song gesture; the primary explicitly supports singing, without prescribing every note or ornament.",
+      "source_scope_limitation": "Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain. Syllabic word-setting is an authored participatory worship-song gesture; the primary explicitly supports singing, without prescribing every note or ornament.",
+      "source_retrieval_caveat": "Fresh official pedagogical primary defines scope. Earlier Oázis church evidence used only for community corroboration; current candidate does not claim its instrumentation or performances.",
+      "sources": [
+        {
+          "url": "https://enekfuzet.ujevangelizacio.hu/sites/enekfuzet/files/szent-andras-enekfuzet-41.pdf",
+          "support_notes": "Fresh143374view0/331421view1/2 official64-page2015songbook preface p4: single-guitar/singing instructional practice, ministry training and community purpose. No lyrics copied; no claim completed DVD audited."
+        },
+        {
+          "url": "https://csetenyireformatus.hu/?page_id=141",
+          "support_notes": "Earlier retained church2024 mission-plan evidence for broader Hungarian praise community; its complete Oázis ensemble remains separate, not reduced into selected teaching practice."
+        },
+        {
+          "url": "https://enekfuzet.ujevangelizacio.hu/sites/enekfuzet/files/szent-andras-enekfuzet-4-zenekari.pdf",
+          "support_notes": "Fresh first-party indexed complete2014 fourth-edition preface turn14573search0/14576search0: shared community songbook for worship led with one guitar and singing, instructional rendition explicitly described. Supports general ministry practice; no claim every original recording is a duo. Actual unmodified response saved /tmp/batch040/dicsoites-indexed-primary-sourceaudit.json."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn143374view0",
+        "turn331421view1",
+        "turn331421view2"
+      ],
+      "vocal_count_audit": {
+        "actual_count": "source unspecified",
+        "authored_count": 1,
+        "decision": "Representative accompanied teaching lead, not original personnel assertion."
+      },
+      "instrument_role_audit": {
+        "scope": "Representative Hungarian dicsőítés teaching practice documented by Szent András Evangelizációs Iskola in the preface to its2015 fourth revised Énekfüzet. The publisher explicitly describes teaching songs through singing and a single guitar, with demonstrations intended for beginning and advanced worship leaders. Both voice and guitar roles are retained. This models the positively described pedagogical rendition practice, not an assertion that every original commercial recording has only those instruments, not an audited complete DVD release, and not a reduction of the earlier Oázis ensemble. Singer count, guitar construction and actual recorded tracking are unknown; one accompanied lead is an authored representative staffing choice.",
+        "roles": {
+          "voice": "Documented singing instruction",
+          "acoustic_guitar_dread": "Documented single-guitar instruction; construction authored"
+        },
+        "authored_defaults": "Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain. Syllabic word-setting is an authored participatory worship-song gesture; the primary explicitly supports singing, without prescribing every note or ornament."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain. Syllabic word-setting is an authored participatory worship-song gesture; the primary explicitly supports singing, without prescribing every note or ornament."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All22 owning parts authored; no owner collisions."
+      },
+      "verification_status": "Pending original mechanics/fourformats and independent peer.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "dicsoites",
+          "name": "Dicsőítés",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not Hungarian lesson equipment or performers.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh778481view1 confirms CC BY2.5 attribution/crop; original023 exact historical receipts unchanged.",
+          "fresh_review_ref": "turn778481view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn778481view1"
+        ],
+        "fresh_rights_review": "Fresh778481view1 rights only; no fresh byte or visual claim."
+      },
+      "authored_render_scope": "Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain. Syllabic word-setting is an authored participatory worship-song gesture; the primary explicitly supports singing, without prescribing every note or ornament.",
+      "source_review_refs": [
+        "turn143374view0",
+        "turn331421view1",
+        "turn331421view2"
+      ],
+      "prior_public_profile_evidence": {
+        "tradition_lineage": "Representative Hungarian dicsőítés teaching practice documented by Szent András Evangelizációs Iskola in the preface to its2015 fourth revised Énekfüzet. The publisher explicitly describes teaching songs through singing and a single guitar, with demonstrations intended for beginning and advanced worship leaders. Both voice and guitar roles are retained. This models the positively described pedagogical rendition practice, not an assertion that every original commercial recording has only those instruments, not an audited complete DVD release, and not a reduction of the earlier Oázis ensemble. Singer count, guitar construction and actual recorded tracking are unknown; one accompanied lead is an authored representative staffing choice. Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain.",
+        "extras_description": "Representative Hungarian dicsőítés teaching practice documented by Szent András Evangelizációs Iskola in the preface to its2015 fourth revised Énekfüzet. The publisher explicitly describes teaching songs through singing and a single guitar, with demonstrations intended for beginning and advanced worship leaders. Both voice and guitar roles are retained. This models the positively described pedagogical rendition practice, not an assertion that every original commercial recording has only those instruments, not an audited complete DVD release, and not a reduction of the earlier Oázis ensemble. Singer count, guitar construction and actual recorded tracking are unknown; one accompanied lead is an authored representative staffing choice. Dicsőítés names the Hungarian-speaking contemporary Christian praise field, supported by the school’s own Hungarian worship-leader training and community song circulation. Its songbook explicitly serves songs used in prayer on courses and in community meetings, while the separately documented Reformed Oázis practice demonstrates the same function across a different church institution. Full CCM and Contemporary Worship remain broad international fields; French Worship and other language-community entries overlap global translated repertoire without exhausting this Hungarian-language institutional practice. Secular Hungarian pop/folk and historical sacred concert repertoire are not equivalent. The chosen modest teaching rendition is not itself a fabricated genre boundary, and no inaccessible creator membership is asserted. Authored representative singer-and-guitar worship lesson preserves all positively stated role classes. Voice physiology, register, ornaments and pitch system remain source-unspecified; neutral tract/moderate effort and one unprocessed accompanied lead are editorial realization choices rather than measured source headcount or studio technique. Unspecified guitar becomes a coherent all-mahogany steel-string dreadnought with80/20strings, standard tuning and flatpicked articulation; no source string material is contradicted or claimed. Controlled live-room and lively brisk singing are authored instructional-praise presentation, not measured original BPM or actual room. Christian devotional purpose supplies ritualDevotional.christianGospel, with no invented global tuning or signal chain.",
+        "extras_exemplars": [
+          "Szent András Evangelizációs Iskola — documented single-guitar worship teaching practice"
+        ],
+        "source_packet": "/tmp/batch040/resume116-24.json",
+        "source_packet_sha256": "a643814ee6bbe6384ac600393cf7716f4165e1a91b72ceb5985c49d6cb9b7abd"
+      },
+      "profile_cleanup_review": {
+        "scope": "Concise public genre prose; original detailed source/realization narrative preserved in evidence.",
+        "author": "source_audit",
+        "ownership_confirmed": true,
+        "original_preserved": true
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}
