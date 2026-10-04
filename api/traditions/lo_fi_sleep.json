@@ -1,0 +1,50 @@
+{
+  "id": "lo_fi_sleep",
+  "name": "Lo-Fi Sleep",
+  "family": "electronic",
+  "lineage": "Lo-fi sleep gathers gentle beat producers and listening communities around rest and quiet background listening. Short, restrained productions extend the relaxed side of lo-fi culture, with soft rhythmic repetition and uncluttered texture rather than a single compulsory instrument lineup.",
+  "recipe": "classic lo-fi sleep, experimental Elec, lofi branch. credited beat unspecified. carpeted bedroom.",
+  "recipe_chars": 97,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "lo_fi_sleep"
+    ],
+    "instruments": [
+      {
+        "id": "credited_beat_unspecified",
+        "slots": {
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        },
+        "scores": {
+          "credited_beat_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_beat_unspecified": [
+        "credited_beat_identity"
+      ]
+    },
+    "room": "carpeted_bedroom",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "carpeted_bedroom",
+    "parts": {
+      "credited_beat_identity": "credited_beat_mechanism_unspecified"
+    },
+    "pin_parts": true
+  }
+}

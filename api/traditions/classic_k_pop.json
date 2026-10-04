@@ -1,0 +1,58 @@
+{
+  "id": "classic_k_pop",
+  "name": "Classic K-pop",
+  "family": "pop",
+  "lineage": "Classic K-pop gathers established Korean popular songs that remain familiar through covers, retrospective listening and new arrangements. The designation spans different historical selections: educational histories include earlier popular-song figures, while streaming research also identifies artists who began in the1990s and2000s.",
+  "recipe": "classic classic k-pop, functional Song, east Asian pop branch. upright piano. live tracking.",
+  "recipe_chars": 92,
+  "score": 0.165,
+  "config": {
+    "traditions": [
+      "classic_k_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "upright_use": 0.1995,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

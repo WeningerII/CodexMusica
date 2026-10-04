@@ -5,7 +5,7 @@
   "lineage": "Japanese new wave grew through late-1970s and early-1980s art-school, live-house and independent recording networks. Groups including Plastics, Hikashu and P-Model connected angular rock songs with electronic keyboards, rhythm machines and visual experimentation; later revivals continued both band and electronic approaches.",
   "recipe": "classic 1977-1979 japanese new wave, functional Song. solo with instrumental accompaniment. clean strummed humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
   "recipe_chars": 271,
-  "score": 26.226,
+  "score": 26.762,
   "config": {
     "traditions": [
       "japanese_new_wave"
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 4,
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.042749999999999996,
           "neck_wood": 0,
-          "fretboard": -0.05,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0,
-          "string_gauge": 0.7,
+          "scale_length": 0.08549999999999999,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
           "string_tuning": 0
         }
@@ -102,9 +102,9 @@
         },
         "scores": {
           "drum_technique": 5.8865,
-          "drumhead": 0,
+          "drumhead": 0.042749999999999996,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.042749999999999996,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
@@ -122,7 +122,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.09675
         }
       }
     ],

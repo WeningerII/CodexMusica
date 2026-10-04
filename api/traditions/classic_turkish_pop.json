@@ -1,0 +1,58 @@
+{
+  "id": "classic_turkish_pop",
+  "name": "Classic Turkish Pop",
+  "family": "pop",
+  "lineage": "Classic Turkish pop revisits familiar popular songs through nostalgic concerts, reissues and new arrangements. Its repertoire crosses the aranjman era, Anatolian melodic influences and later Turkish songwriting, keeping older songs active in contemporary listening and performance.",
+  "recipe": "classic classic turkish pop, functional Song, mid east n African pop branch. upright piano. live tracking.",
+  "recipe_chars": 106,
+  "score": 1.9,
+  "config": {
+    "traditions": [
+      "classic_turkish_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 1.95,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

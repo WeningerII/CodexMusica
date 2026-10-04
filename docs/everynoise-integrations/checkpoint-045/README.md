@@ -1,5 +1,7 @@
 # Checkpoint 045
 
+**STATUS:** SHIPPED
+
 This checkpoint adds 25 reviewed genre profiles and one software-processing instrument, together with a separately reviewed, limited Raggacore correction. The resulting catalogue contains 6806 traditions and 1660 instruments.
 
 The original larger proposal is preserved. Six additions remain outside this checkpoint because their effects on existing presets introduced unsupported vocal traditions or instrumental settings. The other historical holds also remain unresolved. Source approval alone does not claim that a proposal is safe in the combined catalogue.

@@ -1,0 +1,50 @@
+{
+  "id": "lo_fi_product",
+  "name": "Lo-Fi Product",
+  "family": "electronic",
+  "lineage": "Lo-fi product is a discovery grouping around commercially circulated lo-fi listening catalogues, producer aliases and playlist brands. Independent beat makers and collaborative labels supply relaxed tracks for everyday listening, with original pieces, reinterpretations and purpose-led releases sharing the field.",
+  "recipe": "classic lo-fi product, experimental Elec, lofi branch. credited beat unspecified. carpeted bedroom.",
+  "recipe_chars": 99,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "lo_fi_product"
+    ],
+    "instruments": [
+      {
+        "id": "credited_beat_unspecified",
+        "slots": {
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        },
+        "scores": {
+          "credited_beat_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_beat_unspecified": [
+        "credited_beat_identity"
+      ]
+    },
+    "room": "carpeted_bedroom",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "carpeted_bedroom",
+    "parts": {
+      "credited_beat_identity": "credited_beat_mechanism_unspecified"
+    },
+    "pin_parts": true
+  }
+}
