@@ -1,0 +1,50 @@
+{
+  "id": "gaming_dubstep",
+  "name": "Gaming Dubstep",
+  "family": "electronic",
+  "lineage": "Gaming dubstep is an online discovery field connecting contemporary bass-music listeners with gaming and streaming culture. Its creator cohort includes UBUR, Barely Alive and Chime, spanning heavy dubstep, riddim and more melodic electronic approaches.",
+  "recipe": "classic gaming dubstep, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 88,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "gaming_dubstep"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

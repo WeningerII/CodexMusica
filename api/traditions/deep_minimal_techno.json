@@ -5,7 +5,7 @@
   "lineage": "Deep minimal techno gathers DJs and producers across stripped-back techno and deeper club grooves. Its discovery cohort includes Sam Paganini, Hollen and Luigi Madonna alongside more melodic and house-adjacent producers.",
   "recipe": "classic deep minimal techno, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 93,
-  "score": 0.063,
+  "score": 0.085,
   "config": {
     "traditions": [
       "deep_minimal_techno"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.08549999999999999
         }
       }
     ],

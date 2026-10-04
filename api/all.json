@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6971,
+  "count": 7005,
   "items": [
     {
       "id": "honky_tonk",
@@ -43,8 +43,8 @@
       "id": "texas_conjunto",
       "name": "Texas conjunto",
       "family": "vernacular",
-      "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion forró brasileiro joropo. thick, breath veiled tone, fast rate, interlocked note trading. steel hohner gola canonical premium German concert chordal accordion, spruce nickel wound modern tejano strummed bajo sexto, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, brushes-and-sticks drum kit, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 663
+      "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion plena uruguaya forró brasileiro. one note per syllable, solo with instrumental accompaniment. steel hohner gola canonical premium German concert accordion, rhythmic dance rhythm strummed bajo sexto, electric bass, ride-driven brushes-and-sticks drum kit, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 587
     },
     {
       "id": "mariachi",
@@ -8632,8 +8632,8 @@
       "id": "complextro",
       "name": "Complextro",
       "family": "electronic",
-      "recipe": "classic 2007-2009 complextro, electronic Dance, house branch, idm glitch experimental electric breakcore. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. sub bass analog poly glitched textural wavetable yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, sampled chopped sampler drum machine, sub bass monosynth acid bass, talkbox. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 614
+      "recipe": "classic 2007-2009 complextro, electronic Dance, house branch, idm glitch experimental electric glitchbreak. breath veiled tone, straight note core, interlocked note trading, neutral third half flat. sub bass analog poly glitched textural wavetable yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, sampler drum machine, sub bass monosynth acid bass, talkbox. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 604
     },
     {
       "id": "uk_metalcore",
@@ -8786,8 +8786,8 @@
       "id": "dancefloor_dnb",
       "name": "Dancefloor Drum and Bass",
       "family": "electronic",
-      "recipe": "classic late-2000s dancefloor drum and bass, bass System, bass descendants branch, uk soundsystem bass system, continental electronic dance, trance electronic dance hard trance tech trance. extended whistle, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, sub bass monosynth acid bass, sub bass wavetable sub bass analog poly granular synth, pre muffled edge muffled brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 639
+      "recipe": "classic late-2000s dancefloor drum and bass, bass System, bass descendants branch, uk soundsystem bass system, continental electronic dance, trance electronic dance hard trance 4-beat. extended whistle, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, sub bass monosynth acid bass, sub bass wavetable sub bass analog poly granular synth, pre muffled edge muffled brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 634
     },
     {
       "id": "scenecore",
@@ -10606,8 +10606,8 @@
       "id": "hard_dance",
       "name": "Hard Dance",
       "family": "electronic",
-      "recipe": "classic British 1997-1999 hard dance, electronic Dance, hardstyle branch, trance electronic dance, tech house house, continental electronic dance hard trance tech trance. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, analog mono sub bass analog poly synth, sub bass digital subtractive, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 549
+      "recipe": "classic British 1997-1999 hard dance, electronic Dance, hardstyle branch, trance electronic dance, tech house house, continental electronic dance hard trance makina. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, sub bass analog mono sub bass analog poly synth, sub bass digital subtractive, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 553
     },
     {
       "id": "diva_house",
@@ -11390,8 +11390,8 @@
       "id": "electro_industrial",
       "name": "Electro-Industrial",
       "family": "electronic",
-      "recipe": "classic North American mid-1990s electro-industrial, experimental Elec, industrial noise branch, techno electronic dance, idm glitch experimental electric, gothic rock distorted rock folktronica. thick, breath veiled tone, slow rate, interlocked note trading. sub bass analog poly yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm modular modular synth, glitched textural sampler, TR-909. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 592
+      "recipe": "classic North American mid-1990s electro-industrial, experimental Elec, industrial noise branch, techno electronic dance, idm glitch experimental electric, gothic rock distorted rock. thick, breath veiled tone, slow rate, interlocked note trading. low sub bass analog poly yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm modular modular synth, glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 662
     },
     {
       "id": "futurepop",
@@ -11425,8 +11425,8 @@
       "id": "power_noise",
       "name": "Power Noise",
       "family": "electronic",
-      "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding pakistani electronic. TR-909, sampler drum machine, analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
-      "recipe_chars": 594
+      "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding glitchbreak. TR-909, sampler drum machine, analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+      "recipe_chars": 585
     },
     {
       "id": "praise_and_worship",
@@ -16367,8 +16367,8 @@
       "id": "zenonesque",
       "name": "Zenonesque",
       "family": "electronic",
-      "recipe": "classic mid-2010s zenonesque, electronic Dance, trance branch, techno electronic dance, tech house house, idm glitch experimental electric idm and experimental electronic. analog mono glitched textural granular synth, sub bass digital subtractive, glitched textural sampler, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 486
+      "recipe": "classic mid-2010s zenonesque, electronic Dance, trance branch, techno electronic dance, tech house house, idm glitch experimental electric dutch tech house. analog mono modular granular synth, sub bass digital subtractive, glitched textural sampler, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 461
     },
     {
       "id": "forest_psy",
@@ -16465,8 +16465,8 @@
       "id": "miami_electro",
       "name": "Miami Electro (Miami Bass)",
       "family": "hip_hop",
-      "recipe": "classic North American mid-1990s miami electro, mc Rhythm, southern branch, electronic dance, bass descendants bass system hard trance ghettotech. vocal fry, rap, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, sampled chopped turntable, roland lineage canonical sh 101 tb 303 1982 1984 osaka sub bass analog mono synth, mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. boombox portable speaker. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 641
+      "recipe": "classic North American mid-1990s miami electro, mc Rhythm, southern branch, electronic dance, bass descendants bass system ghettotech uk hard house. vocal fry, rap, fast rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, sampled chopped turntable, roland lineage canonical sh 101 tb 303 1982 1984 osaka sub bass analog mono synth, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. boombox portable speaker. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 591
     },
     {
       "id": "techno_bass",
@@ -17256,8 +17256,8 @@
       "id": "sheffield_bleep_techno",
       "name": "Sheffield bleep techno",
       "family": "electronic",
-      "recipe": "classic 1988-1991 sheffield bleep techno, electronic Dance, techno branch, uk soundsystem bass system, chicago house house, idm glitch experimental electric acid house. vocal fry, breath veiled tone, pure, interlocked note trading. yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, roland tr 8s modern aira digital recreation TR-909, roland tr 8s modern aira digital recreation TR-808, glitched textural sampler. concrete basement. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-      "recipe_chars": 631
+      "recipe": "classic 1988-1991 sheffield bleep techno, electronic Dance, techno branch, uk soundsystem bass system, chicago house house, idm glitch experimental electric acid house ghettotech. vocal fry, breath veiled tone, slow rate, interlocked note trading. yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, TR-909, TR-808, glitched textural sampler. concrete basement. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_chars": 559
     },
     {
       "id": "kosmische",
@@ -17305,8 +17305,8 @@
       "id": "j_core",
       "name": "J-Core",
       "family": "electronic",
-      "recipe": "classic 1997-1999 j-core, electronic Dance, hardstyle branch, eurodance electronic dance, idm glitch experimental electric breakcore. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, glitched textural sampler, glitched textural wavetable sub bass fm synth, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 495
+      "recipe": "classic modern j-core, electronic Dance, hardstyle branch, eurodance electronic dance, idm glitch experimental electric glitchbreak. vocal fry, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, glitched textural sampler, glitched textural wavetable sub bass fm synth, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 538
     },
     {
       "id": "hokkien_pop",
@@ -47965,8 +47965,8 @@
       "id": "game_mood",
       "name": "Game Mood",
       "family": "hip_hop",
-      "recipe": "classic game mood, mc Rhythm. no pitch organization speech, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
-      "recipe_chars": 140
+      "recipe": "classic game mood, mc Rhythm. no pitch organization speech, solo with instrumental accompaniment, single lead single track no stacking. credited beat unspecified. treated studio.",
+      "recipe_chars": 178
     },
     {
       "id": "musica_prehispanica",
@@ -48800,6 +48800,244 @@
       "family": "rock",
       "recipe": "classic stomp pop, distorted Rock, alternative branch. one note per syllable, duet, live take. single coil electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
       "recipe_chars": 228
+    },
+    {
+      "id": "nuevo_tango",
+      "name": "Nuevo tango",
+      "family": "classical",
+      "recipe": "classic nuevo tango, art Music. upright piano. shoebox concert hall.",
+      "recipe_chars": 68
+    },
+    {
+      "id": "old_school_hard_trance",
+      "name": "Old School Hard Trance",
+      "family": "electronic",
+      "recipe": "classic mid-1990s old school hard trance, electronic Dance, trance branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 121
+    },
+    {
+      "id": "speed_plug_brasileiro",
+      "name": "Speed Plug Brasileiro",
+      "family": "hip_hop",
+      "recipe": "classic speed plug brasileiro, mc Rhythm. vocal recorded music rate processing. treated studio.",
+      "recipe_chars": 95
+    },
+    {
+      "id": "plena_uruguaya",
+      "name": "Plena Uruguaya",
+      "family": "global",
+      "recipe": "classic plena uruguaya, groove Percussion, Latin am branch. small note groups per syllable, group vocals, live take. electric bass, yellow brass canonical 70 30 bach stradivarius trumpet, upright piano, timbales stick played, mule hide canonical Cuban premium oak staved canonical Cuban hands layered congas. live tracking.",
+      "recipe_chars": 323
+    },
+    {
+      "id": "breaks",
+      "name": "Breaks",
+      "family": "electronic",
+      "recipe": "classic breaks, bass System, bass descendants branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 100
+    },
+    {
+      "id": "deep_ccm",
+      "name": "Deep CCM",
+      "family": "blues_gospel",
+      "recipe": "classic deep ccm, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. upright piano. treated studio.",
+      "recipe_chars": 130
+    },
+    {
+      "id": "techno_rave",
+      "name": "Techno Rave",
+      "family": "electronic",
+      "recipe": "classic techno rave, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 85
+    },
+    {
+      "id": "deep_progressive_trance",
+      "name": "Deep Progressive Trance",
+      "family": "electronic",
+      "recipe": "classic deep progressive trance, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 97
+    },
+    {
+      "id": "deep_classic_garage_rock",
+      "name": "Deep Classic Garage Rock",
+      "family": "rock",
+      "recipe": "classic modern deep classic garage rock, distorted Rock, classic branch. fuzzed riff driven single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 240
+    },
+    {
+      "id": "deep_liquid_bass",
+      "name": "Deep Liquid Bass",
+      "family": "electronic",
+      "recipe": "classic deep liquid bass, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 90
+    },
+    {
+      "id": "gaming_dubstep",
+      "name": "Gaming Dubstep",
+      "family": "electronic",
+      "recipe": "classic gaming dubstep, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 88
+    },
+    {
+      "id": "deep_eurodance",
+      "name": "Deep Eurodance",
+      "family": "electronic",
+      "recipe": "classic modern deep eurodance, electronic Dance, eurodance branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. electronic synthesis sequencing unspecified, software sample playback. treated studio.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "men_chika",
+      "name": "Men Chika",
+      "family": "pop",
+      "recipe": "classic men chika, functional Song. small note groups per syllable, solo with instrumental accompaniment. software sample playback. live tracking.",
+      "recipe_chars": 146
+    },
+    {
+      "id": "zen",
+      "name": "Zen",
+      "family": "global",
+      "recipe": "classic zen, experimental Elec, ambient branch. clarinet, koto, shakuhachi. treated studio.",
+      "recipe_chars": 91
+    },
+    {
+      "id": "deep_breakcore",
+      "name": "Deep Breakcore",
+      "family": "electronic",
+      "recipe": "classic deep breakcore, electronic Dance. overdriven subglottal pressure, solo with instrumental accompaniment. single coil electric guitar, credited programmed drums unspecified. live tracking.",
+      "recipe_chars": 194
+    },
+    {
+      "id": "anime_drill",
+      "name": "Anime Drill",
+      "family": "hip_hop",
+      "recipe": "classic anime drill, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment. sub bass low produced 808 bass, programmed credited programmed drums credited programming unspecified. treated studio.",
+      "recipe_chars": 219
+    },
+    {
+      "id": "deep_sunset_lounge",
+      "name": "Deep Sunset Lounge",
+      "family": "electronic",
+      "recipe": "classic deep sunset lounge, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
+      "recipe_chars": 99
+    },
+    {
+      "id": "koligeet",
+      "name": "Koligeet",
+      "family": "global",
+      "recipe": "classic koligeet, wedding. dholki nal. urban courtyard.",
+      "recipe_chars": 55
+    },
+    {
+      "id": "soul_flow",
+      "name": "Soul Flow",
+      "family": "hip_hop",
+      "recipe": "classic soul flow, spoken Word. rhythmic spoken flow no pitch human voice ensemble unspecified. treated studio.",
+      "recipe_chars": 111
+    },
+    {
+      "id": "deep_adult_standards",
+      "name": "Deep Adult Standards",
+      "family": "pop",
+      "recipe": "classic deep adult standards, functional Song. slow rate, one note per syllable, solo with instrumental accompaniment. upright piano. treated studio.",
+      "recipe_chars": 149
+    },
+    {
+      "id": "russian_drain",
+      "name": "Russian Drain",
+      "family": "hip_hop",
+      "recipe": "classic russian drain, functional Song. human voice ensemble credited beat unspecified. treated studio.",
+      "recipe_chars": 103
+    },
+    {
+      "id": "japanese_concert_band",
+      "name": "Japanese Concert Band",
+      "family": "classical",
+      "recipe": "classic japanese concert band, art Music. yamaha modern Japanese mid to premium flute, grenadilla African blackwood traditional clarinet, yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, yamaha xeno modern Japanese student friendly legato trumpet, french horn, yamaha xeno modern Japanese tenor standard standard backbore trombone, yellow brass canonical British brass band yamaha neo modern Japanese euphonium, yamaha ybb 841 modern Japanese tuba, credited auxiliary percussion. shoebox concert hall.",
+      "recipe_chars": 536
+    },
+    {
+      "id": "finnish_drill",
+      "name": "Finnish Drill",
+      "family": "hip_hop",
+      "recipe": "classic finnish drill, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 166
+    },
+    {
+      "id": "rap_anime",
+      "name": "Rap Anime",
+      "family": "hip_hop",
+      "recipe": "classic rap anime, mc Rhythm. rhythmic spoken flow no pitch human voice ensemble unspecified. treated studio.",
+      "recipe_chars": 109
+    },
+    {
+      "id": "deep_motown",
+      "name": "Deep Motown",
+      "family": "pop",
+      "recipe": "classic deep motown, functional Song, soul R&B branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 101
+    },
+    {
+      "id": "persian_melodic_rap",
+      "name": "Persian Melodic Rap",
+      "family": "hip_hop",
+      "recipe": "classic persian melodic rap, functional Song. solo with instrumental accompaniment. upright piano. treated studio.",
+      "recipe_chars": 114
+    },
+    {
+      "id": "latin_viral_rap",
+      "name": "Latin Viral Rap",
+      "family": "hip_hop",
+      "recipe": "classic latin viral rap, mc Rhythm. rhythmic spoken flow no pitch human voice ensemble unspecified. treated studio.",
+      "recipe_chars": 115
+    },
+    {
+      "id": "sludgecore",
+      "name": "Sludgecore",
+      "family": "rock",
+      "recipe": "classic sludgecore, distorted Rock. raised subglottal pressure, solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 248
+    },
+    {
+      "id": "electra",
+      "name": "Electra",
+      "family": "electronic",
+      "recipe": "classic electra, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 81
+    },
+    {
+      "id": "gamecore",
+      "name": "Gamecore",
+      "family": "electronic",
+      "recipe": "classic gamecore, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 82
+    },
+    {
+      "id": "persian_sad_rap",
+      "name": "Persian Sad Rap",
+      "family": "hip_hop",
+      "recipe": "classic persian sad rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 168
+    },
+    {
+      "id": "fake",
+      "name": "Fake",
+      "family": "pop",
+      "recipe": "classic fake, functional Song. upright piano. live tracking.",
+      "recipe_chars": 60
+    },
+    {
+      "id": "rasiya",
+      "name": "Rasiya",
+      "family": "folk",
+      "recipe": "classic rasiya, improv On Frame. small note groups per syllable. song accompaniment melodic chordal hand pumped harmonium, dholak, nagara indian. live tracking.",
+      "recipe_chars": 160
+    },
+    {
+      "id": "glitchbreak",
+      "name": "Glitchbreak",
+      "family": "electronic",
+      "recipe": "classic glitchbreak, experimental Elec, idm glitch branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 105
     }
   ]
 }

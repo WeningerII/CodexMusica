@@ -1,0 +1,127 @@
+{
+  "id": "zen",
+  "name": "Zen",
+  "family": "global",
+  "lineage": "Zen-labelled listening music draws on imagery and practices of contemplation across acoustic improvisation, ambient composition and relaxation recordings. Cross-cultural collaborations helped circulate Japanese instrumental colors within this broad recorded-music field.",
+  "recipe": "classic zen, experimental Elec, ambient branch. clarinet, koto, shakuhachi. treated studio.",
+  "recipe_chars": 91,
+  "score": 1.217,
+  "config": {
+    "traditions": [
+      "zen"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "clarinet_body": -0.11850000000000002,
+          "clarinet_size": 0.063,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "koto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "koto_strings": "koto_13",
+          "koto_picks": "koto_ikuta",
+          "koto_body_wood": "koto_modern_paulownia",
+          "koto_strings_material": "koto_nylon_tetron",
+          "koto_bridge_material": "koto_plastic_bridges_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.325,
+          "koto_strings": 0,
+          "koto_picks": 0.273,
+          "koto_body_wood": 0.1785,
+          "koto_strings_material": 0.1785,
+          "koto_bridge_material": 0.1785
+        }
+      },
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "one_eight",
+          "shaku_technique": "classical_shaku",
+          "shakuhachi_body_material": "shakuhachi_jiari_lacquered",
+          "shakuhachi_lineage": "shakuhachi_tozan"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "shaku_length": -0.05,
+          "shaku_technique": 0,
+          "shakuhachi_body_material": 0.21,
+          "shakuhachi_lineage": 0.1785
+        }
+      }
+    ],
+    "pinned": {
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "koto": [
+        "plucked_traditional_technique",
+        "koto_strings",
+        "koto_picks",
+        "koto_body_wood",
+        "koto_strings_material",
+        "koto_bridge_material"
+      ],
+      "shakuhachi": [
+        "wind_articulation",
+        "shaku_length",
+        "shaku_technique",
+        "shakuhachi_body_material",
+        "shakuhachi_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "koto_strings": "koto_13",
+      "koto_picks": "koto_ikuta",
+      "koto_body_wood": "koto_modern_paulownia",
+      "koto_strings_material": "koto_nylon_tetron",
+      "koto_bridge_material": "koto_plastic_bridges_modern",
+      "shaku_length": "one_eight",
+      "shaku_technique": "classical_shaku",
+      "shakuhachi_body_material": "shakuhachi_jiari_lacquered",
+      "shakuhachi_lineage": "shakuhachi_tozan"
+    },
+    "pin_parts": true
+  }
+}

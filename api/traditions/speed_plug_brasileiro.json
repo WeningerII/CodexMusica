@@ -1,0 +1,66 @@
+{
+  "id": "speed_plug_brasileiro",
+  "name": "Speed Plug Brasileiro",
+  "family": "hip_hop",
+  "lineage": "Speed Plug Brasileiro circulates accelerated Brazilian plug and trap recordings through streaming releases and online remix culture. Artists issue speed versions beside their original recordings, retaining recognizable vocal phrases and electronic backings within a compressed time scale.",
+  "recipe": "classic speed plug brasileiro, mc Rhythm. vocal recorded music rate processing. treated studio.",
+  "recipe_chars": 95,
+  "score": 2.2,
+  "config": {
+    "traditions": [
+      "speed_plug_brasileiro"
+    ],
+    "instruments": [
+      {
+        "id": "recorded_music_rate_processing",
+        "slots": {
+          "rate_process_vocal_material": "rate_process_rap_vocal",
+          "rate_process_backing_material": "rate_process_produced_beat",
+          "rate_process_speed": "rate_process_accelerated",
+          "rate_process_phrase": "rate_process_continuous_song",
+          "rate_process_pitch_coupling": "rate_process_pitch_unspecified"
+        },
+        "scores": {
+          "rate_process_vocal_material": 1.3,
+          "rate_process_backing_material": 0.5999999999999999,
+          "rate_process_speed": 0,
+          "rate_process_phrase": 0.3,
+          "rate_process_pitch_coupling": 0
+        }
+      }
+    ],
+    "pinned": {
+      "recorded_music_rate_processing": [
+        "rate_process_vocal_material",
+        "rate_process_backing_material",
+        "rate_process_speed",
+        "rate_process_phrase",
+        "rate_process_pitch_coupling"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "rate_process_vocal_material": "rate_process_rap_vocal",
+      "rate_process_backing_material": "rate_process_produced_beat",
+      "rate_process_speed": "rate_process_accelerated",
+      "rate_process_phrase": "rate_process_continuous_song",
+      "rate_process_pitch_coupling": "rate_process_pitch_unspecified"
+    },
+    "pin_parts": true
+  }
+}
