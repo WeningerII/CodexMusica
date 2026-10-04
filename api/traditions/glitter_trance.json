@@ -5,7 +5,7 @@
   "lineage": "Glitter trance is a discovery label linking melodic electronic producers and DJs across progressive house, trance and chill-out. Its mixed programmes connect flowing melodies and vocal passages with sustained electronic dance grooves.",
   "recipe": "classic glitter trance, electronic Dance. dj playback mixing unspecified. parlor.",
   "recipe_chars": 81,
-  "score": 0.063,
+  "score": 0.032,
   "config": {
     "traditions": [
       "glitter_trance"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0315
         }
       }
     ],

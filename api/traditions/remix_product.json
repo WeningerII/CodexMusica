@@ -1,0 +1,50 @@
+{
+  "id": "remix_product",
+  "name": "Remix Product",
+  "family": "electronic",
+  "lineage": "Remix product is a discovery label gathering commercial dance remixes, cover versions and edited club tracks. Its documented repertoire connects familiar vocal hooks with hands-up, hard-dance and other electronic club treatments, circulating through releases and mixed compilations.",
+  "recipe": "classic remix product, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 87,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "remix_product"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "count": 1661,
+  "count": 1662,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9966,6 +9966,12 @@
       "name": "Tenenexpan triple duct flute",
       "family": "wind",
       "href": "instruments/triple_fipple_flute_tenenexpan.json"
+    },
+    {
+      "id": "recorded_music_rate_processing",
+      "name": "Recorded music rate processing",
+      "family": "electronic",
+      "href": "instruments/recorded_music_rate_processing.json"
     }
   ]
 }

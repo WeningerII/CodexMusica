@@ -1,0 +1,58 @@
+{
+  "id": "polka_nortena",
+  "name": "Polka Norteña",
+  "family": "global",
+  "lineage": "Polka norteña is the northern Mexican adaptation of the European polka, developed through local dance, instrumental ensembles and commercial recordings. Its lively melodies and duple dance pulse circulate through accordion conjuntos, wind and string groups, and piano interpretations.",
+  "recipe": "classic polka norteña, art Music. upright piano. live tracking.",
+  "recipe_chars": 63,
+  "score": -0.019,
+  "config": {
+    "traditions": [
+      "polka_nortena"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6861,
+  "count": 6904,
   "items": [
     {
       "id": "honky_tonk",
@@ -8184,8 +8184,8 @@
       "id": "metropopolis",
       "name": "Metropopolis",
       "family": "electronic",
-      "recipe": "classic mid-2010s metropopolis, functional Song, synthpop branch, pop rock yacht rock, deep house house tropical house. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, TR-808, vocoder, block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 705
+      "recipe": "classic mid-2010s metropopolis, functional Song, synthpop branch, pop rock yacht rock, deep house house deep tropical house. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, TR-808, vocoder, block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 713
     },
     {
       "id": "europop",
@@ -11180,8 +11180,8 @@
       "id": "eurobeat",
       "name": "Eurobeat",
       "family": "electronic",
-      "recipe": "classic early-1990s eurobeat, electronic Dance, eurodance branch, continental electronic dance, trance electronic dance hard trance tech trance. vocal fry, breath veiled tone, straight note core, interlocked note trading. digital subtractive, regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, TR-909, analog poly synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 638
+      "recipe": "classic early-1990s eurobeat, electronic Dance, eurodance branch, continental electronic dance, trance electronic dance hard trance euro hi-nrg. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. sub bass digital subtractive, regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits sub bass rompler workstation, TR-909, sub bass analog poly synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 687
     },
     {
       "id": "hard_nrg",
@@ -16171,8 +16171,8 @@
       "id": "hands_up",
       "name": "Hands Up",
       "family": "electronic",
-      "recipe": "classic mid-2000s hands up, electronic Dance, eurodance branch, trance electronic dance, europop functional song chasidic pop tech trance. extended whistle, breath veiled tone, wide pitch sway, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, singing lead digital subtractive, singing lead wavetable singing lead analog poly synth, polychordal major seven nine eleven stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 715
+      "recipe": "classic mid-2000s hands up, electronic Dance, eurodance branch, trance electronic dance, europop functional song chasidic pop covertrance. extended whistle, chest mix belt, wide pitch sway, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, singing lead digital subtractive, singing lead wavetable singing lead analog poly synth, polychordal major seven nine eleven stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 711
     },
     {
       "id": "tekk",
@@ -41553,8 +41553,8 @@
       "id": "vlaamse_cabaret",
       "name": "Vlaamse cabaret",
       "family": "vernacular",
-      "recipe": "classic late-2000s vlaamse cabaret, spoken Word, stage performance branch. solo unaccompanied. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 193
+      "recipe": "classic late-2000s vlaamse cabaret, spoken Word, stage performance branch. no pitch organization speech, solo unaccompanied. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 223
     },
     {
       "id": "warrington_indie",
@@ -48030,6 +48030,307 @@
       "family": "classical",
       "recipe": "classic wind symphony, art Music, western common practice branch. oboe, grenadilla African blackwood traditional clarinet, projecting brass french horn, bassoon, flute, upright bass. shoebox concert hall.",
       "recipe_chars": 204
+    },
+    {
+      "id": "deep_soul_house",
+      "name": "Deep Soul House",
+      "family": "electronic",
+      "recipe": "classic deep soul house, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 103
+    },
+    {
+      "id": "deep_tropical_house",
+      "name": "Deep Tropical House",
+      "family": "electronic",
+      "recipe": "classic mid-2010s deep tropical house, electronic Dance, deep house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 122
+    },
+    {
+      "id": "soulful_house",
+      "name": "Soulful House",
+      "family": "electronic",
+      "recipe": "classic soulful house, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 101
+    },
+    {
+      "id": "deep_german_hip_hop",
+      "name": "Deep German Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic deep german hip hop, spoken Word. rhythmic spoken flow no pitch, duet, live take. live tracking.",
+      "recipe_chars": 104
+    },
+    {
+      "id": "drill_brasileiro",
+      "name": "Drill brasileiro",
+      "family": "hip_hop",
+      "recipe": "classic drill brasileiro, mc Rhythm, drill branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. treated studio.",
+      "recipe_chars": 157
+    },
+    {
+      "id": "emo_trap_italiana",
+      "name": "Emo Trap Italiana",
+      "family": "hip_hop",
+      "recipe": "classic emo trap italiana, functional Song. upright piano. parlor.",
+      "recipe_chars": 66
+    },
+    {
+      "id": "new_school_turkce_rap",
+      "name": "New School Türkçe Rap",
+      "family": "hip_hop",
+      "recipe": "classic new school türkçe rap, mc Rhythm, intl hip hop branch. rhythmic, no pitch organization speech. credited beat unspecified. treated studio.",
+      "recipe_chars": 145
+    },
+    {
+      "id": "norwegian_pop_rap",
+      "name": "Norwegian pop rap",
+      "family": "hip_hop",
+      "recipe": "classic norwegian pop rap, mc Rhythm, intl hip hop branch. sampler. treated studio.",
+      "recipe_chars": 83
+    },
+    {
+      "id": "outer_hip_hop",
+      "name": "Outer Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic outer hip hop, mc Rhythm. no pitch organization speech, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 144
+    },
+    {
+      "id": "deep_melodic_metalcore",
+      "name": "Deep Melodic Metalcore",
+      "family": "rock_punk",
+      "recipe": "classic deep melodic metalcore, distorted Rock, metal branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. live tracking.",
+      "recipe_chars": 260
+    },
+    {
+      "id": "deep_metalcore",
+      "name": "Deep Metalcore",
+      "family": "rock_punk",
+      "recipe": "classic deep metalcore, distorted Rock, metal branch. small vocal ensemble. palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, credited electronics unspecified. live tracking.",
+      "recipe_chars": 270
+    },
+    {
+      "id": "deep_happy_hardcore",
+      "name": "Deep Happy Hardcore",
+      "family": "electronic",
+      "recipe": "classic deep happy hardcore, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 93
+    },
+    {
+      "id": "deep_hardcore",
+      "name": "Deep Hardcore",
+      "family": "electronic",
+      "recipe": "classic deep hardcore, electronic Dance. dj playback mixing unspecified. parlor.",
+      "recipe_chars": 80
+    },
+    {
+      "id": "deep_psychobilly",
+      "name": "Deep Psychobilly",
+      "family": "rock_punk",
+      "recipe": "classic deep psychobilly, distorted Rock, punk branch. solo with instrumental accompaniment. upright bass, humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 238
+    },
+    {
+      "id": "deep_soft_rock",
+      "name": "Deep Soft Rock",
+      "family": "pop_rock",
+      "recipe": "classic deep soft rock, functional Song, pop rock branch. solo with instrumental accompaniment. pocket fingerstyle locked electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, block chord upright piano. live tracking.",
+      "recipe_chars": 257
+    },
+    {
+      "id": "rebel_blues",
+      "name": "Rebel Blues",
+      "family": "pop",
+      "recipe": "classic rebel blues, functional Song. block chord upright piano. live tracking.",
+      "recipe_chars": 79
+    },
+    {
+      "id": "boom_bap_espanol",
+      "name": "Boom Bap Español",
+      "family": "hip_hop",
+      "recipe": "classic boom bap español, mc Rhythm. rhythmic, no pitch organization speech, solo with instrumental accompaniment, single lead single track no stacking. credited beat unspecified. treated studio.",
+      "recipe_chars": 195
+    },
+    {
+      "id": "classic_bollywood",
+      "name": "Classic Bollywood",
+      "family": "pop",
+      "recipe": "classic classic bollywood, functional Song, south Asian pop branch. block chord upright piano. live tracking.",
+      "recipe_chars": 109
+    },
+    {
+      "id": "classic_cantopop",
+      "name": "Classic Cantopop",
+      "family": "pop",
+      "recipe": "classic classic cantopop, functional Song, east Asian pop branch. block chord upright piano. live tracking.",
+      "recipe_chars": 107
+    },
+    {
+      "id": "covertrance",
+      "name": "Covertrance",
+      "family": "electronic",
+      "recipe": "classic covertrance, electronic Dance, trance branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. credited synthesizer credited beat unspecified. treated studio.",
+      "recipe_chars": 216
+    },
+    {
+      "id": "covertronica",
+      "name": "Covertronica",
+      "family": "electronic",
+      "recipe": "classic covertronica, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 100
+    },
+    {
+      "id": "deep_chill",
+      "name": "Deep Chill",
+      "family": "electronic",
+      "recipe": "classic deep chill, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
+      "recipe_chars": 91
+    },
+    {
+      "id": "deep_comedy",
+      "name": "Deep Comedy",
+      "family": "vernacular",
+      "recipe": "classic deep comedy, spoken Word, stage performance branch. conversational, no pitch organization speech. jazz club.",
+      "recipe_chars": 116
+    },
+    {
+      "id": "deep_rai",
+      "name": "Deep Rai",
+      "family": "global",
+      "recipe": "classic deep rai, electronic Dance. dj playback mixing electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 102
+    },
+    {
+      "id": "deep_talent_show",
+      "name": "Deep Talent Show",
+      "family": "pop",
+      "recipe": "classic deep talent show, functional Song, pop rock branch. one note per syllable, unprocessed natural acoustic. dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 156
+    },
+    {
+      "id": "downtempo_fusion",
+      "name": "Downtempo Fusion",
+      "family": "electronic",
+      "recipe": "classic downtempo fusion, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
+      "recipe_chars": 97
+    },
+    {
+      "id": "electropowerpop",
+      "name": "Electropowerpop",
+      "family": "pop_rock",
+      "recipe": "classic 2007-2009 electropowerpop, functional Song, pop rock branch. solo with instrumental accompaniment. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited electronics unspecified. live tracking.",
+      "recipe_chars": 289
+    },
+    {
+      "id": "emoplugg",
+      "name": "Emoplugg",
+      "family": "hip_hop",
+      "recipe": "classic emoplugg, mc Rhythm. one note per syllable, solo with instrumental accompaniment, retune speed 50 100ms subtle nudge producer convention. credited beat unspecified. treated studio.",
+      "recipe_chars": 188
+    },
+    {
+      "id": "flick_hop",
+      "name": "Flick Hop",
+      "family": "hip_hop",
+      "recipe": "classic flick hop, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. treated studio.",
+      "recipe_chars": 123
+    },
+    {
+      "id": "groove_room",
+      "name": "Groove Room",
+      "family": "electronic",
+      "recipe": "classic groove room, electronic Dance, deep house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 104
+    },
+    {
+      "id": "muzica_copii",
+      "name": "Muzică copii",
+      "family": "global",
+      "recipe": "classic muzică copii, art Music. upright piano. live tracking.",
+      "recipe_chars": 62
+    },
+    {
+      "id": "novos_talentos_brasileiros",
+      "name": "Novos Talentos Brasileiros",
+      "family": "pop",
+      "recipe": "classic novos talentos brasileiros, functional Song. one note per syllable, small vocal ensemble. dreadnought acoustic guitar, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "nubian_traditional",
+      "name": "Nubian Traditional",
+      "family": "global",
+      "recipe": "classic nubian traditional, ballad Poetry. one note per syllable, solo with instrumental accompaniment. oud. live tracking.",
+      "recipe_chars": 123
+    },
+    {
+      "id": "polka_nortena",
+      "name": "Polka Norteña",
+      "family": "global",
+      "recipe": "classic polka norteña, art Music. upright piano. live tracking.",
+      "recipe_chars": 63
+    },
+    {
+      "id": "proto_hyperpop",
+      "name": "Proto-hyperpop",
+      "family": "electronic",
+      "recipe": "classic proto-hyperpop, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 88
+    },
+    {
+      "id": "punjabi_lo_fi",
+      "name": "Punjabi Lo-fi",
+      "family": "electronic",
+      "recipe": "classic punjabi lo-fi, experimental Elec, lofi branch. software lofi reworking. treated studio. true-stereo reverb.",
+      "recipe_chars": 115
+    },
+    {
+      "id": "remix_product",
+      "name": "Remix Product",
+      "family": "electronic",
+      "recipe": "classic remix product, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 87
+    },
+    {
+      "id": "sky_room",
+      "name": "Sky Room",
+      "family": "electronic",
+      "recipe": "classic sky room, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 82
+    },
+    {
+      "id": "slow_game",
+      "name": "Slow Game",
+      "family": "hip_hop",
+      "recipe": "classic slow game, mc Rhythm. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 76
+    },
+    {
+      "id": "speed_up_brasileiro",
+      "name": "Speed Up Brasileiro",
+      "family": "electronic",
+      "recipe": "classic speed up brasileiro, functional Song. vocal melodic recorded music rate processing. treated studio.",
+      "recipe_chars": 107
+    },
+    {
+      "id": "twin_cities_indie",
+      "name": "Twin Cities indie",
+      "family": "rock",
+      "recipe": "classic twin cities indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited synthesizer credited programmed drums unspecified. shoebox concert hall.",
+      "recipe_chars": 369
+    },
+    {
+      "id": "voidgrind",
+      "name": "Voidgrind",
+      "family": "rock_punk",
+      "recipe": "classic voidgrind, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 282
+    },
+    {
+      "id": "westcoast_flow",
+      "name": "Westcoast Flow",
+      "family": "hip_hop",
+      "recipe": "classic westcoast flow, mc Rhythm, us hip hop branch. solo with instrumental accompaniment. sampler. treated studio.",
+      "recipe_chars": 116
     }
   ]
 }

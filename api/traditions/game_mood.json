@@ -5,7 +5,7 @@
   "lineage": "Game Mood gathers music circulated through online role-playing communities, especially the NoPixel scene. Performers and producers create songs for fictional identities and venues while releasing them to real listeners beyond the game.",
   "recipe": "classic game mood, mc Rhythm. no pitch organization speech, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
   "recipe_chars": 140,
-  "score": 3.463,
+  "score": 3.723,
   "config": {
     "traditions": [
       "game_mood"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.95,
-          "voice_ensemble_config": 0.819,
+          "voice_ensemble_config": 0.8624999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.27299999999999996,
+          "voice_multitrack_stack": 0.4889999999999999,
           "voice_tessitura": 0
         }
       },

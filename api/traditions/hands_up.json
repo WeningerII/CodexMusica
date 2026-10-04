@@ -3,14 +3,14 @@
   "name": "Hands Up",
   "family": "electronic",
   "lineage": "A German and Dutch commercial rave style codified 2003-2010 through labels like Zoo Digital, Aqualoop and Andorfine and acts such as Cascada, Manian, Rocco and Italobrothers — 140-160 BPM four-on-the-floor with an offbeat detuned supersaw bass, sugary major-key trance-derived leads, pitch-shifted or heavily processed female vocal hooks, and euphoric build-breakdown-drop structures descended from happy hardcore and eurodance.",
-  "recipe": "classic mid-2000s hands up, electronic Dance, eurodance branch, trance electronic dance, europop functional song chasidic pop tech trance. extended whistle, breath veiled tone, wide pitch sway, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, singing lead digital subtractive, singing lead wavetable singing lead analog poly synth, polychordal major seven nine eleven stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 715,
-  "score": 203.562,
+  "recipe": "classic mid-2000s hands up, electronic Dance, eurodance branch, trance electronic dance, europop functional song chasidic pop covertrance. extended whistle, chest mix belt, wide pitch sway, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, singing lead digital subtractive, singing lead wavetable singing lead analog poly synth, polychordal major seven nine eleven stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 711,
+  "score": 191.902,
   "config": {
     "traditions": [
       "hands_up",
       "chasidic_pop",
-      "tech_trance"
+      "covertrance"
     ],
     "instruments": [
       {
@@ -35,8 +35,8 @@
         },
         "scores": {
           "electronic_technique": 4.13,
-          "va_archetypes": 6.044999999999999,
-          "digital_subtractive_context": 18.849999999999998
+          "va_archetypes": 4.615,
+          "digital_subtractive_context": 17.419999999999998
         }
       },
       {
@@ -49,7 +49,7 @@
         },
         "scores": {
           "electronic_technique": 4.13,
-          "wt_position": 6.695,
+          "wt_position": 6.629999999999999,
           "wt_family": 1.15,
           "wt_polyphony": 0.24
         }
@@ -58,7 +58,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -75,22 +75,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 6.0600000000000005,
-          "voice_quality": 8.71,
+          "voice_register": 6.210000000000001,
+          "voice_quality": 8.594999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.14,
-          "voice_articulation": 18.849999999999994,
-          "voice_microtone": 21.64499999999999,
-          "voice_tradition": 7.020000000000001,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 19.369999999999994,
+          "voice_tradition": 6.825000000000001,
           "voice_mechanism_compound": 3.6,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 22.424999999999997,
-          "voice_ensemble_config": 21.124999999999996,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 20.994999999999994,
+          "voice_ensemble_config": 19.694999999999993,
           "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 4.82,
-          "voice_processing_chain": 15.174999999999999,
-          "voice_multitrack_stack": 3.38
+          "voice_pitch_organization": 4.320000000000001,
+          "voice_processing_chain": 15.049999999999999,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -102,7 +102,7 @@
         },
         "scores": {
           "multitrack_stack_density": 2.04,
-          "multitrack_stack_era_aesthetic": 3.0225,
+          "multitrack_stack_era_aesthetic": 2.3725,
           "multitrack_stack_processing": 4.725
         }
       },
