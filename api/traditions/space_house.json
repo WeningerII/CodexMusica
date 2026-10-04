@@ -5,7 +5,7 @@
   "lineage": "French and Belgian house variant of the mid-to-late 1990s associated with Alan Braxe, Stardust, I:Cube and the Roule and Versatile labels, characterized by 118-126 BPM disco-derived kicks, cosmic analogue synth arpeggios and phaser-swept pads over filtered loops, sustained vocoder or heavily processed vocal fragments, and slow-evolving one-chord builds owing more to 70s space disco than to Chicago tracks.",
   "recipe": "classic Western European 1997-1999 space house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric canadian house deep disco house. analog poly synth, monosynth acid ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, TR-909, field sampler, vocoder, turntable. intimate paris small studio. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 525,
-  "score": 125.797,
+  "score": 126.487,
   "config": {
     "traditions": [
       "space_house",
@@ -34,13 +34,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
           "electronic_technique": 1.0399999999999998,
           "wave_acid": 0.27,
           "filter_acid": 0.15,
-          "accent_acid": 0
+          "accent_acid": 0.045
         }
       },
       {
@@ -70,7 +70,7 @@
           "sampler_archetypes": 0.65,
           "sampler_bit_depth": 1.8199999999999998,
           "sampler_workflow": 2.09,
-          "sampler_classic_context": 50.425
+          "sampler_classic_context": 51.114999999999995
         }
       },
       {
@@ -99,7 +99,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.075,
+          "amp_make": 5.03,
           "body_wood": 1.95,
           "pickup_config": 0.195,
           "string_type": 5.07,

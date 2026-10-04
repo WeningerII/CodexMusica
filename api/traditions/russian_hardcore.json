@@ -5,7 +5,7 @@
   "lineage": "Russian hardcore includes heavy electric bands at the intersection with metal.",
   "recipe": "classic russian hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, low mid scooped modern metal basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 395,
-  "score": 36.08,
+  "score": 35.756,
   "config": {
     "traditions": [
       "russian_hardcore"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.39,
+          "bridge": 0.3,
           "scale_length": 0,
-          "string_gauge": 0.18,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.054
+          "string_tuning": 0
         }
       },
       {

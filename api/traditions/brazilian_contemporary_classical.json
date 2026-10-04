@@ -5,7 +5,7 @@
   "lineage": "Brazilian contemporary classical music develops new concert repertoire through composers, performers and musical institutions. Acoustic and electronic approaches explore different relationships between texture, harmony and form.",
   "recipe": "classic brazilian contemporary classical, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 62.221,
+  "score": 62.167,
   "config": {
     "traditions": [
       "brazilian_contemporary_classical"
@@ -31,7 +31,7 @@
           "piano_hammer": 11.25,
           "piano_rim": 11.59275,
           "piano_soundboard": 11.25,
-          "piano_pinblock": 11.304,
+          "piano_pinblock": 11.25,
           "piano_plate": 11.25,
           "piano_pitch_standard": 4.875
         }

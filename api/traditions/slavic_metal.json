@@ -5,7 +5,7 @@
   "lineage": "Slavic metal includes modern heavy-band approaches shaped by Slavic themes and melodic references.",
   "recipe": "classic slavic metal, distorted Rock, folk metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, pre muffled edge muffled sticks backbeat drum kit, accordion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 391,
-  "score": 61.079,
+  "score": 60.476,
   "config": {
     "traditions": [
       "slavic_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 16.6665,
+          "electric_technique": 16.5855,
           "amp_make": 9.620000000000001,
           "body_wood": 7.8,
           "neck_wood": 0,
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 1.2115,
           "string_material": 0,
-          "bridge": 0.855,
+          "bridge": 0.675,
           "scale_length": 0,
-          "string_gauge": 0.741,
+          "string_gauge": 0.5609999999999999,
           "finish": 0,
-          "string_tuning": 0.1935
+          "string_tuning": 0.1395
         }
       },
       {
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4605,
+          "voice_processing_chain": 0.35250000000000004,
           "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }

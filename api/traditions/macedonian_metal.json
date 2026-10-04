@@ -5,7 +5,7 @@
   "lineage": "Macedonian metal is represented here by Verka. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic macedonian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, tapan, darbuka, melodic kaval. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 433,
-  "score": 78.897,
+  "score": 78.731,
   "config": {
     "traditions": [
       "macedonian_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 18.1665,
+          "electric_technique": 18.0855,
           "amp_make": 7.085,
           "body_wood": 7.279999999999999,
           "neck_wood": 0.5774999999999999,
@@ -41,7 +41,7 @@
           "scale_length": 7.279999999999999,
           "string_gauge": 1.3,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.38549999999999995
         }
       },
       {
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4605,
+          "voice_processing_chain": 0.35250000000000004,
           "voice_multitrack_stack": 0.273
         }
       },
@@ -156,9 +156,9 @@
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 5.095,
+          "wind_articulation": 5.158,
           "kaval_region": 0.72,
-          "kaval_context": 0.39,
+          "kaval_context": 0.354,
           "kaval_body_wood": 0
         }
       }

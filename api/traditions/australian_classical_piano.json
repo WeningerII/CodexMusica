@@ -5,7 +5,7 @@
   "lineage": "Australian classical piano is represented here by Tamara-Anna Cislowska — Left Bank Waltz, from Peter Sculthorpe: Complete Works for Solo Piano (ABC Classics, 2014). This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic mid-2010s australian classical piano, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 271,
-  "score": 88.888,
+  "score": 88.286,
   "config": {
     "traditions": [
       "australian_classical_piano"
@@ -28,12 +28,12 @@
           "keyboard_technique": 8.25,
           "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.86175,
-          "piano_hammer": 14.48025,
+          "piano_hammer": 14.225249999999999,
           "piano_rim": 12.3045,
           "piano_soundboard": 12,
-          "piano_pinblock": 12.45075,
-          "piano_plate": 14.055,
-          "piano_pitch_standard": 14.11825
+          "piano_pinblock": 12.396749999999999,
+          "piano_plate": 13.942499999999999,
+          "piano_pitch_standard": 13.938249999999998
         }
       }
     ],

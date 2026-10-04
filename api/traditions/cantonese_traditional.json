@@ -5,7 +5,7 @@
   "lineage": "Cantonese traditional music developed in the Pearl River Delta and through Guangdong and Hong Kong performance networks. Instrumental ensembles, inherited tunes and newer compositions continue a regional tradition shaped by theatre, social performance and recording.",
   "recipe": "classic cantonese traditional, art Music. Cantonese silk and bamboo python skin gaohu, traditional bamboo yangqin. live tracking.",
   "recipe_chars": 129,
-  "score": 25.979,
+  "score": 26.074,
   "config": {
     "traditions": [
       "cantonese_traditional"
@@ -20,7 +20,7 @@
           "gaohu_membrane": "gaohu_python"
         },
         "scores": {
-          "bowed_technique": 2.5,
+          "bowed_technique": 2.563,
           "gaohu_type": 7.5,
           "gaohu_setting": 9.62,
           "gaohu_membrane": 2.0865
@@ -33,7 +33,7 @@
           "yangqin_technique": "yangqin_bamboo_mallets"
         },
         "scores": {
-          "yangqin_courses": 2.1365,
+          "yangqin_courses": 2.168,
           "yangqin_technique": 2.1365
         }
       }

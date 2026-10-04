@@ -3,9 +3,9 @@
   "name": "Deep groove house",
   "family": "electronic",
   "lineage": "An international bass-and-hook house discovery cluster including Dom Dolla, James Hype, Tchami, Endor and Ferreck Dawn. The selected contemporary branch is grounded in Dom Dolla’s documented in-the-box production, tightly programmed drums and repitched self-recorded vocal hooks.",
-  "recipe": "classic modern deep groove house, electronic Dance, house branch, tech house house latin tech house dutch tech house. low sub bass wavetable synth, sampler drum machine, sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 50.381,
+  "recipe": "classic modern deep groove house, electronic Dance, house branch, tech house house latin tech house dutch tech house. sub bass wavetable synth, sampler drum machine, sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 368,
+  "score": 49.439,
   "config": {
     "traditions": [
       "deep_groove_house",
@@ -22,10 +22,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 3.7700000000000005,
+          "electronic_technique": 3.5750000000000006,
           "wt_position": 0,
           "wt_family": 0.65,
-          "wt_polyphony": 0
+          "wt_polyphony": 0.65
         }
       },
       {
@@ -37,9 +37,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.52,
-          "sample_bitdepth": 0.195,
-          "sample_swing": 0.195,
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.10124999999999999,
+          "sample_swing": 0.045,
           "sample_processing": 0.195
         }
       },
@@ -53,11 +53,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.52,
+          "electronic_technique": -0.07,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.195,
+          "sampler_bit_depth": 0.10124999999999999,
           "sampler_workflow": 0.585,
-          "sampler_classic_context": 40.706125
+          "sampler_classic_context": 41.701125
         }
       }
     ],

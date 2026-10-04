@@ -5,7 +5,7 @@
   "lineage": "French classical piano connects a long keyboard repertoire with recital, teaching and recording traditions. Performers explore French composition alongside the wider concert canon, including modern-piano interpretations of earlier keyboard works.",
   "recipe": "classic french classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 264,
-  "score": 76.111,
+  "score": 76.184,
   "config": {
     "traditions": [
       "french_classical_piano"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 7.854,
-          "grand_piano_size": 1.3,
-          "grand_piano_brand": 0.7155,
-          "piano_hammer": 12.739,
-          "piano_rim": 10.777000000000001,
+          "grand_piano_size": 1.2429999999999999,
+          "grand_piano_brand": 0.798,
+          "piano_hammer": 12.6205,
+          "piano_rim": 10.9135,
           "piano_soundboard": 10,
           "piano_pinblock": 10.105,
-          "piano_plate": 10.357,
-          "piano_pitch_standard": 12.263000000000002
+          "piano_plate": 10.4305,
+          "piano_pitch_standard": 12.2195
         }
       }
     ],

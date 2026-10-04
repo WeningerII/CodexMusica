@@ -3,9 +3,9 @@
   "name": "German renaissance",
   "family": "classical",
   "lineage": "German Renaissance music encompasses sacred and secular vocal works alongside instrumental practices. Performers explore the relationships between text, counterpoint and the changing musical institutions of the period.",
-  "recipe": "classic german renaissance, art Music, western common practice branch. polyrhythmic vocal layering independent cycles choir ensemble, schnitger hamburg canonical north German Baroque late 17th century quarter comma meantone canonical renaissance early Baroque pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 370,
-  "score": 19.585,
+  "recipe": "classic german renaissance, art Music, western common practice branch. polyrhythmic vocal layering independent cycles choir ensemble, schnitger hamburg canonical north German Baroque late 17th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 483,
+  "score": 19.837,
   "config": {
     "traditions": [
       "german_renaissance"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "choir_size": 1.3,
-          "choir_polyphonic_configuration": 2.08,
+          "choir_polyphonic_configuration": 1.951,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 1.3
         }
@@ -42,9 +42,9 @@
           "pipe_organ_class": 0.168,
           "pipe_organ_context": 5.2,
           "pipe_organ_voicing_school": 2.6,
-          "pipe_organ_pipe_alloy": 0.84,
+          "pipe_organ_pipe_alloy": 1.0305,
           "pipe_organ_temperament": 2.6,
-          "pipe_organ_action": 0.9975
+          "pipe_organ_action": 1.1880000000000002
         }
       }
     ],

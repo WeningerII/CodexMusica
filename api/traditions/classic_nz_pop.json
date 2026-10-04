@@ -5,7 +5,7 @@
   "lineage": "Classic New Zealand pop includes the historical chart, television and dance-club scenes that developed around local labels and touring bands. Ray Columbus and the Invaders exemplify the early-1960s meeting of beat-group pop, R&B and guitar-led rock.",
   "recipe": "classic 1960-1963 classic nz pop, functional Song, pop rock branch. soft down tuning clean strummed single coil electric guitar, electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 340,
-  "score": 45.459,
+  "score": 45.006,
   "config": {
     "traditions": [
       "classic_nz_pop"
@@ -62,7 +62,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_3",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -73,13 +73,13 @@
           "electric_technique": 14.1575,
           "amp_make": 0,
           "body_wood": 0.063,
-          "neck_wood": 0.3705,
+          "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
           "string_material": 0.0315,
-          "string_gauge": 0.26549999999999996,
+          "string_gauge": 0.1995,
           "bridge": 0.1365,
-          "scale_length": 0.636,
+          "scale_length": 0.378,
           "finish": 0,
           "string_tuning": 5.85,
           "single_coil_pickup_construction": 0

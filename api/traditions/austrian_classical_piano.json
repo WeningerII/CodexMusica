@@ -5,7 +5,7 @@
   "lineage": "Austrian classical piano connects recital performance, teaching and recording with a wide concert repertoire. Pianists interpret historical works and newer compositions through individual approaches to phrasing and form.",
   "recipe": "classic austrian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 269,
-  "score": 61.681,
+  "score": 62.433,
   "config": {
     "traditions": [
       "austrian_classical_piano"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 7.8,
-          "grand_piano_size": 1.2429999999999999,
-          "grand_piano_brand": 0.8520000000000001,
+          "grand_piano_size": 1.063,
+          "grand_piano_brand": 0.9345000000000001,
           "piano_hammer": 9.685,
-          "piano_rim": 8.3635,
-          "piano_soundboard": 8.6865,
+          "piano_rim": 8.6365,
+          "piano_soundboard": 9.096,
           "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.8805000000000005,
-          "piano_pitch_standard": 9.6155
+          "piano_plate": 7.954000000000001,
+          "piano_pitch_standard": 9.7085
         }
       }
     ],

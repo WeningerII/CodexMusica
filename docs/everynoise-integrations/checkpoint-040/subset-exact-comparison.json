@@ -1,630 +1,2162 @@
 {
-  "scope": "Exact full configurations, numeric scores and emitted outputs for original104 changed fixtures; baseline equality is containment, not legacy musical approval.",
-  "full_replay_sha256": "a00d244dc79a8961f453373b05c26a57355c1c93e3e26b16fe89e3f6e6b71f13",
+  "expected": 260,
+  "completed": 260,
   "entries": [
     {
       "id": "fado",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["fado", "alpine_yodeling", "albanian_folk"],
+      "candidate_stack": ["fado", "alpine_yodeling", "albanian_folk"]
     },
     {
       "id": "tropicalia",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["tropicalia", "french_post_rock", "experimental_pop"],
+      "candidate_stack": ["tropicalia", "french_post_rock", "experimental_pop"]
     },
     {
       "id": "hardcore_punk",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hardcore_punk", "thrash_metal", "native_american_metal"],
+      "candidate_stack": ["hardcore_punk", "thrash_metal", "native_american_metal"]
     },
     {
       "id": "hair_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hair_metal", "metal_paranaense", "mexican_metal"],
+      "candidate_stack": ["hair_metal", "metal_paranaense", "mexican_metal"]
     },
     {
       "id": "new_orleans",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["new_orleans", "bebop", "classic_japanese_jazz"],
+      "candidate_stack": ["new_orleans", "bebop", "classic_japanese_jazz"]
     },
     {
       "id": "russian_folk_balalaika_choir",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["russian_folk_balalaika_choir", "russian_orthodox_chant", "russian_choir"],
+      "candidate_stack": ["russian_folk_balalaika_choir", "russian_orthodox_chant", "russian_choir"]
     },
     {
       "id": "british_brass_band",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["british_brass_band", "classical_accordion", "classical_guitar"],
+      "candidate_stack": ["british_brass_band", "classical_accordion", "classical_guitar"]
     },
     {
       "id": "doom",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["doom", "sludge_metal", "venezuelan_metal"],
+      "candidate_stack": ["doom", "sludge_metal", "venezuelan_metal"]
     },
     {
       "id": "j_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["j_rock", "enka", "alt_idol"],
+      "candidate_stack": ["j_rock", "enka", "alt_idol"]
     },
     {
       "id": "jam_band",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["jam_band", "dusseldorf_indie", "hard_rock_brasileiro"],
+      "candidate_stack": ["jam_band", "dusseldorf_indie", "hard_rock_brasileiro"]
     },
     {
       "id": "fusion",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["fusion", "bebop", "classic_japanese_jazz"],
+      "candidate_stack": ["fusion", "bebop", "classic_japanese_jazz"]
     },
     {
       "id": "jangle_pop",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["jangle_pop", "british_indie_rock", "german_indie_rock"],
+      "candidate_stack": ["jangle_pop", "british_indie_rock", "german_indie_rock"]
     },
     {
       "id": "ethio_pop_modern",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ethio_pop_modern", "ghent_indie", "guadalajara_indie"],
+      "candidate_stack": ["ethio_pop_modern", "ghent_indie", "guadalajara_indie"]
     },
     {
       "id": "progressive_trance",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["progressive_trance", "hauntology_aesthetic", "russian_witch_house"],
+      "candidate_stack": ["progressive_trance", "hauntology_aesthetic", "russian_witch_house"]
     },
     {
       "id": "choro",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["choro", "samba", "bloco"],
+      "candidate_stack": ["choro", "samba", "bloco"]
     },
     {
       "id": "salsa_nuyorican",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["salsa_nuyorican", "cool_jazz_west_coast", "classic_japanese_jazz"],
+      "candidate_stack": ["salsa_nuyorican", "cool_jazz_west_coast", "classic_japanese_jazz"]
     },
     {
       "id": "gospel_quartet_male",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["gospel_quartet_male", "bluegrass_gospel", "family_gospel"],
+      "candidate_stack": ["gospel_quartet_male", "bluegrass_gospel", "family_gospel"]
     },
     {
       "id": "stoner_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["stoner_metal", "sludge_metal", "atmospheric_sludge"],
+      "candidate_stack": ["stoner_metal", "sludge_metal", "atmospheric_sludge"]
     },
     {
       "id": "gabber",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["gabber", "belgian_techno", "brazilian_techno"],
+      "candidate_stack": ["gabber", "belgian_techno", "brazilian_techno"]
     },
     {
       "id": "tin_pan_alley_song",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["tin_pan_alley_song", "british_dance_band", "swing_italiano"],
+      "candidate_stack": ["tin_pan_alley_song", "british_dance_band", "swing_italiano"]
     },
     {
       "id": "modal_jazz",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["modal_jazz", "borneo_traditional", "rogaland_musikk"],
+      "candidate_stack": ["modal_jazz", "borneo_traditional", "rogaland_musikk"]
     },
     {
       "id": "blend_carnatic_minimalist",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["carnatic_vocal", "minimalist", "carnatic_kacheri"],
+      "candidate_stack": ["carnatic_vocal", "minimalist", "carnatic_kacheri"]
     },
     {
       "id": "blend_classical_jazz_third_stream",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["string_quartet", "third_stream", "african_american_classical"],
+      "candidate_stack": ["string_quartet", "third_stream", "african_american_classical"]
     },
     {
       "id": "blend_doom_drone_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["doom", "drone_metal", "sludge_metal"],
+      "candidate_stack": ["doom", "drone_metal", "sludge_metal"]
     },
     {
       "id": "blend_afro_cuban_bebop",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["latin_jazz", "bebop", "classic_japanese_jazz"],
+      "candidate_stack": ["latin_jazz", "bebop", "classic_japanese_jazz"]
     },
     {
       "id": "carnival_brazilian_samba",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["brazilian_samba_school_enredo", "brega", "trinidad_road_march"],
+      "candidate_stack": ["brazilian_samba_school_enredo", "brega", "trinidad_road_march"]
     },
     {
       "id": "baroque_pop_60s",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["baroque_pop_60s", "classical_period_18c", "canadian_choir"],
+      "candidate_stack": ["baroque_pop_60s", "classical_period_18c", "canadian_choir"]
     },
     {
       "id": "british_invasion_rb",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["british_invasion_rb", "blues_band", "blues_mexicano"],
+      "candidate_stack": ["british_invasion_rb", "blues_band", "blues_mexicano"]
     },
     {
       "id": "reggae_fusion_modern",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["reggae_fusion_modern", "australian_hip_hop", "chinese_melodic_rap"],
+      "candidate_stack": ["reggae_fusion_modern", "australian_hip_hop", "chinese_melodic_rap"]
     },
     {
       "id": "ska_revival_2tone",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ska_revival_2tone", "argentine_punk", "arizona_punk"],
+      "candidate_stack": ["ska_revival_2tone", "argentine_punk", "arizona_punk"]
     },
     {
       "id": "art_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["art_rock", "experimental_pop", "classic_psychedelic_rock"],
+      "candidate_stack": ["art_rock", "experimental_pop", "classic_psychedelic_rock"]
     },
     {
       "id": "new_wave",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["new_wave", "synthpop", "french_synthpop"],
+      "candidate_stack": ["new_wave", "synthpop", "french_synthpop"]
     },
     {
       "id": "hard_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hard_rock", "new_wave_of_speed_metal", "metal_paranaense"],
+      "candidate_stack": ["hard_rock", "new_wave_of_speed_metal", "metal_paranaense"]
     },
     {
       "id": "grunge",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["grunge", "venezuelan_metal", "louisiana_metal"],
+      "candidate_stack": ["grunge", "venezuelan_metal", "louisiana_metal"]
     },
     {
       "id": "death_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["death_metal", "native_american_metal", "black_speed_metal"],
+      "candidate_stack": ["death_metal", "native_american_metal", "black_speed_metal"]
     },
     {
       "id": "pop_punk",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["pop_punk", "grunge", "afro_punk"],
+      "candidate_stack": ["pop_punk", "grunge", "afro_punk"]
     },
     {
       "id": "post_rock_extended",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "post_rock_extended",
+        "polish_avant_garde_sonorism",
+        "classical_guitar_quartet"
+      ],
+      "candidate_stack": [
+        "post_rock_extended",
+        "polish_avant_garde_sonorism",
+        "classical_guitar_quartet"
+      ]
     },
     {
       "id": "gangsta_rap",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["gangsta_rap", "bronx_hip_hop", "buffalo_hip_hop"],
+      "candidate_stack": ["gangsta_rap", "bronx_hip_hop", "buffalo_hip_hop"]
     },
     {
       "id": "symphonic",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "symphonic",
+        "african_american_classical",
+        "american_21st_century_classical"
+      ],
+      "candidate_stack": [
+        "symphonic",
+        "african_american_classical",
+        "american_21st_century_classical"
+      ]
     },
     {
       "id": "string_quartet",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "string_quartet",
+        "african_american_classical",
+        "american_21st_century_classical"
+      ],
+      "candidate_stack": [
+        "string_quartet",
+        "african_american_classical",
+        "american_21st_century_classical"
+      ]
     },
     {
       "id": "carnatic_vocal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["carnatic_vocal", "carnatic_kacheri", "hindustani_vocal"],
+      "candidate_stack": ["carnatic_vocal", "carnatic_kacheri", "hindustani_vocal"]
     },
     {
       "id": "minimalist",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["minimalist", "528hz", "brain_waves"],
+      "candidate_stack": ["minimalist", "528hz", "brain_waves"]
     },
     {
       "id": "industrial",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["industrial", "future_rock", "spanish_post_rock"],
+      "candidate_stack": ["industrial", "future_rock", "spanish_post_rock"]
     },
     {
       "id": "hard_bop",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hard_bop", "soul_jazz", "jazz_organ"],
+      "candidate_stack": ["hard_bop", "soul_jazz", "jazz_organ"]
     },
     {
       "id": "latin_jazz",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["latin_jazz", "bebop", "classic_japanese_jazz"],
+      "candidate_stack": ["latin_jazz", "bebop", "classic_japanese_jazz"]
     },
     {
       "id": "soul_jazz",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["soul_jazz", "bebop", "classic_rb"],
+      "candidate_stack": ["soul_jazz", "bebop", "classic_rb"]
     },
     {
       "id": "singer_songwriter",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["singer_songwriter", "austin_americana", "memphis_americana"],
+      "candidate_stack": ["singer_songwriter", "austin_americana", "memphis_americana"]
     },
     {
       "id": "early_rock_and_roll_50s",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["early_rock_and_roll_50s", "blues_band", "blues_mexicano"],
+      "candidate_stack": ["early_rock_and_roll_50s", "blues_band", "blues_mexicano"]
     },
     {
       "id": "sludge_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["sludge_metal", "metal_mineiro", "stoner_metal"],
+      "candidate_stack": ["sludge_metal", "metal_mineiro", "stoner_metal"]
     },
     {
       "id": "maya_marimba",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["maya_marimba", "bloco", "pagode"],
+      "candidate_stack": ["maya_marimba", "bloco", "pagode"]
     },
     {
       "id": "tarantella_napoletana",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["tarantella_napoletana", "bloco", "pagode"],
+      "candidate_stack": ["tarantella_napoletana", "bloco", "pagode"]
     },
     {
       "id": "brostep",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["brostep", "acid_house", "dutch_tech_house"],
+      "candidate_stack": ["brostep", "acid_house", "dutch_tech_house"]
     },
     {
       "id": "ebm_european_body",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ebm_european_body", "australian_thrash_metal", "brazilian_thrash_metal"],
+      "candidate_stack": ["ebm_european_body", "australian_thrash_metal", "brazilian_thrash_metal"]
     },
     {
       "id": "interior_confessional_60s",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["interior_confessional_60s", "cool_jazz_vocal", "modern_vocal_jazz"],
+      "candidate_stack": ["interior_confessional_60s", "cool_jazz_vocal", "modern_vocal_jazz"]
     },
     {
       "id": "shidaiqu",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["shidaiqu", "modern_swing", "new_orleans"],
+      "candidate_stack": ["shidaiqu", "modern_swing", "new_orleans"]
     },
     {
       "id": "freak_folk_2000s",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["freak_folk_2000s", "french_indietronica", "hyperpop_francais"],
+      "candidate_stack": ["freak_folk_2000s", "french_indietronica", "hyperpop_francais"]
     },
     {
       "id": "isicathamiya",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["isicathamiya", "jubilee_quartet", "afro_cuban_traditional"],
+      "candidate_stack": ["isicathamiya", "jubilee_quartet", "afro_cuban_traditional"]
     },
     {
       "id": "samba_jazz",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["samba_jazz", "bloco", "forro_instrumental"],
+      "candidate_stack": ["samba_jazz", "bloco", "forro_instrumental"]
     },
     {
       "id": "hokum_blues_vaudeville",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hokum_blues_vaudeville", "swing_italiano", "modern_swing"],
+      "candidate_stack": ["hokum_blues_vaudeville", "swing_italiano", "modern_swing"]
     },
     {
       "id": "mormon_tabernacle_choir",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["mormon_tabernacle_choir", "austrian_choir", "bel_canto_opera"],
+      "candidate_stack": ["mormon_tabernacle_choir", "austrian_choir", "bel_canto_opera"]
     },
     {
       "id": "easy_listening_orchestral",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["easy_listening_orchestral", "canadian_choir", "chamber_music"],
+      "candidate_stack": ["easy_listening_orchestral", "canadian_choir", "chamber_music"]
     },
     {
       "id": "noise_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["noise_rock", "austrian_stoner_rock", "grunge_brasileiro"],
+      "candidate_stack": ["noise_rock", "austrian_stoner_rock", "grunge_brasileiro"]
     },
     {
       "id": "german_wiegenlied",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["german_wiegenlied", "detskie_pesni", "chanson"],
+      "candidate_stack": ["german_wiegenlied", "detskie_pesni", "chanson"]
     },
     {
       "id": "yacht_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["yacht_rock", "aor", "standards"],
+      "candidate_stack": ["yacht_rock", "aor", "standards"]
     },
     {
       "id": "antifolk_nyc",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["antifolk_nyc", "bedroom_pop", "lo_fi_vgm"],
+      "candidate_stack": ["antifolk_nyc", "bedroom_pop", "lo_fi_vgm"]
     },
     {
       "id": "nwobhm",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["nwobhm", "britpop", "classic_rock"],
+      "candidate_stack": ["nwobhm", "britpop", "classic_rock"]
     },
     {
       "id": "post_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["post_metal", "american_post_rock", "british_post_rock"],
+      "candidate_stack": ["post_metal", "american_post_rock", "british_post_rock"]
     },
     {
       "id": "deep_house_soulful",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["deep_house_soulful", "doo_wop", "barbershop"],
+      "candidate_stack": ["deep_house_soulful", "doo_wop", "barbershop"]
     },
     {
       "id": "japanese_matsuri_taiko",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["japanese_matsuri_taiko", "chinese_xiqing_wedding", "fo_jing"],
+      "candidate_stack": ["japanese_matsuri_taiko", "chinese_xiqing_wedding", "fo_jing"]
     },
     {
       "id": "frevo",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["frevo", "acid_jazz_uk_90s", "ragtime"],
+      "candidate_stack": ["frevo", "acid_jazz_uk_90s", "ragtime"]
     },
     {
       "id": "math_rock_post_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["math_rock_post_rock", "american_post_rock", "malaysian_post_rock"],
+      "candidate_stack": ["math_rock_post_rock", "american_post_rock", "malaysian_post_rock"]
     },
     {
       "id": "traditional_doom",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["traditional_doom", "nwobhm", "metal_paranaense"],
+      "candidate_stack": ["traditional_doom", "nwobhm", "metal_paranaense"]
     },
     {
       "id": "brutal_death_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["brutal_death_metal", "groove_metal", "virginia_metal"],
+      "candidate_stack": ["brutal_death_metal", "groove_metal", "virginia_metal"]
     },
     {
       "id": "cool_jazz_vocal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["cool_jazz_vocal", "jazz_caraibes", "jazz_venezolano"],
+      "candidate_stack": ["cool_jazz_vocal", "jazz_caraibes", "jazz_venezolano"]
     },
     {
       "id": "electroacoustic_composition",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["electroacoustic_composition", "computer_music", "21st_century_classical"],
+      "candidate_stack": ["electroacoustic_composition", "computer_music", "21st_century_classical"]
     },
     {
       "id": "kompa_direkt",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["kompa_direkt", "neo_swing", "man_s_orchestra"],
+      "candidate_stack": ["kompa_direkt", "neo_swing", "man_s_orchestra"]
     },
     {
       "id": "bouyon",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["bouyon", "afrobeat_brasileiro", "afrofuturismo_brasileiro"],
+      "candidate_stack": ["bouyon", "afrobeat_brasileiro", "afrofuturismo_brasileiro"]
     },
     {
       "id": "somali_qaraami",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["somali_qaraami", "turk_sanat_muzigi", "andalusian_classical"],
+      "candidate_stack": ["somali_qaraami", "turk_sanat_muzigi", "andalusian_classical"]
     },
     {
       "id": "coupe_decale_ivorian",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["coupe_decale_ivorian", "hip_hop_galsen", "merenrap"],
+      "candidate_stack": ["coupe_decale_ivorian", "hip_hop_galsen", "merenrap"]
     },
     {
       "id": "zouglou_ivorian",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["zouglou_ivorian", "hip_hop_galsen", "ghanaian_hip_hop"],
+      "candidate_stack": ["zouglou_ivorian", "hip_hop_galsen", "ghanaian_hip_hop"]
     },
     {
       "id": "kapuka_kenyan",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["kapuka_kenyan", "chinese_melodic_rap", "san_antonio_rap"],
+      "candidate_stack": ["kapuka_kenyan", "chinese_melodic_rap", "san_antonio_rap"]
     },
     {
       "id": "khaliji_gulf",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["khaliji_gulf", "andalusian_classical", "turk_sanat_muzigi"],
+      "candidate_stack": ["khaliji_gulf", "andalusian_classical", "turk_sanat_muzigi"]
     },
     {
       "id": "cumbia_rebajada",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["cumbia_rebajada", "colombian_electronic", "cuban_electronic"],
+      "candidate_stack": ["cumbia_rebajada", "colombian_electronic", "cuban_electronic"]
     },
     {
       "id": "filin_cubano",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["filin_cubano", "japanese_vocal_jazz", "smooth_jazz_80s"],
+      "candidate_stack": ["filin_cubano", "japanese_vocal_jazz", "smooth_jazz_80s"]
     },
     {
       "id": "festejo_afroperuano",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["festejo_afroperuano", "bloco", "pagode"],
+      "candidate_stack": ["festejo_afroperuano", "bloco", "pagode"]
     },
     {
       "id": "currulao_pacifico",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["currulao_pacifico", "bloco", "pagode"],
+      "candidate_stack": ["currulao_pacifico", "bloco", "pagode"]
     },
     {
       "id": "forro_pe_de_serra",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["forro_pe_de_serra", "bloco", "pagode"],
+      "candidate_stack": ["forro_pe_de_serra", "bloco", "pagode"]
     },
     {
       "id": "lambada_carimbo",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["lambada_carimbo", "bloco", "pagode"],
+      "candidate_stack": ["lambada_carimbo", "bloco", "pagode"]
     },
     {
       "id": "lutheran_chorale",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["lutheran_chorale", "austrian_choir", "hungarian_choir"],
+      "candidate_stack": ["lutheran_chorale", "austrian_choir", "hungarian_choir"]
     },
     {
       "id": "methodist_hymnody",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["methodist_hymnody", "british_choir", "anglican_choral_cathedral"],
+      "candidate_stack": ["methodist_hymnody", "british_choir", "anglican_choral_cathedral"]
     },
     {
       "id": "slacker_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["slacker_rock", "canadian_psychedelic_rock", "modern_progressive_rock"],
+      "candidate_stack": ["slacker_rock", "canadian_psychedelic_rock", "modern_progressive_rock"]
     },
     {
       "id": "speed_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["speed_metal", "brazilian_power_metal", "british_power_metal"],
+      "candidate_stack": ["speed_metal", "brazilian_power_metal", "british_power_metal"]
     },
     {
       "id": "groove_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["groove_metal", "blackgaze", "belgian_death_metal"],
+      "candidate_stack": ["groove_metal", "blackgaze", "belgian_death_metal"]
     },
     {
       "id": "gothic_metal",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["gothic_metal", "darkwave", "dark_rock"],
+      "candidate_stack": ["gothic_metal", "darkwave", "dark_rock"]
     },
     {
       "id": "stoner_rock",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["stoner_rock", "sludge_metal", "venezuelan_metal"],
+      "candidate_stack": ["stoner_rock", "sludge_metal", "venezuelan_metal"]
     },
     {
       "id": "desert_rock_palm",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["desert_rock_palm", "sludge_metal", "venezuelan_metal"],
+      "candidate_stack": ["desert_rock_palm", "sludge_metal", "venezuelan_metal"]
     },
     {
       "id": "dark_electro_aggrotech",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "dark_electro_aggrotech",
+        "australian_thrash_metal",
+        "brazilian_thrash_metal"
+      ],
+      "candidate_stack": [
+        "dark_electro_aggrotech",
+        "australian_thrash_metal",
+        "brazilian_thrash_metal"
+      ]
     },
     {
       "id": "russian_kolybelnaya",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["russian_kolybelnaya", "detskie_pesni", "lemko_folk"],
+      "candidate_stack": ["russian_kolybelnaya", "detskie_pesni", "lemko_folk"]
     },
     {
       "id": "french_berceuse",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["french_berceuse", "detskie_pesni", "chanson"],
+      "candidate_stack": ["french_berceuse", "detskie_pesni", "chanson"]
     },
     {
       "id": "bengali_ghum_paranir_gan",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["bengali_ghum_paranir_gan", "hindustani_vocal", "ragini"],
+      "candidate_stack": ["bengali_ghum_paranir_gan", "hindustani_vocal", "ragini"]
     },
     {
       "id": "ethiopian_eskista_wedding",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ethiopian_eskista_wedding", "latin_jazz", "ragtime"],
+      "candidate_stack": ["ethiopian_eskista_wedding", "latin_jazz", "ragtime"]
     },
     {
       "id": "brazilian_mpb_protest",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["brazilian_mpb_protest", "brega", "cantautora_mexicana"],
+      "candidate_stack": ["brazilian_mpb_protest", "brega", "cantautora_mexicana"]
     },
     {
       "id": "bengali_chhotoder_chora",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["bengali_chhotoder_chora", "haryanvi_ragni", "cambodian_chapei_dang_veng"],
+      "candidate_stack": ["bengali_chhotoder_chora", "haryanvi_ragni", "cambodian_chapei_dang_veng"]
     },
     {
       "id": "brazilian_samba_school_enredo",
-      "output_equal": true,
-      "config_equal": true,
-      "score_equal": true
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["brazilian_samba_school_enredo", "brega", "trinidad_road_march"],
+      "candidate_stack": ["brazilian_samba_school_enredo", "brega", "trinidad_road_march"]
+    },
+    {
+      "id": "post_punk",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["post_punk", "alternative_pop_rock", "american_post_punk"],
+      "candidate_stack": ["post_punk", "alternative_pop_rock", "american_post_punk"]
+    },
+    {
+      "id": "southern_trap",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["southern_trap", "south_african_house", "g_house"],
+      "candidate_stack": ["southern_trap", "south_african_house", "g_house"]
+    },
+    {
+      "id": "shoegaze",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["shoegaze", "desert_blues", "musique_mauritanienne"],
+      "candidate_stack": ["shoegaze", "desert_blues", "musique_mauritanienne"]
+    },
+    {
+      "id": "laiko",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["laiko", "cape_verdean_batuko", "entehno"],
+      "candidate_stack": ["laiko", "cape_verdean_batuko", "entehno"]
+    },
+    {
+      "id": "rockabilly_50s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["rockabilly_50s", "skiffle", "classic_blues_women"],
+      "candidate_stack": ["rockabilly_50s", "skiffle", "classic_blues_women"]
+    },
+    {
+      "id": "arena_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["arena_rock", "yacht_rock", "skiffle"],
+      "candidate_stack": ["arena_rock", "yacht_rock", "skiffle"]
+    },
+    {
+      "id": "aor",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["aor", "yacht_rock", "skiffle"],
+      "candidate_stack": ["aor", "yacht_rock", "skiffle"]
+    },
+    {
+      "id": "italian_southern_folk",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "italian_southern_folk",
+        "black_gospel_choir",
+        "ethiopian_debtera_incantation"
+      ],
+      "candidate_stack": [
+        "italian_southern_folk",
+        "black_gospel_choir",
+        "ethiopian_debtera_incantation"
+      ]
+    },
+    {
+      "id": "japanese_taiko_ensemble",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["japanese_taiko_ensemble", "tibetan_ache_lhamo", "beijing_opera"],
+      "candidate_stack": ["japanese_taiko_ensemble", "tibetan_ache_lhamo", "beijing_opera"]
+    },
+    {
+      "id": "barbershop_quartet",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["barbershop_quartet", "country_rock", "bluegrass_gospel"],
+      "candidate_stack": ["barbershop_quartet", "country_rock", "bluegrass_gospel"]
+    },
+    {
+      "id": "american_drumline",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["american_drumline", "dark_trap", "pre_sampling_hip_hop_1979_1985"],
+      "candidate_stack": ["american_drumline", "dark_trap", "pre_sampling_hip_hop_1979_1985"]
+    },
+    {
+      "id": "jamaican_dancehall",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["jamaican_dancehall", "south_african_house", "chicago_house"],
+      "candidate_stack": ["jamaican_dancehall", "south_african_house", "chicago_house"]
+    },
+    {
+      "id": "philly_soul_intl",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["philly_soul_intl", "girl_group_60s", "disco"],
+      "candidate_stack": ["philly_soul_intl", "girl_group_60s", "disco"]
+    },
+    {
+      "id": "eurovision_pop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["eurovision_pop", "yacht_rock", "skiffle"],
+      "candidate_stack": ["eurovision_pop", "yacht_rock", "skiffle"]
+    },
+    {
+      "id": "baile_funk",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["baile_funk", "conscious_hip_hop", "gangsta_rap"],
+      "candidate_stack": ["baile_funk", "conscious_hip_hop", "gangsta_rap"]
+    },
+    {
+      "id": "uilleann_pipe_solo",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["uilleann_pipe_solo", "irish_dance", "scottish_fiddle"],
+      "candidate_stack": ["uilleann_pipe_solo", "irish_dance", "scottish_fiddle"]
+    },
+    {
+      "id": "hi_nrg",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hi_nrg", "yacht_rock", "skiffle"],
+      "candidate_stack": ["hi_nrg", "yacht_rock", "skiffle"]
+    },
+    {
+      "id": "mandopop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["mandopop", "yacht_rock", "skiffle"],
+      "candidate_stack": ["mandopop", "yacht_rock", "skiffle"]
+    },
+    {
+      "id": "koto",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["koto"],
+      "candidate_stack": ["koto"]
+    },
+    {
+      "id": "idm",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["idm", "persian_electronic", "latvian_electronic"],
+      "candidate_stack": ["idm", "persian_electronic", "latvian_electronic"]
+    },
+    {
+      "id": "hyperpop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hyperpop", "girl_group_60s", "yacht_rock"],
+      "candidate_stack": ["hyperpop", "girl_group_60s", "yacht_rock"]
+    },
+    {
+      "id": "rage_rap",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["rage_rap", "atlanta_punk", "south_african_punk"],
+      "candidate_stack": ["rage_rap", "atlanta_punk", "south_african_punk"]
+    },
+    {
+      "id": "piedmont_fingerpicking",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["piedmont_fingerpicking", "australian_blues", "belgian_blues"],
+      "candidate_stack": ["piedmont_fingerpicking", "australian_blues", "belgian_blues"]
+    },
+    {
+      "id": "tech_house_classic",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["tech_house_classic", "portuguese_techno", "techno_argentina"],
+      "candidate_stack": ["tech_house_classic", "portuguese_techno", "techno_argentina"]
+    },
+    {
+      "id": "microhouse",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["microhouse", "pakistani_electronic", "polish_electronica"],
+      "candidate_stack": ["microhouse", "pakistani_electronic", "polish_electronica"]
+    },
+    {
+      "id": "kwaito",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["kwaito", "amapiano", "afrikaans_gqom"],
+      "candidate_stack": ["kwaito", "amapiano", "afrikaans_gqom"]
+    },
+    {
+      "id": "vocal_trance",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["vocal_trance", "chicago_house", "latin_house_percussion"],
+      "candidate_stack": ["vocal_trance", "chicago_house", "latin_house_percussion"]
+    },
+    {
+      "id": "ethio_jazz",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ethio_jazz", "flamenco", "ukrainian_folk"],
+      "candidate_stack": ["ethio_jazz", "flamenco", "ukrainian_folk"]
+    },
+    {
+      "id": "blend_synth_baroque",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["synthwave", "baroque_period", "girl_group_60s"],
+      "candidate_stack": ["synthwave", "baroque_period", "girl_group_60s"]
+    },
+    {
+      "id": "blend_techno_industrial",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["detroit_techno", "industrial", "icelandic_electronic"],
+      "candidate_stack": ["detroit_techno", "industrial", "icelandic_electronic"]
+    },
+    {
+      "id": "blend_doowop_modern_rb",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["doo_wop", "modern_rb", "skiffle"],
+      "candidate_stack": ["doo_wop", "modern_rb", "skiffle"]
+    },
+    {
+      "id": "blend_bedroom_lofi_hip",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["bedroom_pop", "lofi_hiphop", "metropopolis"],
+      "candidate_stack": ["bedroom_pop", "lofi_hiphop", "metropopolis"]
+    },
+    {
+      "id": "blend_hyperpop_dance_pop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hyperpop", "dance_pop_2010s", "yacht_rock"],
+      "candidate_stack": ["hyperpop", "dance_pop_2010s", "yacht_rock"]
+    },
+    {
+      "id": "blend_phonk_drift_old_memphis",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["drift_phonk_modern", "phonk_old_memphis", "fidget_house"],
+      "candidate_stack": ["drift_phonk_modern", "phonk_old_memphis", "fidget_house"]
+    },
+    {
+      "id": "blend_ambient_dub_techno",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ambient", "dub_techno", "musique_mauritanienne"],
+      "candidate_stack": ["ambient", "dub_techno", "musique_mauritanienne"]
+    },
+    {
+      "id": "blend_acapella_doowop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["barbershop_quartet", "doo_wop", "country_rock"],
+      "candidate_stack": ["barbershop_quartet", "doo_wop", "country_rock"]
+    },
+    {
+      "id": "lament_greek_moirologi",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["greek_moirologi", "spirituals_african_american", "bluegrass_gospel"],
+      "candidate_stack": ["greek_moirologi", "spirituals_african_american", "bluegrass_gospel"]
+    },
+    {
+      "id": "protest_hip_hop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["american_political_hip_hop", "gangsta_rap", "golden_age_hip_hop"],
+      "candidate_stack": ["american_political_hip_hop", "gangsta_rap", "golden_age_hip_hop"]
+    },
+    {
+      "id": "drinking_celtic_pair",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["irish_pub_song", "scottish_bothy_ballad", "antifolk_nyc"],
+      "candidate_stack": ["irish_pub_song", "scottish_bothy_ballad", "antifolk_nyc"]
+    },
+    {
+      "id": "brill_building_pop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["brill_building_pop", "yacht_rock", "folk_rock"],
+      "candidate_stack": ["brill_building_pop", "yacht_rock", "folk_rock"]
+    },
+    {
+      "id": "skiffle",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["skiffle", "jug_band", "memphis_blues"],
+      "candidate_stack": ["skiffle", "jug_band", "memphis_blues"]
+    },
+    {
+      "id": "dub_poetry",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["dub_poetry", "dark_folk", "progressive_folk"],
+      "candidate_stack": ["dub_poetry", "dark_folk", "progressive_folk"]
+    },
+    {
+      "id": "minimal_tech_house",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["minimal_tech_house", "icelandic_electronic", "italian_electronica"],
+      "candidate_stack": ["minimal_tech_house", "icelandic_electronic", "italian_electronica"]
+    },
+    {
+      "id": "northern_soul_motown",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["northern_soul_motown", "new_wave", "yacht_rock"],
+      "candidate_stack": ["northern_soul_motown", "new_wave", "yacht_rock"]
+    },
+    {
+      "id": "lofi_hiphop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["lofi_hiphop", "cloud_rap", "dark_plugg"],
+      "candidate_stack": ["lofi_hiphop", "cloud_rap", "dark_plugg"]
+    },
+    {
+      "id": "hypnagogic_pop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hypnagogic_pop", "yacht_rock", "girl_group_60s"],
+      "candidate_stack": ["hypnagogic_pop", "yacht_rock", "girl_group_60s"]
+    },
+    {
+      "id": "dance_pop_2010s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["dance_pop_2010s", "deep_house_soulful", "chicago_house"],
+      "candidate_stack": ["dance_pop_2010s", "deep_house_soulful", "chicago_house"]
+    },
+    {
+      "id": "glam_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["glam_rock", "art_rock", "hard_rock"],
+      "candidate_stack": ["glam_rock", "art_rock", "hard_rock"]
+    },
+    {
+      "id": "southern_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["southern_rock", "country_rock", "hard_rock"],
+      "candidate_stack": ["southern_rock", "country_rock", "hard_rock"]
+    },
+    {
+      "id": "country_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["country_rock", "folk_rock", "czech_folk_rock"],
+      "candidate_stack": ["country_rock", "folk_rock", "czech_folk_rock"]
+    },
+    {
+      "id": "folk_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["folk_rock", "country_rock", "nashville_sound"],
+      "candidate_stack": ["folk_rock", "country_rock", "nashville_sound"]
+    },
+    {
+      "id": "surf_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["surf_rock", "new_wave", "yacht_rock"],
+      "candidate_stack": ["surf_rock", "new_wave", "yacht_rock"]
+    },
+    {
+      "id": "alternative_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["alternative_rock", "virginia_punk", "australian_post_punk"],
+      "candidate_stack": ["alternative_rock", "virginia_punk", "australian_post_punk"]
+    },
+    {
+      "id": "thrash_metal",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["thrash_metal", "hardcore_punk", "malaysian_hardcore"],
+      "candidate_stack": ["thrash_metal", "hardcore_punk", "malaysian_hardcore"]
+    },
+    {
+      "id": "uk_drill",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["uk_drill", "afrikaans_hip_hop", "australian_underground_hip_hop"],
+      "candidate_stack": ["uk_drill", "afrikaans_hip_hop", "australian_underground_hip_hop"]
+    },
+    {
+      "id": "french_rap",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["french_rap", "conscious_hip_hop", "gangsta_rap"],
+      "candidate_stack": ["french_rap", "conscious_hip_hop", "gangsta_rap"]
+    },
+    {
+      "id": "darmstadt_school_total_serialism",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "darmstadt_school_total_serialism",
+        "acousmatic_music",
+        "soundscape_composition"
+      ],
+      "candidate_stack": [
+        "darmstadt_school_total_serialism",
+        "acousmatic_music",
+        "soundscape_composition"
+      ]
+    },
+    {
+      "id": "acid_house",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["acid_house"],
+      "candidate_stack": ["acid_house"]
+    },
+    {
+      "id": "peak_techno",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["peak_techno", "bass_house", "acid_house"],
+      "candidate_stack": ["peak_techno", "bass_house", "acid_house"]
+    },
+    {
+      "id": "dub_techno",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["dub_techno", "detroit_techno", "italian_techno"],
+      "candidate_stack": ["dub_techno", "detroit_techno", "italian_techno"]
+    },
+    {
+      "id": "ambient",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ambient", "musique_mauritanienne", "tuareg_guitar"],
+      "candidate_stack": ["ambient", "musique_mauritanienne", "tuareg_guitar"]
+    },
+    {
+      "id": "footwork",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["footwork", "dark_trap", "dark_plugg"],
+      "candidate_stack": ["footwork", "dark_trap", "dark_plugg"]
+    },
+    {
+      "id": "synthwave",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["synthwave", "burmese_pop", "girl_group_60s"],
+      "candidate_stack": ["synthwave", "burmese_pop", "girl_group_60s"]
+    },
+    {
+      "id": "plunderphonics",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["plunderphonics", "gangsta_rap", "houston_chopped_screwed"],
+      "candidate_stack": ["plunderphonics", "gangsta_rap", "houston_chopped_screwed"]
+    },
+    {
+      "id": "goa_trance",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["goa_trance", "marathi_devotional", "odia_bhajan"],
+      "candidate_stack": ["goa_trance", "marathi_devotional", "odia_bhajan"]
+    },
+    {
+      "id": "fusion_70s_electric",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["fusion_70s_electric", "zeuhl_french", "canterbury_scene"],
+      "candidate_stack": ["fusion_70s_electric", "zeuhl_french", "canterbury_scene"]
+    },
+    {
+      "id": "honky_tonk",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["honky_tonk", "texas_country_folk_storyteller", "laurel_canyon_70s"],
+      "candidate_stack": ["honky_tonk", "texas_country_folk_storyteller", "laurel_canyon_70s"]
+    },
+    {
+      "id": "southern_gospel",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["southern_gospel", "country_rock", "western_swing"],
+      "candidate_stack": ["southern_gospel", "country_rock", "western_swing"]
+    },
+    {
+      "id": "boogie_woogie",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["boogie_woogie", "ragtime", "piedmont_blues"],
+      "candidate_stack": ["boogie_woogie", "ragtime", "piedmont_blues"]
+    },
+    {
+      "id": "doo_wop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["doo_wop", "girl_group_60s", "skiffle"],
+      "candidate_stack": ["doo_wop", "girl_group_60s", "skiffle"]
+    },
+    {
+      "id": "gothic_country",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["gothic_country", "texas_country_folk_storyteller", "bakersfield"],
+      "candidate_stack": ["gothic_country", "texas_country_folk_storyteller", "bakersfield"]
+    },
+    {
+      "id": "norteno",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["norteno", "country_rock", "pre_commercial_country"],
+      "candidate_stack": ["norteno", "country_rock", "pre_commercial_country"]
+    },
+    {
+      "id": "sertanejo_universitario",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["sertanejo_universitario", "country_rock", "western_swing"],
+      "candidate_stack": ["sertanejo_universitario", "country_rock", "western_swing"]
+    },
+    {
+      "id": "mathcore",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["mathcore", "garage_psych", "taiwan_post_rock"],
+      "candidate_stack": ["mathcore", "garage_psych", "taiwan_post_rock"]
+    },
+    {
+      "id": "bedroom_pop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["bedroom_pop", "yacht_rock", "metropopolis"],
+      "candidate_stack": ["bedroom_pop", "yacht_rock", "metropopolis"]
+    },
+    {
+      "id": "vanuatu_water_drumming",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["vanuatu_water_drumming"],
+      "candidate_stack": ["vanuatu_water_drumming"]
+    },
+    {
+      "id": "talking_blues_dustbowl",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["talking_blues_dustbowl", "conscious_hip_hop", "gangsta_rap"],
+      "candidate_stack": ["talking_blues_dustbowl", "conscious_hip_hop", "gangsta_rap"]
+    },
+    {
+      "id": "baltimore_club",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["baltimore_club", "conscious_hip_hop", "gangsta_rap"],
+      "candidate_stack": ["baltimore_club", "conscious_hip_hop", "gangsta_rap"]
+    },
+    {
+      "id": "synthpop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["synthpop", "new_wave", "minimal_wave"],
+      "candidate_stack": ["synthpop", "new_wave", "minimal_wave"]
+    },
+    {
+      "id": "melodic_techno",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["melodic_techno", "italo_house_piano", "melodic_house"],
+      "candidate_stack": ["melodic_techno", "italo_house_piano", "melodic_house"]
+    },
+    {
+      "id": "neurofunk",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["neurofunk", "ebm_european_body", "dark_electro_aggrotech"],
+      "candidate_stack": ["neurofunk", "ebm_european_body", "dark_electro_aggrotech"]
+    },
+    {
+      "id": "future_bass",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["future_bass", "fidget_house", "us_garage"],
+      "candidate_stack": ["future_bass", "fidget_house", "us_garage"]
+    },
+    {
+      "id": "moombahton",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["moombahton", "afro_house", "latin_house_percussion"],
+      "candidate_stack": ["moombahton", "afro_house", "latin_house_percussion"]
+    },
+    {
+      "id": "holy_minimalism",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["holy_minimalism", "russian_orthodox_chant", "sacred_steel"],
+      "candidate_stack": ["holy_minimalism", "russian_orthodox_chant", "sacred_steel"]
+    },
+    {
+      "id": "spectralism",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["spectralism", "acousmatic_music", "soundscape_composition"],
+      "candidate_stack": ["spectralism", "acousmatic_music", "soundscape_composition"]
+    },
+    {
+      "id": "indeterminacy_aleatoric",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["indeterminacy_aleatoric", "african_experimental", "jam_bands"],
+      "candidate_stack": ["indeterminacy_aleatoric", "african_experimental", "jam_bands"]
+    },
+    {
+      "id": "ars_antiqua_organum",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ars_antiqua_organum", "bluegrass_gospel", "sacred_steel"],
+      "candidate_stack": ["ars_antiqua_organum", "bluegrass_gospel", "sacred_steel"]
+    },
+    {
+      "id": "cantopop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["cantopop", "yacht_rock", "folk_rock"],
+      "candidate_stack": ["cantopop", "yacht_rock", "folk_rock"]
+    },
+    {
+      "id": "tongan_lakalaka",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["tongan_lakalaka", "british_soul", "corrido"],
+      "candidate_stack": ["tongan_lakalaka", "british_soul", "corrido"]
+    },
+    {
+      "id": "sertanejo",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["sertanejo", "country_rock", "nashville_sound"],
+      "candidate_stack": ["sertanejo", "country_rock", "nashville_sound"]
+    },
+    {
+      "id": "anadolu_rock",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["anadolu_rock", "psychedelic_blues_rock", "rock_gospel_brasileiro"],
+      "candidate_stack": ["anadolu_rock", "psychedelic_blues_rock", "rock_gospel_brasileiro"]
+    },
+    {
+      "id": "venice_carnevale",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["venice_carnevale", "new_orleans_brass_parade", "mardi_gras_indians"],
+      "candidate_stack": ["venice_carnevale", "new_orleans_brass_parade", "mardi_gras_indians"]
+    },
+    {
+      "id": "deathcore",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["deathcore", "german_thrash_metal", "indonesian_thrash_metal"],
+      "candidate_stack": ["deathcore", "german_thrash_metal", "indonesian_thrash_metal"]
+    },
+    {
+      "id": "tyrolean_schuhplattler",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["tyrolean_schuhplattler", "concert_march", "banda_militar"],
+      "candidate_stack": ["tyrolean_schuhplattler", "concert_march", "banda_militar"]
+    },
+    {
+      "id": "welsh_moliannu_cerdd_dant",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["welsh_moliannu_cerdd_dant", "welsh_folk", "welsh_hymn_balladry"],
+      "candidate_stack": ["welsh_moliannu_cerdd_dant", "welsh_folk", "welsh_hymn_balladry"]
+    },
+    {
+      "id": "yiddish_vigndlid",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["yiddish_vigndlid", "chanson", "persian_lalai"],
+      "candidate_stack": ["yiddish_vigndlid", "chanson", "persian_lalai"]
+    },
+    {
+      "id": "korean_jajanga",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["korean_jajanga", "enka", "tibetan_ache_lhamo"],
+      "candidate_stack": ["korean_jajanga", "enka", "tibetan_ache_lhamo"]
+    },
+    {
+      "id": "berber_ahidus_wedding",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["berber_ahidus_wedding", "yoruba_dundun_surrogate_speech", "palm_wine"],
+      "candidate_stack": ["berber_ahidus_wedding", "yoruba_dundun_surrogate_speech", "palm_wine"]
+    },
+    {
+      "id": "rap_metal",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["rap_metal", "conscious_hip_hop", "jazz_rap"],
+      "candidate_stack": ["rap_metal", "conscious_hip_hop", "jazz_rap"]
+    },
+    {
+      "id": "emo",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["emo", "afro_punk", "alternative_metal"],
+      "candidate_stack": ["emo", "afro_punk", "alternative_metal"]
+    },
+    {
+      "id": "drone_metal",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["drone_metal", "funeral_doom", "uk_doom_metal"],
+      "candidate_stack": ["drone_metal", "funeral_doom", "uk_doom_metal"]
+    },
+    {
+      "id": "power_metal_european",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["power_metal_european", "symphonic_metal_classic", "gothic_metal"],
+      "candidate_stack": ["power_metal_european", "symphonic_metal_classic", "gothic_metal"]
+    },
+    {
+      "id": "chinese_xiqing_wedding",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["chinese_xiqing_wedding", "tibetan_ache_lhamo", "cantonese_opera"],
+      "candidate_stack": ["chinese_xiqing_wedding", "tibetan_ache_lhamo", "cantonese_opera"]
+    },
+    {
+      "id": "korean_minjung_gayo",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["korean_minjung_gayo", "enka", "american_folk_revival_protest"],
+      "candidate_stack": ["korean_minjung_gayo", "enka", "american_folk_revival_protest"]
+    },
+    {
+      "id": "south_african_freedom_song",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["south_african_freedom_song", "spirituals_african_american", "spirituals"],
+      "candidate_stack": ["south_african_freedom_song", "spirituals_african_american", "spirituals"]
+    },
+    {
+      "id": "electroacoustic_improv",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["electroacoustic_improv", "sound_art", "electroacoustic_composition"],
+      "candidate_stack": ["electroacoustic_improv", "sound_art", "electroacoustic_composition"]
+    },
+    {
+      "id": "detroit_techno",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["detroit_techno"],
+      "candidate_stack": ["detroit_techno"]
+    },
+    {
+      "id": "dub",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["dub"],
+      "candidate_stack": ["dub"]
+    },
+    {
+      "id": "modern_rb",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["modern_rb", "cloud_rap", "detroit_trap"],
+      "candidate_stack": ["modern_rb", "cloud_rap", "detroit_trap"]
+    },
+    {
+      "id": "ghazal",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ghazal", "ukrainian_folk", "alpine_yodeling"],
+      "candidate_stack": ["ghazal", "ukrainian_folk", "alpine_yodeling"]
+    },
+    {
+      "id": "grindcore",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["grindcore", "connecticut_hardcore", "modern_hardcore"],
+      "candidate_stack": ["grindcore", "connecticut_hardcore", "modern_hardcore"]
+    },
+    {
+      "id": "melodic_death_metal",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["melodic_death_metal", "brazilian_power_metal", "symphonic_power_metal"],
+      "candidate_stack": ["melodic_death_metal", "brazilian_power_metal", "symphonic_power_metal"]
+    },
+    {
+      "id": "j_pop_classic",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["j_pop_classic", "yacht_rock", "folk_rock"],
+      "candidate_stack": ["j_pop_classic", "yacht_rock", "folk_rock"]
+    },
+    {
+      "id": "scandi_pop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["scandi_pop", "girl_group_60s", "ye_ye"],
+      "candidate_stack": ["scandi_pop", "girl_group_60s", "ye_ye"]
+    },
+    {
+      "id": "russian_estrada",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["russian_estrada", "folk_rock", "skiffle"],
+      "candidate_stack": ["russian_estrada", "folk_rock", "skiffle"]
+    },
+    {
+      "id": "uplifting_trance",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["uplifting_trance", "girl_group_60s", "ye_ye"],
+      "candidate_stack": ["uplifting_trance", "girl_group_60s", "ye_ye"]
+    },
+    {
+      "id": "indie_folk_2000s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["indie_folk_2000s", "folk_rock", "skiffle"],
+      "candidate_stack": ["indie_folk_2000s", "folk_rock", "skiffle"]
+    },
+    {
+      "id": "hot_country_2010s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hot_country_2010s", "folk_rock", "yacht_rock"],
+      "candidate_stack": ["hot_country_2010s", "folk_rock", "yacht_rock"]
+    },
+    {
+      "id": "country_pop_crossover",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["country_pop_crossover", "yacht_rock", "folk_rock"],
+      "candidate_stack": ["country_pop_crossover", "yacht_rock", "folk_rock"]
+    },
+    {
+      "id": "technical_death_metal",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "technical_death_metal",
+        "progressive_metal_classic",
+        "melodic_progressive_metal"
+      ],
+      "candidate_stack": [
+        "technical_death_metal",
+        "progressive_metal_classic",
+        "melodic_progressive_metal"
+      ]
+    },
+    {
+      "id": "free_improvisation",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["free_improvisation", "musique_concrete", "chinese_experimental"],
+      "candidate_stack": ["free_improvisation", "musique_concrete", "chinese_experimental"]
+    },
+    {
+      "id": "mizrahi_israeli",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["mizrahi_israeli", "iraqi_maqam", "malhun_maghrebi"],
+      "candidate_stack": ["mizrahi_israeli", "iraqi_maqam", "malhun_maghrebi"]
+    },
+    {
+      "id": "banda_sinaloense",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["banda_sinaloense", "american_drumline", "banda_militar"],
+      "candidate_stack": ["banda_sinaloense", "american_drumline", "banda_militar"]
+    },
+    {
+      "id": "fluxus_intermedia",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["fluxus_intermedia", "soundscape_composition", "acousmatic_music"],
+      "candidate_stack": ["fluxus_intermedia", "soundscape_composition", "acousmatic_music"]
+    },
+    {
+      "id": "ars_nova_french",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ars_nova_french", "sacred_steel", "jubilee_quartet"],
+      "candidate_stack": ["ars_nova_french", "sacred_steel", "jubilee_quartet"]
+    },
+    {
+      "id": "burgundian_school",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["burgundian_school", "sacred_steel", "jubilee_quartet"],
+      "candidate_stack": ["burgundian_school", "sacred_steel", "jubilee_quartet"]
+    },
+    {
+      "id": "smooth_jazz_80s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["smooth_jazz_80s", "skiffle", "yacht_rock"],
+      "candidate_stack": ["smooth_jazz_80s", "skiffle", "yacht_rock"]
+    },
+    {
+      "id": "klezmer_jazz_fusion",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["klezmer_jazz_fusion", "hasidic_niggun", "sephardi_bakkashot"],
+      "candidate_stack": ["klezmer_jazz_fusion", "hasidic_niggun", "sephardi_bakkashot"]
+    },
+    {
+      "id": "punk_jazz_70s_80s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["punk_jazz_70s_80s", "noise_rock", "polish_noise_rock"],
+      "candidate_stack": ["punk_jazz_70s_80s", "noise_rock", "polish_noise_rock"]
+    },
+    {
+      "id": "madchester_baggy",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["madchester_baggy", "slap_house", "afro_house"],
+      "candidate_stack": ["madchester_baggy", "slap_house", "afro_house"]
+    },
+    {
+      "id": "nu_metal_korn_limp",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["nu_metal_korn_limp", "gangsta_rap"],
+      "candidate_stack": ["nu_metal_korn_limp", "gangsta_rap"]
+    },
+    {
+      "id": "atlanta_trap_modern",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["atlanta_trap_modern", "doo_wop", "diva_house"],
+      "candidate_stack": ["atlanta_trap_modern", "doo_wop", "diva_house"]
+    },
+    {
+      "id": "snap_music",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["snap_music", "latin_house_percussion", "freestyle_house"],
+      "candidate_stack": ["snap_music", "latin_house_percussion", "freestyle_house"]
+    },
+    {
+      "id": "drift_phonk_modern",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["drift_phonk_modern", "fidget_house", "latin_house_percussion"],
+      "candidate_stack": ["drift_phonk_modern", "fidget_house", "latin_house_percussion"]
+    },
+    {
+      "id": "schranz_hard_techno",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["schranz_hard_techno"],
+      "candidate_stack": ["schranz_hard_techno"]
+    },
+    {
+      "id": "hard_techno_2020s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["hard_techno_2020s", "ebm_european_body", "dark_electro_aggrotech"],
+      "candidate_stack": ["hard_techno_2020s", "ebm_european_body", "dark_electro_aggrotech"]
+    },
+    {
+      "id": "melodic_dubstep_2010s",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["melodic_dubstep_2010s", "jackin_house", "melodic_house"],
+      "candidate_stack": ["melodic_dubstep_2010s", "jackin_house", "melodic_house"]
+    },
+    {
+      "id": "ghettotech_detroit",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["ghettotech_detroit", "ballroom_house", "gospel_house"],
+      "candidate_stack": ["ghettotech_detroit", "ballroom_house", "gospel_house"]
+    },
+    {
+      "id": "post_punk_revival",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["post_punk_revival", "britpop", "classic_danish_rock"],
+      "candidate_stack": ["post_punk_revival", "britpop", "classic_danish_rock"]
+    },
+    {
+      "id": "italian_ninna_nanna",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["italian_ninna_nanna", "spirituals_african_american", "jubilee_quartet"],
+      "candidate_stack": ["italian_ninna_nanna", "spirituals_african_american", "jubilee_quartet"]
+    },
+    {
+      "id": "brazilian_cantiga_de_ninar",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["brazilian_cantiga_de_ninar", "folclore_cuyano", "folklore_surero"],
+      "candidate_stack": ["brazilian_cantiga_de_ninar", "folclore_cuyano", "folklore_surero"]
+    },
+    {
+      "id": "greek_nanourisma",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["greek_nanourisma", "jubilee_quartet", "spirituals_african_american"],
+      "candidate_stack": ["greek_nanourisma", "jubilee_quartet", "spirituals_african_american"]
+    },
+    {
+      "id": "scottish_gaelic_taladh",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["scottish_gaelic_taladh", "scottish_gaelic_folk", "sean_nos_singing"],
+      "candidate_stack": ["scottish_gaelic_taladh", "scottish_gaelic_folk", "sean_nos_singing"]
+    },
+    {
+      "id": "irish_caoineadh",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["irish_caoineadh", "spirituals_african_american", "jubilee_quartet"],
+      "candidate_stack": ["irish_caoineadh", "spirituals_african_american", "jubilee_quartet"]
+    },
+    {
+      "id": "greek_moirologi",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["greek_moirologi", "spirituals_african_american", "bluegrass_gospel"],
+      "candidate_stack": ["greek_moirologi", "spirituals_african_american", "bluegrass_gospel"]
+    },
+    {
+      "id": "sardinian_atitidu",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["sardinian_atitidu", "bluegrass_gospel", "byzantine_chant"],
+      "candidate_stack": ["sardinian_atitidu", "bluegrass_gospel", "byzantine_chant"]
+    },
+    {
+      "id": "russian_plach",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["russian_plach", "jubilee_quartet", "spirituals_african_american"],
+      "candidate_stack": ["russian_plach", "jubilee_quartet", "spirituals_african_american"]
+    },
+    {
+      "id": "american_folk_revival_protest",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "american_folk_revival_protest",
+        "british_folk_revival",
+        "texas_country_folk_storyteller"
+      ],
+      "candidate_stack": [
+        "american_folk_revival_protest",
+        "british_folk_revival",
+        "texas_country_folk_storyteller"
+      ]
+    },
+    {
+      "id": "vietnamese_nhac_phan_chien",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["vietnamese_nhac_phan_chien", "enka", "british_folk_revival"],
+      "candidate_stack": ["vietnamese_nhac_phan_chien", "enka", "british_folk_revival"]
+    },
+    {
+      "id": "american_political_hip_hop",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["american_political_hip_hop", "gangsta_rap", "golden_age_hip_hop"],
+      "candidate_stack": ["american_political_hip_hop", "gangsta_rap", "golden_age_hip_hop"]
+    },
+    {
+      "id": "greek_entechno_politicized",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["greek_entechno_politicized", "catalan_folk", "copla_andaluza"],
+      "candidate_stack": ["greek_entechno_politicized", "catalan_folk", "copla_andaluza"]
+    },
+    {
+      "id": "spanish_rondas",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["spanish_rondas", "andean_matrimonio_huayno", "english_nursery_rhyme"],
+      "candidate_stack": ["spanish_rondas", "andean_matrimonio_huayno", "english_nursery_rhyme"]
+    },
+    {
+      "id": "korean_dongyo",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["korean_dongyo", "korean_kok", "english_nursery_rhyme"],
+      "candidate_stack": ["korean_dongyo", "korean_kok", "english_nursery_rhyme"]
+    },
+    {
+      "id": "mexican_rondas",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["mexican_rondas", "english_nursery_rhyme", "french_comptines"],
+      "candidate_stack": ["mexican_rondas", "english_nursery_rhyme", "french_comptines"]
+    },
+    {
+      "id": "brazilian_cantigas_de_roda",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": [
+        "brazilian_cantigas_de_roda",
+        "yoruba_omo_iya",
+        "andean_matrimonio_huayno"
+      ],
+      "candidate_stack": [
+        "brazilian_cantigas_de_roda",
+        "yoruba_omo_iya",
+        "andean_matrimonio_huayno"
+      ]
+    },
+    {
+      "id": "irish_pub_song",
+      "output_identical": true,
+      "musical_config_identical": true,
+      "slot_deltas": [],
+      "baseline_stack": ["irish_pub_song", "antifolk_nyc", "new_weird_america"],
+      "candidate_stack": ["irish_pub_song", "antifolk_nyc", "new_weird_america"]
     }
-  ]
+  ],
+  "output_pass": 260,
+  "config_pass": 260,
+  "changed_slots": 0,
+  "nonmatching_ids": []
 }

@@ -3,9 +3,9 @@
   "name": "Swedish metal",
   "family": "rock_punk",
   "lineage": "Swedish metal encompasses a wide national network of traditional, melodic and extreme heavy music.",
-  "recipe": "classic swedish metal, distorted Rock, metal branch. one note per syllable. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 417,
-  "score": 43.683,
+  "recipe": "classic swedish metal, distorted Rock, metal branch. one note per syllable. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension sticks backbeat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 447,
+  "score": 43.484,
   "config": {
     "traditions": [
       "swedish_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.81725,
+          "electric_technique": 13.935749999999999,
           "amp_make": 4.745,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.105,
@@ -37,9 +37,9 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.18,
           "string_material": 0.105,
-          "bridge": 0.2415,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.0735,
+          "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0.063
         }
@@ -63,7 +63,7 @@
           "string_type": 0,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
-          "bass_technique": 3.7630000000000003,
+          "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.95,
+          "drumhead": 1.0925,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -112,12 +112,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6629999999999998,
+          "voice_speech_song": 0.5684999999999999,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.273,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
@@ -130,7 +130,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "rompler_preset_bank": 0,
           "rompler_context": 1.69,
           "rompler_lineage": 0

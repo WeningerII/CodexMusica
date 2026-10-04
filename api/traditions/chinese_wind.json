@@ -5,7 +5,7 @@
   "lineage": "Chinese Wind gathers Chinese wind-instrument repertoire across concert, traditional and recorded performance. Dizi, xiao, hulusi, suona and guanzi contribute distinctive approaches to breath, articulation and melodic expression.",
   "recipe": "classic chinese wind, art Music. dizi, low mid rich spectrum traditional shell guzheng. shoebox concert hall.",
   "recipe_chars": 109,
-  "score": 8.918,
+  "score": 8.981,
   "config": {
     "traditions": [
       "chinese_wind"
@@ -25,7 +25,7 @@
           "dizi_membrane": 1,
           "dizi_pitch": 0,
           "dizi_body_material": 0.3,
-          "dizi_regional_style": 0
+          "dizi_regional_style": 0.0315
         }
       },
       {
@@ -39,12 +39,12 @@
           "guzheng_string_material": "guzheng_nylon_steel_wound"
         },
         "scores": {
-          "plucked_traditional_technique": 2.8,
+          "plucked_traditional_technique": 2.863,
           "guzheng_strings": 1.3,
           "guzheng_picks": 1.0865,
           "guzheng_top_wood": 0,
           "guzheng_frame": -0.05,
-          "guzheng_string_material": 0.0315
+          "guzheng_string_material": 0
         }
       }
     ],

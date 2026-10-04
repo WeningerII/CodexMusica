@@ -5,7 +5,7 @@
   "lineage": "Música colombiana instrumental gathers instrumental repertoires across Colombia, including piano, string ensembles, harp-associated traditions and orchestral arrangements. Composers and performers reinterpret regional forms alongside concert music.",
   "recipe": "classic música colombiana instrumental, art Music. upright piano. live tracking.",
   "recipe_chars": 80,
-  "score": 0.145,
+  "score": 0.161,
   "config": {
     "traditions": [
       "musica_colombiana_instrumental"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "upright_use": 0,
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
           "upright_piano_size": 0.18
         }
       }

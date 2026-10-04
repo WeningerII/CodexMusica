@@ -2,10 +2,10 @@
   "id": "kenyan_alternative",
   "name": "Kenyan alternative",
   "family": "pop",
-  "lineage": "Nina Ogot — complete announced August2021 European tour band. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic kenyan alternative, groove Percussion. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, trumpet, saxophone, trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 439,
-  "score": 23.319,
+  "lineage": "Kenyan alternative brings locally rooted songwriting into varied contemporary band styles, with artists such as Nina Ogot drawing on Afropop, reggae, soul and jazz.",
+  "recipe": "classic kenyan alternative, groove Percussion. solo with instrumental accompaniment. humbucker electric guitar, electronic keyboard unspecified, pocket fingerstyle locked electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, ensemble trumpet, selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, ensemble trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 492,
+  "score": 35.081,
   "config": {
     "traditions": [
       "kenyan_alternative"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.56,
+          "voice_multitrack_stack": 0.357,
           "voice_tessitura": 0
         }
       },
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.063,
-          "string_gauge": 1.69,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.573
+          "string_tuning": 0.1365
         }
       },
       {
@@ -93,7 +93,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.3
         }
       },
       {
@@ -115,7 +115,7 @@
           "string_type": 0,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 0.6499999999999999,
+          "bass_technique": 2.4,
           "electric_bass_string_configuration": 0
         }
       },
@@ -136,13 +136,13 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.573,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.773,
+          "shell_wood": 0.1365,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 0.7679999999999999,
+          "cymbal_alloy": 2.3500000000000005,
           "cymbal_hammering": 2.5995000000000004,
           "cymbal_lathing": 2.4315,
           "cymbal_finish": 0
@@ -160,13 +160,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.8449999999999999,
+          "wind_articulation": 3.12,
           "brass_size": 0,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0,
-          "trumpet_technique": 0.8449999999999999,
-          "trumpet_bell_metal": 0.0315,
-          "trumpet_maker_school": 0.0315
+          "trumpet_technique": 3.12,
+          "trumpet_bell_metal": 0.363,
+          "trumpet_maker_school": 0.1365
         }
       },
       {
@@ -181,13 +181,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.8449999999999999,
-          "sax_size": 0.25,
+          "wind_articulation": 3.12,
+          "sax_size": -0.05,
           "sax_reed": 0,
-          "sax_body_alloy": -0.1,
+          "sax_body_alloy": 0.26,
           "sax_mouthpiece": 0.0315,
-          "sax_technique": 0.75,
-          "sax_maker_school": 0.7
+          "sax_technique": 2.5,
+          "sax_maker_school": 2.45
         }
       },
       {
@@ -202,13 +202,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 0.8449999999999999,
-          "trombone_type": 0.918,
-          "trombone_mouthpiece": -0.07,
+          "wind_articulation": 3.12,
+          "trombone_type": 2.668,
+          "trombone_mouthpiece": -0.1,
           "trombone_mute": 0,
-          "trombone_technique": 0.168,
-          "trombone_bell_metal": 0.0315,
-          "trombone_maker_school": 0.1575
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.363,
+          "trombone_maker_school": 0.1365
         }
       }
     ],

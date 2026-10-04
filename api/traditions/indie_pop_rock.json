@@ -3,9 +3,9 @@
   "name": "Indie pop rock",
   "family": "rock_punk",
   "lineage": "Indie pop rock combines independent-band textures with clear melodic songwriting.",
-  "recipe": "classic indie pop rock, functional Song, pop rock branch. group vocals. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp electric bass, pre muffled edge muffled sticks backbeat drum kit, block chord electric piano tine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 377,
-  "score": 47.776,
+  "recipe": "classic indie pop rock, functional Song, pop rock branch. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp electric bass, pre muffled edge muffled sticks backbeat drum kit, block chord electric piano tine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 47.508,
   "config": {
     "traditions": [
       "indie_pop_rock"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 9.1575,
           "amp_make": 4.42,
-          "body_wood": 0.483,
+          "body_wood": 0.6194999999999999,
           "neck_wood": 0.0315,
           "fretboard": 0,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 0.32175,
+          "bridge": 0.1365,
           "scale_length": 0,
-          "string_gauge": 0.38475000000000004,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.042749999999999996
+          "string_tuning": 0
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 0.483,
+          "body_wood": 0.6194999999999999,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -126,11 +126,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5265,
+          "voice_ensemble_config": 0.441,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.10575,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       }

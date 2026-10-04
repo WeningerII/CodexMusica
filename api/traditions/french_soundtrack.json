@@ -5,7 +5,7 @@
   "lineage": "French soundtrack music connects cinema composers, performers and production institutions with a broad range of dramatic scoring practices. Piano-centered themes, chamber writing, orchestral sound and popular-song influences coexist across French film repertoire and its wider circulation.",
   "recipe": "classic french soundtrack, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 231,
-  "score": 20.849,
+  "score": 19.767,
   "config": {
     "traditions": [
       "french_soundtrack"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5315,
+          "keyboard_technique": 2.5,
           "grand_piano_size": 1.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 2.6180000000000003,
-          "piano_rim": 2.744,
-          "piano_soundboard": 2.555,
-          "piano_pinblock": 3.185,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.5445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
           "piano_plate": 2.45,
-          "piano_pitch_standard": 1.076
+          "piano_pitch_standard": 1.1915
         }
       },
       {
@@ -44,9 +44,9 @@
           "string_quartet_inst_era": "string_quartet_inst_contemporary"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "quartet_school": 0,
-          "string_quartet_inst_era": 0.09449999999999999
+          "bowed_technique": 2.563,
+          "quartet_school": 0.0315,
+          "string_quartet_inst_era": 0
         }
       }
     ],

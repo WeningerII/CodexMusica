@@ -5,7 +5,7 @@
   "lineage": "Belgian classical piano encompasses performers and institutions working across the international concert repertoire. Solo recitals, chamber collaborations and the art of transcription contribute to this performance field.",
   "recipe": "classic belgian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 60.041,
+  "score": 60.94,
   "config": {
     "traditions": [
       "belgian_classical_piano"
@@ -15,7 +15,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 7.554,
-          "grand_piano_size": 0.42299999999999993,
-          "grand_piano_brand": 0.8520000000000001,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.9345000000000001,
           "piano_hammer": 9.685,
-          "piano_rim": 8.3635,
-          "piano_soundboard": 8.6865,
+          "piano_rim": 8.6365,
+          "piano_soundboard": 9.096,
           "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.8805000000000005,
-          "piano_pitch_standard": 9.0415
+          "piano_plate": 7.954000000000001,
+          "piano_pitch_standard": 9.1345
         }
       }
     ],

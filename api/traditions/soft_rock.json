@@ -2,10 +2,10 @@
   "id": "soft_rock",
   "name": "Soft rock",
   "family": "rock",
-  "lineage": "Soft rock is represented here by Night Cruise — Night Cruise. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic soft rock, distorted Rock, classic branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 71.848,
+  "lineage": "Soft rock favors melodic singing and a gentler band sound within popular rock songwriting.",
+  "recipe": "classic soft rock, functional Song, pop rock branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 404,
+  "score": 78.347,
   "config": {
     "traditions": [
       "soft_rock"
@@ -18,51 +18,51 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.11850000000000002,
-          "amp_make": 6.11,
-          "body_wood": 2.9899999999999998,
-          "neck_wood": 0.39,
-          "fretboard": 0.325,
+          "electric_technique": -0.10500000000000001,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 2.6,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 1.95,
-          "string_material": 0.24299999999999997,
-          "bridge": 1.4608750000000001,
-          "scale_length": 0.9135,
-          "string_gauge": 1.492375,
-          "finish": 0.3045,
-          "string_tuning": 0.337125
+          "pickup_winding": 0.1365,
+          "string_material": 0.0315,
+          "bridge": 0.2415,
+          "scale_length": 0.6405000000000001,
+          "string_gauge": 0.1995,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
-          "body_wood": 0.39,
-          "pickup_config": 0.0315,
-          "string_type": 15.6,
-          "scale_length_b": 0.6194999999999999,
-          "fretted_or_not": 0,
+          "amp_make": 7.475,
+          "body_wood": 0.378,
+          "pickup_config": 0.3045,
+          "string_type": 16.291,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 1.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.063,
-          "drumhead": 0.6194999999999999,
+          "drum_technique": 13.7815,
+          "drumhead": 3.9415,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,36 +112,36 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
-          "voice_ornament_system": 0.1365,
+          "voice_ensemble_config": 0.441,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.07424999999999998,
-          "voice_multitrack_stack": 0.231
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.063
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.2,
-          "grand_piano_size": 0.651,
-          "grand_piano_brand": 0.6825000000000001,
-          "piano_hammer": 9.1,
-          "piano_rim": 7.8,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 0.237125,
-          "piano_plate": 0.26,
-          "piano_pitch_standard": -0.035
+          "keyboard_technique": 4.141,
+          "grand_piano_size": 0.0945,
+          "grand_piano_brand": 1.2625,
+          "piano_hammer": 9.620000000000001,
+          "piano_rim": 7.0200000000000005,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": 1.2349999999999999
         }
       }
     ],
@@ -174,6 +174,17 @@
         "voice_pitch_organization",
         "voice_processing_chain",
         "voice_multitrack_stack"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -215,7 +226,16 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

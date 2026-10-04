@@ -2,10 +2,10 @@
   "id": "deep_g_funk",
   "name": "Deep g funk",
   "family": "global",
-  "lineage": "Deep g funk: Yogi & Woof — Comin Thru, original 2024 vocal single. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
-  "recipe": "classic mid-2020s deep g funk, mc Rhythm, west coast branch. rhythmic spoken flow no pitch, single lead single track no stacking. talkbox, turntable, sampler, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 279,
-  "score": 33.135,
+  "lineage": "Deep G-funk centres on the smooth, funk-derived side of West Coast hip-hop and its international continuation. Producers, rappers and independent labels sustain a repertoire of relaxed grooves, melodic hooks and talkbox colour rooted in the wider G-funk tradition.",
+  "recipe": "classic deep g funk, mc Rhythm, west coast branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. talkbox, sampled chopped turntable, sampled chopped sampler, sampled chopped sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 317,
+  "score": 49.337,
   "config": {
     "traditions": [
       "deep_g_funk"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.785,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 8.125,
+          "voice_ensemble_config": 0.945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.3,
+          "voice_multitrack_stack": 0.33599999999999997,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "talkbox_use": 0,
-          "talkbox_construction": 0.78
+          "talkbox_construction": 0.1995
         }
       },
       {
@@ -70,8 +70,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.2945,
-          "turntable_technique": 2.3365
+          "electronic_technique": 4.0945,
+          "turntable_technique": 4.1365
         }
       },
       {
@@ -84,11 +84,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.2945,
-          "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.78,
-          "sampler_workflow": -0.1,
-          "sampler_classic_context": 6.305
+          "electronic_technique": 4.0945,
+          "sampler_archetypes": 6.5,
+          "sampler_bit_depth": 0.231,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 9.555
         }
       },
       {
@@ -100,9 +100,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.2945,
-          "sample_bitdepth": 0.78,
-          "sample_swing": 3.9,
+          "electronic_technique": 4.0945,
+          "sample_bitdepth": 0.231,
+          "sample_swing": 6.5,
           "sample_processing": 0.0945
         }
       }

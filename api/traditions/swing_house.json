@@ -5,7 +5,7 @@
   "lineage": "European club style of roughly 2008-2016 associated with Parov Stelar, Caravan Palace, Wolfgang Lohr and the Freshly Squeezed and Electro Swing Club circuits, in which 1920s-40s shellac jazz with muted trumpet, clarinet, banjo comping and crooned or scatted vocal is sampled, pitch- and time-corrected, and set over a 120-128 BPM house kick with swung sixteenth hats, filtered upright-bass loops and a sidechained sub reinforcing the sampled walk.",
   "recipe": "classic mid-2010s swing house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric electro swing deep disco house. thick, breath veiled tone, straight onset, interlocked note trading. field chopped sampler, TR-909, ensemble shallow cup lead trumpet trumpet, growly gut upright bass, sub bass digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 582,
-  "score": 297.696,
+  "score": 298.251,
   "config": {
     "traditions": [
       "swing_house",
@@ -27,7 +27,7 @@
           "sampler_archetypes": 2.1075,
           "sampler_bit_depth": 0.7149999999999999,
           "sampler_workflow": 2.045,
-          "sampler_classic_context": 49.40874999999999
+          "sampler_classic_context": 50.098749999999995
         }
       },
       {
@@ -57,7 +57,7 @@
         "scores": {
           "wind_articulation": 3.18375,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 9.287499999999998,
+          "trumpet_mouthpiece": 9.242499999999998,
           "brass_mute": 0.195,
           "trumpet_technique": 3.18375,
           "trumpet_bell_metal": 0.195,
@@ -103,14 +103,14 @@
           "voice_vibrato": 8.06125,
           "voice_articulation": 16.834999999999994,
           "voice_microtone": 16.639999999999993,
-          "voice_tradition": 9.041249999999998,
+          "voice_tradition": 8.99625,
           "voice_mechanism_compound": 5.915,
           "voice_estill_quality": 5.720000000000001,
           "voice_speech_song": 19.174999999999997,
           "voice_ensemble_config": 18.004999999999992,
           "voice_ornament_system": 0.9999999999999999,
           "voice_pitch_organization": 1.8949999999999998,
-          "voice_processing_chain": 20.575000000000003,
+          "voice_processing_chain": 20.53,
           "voice_multitrack_stack": 4.751250000000001
         }
       },

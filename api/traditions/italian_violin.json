@@ -5,7 +5,7 @@
   "lineage": "Davide Alogna and José Adolfo Alejo — Music for Violin and Viola, CD1 only (95241). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic italian violin, art Music. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure viola classical. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 317,
-  "score": 41.839,
+  "score": 40.255,
   "config": {
     "traditions": [
       "italian_violin"
@@ -26,16 +26,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "orch_strings": 0,
+          "bowed_technique": 2.563,
+          "orch_strings": 0.0315,
           "orch_top_wood": 2.45,
-          "orch_back_wood": 4.8735,
+          "orch_back_wood": 3.75,
           "orch_varnish": 2.45,
-          "orch_setup_period": 2.4815,
-          "orch_bow": 0,
-          "orch_bow_stick": 2.8830000000000005,
-          "orch_articulation": 0,
-          "orch_rosin": 2.45
+          "orch_setup_period": 2.45,
+          "orch_bow": 0.0315,
+          "orch_bow_stick": 3.1200000000000006,
+          "orch_articulation": 0.063,
+          "orch_rosin": 2.4815
         }
       },
       {
@@ -52,15 +52,15 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 2.5,
+          "bowed_technique": 2.563,
           "viola_size": 0.3315,
           "viola_strings": 0,
           "viola_top_wood": 2.45,
-          "viola_back_wood": 4.8735,
+          "viola_back_wood": 3.75,
           "viola_varnish": 2.45,
-          "viola_setup_period": 2.4815,
-          "viola_bow_stick": 2.8830000000000005,
-          "viola_rosin": 3.7815
+          "viola_setup_period": 2.45,
+          "viola_bow_stick": 3.1200000000000006,
+          "viola_rosin": 3.75
         }
       }
     ],

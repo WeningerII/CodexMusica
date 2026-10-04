@@ -5,7 +5,7 @@
   "lineage": "Alam Khan, Vijay Iyer and Nitin Mitta — Sanctuary (2025), complete EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s sarod, improv On Frame. traditional coconut shell shell sarod, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s rhodes electric, indian rosewood rosewood brass tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 371,
-  "score": 34.85,
+  "score": 34.399,
   "config": {
     "traditions": [
       "sarod"
@@ -24,11 +24,11 @@
           "sarod_gharana": "sarod_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 3.3445,
+          "plucked_traditional_technique": 3.313,
           "sarod_fingerboard": 0.168,
           "sarod_belly": 0.363,
-          "sarod_pluck": 1.768,
-          "sarod_taraf": 1.405,
+          "sarod_pluck": 1.663,
+          "sarod_taraf": 1.3,
           "sarod_body_wood": 0.363,
           "sarod_strings": 0.168,
           "sarod_gharana": 0.78
@@ -54,7 +54,7 @@
           "piano_hammer": 3.2,
           "piano_rim": 3.6260000000000003,
           "piano_soundboard": 3.2,
-          "piano_pinblock": 5.308500000000001,
+          "piano_pinblock": 5.140500000000001,
           "piano_plate": 3.2,
           "piano_pitch_standard": 0.7149999999999999
         }
@@ -86,9 +86,9 @@
           "tabla_syahi": "fresh_syahi"
         },
         "scores": {
-          "tabla_dayan": 1.3865,
+          "tabla_dayan": 1.313,
           "tabla_bayan": 2.08,
-          "tabla_syahi": 0
+          "tabla_syahi": 0.0315
         }
       }
     ],

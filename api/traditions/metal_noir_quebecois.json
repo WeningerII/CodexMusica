@@ -5,7 +5,7 @@
   "lineage": "Métal noir québécois is Québec’s black-metal field, including francophone atmospheric approaches such as Montréal’s Janvier.",
   "recipe": "classic modern métal noir québécois, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 427,
-  "score": 26.721,
+  "score": 26.664,
   "config": {
     "traditions": [
       "metal_noir_quebecois"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.1655,
+          "voice_ensemble_config": 1.3335,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.168,
           "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
@@ -78,11 +78,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.2115,
+          "bridge": 0.0315,
           "scale_length": 0,
           "string_gauge": 0.483,
           "finish": 0,
-          "string_tuning": 0.40049999999999997
+          "string_tuning": 0.34650000000000003
         }
       },
       {
@@ -103,8 +103,8 @@
           "pickup_config": 0.40950000000000003,
           "string_type": 4.875,
           "scale_length_b": 0.483,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 4.226500000000001,
+          "fretted_or_not": 0.063,
+          "bass_technique": 4.1725,
           "electric_bass_string_configuration": 0
         }
       },

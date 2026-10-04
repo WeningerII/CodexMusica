@@ -2,10 +2,10 @@
   "id": "japanese_black_metal",
   "name": "Japanese black metal",
   "family": "rock_punk",
-  "lineage": "Japanese black metal represented by the experimental, black-metal-rooted practice of Sigh on Shiki. Exact defaults are an authored contemporary realization.",
-  "recipe": "classic modern japanese black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, yamaha modern Japanese mid to premium flute, madake bamboo phyllostachys canonical Japanese root section shakuhachi, Hammond a 100 built in Leslie home spinet tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 621,
-  "score": 78.418,
+  "lineage": "Japanese black metal includes experimental approaches such as Sigh, whose black-metal roots extend into heavy metal, keyboards and acoustic colors.",
+  "recipe": "classic modern japanese black metal, distorted Rock, black branch. unprocessed natural acoustic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, flute, madake bamboo phyllostachys canonical Japanese root section shakuhachi, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 531,
+  "score": 64.601,
   "config": {
     "traditions": [
       "japanese_black_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 1.1365,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -58,38 +58,38 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 18.363999999999997,
-          "amp_make": 7.215,
-          "body_wood": 7.409999999999999,
-          "neck_wood": 0.483,
-          "fretboard": 0.4095,
-          "pickup_magnet": 0.0315,
-          "pickup_winding": 0.363,
-          "string_material": 0.4095,
-          "bridge": 0.483,
-          "scale_length": 7.409999999999999,
-          "string_gauge": 0.693,
-          "finish": 0.16799999999999998,
-          "string_tuning": 0.39
+          "electric_technique": 17.81825,
+          "amp_make": 6.955000000000001,
+          "body_wood": 7.15,
+          "neck_wood": 0.44549999999999995,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.44549999999999995,
+          "bridge": 0.0315,
+          "scale_length": 0,
+          "string_gauge": 0.483,
+          "finish": 0,
+          "string_tuning": 0.383625
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "basswood_h",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.9659999999999999,
-          "pickup_config": 0.42450000000000004,
+          "body_wood": 7.15,
+          "pickup_config": 0.273,
           "string_type": 4.875,
           "scale_length_b": 0.483,
           "fretted_or_not": 0.0315,
-          "bass_technique": 4.228,
+          "bass_technique": 4.1725,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.813,
+          "drum_technique": 3.7815,
           "drumhead": 0.483,
           "drum_kit_kick_pedal": 0
         }
@@ -124,18 +124,18 @@
       {
         "id": "flute",
         "slots": {
-          "wind_articulation": "wind_multiphonic_avant",
+          "wind_articulation": "wind_continuous_legato",
           "flute_size": "concert_flute",
           "flute_material": "silver_flute",
           "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_yamaha"
+          "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 0.6499999999999999,
+          "wind_articulation": -0.07,
           "flute_size": 0.0315,
-          "flute_material": 0.4095,
+          "flute_material": 0.44549999999999995,
           "flute_technique": 0,
-          "flute_maker_school": 3.769999999999999
+          "flute_maker_school": 0.1365
         }
       },
       {
@@ -150,9 +150,9 @@
         "scores": {
           "wind_articulation": -0.07,
           "shaku_length": -0.05,
-          "shaku_technique": 0.06749999999999999,
-          "shakuhachi_body_material": 2.8999999999999995,
-          "shakuhachi_lineage": 0.3
+          "shaku_technique": 0.11999999999999998,
+          "shakuhachi_body_material": 2,
+          "shakuhachi_lineage": 0
         }
       },
       {
@@ -161,17 +161,17 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "drawbar_setting": "rock_drawbars",
           "rotary_speed": "slow_chorale",
-          "percussion_setting": "percussion_on_long",
-          "tonewheel_model": "tonewheel_hammond_a100",
-          "leslie_cabinet_model": "leslie_145_smaller"
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
           "keyboard_technique": -0.07,
           "drawbar_setting": 3.7815,
           "rotary_speed": -0.07,
-          "percussion_setting": 1.95,
-          "tonewheel_model": 1.4949999999999999,
-          "leslie_cabinet_model": -0.035
+          "percussion_setting": 0.0315,
+          "tonewheel_model": -0.45500000000000007,
+          "leslie_cabinet_model": -0.05
         }
       }
     ],
@@ -197,25 +197,47 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
         "drum_technique"
       ],
       "flute": [
+        "wind_articulation",
         "flute_size",
-        "flute_technique"
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
       ],
       "shakuhachi": [
+        "wind_articulation",
         "shaku_length",
-        "shaku_technique"
+        "shaku_technique",
+        "shakuhachi_body_material",
+        "shakuhachi_lineage"
       ],
       "tonewheel_organ": [
+        "keyboard_technique",
         "drawbar_setting",
-        "rotary_speed"
+        "rotary_speed",
+        "percussion_setting",
+        "tonewheel_model",
+        "leslie_cabinet_model"
       ]
     },
     "room": "studio_auteur_home_pro",
@@ -263,7 +285,27 @@
       "shaku_length": "one_eight",
       "shaku_technique": "meri_kari",
       "drawbar_setting": "rock_drawbars",
-      "rotary_speed": "slow_chorale"
+      "rotary_speed": "slow_chorale",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_11_hum",
+      "amp_make": "amp_mesa_dual_rectifier",
+      "wind_articulation": "wind_continuous_legato",
+      "flute_material": "silver_flute",
+      "flute_maker_school": "flute_powell_boston",
+      "shakuhachi_body_material": "shakuhachi_madake_canonical",
+      "shakuhachi_lineage": "shakuhachi_kinko",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "percussion_setting": "percussion_off",
+      "tonewheel_model": "tonewheel_hammond_b3",
+      "leslie_cabinet_model": "leslie_122_canonical"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

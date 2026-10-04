@@ -2,10 +2,10 @@
   "id": "vocaloid_metal",
   "name": "Vocaloid metal",
   "family": "rock",
-  "lineage": "Complete Fairy-published band-score realization of Neru feat. Kagamine Rin, Lost One’s Weeping: vocal and chorus staves, three electric-guitar parts, electric bass, drums. All published sound families retained. This authored realization routes the vocal/chorus lines to singing synthesis consistent with the named virtual singer; it is not a claim to reconstruct the original2013 master, its software version, studio performers or exact layering. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic vocaloid metal, distorted Rock. software singing synthesis, mahogany maple conventional tuning standard pitch power chord humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 388,
-  "score": 41.098,
+  "lineage": "Vocaloid metal joins synthesized singing with heavy guitar-based composition and production. Producers use virtual singers in arrangements that connect metal and hard-rock sounds with online Vocaloid culture.",
+  "recipe": "classic vocaloid metal, distorted Rock. software singing synthesis, distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 236,
+  "score": 37.746,
   "config": {
     "traditions": [
       "vocaloid_metal"
@@ -27,8 +27,8 @@
         "slots": {
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -40,9 +40,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 8.075,
+          "electric_technique": 10.9375,
           "amp_make": 0,
-          "body_wood": 1.9000000000000001,
+          "body_wood": 0.0315,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -50,17 +50,17 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.3,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -69,12 +69,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.9000000000000001,
-          "pickup_config": 0,
+          "body_wood": 0.0315,
+          "pickup_config": 0.063,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -94,16 +94,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
-          "drumhead": 1.3,
+          "drum_technique": 8.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.9000000000000004,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 7.699999999999999,
-          "cymbal_lathing": 7.7315,
+          "cymbal_hammering": 8.649999999999999,
+          "cymbal_lathing": 8.681499999999998,
           "cymbal_finish": 0
         }
       }
@@ -152,15 +152,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -169,14 +169,14 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "software_singing_identity": "software_synthesized_singing",
       "software_singing_arrangement": "software_singing_lead_chorus",
       "electric_technique": "electric_power_chord",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -186,7 +186,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -204,12 +204,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

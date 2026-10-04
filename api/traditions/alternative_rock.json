@@ -5,7 +5,7 @@
   "lineage": "Late-1980s through early-2000s American independent-label guitar-rock genre that crossed over to mainstream radio after the Nirvana breakthrough — the umbrella covering the underground-to-mainstream trajectory distinct from grunge (Pacific Northwest specific), shoegaze (UK MBV-derived), noise rock (narrower experimental scope), and emo (post-hardcore confessional). Codified through the Pixies (Surfer Rosa 1988, Doolittle 1989, Bossanova 1990, the soft-loud-soft dynamic Cobain cited as Nevermind template), Sonic Youth (Daydream Nation 1988, Goo 1990, Dirty 1992 produced by Butch Vig), R.E.M. (Murmur 1983, Reckoning 1984, Document 1987, Out of Time 1991 commercial breakthrough, Automatic for the People 1992), Pavement (Slanted and Enchanted 1992, Crooked Rain Crooked Rain 1994, Wowee Zowee 1995), Dinosaur Jr. (Youre Living All Over Me 1987, Bug 1988, Green Mind 1991), Hüsker Dü (Zen Arcade 1984, New Day Rising 1985, Candy Apple Grey 1986), the Replacements (Let It Be 1984, Tim 1985, Pleased to Meet Me 1987), Modest Mouse (The Lonesome Crowded West 1997, The Moon and Antarctica 2000), Built to Spill (Perfect From Now On 1997, Keep It Like a Secret 1999), Yo La Tengo (Painful 1993, I Can Hear the Heart Beating as One 1997), Guided by Voices (Bee Thousand 1994, Alien Lanes 1995), Wilco (Being There 1996, Yankee Hotel Foxtrot 2002, the post-alt-country reinvention), the Breeders (Last Splash 1993), Throwing Muses, the Lemonheads, the Flaming Lips (The Soft Bulletin 1999), Weezer (Blue Album 1994, Pinkerton 1996). Built around electric guitar as primary lead — single-coil Fender-derived for jangly REM/Pavement chime, humbucker Gibson-derived for Pixies/Dinosaur Jr full-bodied roar — drums dry and unpolished in deliberate contrast to 80s arena-rock gated-reverb production, bass clean and melodic carrying counter-lines rather than locking to kick, vocals untrained and conversational or shouted rather than belted, lyrics interior-and-oblique rather than anthemic-and-universal, song structures hewing to verse-chorus but with quirks of extended noise interludes, soft-loud-soft Pixies dynamics, sudden key-asymmetric bridges, dropped-time outros. Production approaches centered on independent labels (Matador, Merge, Sub Pop, SST, Twin/Tone, Touch and Go, Drag City, Kill Rock Stars) with budget constraints producing the genre characteristic dry-and-direct sound antagonistic to the polished mainstream rock production of the same era. Recurring producers Steve Albini (electric-and-acoustic-pair drum micing, ambient-room aesthetic, anti-compression), Butch Vig (the Smart Studios Madison Wisconsin sound), Brian Paulson, Brad Wood. The genre dissolved into the broader indie-rock continuum by mid-2000s as the underground-mainstream distinction collapsed",
   "recipe": "classic North American 1987-1989 alternative rock, distorted Rock, alternative branch, punk distorted rock virginia punk australian post-punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
   "recipe_chars": 764,
-  "score": 598.563,
+  "score": 597.443,
   "config": {
     "traditions": [
       "alternative_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 43.365000000000045,
-          "voice_quality": 35.407500000000006,
+          "voice_register": 44.24000000000004,
+          "voice_quality": 35.205000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.285,
-          "voice_articulation": 21.90500000000001,
-          "voice_microtone": 36.925000000000026,
-          "voice_tradition": 6.395000000000001,
+          "voice_articulation": 21.320000000000007,
+          "voice_microtone": 37.800000000000026,
+          "voice_tradition": 5.720000000000001,
           "voice_mechanism_compound": 13.584999999999999,
           "voice_estill_quality": 10.220000000000002,
-          "voice_speech_song": 23.075000000000003,
-          "voice_ensemble_config": 27.495000000000005,
+          "voice_speech_song": 22.490000000000006,
+          "voice_ensemble_config": 26.910000000000004,
           "voice_ornament_system": 3.2,
           "voice_pitch_organization": 2.7950000000000004,
           "voice_processing_chain": 8.865,
-          "voice_multitrack_stack": 17.134999999999998
+          "voice_multitrack_stack": 16.46
         }
       },
       {
@@ -71,17 +71,17 @@
         },
         "scores": {
           "electric_technique": 13.2,
-          "amp_make": 32.955000000000005,
+          "amp_make": 32.6775,
           "body_wood": 2.6,
           "neck_wood": 2.5999999999999996,
           "fretboard": 1.625,
           "pickup_magnet": 1.09,
           "string_material": 1.09,
-          "string_gauge": 2.6775,
+          "string_gauge": 1.8,
           "bridge": 0.39,
           "scale_length": 1.69,
           "finish": 0.195,
-          "string_tuning": 25.285000000000007,
+          "string_tuning": 25.54500000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -104,7 +104,7 @@
         },
         "scores": {
           "electric_technique": 13.2,
-          "amp_make": 32.955000000000005,
+          "amp_make": 32.6775,
           "body_wood": 8.969999999999999,
           "neck_wood": 1.69,
           "fretboard": 1.625,
@@ -113,9 +113,9 @@
           "string_material": 1.09,
           "bridge": 1.69,
           "scale_length": 1.69,
-          "string_gauge": 2.6775,
+          "string_gauge": 1.8,
           "finish": 0.195,
-          "string_tuning": 25.285000000000007
+          "string_tuning": 25.54500000000001
         }
       },
       {
@@ -131,13 +131,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 22.230000000000008,
+          "amp_make": 22.68500000000001,
           "body_wood": 1.69,
           "pickup_config": 1.495,
-          "string_type": 38.990000000000016,
+          "string_type": 39.98750000000001,
           "scale_length_b": 1.69,
           "fretted_or_not": 0.045,
-          "bass_technique": 44.670000000000016,
+          "bass_technique": 44.795000000000016,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,7 +149,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 33.875000000000014,
+          "drum_technique": 34.750000000000014,
           "drumhead": 3.2,
           "drum_kit_kick_pedal": 0
         }

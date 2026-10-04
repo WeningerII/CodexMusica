@@ -5,7 +5,7 @@
   "lineage": "Technical melodic death metal joins shaped lead-guitar melodies with demanding extreme-metal ensemble writing.",
   "recipe": "classic technical melodic death metal, distorted Rock, death branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 457,
-  "score": 30.517,
+  "score": 30.545,
   "config": {
     "traditions": [
       "technical_melodic_death_metal"
@@ -32,16 +32,16 @@
           "electric_technique": -0.07,
           "amp_make": 5.655000000000001,
           "body_wood": 5.85,
-          "neck_wood": 0.2385,
-          "fretboard": 0.23099999999999998,
+          "neck_wood": 0.34349999999999997,
+          "fretboard": 0.26249999999999996,
           "pickup_magnet": 0,
-          "pickup_winding": 0.2415,
-          "string_material": 0.2385,
-          "bridge": 0.44699999999999995,
+          "pickup_winding": 0.273,
+          "string_material": 0.34349999999999997,
+          "bridge": 0.33599999999999997,
           "scale_length": 0.03899999999999999,
-          "string_gauge": 0.21599999999999997,
+          "string_gauge": 0.0735,
           "finish": 0,
-          "string_tuning": 0.10575
+          "string_tuning": 0.0945
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 5.85,
           "pickup_config": 0,
           "string_type": 0.03899999999999999,
-          "scale_length_b": 0.4065,
+          "scale_length_b": 0.43799999999999994,
           "fretted_or_not": 0.0705,
-          "bass_technique": 3.8687500000000004,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.1095,
+          "voice_multitrack_stack": 1.141,
           "voice_tessitura": 0
         }
       }

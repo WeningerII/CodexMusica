@@ -2,10 +2,10 @@
   "id": "uk_alternative_pop",
   "name": "UK alternative pop",
   "family": "pop",
-  "lineage": "Sasha Siem — L.over (2022), complete credited album program. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s uk alternative pop, functional Song, pop rock branch. single lead single track no stacking. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 32.689,
+  "lineage": "Contemporary British alternative pop — melodic songwriting shaped by indie, electronic and art-pop production.",
+  "recipe": "classic uk alternative pop, functional Song, pop rock branch. soft felt lacquer voiced 17 ply hard rock maple block chord grand piano, rompler workstation, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 359,
+  "score": 75.185,
   "config": {
     "traditions": [
       "uk_alternative_pop"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.0574999999999999,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -66,14 +66,14 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 12.140999999999998,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.8564999999999999,
+          "keyboard_technique": 14.891,
+          "grand_piano_size": 0.0945,
+          "grand_piano_brand": 0.39,
           "piano_hammer": 1.8199999999999998,
           "piano_rim": 1.8199999999999998,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.263,
-          "piano_plate": 0.26,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
           "piano_pitch_standard": 0.325
         }
       },
@@ -86,10 +86,62 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.25,
+          "electronic_technique": -0.05,
           "rompler_preset_bank": 0,
-          "rompler_context": 12.154999999999998,
+          "rompler_context": 14.773,
           "rompler_lineage": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.2415,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 3.7815,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": 0.168,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 18.4625,
+          "cymbal_lathing": 18.389,
+          "cymbal_finish": 0
         }
       }
     ],
@@ -129,6 +181,29 @@
         "rompler_preset_bank",
         "rompler_context",
         "rompler_lineage"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
     "room": "treated_studio",
@@ -179,7 +254,26 @@
       "electronic_technique": "electronic_arpeggiated",
       "rompler_preset_bank": "rompler_preset_gm_combo",
       "rompler_context": "rompler_context_pop_workstation",
-      "rompler_lineage": "rompler_lineage_unspecified"
+      "rompler_lineage": "rompler_lineage_unspecified",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

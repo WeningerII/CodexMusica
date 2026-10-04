@@ -5,7 +5,7 @@
   "lineage": "UK underground guitar-pop genre that emerged 1988-1991 — named for the bands characteristic stage posture of staring down at effect-pedal boards rather than engaging the audience; codified through My Bloody Valentine (Loveless 1991, the wall-of-guitars masterpiece tracked over 2 years across 19 studios with Kevin Shields perfectionism), Slowdive (Just for a Day 1991, Souvlaki 1993), Ride (Nowhere 1990), Lush, Chapterhouse, the Pale Saints; built on dense overlapping guitar tracks with reverb / delay / tremolo / flanger / phaser processing and buried-in-mix vocals",
   "recipe": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues musique mauritanienne. thick, breath veiled tone, straight note core, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
   "recipe_chars": 676,
-  "score": 189.002,
+  "score": 189.074,
   "config": {
     "traditions": [
       "shoegaze",
@@ -38,7 +38,7 @@
           "voice_quality": 6.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3197499999999995,
+          "voice_vibrato": 2.3399999999999994,
           "voice_articulation": 11.374999999999995,
           "voice_microtone": 18.52499999999999,
           "voice_tradition": 16.38,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.9824999999999995,
           "voice_pitch_organization": 3.0550000000000006,
           "voice_processing_chain": 4.485,
-          "voice_multitrack_stack": 2.5712499999999996
+          "voice_multitrack_stack": 2.6232499999999996
         }
       },
       {

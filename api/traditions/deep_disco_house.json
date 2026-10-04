@@ -5,7 +5,7 @@
   "lineage": "Disco-informed deep-house intersection represented by COEO and the Toy Tonics network: sample-based funk, soul and disco material joins a rounded bass pocket and chordal accompaniment. This selected strand uses the deeper harmonic groove rather than requiring the heavy filter-sweep arrangement of the broad disco-house record.",
   "recipe": "classic modern deep disco house, electronic Dance, deep house branch, soul R&B functional song british soul detroit house. sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, chordal centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, drum machine analog. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter phaser.",
   "recipe_chars": 483,
-  "score": 149.936,
+  "score": 149.86,
   "config": {
     "traditions": [
       "deep_disco_house",
@@ -43,7 +43,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 23.574874999999995,
+          "amp_make": 23.498374999999996,
           "body_wood": 1.04,
           "pickup_config": 0.3765,
           "string_type": 26.173374999999993,

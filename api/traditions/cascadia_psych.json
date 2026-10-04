@@ -5,7 +5,7 @@
   "lineage": "Plankton Wat — Future Times. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic cascadia psych, distorted Rock. humbucker electric guitar, electric bass, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 199,
-  "score": 3.02,
+  "score": 2.988,
   "config": {
     "traditions": [
       "cascadia_psych"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.4815,
+          "electric_technique": 1.5865,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.1365
+          "string_tuning": 0
         }
       },
       {

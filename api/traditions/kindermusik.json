@@ -5,7 +5,7 @@
   "lineage": "Early-childhood music-and-movement pedagogy derived from West German Musikalische Früherziehung of the 1960s, brought to the United States in 1974 and formalized as a licensed curriculum from Greensboro, North Carolina in 1993, using short diatonic call-and-response songs at walking tempo (roughly 90-120 BPM), steady duple meter for locomotor play, adult-led unison singing in a comfortable child register, and unpitched hand percussion, resonator bells and glockenspiel handed to the children themselves.",
   "recipe": "classic mid-1960s kindermusik, nursery Rhyme, americas branch, European nursery rhyme muziek voor kinderen barnmusik. extended whistle, breath veiled tone, straight note core, interlocked note trading. glockenspiel, snappy to palm hand clap, xylophone, ukulele, handbells diatonic martellato damped handbells, nickel bronze modern blend strummed open chord ringing overtones dreadnought acoustic guitar, naive celeste block chord toy piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 586,
-  "score": 148.19,
+  "score": 148.34,
   "config": {
     "traditions": [
       "kindermusik",
@@ -110,7 +110,7 @@
         },
         "scores": {
           "handbells_set": 2.795,
-          "handbells_technique": 1.24
+          "handbells_technique": 1.39
         }
       },
       {

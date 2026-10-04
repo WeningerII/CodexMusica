@@ -5,7 +5,7 @@
   "lineage": "Broad post-doom discovery cluster represented by SubRosa’s Salt Lake City experimental sludge-doom and chamber-string branch.",
   "recipe": "classic modern post-doom metal, distorted Rock, doom branch, post metal metal uk post-metal atmospheric post-metal. solo with instrumental accompaniment. orange amp British heavy crunch basswood low output no compression lower tension down tuning humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, solid body four string prog rock electric violin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 559,
-  "score": 132.843,
+  "score": 133.742,
   "config": {
     "traditions": [
       "post_doom_metal",
@@ -32,16 +32,16 @@
         },
         "scores": {
           "electric_technique": 11.4355,
-          "amp_make": 16.377,
+          "amp_make": 16.65,
           "body_wood": 11.635000000000002,
-          "neck_wood": 0.36599999999999994,
-          "fretboard": 0.36599999999999994,
+          "neck_wood": 0.5025,
+          "fretboard": 0.5025,
           "pickup_magnet": 0.3,
           "pickup_winding": 1.04,
-          "string_material": 0.36599999999999994,
-          "bridge": 2.5999999999999996,
+          "string_material": 0.5025,
+          "bridge": 2.5169999999999995,
           "scale_length": 12.025,
-          "string_gauge": 2.2099999999999995,
+          "string_gauge": 2.1674999999999995,
           "finish": 0,
           "string_tuning": 7.345000000000001
         }
@@ -59,7 +59,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.377,
+          "amp_make": 16.65,
           "body_wood": 0.39,
           "pickup_config": 0.045,
           "string_type": 13.162500000000001,
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 10.125000000000002,
-          "drumhead": 1.6404999999999998,
+          "drumhead": 1.755,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ensemble_config": 1.4300000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.456
         }
       },

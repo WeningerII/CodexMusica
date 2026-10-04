@@ -5,7 +5,7 @@
   "lineage": "Neo-synthpop revisits synthesizer-led popular songwriting through newer independent bands and production approaches. Electronic patterns can coexist with the physical presence of a live rhythm section.",
   "recipe": "classic neo-synthpop, functional Song, synthpop branch. solo with instrumental accompaniment. analog poly synth, ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 246,
-  "score": 10.188,
+  "score": 10.133,
   "config": {
     "traditions": [
       "neo_synthpop"
@@ -44,7 +44,7 @@
           "pickup_config": 0.1995,
           "string_type": 4.875,
           "scale_length_b": 0.1365,
-          "fretted_or_not": 0.159,
+          "fretted_or_not": 0.105,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

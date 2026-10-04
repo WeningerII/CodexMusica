@@ -5,7 +5,7 @@
   "lineage": "Lithuanian children’s-song repertoire includes traditional and contemporary compositions for learning, play and performance. Lithuanian composers also cultivate accompanied songs for young singers.",
   "recipe": "classic vaikiškos dainos, art Music. one note per syllable, solo with instrumental accompaniment. upright piano. live tracking.",
   "recipe_chars": 127,
-  "score": 2.046,
+  "score": 2.078,
   "config": {
     "traditions": [
       "vaikiskos_dainos"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.24149999999999996,
-          "voice_multitrack_stack": 0.0945,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "upright_use": 0.3,
+          "upright_use": 0.3315,
           "upright_piano_size": 0
         }
       }

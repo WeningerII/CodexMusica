@@ -2,10 +2,10 @@
   "id": "k_pop_girl_group",
   "name": "K-pop girl group",
   "family": "pop",
-  "lineage": "K-pop girl group is represented here by TWICE — First Time selected instrumental/vocal core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic k-pop girl group, functional Song, pop rock branch. group vocals. clean strummed humbucker electric guitar, ernie ball slinky electric bass, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 268,
-  "score": 32.405,
+  "lineage": "K-pop girl groups developed within South Korea’s recording, training and performance industries, combining coordinated group identities with varied pop production.",
+  "recipe": "classic k-pop girl group, functional Song, east Asian pop branch. group vocals. clean strummed humbucker electric guitar, electric bass, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 256,
+  "score": 19.605,
   "config": {
     "traditions": [
       "k_pop_girl_group"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
+          "amp_make": "amp_american_fender_champ",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.215499999999999,
-          "amp_make": 1.8199999999999998,
-          "body_wood": 0.26549999999999996,
-          "neck_wood": 0.1365,
-          "fretboard": 0.0315,
-          "pickup_magnet": 0.105,
-          "pickup_winding": 0.702,
-          "string_material": 0.0315,
-          "bridge": 1.69,
-          "scale_length": 0.36749999999999994,
-          "string_gauge": 1.69,
+          "electric_technique": 13.805,
+          "amp_make": 0.19500000000000003,
+          "body_wood": 0.5459999999999999,
+          "neck_wood": 0.0945,
+          "fretboard": 0.0945,
+          "pickup_magnet": 0.16799999999999998,
+          "pickup_winding": 0.105,
+          "string_material": 0.0945,
+          "bridge": 0.1365,
+          "scale_length": 0.609,
+          "string_gauge": 0.063,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.0315
         }
       },
       {
@@ -49,20 +49,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.275,
-          "body_wood": 0.168,
-          "pickup_config": 0.27299999999999996,
-          "string_type": 4.875,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.23399999999999999,
+          "amp_make": 0.325,
+          "body_wood": 0.1575,
+          "pickup_config": 0.1365,
+          "string_type": 0.26,
+          "scale_length_b": 0.159,
+          "fretted_or_not": 0.1905,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,14 +71,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.231,
+          "poly_archetypes": 0,
+          "poly_voices": 0.0315,
           "poly_maker_lineage": -0.035
         }
       },
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9779999999999998,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 2.4574999999999996,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.0315
         }
       }
     ],
@@ -131,7 +131,10 @@
         "bass_technique"
       ],
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
       "voice": [
         "voice_register",
@@ -190,7 +193,10 @@
       "electric_technique": "electric_clean_strummed",
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

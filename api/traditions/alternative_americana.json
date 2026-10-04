@@ -2,10 +2,10 @@
   "id": "alternative_americana",
   "name": "Alternative americana",
   "family": "country",
-  "lineage": "Alternative americana is represented by Pete Kavanagh — To Hold the Red Rose (Join up the Dots, track 1). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic alternative americana, functional Song, americana branch. dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, cold pressed wurzen felt 17 ply hard rock maple 7 ply grand piano, projecting adirondack red spruce mandola, Leslie 760 solid state 90w 1970s alternative tonewheel organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 440,
-  "score": 33.456,
+  "lineage": "Alternative Americana connects roots songwriting with independent approaches to folk, country, blues and rock. Arrangements range from intimate acoustic songs to more layered band textures.",
+  "recipe": "classic alternative americana, functional Song, americana branch. unprocessed natural acoustic. dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, soft felt lacquer voiced 17 ply hard rock maple a 432 grand piano, mandola, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 525,
+  "score": 43.545,
   "config": {
     "traditions": [
       "alternative_americana"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.063,
+          "voice_ensemble_config": 0.363,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.063
+          "voice_processing_chain": 1.5310000000000001,
+          "voice_multitrack_stack": 0.363
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "acoustic_technique": -0.07,
-          "string_tuning": 0.9629999999999999,
+          "string_tuning": 1.513,
           "top_wood": 0.168,
           "back_sides": 0.0315,
           "string_acoustic": 0.49349999999999994
@@ -72,21 +72,21 @@
         "slots": {
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "tape_wound_bass",
-          "scale_length_b": "extra_long_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.751,
+          "amp_make": 9.251,
           "body_wood": 0.273,
-          "pickup_config": 0.3315,
-          "string_type": 0.4095,
-          "scale_length_b": 0.3315,
-          "fretted_or_not": 0.063,
-          "bass_technique": 6.4705,
+          "pickup_config": 0.0315,
+          "string_type": 3.25,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.363,
+          "bass_technique": 8.9705,
           "electric_bass_string_configuration": 0
         }
       },
@@ -96,22 +96,22 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.1365,
           "grand_piano_brand": 0.36750000000000005,
-          "piano_hammer": 2.015,
-          "piano_rim": 2.21,
-          "piano_soundboard": 0.7314999999999999,
-          "piano_pinblock": 1.8679999999999999,
-          "piano_plate": 0.7629999999999999,
+          "piano_hammer": 1.17,
+          "piano_rim": 1.56,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
           "piano_pitch_standard": 2.4855
         }
       },
@@ -121,16 +121,16 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "mandola_size": "mandola_alto",
           "mandola_context": "mandola_art",
-          "mandola_top": "mandola_adirondack",
+          "mandola_top": "mandola_italian_alpine",
           "mandola_back": "mandola_big_leaf_maple",
           "mandola_strings": "mandola_phosphor"
         },
         "scores": {
           "acoustic_technique": -0.07,
-          "mandola_size": 0.78,
+          "mandola_size": 0.4095,
           "mandola_context": 0.47250000000000003,
-          "mandola_top": 1,
-          "mandola_back": 0.39,
+          "mandola_top": 0.231,
+          "mandola_back": 0.651,
           "mandola_strings": 0
         }
       },
@@ -138,18 +138,18 @@
         "id": "tonewheel_organ",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "drawbar_setting": "gospel_drawbars",
-          "rotary_speed": "stopped_rotor",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
-          "tonewheel_model": "tonewheel_hammond_a100",
+          "tonewheel_model": "tonewheel_hammond_b3",
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "drawbar_setting": -0.035,
-          "rotary_speed": 0.39,
-          "percussion_setting": 0.7874999999999999,
-          "tonewheel_model": 0.325,
+          "drawbar_setting": 2.5,
+          "rotary_speed": 2.5865,
+          "percussion_setting": 1.3,
+          "tonewheel_model": 1.1049999999999998,
           "leslie_cabinet_model": 2.105
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Idol pop connects televised singing competitions and their performers with mainstream popular songwriting.",
   "recipe": "classic idol, functional Song, pop rock branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 253,
-  "score": 11.311,
+  "score": 12.022,
   "config": {
     "traditions": [
       "idol"
@@ -16,16 +16,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka",
-          "back_sides": "koa_bs",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 9.058499999999999,
+          "acoustic_technique": 9.1725,
           "string_tuning": 0,
-          "top_wood": 0.1365,
-          "back_sides": 0.063,
-          "string_acoustic": 0.3045
+          "top_wood": 0.3465,
+          "back_sides": 0.105,
+          "string_acoustic": 0.5774999999999999
         }
       },
       {
@@ -63,8 +63,8 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.11699999999999999
+          "voice_processing_chain": 0.3315,
+          "voice_multitrack_stack": 0.1575
         }
       }
     ],

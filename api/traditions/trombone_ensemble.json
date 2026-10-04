@@ -5,7 +5,7 @@
   "lineage": "Norwegian Trombone Ensemble — Nibbles (LWC1194,2020), complete quartet album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2020s trombone ensemble, art Music. tenor standard standard backbore trombone, bass trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 206,
-  "score": 4.945,
+  "score": 5.841,
   "config": {
     "traditions": [
       "trombone_ensemble"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": 2.45,
-          "trombone_type": -0.05,
+          "trombone_type": -0.035,
           "trombone_mouthpiece": 2.45,
           "trombone_mute": 0.0315,
-          "trombone_technique": 0,
+          "trombone_technique": 0.3675,
           "trombone_bell_metal": 0,
-          "trombone_maker_school": 0.0315
+          "trombone_maker_school": 0.34650000000000003
         }
       },
       {
@@ -39,8 +39,8 @@
           "bass_trombone_context": "bass_trombone_orchestral_legato"
         },
         "scores": {
-          "bass_trombone_valves": 0,
-          "bass_trombone_context": 0.0315
+          "bass_trombone_valves": 0.1365,
+          "bass_trombone_context": 0.0945
         }
       }
     ],

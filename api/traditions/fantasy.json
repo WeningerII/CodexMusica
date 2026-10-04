@@ -5,7 +5,7 @@
   "lineage": "Fantasy music evokes imagined worlds, journeys and characters through instrumental or vocal composition. Standalone concept pieces coexist with music for games, film and other narrative media, crossing acoustic, orchestral and electronic approaches.",
   "recipe": "classic fantasy, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
   "recipe_chars": 123,
-  "score": 18.143,
+  "score": 16.946,
   "config": {
     "traditions": [
       "fantasy"
@@ -25,13 +25,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5315,
+          "keyboard_technique": 2.5,
           "grand_piano_size": 1.7315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 2.6180000000000003,
-          "piano_rim": 3.044,
-          "piano_soundboard": 2.555,
-          "piano_pinblock": 3.185,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.8445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
           "piano_plate": 2.45,
           "piano_pitch_standard": -0.035
         }

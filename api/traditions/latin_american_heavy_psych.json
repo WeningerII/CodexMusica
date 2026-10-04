@@ -5,7 +5,7 @@
   "lineage": "Latin American heavy psychedelia — regional heavy-rock scenes with fuzz, repetition and expansive textures.",
   "recipe": "classic latin american heavy psych, distorted Rock. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 320,
-  "score": 46.775,
+  "score": 46.264,
   "config": {
     "traditions": [
       "latin_american_heavy_psych"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 2.0725,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.231,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.7499999999999998,
+          "electric_technique": 1.8549999999999998,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.1235000000000002,
+          "string_gauge": 0.9870000000000001,
           "finish": 0,
-          "string_tuning": 0.1365
+          "string_tuning": 0
         }
       },
       {
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 10.25,
-          "drumhead": 0.1365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.168,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 10.149999999999999,
-          "cymbal_lathing": 10.213,
+          "cymbal_lathing": 10.181499999999998,
           "cymbal_finish": 0
         }
       }

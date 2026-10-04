@@ -5,7 +5,7 @@
   "lineage": "Brazilian classical piano connects local composers and performers with a broad international concert tradition. Brazilian repertoire, including works by Villa-Lobos, forms an important strand alongside music from elsewhere.",
   "recipe": "classic brazilian classical piano, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 83.447,
+  "score": 83.049,
   "config": {
     "traditions": [
       "brazilian_classical_piano"
@@ -15,7 +15,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.453,
+          "grand_piano_size": 0.5145,
           "grand_piano_brand": 0.9555,
-          "piano_hammer": 13.323,
+          "piano_hammer": 13.2105,
           "piano_rim": 12.5545,
           "piano_soundboard": 11.25,
-          "piano_pinblock": 11.304,
-          "piano_plate": 13.05,
-          "piano_pitch_standard": 13.057
+          "piano_pinblock": 11.25,
+          "piano_plate": 12.9375,
+          "piano_pitch_standard": 12.877
         }
       }
     ],

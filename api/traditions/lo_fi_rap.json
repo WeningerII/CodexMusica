@@ -2,59 +2,76 @@
   "id": "lo_fi_rap",
   "name": "Lo-fi Rap",
   "family": "hip_hop",
-  "lineage": "Menteroja & De Planetära — Alienation (Acapella), complete3:38 side-B fourth track of the issuer’s seven-track12-inch release. This is the expressly issued vocal-only edition, not an assistant-created extraction or selection of a verse. The source separately lists original, two remixes and their instrumental versions; none of those other arrangements is silently imported into this edition. Label De Planetära explicitly names Hip Hop, Lo-Fi and Rap and describes its own lo-fi practice. Menteroja identifies himself as MC/producer. The three named De Planetära members are not assigned vocal roles by this release: exact human vocal count, doubling and any backing-vocal distribution remain unknown. No source-audio audition or claim of measured tracking. The existing human-voice-count-unspecified owner preserves unknown headcount and unknown tracking, including possible layers, rather than inventing solo or group cardinality. All17 applicable controls are explicitly pinned: rhythmic spoken rap quality, neutral tract/moderate effort and source-unspecified register, mechanism, tradition, ornament and pitch. Unprocessed vocal delivery and controlled studio room are authored rendition choices, not claims about original effects or capture. No global tuning or studio apparatus. Broad spokenWord parent scopes this issued unaccompanied rhythmic vocal realization, not every lo-fi rap recording.",
-  "recipe": "classic lo-fi rap, spoken Word. rhythmic spoken flow no pitch unprocessed natural acoustic rap human voice ensemble unspecified. treated studio.",
-  "recipe_chars": 144,
-  "score": 53.739,
+  "lineage": "Lo-fi rap connects rap songwriting with deliberately rough-edged recording and sample production. Independent labels and MC-producers cultivate textures that retain grain, repetition and an intimate sense of scale.",
+  "recipe": "classic lo-fi rap, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. treated studio.",
+  "recipe_chars": 128,
+  "score": 31.713,
   "config": {
     "traditions": [
       "lo_fi_rap"
     ],
     "instruments": [
       {
-        "id": "human_voice_ensemble_unspecified",
+        "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "spoken_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
-          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 21.3445,
+          "voice_quality": 12.959,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.39,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 31.062999999999995,
+          "voice_speech_song": 11.341999999999999,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3315000000000001,
-          "human_voice_ensemble_source_status": 0,
-          "human_voice_tracking_source_status": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.33599999999999997,
           "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 0.25,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 5.004999999999999
         }
       }
     ],
     "pinned": {
-      "human_voice_ensemble_unspecified": [
+      "voice": [
         "voice_register",
         "voice_quality",
         "voice_vocal_tract",
@@ -66,12 +83,19 @@
         "voice_mechanism_compound",
         "voice_estill_quality",
         "voice_speech_song",
-        "human_voice_ensemble_source_status",
+        "voice_ensemble_config",
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "human_voice_tracking_source_status",
+        "voice_multitrack_stack",
         "voice_tessitura"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -96,18 +120,23 @@
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_articulation": "spoken_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
-      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
     "pin_parts": true
   }

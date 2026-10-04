@@ -5,7 +5,7 @@
   "lineage": "Swiss black metal includes abrasive and folk-inflected approaches shaped by local extreme-metal scenes.",
   "recipe": "classic swiss black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension drum kit, loaded metal salt loaded hard rock maple liebenzeller metal infused cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 482,
-  "score": 43.366,
+  "score": 42.873,
   "config": {
     "traditions": [
       "swiss_black_metal"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.174,
+          "bridge": 0.0315,
           "scale_length": 0,
-          "string_gauge": 0.2475,
+          "string_gauge": 0.105,
           "finish": 0,
-          "string_tuning": 0.07425
+          "string_tuning": 0.063
         }
       },
       {
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.35675,
+          "voice_ensemble_config": 1.203,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.17925000000000002,
-          "voice_multitrack_stack": 0.18,
+          "voice_multitrack_stack": 0.13724999999999998,
           "voice_tessitura": 0
         }
       },

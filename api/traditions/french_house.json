@@ -5,7 +5,7 @@
   "lineage": "Paris-centred style of roughly 1995-2003 codified by Daft Punk, Cassius, Etienne de Crecy, Alan Braxe and Stardust, built from short looped disco and boogie vinyl samples at 115-128 BPM, driven by aggressive resonant band-pass filter sweeps and phaser motion across the whole loop, hard bus compression that pumps against a 909 kick, and vocals used as pitched, chopped, vocoded or talkbox texture rather than as verse-chorus lead.",
   "recipe": "classic Western European mid-1990s french house, electronic Dance, house branch, deep house house, italo house house, continental electronic dance canadian house deep disco house. turntable, melodic pitched sampler, TR-909, analog poly synth, vocoder, talkbox. intimate paris small studio. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 419,
-  "score": 106.119,
+  "score": 106.809,
   "config": {
     "traditions": [
       "french_house",
@@ -38,7 +38,7 @@
           "sampler_archetypes": 0.65,
           "sampler_bit_depth": 0.9099999999999999,
           "sampler_workflow": 1.4299999999999997,
-          "sampler_classic_context": 49.86149999999999
+          "sampler_classic_context": 50.55149999999999
         }
       },
       {

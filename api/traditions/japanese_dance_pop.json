@@ -5,7 +5,7 @@
   "lineage": "Japanese dance pop connects melodic popular song with dance-oriented rhythm and production. Electronic arrangement, DJ techniques and live performance contribute overlapping approaches.",
   "recipe": "classic japanese dance pop, functional Song, pop rock branch. solo with instrumental accompaniment. sampler drum machine, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 241,
-  "score": 6.926,
+  "score": 6.944,
   "config": {
     "traditions": [
       "japanese_dance_pop"
@@ -23,7 +23,7 @@
           "electronic_technique": -0.1,
           "sample_bitdepth": 0.105,
           "sample_swing": 2.5,
-          "sample_processing": 0
+          "sample_processing": 0.063
         }
       },
       {
@@ -76,8 +76,8 @@
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.234
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
         }
       }
     ],

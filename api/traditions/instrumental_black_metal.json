@@ -3,14 +3,14 @@
   "name": "Instrumental black metal",
   "family": "rock_punk",
   "lineage": "Instrumental black metal is a voice-omitted discovery/repertoire scope represented here by Der Weg einer Freiheit’s officially remixed Innern (Instrumental), grounded in the group’s Würzburg black/post-metal practice.",
-  "recipe": "classic modern instrumental black metal, distorted Rock, black branch, post metal metal lithuanian metal atmospheric post-metal. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 498,
-  "score": 77.987,
+  "recipe": "classic modern instrumental black metal, distorted Rock, black branch, post metal metal atmospheric post-metal edinburgh metal. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 497,
+  "score": 76.068,
   "config": {
     "traditions": [
       "instrumental_black_metal",
-      "lithuanian_metal",
-      "atmospheric_post_metal"
+      "atmospheric_post_metal",
+      "edinburgh_metal"
     ],
     "instruments": [
       {
@@ -32,18 +32,18 @@
         },
         "scores": {
           "electric_technique": 1.3,
-          "amp_make": 13.454999999999997,
-          "body_wood": 13.65,
+          "amp_make": 13.909999999999997,
+          "body_wood": 14.105,
           "neck_wood": 0.4755,
           "fretboard": 0.4755,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.65,
           "string_material": 0.4755,
-          "bridge": 2.405,
-          "scale_length": 13.65,
-          "string_gauge": 2.405,
+          "bridge": 1.755,
+          "scale_length": 14.105,
+          "string_gauge": 1.755,
           "finish": 0.09899999999999999,
-          "string_tuning": 0.78
+          "string_tuning": 0.39
         }
       },
       {
@@ -60,8 +60,8 @@
         },
         "scores": {
           "amp_make": 6.630000000000001,
-          "body_wood": 0.33599999999999997,
-          "pickup_config": 0.1815,
+          "body_wood": 0.5459999999999999,
+          "pickup_config": 0.213,
           "string_type": 13.162500000000001,
           "scale_length_b": 0.3315,
           "fretted_or_not": 0.3,
@@ -91,7 +91,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 2.1574999999999998,
+          "electronic_technique": 2.1214999999999997,
           "poly_archetypes": 5.265000000000001,
           "poly_voices": 1.2349999999999999,
           "poly_maker_lineage": -1.8684999999999998

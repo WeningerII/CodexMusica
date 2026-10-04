@@ -2,10 +2,10 @@
   "id": "rez_country",
   "name": "Rez country",
   "family": "vernacular",
-  "lineage": "Rez country: Stateline — KUNM Studio Sessions, May 2019 lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic late-2010s rez country, functional Song, country rock branch. single lead single track no stacking. classic rock hard rock soft down tuning humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 343,
-  "score": 21.442,
+  "lineage": "Rez country is country music rooted in Native American reservation communities, including a strong country-rock circuit on the Navajo Nation. Bands connect local community identity with the wider language of country songwriting and amplified dance-band performance.",
+  "recipe": "classic rez country, functional Song, country rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 330,
+  "score": 24.418,
   "config": {
     "traditions": [
       "rez_country"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.9645000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.17099999999999999,
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_modern_modeling",
-          "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
@@ -67,30 +67,30 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 0.7,
-          "amp_make": 0.26,
-          "body_wood": 0.39,
+          "electric_technique": 0.7629999999999999,
+          "amp_make": -0.07,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": 0,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "pickup_magnet": 0.21749999999999997,
+          "pickup_winding": 0.21749999999999997,
           "string_material": 0.29700000000000004,
-          "bridge": 1.3,
-          "scale_length": 0.39,
-          "string_gauge": 1.3,
+          "bridge": 0.375,
+          "scale_length": 0.21749999999999997,
+          "string_gauge": 0.375,
           "finish": 0,
-          "string_tuning": 2.73
+          "string_tuning": 3.6399999999999997
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_modern_modeling",
-          "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
@@ -98,11 +98,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.26,
+          "amp_make": -0.07,
           "body_wood": 0,
-          "pickup_config": 0.39,
-          "string_type": 5.85,
-          "scale_length_b": 0.39,
+          "pickup_config": 0,
+          "string_type": 8.364999999999998,
+          "scale_length_b": 0.21749999999999997,
           "fretted_or_not": 0.0225,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.5,
-          "drumhead": 0.75,
+          "drum_technique": 7.031499999999999,
+          "drumhead": 0.11249999999999999,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -144,10 +144,14 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make"
+        "amp_make",
+        "body_wood",
+        "neck_wood"
       ],
       "electric_bass": [
         "amp_make",
+        "body_wood",
+        "pickup_config",
         "bass_technique"
       ],
       "drum_kit": [
@@ -193,7 +197,10 @@
       "electric_technique": "electric_clean_strummed",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "amp_make": "amp_modern_modeling"
+      "amp_make": "amp_modern_modeling",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "pickup_config": "dual_single"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

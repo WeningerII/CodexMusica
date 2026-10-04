@@ -3,9 +3,9 @@
   "name": "Pacific Islands Gospel",
   "family": "global",
   "lineage": "Pacific Islands gospel connects Christian hymn and devotional traditions across diverse island communities. Local languages, communal singing and inherited musical practices shape its many regional forms.",
-  "recipe": "classic pacific islands gospel, ritual Devotional, christian gospel branch. one note per syllable, all voices same rhythm, live take. shoebox concert hall.",
-  "recipe_chars": 155,
-  "score": 4.422,
+  "recipe": "classic pacific islands gospel, ritual Devotional, christian gospel branch. one note per syllable, all voices same rhythm. shoebox concert hall.",
+  "recipe_chars": 144,
+  "score": 2.784,
   "config": {
     "traditions": [
       "pacific_islands_gospel"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.4299999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.224,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       }

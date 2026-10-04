@@ -5,7 +5,7 @@
   "lineage": "Ukrainian experimental music brings composition, improvisation and unconventional sound practices into dialogue. Artists such as Ihor Tsymbrovsky connect poetry and exploratory singing with minimal keyboard forms, alongside other electronic and instrumental approaches.",
   "recipe": "classic ukrainian experimental, art Music. small note groups per syllable, solo with instrumental accompaniment. upright piano, credited organ unspecified. live tracking.",
   "recipe_chars": 170,
-  "score": 4.096,
+  "score": 4.28,
   "config": {
     "traditions": [
       "ukrainian_experimental"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.21,
+          "voice_speech_song": 1.3,
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.24149999999999996,
-          "voice_multitrack_stack": 0.0945,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "upright_use": 0,
+          "upright_use": 0.0315,
           "upright_piano_size": 0
         }
       },
@@ -71,7 +71,7 @@
           "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
         },
         "scores": {
-          "credited_organ_unspecified_identity": 0
+          "credited_organ_unspecified_identity": 0.063
         }
       }
     ],

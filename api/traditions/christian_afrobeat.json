@@ -2,10 +2,10 @@
   "id": "christian_afrobeat",
   "name": "Christian afrobeat",
   "family": "pop",
-  "lineage": "Annatoria with guitarist Noah — acoustic supporting set, Dominion Centre London,4March2023. Authored acoustic song rendition with one accompanied singer and all-mahogany steel-string dreadnought guitar playing flatpicked single-note accompaniment. Dreadnought body, mahogany wood, phosphor-bronze strings, standard guitar tuning and flatpicked gesture are editorial choices, not positively measured source equipment or technique. Vocal physiology and pitch organization remain unspecified, and no global temperament is asserted. FunctionalSong placement describes authored recurring song/refrain and tonal chord support, not a measured transcription. Neutral studio chain is an authored recording model, not source concert equipment. The documented guitar role is retained as an authored all-mahogany dreadnought with phosphor-bronze strings, standard tuning and flatpicked single-note accompaniment. Source does not identify its body model, woods or picking gesture; this is an explicitly new timbral rendition, not a claim to reproduce the source instrument or exact original guitar part. Where present, the electric guitar uses authored alder/maple construction and the bass dual-single-coil pickups. No source-positive instrument or performer is omitted.",
-  "recipe": "classic christian afrobeat, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze modern martin flatpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 328,
-  "score": 34.882,
+  "lineage": "Christian Afrobeat brings contemporary Afrobeats songwriting and production into gospel communities. Artists such as Annatoria connect faith-centered lyrics with the melodic and rhythmic vocabulary of African popular music.",
+  "recipe": "classic christian afrobeat, functional Song. solo with instrumental accompaniment. dreadnought acoustic guitar, pocket fingerstyle locked electric bass, drum machine analog. live tracking.",
+  "recipe_chars": 188,
+  "score": 10.285,
   "config": {
     "traditions": [
       "christian_afrobeat"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,30 +43,68 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 7.482499999999999,
+          "voice_speech_song": 0.1365,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.499999999999999,
-          "voice_multitrack_stack": 7.099999999999999,
+          "voice_processing_chain": 0.354,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_flatpicked",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "mahogany_top",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 3.8,
+          "acoustic_technique": 2.45,
           "string_tuning": 0,
-          "top_wood": 3.8999999999999995,
-          "back_sides": 3.8999999999999995,
-          "string_acoustic": 5.199999999999999
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 4.9,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.23399999999999999,
+          "snare_voice": 0,
+          "hat_voice": 0.18,
+          "shuffle_quantize": -0.05
         }
       }
     ],
@@ -96,24 +134,42 @@
         "top_wood",
         "back_sides",
         "string_acoustic"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "tuning": "twelve_tet",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -125,7 +181,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -135,15 +191,21 @@
       "string_tuning": "standard_tuning",
       "top_wood": "mahogany_top",
       "back_sides": "mahogany_bs",
-      "string_acoustic": "phosphor_bronze",
-      "acoustic_technique": "acoustic_flatpicked"
+      "string_acoustic": "eighty_twenty",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

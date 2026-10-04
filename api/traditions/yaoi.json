@@ -2,37 +2,97 @@
   "id": "yaoi",
   "name": "Yaoi",
   "family": "pop",
-  "lineage": "Complete Yamaha Music Entertainment Holdings intermediate solo-piano arrangement of Fuyu no Hanashi by Given, arranged/transcribed by Kiyomi Kojima, publisher score432440. Publisher identifies piano solo, J-pop and the Given anime insert song; selected programme is the whole separately published arrangement, not a claim that the original band recording lacks voice, bass or drums. One piano player and zero separate singers in this instrumental score. Printed song lyrics or composer/lyricist metadata do not establish an additional vocal staff or singer. Exact creator Yaoi map includes Given and Centimillimental. The franchise own2019 announcement explicitly identifies the adaptation as BL comics, and its own music page binds Fuyu no Hanashi to the band and composer. This establishes a male-romance franchise/media repertoire branch, not any real performer sexuality, universal sonic style, or claim all peripheral creator-map artists are BL. Existing anison is the broader anime-title-song field; anime_cv is character-voice performance, Japanese soundtrack is wider screen scoring, Shojo is a different demographic discovery group, and Yuri is a neighboring different franchise grouping. These categories overlap but do not exhaust this specifically evidenced BL-linked repertoire. Published J-pop song arrangement supports functionalSong.eastAsianPop; piano notation alone does not make it classical. Authored melody-and-block-chord pop touch, standard studio upright and its existing size/use choices are editorial realizations, not measured publisher-demo hardware. Controlled live-room rendition without inferred global tuning or source apparatus.",
-  "recipe": "classic yaoi, functional Song, east Asian pop branch. block chord upright piano. live tracking.",
-  "recipe_chars": 95,
-  "score": 18.676,
+  "lineage": "Yaoi connects music associated with male-romance manga, anime and related media communities. Franchise songs and character-linked repertoire circulate through recordings, performances and arrangements without identifying performers’ personal sexuality.",
+  "recipe": "classic yaoi, functional Song, east Asian pop branch. solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+  "recipe_chars": 128,
+  "score": 2.327,
   "config": {
     "traditions": [
       "yaoi"
     ],
     "instruments": [
       {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.273,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.16799999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
         "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_classical_legato",
           "upright_use": "upright_studio",
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 18.613,
-          "upright_use": 0.063,
+          "keyboard_technique": -0.035,
+          "upright_use": 0.1995,
           "upright_piano_size": 0
         }
       }
     ],
     "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
       "upright_piano": [
         "keyboard_technique",
         "upright_use",
         "upright_piano_size"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -47,11 +107,28 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
-      "keyboard_technique": "keyboard_block_chord_pop",
+      "keyboard_technique": "keyboard_classical_legato",
       "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "upright_piano_size": "upright_piano_standard",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
     "pin_parts": true
   }

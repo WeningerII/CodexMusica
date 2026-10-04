@@ -5,7 +5,7 @@
   "lineage": "Paraná metal represented by Hell Gun’s Curitiba-area traditional heavy/speed-metal practice. Exact defaults are an authored present-day recording model.",
   "recipe": "classic modern metal paranaense, distorted Rock, nwobhm branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 404,
-  "score": 59.222,
+  "score": 59.147,
   "config": {
     "traditions": [
       "metal_paranaense"
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.347,
+          "electric_technique": 17.358249999999998,
           "amp_make": 6.825,
           "body_wood": 7.02,
           "neck_wood": 0.21,
@@ -78,9 +78,9 @@
           "pickup_magnet": 0.168,
           "pickup_winding": 0.1365,
           "string_material": 0.21,
-          "bridge": 1.2925,
+          "bridge": 1.255,
           "scale_length": 7.02,
-          "string_gauge": 1.2925,
+          "string_gauge": 1.255,
           "finish": 0,
           "string_tuning": 0.39
         }
@@ -104,7 +104,7 @@
           "string_type": 4.82625,
           "scale_length_b": 0.2415,
           "fretted_or_not": 0.0315,
-          "bass_technique": 4.12825,
+          "bass_technique": 4.117,
           "electric_bass_string_configuration": 0
         }
       },

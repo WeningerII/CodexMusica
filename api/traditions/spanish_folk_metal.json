@@ -5,7 +5,7 @@
   "lineage": "Spanish folk metal is represented here by Ekyrian. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic spanish folk metal, distorted Rock, folk metal branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, yamaha modern Japanese mid to premium flute, hard rock maple acer saccharum liebenzeller metal infused violin orchestral, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 684,
-  "score": 81.076,
+  "score": 80.918,
   "config": {
     "traditions": [
       "spanish_folk_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 18.1665,
+          "electric_technique": 18.0855,
           "amp_make": 7.085,
           "body_wood": 7.279999999999999,
           "neck_wood": 0.5774999999999999,
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4605,
+          "voice_processing_chain": 0.35250000000000004,
           "voice_multitrack_stack": 0.273
         }
       },
@@ -157,7 +157,7 @@
           "orch_back_wood": 1.885,
           "orch_varnish": 0.325,
           "orch_setup_period": 0.26,
-          "orch_bow": 0.16799999999999998,
+          "orch_bow": 0.19949999999999998,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.39,
           "orch_rosin": 7.15

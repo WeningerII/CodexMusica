@@ -5,7 +5,7 @@
   "lineage": "Anania Ngoliga, John Kitime and Bela Fleck — documented Tanzanian segment of African Project concert practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic tanzanian traditional, improv On Frame. unprocessed natural acoustic. ilimba gogo, acoustic guitar, medium steel bluegrass canon ghs pf135 maple ebony cap scruggs stelling banjo 5 string. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 294,
-  "score": 16.324,
+  "score": 16.492,
   "config": {
     "traditions": [
       "tanzanian_traditional"
@@ -58,7 +58,7 @@
           "ilimba_gogo_identity": "ilimba_gogo_metal_keys_unspecified_layout"
         },
         "scores": {
-          "ilimba_gogo_identity": 0.1995
+          "ilimba_gogo_identity": 0.33599999999999997
         }
       },
       {
@@ -94,7 +94,7 @@
         },
         "scores": {
           "banjo_back": 0,
-          "tone_ring": 0.75,
+          "tone_ring": 0.7815,
           "banjo_head": 0,
           "banjo_pot": 1.6945000000000001,
           "banjo_play": 0.3,

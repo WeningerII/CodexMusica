@@ -3,14 +3,14 @@
   "name": "Kyrgyz pop",
   "family": "pop",
   "lineage": "Selected Kyrgyz-language urban commercial song represented by Mirbek Atabekov's Kechki Bishkek (2022), released through Infinity Music, and his contemporary digital-release/concert practice. This melodic popular-song branch is separate from Manas recitation, komuz kuu and mountain-nomad traditional ensembles; it does not summarize every Kyrgyz pop or dance recording.",
-  "recipe": "classic early-2020s kyrgyz pop, functional Song, pop rock branch, europop functional song azeri pop albanian pop. thick, straight onset, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, single coil electric guitar, ernie ball slinky electric bass, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 494,
-  "score": 226.233,
+  "recipe": "classic early-2020s kyrgyz pop, functional Song, pop rock branch, europop functional song azeri pop czech pop. thick, straight onset, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, single coil electric guitar, ernie ball slinky electric bass, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 491,
+  "score": 201.732,
   "config": {
     "traditions": [
       "kyrgyz_pop",
       "azeri_pop",
-      "albanian_pop"
+      "czech_pop"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 29.894999999999996,
+          "voice_register": 26.144999999999996,
           "voice_quality": 0.09,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.54,
+          "voice_vibrato": 2.665,
           "voice_articulation": 0.045,
-          "voice_microtone": 30.874999999999996,
-          "voice_tradition": 33.16,
-          "voice_mechanism_compound": 0.44999999999999996,
+          "voice_microtone": 27.124999999999996,
+          "voice_tradition": 29.334999999999994,
+          "voice_mechanism_compound": 0.3,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.4949999999999999,
-          "voice_ensemble_config": 1.8200000000000003,
+          "voice_ensemble_config": 2.21,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 3.285,
-          "voice_multitrack_stack": 1.5525
+          "voice_processing_chain": 2.76,
+          "voice_multitrack_stack": 1.2525
         }
       },
       {
@@ -62,19 +62,19 @@
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 24.325,
+          "keyboard_technique": 21.45,
           "grand_piano_size": 0.45499999999999996,
-          "grand_piano_brand": 1.7874999999999999,
-          "piano_hammer": 24.669999999999998,
-          "piano_rim": 26.215,
-          "piano_soundboard": 24.325,
+          "grand_piano_brand": 1.6375,
+          "piano_hammer": 21.794999999999995,
+          "piano_rim": 23.339999999999996,
+          "piano_soundboard": 21.449999999999996,
           "piano_pinblock": -0.05,
-          "piano_plate": 0.26,
-          "piano_pitch_standard": 3.12
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 4.225
         }
       },
       {
@@ -95,7 +95,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.44999999999999996,
+          "electric_technique": 0.5999999999999999,
           "amp_make": 0,
           "body_wood": 0.45499999999999996,
           "neck_wood": 0.45499999999999996,
@@ -118,7 +118,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "thumb_muted",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -126,9 +126,9 @@
           "amp_make": 0,
           "body_wood": 0.45499999999999996,
           "pickup_config": 0.345,
-          "string_type": 6.1625,
+          "string_type": 5.2875,
           "scale_length_b": 0.45499999999999996,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.545,
           "bass_technique": 0.40249999999999997,
           "electric_bass_string_configuration": 0
         }
@@ -142,7 +142,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.5525,
+          "electronic_technique": 0.40249999999999997,
           "sample_bitdepth": 0,
           "sample_swing": 0.39,
           "sample_processing": 0.45499999999999996

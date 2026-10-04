@@ -5,7 +5,7 @@
   "lineage": "French black metal includes Parisian traditionalist bands such as Merrimack alongside other local extreme-metal approaches.",
   "recipe": "classic french black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 429,
-  "score": 38.973,
+  "score": 38.334,
   "config": {
     "traditions": [
       "french_black_metal"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.26549999999999996,
+          "bridge": 0.08549999999999999,
           "scale_length": 0,
-          "string_gauge": 0.285,
+          "string_gauge": 0.105,
           "finish": 0,
-          "string_tuning": 0.08549999999999999
+          "string_tuning": 0.063
         }
       },
       {
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.6229999999999998,
+          "voice_ensemble_config": 1.4204999999999999,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.20249999999999999
+          "voice_multitrack_stack": 0.1485
         }
       }
     ],

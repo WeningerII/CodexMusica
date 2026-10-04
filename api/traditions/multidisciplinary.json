@@ -5,7 +5,7 @@
   "lineage": "Multidisciplinary music connects artists whose work crosses composition, visual art, design, performance and other practices. Methods and ideas move between media, producing varied forms rather than one common instrumental style.",
   "recipe": "classic multidisciplinary, art Music. upright piano. live tracking.",
   "recipe_chars": 67,
-  "score": 0.965,
+  "score": 0.982,
   "config": {
     "traditions": [
       "multidisciplinary"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "upright_use": 0,
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
           "upright_piano_size": 1
         }
       }

@@ -3,9 +3,9 @@
   "name": "German classical piano",
   "family": "classical",
   "lineage": "German classical piano encompasses recital, educational and recording traditions interpreting historical and contemporary repertoire. German-speaking compositional heritage meets a broad international concert canon.",
-  "recipe": "classic german classical piano, art Music, western common practice branch. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 268,
-  "score": 61.995,
+  "recipe": "classic german classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 267,
+  "score": 62.237,
   "config": {
     "traditions": [
       "german_classical_piano"
@@ -18,7 +18,7 @@
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": 7.554,
-          "grand_piano_size": 1.69,
+          "grand_piano_size": 1.5430000000000001,
           "grand_piano_brand": 1.3,
           "piano_hammer": 9.685,
-          "piano_rim": 8.277,
-          "piano_soundboard": 8.4135,
+          "piano_rim": 8.3635,
+          "piano_soundboard": 8.6865,
           "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.807,
-          "piano_pitch_standard": 9.713000000000001
+          "piano_plate": 7.8805000000000005,
+          "piano_pitch_standard": 9.6695
         }
       }
     ],

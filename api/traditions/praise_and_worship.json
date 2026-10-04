@@ -5,7 +5,7 @@
   "lineage": "Contemporary congregational church music formed in the 1970s Jesus-Movement and Vineyard/Maranatha! circles of Southern California and codified globally from the 1990s by Hillsong (Sydney), Integrity/Hosanna!, and later Bethel and Elevation — mid-tempo 4/4 or 6/8 at 70-90 BPM, diatonic I-V-vi-IV loops in guitar-friendly keys, layered acoustic and delay-drenched electric guitar with pad synth beds, worship-leader voice doubled by a congregation-scale choir, and open-ended repeated 'bridge' vamps designed for extended live singing.",
   "recipe": "classic mid-1970s praise and worship, ritual Devotional, christian gospel branch, christian gospel pentecostal, pop rock folk rock adoração contemporary worship. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, cedar maple phosphor bronze modern martin strummed dreadnought acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, singing lead analog poly synth. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 947,
-  "score": 373.567,
+  "score": 373.462,
   "config": {
     "traditions": [
       "praise_and_worship",
@@ -135,7 +135,7 @@
           "pickup_config": 0.65,
           "string_type": 8.775000000000002,
           "scale_length_b": 1.95,
-          "fretted_or_not": 1.9537499999999999,
+          "fretted_or_not": 1.9987499999999998,
           "bass_technique": 6.745000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -172,7 +172,7 @@
           "grand_piano_brand": 2.145,
           "piano_hammer": 3.7700000000000005,
           "piano_rim": 3.79,
-          "piano_soundboard": 3.67,
+          "piano_soundboard": 3.475,
           "piano_pinblock": 0.8999999999999999,
           "piano_plate": 0.995,
           "piano_pitch_standard": 5.850000000000001
@@ -187,7 +187,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.058750000000001,
+          "electronic_technique": 6.103750000000001,
           "poly_archetypes": 3.5100000000000002,
           "poly_voices": 2.9693750000000003,
           "poly_maker_lineage": -0.385

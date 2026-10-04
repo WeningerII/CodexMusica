@@ -5,7 +5,7 @@
   "lineage": "Anglo-American indie style formed 1985-1992 (The Jesus and Mary Chain's Psychocandy, My Bloody Valentine, Yo La Tengo, Black Tambourine), setting 60s girl-group and Velvets-derived three-chord pop melodies at moderate 110-150 BPM under continuous fuzz, feedback and tremolo-arm detuning, with dry deadpan or breathy vocals mixed level with or beneath the guitar noise floor.",
   "recipe": "classic Northern European mid-1980s noise pop, distorted Rock, alternative branch, noise rock distorted rock, experimental distorted rock, pop rock functional song yacht rock rock nacional brasileiro. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, tambourine orch. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 845,
-  "score": 513.426,
+  "score": 512.861,
   "config": {
     "traditions": [
       "noise_pop",
@@ -39,9 +39,9 @@
           "pickup_magnet": 0.39,
           "string_material": 0.39,
           "string_gauge": 1.8199999999999998,
-          "bridge": 0.24,
+          "bridge": 0.195,
           "scale_length": 1.8199999999999998,
-          "finish": 0.045,
+          "finish": 0.195,
           "string_tuning": 19.955,
           "single_coil_pickup_construction": 0
         }
@@ -75,7 +75,7 @@
           "bridge": 1.8199999999999998,
           "scale_length": 1.8199999999999998,
           "string_gauge": 1.8199999999999998,
-          "finish": 0.045,
+          "finish": 0.195,
           "string_tuning": 19.955
         }
       },
@@ -95,7 +95,7 @@
           "amp_make": 18.46,
           "body_wood": 1.8199999999999998,
           "pickup_config": 0.195,
-          "string_type": 41.960499999999996,
+          "string_type": 41.780499999999996,
           "scale_length_b": 1.8199999999999998,
           "fretted_or_not": 0.24,
           "bass_technique": 35.295,
@@ -143,15 +143,15 @@
           "voice_vibrato": 5.7995,
           "voice_articulation": 17.549999999999997,
           "voice_microtone": 53.10000000000001,
-          "voice_tradition": 19.118,
+          "voice_tradition": 18.727999999999998,
           "voice_mechanism_compound": 8.775000000000002,
-          "voice_estill_quality": 4.2250000000000005,
+          "voice_estill_quality": 4.1245,
           "voice_speech_song": 21.514999999999997,
           "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 0.285,
-          "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 6.144500000000001,
-          "voice_multitrack_stack": 6.734
+          "voice_pitch_organization": 1.0599999999999998,
+          "voice_processing_chain": 6.3395,
+          "voice_multitrack_stack": 6.434
         }
       },
       {

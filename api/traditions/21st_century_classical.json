@@ -3,9 +3,9 @@
   "name": "21st century classical",
   "family": "classical",
   "lineage": "21st century classical is represented here by Max Richter — Non-eternal (Piano Version), Sleep (Piano Edition), Deutsche Grammophon (2024). This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-2020s 21st century classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 245,
-  "score": 84.895,
+  "recipe": "classic mid-2020s 21st century classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 253,
+  "score": 84.284,
   "config": {
     "traditions": [
       "21st_century_classical"
@@ -17,7 +17,7 @@
           "keyboard_technique": "keyboard_minimalist_repeated",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -28,12 +28,12 @@
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.86175,
-          "piano_hammer": 15.17625,
-          "piano_rim": 13.146749999999999,
+          "piano_hammer": 14.9655,
+          "piano_rim": 13.092749999999999,
           "piano_soundboard": 12.75,
-          "piano_pinblock": 13.20075,
-          "piano_plate": 14.805,
-          "piano_pitch_standard": 14.62225
+          "piano_pinblock": 13.146749999999999,
+          "piano_plate": 14.692499999999999,
+          "piano_pitch_standard": 14.44225
         }
       }
     ],

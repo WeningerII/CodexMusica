@@ -3,14 +3,14 @@
   "name": "Grunk",
   "family": "hip_hop",
   "lineage": "Mid-2000s American crossover coinage for grunge-plus-crunk, surfacing in Southern rap-rock crossovers around 2004-2007, welding downtuned distorted power-chord riffs and live drums to crunk's 70-80 BPM half-time 808 kick, snapping triple hi-hats and shouted call-and-response chant hooks, with rap verses traded against sludgy sung choruses.",
-  "recipe": "classic 2004-2007 grunk, mc Rhythm, southern branch, metal distorted rock, alternative distorted rock medieval rock mathcore. thick, rap, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, behringer rd 8 modern clone analog circuit reproduction TR-808, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 683,
-  "score": 354.537,
+  "recipe": "classic 2004-2007 grunk, mc Rhythm, southern branch, metal distorted rock, alternative distorted rock post-metal medieval rock. thick, rap, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, TR-808, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 641,
+  "score": 376.627,
   "config": {
     "traditions": [
       "grunk",
-      "medieval_rock",
-      "mathcore"
+      "post_metal",
+      "medieval_rock"
     ],
     "instruments": [
       {
@@ -34,55 +34,55 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 23.229999999999997,
+          "voice_register": 23.779999999999994,
           "voice_quality": 9.5,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 14.169999999999996,
-          "voice_microtone": 20.45,
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 13.779999999999992,
+          "voice_microtone": 21.149999999999995,
           "voice_tradition": 6.045,
-          "voice_mechanism_compound": 23.255,
-          "voice_estill_quality": 2.8600000000000008,
-          "voice_speech_song": 14.559999999999997,
-          "voice_ensemble_config": 15.404999999999994,
+          "voice_mechanism_compound": 26.779999999999998,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 14.559999999999992,
+          "voice_ensemble_config": 14.559999999999992,
           "voice_ornament_system": 2.1350000000000007,
           "voice_pitch_organization": 2.315,
-          "voice_processing_chain": 8.54,
-          "voice_multitrack_stack": 8.435
+          "voice_processing_chain": 8.040000000000001,
+          "voice_multitrack_stack": 6.565000000000001
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.159999999999997,
-          "amp_make": 11.96,
-          "body_wood": 9.23,
+          "electric_technique": 28.634999999999998,
+          "amp_make": 11.829999999999997,
+          "body_wood": 12.025,
           "neck_wood": 2.535,
           "fretboard": 2.47,
-          "pickup_magnet": 0.65,
-          "pickup_winding": 0.65,
-          "string_material": 1.1400000000000001,
+          "pickup_magnet": 0.59,
+          "pickup_winding": 0.585,
+          "string_material": 1.04,
           "bridge": 2.535,
-          "scale_length": 6.694999999999999,
-          "string_gauge": 2.535,
+          "scale_length": 10.53,
+          "string_gauge": 2.73,
           "finish": 0.09,
-          "string_tuning": 18.59
+          "string_tuning": 23.66
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.335,
+          "amp_make": 11.114999999999998,
           "body_wood": 2.535,
-          "pickup_config": 2.34,
-          "string_type": 24.375,
+          "pickup_config": 1.885,
+          "string_type": 26.975,
           "scale_length_b": 2.535,
           "fretted_or_not": 0.09,
-          "bass_technique": 20.75,
+          "bass_technique": 21.075,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.9,
+          "drum_technique": 20.4,
           "drumhead": 2.99,
           "drum_kit_kick_pedal": 0
         }
@@ -130,8 +130,8 @@
         },
         "scores": {
           "tr808_voice": 2.625,
-          "drum_machine_808_context": 1.7224999999999997,
-          "tr808_production_origin": 1.04
+          "drum_machine_808_context": 1.0725,
+          "tr808_production_origin": 0.585
         }
       },
       {
@@ -148,7 +148,7 @@
           "sampler_archetypes": 3.12,
           "sampler_bit_depth": 2.4050000000000002,
           "sampler_workflow": 2.82,
-          "sampler_classic_context": 18.069999999999997
+          "sampler_classic_context": 16.834999999999994
         }
       }
     ],

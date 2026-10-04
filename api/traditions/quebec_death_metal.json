@@ -5,7 +5,7 @@
   "lineage": "Québec death metal includes technically elaborate and progressive strains developed around Montréal and other regional communities.",
   "recipe": "classic quebec death metal, distorted Rock, death branch. eight string electric, fretless bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 206,
-  "score": 6.1,
+  "score": 6.131,
   "config": {
     "traditions": [
       "quebec_death_metal"
@@ -90,7 +90,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }

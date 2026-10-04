@@ -5,7 +5,7 @@
   "lineage": "Argentine telepop: Lali — KO (2023), vocal/guitar foreground. Selected positively credited vocal/guitar core. The humbucker guitar is an authored family-level guitar realization, not a claim about CA7RIEL’s actual construction. Telepop is a discovery bucket; no universal television-specific sound is asserted. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic early-2020s argentine telepop, functional Song, pop rock branch. no specific ornament system. low output no compression clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 255,
-  "score": 15.573,
+  "score": 15.3,
   "config": {
     "traditions": [
       "argentine_telepop"
@@ -70,14 +70,14 @@
         "scores": {
           "electric_technique": 7.107499999999999,
           "amp_make": -0.07,
-          "body_wood": 0.6194999999999999,
+          "body_wood": 0.483,
           "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
           "pickup_winding": 1.3315000000000001,
           "string_material": 0.0315,
           "bridge": 1.1365,
-          "scale_length": 0.6405000000000001,
+          "scale_length": 0.504,
           "string_gauge": 1.1995,
           "finish": 0,
           "string_tuning": 0

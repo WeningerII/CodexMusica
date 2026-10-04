@@ -5,7 +5,7 @@
   "lineage": "Jóhann Jóhannsson / Alice Sara Ott — Piano Works, complete 2026 solo-piano transcription recording. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2020s nordic soundtrack, art Music. upright soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 32.524,
+  "score": 31.254,
   "config": {
     "traditions": [
       "nordic_soundtrack"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "keyboard_technique": 1.0499999999999998,
-          "upright_use": 0,
+          "upright_use": 0.0315,
           "upright_piano_size": 0
         }
       },
@@ -40,13 +40,13 @@
         "scores": {
           "keyboard_technique": 1.0499999999999998,
           "grand_piano_size": 0.6315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 4.868,
-          "piano_rim": 5.2940000000000005,
-          "piano_soundboard": 4.805000000000001,
-          "piano_pinblock": 7.287,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 4.7,
+          "piano_rim": 5.094500000000001,
+          "piano_soundboard": 4.7,
+          "piano_pinblock": 6.3,
           "piano_plate": 5.000000000000001,
-          "piano_pitch_standard": 2.476
+          "piano_pitch_standard": 2.5915
         }
       }
     ],

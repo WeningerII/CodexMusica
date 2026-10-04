@@ -5,7 +5,7 @@
   "lineage": "Mexican black metal includes mystical and atmospheric approaches alongside more direct extreme-metal styles.",
   "recipe": "classic modern mexican black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, kevlar aramid extreme tension blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 429,
-  "score": 35.572,
+  "score": 35.262,
   "config": {
     "traditions": [
       "mexican_black_metal"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.168,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -78,11 +78,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.2115,
+          "bridge": 0.0315,
           "scale_length": 0,
           "string_gauge": 0.483,
           "finish": 0,
-          "string_tuning": 0.40049999999999997
+          "string_tuning": 0.34650000000000003
         }
       },
       {
@@ -103,8 +103,8 @@
           "pickup_config": 0.40950000000000003,
           "string_type": 4.875,
           "scale_length_b": 0.483,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 4.226500000000001,
+          "fretted_or_not": 0.063,
+          "bass_technique": 4.1725,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 1.17,
-          "drumhead": 1.2349999999999999,
+          "drumhead": 1.1495,
           "drum_kit_kick_pedal": 0
         }
       }

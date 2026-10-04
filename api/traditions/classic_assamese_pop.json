@@ -3,9 +3,9 @@
   "name": "Classic assamese pop",
   "family": "pop",
   "lineage": "Classic Assamese pop connects established Assamese-language song with continuing performance and reinterpretation. Acoustic sessions and contemporary popular arrangements keep older and newer musical influences in conversation.",
-  "recipe": "classic classic assamese pop, functional Song, pop rock branch. group vocals, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 294,
-  "score": 18.422,
+  "recipe": "classic classic assamese pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 280,
+  "score": 18.134,
   "config": {
     "traditions": [
       "classic_assamese_pop"
@@ -17,15 +17,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 11.612499999999999,
+          "acoustic_technique": 11.7805,
           "string_tuning": 0,
-          "top_wood": 0.1905,
-          "back_sides": 0.063,
-          "string_acoustic": 0.3045
+          "top_wood": 0.2415,
+          "back_sides": 0.105,
+          "string_acoustic": 0.33599999999999997
         }
       },
       {
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5069999999999999,
+          "voice_ensemble_config": 0.49499999999999994,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 0.29699999999999993
+          "voice_multitrack_stack": 0.11699999999999999
         }
       },
       {
@@ -77,7 +77,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 2.6,
+          "poly_archetypes": 2.2115,
           "poly_voices": 1.231,
           "poly_maker_lineage": -0.035
         }

@@ -5,7 +5,7 @@
   "lineage": "Gothic black metal combines black-metal intensity with dark theatricality and symphonic color, exemplified by parts of Cradle of Filth’s repertoire.",
   "recipe": "classic modern gothic black metal, distorted Rock, black branch, symphonic metal christian symphonic metal deep symphonic black metal. duet, live take. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 591,
-  "score": 71.847,
+  "score": 71.635,
   "config": {
     "traditions": [
       "gothic_black_metal",
@@ -39,9 +39,9 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.045,
           "string_material": 0.105,
-          "bridge": 0.7809999999999999,
+          "bridge": 0.69,
           "scale_length": 0,
-          "string_gauge": 1.231,
+          "string_gauge": 1.1400000000000001,
           "finish": 0,
           "string_tuning": 5.2
         }
@@ -130,7 +130,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "rompler_preset_bank": -0.035,
           "rompler_context": 0.975,
           "rompler_lineage": 0

@@ -5,7 +5,7 @@
   "lineage": "Zambian gospel develops through church, choir and popular-recording communities in Zambia and its diaspora. Groups such as Fountain Gates Acappella represent a strong unaccompanied vocal branch alongside other contemporary gospel settings.",
   "recipe": "classic zambian gospel, ritual Devotional, christian gospel branch. one note per syllable. shoebox concert hall.",
   "recipe_chars": 112,
-  "score": 2.787,
+  "score": 1.292,
   "config": {
     "traditions": [
       "zambian_gospel"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.7985000000000002,
+          "voice_speech_song": 0.8625,
           "voice_ensemble_config": 0.13000000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       }

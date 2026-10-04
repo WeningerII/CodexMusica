@@ -5,7 +5,7 @@
   "lineage": "Cecilia Bartoli — Ravel Vocalise-étude en forme de Habanera, Chant d’Amour (1996). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic mid-1990s italian mezzo-soprano, art Music. pure vocalise no text vowel only, solo with instrumental accompaniment, single lead single track no stacking. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 19.234,
+  "score": 18.038,
   "config": {
     "traditions": [
       "italian_mezzo_soprano"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.126,
-          "voice_ensemble_config": 1.0290000000000001,
+          "voice_speech_song": 1.0945,
+          "voice_ensemble_config": 1.1550000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.24149999999999996,
-          "voice_multitrack_stack": 0.6945,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.78,
           "voice_tessitura": 0
         }
       },
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5315,
+          "keyboard_technique": 2.5,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 2.6180000000000003,
-          "piano_rim": 2.744,
-          "piano_soundboard": 2.555,
-          "piano_pinblock": 3.185,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.5445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
           "piano_plate": 2.45,
           "piano_pitch_standard": -0.035
         }

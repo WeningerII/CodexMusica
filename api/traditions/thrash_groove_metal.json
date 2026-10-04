@@ -5,7 +5,7 @@
   "lineage": "Thrash-groove metal brings thrash’s fast riff motion into contact with heavier, repeated groove accents.",
   "recipe": "classic thrash-groove metal, distorted Rock, thrash branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 384,
-  "score": 44.306,
+  "score": 44.613,
   "config": {
     "traditions": [
       "thrash_groove_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.966,
+          "electric_technique": 10.029,
           "amp_make": 8.58,
           "body_wood": 4.55,
           "neck_wood": 0.1365,
@@ -39,9 +39,9 @@
           "string_material": 0.1365,
           "bridge": 1.3,
           "scale_length": 0,
-          "string_gauge": 0.18525,
+          "string_gauge": 0.105,
           "finish": 0,
-          "string_tuning": 0.20024999999999998
+          "string_tuning": 0.189
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5774999999999999,
+          "drumhead": 0.6509999999999999,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -114,10 +114,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.063,
+          "voice_ornament_system": 0.0945,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.24225,
+          "voice_multitrack_stack": 0.4724999999999999,
           "voice_tessitura": 0
         }
       }

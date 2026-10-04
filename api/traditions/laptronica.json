@@ -5,7 +5,7 @@
   "lineage": "Late-1990s European and Japanese live-computer performance idiom named around 2001 and practiced by Oval, Ryoji Ikeda, Christian Fennesz and Kim Cascone, in which the laptop running Max/MSP or SuperCollider is the sole instrument, producing beatless or arrhythmic fields of sine tones, CD-skip artefacts, clicks and DSP feedback at extreme dynamic contrast with no vocals and no fixed meter.",
   "recipe": "classic 1997-1999 laptronica, experimental Elec, idm glitch branch, musique concrete experimental electric, ambient experimental electric, industrial noise experimental electric death industrial sound art. evolving modular granular evolving modular modular glitched textural wavetable synth, sustained pad digital subtractive, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 499,
-  "score": 173.378,
+  "score": 173.49,
   "config": {
     "traditions": [
       "laptronica",
@@ -30,13 +30,13 @@
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_modular_patch",
-          "mod_voltage_source": "mod_keyboard",
+          "mod_voltage_source": "mod_random",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
           "electronic_technique": 21.050000000000004,
-          "mod_voltage_source": 0,
+          "mod_voltage_source": 0.1607142857142857,
           "mod_patch_density": 2.795,
           "mod_lineage": 0.845
         }
@@ -64,7 +64,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.395214285714286,
+          "electronic_technique": 4.347,
           "va_archetypes": 0.65,
           "digital_subtractive_context": 15.469999999999999
         }

@@ -5,7 +5,7 @@
   "lineage": "Celtic metal combines metal-band practice with selected Celtic musical material and instruments rather than one standardized ethnic sound. Cruachan’s Irish branch supplies the model here: electric guitars, bass and drums interact with tin-whistle and fiddle lines, with a harsh vocal layer. Keith Fay describes sustained folk/metal integration, while recording interviews document studio expansion with folk instruments and strings. This authored six-role reduction retains both acoustic melody instruments instead of substituting a generic synthesizer for them.",
   "recipe": "classic modern celtic metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, plate reverb medium decay vocal classic. modern metal basswood humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit, melodic tin whistle, fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 505,
-  "score": 78.453,
+  "score": 78.653,
   "config": {
     "traditions": [
       "celtic_metal"
@@ -39,7 +39,7 @@
           "string_material": 0.0315,
           "bridge": 0.5774999999999999,
           "scale_length": 0,
-          "string_gauge": 0.357,
+          "string_gauge": 0.252,
           "finish": 0,
           "string_tuning": 0.126
         }
@@ -144,7 +144,7 @@
           "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 19.5755,
+          "wind_articulation": 19.712,
           "whistle_key": 3.2815,
           "whistle_ornament": 0.105,
           "whistle_body_material": 0
@@ -163,9 +163,9 @@
         "scores": {
           "bowed_technique": 8.95,
           "fiddle_strings": 0.0315,
-          "fiddle_bow": 0.231,
-          "fiddle_mute": 0.357,
-          "fiddle_articulation": 0.3255,
+          "fiddle_bow": 0.36750000000000005,
+          "fiddle_mute": 0.252,
+          "fiddle_articulation": 0.462,
           "fiddle_string_configuration": 0
         }
       }

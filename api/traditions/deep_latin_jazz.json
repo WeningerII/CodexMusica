@@ -5,7 +5,7 @@
   "lineage": "Deep latin jazz is represented by Damjan Krajacic — In Retrospect quintet. One documented branch is realized as an authored present-day recording arrangement. Sources establish the ensemble roles, genre boundary and practice locality. Exact instrument subtype, technique pins, room, signal chain, numeric axes and tuning baseline are authored choices, not assertions of original session equipment or universal regional practice.",
   "recipe": "classic deep latin jazz, improv On Frame, American jazz branch. powell boston canonical American orchestral flute, cold pressed light felt practice grade oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, open slap hand drum congas. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 71.993,
+  "score": 71.597,
   "config": {
     "traditions": [
       "deep_latin_jazz"
@@ -22,8 +22,8 @@
         },
         "scores": {
           "wind_articulation": -0.035,
-          "flute_size": 0.273,
-          "flute_material": 0.594,
+          "flute_size": 0.168,
+          "flute_material": 0.40274999999999994,
           "flute_technique": 1.3,
           "flute_maker_school": 1.95
         }
@@ -32,7 +32,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "felt_piano_practice_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
@@ -42,9 +42,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.285,
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.105,
+          "grand_piano_brand": 0.40874999999999995,
           "piano_hammer": 1.9815,
           "piano_rim": 1.885,
           "piano_soundboard": -0.035,
@@ -86,10 +86,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 7.045499999999999,
+          "percussion_technique": 7.051124999999999,
           "conga_set": 2.3,
-          "conga_skin": 0.42599999999999993,
-          "conga_shell_wood": 0.5309999999999999
+          "conga_skin": 0.33975,
+          "conga_shell_wood": 0.44475
         }
       }
     ],

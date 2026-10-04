@@ -1,0 +1,9 @@
+{
+  "fixtures": 1149,
+  "direct_full_config_replays": 260,
+  "other_fixtures": 889,
+  "other_exact_weighted_neighbor_and_staple_graphs_unchanged": 889,
+  "other_changed_or_retained_read_ids": [],
+  "risk_ids_all_tested": true,
+  "limits": "Structural graph comparison establishes unchanged context inputs for the remaining fixtures; their full configurations were not separately replayed."
+}

@@ -3,9 +3,9 @@
   "name": "Jazz orchestra",
   "family": "jazz",
   "lineage": "Jazz orchestras develop large-ensemble music through arranged brass and reed sections, a rhythm section and space for solo improvisation. Long-running bands preserve repertoire while commissioning new work.",
-  "recipe": "classic jazz orchestra, improv On Frame, American jazz branch. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone, a 440 modern pitch us standard grand piano, double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 617,
-  "score": 121.935,
+  "recipe": "classic jazz orchestra, improv On Frame, American jazz branch. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone, a 440 modern pitch us standard grand piano, double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 601,
+  "score": 121.31,
   "config": {
     "traditions": [
       "jazz_orchestra"
@@ -17,16 +17,16 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "nickel_silver_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_bebop_runs",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.7950000000000004,
-          "sax_size": 0.315,
+          "wind_articulation": 2.6865,
+          "sax_size": 0.21,
           "sax_reed": 0.3295,
-          "sax_body_alloy": 11.41,
+          "sax_body_alloy": 11.355,
           "sax_mouthpiece": 0.4344999999999999,
           "sax_technique": -0.05,
           "sax_maker_school": 14.559999999999999
@@ -44,11 +44,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.7950000000000004,
+          "wind_articulation": 2.6865,
           "brass_size": 0.4344999999999999,
           "trumpet_mouthpiece": 15.015,
           "brass_mute": 0.147,
-          "trumpet_technique": 2.7950000000000004,
+          "trumpet_technique": 2.6865,
           "trumpet_bell_metal": 1.105,
           "trumpet_maker_school": 1.95
         }
@@ -65,7 +65,7 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 2.7950000000000004,
+          "wind_articulation": 2.6865,
           "trombone_type": 11.3865,
           "trombone_mouthpiece": 11.2,
           "trombone_mute": 0.168,
@@ -90,7 +90,7 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.27699999999999997,
-          "grand_piano_brand": 1.168,
+          "grand_piano_brand": 1.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": 0.26,

@@ -2,10 +2,10 @@
   "id": "modern_country_rock",
   "name": "Modern country rock",
   "family": "rock",
-  "lineage": "Modern country rock is represented here by Old Dominion — selected guitar-band core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic modern country rock, functional Song, country rock branch. Fender tweed amp American 50s amp tweed breakup basswood alnico humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 395,
-  "score": 76.997,
+  "lineage": "Modern country rock combines country songwriting and vocal melody with contemporary electric-band arrangements.",
+  "recipe": "classic modern country rock, functional Song, country rock branch. Fender blackface amp American 60s amp spring reverb bright basswood alnico humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 406,
+  "score": 75.734,
   "config": {
     "traditions": [
       "modern_country_rock"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_tweed",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7,
-          "amp_make": 13.162999999999998,
-          "body_wood": 2.6265,
+          "electric_technique": 1.2999999999999998,
+          "amp_make": 15.299499999999998,
+          "body_wood": 2.295,
           "neck_wood": 0.007499999999999999,
           "fretboard": 0.007499999999999999,
-          "pickup_magnet": 2.3314999999999997,
-          "pickup_winding": 2.3314999999999997,
+          "pickup_magnet": 2,
+          "pickup_winding": 2,
           "string_material": 0.252,
-          "bridge": 1.4612500000000002,
-          "scale_length": 2.6414999999999997,
-          "string_gauge": 1.45375,
+          "bridge": 0.007499999999999999,
+          "scale_length": 2.31,
+          "string_gauge": 0.007499999999999999,
           "finish": 0,
-          "string_tuning": 0.34275
+          "string_tuning": 0
         }
       },
       {
@@ -57,11 +57,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.162999999999998,
+          "amp_make": 15.0495,
           "body_wood": 0.014999999999999998,
-          "pickup_config": 2.3314999999999997,
-          "string_type": 13.6475,
-          "scale_length_b": 2.3465,
+          "pickup_config": 2,
+          "string_type": 13.7225,
+          "scale_length_b": 2.015,
           "fretted_or_not": 0.032499999999999994,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 5.75,
+          "drum_technique": 12.299999999999999,
+          "drumhead": 5,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.31124999999999997,
+          "voice_ensemble_config": 0.0315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.126,

@@ -2,10 +2,10 @@
   "id": "acoustic_opm",
   "name": "Acoustic OPM",
   "family": "vernacular",
-  "lineage": "Swing Agenda — Bawat Sandali (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic mid-2020s acoustic opm, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. classical nylon-string guitar, cajon peruano, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 293,
-  "score": 4.994,
+  "lineage": "Acoustic OPM brings Philippine popular songs into acoustic performance settings. Solo singers and smaller groups develop intimate or rhythmically direct versions, drawing on local songwriting and the wider Original Pilipino Music repertory.",
+  "recipe": "classic acoustic opm, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. classical nylon-string guitar, cajon peruano, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 283,
+  "score": 6.536,
   "config": {
     "traditions": [
       "acoustic_opm"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2285000000000001,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3315000000000001,
+          "voice_processing_chain": 3.0315,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -67,8 +67,8 @@
           "string_tuning": 0,
           "top_wood_classical": 0.47250000000000003,
           "bracing_classical": 0.1365,
-          "string_classical": 0.39,
-          "attack_technique_cl": 0.813
+          "string_classical": 0.1365,
+          "attack_technique_cl": -0.035
         }
       },
       {
@@ -78,7 +78,7 @@
           "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
         },
         "scores": {
-          "cajon_peruano_construction": 0.39,
+          "cajon_peruano_construction": 0.483,
           "cajon_peruano_role": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Vegetal Jam — complete 75-minute instrumental duo program published in Aragón’s RAEE 2023 circuit catalogue. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2020s música aragonesa, improv On Frame. accordion, European maple bosnian source flamed figure pirastro cellisto cello specific cello, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 311,
-  "score": 12.924,
+  "score": 12.572,
   "config": {
     "traditions": [
       "musica_aragonesa"
@@ -46,15 +46,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 0.313,
+          "bowed_technique": 0.2815,
           "cello_strings": 0.768,
           "cello_top_wood": 0.2,
           "cello_back_wood": 1.0399999999999998,
           "cello_varnish": 0.7314999999999999,
           "cello_setup_period": 0.9099999999999999,
-          "cello_bow_grip": 0.105,
+          "cello_bow_grip": 0,
           "cello_rosin": 1.6315,
-          "cello_bow_stick": 0.7549999999999999
+          "cello_bow_stick": 0.6499999999999999
         }
       },
       {
@@ -72,15 +72,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.313,
+          "bowed_technique": 0.2815,
           "orch_strings": 0,
           "orch_top_wood": 0.2,
           "orch_back_wood": 1.0399999999999998,
           "orch_varnish": 0.7314999999999999,
           "orch_setup_period": 0.9099999999999999,
           "orch_bow": 0,
-          "orch_bow_stick": 0.7549999999999999,
-          "orch_articulation": 0.363,
+          "orch_bow_stick": 0.6499999999999999,
+          "orch_articulation": 0.39,
           "orch_rosin": 0.868
         }
       }

@@ -2,10 +2,10 @@
   "id": "namibian_pop",
   "name": "Namibian pop",
   "family": "pop",
-  "lineage": "Shishani & the Namibian Tales — Itaala, complete debut quartet album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic namibian pop, functional Song. duet, live take. fingerpicked acoustic guitar, European maple bosnian source flamed figure modern setup pirastro cellisto cello, traditional sustaining iron mbira, calabash cowhide mande traditional modern concert kora, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 388,
-  "score": 17.643,
+  "lineage": "Namibian pop develops through local and diaspora songwriters drawing on regional music and international popular styles. Artists such as Shishani bring soul, R&B, hip-hop and acoustic influences into this diverse field.",
+  "recipe": "classic namibian pop, functional Song. unprocessed natural acoustic. block chord upright piano, strummed open chord ringing overtones dreadnought acoustic guitar, pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 308,
+  "score": 34.517,
   "config": {
     "traditions": [
       "namibian_pop"
@@ -24,8 +24,8 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
@@ -43,100 +43,95 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0365,
+          "voice_speech_song": 0.273,
+          "voice_ensemble_config": 0.4635,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 1.0365,
+          "voice_processing_chain": 1.6225,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "upright_piano",
         "slots": {
-          "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
+          "keyboard_technique": 7.45,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.035,
-          "string_acoustic": 0,
-          "acoustic_om_technique": 1.2999999999999996
+          "back_sides": 0,
+          "string_acoustic": 0
         }
       },
       {
-        "id": "cello",
+        "id": "electric_bass",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
-          "cello_top_wood": "norway_spruce_alpine_cello",
-          "cello_back_wood": "bosnian_flamed_maple_cello",
-          "cello_varnish": "oil_amber_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "pernambuco_stick_cello"
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.25,
-          "cello_strings": 0.3,
-          "cello_top_wood": -0.1,
-          "cello_back_wood": 1.8,
-          "cello_varnish": 0.7,
-          "cello_setup_period": 1.2999999999999998,
-          "cello_bow_grip": 0.40950000000000003,
-          "cello_rosin": 1.2999999999999998,
-          "cello_bow_stick": 0.6499999999999999
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 2.4,
+          "electric_bass_string_configuration": 0
         }
       },
       {
-        "id": "mbira",
+        "id": "drum_kit",
         "slots": {
-          "tine_material": "iron_forged",
-          "mbira_board": "maple_kalimba",
-          "mbira_resonator": "box_resonator",
-          "mbira_buzz": "bottle_caps"
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "tine_material": 1.0365,
-          "mbira_board": 0.3,
-          "mbira_resonator": 0.3,
-          "mbira_buzz": 0.7364999999999999
-        }
-      },
-      {
-        "id": "kora",
-        "slots": {
-          "plucked_traditional_technique": "plucked_fingerpicked",
-          "kora_strings": "kora_21_traditional",
-          "kora_resonator": "kora_calabash_full",
-          "kora_strings_mat": "kora_nylon_braided",
-          "kora_top_skin": "kora_cowhide_canonical",
-          "kora_neck_wood": "kora_rosewood_modern",
-          "kora_lineage": "kora_modern_concert"
-        },
-        "scores": {
-          "plucked_traditional_technique": 1.5,
-          "kora_strings": 0,
-          "kora_resonator": 1.0365,
-          "kora_strings_mat": 0,
-          "kora_top_skin": 1.0365,
-          "kora_neck_wood": 0.25,
-          "kora_lineage": 1.2
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
+          "drum_technique": -0.035,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0.042749999999999996,
+          "bearing_edges": 0,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.4,
+          "cymbal_lathing": 7.454000000000001,
+          "cymbal_finish": 0
         }
       }
     ],
@@ -160,52 +155,51 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "acoustic_guitar_om": [
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
       ],
-      "cello": [
-        "bowed_technique",
-        "cello_strings",
-        "cello_top_wood",
-        "cello_back_wood",
-        "cello_varnish",
-        "cello_setup_period",
-        "cello_bow_grip",
-        "cello_rosin",
-        "cello_bow_stick"
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
-      "mbira": [
-        "tine_material",
-        "mbira_board",
-        "mbira_resonator",
-        "mbira_buzz"
-      ],
-      "kora": [
-        "plucked_traditional_technique",
-        "kora_strings",
-        "kora_resonator",
-        "kora_strings_mat",
-        "kora_top_skin",
-        "kora_neck_wood",
-        "kora_lineage"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +208,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -226,46 +220,41 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
       "string_tuning": "standard_tuning",
-      "top_wood": "sitka_om",
-      "back_sides": "rosewood_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_fingerpicked",
-      "bowed_technique": "bowed_legato_classical",
-      "cello_strings": "cello_synthetic",
-      "cello_top_wood": "norway_spruce_alpine_cello",
-      "cello_back_wood": "bosnian_flamed_maple_cello",
-      "cello_varnish": "oil_amber_varnish_cello",
-      "cello_setup_period": "modern_setup_cello",
-      "cello_bow_grip": "french_bow_grip",
-      "cello_rosin": "pirastro_cellisto_rosin",
-      "cello_bow_stick": "pernambuco_stick_cello",
-      "tine_material": "iron_forged",
-      "mbira_board": "maple_kalimba",
-      "mbira_resonator": "box_resonator",
-      "mbira_buzz": "bottle_caps",
-      "plucked_traditional_technique": "plucked_fingerpicked",
-      "kora_strings": "kora_21_traditional",
-      "kora_resonator": "kora_calabash_full",
-      "kora_strings_mat": "kora_nylon_braided",
-      "kora_top_skin": "kora_cowhide_canonical",
-      "kora_neck_wood": "kora_rosewood_modern",
-      "kora_lineage": "kora_modern_concert",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "acoustic_technique": "acoustic_strummed_ringing"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "A folk-metal discovery grouping including keyboard-led fantasy and folk-melody crossover.",
   "recipe": "classic modern deep folk metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 551,
-  "score": 54.178,
+  "score": 54.115,
   "config": {
     "traditions": [
       "deep_folk_metal"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.50825,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.33675000000000005,
+          "voice_processing_chain": 0.27375000000000005,
           "voice_multitrack_stack": 0.39899999999999997,
           "voice_tessitura": 0
         }

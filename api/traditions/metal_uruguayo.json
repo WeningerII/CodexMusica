@@ -5,7 +5,7 @@
   "lineage": "Uruguayan metal encompasses multiple styles, including Montevideo’s modern metalcore scene.",
   "recipe": "classic modern metal uruguayo, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 429,
-  "score": 60.742,
+  "score": 61.42,
   "config": {
     "traditions": [
       "metal_uruguayo"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.273,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
@@ -76,7 +76,7 @@
           "neck_wood": 0.105,
           "fretboard": 0.39,
           "pickup_magnet": 0,
-          "pickup_winding": 1,
+          "pickup_winding": 1.234,
           "string_material": 0.105,
           "bridge": 0.39,
           "scale_length": 0,
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.5865,
+          "amp_make": 2.684,
           "body_wood": 6.24,
-          "pickup_config": 1,
+          "pickup_config": 1.234,
           "string_type": 4.875,
-          "scale_length_b": 1.6675,
-          "fretted_or_not": 0.231,
-          "bass_technique": 3.7945,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.105,
+          "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.7815,
-          "drumhead": 2.5,
+          "drum_technique": 3.75,
+          "drumhead": 2.968,
           "drum_kit_kick_pedal": 0
         }
       }

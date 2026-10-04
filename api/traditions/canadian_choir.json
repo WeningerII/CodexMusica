@@ -5,7 +5,7 @@
   "lineage": "Canadian choir is represented by Vancouver Chamber Choir / Bergmann Duo — Brahms Requiem, Langley 2017. This documented branch has an authored present-day studio realization.",
   "recipe": "classic late-2010s canadian choir, art Music, western common practice branch. group vocals, live take. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 298,
-  "score": 24.43,
+  "score": 24.924,
   "config": {
     "traditions": [
       "canadian_choir"
@@ -65,14 +65,14 @@
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "grand_piano_size": 0.63,
-          "grand_piano_brand": 0.798,
+          "grand_piano_size": 0.84,
+          "grand_piano_brand": 0.9345000000000001,
           "piano_hammer": 3.575,
           "piano_rim": 3.25,
           "piano_soundboard": 3.25,
-          "piano_pinblock": 2.828,
-          "piano_plate": 3.2584999999999997,
-          "piano_pitch_standard": 3.0275000000000003
+          "piano_pinblock": 2.75,
+          "piano_plate": 3.3275,
+          "piano_pitch_standard": 3.185
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Nashville and Los Angeles country-pop peak of 1978-1984, named for the 1980 John Travolta film and its Gilley's Club setting, delivered by Mickey Gilley, Johnny Lee, Kenny Rogers, Ronnie Milsap and Barbara Mandrell — mid-tempo 4/4 with soft rock drums, electric piano and synth pads, string sweetening, muted pedal steel far back in the mix, and smooth crossover-radio vocals.",
   "recipe": "classic North American mid-1980s urban cowboy, functional Song, nashville branch, neo trad country, pop rock yacht rock, contemp main country christian country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 931,
-  "score": 671.86,
+  "score": 672.22,
   "config": {
     "traditions": [
       "urban_cowboy",
@@ -38,12 +38,12 @@
           "voice_quality": 8.19,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 33.24500000000001,
+          "voice_vibrato": 33.29000000000001,
           "voice_articulation": 16.184999999999995,
           "voice_microtone": 15.79499999999999,
-          "voice_tradition": 12.805,
+          "voice_tradition": 12.79,
           "voice_mechanism_compound": 5.07,
-          "voice_estill_quality": 35.65500000000001,
+          "voice_estill_quality": 35.89500000000001,
           "voice_speech_song": 24.244999999999994,
           "voice_ensemble_config": 16.18499999999999,
           "voice_ornament_system": 1.15,
@@ -133,7 +133,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 8.905,
+          "electronic_technique": 8.995,
           "poly_archetypes": 3.8999999999999995,
           "poly_voices": 1.1749999999999998,
           "poly_maker_lineage": 1.3849999999999998

@@ -2,10 +2,10 @@
   "id": "leicester_indie",
   "name": "Leicester Indie",
   "family": "pop_rock",
-  "lineage": "PO! — Danny’s Girl, exact single track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic leicester indie, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 380,
-  "score": 32.097,
+  "lineage": "Leicester independent pop and rock — local guitar-based songwriting and band performance.",
+  "recipe": "classic leicester indie, functional Song, pop rock branch. one note per syllable. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 327,
+  "score": 44.699,
   "config": {
     "traditions": [
       "leicester_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.363,
-          "voice_ensemble_config": 1.2285000000000001,
+          "voice_speech_song": 0.663,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 2.4575,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.6075,
+          "electric_technique": 7.107499999999999,
           "amp_make": 0,
           "body_wood": 0.2415,
-          "neck_wood": 0.2415,
+          "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0.0315,
           "scale_length": 0.378,
-          "string_gauge": 1.4995,
+          "string_gauge": 0.1995,
           "finish": 0,
           "string_tuning": 0
         }
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.7815,
+          "drum_technique": 7.031499999999999,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
@@ -132,8 +132,8 @@
           "bearing_edges": 0.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 8.462499999999999,
-          "cymbal_lathing": 8.689,
+          "cymbal_hammering": 14.212499999999997,
+          "cymbal_lathing": 14.138999999999998,
           "cymbal_finish": 0
         }
       }
@@ -236,7 +236,7 @@
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

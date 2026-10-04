@@ -5,7 +5,7 @@
   "lineage": "Pablo Fagundes and Marcus Moraes with Léo Barbosa and Ismael Rattis — Talentos Brasil, 27 October 2012, complete announced broadcast performance palette. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2010s música brasiliense, improv On Frame. solo canonical chromatic lead chromatic harmonica, classical nylon-string guitar, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 5.501,
+  "score": 5.291,
   "config": {
     "traditions": [
       "musica_brasiliense"
@@ -45,8 +45,8 @@
           "string_tuning": 0,
           "top_wood_classical": 0.663,
           "bracing_classical": 0.063,
-          "string_classical": 0.273,
-          "attack_technique_cl": 0.105
+          "string_classical": 0.168,
+          "attack_technique_cl": 0
         }
       },
       {

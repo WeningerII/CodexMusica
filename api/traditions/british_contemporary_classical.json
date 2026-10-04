@@ -5,7 +5,7 @@
   "lineage": "British contemporary classical music includes new composition for solo performers, chamber groups, voices and larger ensembles. Its varied approaches explore musical form, instrumental technique and changing sound textures.",
   "recipe": "classic british contemporary classical, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 62.149,
+  "score": 62.095,
   "config": {
     "traditions": [
       "british_contemporary_classical"
@@ -31,7 +31,7 @@
           "piano_hammer": 11.25,
           "piano_rim": 11.34675,
           "piano_soundboard": 11.25,
-          "piano_pinblock": 11.304,
+          "piano_pinblock": 11.25,
           "piano_plate": 11.25,
           "piano_pitch_standard": 4.875
         }

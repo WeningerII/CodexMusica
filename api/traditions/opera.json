@@ -5,7 +5,7 @@
   "lineage": "Opera joins sung drama with instrumental music and theatrical presentation. Vocal character, dialogue and musical development interact across different historical styles and performance scales.",
   "recipe": "classic opera, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 238,
-  "score": 46.903,
+  "score": 46.629,
   "config": {
     "traditions": [
       "opera"
@@ -44,7 +44,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.1365,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.27299999999999996,
           "voice_multitrack_stack": 0.1365
@@ -67,12 +67,12 @@
           "keyboard_technique": 2.5,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.9555,
-          "piano_hammer": 8.125,
+          "piano_hammer": 8.097999999999999,
           "piano_rim": 6.5545,
           "piano_soundboard": 6.25,
-          "piano_pinblock": 6.29275,
-          "piano_plate": 8.18125,
-          "piano_pitch_standard": 7.108
+          "piano_pinblock": 6.25,
+          "piano_plate": 8.125,
+          "piano_pitch_standard": 6.8229999999999995
         }
       }
     ],

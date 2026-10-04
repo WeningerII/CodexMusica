@@ -5,7 +5,7 @@
   "lineage": "Early-2010s G-house associated with Marseille duo Amine Edge & DANCE and their CUFF network; their hip-hop and R&B backgrounds shaped a heavy-bass house groove and fragmentary rap attitude, disseminated through online tracks and international club sets.",
   "recipe": "classic 2010-2013 g-house, electronic Dance, house branch, us hip hop gangsta, deep house house canadian house. sub bass analog mono synth, drum machine analog, sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 389,
-  "score": 71.145,
+  "score": 71.835,
   "config": {
     "traditions": [
       "g_house",
@@ -59,7 +59,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.09,
           "sampler_workflow": 0.26,
-          "sampler_classic_context": 48.665
+          "sampler_classic_context": 49.355
         }
       }
     ],

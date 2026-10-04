@@ -5,7 +5,7 @@
   "lineage": "Technical deathcore emphasizes intricate, tightly coordinated instrumental writing within deathcore’s extreme-metal vocabulary.",
   "recipe": "classic technical deathcore, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, kevlar aramid extreme tension drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 391,
-  "score": 12.295,
+  "score": 12.615,
   "config": {
     "traditions": [
       "technical_deathcore"
@@ -32,16 +32,16 @@
           "electric_technique": 0.39,
           "amp_make": 3.0550000000000006,
           "body_wood": 3.25,
-          "neck_wood": 0.1995,
-          "fretboard": 0.23099999999999998,
+          "neck_wood": 0.3045,
+          "fretboard": 0.49349999999999994,
           "pickup_magnet": 0,
-          "pickup_winding": 0.2415,
-          "string_material": 0.1995,
-          "bridge": 0.5894999999999999,
+          "pickup_winding": 0.273,
+          "string_material": 0.3045,
+          "bridge": 0.6405,
           "scale_length": 0,
-          "string_gauge": 0.3585,
+          "string_gauge": 0.147,
           "finish": 0,
-          "string_tuning": 0.1485
+          "string_tuning": 0.0945
         }
       },
       {
@@ -94,7 +94,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },

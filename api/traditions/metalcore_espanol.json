@@ -5,7 +5,7 @@
   "lineage": "Metalcore español connects Spain’s metallic-hardcore and metalcore scenes, including Madrid’s Become Wrath.",
   "recipe": "classic modern metalcore español, distorted Rock, metal branch. basswood palm muted humbucker electric guitar, basswood ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 298,
-  "score": 30.955,
+  "score": 30.873,
   "config": {
     "traditions": [
       "metalcore_espanol"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.273,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
@@ -74,13 +74,13 @@
           "amp_make": 1.8199999999999998,
           "body_wood": 1.95,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.222,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.23399999999999999,
           "string_material": 0.105,
-          "bridge": 0.315,
+          "bridge": 0.222,
           "scale_length": 0,
-          "string_gauge": 0.5775,
+          "string_gauge": 0.6315000000000001,
           "finish": 0,
           "string_tuning": 5.85
         }
@@ -90,9 +90,9 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "basswood_h",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 1.95,
-          "pickup_config": 0.21,
+          "pickup_config": 0.23399999999999999,
           "string_type": 4.875,
-          "scale_length_b": 0.609,
-          "fretted_or_not": 0.231,
-          "bass_technique": 3.7945,
+          "scale_length_b": 0.6779999999999999,
+          "fretted_or_not": 0.105,
+          "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 0.7245,
+          "drum_technique": -0.035,
+          "drumhead": 0.6315000000000001,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -3,21 +3,21 @@
   "name": "Black speed metal",
   "family": "rock_punk",
   "lineage": "Black-metal and speed/thrash-metal intersection represented by the Scottish solo recording project Hellripper, whose own account identifies black/speed metal and documents DIY recording of Coagulating Darkness in 2016-2017. Fast riffs, active lead guitar and harsh vocal attack retain the forward motion and compact song orientation of speed metal. The modern chain below is a reproducible authored model, not the equipment of that session.",
-  "recipe": "classic 2016-2017 black speed metal, distorted Rock, thrash branch, black metal, punk distorted rock malaysian hardcore. thick, interlocked note trading, equal tempered, modern pop training. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 631,
-  "score": 119.117,
+  "recipe": "classic 2016-2017 black speed metal, distorted Rock, thrash branch, black metal, punk distorted rock black metal argentino. thick, interlocked note trading, equal tempered, modern pop training. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 646,
+  "score": 117.808,
   "config": {
     "traditions": [
       "black_speed_metal",
       "black_metal",
-      "malaysian_hardcore"
+      "black_metal_argentino"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_tremolo_picking",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "maple_fb_h",
@@ -32,10 +32,10 @@
         },
         "scores": {
           "electric_technique": 1.1049999999999998,
-          "amp_make": 17.612499999999997,
+          "amp_make": 18.33,
           "body_wood": 0.39,
           "neck_wood": 1.235,
-          "fretboard": 2.3539999999999996,
+          "fretboard": 2.3,
           "pickup_magnet": 0,
           "pickup_winding": 1,
           "string_material": 1.235,
@@ -43,7 +43,7 @@
           "scale_length": 0.39,
           "string_gauge": 2.08,
           "finish": 0.39,
-          "string_tuning": 0.9975
+          "string_tuning": 0.9015
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.085,
+          "amp_make": 6.890000000000001,
           "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 2.535,
           "scale_length_b": 0.5025,
           "fretted_or_not": 0.3,
-          "bass_technique": 17.015,
+          "bass_technique": 15.14,
           "electric_bass_string_configuration": 0
         }
       },
@@ -108,17 +108,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 9.945,
+          "voice_articulation": 10.594999999999995,
           "voice_microtone": 11.669999999999996,
-          "voice_tradition": 4.03,
+          "voice_tradition": 3.644,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.89,
-          "voice_ensemble_config": 3.3149999999999995,
+          "voice_speech_song": 1.4949999999999999,
+          "voice_ensemble_config": 2.6649999999999996,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0.195,
           "voice_processing_chain": 0.12999999999999998,
-          "voice_multitrack_stack": 1.4499999999999997
+          "voice_multitrack_stack": 1.2999999999999998
         }
       }
     ],

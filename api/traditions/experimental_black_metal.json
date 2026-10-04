@@ -5,7 +5,7 @@
   "lineage": "Experimental black metal is represented here by Decline Of The I. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic experimental black metal, distorted Rock, avant branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 426,
-  "score": 39.639,
+  "score": 39.519,
   "config": {
     "traditions": [
       "experimental_black_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.08875000000000001,
+          "electric_technique": -0.1,
           "amp_make": 5.135,
           "body_wood": 5.329999999999999,
           "neck_wood": 0.168,
@@ -37,9 +37,9 @@
           "pickup_magnet": 0.105,
           "pickup_winding": 0.105,
           "string_material": 0.168,
-          "bridge": 1.0625,
+          "bridge": 1.025,
           "scale_length": 5.329999999999999,
-          "string_gauge": 1.0625,
+          "string_gauge": 1.025,
           "finish": 0.39,
           "string_tuning": 0.39
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.31875,
+          "drumhead": 0.3075,
           "drum_kit_kick_pedal": 0.78
         }
       },
@@ -128,9 +128,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.08875000000000001,
+          "electronic_technique": -0.1,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.31875,
+          "poly_voices": 0.3075,
           "poly_maker_lineage": -0.035
         }
       }

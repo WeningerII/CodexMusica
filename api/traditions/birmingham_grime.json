@@ -3,9 +3,9 @@
   "name": "Birmingham grime",
   "family": "hip_hop",
   "lineage": "Birmingham grime is the West Midlands city’s MC and producer scene within the wider UK grime tradition. Artists such as Mayday connect local identity with rhythmic verbal performance and electronic beats.",
-  "recipe": "classic birmingham grime, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 251,
-  "score": 8.892,
+  "recipe": "classic birmingham grime, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 213,
+  "score": 8.739,
   "config": {
     "traditions": [
       "birmingham_grime"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.504,
+          "voice_multitrack_stack": 0.33599999999999997,
           "voice_tessitura": 0
         }
       },
@@ -63,7 +63,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sampler_archetypes": -0.05,
+          "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.126,
           "sampler_workflow": -0.1,
           "sampler_classic_context": 3.3149999999999995

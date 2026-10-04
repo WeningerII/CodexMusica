@@ -5,7 +5,7 @@
   "lineage": "A melodic death-metal discovery grouping with overlap into technical and progressive playing.",
   "recipe": "classic modern deep melodic death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 452,
-  "score": 32.804,
+  "score": 33.826,
   "config": {
     "traditions": [
       "deep_melodic_death_metal"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -74,15 +74,15 @@
           "amp_make": 4.355,
           "body_wood": 4.55,
           "neck_wood": 0.3045,
-          "fretboard": 0.26249999999999996,
+          "fretboard": 0.49349999999999994,
           "pickup_magnet": 0,
           "pickup_winding": 0.273,
           "string_material": 0.3045,
-          "bridge": 0.33599999999999997,
+          "bridge": 0.6405,
           "scale_length": 0,
-          "string_gauge": 0.7769999999999999,
+          "string_gauge": 0.8714999999999999,
           "finish": 0,
-          "string_tuning": 0.6397499999999999
+          "string_tuning": 0.7769999999999999
         }
       },
       {
@@ -92,7 +92,7 @@
           "body_wood": "basswood_h",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 4.55,
-          "pickup_config": 0.1365,
+          "pickup_config": 0.168,
           "string_type": 4.875,
-          "scale_length_b": 0.7769999999999999,
+          "scale_length_b": 1.0604999999999998,
           "fretted_or_not": 0.0315,
-          "bass_technique": 3.865,
+          "bass_technique": 3.8890000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 0.39,
-          "drumhead": 0.8505,
+          "drumhead": 1.0185,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,13 +127,13 @@
           "electronic_technique": "electronic_pad_drone",
           "rompler_preset_bank": "rompler_preset_oriental_arranger",
           "rompler_context": "rompler_context_arranger_party",
-          "rompler_lineage": "rompler_korg_pa_arranger"
+          "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
           "electronic_technique": -0.1,
           "rompler_preset_bank": 0.39,
-          "rompler_context": 0.25349999999999995,
-          "rompler_lineage": 0.6977500000000001
+          "rompler_context": 0.3045,
+          "rompler_lineage": 0.39
         }
       }
     ],

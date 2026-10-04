@@ -5,7 +5,7 @@
   "lineage": "Texas death metal connects the state’s extreme-metal communities with forceful riffing and hardcore-adjacent energy.",
   "recipe": "classic texas death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 423,
-  "score": 44.712,
+  "score": 45.127,
   "config": {
     "traditions": [
       "texas_death_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.72575,
+          "electric_technique": 11.683,
           "amp_make": 5.655000000000001,
           "body_wood": 5.85,
           "neck_wood": 0.3045,
-          "fretboard": 0.26249999999999996,
+          "fretboard": 0.49349999999999994,
           "pickup_magnet": 0,
           "pickup_winding": 0.273,
           "string_material": 0.3045,
-          "bridge": 0.52125,
+          "bridge": 0.6405,
           "scale_length": 0,
-          "string_gauge": 0.25875,
+          "string_gauge": 0.147,
           "finish": 0,
-          "string_tuning": 0.13724999999999998
+          "string_tuning": 0.0945
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 5.85,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.399,
+          "scale_length_b": 0.63,
           "fretted_or_not": 0.0315,
-          "bass_technique": 3.826,
+          "bass_technique": 3.8575000000000004,
           "electric_bass_string_configuration": 0
         }
       },

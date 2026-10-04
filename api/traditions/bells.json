@@ -5,7 +5,7 @@
   "lineage": "Bell music encompasses ringing, chiming and pitched bell repertoire, from tower practices to manually played carillons. Performers such as Arie Abbenes connect composed concert works and arrangements with the resonant sound of large bell instruments.",
   "recipe": "classic bells, art Music. expressive tower baton clavier carillon.",
   "recipe_chars": 66,
-  "score": 1,
+  "score": 1.095,
   "config": {
     "traditions": [
       "bells"
@@ -18,8 +18,8 @@
           "carillon_size": "carillon_grand_bourdon"
         },
         "scores": {
-          "carillon_action": 1,
-          "carillon_size": 0
+          "carillon_action": 1.0315,
+          "carillon_size": 0.063
         }
       }
     ],

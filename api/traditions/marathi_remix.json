@@ -2,28 +2,61 @@
   "id": "marathi_remix",
   "name": "Marathi Remix",
   "family": "electronic",
-  "lineage": "Kratex — complete artist-published MVP Marathi House Music DJ set, Mumbai, linked by the artist as Full DJ Set. The official artist website explicitly places this exact program among his DJ sets, and his press biography identifies him as a Mumbai DJ/producer combining Marathi music with house and techno. This retains the positively documented performance of playback and mixing, not guessed production instrumentation of the recorded tracks. One identified DJ; embedded recorded singers and any separately performed live voices remain unknown. No assertion of zero audible voices, and no separately evidenced live vocal or acoustic performer is added. Existing neutral DJ playback/mixing owner models the actual documented DJ performance without inventing deck count, media, controller, sampler, mixer hardware or source-session signal chain. Controlled live-room acoustics and neutral numerical axes are authored rendering choices. Global tuning and microphone chain are omitted because they are not documented or meaningful as a single tuning of heterogeneous recorded tracks. Broad electronicDance follows the artist-described house/techno dance practice, without imposing one narrower subgenre on the full program.",
-  "recipe": "classic marathi remix, electronic Dance. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 87,
-  "score": 0.063,
+  "lineage": "Marathi remix connects Marathi-language songs with electronic reworking and dance-floor circulation. Producers reinterpret familiar repertoire through house, techno, trance and other club approaches, extending regional songs into new listening settings.",
+  "recipe": "classic marathi remix, electronic Dance. sampler, drum machine analog. live tracking.",
+  "recipe_chars": 85,
+  "score": 9.64,
   "config": {
     "traditions": [
       "marathi_remix"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "electronic_technique": -0.035,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 7.344999999999999
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +76,15 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

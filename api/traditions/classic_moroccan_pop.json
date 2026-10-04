@@ -5,7 +5,7 @@
   "lineage": "Classic Moroccan pop connects established Moroccan song traditions with continuing popular and cross-cultural interpretation. Malhoun-related singing is one strand within a wider repertoire.",
   "recipe": "classic classic moroccan pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, oud. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 18.061,
+  "score": 18.376,
   "config": {
     "traditions": [
       "classic_moroccan_pop"
@@ -17,15 +17,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 11.612499999999999,
+          "acoustic_technique": 11.7805,
           "string_tuning": 0,
-          "top_wood": 0.1905,
-          "back_sides": 0.063,
-          "string_acoustic": 0.3045
+          "top_wood": 0.2415,
+          "back_sides": 0.105,
+          "string_acoustic": 0.33599999999999997
         }
       },
       {
@@ -41,12 +41,12 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
-          "oud_school": 0.738,
-          "oud_strings": 0.1365,
+          "oud_school": 0.8099999999999998,
+          "oud_strings": 0.168,
           "oud_pick": 0.41100000000000003,
-          "oud_body_wood": 0.3255,
-          "oud_soundboard_wood": 0.3255,
-          "oud_string_material": 0.5489999999999999
+          "oud_body_wood": 0.4305,
+          "oud_soundboard_wood": 0.4305,
+          "oud_string_material": 0.42
         }
       },
       {
@@ -84,8 +84,8 @@
           "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.9359999999999999,
-          "voice_multitrack_stack": 0.11699999999999999
+          "voice_processing_chain": 0.6794999999999999,
+          "voice_multitrack_stack": 0.2115
         }
       }
     ],
