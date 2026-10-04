@@ -1,0 +1,50 @@
+{
+  "id": "kizomba_antigas",
+  "name": "Kizomba Antigas",
+  "family": "global",
+  "lineage": "Kizomba antigas is the retrospective listening and dance repertoire of kizomba and its Lusophone Atlantic connections. DJs bring familiar songs back into circulation, connecting Angolan and Cape Verdean performers with related zouk-influenced repertoire.",
+  "recipe": "classic kizomba antigas, groove Percussion, Afro-diasporic electric branch. dj playback mixing unspecified. parlor.",
+  "recipe_chars": 115,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "kizomba_antigas"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "parlor",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "parlor",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

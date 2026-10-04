@@ -3,85 +3,79 @@
   "name": "Raggacore",
   "family": "electronic",
   "lineage": "Emerged in Berlin and London around 2003-07 from breakcore's collision with dancehall, codified by Bong-Ra, Aaron Spectre, DJ Scotch Egg and the Wasted Sound / Death$ucker circles — 170-200 BPM distorted Amen and Mentasm edits under looped ragga toasting and dancehall riddim samples, produced entirely in-the-box with heavy clipping and abrupt cut-and-paste structure.",
-  "recipe": "classic early-2000s raggacore, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, idm glitch experimental electric industrial hardcore. vocal fry, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, sampled chopped sampler drum machine, sub bass monosynth acid bass, glitched textural wavetable synth, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 593,
-  "score": 238.953,
+  "recipe": "classic early-2000s raggacore, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, idm glitch experimental electric oldschool jungle industrial hardcore. rhythmic, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. software sample playback, sampler drum machine, low sub bass monosynth acid bass, low sub bass wavetable synth, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 596,
+  "score": 90.761,
   "config": {
     "traditions": [
       "raggacore",
-      "glitch_hop",
+      "oldschool_jungle",
       "industrial_hardcore"
     ],
     "instruments": [
       {
-        "id": "sampler_classic",
+        "id": "software_sample_playback",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twelve_bit",
-          "sampler_workflow": "sampler_microsampling_glitch",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "software_sample_playback_identity": "software_sample_playback_digital"
         },
         "scores": {
-          "electronic_technique": 14.449499999999999,
-          "sampler_archetypes": 1.9700000000000002,
-          "sampler_bit_depth": 0.75,
-          "sampler_workflow": 14.25,
-          "sampler_classic_context": 22.067500000000003
+          "software_sample_playback_identity": 0
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twelve_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 3.8675000000000006,
-          "sample_bitdepth": 0.75,
-          "sample_swing": 6.750000000000001,
-          "sample_processing": 1.845
+          "electronic_technique": 2.6000000000000005,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 7.624999999999999,
+          "sample_processing": 2.2199999999999998
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "speech_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "jamaican_dancehall_toasting_tradition",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_toasting_deejay_chat",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_pitch_organization": "voice_pitch_aural_relative",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 8.645,
+          "voice_register": 0,
+          "voice_quality": 0.045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9099999999999999,
-          "voice_articulation": 20.02,
-          "voice_microtone": 20.669999999999998,
-          "voice_tradition": 9.5475,
-          "voice_mechanism_compound": 7.177,
-          "voice_estill_quality": 4.485,
-          "voice_speech_song": 20.02,
-          "voice_ensemble_config": 20.15,
-          "voice_ornament_system": 3.3150000000000004,
-          "voice_pitch_organization": 0.7474999999999999,
-          "voice_processing_chain": 14.7125,
-          "voice_multitrack_stack": 3.7375000000000007
+          "voice_vibrato": 0.285,
+          "voice_articulation": 0.63,
+          "voice_microtone": 0,
+          "voice_tradition": 12.626249999999999,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 11.597499999999998,
+          "voice_ensemble_config": 4.68,
+          "voice_ornament_system": 4.29,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 11.937499999999998,
+          "voice_multitrack_stack": 2.8600000000000003,
+          "voice_tessitura": 0
         }
       },
       {
@@ -93,23 +87,23 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 9.067499999999999,
+          "electronic_technique": 8.32,
           "wave_acid": 0.345,
-          "filter_acid": 0.585,
+          "filter_acid": 1.235,
           "accent_acid": 0.345
         }
       },
       {
         "id": "wavetable_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_bass_sub",
           "wt_position": "wt_morphing",
           "wt_family": "wt_industrial",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 14.449499999999999,
-          "wt_position": 4.16,
+          "electronic_technique": 8.32,
+          "wt_position": 4.615,
           "wt_family": 0.15,
           "wt_polyphony": 0.345
         }
@@ -118,14 +112,47 @@
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_backspin"
+          "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 3.8675000000000006,
-          "turntable_technique": 2.6975000000000002
+          "electronic_technique": 2.6000000000000005,
+          "turntable_technique": 0
         }
       }
     ],
+    "pinned": {
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ],
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "turntable": [
+        "electronic_technique"
+      ]
+    },
     "room": "studio_auteur_home_pro",
     "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
@@ -137,14 +164,37 @@
       "amp": null,
       "medium": "digital_std"
     },
-    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
     "room": "studio_auteur_home_pro",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "speech_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "straight_tone",
+      "voice_articulation": "spoken_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "jamaican_dancehall_toasting_tradition",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_toasting_deejay_chat",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_aural_relative",
+      "voice_processing_chain": "voice_processing_stutter_edit",
+      "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "chopped_break"
+    },
+    "pin_parts": true,
     "chain_mic": "mic_sm58_dynamic_shure",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_distressor_modern",

@@ -3,9 +3,9 @@
   "name": "Hip hop boliviano",
   "family": "hip_hop",
   "lineage": "Bolivian hip-hop brings together local and diaspora rap communities, including links between La Paz and São Paulo. Groups such as Santa Mala combine Spanish-language rap and singing with accounts of migration, identity and everyday life.",
-  "recipe": "classic hip hop boliviano, mc Rhythm. group vocals. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 98,
-  "score": 1.116,
+  "recipe": "classic hip hop boliviano, mc Rhythm. group vocals, live take. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 109,
+  "score": 1.476,
   "config": {
     "traditions": [
       "hip_hop_boliviano"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.585,
+          "voice_ensemble_config": 0.7649999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.49949999999999994,
+          "voice_multitrack_stack": 0.6794999999999999,
           "voice_tessitura": 0
         }
       },

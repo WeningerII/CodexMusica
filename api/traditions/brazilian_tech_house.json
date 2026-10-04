@@ -5,7 +5,7 @@
   "lineage": "Brazil’s tech-house scene joins local producers and DJs with international club and label circuits. Its groove-centered productions combine house rhythm with concise bass hooks and electronically shaped percussion.",
   "recipe": "classic modern brazilian tech house, electronic Dance, tech house branch latin house freestyle house. analog synth, sampler drum machine, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 292,
-  "score": 63.644,
+  "score": 62.754,
   "config": {
     "traditions": [
       "brazilian_tech_house",
@@ -27,7 +27,7 @@
           "oscillator": 2.535,
           "filter_topology": 0.65,
           "envelope": 0.5148750000000001,
-          "modulation": 0
+          "modulation": 0.1785
         }
       },
       {
@@ -58,8 +58,8 @@
           "electronic_technique": 0.26,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.153,
-          "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 59.062749999999994
+          "sampler_workflow": 0.600625,
+          "sampler_classic_context": 58.10874999999999
         }
       }
     ],
