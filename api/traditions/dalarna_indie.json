@@ -5,7 +5,7 @@
   "lineage": "Dalarna indie gathers independent popular-music artists around Falun, Borlänge and neighboring communities. Regional venues, studios and development initiatives connect guitar bands, electronic acts and singer-songwriters, helping local songs circulate beyond the region.",
   "recipe": "classic dalarna indie, functional Song. solo with instrumental accompaniment. upright piano. live tracking.",
   "recipe_chars": 107,
-  "score": 1.153,
+  "score": 1.224,
   "config": {
     "traditions": [
       "dalarna_indie"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.40950000000000003,
-          "voice_ensemble_config": 0.624,
+          "voice_speech_song": 0.312,
+          "voice_ensemble_config": 0.7930000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

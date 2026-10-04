@@ -1,0 +1,140 @@
+{
+  "id": "marwadi_pop",
+  "name": "Marwadi Pop",
+  "family": "pop",
+  "lineage": "Marwadi pop brings regional-language songs and Marwar repertoire into contemporary recordings, music videos and celebratory popular performance. Local singers and duet traditions meet studio production, while adaptations also circulate through wider Indian popular cinema.",
+  "recipe": "classic marwadi pop, functional Song. duet. spoken word voice, credited programming unspecified. treated studio.",
+  "recipe_chars": 112,
+  "score": 1.994,
+  "config": {
+    "traditions": [
+      "marwadi_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": -0.035,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.35925,
+          "voice_ensemble_config": 1.4905,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.042749999999999996,
+          "voice_multitrack_stack": 0.1365,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "spoken_word_voice",
+        "slots": {
+          "spoken_word_voice_identity": "spoken_word_voice_source_unspecified"
+        },
+        "scores": {
+          "spoken_word_voice_identity": 0
+        }
+      },
+      {
+        "id": "credited_programming_unspecified",
+        "slots": {
+          "credited_programming_unspecified_identity": "credited_programming_unspecified_generator_unspecified"
+        },
+        "scores": {
+          "credited_programming_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "spoken_word_voice": [
+        "spoken_word_voice_identity"
+      ],
+      "credited_programming_unspecified": [
+        "credited_programming_unspecified_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "slow_vibrato",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "credited_programming_unspecified_identity": "credited_programming_unspecified_generator_unspecified",
+      "spoken_word_voice_identity": "spoken_word_voice_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

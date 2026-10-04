@@ -5,7 +5,7 @@
   "lineage": "Persian melodic rap connects Persian-language rap with sung hooks and song-oriented crossover. Its discovery community includes independent rappers, producers and melodic singers circulating through online releases and collaborations.",
   "recipe": "classic persian melodic rap, functional Song. solo with instrumental accompaniment. upright piano. treated studio.",
   "recipe_chars": 114,
-  "score": 2.726,
+  "score": 2.906,
   "config": {
     "traditions": [
       "persian_melodic_rap"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.18,
           "voice_multitrack_stack": 0.160875,
           "voice_tessitura": 0
         }

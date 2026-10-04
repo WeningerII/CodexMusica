@@ -1,0 +1,60 @@
+{
+  "id": "vintage_schlager",
+  "name": "Vintage Schlager",
+  "family": "pop",
+  "lineage": "Vintage Schlager gathers older German-language popular songs associated with shellac records, sound films, revues and dance cafés. Interwar entertainers and later interpreters connect theatrical delivery, memorable refrains and sentimental melody in a repertoire that continues through recordings, concerts and piano arrangements.",
+  "recipe": "classic vintage schlager, functional Song. upright piano. live tracking.",
+  "recipe_chars": 72,
+  "score": 2.558,
+  "config": {
+    "traditions": [
+      "vintage_schlager"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.504,
+          "upright_use": 0.054,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

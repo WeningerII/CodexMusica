@@ -5,7 +5,7 @@
   "lineage": "Voetbal music connects Dutch football supporters with club songs, national-team anthems and familiar popular melodies. Stadium singing, supporter recordings and commercial releases circulate across club communities, adapting words and refrains to express allegiance and shared celebration.",
   "recipe": "classic voetbal, functional Song. one note per syllable, solo with instrumental accompaniment. upright piano. live tracking.",
   "recipe_chars": 124,
-  "score": 4.183,
+  "score": 4.117,
   "config": {
     "traditions": [
       "voetbal"
@@ -38,12 +38,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0.3,
           "voice_vibrato": 0,
-          "voice_articulation": 0.33599999999999997,
+          "voice_articulation": 0.37124999999999997,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.645,
+          "voice_speech_song": 1.54375,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

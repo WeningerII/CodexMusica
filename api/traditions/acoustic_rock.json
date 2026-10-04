@@ -3,9 +3,9 @@
   "name": "Acoustic rock",
   "family": "rock_punk",
   "lineage": "Acoustic rock is represented here by Plumes. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic acoustic rock, distorted Rock, alternative branch. unprocessed natural acoustic. low mid rich spectrum responsive cedar dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 353,
-  "score": 36.13,
+  "recipe": "classic acoustic rock, distorted Rock, alternative branch. unprocessed natural acoustic. low mid rich spectrum responsive cedar dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 344,
+  "score": 35.291,
   "config": {
     "traditions": [
       "acoustic_rock"
@@ -21,11 +21,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 1.197,
+          "top_wood": 1.0605,
           "back_sides": 0.27299999999999996,
-          "string_acoustic": 0.714
+          "string_acoustic": 0.5775
         }
       },
       {
@@ -42,10 +42,10 @@
         },
         "scores": {
           "amp_make": 5.265,
-          "body_wood": 1.1550000000000002,
-          "pickup_config": 0.40950000000000003,
+          "body_wood": 0.8820000000000001,
+          "pickup_config": 0.273,
           "string_type": 12.35,
-          "scale_length_b": 0.5775,
+          "scale_length_b": 0.441,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -60,7 +60,7 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.651,
+          "drumhead": 0.601125,
           "drum_kit_kick_pedal": 0
         }
       },

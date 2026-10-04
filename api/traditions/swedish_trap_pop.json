@@ -1,0 +1,58 @@
+{
+  "id": "swedish_trap_pop",
+  "name": "Swedish Trap Pop",
+  "family": "hip_hop",
+  "lineage": "Swedish trap pop connects melodic rap, popular-song hooks and trap-oriented production in Sweden. Its listening community includes Dree Low, Dani M, Blizzy and artists who move between rap, drill and sung pop crossover.",
+  "recipe": "classic swedish trap pop, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 84,
+  "score": 8.45,
+  "config": {
+    "traditions": [
+      "swedish_trap_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 7.45,
+          "upright_use": 1,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "indonesian_hyperpop",
+  "name": "Indonesian Hyperpop",
+  "family": "pop",
+  "lineage": "Indonesian hyperpop connects online pop production with Jakarta performance networks and Southeast Asian electronic collaborations. Sung hooks, rap, guitar textures and processed club sounds meet playful digital aesthetics and hardcore-rave energy.",
+  "recipe": "classic indonesian hyperpop, experimental Elec, pop experimental branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 119,
+  "score": 0.105,
+  "config": {
+    "traditions": [
+      "indonesian_hyperpop"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

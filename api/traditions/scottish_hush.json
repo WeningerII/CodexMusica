@@ -5,7 +5,7 @@
   "lineage": "Scottish Hush is a discovery label connecting Scottish independent songwriters and bands, from intimate acoustic performances to fuller arrangements. Personal storytelling and collaborations link its folk, pop and independent-rock strands.",
   "recipe": "classic scottish hush, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. flamenco guitar. live tracking.",
   "recipe_chars": 139,
-  "score": 2.872,
+  "score": 2.875,
   "config": {
     "traditions": [
       "scottish_hush"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.5820000000000001,
+          "voice_ensemble_config": 0.585,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.3,

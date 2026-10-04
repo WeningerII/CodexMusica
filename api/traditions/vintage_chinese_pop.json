@@ -1,0 +1,172 @@
+{
+  "id": "vintage_chinese_pop",
+  "name": "Vintage Chinese Pop",
+  "family": "pop",
+  "lineage": "Vintage Chinese pop brings historical Chinese-language popular songs into a continuing repertoire of recordings, films and revivals. Shanghai and Hong Kong song traditions circulated through Taiwan and Southeast Asia, where singers and arrangers continue to reinterpret familiar melodies in intimate and orchestral settings.",
+  "recipe": "classic vintage chinese pop, functional Song, east Asian pop branch. solo with instrumental accompaniment. archtop, song accompaniment string quartet inst. shoebox concert hall.",
+  "recipe_chars": 177,
+  "score": 9.232,
+  "config": {
+    "traditions": [
+      "vintage_chinese_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.3315,
+          "voice_multitrack_stack": 0.16799999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "archtop_jazz",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "archtop_body": "archtop_full_hollow",
+          "archtop_pickup": "archtop_floating",
+          "archtop_top_wood": "archtop_carved_spruce",
+          "archtop_strings": "thomastik_jazz_flat",
+          "archtop_technique": "archtop_walking_chords",
+          "archtop_string_tuning": "archtop_tuning_source_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "archtop_body": 0.9495,
+          "archtop_pickup": 0.78,
+          "archtop_top_wood": 0.813,
+          "archtop_strings": 0.975,
+          "archtop_technique": 0.8445,
+          "archtop_string_tuning": 0
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_classical",
+          "string_quartet_inst_era": "string_quartet_inst_popular_song_accompaniment"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "quartet_school": 0,
+          "string_quartet_inst_era": 3.25
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "archtop_jazz": [
+        "amp_make",
+        "archtop_body",
+        "archtop_pickup",
+        "archtop_top_wood",
+        "archtop_strings",
+        "archtop_technique",
+        "archtop_string_tuning"
+      ],
+      "string_quartet_inst": [
+        "bowed_technique",
+        "quartet_school",
+        "string_quartet_inst_era"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "amp_make": "amp_unspecified",
+      "archtop_body": "archtop_full_hollow",
+      "archtop_pickup": "archtop_floating",
+      "archtop_top_wood": "archtop_carved_spruce",
+      "archtop_strings": "thomastik_jazz_flat",
+      "archtop_technique": "archtop_walking_chords",
+      "archtop_string_tuning": "archtop_tuning_source_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "quartet_school": "quartet_classical",
+      "string_quartet_inst_era": "string_quartet_inst_popular_song_accompaniment"
+    },
+    "pin_parts": true
+  }
+}

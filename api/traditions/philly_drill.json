@@ -1,0 +1,161 @@
+{
+  "id": "philly_drill",
+  "name": "Philly Drill",
+  "family": "hip_hop",
+  "lineage": "Philly drill developed within Philadelphia’s contemporary rap community through local MC networks and producers working both in the city and abroad. Sparse, ominous beats and forceful vocal delivery connect it to drill while choral and cinematic sampling give parts of the scene a distinctive atmosphere.",
+  "recipe": "classic philly drill, mc Rhythm, us hip hop branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. software sample playback, produced 808 bass, credited programmed drums unspecified. treated studio.",
+  "recipe_chars": 230,
+  "score": 13.084,
+  "config": {
+    "traditions": [
+      "philly_drill"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.6405,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 10.01,
+          "voice_ensemble_config": 1.1655,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.399,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0
+        }
+      },
+      {
+        "id": "produced_808_bass",
+        "slots": {
+          "produced_808_bass_identity": "produced_808_bass_low_bass",
+          "produced_808_bass_decay": "produced_808_bass_long_decay",
+          "produced_808_bass_processing": "produced_808_bass_unclipped"
+        },
+        "scores": {
+          "produced_808_bass_identity": 0.3735,
+          "produced_808_bass_decay": 0.105,
+          "produced_808_bass_processing": 0
+        }
+      },
+      {
+        "id": "credited_programmed_drums_unspecified",
+        "slots": {
+          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+        },
+        "scores": {
+          "credited_programmed_drums_identity": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ],
+      "produced_808_bass": [
+        "produced_808_bass_identity",
+        "produced_808_bass_decay",
+        "produced_808_bass_processing"
+      ],
+      "credited_programmed_drums_unspecified": [
+        "credited_programmed_drums_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "spoken_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "produced_808_bass_identity": "produced_808_bass_low_bass",
+      "produced_808_bass_decay": "produced_808_bass_long_decay",
+      "produced_808_bass_processing": "produced_808_bass_unclipped",
+      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified",
+      "software_sample_playback_identity": "software_sample_playback_digital"
+    },
+    "pin_parts": true
+  }
+}
