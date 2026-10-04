@@ -1,11 +1,11 @@
 {
   "status": "LOCAL_REVIEWED_DATA_REPAIRS_NOT_FINAL_BUILD_OR_CI",
-  "updated_at": "2026-10-04T02:44:07.921Z",
+  "updated_at": "2026-10-04T02:46:28.428Z",
   "baseline_head": "2541e078c9f4326c2d75826779813d933a27f1bb",
   "historical_merged_additions": 3900,
   "repair_review_scope": 3900,
-  "locally_applied_repairs": 2346,
-  "substantive_default_changes": 1408,
+  "locally_applied_repairs": 2354,
+  "substantive_default_changes": 1410,
   "original_traditions_and_extras_preserved": 2638,
   "applied": [
     {
@@ -35383,6 +35383,126 @@
         }
       ],
       "defaults_changed": true
+    },
+    {
+      "id": "drama",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "euroska",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "fisarmonica",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "folclore_extremeno",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "french_indietronica",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "french_worship",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "full_on_groove",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "ghanaian_traditional",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+      "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070.json",
+          "packet_sha256": "08dc0eb76a26011fa616765d2a58858cba6bff9ff0ed92da3988f88a800b861b",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-070-root-review.json",
+          "checked_at": "2026-10-04T02:46:24.407524+00:00"
+        }
+      ],
+      "defaults_changed": false
     }
   ]
 }
