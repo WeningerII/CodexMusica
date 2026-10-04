@@ -8190,6 +8190,18 @@ check H never sees (the 33 false matches recorded below are that class). (3)
 The non-English one-line population is untouched: 428 Finnish, 28 Sanskrit,
 22 Welsh and 9 Chinese blocks. (b) and (c) are unchanged.
 `quality/RESULTS_OTTERBEIN_M25_2026-10-04.md` §2 records the pass.
+**WIDENED THE SAME DAY TO EVERY MARK AND TO LABELS INSIDE LINES.** The owner asked
+why only `[VERSE]` was read. The same two-blind-reader protocol, searched by
+the draft `quality/APPARATUS_CHECKLIST.md`, read 3,697 candidate lines under
+every mark and inside multi-line blocks. 1,344 lines and 330 marks now carry
+`# APPARATUS:` (1,344 includes 454 note lines both readers named and two more
+readers confirmed). 348 labels standing in front of sung words (speaker names,
+`Chorus.--`) are declared per line in `data/lyric_label_prefixes.json` and
+stripped by `quality/lyric_reader.py`, with no corpus byte moved. 2,459 lines
+stay as sung. Receipt `data/english_apparatus_labels_2026-10-04.json`; the
+results file §2b records it. What (a) still leaves open is unchanged: the false-unit
+splits, the non-English blocks, and the section-mark reader, which reads
+prefixed lines whole.
 
 **Found 2026-08-21. Each is a file whose own header or content contradicts how
 it is marked, and none is visible to any current check.**

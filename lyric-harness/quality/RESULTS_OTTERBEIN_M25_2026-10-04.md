@@ -156,7 +156,76 @@ Not done, and why:
 - **Other languages.** 487 non-English one-line blocks are untouched: 428
   Finnish, 28 Sanskrit, 22 Welsh, 9 Chinese.
 
+## 2b. The label and apparatus pass: every mark, and labels inside lines
+
+M-25(a) asked only about one-line `[VERSE]` blocks. The owner widened the
+question the same day. Every mark's blocks were in scope, along with labels and
+apparatus printed as text inside a block, searched by the draft checklist
+`quality/APPARATUS_CHECKLIST.md`.
+
+Candidates: 3,697 lyric lines in 242 files that match a checklist signal. These
+are one-line blocks under any mark (refrain, chorus, burden, verse), label-only
+lines, label prefixes, headings in capitals, bracketed or parenthesised
+directions, italic-only lines, numerals, dates, tune and metre lines, scholarly
+and bibliographic vocabulary, scripture references, and index entries. Chorus
+pointers (`&c.`) and the 247 blocks M-25(a) had already read as sung were left
+out. Every line of a block holding an unmistakable editorial marker (`vol.`,
+`i.e.`, `MS.`, `first published` and similar) came in too. Margin line numbers
+at line end (`… of blame,      _5`) were measured and left alone, because they
+are neither tokens nor end words.
+
+Reading: two blind readers per line, as in M-25(a), with a third verdict,
+LABEL_PREFIX, carrying the exact characters of a label that stands in front of
+sung words. They agreed on 3,689 lines. A judge ruled on 8.
+
+| verdict | lines |
+|---|---:|
+| SUNG, left as staged | 2,459 |
+| APPARATUS_LINE | 890 |
+| LABEL_PREFIX | 348 |
+
+Both readers also named 454 further lines in the shown context as parts of the
+same notes. Two more readers checked each of those blind and confirmed all 454.
+The verse among them is verse quoted inside a note or an epigraph (a Cleaveland
+passage in a Lovelace note, the "Dido" stanza an editor subjoins, a Shelley
+epigraph over a Hemans poem), not the poem itself.
+
+Applied:
+
+- **1,344 lines** take `# APPARATUS:` in place (890 read + 454 confirmed
+  neighbours), and **330 marks** whose every lyric line became apparatus take
+  it too. That is 59 files, 1,344 rows out of the reader, nothing deleted,
+  renumbered or reworded. The classes are 627 editorial notes, 142 speaker
+  names and stage directions, 139 headings, 88 scholarly references, 86
+  numerals, 61 other, 55 attribution lines, 42 performance directions, 30
+  section labels, 25 tune and metre lines, 19 voice labels, 12 dates, 8 repeat
+  marks, 6 print artifacts and 4 end markers. Watts 425, Lovelace 317 and
+  Shelley 183 carry most of it.
+- **348 label prefixes** in 30 files are declared per line in
+  `data/lyric_label_prefixes.json`: speaker names before sung dialogue
+  (Herrick 118, Gay 33, Durfey 18, Gilbert 12), `Chorus.--` before Burns's
+  chorus lines (75), and similar. `quality/lyric_reader.py` strips exactly the
+  declared characters and keeps the sung words. It refuses if a line drifts
+  from its label or stops being a lyric row, and it never touches a draft. No
+  corpus byte moves for these lines, so no physical coordinate moves.
+
+Receipt: `data/english_apparatus_labels_2026-10-04.json`. It holds every
+line, the class, the hashes, the 2,459 lines kept as sung with their reasons,
+and the neighbour verification. Six registry body hashes moved, all Burns:
+`Auld Lang Syne`, both `Ca' The Yowes` printings, `My Heart's In The
+Highlands`, `My Wife's A Winsome Wee Thing` and `The Minstrel At Lincluden`.
+The Coleridge and Wordsworth `# lines:` headers were recounted, and 42 `local:`
+rows were repinned. `quality/test_production_data.py` now reads all three
+apparatus receipts newest-first, and tests the prefix table exactly and by
+mutation.
+
+Not done: the section-mark reader (`quality/grid.py`) still reads the prefixed
+lines whole. It counts marks, not words, so no calibrated statistic reads it
+for words. The non-English blocks are untouched.
+
 ## 3. Closing sitting
+
+**FIRST RUN, SUPERSEDED BEFORE ADOPTION WAS FINAL.** The owner moved the §2b pass ahead of the suite sweep, so this run's re-derivations describe the tree before §2b and are kept as a dated record. The sitting is re-run over the final tree in §4.
 
 Run on the tree carrying both changes, in the order
 `quality/CORPUS_LOADING_PROTOCOL.md` prescribes. Every output named here is in

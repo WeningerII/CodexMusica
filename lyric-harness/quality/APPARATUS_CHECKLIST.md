@@ -1,6 +1,6 @@
 # Apparatus checklist — what is not the lyric
 
-Status: DRAFT for the owner's review, compiled 2026-10-04; nothing here has been applied. This is the search list for the next annotation pass (the non-`[VERSE]` blocks and in-text labels left after `MISSING.md` M-25(a)) and for staging new sources such as the Gilbert & Sullivan libretti. The full entries — every variant, when each is a label, when the same word is sung, where it occurs, examples, and the corpus miner's counts — are in `quality/apparatus_checklist.json`.
+Status: DRAFT for the owner's review, compiled 2026-10-04. It searched the 2026-10-04 label and apparatus pass (`data/english_apparatus_labels_2026-10-04.json`), whose readers decided every line; the list itself applies nothing. This is the search list for the next annotation pass (the non-`[VERSE]` blocks and in-text labels left after `MISSING.md` M-25(a)) and for staging new sources such as the Gilbert & Sullivan libretti. The full entries — every variant, when each is a label, when the same word is sung, where it occurs, examples, and the corpus miner's counts — are in `quality/apparatus_checklist.json`.
 
 Built by five readers, one per family of printed non-lyric material in English songs and poems c.1600–1929, a sixth reading the corpus for label-like lines it currently counts as lyrics, and a completeness critic. Duplicates are merged.
 

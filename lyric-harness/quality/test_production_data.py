@@ -1,4 +1,5 @@
 """Production data admission, population conservation, and source reader regressions."""
+import collections
 import contextlib
 import io
 import hashlib
@@ -116,6 +117,7 @@ print("WordNet staging contract holds")
     APPARATUS_RECEIPTS = (
         ("data/english_nonlyric_apparatus.json", (253, 9, 136)),
         ("data/english_apparatus_m25_2026-10-04.json", (1639, 0, 1642)),
+        ("data/english_apparatus_labels_2026-10-04.json", (1344, 0, 330)),
     )
 
     def test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics(self):
@@ -169,6 +171,37 @@ print("WordNet staging contract holds")
         self.assertEqual(len(stevenson["I Bed in Summer"]), 12)
         self.assertNotIn("To Alison Cunningham", stevenson)  # Contents-list heading.
         self.assertIn("From Her Boy", stevenson)  # The actual dedicatory verse.
+
+    def test_label_prefixes_strip_exactly_and_refuse_drift(self):
+        """A label in front of sung words is declared per line and stripped by
+        the reader to exactly the words after it; a drifted line or a declared
+        line that is no longer lyric refuses rather than reading wrong."""
+        import lyric_harness as lh
+        from quality import lyric_reader as LR
+        table = json.loads((ROOT / "data/lyric_label_prefixes.json").read_text())
+        declared = collections.defaultdict(dict)
+        for entry in table["prefixes"]:
+            declared[entry["file"]][entry["line"]] = entry["prefix"]
+        self.assertEqual(sum(map(len, declared.values())), 348)
+        for name, lines in sorted(declared.items()):
+            path = ROOT / "corpus/song" / name
+            raw = path.read_text().splitlines()
+            rows = {row.lineno: row for row in LR.normalized_rows(path)}
+            for line, prefix in lines.items():
+                staged = lh.normalise_bracket_spans(raw[line - 1].strip(), str(path)).strip()
+                self.assertTrue(staged.startswith(prefix), (name, line))
+                self.assertEqual(rows[line].kind, "lyric", (name, line))
+                self.assertEqual(rows[line].text, staged[len(prefix):].strip(), (name, line))
+        name, lines = sorted(declared.items())[0]
+        line = sorted(lines)[0]
+        for mutated in ({(name, line): "~" + lines[line]}, {(name, 1): "# "}):
+            with patch.object(LR, "_label_prefixes", lambda m=mutated: m):
+                with self.assertRaises(ValueError):
+                    list(LR.normalized_rows(ROOT / "corpus/song" / name))
+        draft = Path(tempfile.mkdtemp()) / name  # same name, outside the corpus
+        draft.write_text((ROOT / "corpus/song" / name).read_text())
+        self.assertEqual(next(r for r in LR.normalized_rows(draft) if r.lineno == line).text,
+                         lh.normalise_bracket_spans(draft.read_text().splitlines()[line - 1].strip(), str(draft)).strip())
 
     def test_cold_archive_staging_downloads_verifies_and_installs(self):
         from quality import fetch_data as staging
