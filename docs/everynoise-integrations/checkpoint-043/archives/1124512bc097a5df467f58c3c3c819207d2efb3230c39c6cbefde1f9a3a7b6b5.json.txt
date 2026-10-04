@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "ids": [
+    "produced_808_bass",
+    "ho_dama_kettle_drum",
+    "ho_dumang_double_headed_drum",
+    "zongora_maramures",
+    "doba_maramures"
+  ],
+  "basis": "Frozen exact raw records + unchanged original family merge + original curated staticAPI projection; every public field equal actual published JSON."
+}

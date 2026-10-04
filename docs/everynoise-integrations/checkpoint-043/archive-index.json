@@ -1,0 +1,587 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/v3/candidate.json",
+      "archive": "archives/1ba0ea4636acd7a5d9731539ed2082e705af5f712ec0d35869009561426d52ae.json.txt",
+      "sha256": "1ba0ea4636acd7a5d9731539ed2082e705af5f712ec0d35869009561426d52ae"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice007-vintage-swedish-pop.json",
+      "archive": "archives/f9b68a89a2d0fafb867a67028223d018d3d21f2ccdce63c8db3c60e46085cbba.json.txt",
+      "sha256": "f9b68a89a2d0fafb867a67028223d018d3d21f2ccdce63c8db3c60e46085cbba"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice007-vintage-swedish-pop-independent-review-sourceaudit.json",
+      "archive": "archives/c09109f82755182cea3611b65f560700eff2ab3d1cb34c7a1dadf4efcb8e7e63.json.txt",
+      "sha256": "c09109f82755182cea3611b65f560700eff2ab3d1cb34c7a1dadf4efcb8e7e63"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-382.json",
+      "archive": "archives/c7671238f6e49cc3a5daffdaf89ed131cf4c47550faa1dfc2e74594e9680a4d6.json.txt",
+      "sha256": "c7671238f6e49cc3a5daffdaf89ed131cf4c47550faa1dfc2e74594e9680a4d6"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-382-independent-review116.json",
+      "archive": "archives/e4f0271732ce157703705a50f96dd76753aa5baf947f0758ef0326ab92868f3b.json.txt",
+      "sha256": "e4f0271732ce157703705a50f96dd76753aa5baf947f0758ef0326ab92868f3b"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-475.json",
+      "archive": "archives/79f03608e99bc3296d61619e70063a704f7c224a48d6f85a6d325bd4f91cb0d1.json.txt",
+      "sha256": "79f03608e99bc3296d61619e70063a704f7c224a48d6f85a6d325bd4f91cb0d1"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-475-independent-review116.json",
+      "archive": "archives/3caad87de43bec1376a0d6d47e5a53016b6b069b23979dcb2b7be99936d670e1.json.txt",
+      "sha256": "3caad87de43bec1376a0d6d47e5a53016b6b069b23979dcb2b7be99936d670e1"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field45/practice002-minimal-melodic-techno.json",
+      "archive": "archives/be27c643eb39660d50d2c17236dfed611b233507aa0d827e8da6b0718f8908f4.json.txt",
+      "sha256": "be27c643eb39660d50d2c17236dfed611b233507aa0d827e8da6b0718f8908f4"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/minimal-melodic-techno-independent-review117.json",
+      "archive": "archives/d15eb9c296ea1f4176ead566445c0c8bdf2546e5c26ba3e255e2799990054633.json.txt",
+      "sha256": "d15eb9c296ea1f4176ead566445c0c8bdf2546e5c26ba3e255e2799990054633"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice005-lai-hla-geo-corrected.json",
+      "archive": "archives/5dc7077ec788eb789d74903ef5db49d99c16fa58fbc34b40ffe956bc8c0892e1.json.txt",
+      "sha256": "5dc7077ec788eb789d74903ef5db49d99c16fa58fbc34b40ffe956bc8c0892e1"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/lai-hla-independent-review117.json",
+      "archive": "archives/10540f6696ad92994698e65c3ca649dfd5a208e63fcb1602a4847f56d8d206fc.json.txt",
+      "sha256": "10540f6696ad92994698e65c3ca649dfd5a208e63fcb1602a4847f56d8d206fc"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-422.json",
+      "archive": "archives/b1fac97934c12ebf2d9fba957236a640a65c1b4e1987286ce29b76c42e3f3a36.json.txt",
+      "sha256": "b1fac97934c12ebf2d9fba957236a640a65c1b4e1987286ce29b76c42e3f3a36"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/422-independent-review461.json",
+      "archive": "archives/d0a4196036d56d71fafb2bb41af5365d13161a0d8a21c4e6c2b1cd73bef46148.json.txt",
+      "sha256": "d0a4196036d56d71fafb2bb41af5365d13161a0d8a21c4e6c2b1cd73bef46148"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-273.json",
+      "archive": "archives/757a0a9b8fd7aa93d4e0eccb8e6ec4696abff848335f95621c15d38a4d9b1786.json.txt",
+      "sha256": "757a0a9b8fd7aa93d4e0eccb8e6ec4696abff848335f95621c15d38a4d9b1786"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/273-independent-review461.json",
+      "archive": "archives/fe70f64531a331f510db7f918ee0f8cd2deb421eb0ddc190acb719f505a1998a.json.txt",
+      "sha256": "fe70f64531a331f510db7f918ee0f8cd2deb421eb0ddc190acb719f505a1998a"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-1630.json",
+      "archive": "archives/c1ee4c7ec3432565e0d9521e10d262b911cdd0bf9e31147b1e2f59ffc197c1fc.json.txt",
+      "sha256": "c1ee4c7ec3432565e0d9521e10d262b911cdd0bf9e31147b1e2f59ffc197c1fc"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/1630-independent-review461.json",
+      "archive": "archives/7ea46a86d1f421e4bbc1661121ba140b2eba5c3079f2447bafb1334b478dddaa.json.txt",
+      "sha256": "7ea46a86d1f421e4bbc1661121ba140b2eba5c3079f2447bafb1334b478dddaa"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice008-fotbollslatar-metadata-corrected.json",
+      "archive": "archives/cdd019679e598c12f028d645be43802058a61888afb52a11cba5218e2017e055.json.txt",
+      "sha256": "cdd019679e598c12f028d645be43802058a61888afb52a11cba5218e2017e055"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/3309-metadata-review461.json",
+      "archive": "archives/de78d7557bee3cf4d76b84cea540685fb6fad2307e459e00c14d44e506643295.json.txt",
+      "sha256": "de78d7557bee3cf4d76b84cea540685fb6fad2307e459e00c14d44e506643295"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice009-gaita-metadata-corrected.json",
+      "archive": "archives/d52044dbd4f1f51c7d05db3c05ad41c3d430b6ac30019608a9ccb233c7806b43.json.txt",
+      "sha256": "d52044dbd4f1f51c7d05db3c05ad41c3d430b6ac30019608a9ccb233c7806b43"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/3330-metadata-review461.json",
+      "archive": "archives/11e925816ceeeed5ea7023a68e2f14358ed33eb6d152df2d3c87c61fc123fe17.json.txt",
+      "sha256": "11e925816ceeeed5ea7023a68e2f14358ed33eb6d152df2d3c87c61fc123fe17"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field51/practice001-funk-das-antigas.json",
+      "archive": "archives/a91a43806b4773e2b6d3206d0c5c625685280fe995f815e20ddadbe44aec37f3.json.txt",
+      "sha256": "a91a43806b4773e2b6d3206d0c5c625685280fe995f815e20ddadbe44aec37f3"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/funk-das-antigas-independent-review117.json",
+      "archive": "archives/1dc1c3fea6c2525c73c069443b746cf1b1e3a32fed17683aaa0bc8fae2f9d1d0.json.txt",
+      "sha256": "1dc1c3fea6c2525c73c069443b746cf1b1e3a32fed17683aaa0bc8fae2f9d1d0"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice009-rave.json",
+      "archive": "archives/c5504041f4d85781bd8e8069a170560a635d21f02d9e195619366d061894b0f7.json.txt",
+      "sha256": "c5504041f4d85781bd8e8069a170560a635d21f02d9e195619366d061894b0f7"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice009-rave-independent-review024.json",
+      "archive": "archives/e0add3b19dec87fb55bde9ec2b86d72ca8cea15f4cb9078e26b6ebe946b3260a.json.txt",
+      "sha256": "e0add3b19dec87fb55bde9ec2b86d72ca8cea15f4cb9078e26b6ebe946b3260a"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice007-necrotrap-808-production-repaired.json",
+      "archive": "archives/fffbd180ff2bb3ebc9faa1eb2fc8efdb364e51133346b1fceded2b5f6b8245e0.json.txt",
+      "sha256": "fffbd180ff2bb3ebc9faa1eb2fc8efdb364e51133346b1fceded2b5f6b8245e0"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/necrotrap-repaired-independent-review117.json",
+      "archive": "archives/2eab50f132df8cb66cd7ef7273a2836814dbe219724bab49c83561c86926366d.json.txt",
+      "sha256": "2eab50f132df8cb66cd7ef7273a2836814dbe219724bab49c83561c86926366d"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-401.json",
+      "archive": "archives/7c670ed4aedd3380e9612d5a30785ba68a3734ec75b6f1d355a46cc041247ebb.json.txt",
+      "sha256": "7c670ed4aedd3380e9612d5a30785ba68a3734ec75b6f1d355a46cc041247ebb"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/401-independent-review461.json",
+      "archive": "archives/02ec390210f9bfdafd565eb383e622dfb07dc2cad36e521a667c233065aa107f.json.txt",
+      "sha256": "02ec390210f9bfdafd565eb383e622dfb07dc2cad36e521a667c233065aa107f"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice006-ho-munda-architecture-clarified.json",
+      "archive": "archives/c401f0a30dab1b043408a7cba8776712775f1880aae26b663d6c1d72c6563d9c.json.txt",
+      "sha256": "c401f0a30dab1b043408a7cba8776712775f1880aae26b663d6c1d72c6563d9c"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/3433-full-group-independent-review461.json",
+      "archive": "archives/6583f1443a5182183c2e38713d329a61751a0fdad03e552f4d06122b0373a3f0.json.txt",
+      "sha256": "6583f1443a5182183c2e38713d329a61751a0fdad03e552f4d06122b0373a3f0"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field51/practice002-cumbia-metadata-final024.json",
+      "archive": "archives/f7f047b6d7a2bd449eddebb7ed50ed13a7bc2019d85a995bfb81b5e22bdff7ac.json.txt",
+      "sha256": "f7f047b6d7a2bd449eddebb7ed50ed13a7bc2019d85a995bfb81b5e22bdff7ac"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field51/practice002-cumbia-independent-review116.json",
+      "archive": "archives/bd9253b6138b9859add4a5017c16918ad214f7e01e3517aeb3c56a89f55edf84.json.txt",
+      "sha256": "bd9253b6138b9859add4a5017c16918ad214f7e01e3517aeb3c56a89f55edf84"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-619-808-production-repaired.json",
+      "archive": "archives/08e76ca0af9866688d640dcbb5a8ad394f64490cae6922117388560cda739d0b.json.txt",
+      "sha256": "08e76ca0af9866688d640dcbb5a8ad394f64490cae6922117388560cda739d0b"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-619-808-production-repaired-independent-review-sourceaudit.json",
+      "archive": "archives/a7b2abd90f842c69cdcfdc4806c7b83479bcb27b9cd5c765a7d73fdbb13216e0.json.txt",
+      "sha256": "a7b2abd90f842c69cdcfdc4806c7b83479bcb27b9cd5c765a7d73fdbb13216e0"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice010-maramures-signature-explicit.json",
+      "archive": "archives/6eb5df782e506ff86d3abf248f7fbf86ee88f39aedb9a4144cc27b945aed998c.json.txt",
+      "sha256": "6eb5df782e506ff86d3abf248f7fbf86ee88f39aedb9a4144cc27b945aed998c"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice010-maramures-independent-review024.json",
+      "archive": "archives/dbcb2b01d54afc061a7448c452030978a10765d5c048de558b0ef7a649a8b80b.json.txt",
+      "sha256": "dbcb2b01d54afc061a7448c452030978a10765d5c048de558b0ef7a649a8b80b"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice012-grave-wave.json",
+      "archive": "archives/a63fbdcfbd29c681e2631501aa646e43dbd3e8a63accee459ed3b7526f537f61.json.txt",
+      "sha256": "a63fbdcfbd29c681e2631501aa646e43dbd3e8a63accee459ed3b7526f537f61"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice012-grave-wave-independent-review024.json",
+      "archive": "archives/da1ddaba6c170eaf2e35c8e8c07d1acce8cdf746ff814b29f8bd51c2b3c9e314.json.txt",
+      "sha256": "da1ddaba6c170eaf2e35c8e8c07d1acce8cdf746ff814b29f8bd51c2b3c9e314"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-jain-axis/jain-acoustic-drone-axes.json",
+      "archive": "archives/4be287b6d97d1923ad80aca932be47f75d80750cf7e7f1bcddfd4ecf5e11668b.json.txt",
+      "sha256": "4be287b6d97d1923ad80aca932be47f75d80750cf7e7f1bcddfd4ecf5e11668b"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/jain-axis-independent-review461.json",
+      "archive": "archives/09a8155a573cc3de25fb2fd82dc21c8a71ff20973c7b10742cc4bf6d0d631f13.json.txt",
+      "sha256": "09a8155a573cc3de25fb2fd82dc21c8a71ff20973c7b10742cc4bf6d0d631f13"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice003-marathi-balgeet-axis-reviewed.json",
+      "archive": "archives/7cfb301cc950acd6aa75f00d1d7655f35690a78a7002d67c94a0387812e046a1.json.txt",
+      "sha256": "7cfb301cc950acd6aa75f00d1d7655f35690a78a7002d67c94a0387812e046a1"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice003-marathi-balgeet-axis-independent-review024.json",
+      "archive": "archives/47c6079c42f5f8e1b007a062c7e56c1b00a4d9c1c630cf9d58f482fe4f4493c5.json.txt",
+      "sha256": "47c6079c42f5f8e1b007a062c7e56c1b00a4d9c1c630cf9d58f482fe4f4493c5"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/v3/candidate-atlas-corrected.json",
+      "archive": "archives/d3c11479b766375b65bff147a6d1eaf5b62c2972c42b618589f0256eea3d7357.json.txt",
+      "sha256": "d3c11479b766375b65bff147a6d1eaf5b62c2972c42b618589f0256eea3d7357"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/v3/candidate-safe19.json",
+      "archive": "archives/de6f5dda45b080a00f83958077f17a551ae112d42d88109bfbe9b3364d089b2e.json.txt",
+      "sha256": "de6f5dda45b080a00f83958077f17a551ae112d42d88109bfbe9b3364d089b2e"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/v3/atlas-correction-review.json",
+      "archive": "archives/c2d8536a1844eeb6e7f6ae78e20638941b747d4e08494f2faaf559868e72d7bf.json.txt",
+      "sha256": "c2d8536a1844eeb6e7f6ae78e20638941b747d4e08494f2faaf559868e72d7bf"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/safe19-qualification461.json",
+      "archive": "archives/0ae4b2bff152b0f303d3ccbdb5d067d47be610a8338fb2f54ce0791ab660fa61.json.txt",
+      "sha256": "0ae4b2bff152b0f303d3ccbdb5d067d47be610a8338fb2f54ce0791ab660fa61"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/integrated-source-verification.json",
+      "archive": "archives/3b143ee7b5dd6f424ddda23dbea04063c278aab348c7bcd3e19416e479cb0cdf.json.txt",
+      "sha256": "3b143ee7b5dd6f424ddda23dbea04063c278aab348c7bcd3e19416e479cb0cdf"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/incremental-axis2-qualification461.json",
+      "archive": "archives/7b6b9e06bd763c9ed21ccd84022e3fb9e10cb2a0f3386010254d3fe409ea4ba7.json.txt",
+      "sha256": "7b6b9e06bd763c9ed21ccd84022e3fb9e10cb2a0f3386010254d3fe409ea4ba7"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-axis23/semantic-delta-review461.json",
+      "archive": "archives/673cf794fc1585a90b743443079b4f53bba80eed78ff200a998996c3da929e44.json.txt",
+      "sha256": "673cf794fc1585a90b743443079b4f53bba80eed78ff200a998996c3da929e44"
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/frozen19-integration.json",
+      "archive": "archives/7591d15e6d3d3c6fac1b7703a530bf5488b2b3f4982a2c466a5848f5e00543c4.json.txt",
+      "sha256": "7591d15e6d3d3c6fac1b7703a530bf5488b2b3f4982a2c466a5848f5e00543c4"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/vocal-default-recovery024/three-vocal-repairs.json",
+      "archive": "archives/80dadf27202d8cb1b2f008a1e7b00392ae1873d42a7de68592f5181c43da9628.json.txt",
+      "sha256": "80dadf27202d8cb1b2f008a1e7b00392ae1873d42a7de68592f5181c43da9628",
+      "role": "preserved deferred proposal; not applied or approved as generated output"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/vocal-default-recovery024/assessment.json",
+      "archive": "archives/6878580dc4b736d579accbecdede4cf396bd8650a7bd61f74345b116cc5918d1.json.txt",
+      "sha256": "6878580dc4b736d579accbecdede4cf396bd8650a7bd61f74345b116cc5918d1",
+      "role": "preserved deferred proposal; not applied or approved as generated output"
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-held92-8576-recover024/public-only-seven-source-reviewed.json",
+      "archive": "archives/ba21a47afe386dc3c96723b3f8999f1396693ca37b687de19c42604611478be4.json.txt",
+      "sha256": "ba21a47afe386dc3c96723b3f8999f1396693ca37b687de19c42604611478be4",
+      "role": "preserved deferred proposal; not applied or approved as generated output"
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-held92-8576-recover024/held92-dispositions.json",
+      "archive": "archives/4a87051c9aa9b61ebc2b9cfb98531d0c015c9dd24d30527a6f4a481c3fdd7e95.json.txt",
+      "sha256": "4a87051c9aa9b61ebc2b9cfb98531d0c015c9dd24d30527a6f4a481c3fdd7e95",
+      "role": "preserved deferred proposal; not applied or approved as generated output"
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/actual043-final-review461.json",
+      "archive": "archives/b789ddced893909a4ab37e69b5b43658b78e330d00e68e26fc5c6472d2125165.json.txt",
+      "sha256": "b789ddced893909a4ab37e69b5b43658b78e330d00e68e26fc5c6472d2125165",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 1603
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/actual043-tradition-audit.json",
+      "archive": "archives/3c8eccf19b24859b516e79b99b73c295b997773e62df03e297f7c1d0bb881f5f.json.txt",
+      "sha256": "3c8eccf19b24859b516e79b99b73c295b997773e62df03e297f7c1d0bb881f5f",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 826
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/actual043-payload-hashes.json",
+      "archive": "archives/ce497c075c069e8c51669c7d090c7b85b0787b4cd8b3c58edbfa93becce5b5b5.json.txt",
+      "sha256": "ce497c075c069e8c51669c7d090c7b85b0787b4cd8b3c58edbfa93becce5b5b5",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 599192
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/new-owner-actual-api-verification.json",
+      "archive": "archives/1124512bc097a5df467f58c3c3c819207d2efb3230c39c6cbefde1f9a3a7b6b5.json.txt",
+      "sha256": "1124512bc097a5df467f58c3c3c819207d2efb3230c39c6cbefde1f9a3a7b6b5",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 334
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/app_recipe_regression.log",
+      "archive": "archives/1c78c8dbb0395934066dfa2a829e69ba86965f7c31f7a2bc8733c77467fc3a27.log.txt",
+      "sha256": "1c78c8dbb0395934066dfa2a829e69ba86965f7c31f7a2bc8733c77467fc3a27",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 281
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/docs-check.log",
+      "archive": "archives/cc2ebabead0182fd38b6d551cbe0afd9fde5db1453b41c4c5186b671c97e3c16.log.txt",
+      "sha256": "cc2ebabead0182fd38b6d551cbe0afd9fde5db1453b41c4c5186b671c97e3c16",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 450
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/eval_capabilities.log",
+      "archive": "archives/d772b62a4bba3d625c9c9b6d6c414cc04d2f76837199b7b28ca66dad8dbc65b6.log.txt",
+      "sha256": "d772b62a4bba3d625c9c9b6d6c414cc04d2f76837199b7b28ca66dad8dbc65b6",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 2406
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/build-discovery.log",
+      "archive": "archives/e6697b2d3323b80b326af37f64c05ce178fdb8c4403758cc325677da93ce7b73.log.txt",
+      "sha256": "e6697b2d3323b80b326af37f64c05ce178fdb8c4403758cc325677da93ce7b73",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 123
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_connector_parity.log",
+      "archive": "archives/e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a.log.txt",
+      "sha256": "e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 1894
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check-atlas.log",
+      "archive": "archives/a77075371d6a4d39c93fc93c21ca881579da38e900c9f2db57cd76d5e85c2a4b.log.txt",
+      "sha256": "a77075371d6a4d39c93fc93c21ca881579da38e900c9f2db57cd76d5e85c2a4b",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 2722
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/atlas-geo.log",
+      "archive": "archives/989c3fbaffd78d85b61609c730a486101de12a52dc14dac43d930a44b76356b9.log.txt",
+      "sha256": "989c3fbaffd78d85b61609c730a486101de12a52dc14dac43d930a44b76356b9",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 145
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check-api.log",
+      "archive": "archives/549f8ca3189e5d4c959b4496e53baf195d9b16d268df99c602d5886fef358e3e.log.txt",
+      "sha256": "549f8ca3189e5d4c959b4496e53baf195d9b16d268df99c602d5886fef358e3e",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 362
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_minified_equivalence.log",
+      "archive": "archives/d4b4bed71dc5014cb9efaf62510b4a2b342d84e64b70f4200a5c733b8c049a3d.log.txt",
+      "sha256": "d4b4bed71dc5014cb9efaf62510b4a2b342d84e64b70f4200a5c733b8c049a3d",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 765
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_name_isolation.log",
+      "archive": "archives/cca94edec7780badc7171c5b04eb48d960e82c6ed52a62c08ca3542cf7a386dc.log.txt",
+      "sha256": "cca94edec7780badc7171c5b04eb48d960e82c6ed52a62c08ca3542cf7a386dc",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 205
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/build-html.log",
+      "archive": "archives/29c3579b0d419ec0459fb3829d9573ffeda442277ad40d24c89fb3a8461ce342.log.txt",
+      "sha256": "29c3579b0d419ec0459fb3829d9573ffeda442277ad40d24c89fb3a8461ce342",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 851
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/format-write.log",
+      "archive": "archives/98cef869c3191daa68fb7cdc7dbea660d19be33107dafb349caff83ced49ca16.log.txt",
+      "sha256": "98cef869c3191daa68fb7cdc7dbea660d19be33107dafb349caff83ced49ca16",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 290
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/methodist-before-snapshot-review.log",
+      "archive": "archives/fab9d5343ed41aaf47d10720a7d01dcf531c287f83dcbab11e9670c3c0f882ff.log.txt",
+      "sha256": "fab9d5343ed41aaf47d10720a7d01dcf531c287f83dcbab11e9670c3c0f882ff",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 1750
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/format-check.log",
+      "archive": "archives/9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd.log.txt",
+      "sha256": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 335
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/lint.log",
+      "archive": "archives/fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57.log.txt",
+      "sha256": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 251
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/regression.log",
+      "archive": "archives/ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18.log.txt",
+      "sha256": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 50
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_lazy_app.log",
+      "archive": "archives/e8cb39ceedd3b3fac443f7b5045bf7565773f0cd1be9786d30d6deb71b6304da.log.txt",
+      "sha256": "e8cb39ceedd3b3fac443f7b5045bf7565773f0cd1be9786d30d6deb71b6304da",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 919
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_workspace_ops.log",
+      "archive": "archives/408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36.log.txt",
+      "sha256": "408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 3501
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_edit_differential.log",
+      "archive": "archives/40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571.log.txt",
+      "sha256": "40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 634
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_connector_contract.log",
+      "archive": "archives/24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02.log.txt",
+      "sha256": "24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 6573
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_slot_picks.log",
+      "archive": "archives/6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56.log.txt",
+      "sha256": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 30
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/validate-integrated.log",
+      "archive": "archives/fe718205d27bf164ff7e911eca200900aee829819b8f1ca32acdc2e0e41dd5e1.log.txt",
+      "sha256": "fe718205d27bf164ff7e911eca200900aee829819b8f1ca32acdc2e0e41dd5e1",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 137
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_edit_parity.log",
+      "archive": "archives/a937cb71d3f3c87e9ac018b19fa0866a696ddb422e10f12b14f68947a14e15df.log.txt",
+      "sha256": "a937cb71d3f3c87e9ac018b19fa0866a696ddb422e10f12b14f68947a14e15df",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 994
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/groove-before-snapshot-review.log",
+      "archive": "archives/f13b234f0b544ab360650f77ea437d15a00ca14a47fe6e16fcda4c7cc54b743f.log.txt",
+      "sha256": "f13b234f0b544ab360650f77ea437d15a00ca14a47fe6e16fcda4c7cc54b743f",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 1633
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/equivalence.log",
+      "archive": "archives/632c3f4c0a42b7a360c5a4676a6440d98494ab77201422fe52ee75bce9f1c61e.log.txt",
+      "sha256": "632c3f4c0a42b7a360c5a4676a6440d98494ab77201422fe52ee75bce9f1c61e",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 338
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/validate-final.log",
+      "archive": "archives/fe718205d27bf164ff7e911eca200900aee829819b8f1ca32acdc2e0e41dd5e1.log.txt",
+      "sha256": "fe718205d27bf164ff7e911eca200900aee829819b8f1ca32acdc2e0e41dd5e1",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 137
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_publish_guard.log",
+      "archive": "archives/3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91.log.txt",
+      "sha256": "3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 315
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/atlas-tree.log",
+      "archive": "archives/c18573a4fccb80d86fffb9ebaf14db47b978a34a1e5df271ab09528f4dd5b108.log.txt",
+      "sha256": "c18573a4fccb80d86fffb9ebaf14db47b978a34a1e5df271ab09528f4dd5b108",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 135
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/signatures.log",
+      "archive": "archives/7ba6faf5d52b31d2d5a20c812584b9054025fddf387bd7ec46262a9d1d164279.log.txt",
+      "sha256": "7ba6faf5d52b31d2d5a20c812584b9054025fddf387bd7ec46262a9d1d164279",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 70
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/build-api.log",
+      "archive": "archives/1d883f3ea23b0f422815d1e53b9ca96f9d8da6aecb291dbd35cf8ac30a1ff339.log.txt",
+      "sha256": "1d883f3ea23b0f422815d1e53b9ca96f9d8da6aecb291dbd35cf8ac30a1ff339",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 1572
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/validate-named3.log",
+      "archive": "archives/bdcae9ba80b1c3849ede53db3eb4b60a0716b7ead8b0d0a67d5a588dae1cbc10.log.txt",
+      "sha256": "bdcae9ba80b1c3849ede53db3eb4b60a0716b7ead8b0d0a67d5a588dae1cbc10",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 137
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/gospel-before-snapshot-review.log",
+      "archive": "archives/d8be2955018fdc6c16e5f1373b9f460a3609b421c009e522b318373e92e9aba4.log.txt",
+      "sha256": "d8be2955018fdc6c16e5f1373b9f460a3609b421c009e522b318373e92e9aba4",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 2050
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/docs-fix.log",
+      "archive": "archives/4dbf4c7c21449d34f2a0295e11931ba0a36dbea142c1d747a2d628a884bf8ca8.log.txt",
+      "sha256": "4dbf4c7c21449d34f2a0295e11931ba0a36dbea142c1d747a2d628a884bf8ca8",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 5209
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/descriptor-frequency.log",
+      "archive": "archives/eb394254f0c0d47961244bb8f9ca505a437b91204a534c364f3059b3a54abf83.log.txt",
+      "sha256": "eb394254f0c0d47961244bb8f9ca505a437b91204a534c364f3059b3a54abf83",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 402
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/check_app_parity.log",
+      "archive": "archives/aba5959892b87caaef8ba7075e4926812cb2f90f562d9e081186d147001c480b.log.txt",
+      "sha256": "aba5959892b87caaef8ba7075e4926812cb2f90f562d9e081186d147001c480b",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 312
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/regression_prefaces.log",
+      "archive": "archives/bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc.log.txt",
+      "sha256": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 31
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/supporting-check-results.json",
+      "archive": "archives/6c96af08dc04329701efaeab775def7e864864efad1f016209124623af0b5fa9.json.txt",
+      "sha256": "6c96af08dc04329701efaeab775def7e864864efad1f016209124623af0b5fa9",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 1271
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/scope-review.json",
+      "archive": "archives/a8640eab58df1c70bfce95f0164b1398f3abf74ff0f484dc31006c43fb096f13.json.txt",
+      "sha256": "a8640eab58df1c70bfce95f0164b1398f3abf74ff0f484dc31006c43fb096f13",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 1057
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/named3-snapshot-review.json",
+      "archive": "archives/f44acf721508863a97446d565d3171c52c89010e4a0d72d16fe89c6812bc1f1b.json.txt",
+      "sha256": "f44acf721508863a97446d565d3171c52c89010e4a0d72d16fe89c6812bc1f1b",
+      "role": "actual frozen043 validation; receipt stage retained",
+      "bytes": 261
+    }
+  ],
+  "errors": [],
+  "unique_archives": 97
+}

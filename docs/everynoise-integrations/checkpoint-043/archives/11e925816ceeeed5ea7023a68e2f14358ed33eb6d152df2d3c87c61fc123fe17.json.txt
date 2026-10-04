@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice009-gaita-metadata-corrected.json",
+  "sha256": "d52044dbd4f1f51c7d05db3c05ad41c3d430b6ac30019608a9ccb233c7806b43",
+  "packet_sha256": "d52044dbd4f1f51c7d05db3c05ad41c3d430b6ac30019608a9ccb233c7806b43",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "gaita",
+  "immutable_allocation": {
+    "source_label": "gaita",
+    "source_url": "https://everynoise.com/engenremap-gaita.html",
+    "suggested_id": "gaita",
+    "allocation_ordinal": 3330,
+    "allocation_group_id": "134"
+  },
+  "source_review": {
+    "finding": "Fresh ministry museum turn15244search0 explicitly applies gaita to Asturias and Galicia. Cultural council turn15231view2/turn15244view2 supports shared distribution and regional constructions. Maker manual turn15231view3/turn15244view3 documents bag/reed/chanter/drone operation and semi-tempered tuning. Creator turn15249view0 includes multiple Galician and Asturian practitioners and explicit Portela alborada; maker family page direct failed, not fresh reproduction claimed.",
+    "urls": [
+      "https://www.cultura.gob.es/mtraje/visita/visita-virtual/sala-indumentaria-tradicional/pervivencias-identidades/gaita.html",
+      "https://consellodacultura.gal/asg/instrumentos/os-aerofonos/gaita-de-fol-%E2%80%9Dsinxela%E2%80%9D/",
+      "https://seivane.es/es/obradoiro/personas/",
+      "https://seivane.es/wp-content/uploads/2023/08/seivane_manual.pdf",
+      "https://embed.spotify.com/?uri=spotify%3Aplaylist%3A0QOMzxeAATjlhQSckJMqhR"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "galician_pipe_solo",
+      "asturian_gaita",
+      "galician_folk",
+      "gaita_zuliana"
+    ],
+    "finding": "Full regional piping rows overlap broader Iberian instrument-led field; neither is restricted to one performer. Ministry taxonomy and substantial mixed-region creator corpus positively substantiate broader scope. Venezuelan Gaita Zuliana is separate song practice; peripheral Navarre shawm items candidly disclosed. Existing legacy inconsistencies about drone counts do not determine new source claims."
+  },
+  "source_limits": [
+    "General representative genre branch, not exact recording reconstruction.",
+    "Only photo matched_label changed from independently executed runtime input; all music/source/rights unchanged."
+  ],
+  "representative_practice": "Representative solo Galician alborada branch, supported by maker accounts of solo piping and the named alborada repertory in the exact creator corpus. This replaces the earlier source-specific waltz route rather than changing that recording into an alborada. Authored three-drone configuration, boxwood chanter, cane reed, traditional goatskin bag and folk melodic articulation are existing meaningful instrument choices, not an assertion of exact Seivane equipment. Manufacturer describes semi-tempered modern tuning; no universal twelve-tone or just-intonation tuning is imposed. Outdoor field capture is authored. Other corpus practices include Asturian pipes, pipe bands, singing and the similarly named Navarre double-reed instrument; no source says these occur together in every performance.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 6,
+    "pinned_parts": 6,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Coughing lexicon07_preface_lexicon.js81\u201383 contains rough/breath-heavy/gritty/folkloric/Iberian-Celtic tonal associations, no mandatory interrupted airflow or staccato requirement. Reed-rich outdoor pipe texture is compatible; sustained drone architecture remains. Three drones, boxwood/cane/goatskin and alborada are candid authored Galician choices, no universal tuning or source exact equipment claim.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/gaita-runtime.json",
+    "runtime_sha256": "7e9b3acf38ca12489a6a165bf81bdc9b5fec3053dbe75298c5e5d31851389433"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes.",
+  "atlas_review": {
+    "status": "PASS",
+    "policy": "scripts/_atlas_regions.js",
+    "geo": [
+      42.8782,
+      -8.5448,
+      "Santiago de Compostela",
+      "Europe"
+    ],
+    "derivative_diff": "Only geo[3] Northern/Southern Europe to canonical Europe after approved photo-label derivative; all other fields identical."
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "gaita",
+  "name": "Gaita",
+  "family": "global",
+  "lineage": "Gaita brings together Iberian piping traditions and the musicians, makers and festivals that sustain them. Galician and Asturian repertories are central to this instrument-led field, which includes solo playing, pipe bands and collaborations with singers or other instruments.",
+  "recipe": "classic gaita, drone Modal, wind pipe branch. gaita galega three drone alborada boxwood canonical galician gaita galega. field recording.",
+  "recipe_chars": 137,
+  "score": 21.245,
+  "config": {
+    "traditions": [
+      "gaita"
+    ],
+    "instruments": [
+      {
+        "id": "gaita_galega",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "gaita_galega_drones": "gaita_galega_three_drones",
+          "gaita_galega_use": "gaita_galega_alborada",
+          "gaita_galega_chanter_wood": "gaita_galega_boxwood",
+          "gaita_galega_reed": "gaita_galega_cane_canonical",
+          "gaita_galega_bag": "gaita_galega_goatskin_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "gaita_galega_drones": 10.075,
+          "gaita_galega_use": 6.169499999999999,
+          "gaita_galega_chanter_wood": 1.69,
+          "gaita_galega_reed": 1.69,
+          "gaita_galega_bag": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "gaita_galega": [
+        "wind_articulation",
+        "gaita_galega_drones",
+        "gaita_galega_use",
+        "gaita_galega_chanter_wood",
+        "gaita_galega_reed",
+        "gaita_galega_bag"
+      ]
+    },
+    "room": "field_recording",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "field_recording",
+    "parts": {
+      "wind_articulation": "wind_folk_melodic",
+      "gaita_galega_drones": "gaita_galega_three_drones",
+      "gaita_galega_use": "gaita_galega_alborada",
+      "gaita_galega_chanter_wood": "gaita_galega_boxwood",
+      "gaita_galega_reed": "gaita_galega_cane_canonical",
+      "gaita_galega_bag": "gaita_galega_goatskin_canonical"
+    },
+    "pin_parts": true
+  }
+}

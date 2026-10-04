@@ -1,0 +1,60 @@
+{
+  "status": "EXACT_BYTES_PRESERVED",
+  "files": [
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/proposal.json",
+      "archive": "2098b95c738f1a29e123bc48e7bdab7caaf0fda508dfe27720e300ae904028cf.json.txt",
+      "sha256": "2098b95c738f1a29e123bc48e7bdab7caaf0fda508dfe27720e300ae904028cf"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/proposal-methodist-size-preserved.json",
+      "archive": "f118090e4966aa6414469565278174479e396caf7b92f3a9924e6dce3a8dbe5e.json.txt",
+      "sha256": "f118090e4966aa6414469565278174479e396caf7b92f3a9924e6dce3a8dbe5e"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/browser-size-preserved.json",
+      "archive": "a6d95047685d34e1c8adc3ff605a267c01b42a8a6b9f1c1878e9497f3eac0937.json.txt",
+      "sha256": "a6d95047685d34e1c8adc3ff605a267c01b42a8a6b9f1c1878e9497f3eac0937"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/size-preserved-global-comparison.json",
+      "archive": "aeb0d56251b92bca218aa961a9e6efef4c8f414d212b1fe6e9019893e0b46a75.json.txt",
+      "sha256": "aeb0d56251b92bca218aa961a9e6efef4c8f414d212b1fe6e9019893e0b46a75"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/combined302-21/proposal.json",
+      "archive": "c4afebfcbaf7fbfdecf46f42d127da6c187fea0540dd4cbda9aa8e2c52617aca.json.txt",
+      "sha256": "c4afebfcbaf7fbfdecf46f42d127da6c187fea0540dd4cbda9aa8e2c52617aca"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/combined302-21/comparison.json",
+      "archive": "470497bd8f94f77e3f95d15a24414dc6972948755a954b6aead5fbee14a2a190.json.txt",
+      "sha256": "470497bd8f94f77e3f95d15a24414dc6972948755a954b6aead5fbee14a2a190"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/combined302-21/coverage.json",
+      "archive": "284f02ef8e8a8c235229473a4351c32f48ef50ab61b1a15a671049e46d2ee9e7.json.txt",
+      "sha256": "284f02ef8e8a8c235229473a4351c32f48ef50ab61b1a15a671049e46d2ee9e7"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/combined302-21/exact-before-guard.json",
+      "archive": "16d93eec3aeee31cc3ae60e0ecd00cb62f399374123d116d0b836c9e1d93a1e1.json.txt",
+      "sha256": "16d93eec3aeee31cc3ae60e0ecd00cb62f399374123d116d0b836c9e1d93a1e1"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/combined302-21/final-review119.json",
+      "archive": "ca6fa0dab83ca7466dc82949eb67559c44ae7634fb9c0aeccb5102e1fe4fa1cf.json.txt",
+      "sha256": "ca6fa0dab83ca7466dc82949eb67559c44ae7634fb9c0aeccb5102e1fe4fa1cf"
+    },
+    {
+      "source": "/workspace/genre-continuation/original-three-current119/combined302-21/source-projection-and-fixture-intent.json",
+      "archive": "be9f918278ab8c86470e05266f25b57b82e47246e8c2b8c63a69039d85b2fc97.json.txt",
+      "sha256": "be9f918278ab8c86470e05266f25b57b82e47246e8c2b8c63a69039d85b2fc97"
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint043/named3-snapshot-review.json",
+      "archive": "f44acf721508863a97446d565d3171c52c89010e4a0d72d16fe89c6812bc1f1b.json.txt",
+      "sha256": "f44acf721508863a97446d565d3171c52c89010e4a0d72d16fe89c6812bc1f1b"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "entries": [
+    {
+      "source_label": "rave",
+      "source_url": "https://everynoise.com/engenremap-rave.html",
+      "suggested_id": "rave",
+      "allocation_ordinal": 4199,
+      "allocation_group_id": "168",
+      "id": "rave",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "rave",
+        "name": "Rave",
+        "family": "electronic",
+        "lineage": "Rave developed around collective electronic dance events and DJ culture, connecting acid house, techno, breakbeats and subsequent hard-dance scenes. Its late-1980s and 1990s British history sits within wider international club and sound-system exchanges, with later generations continually revisiting and reshaping the repertoire.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 1,
+          "improv": 1,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "Selectors sustain dance-floor momentum through mixing, overlapping records and manipulating loops or short fragments. Repetition, low-frequency energy and contrasting electronic textures connect otherwise different styles; the surrounding gathering is central to the music’s identity.",
+        "exemplars": [
+          "Laurent Garnier",
+          "Rob Booth",
+          "Stormfield"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        51.5074,
+        -0.1278,
+        "London",
+        "Europe"
+      ],
+      "geo_rationale": "Documented British rave historical branch and London Design Museum institutional context; an editorial anchor, not an exclusive origin for the international field.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "rave",
+          "name": "Rave",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative rave DJ practice supported by firsthand Booth/Stormfield and Garnier accounts, not a synthesized reconstruction of their source records. The source positively describes mixing records, loops and one-shots, sometimes four simultaneously; all those prerecorded musical and embedded vocal layers remain within DJ playback/mixing. No live singer or live 303/808 player is inferred from the records being mixed. Playback medium, mixer architecture and number of decks are unspecified; original owner preserves the actual source-positive mixing identity. Energetic up-tempo editorial treatment is compatible with the explicitly fast-paced, relentless and dance-directed practice. Live-room acoustic treatment is authored, not an observed rave venue. No universal tempo, fixed repertoire, tuning or hardware is asserted.",
+      "neighbor_distinction": "The full existing acid_house entry defines a particular Chicago/UK 303-led style, while breakbeat_hardcore covers the British 1990–1993 sampler-breakbeat branch; both explicitly participate in rave history without exhausting it. Existing house and techno remain broad stylistic umbrellas, and new_rave describes the 2006–2008 indie-band scene rather than the whole rave field. The museum and firsthand DJ interviews document rave as a cross-style event/community and repertoire field spanning these sounds. This is an overlapping functional and cultural umbrella, not a claim that one DJ or playlist constitutes an exclusive genre or that all electronic dance music is rave.",
+      "sources": [
+        {
+          "url": "https://legacy.boilerroom.tv/nothing-new-006-rob-booths-electronic-explorations/",
+          "title": "Rob Booth and Stormfield — first-person issued mixing practice",
+          "support_notes": "Detailed original accounts of fast-paced cross-style rave mixing, loops, one-shots and up to four records; complete supplied track list retained as evidence, not imported live instrumentation.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://legacy.boilerroom.tv/dont-fuck-about-laurent-garnier-gets-serious/",
+          "title": "Laurent Garnier — firsthand rave and DJ interview",
+          "support_notes": "Participant history and cross-style long-mix practice distinguish rave community from a single electronic style.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://designmuseum.org/exhibitions/electronic-from-kraftwerk-to-the-chemical-brothers",
+          "title": "Design Museum — Electronic exhibition",
+          "support_notes": "Institutional account of international electronic dance/rave culture, design and genre-spanning DJ curation.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://designmuseum.org/your-membership-archive/your-membership-events-archive/the-spirit-of-rave-event-members",
+          "title": "Design Museum — The Spirit of Rave",
+          "support_notes": "Participant-led examination of British rave history and continuing cultural legacy.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15256view1",
+        "turn15256view2",
+        "turn15121search0",
+        "turn15121search1"
+      ],
+      "source_scope_limitation": "Genre-level representative DJ practice, not an assertion that every rave uses only recorded media, and not reconstruction of instruments heard inside any mastered track. Source samples/loops/embedded voices remain part of the complete playback role.",
+      "source_retrieval_caveat": "Exact creator map freshly timed out at turn15256view0. Positive named rave field and practice are independently established by direct participant and institutional sources; no fresh creator corpus claimed."
+    }
+  ],
+  "instrument_dependencies": []
+}

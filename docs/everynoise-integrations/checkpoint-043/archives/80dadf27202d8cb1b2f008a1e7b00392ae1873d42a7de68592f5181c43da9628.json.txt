@@ -1,0 +1,543 @@
+{
+  "baseline_commit": "12c8438a50527b5df6ba8eb63a880a9fc025b78d",
+  "baseline_root": "/tmp/CodexMusica-next043",
+  "status": "PROPOSAL_NOT_ACCEPTANCE",
+  "entries": [
+    {
+      "id": "texas_conjunto",
+      "before": {
+        "tradition": {
+          "id": "texas_conjunto",
+          "name": "Texas conjunto",
+          "family": "vernacular",
+          "lineage": "Texas-Mexican (tejano) accordion-and-bajo-sexto dance-band tradition of South Texas and the Texas-Mexico borderlands, developed in the late-nineteenth-century from German-Czech accordion-polka traditions imported into Texas through Central European migration — codified through Narciso Martínez (Texas conjunto founding figure, recording 1936 onward), Santiago Jiménez Sr, Valerio Longoria, Tony de la Rosa, Flaco Jiménez",
+          "instruments": [
+            "voice",
+            "accordion",
+            "bajo_sexto",
+            "electric_bass",
+            "drum_kit",
+            "conjunto_norteno"
+          ],
+          "room": "honky_tonk_dance_hall",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "transformer_solid_state",
+          "chain_medium": "tape_15ips",
+          "chain_console": "colored",
+          "tuning": "twelve_tet",
+          "chain_amp_guitar": "amp_american_fender_blackface",
+          "chain_amp_bass": "amp_american_ampeg_b15",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_la2a_optical",
+          "chain_eq": "eq_passive_program_pultec",
+          "parts": {
+            "body_wood": "swamp_ash_b",
+            "pickup_config": "dual_single",
+            "string_type": "half_round",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerpicked_country_b",
+            "drumhead": "single_coated",
+            "drum_technique": "brushes_and_sticks",
+            "voice_register": "chest_voice",
+            "voice_quality": "twang_voice",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_tradition": "modern_pop_vocal_training",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_estill_quality": "voice_estill_oral_twang",
+            "voice_vibrato": "slow_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "free_reed_technique": "free_reed_folk_first_position",
+            "reed_config": "lmm",
+            "musette_offset": "dry_tuning",
+            "bajo_courses": "twelve_string_bajo",
+            "bajo_top": "spruce_bj",
+            "bajo_strings": "phosphor_bajo",
+            "bajo_back_wood": "bajo_rosewood_indian"
+          },
+          "chain_archetype": "arch_early_tape_havana",
+          "chain_amp": "amp_american_blackface"
+        },
+        "extras": {
+          "parent": "functionalSong.tejanoBorder",
+          "axes": {
+            "harm": 2,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 2,
+            "density": 0,
+            "transmission": 1,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": 1,
+            "cyclicity": 2
+          },
+          "description": "Texas conjunto / norteño tradition (1920s-present), polka-and-waltz-derived dance music from Texas-Mexican borderlands. Standard ensemble: button accordion (lead, three-row diatonic), bajo sexto (12-string rhythm-and-bass guitar), upright or electric bass (tololoche), drum kit. Repertoire: polkas, waltzes, redovas (Czech-Bohemian forms transmitted via 19th-century Central-European migration to Texas), corridos (narrative ballads), rancheras. Distinguished from Mexican mariachi by accordion-led-not-violin-led ensemble; distinguished from Tejano (Selena-era pop-conjunto) by absence of synthesizers and rock backbeat. Narciso Martínez, Santiago Jiménez Sr, Flaco Jiménez, Ramón Ayala established the canon.",
+          "exemplars": [
+            "Flaco Jiménez",
+            "Santiago Jiménez Sr.",
+            "Esteban Jordán"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "groovePercussion.latinAm"
+          ]
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "texas_conjunto",
+          "name": "Texas conjunto",
+          "family": "vernacular",
+          "lineage": "Texas-Mexican (tejano) accordion-and-bajo-sexto dance-band tradition of South Texas and the Texas-Mexico borderlands, developed in the late-nineteenth-century from German-Czech accordion-polka traditions imported into Texas through Central European migration — codified through Narciso Martínez (Texas conjunto founding figure, recording 1936 onward), Santiago Jiménez Sr, Valerio Longoria, Tony de la Rosa, Flaco Jiménez",
+          "instruments": [
+            "voice",
+            "accordion",
+            "bajo_sexto",
+            "electric_bass",
+            "drum_kit",
+            "conjunto_norteno"
+          ],
+          "room": "honky_tonk_dance_hall",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "transformer_solid_state",
+          "chain_medium": "tape_15ips",
+          "chain_console": "colored",
+          "tuning": "twelve_tet",
+          "chain_amp_guitar": "amp_american_fender_blackface",
+          "chain_amp_bass": "amp_american_ampeg_b15",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_la2a_optical",
+          "chain_eq": "eq_passive_program_pultec",
+          "parts": {
+            "body_wood": "swamp_ash_b",
+            "pickup_config": "dual_single",
+            "string_type": "half_round",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerpicked_country_b",
+            "drumhead": "single_coated",
+            "drum_technique": "brushes_and_sticks",
+            "voice_register": "chest_voice",
+            "voice_quality": "twang_voice",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_vibrato": "slow_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "free_reed_technique": "free_reed_folk_first_position",
+            "reed_config": "lmm",
+            "musette_offset": "dry_tuning",
+            "bajo_courses": "twelve_string_bajo",
+            "bajo_top": "spruce_bj",
+            "bajo_strings": "phosphor_bajo",
+            "bajo_back_wood": "bajo_rosewood_indian",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "voice_articulation": "narrative_voice"
+          },
+          "chain_archetype": "arch_early_tape_havana",
+          "chain_amp": "amp_american_blackface",
+          "pin_parts": true
+        },
+        "extras": {
+          "parent": "functionalSong.tejanoBorder",
+          "axes": {
+            "harm": 2,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 2,
+            "density": 0,
+            "transmission": 1,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": 1,
+            "cyclicity": 2
+          },
+          "description": "Texas conjunto / norteño tradition (1920s-present), polka-and-waltz-derived dance music from Texas-Mexican borderlands. Standard ensemble: button accordion (lead, three-row diatonic), bajo sexto (12-string rhythm-and-bass guitar), upright or electric bass (tololoche), drum kit. Repertoire: polkas, waltzes, redovas (Czech-Bohemian forms transmitted via 19th-century Central-European migration to Texas), corridos (narrative ballads), rancheras. Distinguished from Mexican mariachi by accordion-led-not-violin-led ensemble; distinguished from Tejano (Selena-era pop-conjunto) by absence of synthesizers and rock backbeat. Narciso Martínez, Santiago Jiménez Sr, Flaco Jiménez, Ramón Ayala established the canon.",
+          "exemplars": [
+            "Flaco Jiménez",
+            "Santiago Jiménez Sr.",
+            "Esteban Jordán"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "groovePercussion.latinAm"
+          ]
+        }
+      },
+      "before_sha256": "88c5ba60d60226509fdc68fcc8aad25c4706f46ab05c15efeff6ebd976e6a9b4",
+      "decision": "PROPOSED_SOURCE_SUPPORTED_VOCAL_DEFAULT_REPAIR_PENDING_PEER",
+      "reason": "Smithsonian issuing institution identifies singing added to conjunto, ranchera/bolero and narrative corrido repertoire, and Longoria as lead vocalist. An accompanied, text-forward sung branch is therefore positive. Existing chest/twang setting and slow vibrato remain authored timbral choices; narrative articulation is a compatible corrido interpretation. Normal single-source voiced singing and twelve-tone accompaniment reference replace unrelated Vedic/mediterranean/beatboxing auto-selection. Equal-tempered pitch is an authored reference, not a measurement denying local inflection. No conservatory/pop-training claim; unspecified local tradition and ornament controls preserve uncertainty.",
+      "sources": [
+        {
+          "url": "https://folkways.si.edu/valerio-longoria/texas-conjunto-pioneer/latin-world/music/album/smithsonian",
+          "ref": "turn15396view0"
+        },
+        {
+          "url": "https://folkways.si.edu/valerio-longoria/ramona/latin-world/music/track/smithsonian",
+          "ref": "turn15396view1"
+        }
+      ],
+      "default_review": {
+        "method": "One source-reasoned proposal decided before any runtime; no parameter search.",
+        "nonvoice_scope": "All existing bass, drum, accordion and bajo-sexto flat selections retained as authored physical/performance choices. Enabling the existing pin_parts contract intentionally protects those declared choices too; exact source hardware is not asserted.",
+        "pitch_caveat": "Twelve-tone reference is a present representative arrangement choice aligned with the existing global twelve_tet, not a measured historical tuning fact.",
+        "global_regression": "Not run. Must be separately qualified with additions; unchanged-neighbor fixture equality is not yet established."
+      }
+    },
+    {
+      "id": "tribal_guarachero",
+      "before": {
+        "tradition": {
+          "id": "tribal_guarachero",
+          "name": "Tribal guarachero",
+          "family": "global",
+          "lineage": "Mexican-American electronic dance subgenre codified circa 2008-2012 in Monterrey, Mexico — characterized by 130-140 BPM accelerated cumbia rhythm with synth-flute melodies and tribal-drum patterns; DJ Erick Rincón, DJ Otto, and the 3BallMTY collective as canonical exponents",
+          "instruments": [
+            "voice",
+            "drum_machine_808",
+            "sampler_classic",
+            "digital_subtractive"
+          ],
+          "room": "treated_studio",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "transformer_solid_state",
+          "chain_medium": "digital_std",
+          "chain_console": "console_in_the_box",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_distressor_modern",
+          "chain_eq": "eq_massenburg_mastering",
+          "parts": {
+            "voice_register": "mix_voice",
+            "voice_quality": "chest_mix_belt_voice",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_tradition": "modern_pop_vocal_training",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_estill_quality": "voice_estill_speech",
+            "voice_vibrato": "slow_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_miami",
+            "tr808_production_origin": "tr808_roland_osaka_canonical",
+            "sampler_archetypes": "akai_s900",
+            "sampler_workflow": "sampler_chopped_breaks",
+            "sampler_classic_context": "sampler_classic_hiphop",
+            "electronic_technique": "electronic_pad_drone"
+          },
+          "chain_archetype": "arch_modern_pro_daw_studio"
+        },
+        "extras": {
+          "parent": "electronicDance.latinElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 1,
+            "transmission": 1,
+            "improv": 0,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": 0,
+            "timbre": 2,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Mexican-and-Mexican-American electronic dance descended from prehispanic-flute-and-drum sample fusion with house and Cuban tribal; aggressive 130bpm tempo, pre-Columbian-flute samples, hand-percussion programming.",
+          "exemplars": [
+            "DJ Tonez",
+            "Erick Rincón",
+            "Sheeqo Beat"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "groovePercussion.latinAm"
+          ]
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "tribal_guarachero",
+          "name": "Tribal guarachero",
+          "family": "global",
+          "lineage": "Mexican-American electronic dance subgenre codified circa 2008-2012 in Monterrey, Mexico — characterized by 130-140 BPM accelerated cumbia rhythm with synth-flute melodies and tribal-drum patterns; DJ Erick Rincón, DJ Otto, and the 3BallMTY collective as canonical exponents",
+          "instruments": [
+            "voice",
+            "drum_machine_808",
+            "sampler_classic",
+            "digital_subtractive"
+          ],
+          "room": "treated_studio",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "transformer_solid_state",
+          "chain_medium": "digital_std",
+          "chain_console": "console_in_the_box",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_distressor_modern",
+          "chain_eq": "eq_massenburg_mastering",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_rb",
+            "tr808_production_origin": "tr808_roland_osaka_canonical",
+            "sampler_archetypes": "akai_s900",
+            "sampler_workflow": "sampler_chopped_breaks",
+            "sampler_classic_context": "sampler_classic_edm",
+            "electronic_technique": "electronic_pad_drone",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "voice_articulation": "legato_voice"
+          },
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "pin_parts": true
+        },
+        "extras": {
+          "parent": "electronicDance.latinElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 1,
+            "transmission": 1,
+            "improv": 0,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": 0,
+            "timbre": 2,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Mexican-and-Mexican-American electronic dance descended from prehispanic-flute-and-drum sample fusion with house and Cuban tribal; aggressive 130bpm tempo, pre-Columbian-flute samples, hand-percussion programming.",
+          "exemplars": [
+            "DJ Tonez",
+            "Erick Rincón",
+            "Sheeqo Beat"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "groovePercussion.latinAm"
+          ]
+        }
+      },
+      "before_sha256": "16654c4b12ace3ffc4205770290742f3b97b9d324baf126ae3027f7af72f93d8",
+      "decision": "PROPOSED_SOURCE_SUPPORTED_VOCAL_DEFAULT_REPAIR_PENDING_PEER",
+      "reason": "Firstperson producer interviews distinguish earlier dance music from the professional-singer crossover, naming regional-Mexican and pop singers. Choose a representative accompanied melodic-vocal rendition, with source-unspecified vocal register/quality and laryngeal physiology rather than extended whistle or a fixed Broadway belt. Syllabic legato, subtle existing retune and one lead take are editorial choices for this branch, not source measurements or a universal roster. Twelve-tone fixed-pitch reference is authored alongside electronic accompaniment; local inflection remains unknown. Existing Miami/hiphop context defaults are not newly frozen: select the available pop-production and electronic-dance contexts on positive crossover/EDM evidence.",
+      "sources": [
+        {
+          "url": "https://remezcla.com/music/interview-3ballmty-from-under-the-overground/",
+          "ref": "turn15396view2"
+        },
+        {
+          "url": "https://www.vice.com/es/article/erick-rincn-sus-inicios-su-ep-en-solo-y-el-proyecto-de-rescate-al-tribal-mexicano/",
+          "ref": "turn15388search6"
+        }
+      ],
+      "default_review": {
+        "method": "One source-reasoned proposal decided before any runtime; no parameter search.",
+        "nonvoice_scope": "Only two source-context parts change to pop/R&B 808 context (pop branch, not an R&B ancestry assertion) and EDM sampler context. Hardware/workflow/owners unchanged. Existing shared electronic_pad_drone applies to digital_subtractive but not sampler_classic; its sampler technique remains an inherited unprotected slot requiring separate whole-control review, not falsely reported resolved.",
+        "pitch_caveat": "Twelve-tone reference is a present representative arrangement choice aligned with the existing global twelve_tet, not a measured historical tuning fact.",
+        "global_regression": "Not run. Must be separately qualified with additions; unchanged-neighbor fixture equality is not yet established."
+      }
+    },
+    {
+      "id": "bossbeat",
+      "before": {
+        "tradition": {
+          "id": "bossbeat",
+          "name": "Bossbeat (programmed bossa-downtempo)",
+          "family": "electronic",
+          "lineage": "Producer-side fusion emerging in late-1990s Rio–London–Tokyo downtempo circles and consolidated by Bebel Gilberto's Tanto Tempo (2000) and the Ziriguiboom/Far Out labels, setting João Gilberto's nylon-string batida and extended-tertian bossa harmony against programmed 85–105 BPM breakbeats, filtered Rhodes pads, sampled pandeiro and shaker loops, and an unforced close-miked whisper vocal in Portuguese.",
+          "instruments": [
+            "classical_nylon_string_guitar",
+            "rhodes_electric",
+            "electric_bass",
+            "sampler_classic",
+            "pandeiro",
+            "voice"
+          ],
+          "room": "untreated_bedroom",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "pre_500_series_modern",
+          "chain_medium": "digital_high",
+          "chain_console": "console_in_the_box",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_la2a_optical",
+          "chain_archetype": "arch_minimal_daw_bedroom"
+        },
+        "extras": {
+          "parent": "experimentalElec.lofi",
+          "axes": {
+            "harm": 1,
+            "pitch": 2,
+            "ornament": -1,
+            "meter": 2,
+            "density": 0,
+            "transmission": 0,
+            "improv": -1,
+            "soundTech": 1,
+            "intensity": -1,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 1
+          },
+          "description": "A studio-born hybrid of bossa nova and downtempo electronic production that crystallised around 2000 in the Rio–London axis of the Ziriguiboom and Far Out labels. It keeps bossa's ninth- and eleventh-loaded chord vocabulary, the guitar's syncopated batida, and the breathy near-spoken vocal, but replaces the live drummer with looped breakbeats, filtered pads and sampled hand percussion. Unlike acoustic bossa nova it is grid-locked and non-improvised, and unlike Latin house it stays below 105 BPM with no four-on-the-floor kick.",
+          "exemplars": [
+            "Bebel Gilberto - Tanto Tempo",
+            "Céu",
+            "Sabrina Malheiros",
+            "Nicola Conte",
+            "Thievery Corporation",
+            "Da Lata"
+          ],
+          "status": "inferred",
+          "crossRefs": [
+            "functionalSong.brazilianSong",
+            "electronicDance.latinElec"
+          ]
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "bossbeat",
+          "name": "Bossbeat (programmed bossa-downtempo)",
+          "family": "electronic",
+          "lineage": "Producer-side fusion emerging in late-1990s Rio–London–Tokyo downtempo circles and consolidated by Bebel Gilberto's Tanto Tempo (2000) and the Ziriguiboom/Far Out labels, setting João Gilberto's nylon-string batida and extended-tertian bossa harmony against programmed 85–105 BPM breakbeats, filtered Rhodes pads, sampled pandeiro and shaker loops, and an unforced close-miked whisper vocal in Portuguese.",
+          "instruments": [
+            "classical_nylon_string_guitar",
+            "rhodes_electric",
+            "electric_bass",
+            "sampler_classic",
+            "pandeiro",
+            "voice"
+          ],
+          "room": "untreated_bedroom",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "pre_500_series_modern",
+          "chain_medium": "digital_high",
+          "chain_console": "console_in_the_box",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_la2a_optical",
+          "chain_archetype": "arch_minimal_daw_bedroom",
+          "pin_parts": true,
+          "parts": {
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "crooner_voice",
+            "voice_articulation": "legato_voice",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec.lofi",
+          "axes": {
+            "harm": 1,
+            "pitch": 2,
+            "ornament": -1,
+            "meter": 2,
+            "density": 0,
+            "transmission": 0,
+            "improv": -1,
+            "soundTech": 1,
+            "intensity": -1,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 1
+          },
+          "description": "A studio-born hybrid of bossa nova and downtempo electronic production that crystallised around 2000 in the Rio–London axis of the Ziriguiboom and Far Out labels. It keeps bossa's ninth- and eleventh-loaded chord vocabulary, the guitar's syncopated batida, and the breathy near-spoken vocal, but replaces the live drummer with looped breakbeats, filtered pads and sampled hand percussion. Unlike acoustic bossa nova it is grid-locked and non-improvised, and unlike Latin house it stays below 105 BPM with no four-on-the-floor kick.",
+          "exemplars": [
+            "Bebel Gilberto - Tanto Tempo",
+            "Céu",
+            "Sabrina Malheiros",
+            "Nicola Conte",
+            "Thievery Corporation",
+            "Da Lata"
+          ],
+          "status": "inferred",
+          "crossRefs": [
+            "functionalSong.brazilianSong",
+            "electronicDance.latinElec"
+          ]
+        }
+      },
+      "before_sha256": "2b69cd32959464c55395f7693c1ba72aafd01e95c27c3464d1598390353bc243",
+      "decision": "PROPOSED_SOURCE_SUPPORTED_VOCAL_DEFAULT_REPAIR_PENDING_PEER",
+      "reason": "Artist-issued Tanto Tempo and presenting institution positively describe restrained sung bossa/electronic music; Far Out documents the samba/bossa and contemporary-electronic vocal branch. A close, low-dynamic crooner with connected text-forward singing is a representative authored realization, not throat diagnosis or original-session reconstruction. Protect a twelve-tone accompaniment reference and standard single-source phonation rather than inherited slendro/31-TET or introduced quarter-comma meantone. Unknown register, local inflection, vibrato, laryngeal setting and ornament remain explicit unknowns. One accompanied lead track and unprocessed vocal are optional authored production choices, not all-recording claims.",
+      "sources": [
+        {
+          "url": "https://bebelgilberto.bandcamp.com/album/tanto-tempo",
+          "ref": "turn15396view3"
+        },
+        {
+          "url": "https://www.laphil.com/people/bebel-gilberto",
+          "ref": "turn15396view4"
+        },
+        {
+          "url": "https://www.faroutrecordings.com/release/471055-sabrina-malheiros-clareia?lang=en_GB",
+          "ref": "turn15389search8"
+        }
+      ],
+      "default_review": {
+        "method": "One source-reasoned proposal decided before any runtime; no parameter search.",
+        "nonvoice_scope": "No instrument, non-vocal part, room, tuning, taxonomy, axis, signature or public prose changes. All nonvoice choices remain the original scored defaults; this narrow vocal repair does not claim to freeze or validate every inherited slot.",
+        "pitch_caveat": "Twelve-tone reference is a present representative arrangement choice aligned with the existing global twelve_tet, not a measured historical tuning fact.",
+        "global_regression": "Not run. Must be separately qualified with additions; unchanged-neighbor fixture equality is not yet established."
+      }
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "status": "PARTIAL_SOURCE_REPAIR_PROPOSALS_WITH_PRECISE_RESIDUAL_HOLDS",
+  "packet_sha256": "80dadf27202d8cb1b2f008a1e7b00392ae1873d42a7de68592f5181c43da9628",
+  "baseline": "12c8438a50527b5df6ba8eb63a880a9fc025b78d",
+  "snapshot_exact_sources": {
+    "references/02_instruments.js": {
+      "sha256": "96d15f67e5a540b25989e0409d4a2b67b857ac0716724db780d045d1eef6fc8a",
+      "exact_git_object": false
+    },
+    "references/05_traditions.js": {
+      "sha256": "bb8f8e3f354c2f71ea535548e2d521a8a1f75cbff214101ea827866d3e9209dc",
+      "exact_git_object": false
+    },
+    "references/06_extras.js": {
+      "sha256": "a4a0552c2ff1ad37fe67ead2c8e93b695475af272587ea59bd11bf07f211c3f6",
+      "exact_git_object": false
+    },
+    "scripts/search.js": {
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5",
+      "exact_git_object": true
+    },
+    "src/app.js": {
+      "sha256": "fbe4daff1629b754c57a2537b16d76f271c0426ce6a81efe3b59fd8019a18e5b",
+      "exact_git_object": false
+    }
+  },
+  "local_tests": "Three proposals applied together; three target browser/connector four-format tests and three target compiled searches, first without additions and then with original21 additions. Not a global replay or independent peer approval.",
+  "runs": {
+    "proposal_variants_per_id": 1,
+    "local_compiled_searches": 6,
+    "global_replays": 0
+  },
+  "harness_caveat": "Initial completed baseline run ended on an invalid raw-vs-runtime instrument JSON assertion: original app family merge/private caches mutate runtime objects. All three target results had already been saved. Source preservation is instead verified against exact git objects above. Harness fixed only this assertion; candidate choices were not changed.",
+  "candidate_packet_unchanged_after_tests": true,
+  "entries": [
+    {
+      "id": "texas_conjunto",
+      "status": "SOURCE_SUPPORTED_NARROW_PROPOSAL_NOT_ACCEPTED",
+      "changed_source_fields": [
+        {
+          "path": "/tradition/parts/voice_articulation",
+          "before": null,
+          "after": "narrative_voice"
+        },
+        {
+          "path": "/tradition/parts/voice_effort",
+          "before": null,
+          "after": "effort_moderate"
+        },
+        {
+          "path": "/tradition/parts/voice_estill_quality",
+          "before": "voice_estill_oral_twang",
+          "after": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_microtone",
+          "before": "tempered_voice",
+          "after": "voice_microtone_local_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_ornament_system",
+          "before": "voice_ornament_none",
+          "after": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_tessitura",
+          "before": null,
+          "after": "voice_tessitura_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_tradition",
+          "before": "modern_pop_vocal_training",
+          "after": "voice_tradition_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_vocal_tract",
+          "before": null,
+          "after": "tract_neutral"
+        },
+        {
+          "path": "/tradition/pin_parts",
+          "before": null,
+          "after": true
+        }
+      ],
+      "vocal_controls_protected": 17,
+      "voice_identical_without_and_with21": true,
+      "compiled_scoreless_differences_without_and_with21": [
+        {
+          "path": "/instruments/3/slots/amp_make",
+          "before": "amp_american_ampeg_svt",
+          "after": "amp_american_ampeg_b15"
+        },
+        {
+          "path": "/traditions/1",
+          "before": "forro_brasileiro",
+          "after": "cumbia"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "joropo",
+          "after": "forro_brasileiro"
+        }
+      ],
+      "original_browser_connector_parity_4formats": true,
+      "compiled_vocal_pin_errors": [],
+      "inherited_unpinned_count": 19,
+      "invalid_declared_by_owner": [],
+      "remaining_blocker": "New literal piercing drum-kit needs independent semantic assessment: lexicon specifies sustained high pitch. Brushes-and-sticks alone does not establish pitched sustained percussion. Klezmer-dancing accordion already occurs in unchanged baseline and remains explicitly disclosed; no musical-wide PASS."
+    },
+    {
+      "id": "tribal_guarachero",
+      "status": "SOURCE_SUPPORTED_NARROW_PROPOSAL_NOT_ACCEPTED",
+      "changed_source_fields": [
+        {
+          "path": "/tradition/parts/drum_machine_808_context",
+          "before": "drum_machine_808_miami",
+          "after": "drum_machine_808_rb"
+        },
+        {
+          "path": "/tradition/parts/sampler_classic_context",
+          "before": "sampler_classic_hiphop",
+          "after": "sampler_classic_edm"
+        },
+        {
+          "path": "/tradition/parts/voice_articulation",
+          "before": null,
+          "after": "legato_voice"
+        },
+        {
+          "path": "/tradition/parts/voice_effort",
+          "before": null,
+          "after": "effort_moderate"
+        },
+        {
+          "path": "/tradition/parts/voice_estill_quality",
+          "before": "voice_estill_speech",
+          "after": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_microtone",
+          "before": "tempered_voice",
+          "after": "voice_microtone_local_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_single_lead"
+        },
+        {
+          "path": "/tradition/parts/voice_ornament_system",
+          "before": "voice_ornament_none",
+          "after": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_quality",
+          "before": "chest_mix_belt_voice",
+          "after": "voice_quality_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_register",
+          "before": "mix_voice",
+          "after": "voice_register_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_tessitura",
+          "before": null,
+          "after": "voice_tessitura_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_tradition",
+          "before": "modern_pop_vocal_training",
+          "after": "voice_tradition_source_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "voice_vibrato_local_unspecified"
+        },
+        {
+          "path": "/tradition/parts/voice_vocal_tract",
+          "before": null,
+          "after": "tract_neutral"
+        },
+        {
+          "path": "/tradition/pin_parts",
+          "before": null,
+          "after": true
+        }
+      ],
+      "vocal_controls_protected": 17,
+      "voice_identical_without_and_with21": true,
+      "compiled_scoreless_differences_without_and_with21": [
+        {
+          "path": "/traditions/1",
+          "before": "cumbia_peruvian",
+          "after": "cumbia"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "cumbia_chilena",
+          "after": "cumbia_peruvian"
+        }
+      ],
+      "original_browser_connector_parity_4formats": true,
+      "compiled_vocal_pin_errors": [],
+      "inherited_unpinned_count": 3,
+      "invalid_declared_by_owner": [
+        {
+          "instrument": "sampler_classic",
+          "part": "electronic_technique",
+          "selected": "electronic_pad_drone",
+          "valid": false,
+          "status": "DECLARED"
+        }
+      ],
+      "remaining_blocker": "Inherited shared electronic_pad_drone is valid on digital_subtractive but inapplicable to sampler_classic. No new orphan flat key; sampler technique remains unprotected. Vocal correction and authored pop/EDM context are source-supported; entire-control acceptance awaits root/peer judgment or separate meaningful source-supported repair. No sustained-loop substitution or owner removal attempted."
+    },
+    {
+      "id": "bossbeat",
+      "status": "SOURCE_SUPPORTED_NARROW_PROPOSAL_NOT_ACCEPTED",
+      "changed_source_fields": [
+        {
+          "path": "/tradition/parts",
+          "before": null,
+          "after": {
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "crooner_voice",
+            "voice_articulation": "legato_voice",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed"
+          }
+        },
+        {
+          "path": "/tradition/pin_parts",
+          "before": null,
+          "after": true
+        }
+      ],
+      "vocal_controls_protected": 17,
+      "voice_identical_without_and_with21": true,
+      "compiled_scoreless_differences_without_and_with21": [],
+      "original_browser_connector_parity_4formats": true,
+      "compiled_vocal_pin_errors": [],
+      "inherited_unpinned_count": 31,
+      "invalid_declared_by_owner": [],
+      "remaining_blocker": "New literal spoken-flowing voice conflicts with protected sung delivery: original lexicon explicitly rhythmic-spoken-flow no-pitch. Near-spoken intimate bossa remains pitched singing, not justification for no-pitch rap mechanism. Inherited instrumental prefaces also remain. No further variant trial."
+    }
+  ]
+}

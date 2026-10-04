@@ -1,0 +1,50 @@
+{
+  "id": "rave",
+  "name": "Rave",
+  "family": "electronic",
+  "lineage": "Rave developed around collective electronic dance events and DJ culture, connecting acid house, techno, breakbeats and subsequent hard-dance scenes. Its late-1980s and 1990s British history sits within wider international club and sound-system exchanges, with later generations continually revisiting and reshaping the repertoire.",
+  "recipe": "classic 1987-1989 rave, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 88,
+  "score": 0.063,
+  "config": {
+    "traditions": [
+      "rave"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Indian Holi (festival of colors) and Diwali (festival of lights) processional tradition continuous from premodern Indian festival celebration practice through 19th-20th century continuous performance into modern Indian-and-Indian-diaspora continuous festival-practice; Holi processional integrates extensive dholak-and-shehnai-and-vocal participation alongside color-throwing, Diwali integrates devotional kirtan-and-bhajan with lamp-procession",
   "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional hindu stuti and bhajan mappila paattu. vocal fry, declaimed, straight onset, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, ringing pitched indian rosewood rosewood tabla, dhol. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 629,
-  "score": 266.55,
+  "score": 266.456,
   "config": {
     "traditions": [
       "indian_holi_diwali_processional",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.47,
-          "voice_quality": 19.951249999999995,
+          "voice_register": 2.42125,
+          "voice_quality": 19.996249999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7950000000000004,
@@ -47,7 +47,7 @@
           "voice_speech_song": 25.642500000000002,
           "voice_ensemble_config": 19.825000000000003,
           "voice_ornament_system": 11.075,
-          "voice_pitch_organization": 6.6587499999999995,
+          "voice_pitch_organization": 6.61375,
           "voice_processing_chain": 5.46,
           "voice_multitrack_stack": 3.5100000000000002
         }
@@ -106,7 +106,7 @@
         },
         "scores": {
           "dhol_form": 21.255000000000003,
-          "dhol_repertoire": 10.839999999999996,
+          "dhol_repertoire": 10.794999999999996,
           "dhol_shell": 2.4050000000000002
         }
       }

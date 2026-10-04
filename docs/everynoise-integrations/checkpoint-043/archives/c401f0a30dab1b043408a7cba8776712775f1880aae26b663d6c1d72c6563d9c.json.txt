@@ -1,0 +1,583 @@
+{
+  "entries": [
+    {
+      "source_label": "ho munda",
+      "source_url": "https://everynoise.com/engenremap-homunda.html",
+      "suggested_id": "ho_munda",
+      "allocation_ordinal": 3433,
+      "allocation_group_id": "138",
+      "id": "ho_munda",
+      "status": "CANDIDATE_PENDING_RUNTIME_PEER",
+      "tradition": {
+        "id": "ho_munda",
+        "name": "Ho Munda",
+        "family": "global",
+        "lineage": "Ho community music links seasonal songs with collective dance in Singhbhum and adjoining eastern India. Courtship, harvest, weddings and Mage celebrations combine bamboo-flute melodies, communal singing and interlocking drum rhythms.",
+        "instruments": [
+          "voice",
+          "credited_bamboo_flute_unspecified",
+          "ho_dama_kettle_drum",
+          "ho_dumang_double_headed_drum"
+        ],
+        "room": "field_recording",
+        "pin_parts": true,
+        "parts": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "ho_dama_kettle_drum_construction": "ho_dama_kettle_drum_construction_documented",
+          "ho_dama_kettle_drum_membranes": "ho_dama_kettle_drum_membranes_documented",
+          "ho_dama_kettle_drum_excitation": "ho_dama_kettle_drum_excitation_documented",
+          "ho_dumang_double_headed_drum_construction": "ho_dumang_double_headed_drum_construction_documented",
+          "ho_dumang_double_headed_drum_membranes": "ho_dumang_double_headed_drum_membranes_documented",
+          "ho_dumang_double_headed_drum_excitation": "ho_dumang_double_headed_drum_excitation_documented"
+        }
+      },
+      "extras": {
+        "parent": "wedding",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Sung phrases and flute melodies guide the dancers while a single-headed kettle drum and a double-headed drum articulate the shared pulse. Formations and song repertories change with the season and occasion; the ensemble supports communal movement rather than a fixed concert arrangement.",
+        "exemplars": [
+          "Uma Kumari and group"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        22.553,
+        85.802,
+        "Singhbhum",
+        "South Asia"
+      ],
+      "geo_rationale": "Institutionally documented Ho Munda home region, not a claim about a Mumbai show recording location.",
+      "signature_tokens": [],
+      "model_policy": "Representative sung Ho community-dance branch, using all positive NCPA role classes: communal voice, bamboo flute, dama kettle drum and dumang double-headed drum. Government ethnography and the Ho vocabulary identify rutu as flute; NCPA’s loose percussion grouping is not interpreted as an additional drum. No precise performer count, voice range, flute holes, drum shell material, membrane species, dimensions, tuning, hand-versus-stick stroke or recording apparatus is inferred. Drum architecture and membrane counts are positively documented; striking excitation follows the explicit drummer/beat descriptions. Field acoustics are an authored community setting, not a measured Mumbai recording. Other documented Ho ritual branches use fiddle, bells or other drums; this chosen dance branch does not claim to exhaust all Ho musical practice. Existing voice controls retain source-neutral physiology and accompanied group identity; melodic syllabic delivery is an authored seasonal-song realization, not a transcription. Communal singing is realized as a live ensemble with no overdub stack, not a known recording-session claim. Punctuated syllabic seasonal-song articulation is authored; the generated clapping-and-syllabicizing adjective must be reviewed as a delivery description, not evidence of an added handclap instrument.",
+      "neighbor_distinction": "Ho Munda names the Ho community’s music rather than all neighboring Munda-language or Santal repertoires. NCPA explicitly identifies Ho Munda of Singhbhum and distinguishes its dance troupe from Nagpuri songs and other Jharkhand forms. Existing Santali Pop describes contemporary Santal-language popular recording and is not a translation of this Ho community field. Regional interaction is retained, and the present traditional branch does not exclude contemporary Ho recordings.",
+      "source_scope_limitation": "Original flute-only packet remains immutable and held. Fresh full NCPA text discloses drums and seasonal songs; this derivative restores those roles. Government ethnography clarifies rutu flute and two drum constructions, while additional fiddle/bell roles concern the wider inventory rather than every ensemble. Source-specific unknown physical dimensions and materials remain unknown. No universal or exclusive ensemble claim.",
+      "sources": [
+        {
+          "url": "https://www.ncpamumbai.com/news/the-legacy-of-folk-forms/",
+          "title": "NCPA: The Legacy of Folk Forms",
+          "support_notes": "Fresh full indexed14987search4 explicitly describes Ho troupe swaying to bansuri melodies, as practised by Ho Munda; direct14988view1 blocked."
+        },
+        {
+          "url": "https://www.ncpamumbai.com/event/living-traditions-festival-of-jharkhand-day-1/",
+          "title": "NCPA Living Traditions2024: Ho dance",
+          "support_notes": "Fresh14987search2 own programme establishes community, mixed participation, courtship/harvest/wedding functions; announced practice not claimed observed execution."
+        },
+        {
+          "url": "https://ccrtindia.gov.in/wp-content/fellowship_research_project/TribalSongsOdisha.pdf",
+          "title": "CCRT funded original fieldwork: Tribal Folk Song of Odisha",
+          "support_notes": "Fresh14987search9 exact p22 indexed full Ho-Munda Dasayeen passage, separate singing/bansi/sarangi/kansa ritual branch. Direct14988view0 failed; not merged with NCPA dance instrumentation."
+        },
+        {
+          "url": "https://tribal.nic.in/repository/ViewDoc.aspx?RepositoryNo=TRI28-08-2017121607&file=Docs%2FTRI28-08-2017121607.pdf",
+          "title": "Government tribal repository: Ho ethnography, Dance and Music p25",
+          "support_notes": "Fresh full indexed15184search15 positively identifies dama single membrane, dumang double membrane, rutu flute and communal singing. Direct15186view0 timed out; indexed receipt retained."
+        },
+        {
+          "url": "https://endangeredlanguages.com/node/110017/printable/print",
+          "title": "O Foundation filmmaker: Mage Porob documentary description",
+          "support_notes": "Fresh direct15186view1 full description explicitly identifies dama kettle drum, dumeng and coordinated drummers; own film2019 and community collaboration. No assumption whole soundtrack contains only those roles."
+        },
+        {
+          "url": "https://michaelyorke.org/wp-content/uploads/2023/08/ENGLISH-HO-VOCABULARY-by-JOHN-DEENEY.pdf",
+          "title": "John Deeney English–Ho vocabulary",
+          "support_notes": "Fresh15184search13 establishes rutu=flute, corroborating government source rather than treating NCPA loose list as drum taxonomy."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15182view1",
+        "turn15184search15",
+        "turn15184search13",
+        "turn15186view1"
+      ],
+      "classification_evidence": "Ho Munda names the Ho community’s music rather than all neighboring Munda-language or Santal repertoires. NCPA explicitly identifies Ho Munda of Singhbhum and distinguishes its dance troupe from Nagpuri songs and other Jharkhand forms. Existing Santali Pop describes contemporary Santal-language popular recording and is not a translation of this Ho community field. Regional interaction is retained, and the present traditional branch does not exclude contemporary Ho recordings.",
+      "source_retrieval_caveat": "NCPA and filmmaker full direct text reproduced; government and dictionary indexed passages reproduced, government direct timeout candid. No visual construction claim from undownloaded Commons image.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ho_munda",
+          "name": "Ho Munda",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15211view0 confirms original creator/crop and CC BY2.5; historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn15211view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15211view0"
+        ],
+        "fresh_rights_review": "Fresh turn15211view0 rights only; historical image bytes and visual receipt unchanged."
+      },
+      "dependency_audit": "Two reserved genuine Ho drum identities, three source-supported physical controls each; raw records cache-free. Runtime verifies1653 baseline owners unchanged around in-memory addition,26 protected controls and original API pins preserved.",
+      "verification_status": "Pending independent new-owner and full runtime qualification."
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "ho_dama_kettle_drum",
+        "name": "Ho dama kettle drum",
+        "short": "Ho dama kettle drum",
+        "family": "percussion",
+        "class": "ho_dama_kettle_drum",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "description": "A Ho single-headed kettle drum, sounded by striking a stretched membrane over a kettle-shaped resonator.",
+        "sources": [
+          "https://tribal.nic.in/repository/ViewDoc.aspx?RepositoryNo=TRI28-08-2017121607&file=Docs%2FTRI28-08-2017121607.pdf",
+          "https://endangeredlanguages.com/node/110017/printable/print"
+        ],
+        "parts": [
+          {
+            "id": "ho_dama_kettle_drum_construction",
+            "name": "construction",
+            "variants": [
+              {
+                "id": "ho_dama_kettle_drum_construction_documented",
+                "name": "Kettle-shaped resonator; shell material and dimensions unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": [
+                  "kettle-drum"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ho_dama_kettle_drum_membranes",
+            "name": "membranes",
+            "variants": [
+              {
+                "id": "ho_dama_kettle_drum_membranes_documented",
+                "name": "One stretched membrane; skin species unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": [
+                  "membranophone"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ho_dama_kettle_drum_excitation",
+            "name": "excitation",
+            "variants": [
+              {
+                "id": "ho_dama_kettle_drum_excitation_documented",
+                "name": "Struck drum; hand or stick choice and stroke pattern unspecified",
+                "default": true,
+                "descriptors": [
+                  "struck"
+                ],
+                "match_tokens": [
+                  "struck",
+                  "percussive-attack"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "ho_dama_kettle_drum",
+        "name": "Ho dama kettle drum",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "ho_dama_kettle_drum",
+          "name": "Ho dama kettle drum",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15211view0 confirms original creator/crop and CC BY2.5; historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn15211view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15211view0"
+        ],
+        "fresh_rights_review": "Fresh turn15211view0 rights only; historical image bytes and visual receipt unchanged."
+      },
+      "source_evidence": "Government ethnography15184search15 establishes membrane count; filmmaker15186view1 establishes dama kettle form and both sounded drum identities. All neutral axes editorial; no source-specific timbre/size/skin inferred. Existing Nepali madal has culturally specific role presets and existing dhamsa requires unverified iron/size/hide controls, so these are genuine identities, not alternate names created for prefix avoidance. Architecture clarification: Ho community drum with documented architecture; no neighboring culture’s construction preset, exact tuning, shell/skin material or stroke invented. Known acoustic excitation is represented by transduction=-2, following existing acoustic drum owners; struck and double-headed are frozen descriptor tokens. Kettle-drum and membranophone match tokens follow existing dhamsa architecture usage. Unspecified shell/skin species, dimensions, tuning and hand/stick method remain unknown; no timbral adjectives inferred."
+    },
+    {
+      "record": {
+        "id": "ho_dumang_double_headed_drum",
+        "name": "Ho dumang double-headed drum",
+        "short": "Ho dumang double-headed drum",
+        "family": "percussion",
+        "class": "ho_dumang_double_headed_drum",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "description": "A Ho double-headed drum, sounded by striking the stretched membranes at the two ends of its resonating body.",
+        "sources": [
+          "https://tribal.nic.in/repository/ViewDoc.aspx?RepositoryNo=TRI28-08-2017121607&file=Docs%2FTRI28-08-2017121607.pdf",
+          "https://endangeredlanguages.com/node/110017/printable/print"
+        ],
+        "parts": [
+          {
+            "id": "ho_dumang_double_headed_drum_construction",
+            "name": "construction",
+            "variants": [
+              {
+                "id": "ho_dumang_double_headed_drum_construction_documented",
+                "name": "Double-ended drum body; shell material and dimensions unspecified",
+                "default": true,
+                "descriptors": [
+                  "double-headed"
+                ],
+                "match_tokens": [
+                  "double-headed"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ho_dumang_double_headed_drum_membranes",
+            "name": "membranes",
+            "variants": [
+              {
+                "id": "ho_dumang_double_headed_drum_membranes_documented",
+                "name": "Two stretched membranes; skin species unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": [
+                  "membranophone"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ho_dumang_double_headed_drum_excitation",
+            "name": "excitation",
+            "variants": [
+              {
+                "id": "ho_dumang_double_headed_drum_excitation_documented",
+                "name": "Struck drum; hand or stick choice and stroke pattern unspecified",
+                "default": true,
+                "descriptors": [
+                  "struck"
+                ],
+                "match_tokens": [
+                  "struck",
+                  "percussive-attack"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "ho_dumang_double_headed_drum",
+        "name": "Ho dumang double-headed drum",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "ho_dumang_double_headed_drum",
+          "name": "Ho dumang double-headed drum",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15211view0 confirms original creator/crop and CC BY2.5; historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn15211view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15211view0"
+        ],
+        "fresh_rights_review": "Fresh turn15211view0 rights only; historical image bytes and visual receipt unchanged."
+      },
+      "source_evidence": "Government ethnography15184search15 establishes membrane count; filmmaker15186view1 establishes dama kettle form and both sounded drum identities. All neutral axes editorial; no source-specific timbre/size/skin inferred. Existing Nepali madal has culturally specific role presets and existing dhamsa requires unverified iron/size/hide controls, so these are genuine identities, not alternate names created for prefix avoidance. Architecture clarification: Ho community drum with documented architecture; no neighboring culture’s construction preset, exact tuning, shell/skin material or stroke invented. Known acoustic excitation is represented by transduction=-2, following existing acoustic drum owners; struck and double-headed are frozen descriptor tokens. Kettle-drum and membranophone match tokens follow existing dhamsa architecture usage. Unspecified shell/skin species, dimensions, tuning and hand/stick method remain unknown; no timbral adjectives inferred."
+    }
+  ]
+}

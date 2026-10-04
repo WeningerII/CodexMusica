@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-401.json",
+  "sha256": "7c670ed4aedd3380e9612d5a30785ba68a3734ec75b6f1d355a46cc041247ebb",
+  "packet_sha256": "7c670ed4aedd3380e9612d5a30785ba68a3734ec75b6f1d355a46cc041247ebb",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "middle_east_hip_hop",
+  "immutable_allocation": {
+    "source_label": "middle east hip hop",
+    "source_url": "https://everynoise.com/engenremap-middleeasthiphop.html",
+    "suggested_id": "middle_east_hip_hop",
+    "allocation_ordinal": 401,
+    "allocation_group_id": "017"
+  },
+  "source_review": {
+    "finding": "Fresh firsthand Narcy interviews turn15263view0 and turn15269view0 independently establish English/Arabic practice, UAE/Montréal community links and MC/producer rhythmic backing. Fresh full creator turn15269view1/15277search0 includes Narcy alongside Palestinian, Jordanian, Syrian and other practitioners. No full album or orchestra claimed represented.",
+    "urls": [
+      "https://scenenoise.com/Features/the-multiple-dimensions-of-narcys-spacetime",
+      "https://thehundreds.com/blogs/content/the-narcicyst",
+      "https://www.furia.com/everynoise_public/engenremap-middleeasthiphop.html",
+      "https://www.files.ethz.ch/isn/118823/State_of_Arts_V.pdf"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "arabic_hip_hop",
+      "iraqi_hip_hop",
+      "palestinian_hip_hop",
+      "persian_hip_hop",
+      "gulf_hip_hop"
+    ],
+    "finding": "The actual Arabic row is explicitly language-centered, not only DAM; this Middle Eastern regional/diasporic field positively includes primarily English and bilingual participation. National Iraqi/Palestinian and Gulf fields are nested geographic communities, Persian a language network. Strong overlap acknowledged; no claim exclusive sound or exhaustive equal country coverage. Narcy membership alone is supplemented by firsthand network/language evidence."
+  },
+  "source_limits": [
+    "Authored representative genre branch, not exact master roster, headcount or gear specification."
+  ],
+  "representative_practice": "Representative MC-and-produced-beat branch. Narcy’s first-person interview describes Euphrates as an Iraqi producer/MC trio and discusses constructing rhythmic backing from kicks and snares; the separate orchestral Narcinerama concert is not the modeled practice. One accompanied rhythmic lead, source-unspecified physiology and pitch organization, natural capture and treated studio are authored representative settings. Complete produced backing remains represented without inventing sample or synthesis architecture. This is not a reduction of the entire World War Free Now or SpaceTime album, whose guests and instrumental collaborations remain outside this general-practice model.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 18,
+    "pinned_parts": 18,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Spoken-flowing/no-pitch is coherent with the deliberately rapped branch; solo-with-instrumental-accompaniment accurately retains the beat. Frosty lexicon denotes clean/clinical brightness, compatible with authored dry production and not an invented instrumental mechanism. Dead-booth capture is authored. No synthetic vocal processing, added singers/instruments, tuning, measured tempo, or cultural performance technique appears. Compiled classic wording is generic template style, not evidence of a historical period.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/candidate-401-runtime.json",
+    "runtime_sha256": "1f54fada61e788238739846ceb1fd3b140f1eb0e9035924069d28715a312fec9"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes.",
+  "atlas_review": {
+    "status": "PASS",
+    "geo": [
+      25.2048,
+      55.2708,
+      "Dubai",
+      "Middle East"
+    ],
+    "policy": "scripts/_atlas_regions.js actual canonical region/place-only validator"
+  }
+}

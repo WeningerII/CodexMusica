@@ -3,9 +3,9 @@
   "name": "Gospel quartet (male)",
   "family": "global",
   "lineage": "Black-American male-quartet gospel tradition that emerged from late-19th-century Fisk Jubilee Singers university choirs and the parallel post-WWI Black Church male-quartet tradition — codified through the Golden Gate Quartet (the pre-WWII quartet, founded 1934), the Soul Stirrers (where Sam Cooke fronted before his secular pop crossover), the Dixie Hummingbirds, the Mighty Clouds of Joy, the Swan Silvertones, the Five Blind Boys of Alabama, the Pilgrim Travelers — most active 1930s-60s, with the modern continuation through the Williams Brothers and the broader gospel-quartet circuit",
-  "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 945,
-  "score": 570.243,
+  "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. multi note runs per syllable, equal tempered, gospel pentecostal, belt quality high larynx thick fold. sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sticks pocket drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 822,
+  "score": 463.952,
   "config": {
     "traditions": [
       "gospel_quartet_male",
@@ -16,54 +16,54 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_register": "mix_voice",
+          "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "melisma_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
           "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_melismatic_singing",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_ornament_system": "voice_ornament_gospel_runs",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
         },
         "scores": {
-          "voice_register": 41.626625000000004,
-          "voice_quality": 45.95212500000001,
+          "voice_register": 0.03712499999999999,
+          "voice_quality": 0.13000000000000003,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 1.17,
+          "voice_effort": 0.045,
+          "voice_vibrato": 0.03712499999999999,
           "voice_articulation": 37.185,
-          "voice_microtone": 7.280000000000001,
+          "voice_microtone": 2.460000000000001,
           "voice_tradition": 46.211625,
-          "voice_mechanism_compound": 1.3,
+          "voice_mechanism_compound": 0.105,
           "voice_estill_quality": 39.515,
-          "voice_speech_song": 10.659999999999997,
+          "voice_speech_song": 1.04,
           "voice_ensemble_config": 37.102125,
-          "voice_ornament_system": 9.15,
-          "voice_pitch_organization": 0.45500000000000007,
-          "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 2.925
+          "voice_ornament_system": 39.24925,
+          "voice_pitch_organization": 0.24712499999999998,
+          "voice_processing_chain": 0.845,
+          "voice_multitrack_stack": 1.69
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_size": "mens_chorus",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_none",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.1849999999999996,
-          "choir_polyphonic_configuration": 2.925,
-          "choir_regional_canonical_configuration": 1.6249999999999998,
+          "choir_size": 0.08099999999999999,
+          "choir_polyphonic_configuration": 0.03712499999999999,
+          "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 4.29
         }
       },
@@ -78,7 +78,7 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 45.569250000000004,
@@ -89,7 +89,7 @@
           "piano_soundboard": 6.355,
           "piano_pinblock": 4.3815,
           "piano_plate": 3.895,
-          "piano_pitch_standard": 5.996124999999999
+          "piano_pitch_standard": 4.615
         }
       },
       {
@@ -115,50 +115,102 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_motown",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 6.004125,
-          "body_wood": 0.08775000000000001,
-          "pickup_config": 0.1949999999999999,
+          "body_wood": 0.043875,
+          "pickup_config": 0,
           "string_type": 3.3799999999999994,
-          "scale_length_b": 0.3873749999999999,
-          "fretted_or_not": 0.845,
-          "bass_technique": 3.75,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.05,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_technique": "sticks_motown",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 7.54,
-          "drumhead": 7.355,
+          "drum_technique": 2.45,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_nickel",
-          "tambourine_orch_context": "tambourine_orch_film"
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.65,
-          "tambourine_orch_context": 0.845
+          "tambourine_orch_jingle": -0.035,
+          "tambourine_orch_context": 0.65
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "choir_ensemble": [
+        "choir_size",
+        "choir_polyphonic_configuration",
+        "choir_regional_canonical_configuration",
+        "choir_ensemble_repertoire"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "piano_pitch_standard"
+      ],
+      "tonewheel_organ": [
+        "keyboard_technique",
+        "drawbar_setting",
+        "rotary_speed",
+        "tonewheel_model"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead"
+      ],
+      "tambourine_orch": [
+        "tambourine_orch_jingle",
+        "tambourine_orch_context"
+      ]
+    },
     "room": "southern_black_church_gospel_choir",
     "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
@@ -193,23 +245,29 @@
       "voice_tradition": "gospel_pentecostal_tradition",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
+      "voice_ornament_system": "voice_ornament_gospel_runs",
       "voice_estill_quality": "voice_estill_belt",
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "choir_size": "gospel_choir",
-      "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+      "choir_size": "mens_chorus",
+      "choir_ensemble_repertoire": "choir_ensemble_sacred_global",
       "keyboard_technique": "keyboard_gospel_chord_runs",
       "piano_pitch_standard": "a_440_modern",
       "drawbar_setting": "gospel_drawbars",
       "rotary_speed": "fast_tremolo",
       "tonewheel_model": "tonewheel_hammond_b3",
       "tambourine_orch_jingle": "tambourine_orch_brass",
-      "tambourine_orch_context": "tambourine_orch_orch"
+      "tambourine_orch_context": "tambourine_orch_orch",
+      "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+      "choir_regional_canonical_configuration": "choir_regional_none",
+      "voice_articulation": "melisma_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected"
     },
+    "pin_parts": true,
     "chain_mic": "mic_u47_tube_neumann",
     "chain_pre": "pre_tube_german_v72",
     "chain_comp": "comp_vari_mu",

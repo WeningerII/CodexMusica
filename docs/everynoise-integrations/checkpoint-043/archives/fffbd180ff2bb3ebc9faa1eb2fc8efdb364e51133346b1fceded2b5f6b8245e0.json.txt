@@ -1,0 +1,399 @@
+{
+  "entries": [
+    {
+      "source_label": "necrotrap",
+      "source_url": "https://everynoise.com/engenremap-necrotrap.html",
+      "suggested_id": "necrotrap",
+      "allocation_ordinal": 3974,
+      "allocation_group_id": "159",
+      "id": "necrotrap",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "necrotrap",
+        "name": "Necrotrap",
+        "family": "hip_hop",
+        "lineage": "Necrotrap is an online underground rap field connecting dark trap production, abrasive low bass and screamed delivery. Its producers and performers circulate through small internet networks alongside dark trap and trap metal. Distortion and clipped 808 sounds are prominent options rather than a requirement for every release.",
+        "instruments": [
+          "voice",
+          "produced_808_bass",
+          "credited_programmed_drums_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_overdriven_scream",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "produced_808_bass_identity": "produced_808_bass_low_bass",
+          "produced_808_bass_decay": "produced_808_bass_long_decay",
+          "produced_808_bass_processing": "produced_808_bass_soft_clipped",
+          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "Harsh rhythmic vocals confront forceful produced beats and low bass. Clipping, sparse threatening textures and abrupt vocal accents can intensify the delivery; calmer and more melodic productions also circulate within the field.",
+        "exemplars": [
+          "Gorejit",
+          "SLXNDXR",
+          "FXCY"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        47.1625,
+        19.5033,
+        "Hungary",
+        "Europe"
+      ],
+      "geo_rationale": "Approximate land anchor for the Hungary-based first-person artist FXCY/Tigaro account. It is one documented participant location in an international internet field, not an asserted birthplace or exact residence.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "necrotrap",
+          "name": "Necrotrap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative screamed-rap lead, produced 808 low bass and programmed percussion. SLXNDXR explicitly describes necrotrap beat production, 808 clipping and two master soft clippers; the isolated bass owner now preserves low-bass identity and soft-clipped amplitude processing as meaningful controls. Its long decay is an authored representative 808-bass choice, not a measured envelope from the source. The bass generator may be sampled or synthesized; no exact original Roland circuit, RD8, TR8S, plugin or hardware is invented. Remaining programmed percussion is retained separately, with drum generator and inventory unspecified. Overdriven scream effort and rhythmic spoken flow reflect the firsthand FXCY screaming branch without invented physiological technique. Voice is unprocessed in this authored rendition; source-described clipping belongs to backing production. Solo accompanied lead and live-room presentation are authored. The energetic pacing is a representative loud-trap rendition, not a universal measured tempo. This is a genre practice, not an exact master reconstruction.",
+      "neighbor_distinction": "The full existing dark_trap umbrella already covers ominous internet trap and low bass, while horrorcore includes violent narrative, horror samples and screamed layers across several US histories. Necrotrap strongly overlaps both; it is retained as the creator-classified contemporary producer/performance network independently named by SLXNDXR and FXCY, not a claim that distortion or horror imagery is unique. Trap metal also overlaps screamed delivery, but heavy guitar is not asserted universally here. The existing necrogrind metal category is a different practice, not a spelling equivalent. No exclusive corpus, separate national origin or universal equipment is invented.",
+      "sources": [
+        {
+          "url": "https://www.soundbetter.com/profiles/596182-slxndxr",
+          "title": "SLXNDXR — producer-owned service and Q&A",
+          "support_notes": "Firsthand named necrotrap production, clipped 808 low bass and Gorejit/necrosociety network; no exact instrument architecture stated.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://supremepr.us/artist-interviews/fxcy/omeany2/",
+          "title": "FXCY — first-person promotional artist interview",
+          "support_notes": "Hungary-based rapper/producer explicitly names necrotrap and screaming; promotional provenance disclosed.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5U9DKTJsoG7y7HYwjTtkZh",
+          "title": "The Sound of Necrotrap — original creator corpus",
+          "support_notes": "Creator field includes Gorejit, also named by producer; corpus is taxonomy evidence, not full instrumentation evidence.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15194view0",
+        "turn15194view1",
+        "turn15196search0"
+      ],
+      "source_scope_limitation": "Representative voice, clipped 808 low bass and programmed percussion, preserving the production roles positively described by the producer. Unknown generator architectures are not converted into named hardware. No full sample inventory or exact artist session asserted.",
+      "source_retrieval_caveat": "The artist interview is a first-person promotional submission. SoundBetter is producer-owned commercial testimony. Creator playlist was retrieved as a primary indexed Spotify result; no audio audition claimed."
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "produced_808_bass",
+        "name": "Produced 808 low bass",
+        "short": "Produced 808 bass",
+        "family": "electronic",
+        "class": "produced_808_bass",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 1,
+          "polyphony": -1,
+          "harmonicity": 0,
+          "register": -2,
+          "range": -1,
+          "articulation": 0,
+          "transduction": 2,
+          "dynamics": 0
+        },
+        "description": "808-derived low-bass production role, distinct from a complete named hardware rhythm machine. Sound-generation architecture may be sampled or synthesized and remains unspecified unless independently documented. Decay and clipping controls describe audible production choices without claiming a particular circuit, plugin or device.",
+        "sources": [
+          "https://www.soundbetter.com/profiles/596182-slxndxr"
+        ],
+        "parts": [
+          {
+            "id": "produced_808_bass_identity",
+            "name": "Low-bass role",
+            "variants": [
+              {
+                "id": "produced_808_bass_low_bass",
+                "name": "808-derived low-bass sound; sampled or synthesized generator unspecified",
+                "default": true,
+                "descriptors": [
+                  "sub-bass",
+                  "low"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "produced_808_bass_decay",
+            "name": "Bass decay",
+            "variants": [
+              {
+                "id": "produced_808_bass_long_decay",
+                "name": "Authored long-decay low bass",
+                "default": true,
+                "descriptors": [
+                  "long-decay"
+                ],
+                "match_tokens": []
+              },
+              {
+                "id": "produced_808_bass_short_decay",
+                "name": "Authored short-decay low bass",
+                "default": false,
+                "descriptors": [
+                  "short-decay"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "produced_808_bass_processing",
+            "name": "Amplitude processing",
+            "variants": [
+              {
+                "id": "produced_808_bass_soft_clipped",
+                "name": "Soft-clipped 808 low bass; clipper implementation unspecified",
+                "default": true,
+                "descriptors": [
+                  "clipped"
+                ],
+                "match_tokens": []
+              },
+              {
+                "id": "produced_808_bass_unclipped",
+                "name": "Unclipped low bass",
+                "default": false,
+                "descriptors": [
+                  "clean"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "produced_808_bass",
+        "name": "Produced 808 low bass",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "produced_808_bass",
+          "name": "Produced 808 low bass",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      },
+      "sources": [
+        "https://www.soundbetter.com/profiles/596182-slxndxr"
+      ],
+      "source_evidence": "Firsthand producer explicitly states 808 bass and clipping; separate decay and clipping controls preserve meaningful production behavior. Sample/synthesis architecture unknown. Existing Roland TR808 owner forces hardware provenance unavailable here.",
+      "preservation_policy": "New isolated class and local parts, no shared family/part changes; existing owners must remain deep-equal under full original merge."
+    }
+  ]
+}

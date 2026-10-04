@@ -1,0 +1,154 @@
+{
+  "id": "produced_808_bass",
+  "name": "Produced 808 low bass",
+  "short": "Produced 808 bass",
+  "family": "electronic",
+  "class": "produced_808_bass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "description": "808-derived low-bass production role, distinct from a complete named hardware rhythm machine. Sound-generation architecture may be sampled or synthesized and remains unspecified unless independently documented. Decay and clipping controls describe audible production choices without claiming a particular circuit, plugin or device.",
+  "sources": [
+    "https://www.soundbetter.com/profiles/596182-slxndxr"
+  ],
+  "parts": [
+    {
+      "id": "produced_808_bass_identity",
+      "name": "Low-bass role",
+      "variants": [
+        {
+          "id": "produced_808_bass_low_bass",
+          "name": "808-derived low-bass sound; sampled or synthesized generator unspecified",
+          "default": true,
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_808_bass_decay",
+      "name": "Bass decay",
+      "variants": [
+        {
+          "id": "produced_808_bass_long_decay",
+          "name": "Authored long-decay low bass",
+          "default": true,
+          "descriptors": [
+            "long-decay"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_808_bass_short_decay",
+          "name": "Authored short-decay low bass",
+          "default": false,
+          "descriptors": [
+            "short-decay"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_808_bass_processing",
+      "name": "Amplitude processing",
+      "variants": [
+        {
+          "id": "produced_808_bass_soft_clipped",
+          "name": "Soft-clipped 808 low bass; clipper implementation unspecified",
+          "default": true,
+          "descriptors": [
+            "clipped"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_808_bass_unclipped",
+          "name": "Unclipped low bass",
+          "default": false,
+          "descriptors": [
+            "clean"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "produced_808_bass_identity",
+      "name": "Low-bass role",
+      "variants": [
+        {
+          "id": "produced_808_bass_low_bass",
+          "name": "808-derived low-bass sound; sampled or synthesized generator unspecified",
+          "default": true,
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_808_bass_decay",
+      "name": "Bass decay",
+      "variants": [
+        {
+          "id": "produced_808_bass_long_decay",
+          "name": "Authored long-decay low bass",
+          "default": true,
+          "descriptors": [
+            "long-decay"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_808_bass_short_decay",
+          "name": "Authored short-decay low bass",
+          "default": false,
+          "descriptors": [
+            "short-decay"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_808_bass_processing",
+      "name": "Amplitude processing",
+      "variants": [
+        {
+          "id": "produced_808_bass_soft_clipped",
+          "name": "Soft-clipped 808 low bass; clipper implementation unspecified",
+          "default": true,
+          "descriptors": [
+            "clipped"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_808_bass_unclipped",
+          "name": "Unclipped low bass",
+          "default": false,
+          "descriptors": [
+            "clean"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

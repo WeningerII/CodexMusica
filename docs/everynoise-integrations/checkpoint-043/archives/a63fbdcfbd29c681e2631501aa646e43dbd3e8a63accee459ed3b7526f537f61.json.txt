@@ -1,0 +1,195 @@
+{
+  "entries": [
+    {
+      "source_label": "grave wave",
+      "source_url": "https://everynoise.com/engenremap-gravewave.html",
+      "suggested_id": "grave_wave",
+      "allocation_ordinal": 3368,
+      "allocation_group_id": "135",
+      "id": "grave_wave",
+      "status": "CANDIDATE_PENDING_RUNTIME_PEER",
+      "tradition": {
+        "id": "grave_wave",
+        "name": "Grave Wave",
+        "family": "electronic",
+        "lineage": "Grave Wave emerged around a late-2000s and early-2010s network of dark independent music, web publications, labels and clubs. Witch house, post-punk, gothic synth music, industrial electronics and neofolk circulated together through compilations, remixes and DJ programmes.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Nocturnal atmosphere and a shared underground visual culture connect disparate song and electronic styles. DJ programmes move between dark rhythmic tracks, synth textures and guitar-based material rather than relying on one tempo or production method.",
+        "exemplars": [
+          "Ritualz",
+          "Cold Cave",
+          "Soft Metals",
+          "FUNERALS"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        40.7128,
+        -74.006,
+        "New York",
+        "North America"
+      ],
+      "geo_rationale": "Editorial institutional anchor at MishkaNYC, whose own primary names New York and issued the defining compilation; not every artist birthplace or a claimed recording site.",
+      "signature_tokens": [],
+      "model_policy": "Representative DJ-programming branch of the documented Grave Wave community. The artist-supplied Textbeak profile explicitly documents recurring radio mixes and DJ sets with this scene; FUNERALS likewise describes record-spinning events. This is actual mixed-programme practice, not a studio-master sampler shortcut or reconstruction of the 35-track compilation. All embedded vocals, instruments and effects remain in playback; exact decks, source production architectures and embedded voice count are unknown. No separately performed live singer is inferred. Neutral DJ owner preserves source-known playback/mixing while leaving medium and hardware unknown. Brisk dance presentation and controlled live-room listening are authored editable choices compatible with the documented dance-radio branch, not claims about every Grave Wave work or a measured venue/BPM. Broad electronicDance parent applies to this representative DJ branch, not the entire cross-style field.",
+      "neighbor_distinction": "Full witch_house_2010s already covers the early2010s online occult and slowed hip-hop electronic network, including Tri Angle/Disaro and several shared artists. Grave Wave overlaps heavily, but the original Mishka-labelled compilation and its contemporaneous self-promotional announcement explicitly gather witch house with post-punk, neofolk, EBM and gothic revival; the 100-item creator playlist also spans Cold Cave, Cult of Youth, Deux, Ritualz and Salem. The positive boundary is that named cross-style revival/circulation network, not a claim that old Witch House excludes every shared artist. Darkwave/gothic_rock remain broader historical sonic lineages; coldwave and minimal_wave describe more specific early DIY post-punk/synth practices. Existing dark_clubbing is a broad dance-event electronic field, while Grave Wave includes guitar/neofolk and song-based revival repertoire beyond dance production. None are asserted sonically disjoint.",
+      "classification_evidence": "Full witch_house_2010s already covers the early2010s online occult and slowed hip-hop electronic network, including Tri Angle/Disaro and several shared artists. Grave Wave overlaps heavily, but the original Mishka-labelled compilation and its contemporaneous self-promotional announcement explicitly gather witch house with post-punk, neofolk, EBM and gothic revival; the 100-item creator playlist also spans Cold Cave, Cult of Youth, Deux, Ritualz and Salem. The positive boundary is that named cross-style revival/circulation network, not a claim that old Witch House excludes every shared artist. Darkwave/gothic_rock remain broader historical sonic lineages; coldwave and minimal_wave describe more specific early DIY post-punk/synth practices. Existing dark_clubbing is a broad dance-event electronic field, while Grave Wave includes guitar/neofolk and song-based revival repertoire beyond dance production. None are asserted sonically disjoint. Representative DJ-programming branch of the documented Grave Wave community. The artist-supplied Textbeak profile explicitly documents recurring radio mixes and DJ sets with this scene; FUNERALS likewise describes record-spinning events. This is actual mixed-programme practice, not a studio-master sampler shortcut or reconstruction of the 35-track compilation. All embedded vocals, instruments and effects remain in playback; exact decks, source production architectures and embedded voice count are unknown. No separately performed live singer is inferred. Neutral DJ owner preserves source-known playback/mixing while leaving medium and hardware unknown. Brisk dance presentation and controlled live-room listening are authored editable choices compatible with the documented dance-radio branch, not claims about every Grave Wave work or a measured venue/BPM. Broad electronicDance parent applies to this representative DJ branch, not the entire cross-style field.",
+      "source_scope_limitation": "Original Mishka guide URL now unavailable. Its complete contemporary text is retained by a self-promotional forum announcement; attribution is explicit but account identity has not been independently authenticated. Publisher-owned three-disc releases and artist-supplied scene/radio biographies independently corroborate named field and circulation. Current exact creator full100 read; selected Textbeak/FUNERALS not asserted creator members. No sonic exclusivity or all-genre equivalence inferred.",
+      "sources": [
+        {
+          "url": "https://mishkanyc.bandcamp.com/album/the-guide-to-grave-wave-disc-1",
+          "note": "Publisher-owned 2010 compilation: named Grave Wave field and multiple acts; direct15280view0."
+        },
+        {
+          "url": "https://mishkanyc.bandcamp.com/album/the-guide-to-grave-wave-disc-3",
+          "note": "Publisher-issued additional cross-style repertoire, including Cult of Youth,Salem,Ritualz; indexed15282search3."
+        },
+        {
+          "url": "https://witch-house.com/forum/viewtopic.php?t=120",
+          "note": "Contemporaneous2010 self-promotional guide text explicitly defines a cross-style dark revival; full15283view2. Account authenticity limitation retained."
+        },
+        {
+          "url": "https://ra.co/dj/miketextbeak/biography",
+          "note": "Artist-supplied bio positively identifies recurring GraveWave/witchhouse radio mixes, named collaborators and DJ practice; direct15280view1."
+        },
+        {
+          "url": "https://ra.co/dj/funerals/biography",
+          "note": "Artist-supplied2012 profile links Mishka compilation and monthly record-spinning TERRA practice;15279search1."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2Ndvcc1Qz9mNbQemnforB5",
+          "note": "Exact creator Sound of GraveWave100 entries directly15283view0, broader cross-style roster read in full."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15280view0",
+        "turn15280view1",
+        "turn15282search3",
+        "turn15283view0",
+        "turn15283view2",
+        "turn15279search1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "grave_wave",
+          "name": "Grave Wave",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15283view1 confirms creator/crop and CC BY2.5; historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn15283view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15283view1"
+        ],
+        "fresh_rights_review": "Fresh turn15283view1 rights only; historical bytes and visual receipt unchanged."
+      },
+      "dependency_audit": {
+        "new": [],
+        "baseline": "/workspace/CodexMusica-qualified041",
+        "head": "453cd0f1",
+        "existing_owners": 1653
+      },
+      "verification_status": "Pending original frozen browser/connector/API qualification and independent category judgment."
+    }
+  ],
+  "instrument_dependencies": []
+}

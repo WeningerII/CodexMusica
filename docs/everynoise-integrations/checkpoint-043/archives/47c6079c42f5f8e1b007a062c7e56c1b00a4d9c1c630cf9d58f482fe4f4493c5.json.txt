@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "reviewer": "recover024",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice003-marathi-balgeet-axis-reviewed.json",
+  "packet_sha256": "7cfb301cc950acd6aa75f00d1d7655f35690a78a7002d67c94a0387812e046a1",
+  "scope": "Independent source/schema/immutability/own-runtime review only. No combined-catalog regression clearance.",
+  "original_preserved_sha256": "ddd7b4b4675e15f0c5459fc03559361cc8276312e069c019b751781f657ee018",
+  "diff": "Exactly nine extras.axes directions and axis_review evidence; all musical roles, protected controls, room, identity, source and photo bytes unchanged.",
+  "schema": "Original453cd AXIS_DEFINITIONS in references/03_rooms_chains_tunings.js personally read.",
+  "source": "Fresh15089view0 official JollyToons page explains sung Marathi rhyme, repeat clapping pattern and ordered shared actions. This supports the selected live game practice, not a claim that the animation master has no accompaniment.",
+  "axis_assessment": "Voice2 and acoustic\u22122 follow actual selected voices/claps; percussion1 and meter1 follow rhythmic coordinated claps; sparse\u22121 describes the two-family texture; ornament\u22121 agrees protected syllabic plain line; fixed\u22121 and cyclicity1 agree prescribed repeated rhyme/actions; transmission1 is a representative shared oral-learning choice with written/video teaching candidly retained. Four uncertain axes correctly remain0. These are meaningful musical directions, not observed numerical measurements or whole-field universals.",
+  "validation": {
+    "runtime": "practice003-axis-independent-runtime024.json",
+    "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+    "protected_controls": 19,
+    "browser_connector_formats": 4,
+    "max_chars": 326,
+    "compiled_api_pin_errors": 0,
+    "owners_preserved": true
+  },
+  "photo": "Same original independently checked exact023receipt/rights; no new image or license alteration.",
+  "regression_limit": "No assertion that source-supported axis corrections cure unrelated combined requests; root separate testing required."
+}

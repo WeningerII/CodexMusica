@@ -5,7 +5,7 @@
   "lineage": "Odisha's Odia-language popular song, moving from HMV Cuttack and Odia cinema playback in the 1960s-80s into a cassette and now YouTube-driven album industry — verse-refrain songs at 90-130 BPM with lightly ornamented melodic lines derived from Odissi and bhajan phrasing, harmonium and bansuri counterlines over dholak, mardala, or programmed kit, and a bright forward-placed lead vocal doubled in the chorus.",
   "recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry haryanvi ragni mappila paattu. thick, breath veiled tone, straight note core, interlocked note trading. reed straight harmonium indian, traditional low fundamental tuning sheesham mango dholak, mardala, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, indian rosewood rosewood clay tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 923,
-  "score": 298.065,
+  "score": 298.645,
   "config": {
     "traditions": [
       "odia_pop",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.504999999999994,
+          "voice_register": 12.654999999999994,
           "voice_quality": 15.665,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.530000000000001,
+          "voice_vibrato": 3.575000000000001,
           "voice_articulation": 25.285,
           "voice_microtone": 28.6,
           "voice_tradition": 16.510000000000005,
@@ -61,9 +61,9 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 4.330000000000001,
+          "free_reed_technique": 4.375000000000001,
           "harmonium_action": 4.03,
-          "harmonium_voicing": 2.8999999999999995,
+          "harmonium_voicing": 3.05,
           "harmonium_use": 2.535
         }
       },
@@ -73,13 +73,13 @@
           "dholak_use": "dholak_classical",
           "dholak_construction": "dholak_mango",
           "dholak_head": "dholak_goat_skin_canonical",
-          "dholak_tensioning": "dholak_rope_tuning"
+          "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 2.43,
+          "dholak_use": 2.5200000000000005,
           "dholak_construction": 3.485,
           "dholak_head": 0.845,
-          "dholak_tensioning": 0.845
+          "dholak_tensioning": 0.885
         }
       },
       {
@@ -103,7 +103,7 @@
           "bansuri_lineage": "bansuri_pannalal_ghosh"
         },
         "scores": {
-          "wind_articulation": 4.380000000000001,
+          "wind_articulation": 4.425000000000001,
           "bansuri_length": 2,
           "bansuri_ornament": 2.125,
           "bansuri_body_material": 8.905,
@@ -119,7 +119,7 @@
         },
         "scores": {
           "tabla_dayan": 6.4350000000000005,
-          "tabla_bayan": 2.2499999999999996,
+          "tabla_bayan": 2.3999999999999995,
           "tabla_syahi": 4.874999999999999
         }
       },
@@ -132,8 +132,8 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 12.204999999999998,
-          "rompler_preset_bank": 12.395,
+          "electronic_technique": 12.399999999999999,
+          "rompler_preset_bank": 12.065,
           "rompler_context": 9.775,
           "rompler_lineage": 2.535
         }

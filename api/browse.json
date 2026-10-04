@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 6746,
+  "count": 6765,
   "items": [
     {
       "id": "honky_tonk",
@@ -238117,6 +238117,611 @@
         "upright_piano"
       ],
       "description": "Connected melodic phrases and unobtrusive harmony leave space around the listener’s attention. Gentle dynamics and slowly unfolding musical continuity favor immersion over abrupt changes or foreground vocal storytelling."
+    },
+    {
+      "id": "minimal_melodic_techno",
+      "name": "Minimal Melodic Techno",
+      "family": "electronic",
+      "lineage": "Minimal melodic techno brings expressive melodic development into the economical patterns of European minimal electronics. The 2000s Traum and Border Community networks and the later Hungry Music collective connect restrained rhythmic frameworks with distinctive melodic voices.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Repeating rhythmic cells support evolving melodic figures, spacious textures and gradual transitions. Producers and selectors connect understated groove with cinematic, introspective or pop-shaped ideas without requiring one fixed arrangement.",
+      "exemplars": [
+        "Fairmont",
+        "NTO",
+        "Worakls",
+        "Joachim Pastor",
+        "Hungry Music"
+      ]
+    },
+    {
+      "id": "drill_dominicano",
+      "name": "Drill Dominicano",
+      "family": "hip_hop",
+      "lineage": "Dominican drill connects Dominican and diasporic rappers with the international drill vocabulary. Producer collaborations and cross-border releases adapt the style to local speech, experience and multilingual performance.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic verses and concise hooks interact with produced drill backing. Street narratives and personal themes coexist, while individual performers draw on different Dominican and wider Latin rap connections.",
+      "exemplars": [
+        "Queen Parker",
+        "MC Kario"
+      ]
+    },
+    {
+      "id": "lithuanian_trap",
+      "name": "Lithuanian Trap",
+      "family": "hip_hop",
+      "lineage": "Lithuanian trap developed through the country’s younger rap scene and its producers, alongside older hip-hop approaches. Local artists adapt an international style through their own collaborations, language and recording networks.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic vocals and recurring hooks interact with produced backing. Electronic texture and beat design shape the delivery, while individual artists range from direct rap to more melodic or experimental approaches.",
+      "exemplars": [
+        "Despotin Fam",
+        "Vaiper"
+      ]
+    },
+    {
+      "id": "middle_east_hip_hop",
+      "name": "Middle East Hip Hop",
+      "family": "hip_hop",
+      "lineage": "Middle Eastern hip-hop links local rap scenes with diasporic artists and producer networks. Regional collaborations cross national and language boundaries, connecting Arabic-language rap with multilingual expression and different forms of cultural belonging.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic verses move over produced beats, with flows and accents shaped by different languages and local musical references. Sample-based production, melodic passages and expanded live collaborations coexist within this broad regional field.",
+      "exemplars": [
+        "NARCY",
+        "DAM",
+        "Shabjdeed",
+        "The Synaptik"
+      ]
+    },
+    {
+      "id": "nz_gangsta_rap",
+      "name": "NZ Gangsta Rap",
+      "family": "hip_hop",
+      "lineage": "New Zealand gangsta rap places local street narratives within the wider national hip-hop scene. South Auckland artists connected international rap influences with neighbourhood experience, including accounts of gang life, its consequences and leaving it behind.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Direct rhythmic storytelling rides produced beats and low-end backing. Forceful verses can alternate with hooks and guest voices, while local references distinguish the narratives from imported settings.",
+      "exemplars": [
+        "Ermehn"
+      ]
+    },
+    {
+      "id": "rap_criolo",
+      "name": "Rap Criolo",
+      "family": "hip_hop",
+      "lineage": "Rap Criolo connects Cape Verdean Kriolu language with hip-hop communities in the islands and diaspora, notably metropolitan Lisbon. Its lyrics explore neighbourhood life, migration, identity and social experience.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic Kriolu verses work with produced beats and low bass. Vocal phrasing and local language give the music its character; unaccompanied passages and melodic approaches also occur.",
+      "exemplars": [
+        "Chullage",
+        "LBC/Soldjah",
+        "Kromo"
+      ]
+    },
+    {
+      "id": "turkce_trap_metal",
+      "name": "Türkçe Trap Metal",
+      "family": "hip_hop",
+      "lineage": "Türkçe trap metal connects Turkish-language rap with the intensity of metal-influenced vocal performance and contemporary beat production. Independent rappers and producers circulate releases and collaborations through a shared online underground, bringing screamed delivery alongside rhythmic verses.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "produced_808_bass",
+        "credited_programmed_drums_unspecified"
+      ],
+      "description": "Forceful rhythmic verses and screamed accents meet programmed drums and distorted 808 low bass. Abrasive textures and sharply delivered phrases characterize this crossover, while individual tracks vary in vocal approach and instrumental color.",
+      "exemplars": [
+        "KHVN",
+        "Furkan Karakılıç",
+        "ERU",
+        "13 Killoki"
+      ]
+    },
+    {
+      "id": "classic_bulgarian_pop",
+      "name": "Classic Bulgarian Pop",
+      "family": "pop",
+      "lineage": "Bulgarian estrada developed through radio, conservatory training and state-supported popular-song festivals in the second half of the twentieth century. The Golden Orpheus and Melody of the Year circuits connected singers, composers and arrangers, leaving a repertoire that continues to be performed and revisited.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Expressive lead melodies and lyrical songcraft connect intimate guitar-accompanied songs with larger dance-band and orchestral settings. Romantic, reflective and brighter popular songs share a historical recording and festival culture, with arrangements varying widely across artists.",
+      "exemplars": [
+        "Maria Neykova",
+        "Lili Ivanova",
+        "Yordanka Hristova",
+        "Bogdana Karadocheva"
+      ]
+    },
+    {
+      "id": "vintage_swedish_pop",
+      "name": "Vintage Swedish Pop",
+      "family": "pop",
+      "lineage": "Vintage Swedish pop gathers older Swedish-language entertainment songs from revue, radio, film, dance halls and domestic music-making. Schlager melodies, comic couplets and sentimental songs moved between stage performers, records and printed arrangements, forming a repertory that later revivals continue to revisit.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "description": "Clear sung melodies and text-led phrasing sit over a compact piano accompaniment. Sentimental warmth, gentle dance motion and theatrical turns coexist in this older entertainment repertory; intimate singing at the piano is one branch alongside larger radio and ballroom ensembles.",
+      "exemplars": [
+        "Bertil Boo",
+        "Ulla Billquist",
+        "Sven-Olof Sandberg"
+      ]
+    },
+    {
+      "id": "fotbollslatar",
+      "name": "Fotbollslåtar",
+      "family": "vernacular",
+      "lineage": "Swedish football songs connect club supporters, national-team campaigns and popular songwriting. Commissioned tournament songs and club hymns circulate through records, broadcasts and communal singing, while familiar melodies acquire new supporter texts.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "description": "Memorable refrains, direct lyrics and shared singing give football songs their rallying character. A sung melody with chordal piano accompaniment offers one compact rendition of this repertoire, alongside crowd chants, rock bands and electronic productions.",
+      "exemplars": [
+        "Georg Åby Ericson",
+        "Hammarby Fotbollslag",
+        "Miss Li"
+      ]
+    },
+    {
+      "id": "gaita",
+      "name": "Gaita",
+      "family": "global",
+      "lineage": "Gaita brings together Iberian piping traditions and the musicians, makers and festivals that sustain them. Galician and Asturian repertories are central to this instrument-led field, which includes solo playing, pipe bands and collaborations with singers or other instruments.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "gaita_galega"
+      ],
+      "description": "A chanter melody unfolds over sustained drones, shaped by finger articulation and ornaments. Dawn pieces, dances and processional tunes form a varied repertory; the Galician solo branch offers a compact example without representing every regional pipe or ensemble.",
+      "exemplars": [
+        "Susana Seivane",
+        "Ricardo Portela",
+        "Xuacu Amieva"
+      ]
+    },
+    {
+      "id": "grave_wave",
+      "name": "Grave Wave",
+      "family": "electronic",
+      "lineage": "Grave Wave emerged around a late-2000s and early-2010s network of dark independent music, web publications, labels and clubs. Witch house, post-punk, gothic synth music, industrial electronics and neofolk circulated together through compilations, remixes and DJ programmes.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Nocturnal atmosphere and a shared underground visual culture connect disparate song and electronic styles. DJ programmes move between dark rhythmic tracks, synth textures and guitar-based material rather than relying on one tempo or production method.",
+      "exemplars": [
+        "Ritualz",
+        "Cold Cave",
+        "Soft Metals",
+        "FUNERALS"
+      ]
+    },
+    {
+      "id": "ho_munda",
+      "name": "Ho Munda",
+      "family": "global",
+      "lineage": "Ho community music links seasonal songs with collective dance in Singhbhum and adjoining eastern India. Courtship, harvest, weddings and Mage celebrations combine bamboo-flute melodies, communal singing and interlocking drum rhythms.",
+      "parent": "wedding",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_bamboo_flute_unspecified",
+        "ho_dama_kettle_drum",
+        "ho_dumang_double_headed_drum"
+      ],
+      "description": "Sung phrases and flute melodies guide the dancers while a single-headed kettle drum and a double-headed drum articulate the shared pulse. Formations and song repertories change with the season and occasion; the ensemble supports communal movement rather than a fixed concert arrangement.",
+      "exemplars": [
+        "Uma Kumari and group"
+      ]
+    },
+    {
+      "id": "jain_bhajan",
+      "name": "Jain bhajan",
+      "family": "global",
+      "lineage": "Jain bhajan, also called stavan, praises the Jinas and expresses Jain devotional ideals. Regional languages and folk-derived melodies connect temple, domestic and public singing, while modern recordings also draw on art-music and popular arrangements.",
+      "parent": "praiseSong.indianSubcontinent",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "tabla",
+        "tanpura"
+      ],
+      "description": "Devotional singing gives the text a clear melodic shape, with repetition and expressive phrasing supporting contemplation. A recorded art-music branch uses tabla and a sustained drone, alongside communal traditions with different accompaniment."
+    },
+    {
+      "id": "lai_hla",
+      "name": "Lai Hla",
+      "family": "vernacular",
+      "lineage": "Lai hla connects Chin song communities through local-language repertoire, recordings and everyday music-making. Hakha Chin lyric and chord collections bring contemporary songs, patriotic material and Christian repertoire into shared channels of learning and performance.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A clear sung melody and guitar chords support an intimate, portable song setting. Repeated sections make lyrics easy to learn and share, while the wider repertoire also circulates through gospel groups, popular recordings and electronic arrangements.",
+      "exemplars": [
+        "David Lai",
+        "James Tluang",
+        "Bawi Hum",
+        "Lian Lian"
+      ]
+    },
+    {
+      "id": "marathi_balgeet",
+      "name": "Marathi Balgeet",
+      "family": "vernacular",
+      "lineage": "Marathi balgeet brings Marathi-language children’s songs into family play, classrooms and contemporary educational media. Short rhymes, memorable phrases and coordinated actions help children share language and rhythm.",
+      "parent": "nurseryRhyme.southAsian",
+      "axes": [
+        0,
+        0,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        -2,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "hand_clap"
+      ],
+      "description": "Voices repeat compact phrases while hand patterns mark the pulse. Clapping games can alternate song with playful spoken sounds and gestures; arranged recordings offer additional ways of circulating the repertoire.",
+      "exemplars": [
+        "Apadi Thapadi Gulachi Papdi"
+      ]
+    },
+    {
+      "id": "muzica_maramureseana",
+      "name": "Muzică Maramureșeană",
+      "family": "vernacular",
+      "lineage": "Maramureș music brings together village singing, wedding repertories, dance tunes and pastoral music from northern Romania. The cetera fiddle and strummed zongoră form a characteristic instrumental partnership, often joined by a dobă drum. Solo long-song traditions coexist with lively collective performances.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        -2,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "fiddle",
+        "zongora_maramures",
+        "doba_maramures"
+      ],
+      "description": "A decorated fiddle melody moves over insistent strummed chords and a drum pulse. Wedding musicians vary and elaborate the tunes, with shouted strigături adding vocal energy. Other parts of the regional repertoire favor free, sustained solo singing and quieter pastoral sounds.",
+      "exemplars": [
+        "Ionu’ lu Grigore",
+        "Ion Pop",
+        "Nicolae Pițiș"
+      ]
+    },
+    {
+      "id": "necrotrap",
+      "name": "Necrotrap",
+      "family": "hip_hop",
+      "lineage": "Necrotrap is an online underground rap field connecting dark trap production, abrasive low bass and screamed delivery. Its producers and performers circulate through small internet networks alongside dark trap and trap metal. Distortion and clipped 808 sounds are prominent options rather than a requirement for every release.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "produced_808_bass",
+        "credited_programmed_drums_unspecified"
+      ],
+      "description": "Harsh rhythmic vocals confront forceful produced beats and low bass. Clipping, sparse threatening textures and abrupt vocal accents can intensify the delivery; calmer and more melodic productions also circulate within the field.",
+      "exemplars": [
+        "Gorejit",
+        "SLXNDXR",
+        "FXCY"
+      ]
+    },
+    {
+      "id": "rave",
+      "name": "Rave",
+      "family": "electronic",
+      "lineage": "Rave developed around collective electronic dance events and DJ culture, connecting acid house, techno, breakbeats and subsequent hard-dance scenes. Its late-1980s and 1990s British history sits within wider international club and sound-system exchanges, with later generations continually revisiting and reshaping the repertoire.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Selectors sustain dance-floor momentum through mixing, overlapping records and manipulating loops or short fragments. Repetition, low-frequency energy and contrasting electronic textures connect otherwise different styles; the surrounding gathering is central to the music’s identity.",
+      "exemplars": [
+        "Laurent Garnier",
+        "Rob Booth",
+        "Stormfield"
+      ]
     }
   ]
 }

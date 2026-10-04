@@ -1,0 +1,33 @@
+{
+  "status": "PASS_EXACT_INTEGRATED_PROJECTION",
+  "baseline": "3a83f3f311ce63caae7111396c242150f0b8d06b",
+  "integrated_head": "12c8438a50527b5df6ba8eb63a880a9fc025b78d",
+  "candidate": "/workspace/genre-continuation/research/next-additions-projection461/v3/candidate-safe19.json",
+  "packet_sha256": "de6f5dda45b080a00f83958077f17a551ae112d42d88109bfbe9b3364d089b2e",
+  "counts": {
+    "old_traditions": 6746,
+    "new_traditions": 19,
+    "total_traditions": 6765,
+    "old_instruments": 1653,
+    "new_instruments": 5,
+    "total_instruments": 1658
+  },
+  "checks": [
+    "references/05_traditions.js: all old literal bytes preserved, exact candidate append",
+    "references/06_extras.js: all old literal bytes preserved, exact candidate append",
+    "references/02_instruments.js: all old literal bytes preserved, exact candidate append",
+    "references/01_family_parts.js: baseline unchanged",
+    "scripts/_merge.js: baseline unchanged",
+    "scripts/_loader.js: baseline unchanged",
+    "scripts/search.js: baseline unchanged",
+    "scripts/score.js: baseline unchanged",
+    "scripts/translate.js: baseline unchanged",
+    "data/geo.json: old entries exact and19 candidate values exact",
+    "references/_tradition_signatures.json: old entries exact and19 candidate values exact",
+    "all old image records exact; 19+5 new manifests exact",
+    "all19 evidence entries exact except absent optional signature_tokens normalized[]",
+    "app changes exclusively generated signature data block"
+  ],
+  "merged_preservation": "Exact raw old owner prefix, exact family table and identical deterministic merge establish same old merged owners; additionally1653 merged owners were directly compared in preintegration combined qualification. No cross-owner mutation in merge.",
+  "failed_probe": "Initial two-full-catalog evaluation exited137 before verdict; superseded by this low-memory exact literal verification."
+}

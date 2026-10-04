@@ -1,0 +1,278 @@
+{
+  "entries": [
+    {
+      "source_label": "cumbia",
+      "source_url": "https://everynoise.com/engenremap-cumbia.html",
+      "suggested_id": "cumbia",
+      "allocation_ordinal": 3104,
+      "allocation_group_id": "125",
+      "id": "cumbia",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "cumbia",
+        "name": "Cumbia",
+        "family": "vernacular",
+        "lineage": "Cumbia grew from Colombia’s Caribbean musical traditions into a transnational Latin American dance repertoire. Recordings, radio, touring orchestras and migrant audiences carried it across borders, where local communities reshaped its rhythms, instrumentation and social meanings.",
+        "instruments": [
+          "voice",
+          "upright_piano",
+          "electric_bass",
+          "trumpet",
+          "credited_auxiliary_percussion"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion.latinAm",
+        "axes": {
+          "harm": 1,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 1,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Repeating bass and percussion patterns support sung refrains and answering instrumental phrases. Dance-orchestra arrangements combine keyboards and brass, while guitar-led, accordion-led and electronic approaches give the wider repertoire distinct regional textures.",
+        "exemplars": [
+          "Pastor López",
+          "Billo’s Caracas Boys",
+          "Los Mirlos"
+        ],
+        "crossRefs": [],
+        "status": "documented"
+      },
+      "geo": [
+        6.2442,
+        -75.5812,
+        "Medellín",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Documented Discos Fuentes production center for the selected transnational dance-orchestra branch; not an exclusive geographic definition.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cumbia",
+          "name": "Cumbia",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh15189view1 Commons confirms Iain Fergusson original, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn15189view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15189view1"
+        ],
+        "fresh_rights_review": "Fresh15189view1 rights; exact historical023 bytes and visual receipt preserved, no fresh download claim."
+      },
+      "model_policy": "Representative dance-orchestra branch based on original scholarship documenting singing, bass, keyboard, brass and percussion roles. This is an authored compact arrangement, not a reconstruction of any Pastor López master, a complete discography roster or a universal cumbia palette. Piano and trumpet are explicit editorial realizations of the documented keyboard and brass families; their subtype, model and construction are not claimed as measured source equipment. A single lead is an arrangement choice, not source headcount. Percussion remains source-unspecified rather than inventing a named drum. Fingerstyle bass, punctuated brass, chordal piano and syllabic singing support an accessible dance rendition; no exact BPM or temperament asserted. Live room is an authored acoustic presentation.",
+      "neighbor_distinction": "The full cumbia_colombiana record positively describes Colombian Caribbean-coast origins, gaitas/accordion and commercial orchestration, and acknowledges later exports; it is not limited to an acoustic trio. The proposed Cumbia is the transnational repertoire and audience field explicitly studied across national borders, including local adaptations rather than a new national variant. Existing cumbia_peruvian/chicha, cumbia_chilena, cumbia_ecuatoriana and other national entries are branches within that broader overlapping field. The exact creator corpus contains Colombian roots and commercial orchestras alongside Los Mirlos, La Delio Valdez, Kumbia Kings and newer hybrids. No alias or distinction is inferred from the omitted adjective alone: the positive basis is the documented translocal circulation and shared repertoire beyond any national practice.",
+      "sources": [
+        {
+          "url": "https://revistas.ucm.es/index.php/CMIB/article/download/84770/4564456567791",
+          "title": "Luis Pérez-Valero, Discurso multimodal y producción musical (2023)",
+          "support_notes": "Original20-page research: transnational recorded cumbia community; pp86–88 keyboard/brass/percussion/bass/voice dance-orchestra practice, pp89–90 Medellín production. Representative roles, not exact-master reconstruction."
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-cumbia.html",
+          "title": "Original creator Cumbia map",
+          "support_notes": "Full indexed primary15229search0 contains multinational repertoire; latest direct15281view0 timed out. No claim latest direct succeeded."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15229search0",
+        "turn15230view0",
+        "turn15271view0"
+      ],
+      "classification_evidence": {
+        "note": "Broad transnational dance repertoire distinction requires independent full-neighbor review; source-positive scope overlap is explicit."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Protected authored construction and playing settings; no measured source hardware claim."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Protected authored construction and playing settings; no measured source hardware claim."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Protected authored construction and playing settings; no measured source hardware claim."
+        },
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "Protected authored construction and playing settings; no measured source hardware claim."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Protected authored construction and playing settings; no measured source hardware claim."
+        }
+      ],
+      "signature_tokens": []
+    }
+  ],
+  "instrument_dependencies": []
+}
