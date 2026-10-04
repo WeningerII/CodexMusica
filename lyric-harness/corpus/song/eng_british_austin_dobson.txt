@@ -357,10 +357,10 @@ With slower pen.
 
 --- TITLE: "Good-Night, Babette!"
 --- SOURCE: PG2622
-[VERSE 1]
-Scene.--A small neat Room.  In a high Voltaire Chair sits a white-haired old Gentleman.
-[VERSE 2]
-Monsieur Vieuxbois           Babette
+# APPARATUS: [VERSE 1]
+# APPARATUS: Scene.--A small neat Room.  In a high Voltaire Chair sits a white-haired old Gentleman.
+# APPARATUS: [VERSE 2]
+# APPARATUS: Monsieur Vieuxbois           Babette
 [VERSE 3]
    M. Vieuxbois (turning querulously)
 Day of my life!  Where can she get!

@@ -18,7 +18,7 @@
 # edition: Lyrical-Ballads-with-Other-Poems-1800-Volume-1 — 1800 — detected in file: '1800'; read for its PREFACE and TITLE PAGE, which are what decide this file's contents. NO VERSE IS TAKEN FROM IT.
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1931 impression — title page states 'Impression of 1931' and 'First edition, 1900'; earlier 1919 attribution withdrawn (2026-09-14).
 # songs: 19
-# lines: 859
+# lines: 858
 # attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE NAMING THE SOURCE
 #       THAT DECIDED IT. This file was rebuilt 2026-08-11 because it did not,
 #       and an attribution that lives only in a FILENAME gets checked exactly
@@ -805,8 +805,8 @@ True dignity abides with him alone
 Who, in the silent hour of inward thought,
 Can still suspect, and still revere himself,
 In lowliness of heart.
-[VERSE 14]
-THE NIGHTINGALE;
+# APPARATUS: [VERSE 14]
+# APPARATUS: THE NIGHTINGALE;
 
 --- TITLE: Glycine’s Song
 --- AUTHOR: Samuel Taylor Coleridge — Oxford Book of English Verse (PG 66619), poem 555 under the heading SAMUEL TAYLOR COLERIDGE

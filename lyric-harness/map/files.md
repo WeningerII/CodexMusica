@@ -4,10 +4,10 @@ Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounde
 
 | part | files | tokens |
 |---|---:|---:|
-| corpus (raw verse, measured offline) | 1430 | 9,200k |
+| corpus (raw verse, measured offline) | 1477 | 9,200k |
 | saved measurement results | 616 | 8,600k |
-| data tables (read at run time) | 31 | 5,900k |
-| notes and records (.md) | 118 | 1,400k |
+| data tables (read at run time) | 32 | 6,100k |
+| notes and records (.md) | 119 | 1,400k |
 | Python: tests | 113 | 1,200k |
 | Python: song program (ran) | 53 | 1,200k |
 | Python: research and record tools (never loaded) | 91 | 800k |

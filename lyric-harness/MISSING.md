@@ -8153,6 +8153,44 @@ table is true only of the tradition that wrote it**, and no reader is told
 which one that was.
 
 ### M-25 · Three staging defects the marks cannot show, found by asking sixteen traditions at once `OPEN`
+
+**(a) APPLIED 2026-10-04 TO THE WHOLE ENGLISH ONE-LINE POPULATION, UNDER THE
+OWNER'S ASSIGNMENT; THE ENTRY STAYS OPEN ON WHAT THAT POPULATION CANNOT SEE.**
+Every figure below this block is an earlier reading and stands as written. The
+population was check H's own, re-enumerated with physical line numbers and
+controlled against check H file by file (all 103 `eng_` files exact): **1,889
+one-line `[VERSE]` blocks, 652 in a declared shape and 1,237 residue.** Each
+block was read in its context by TWO independent readers who did not see each
+other's answer; they agreed on 1,887, and a third reader ruled on the 2. A
+block was annotated only on a NOT-SUNG reading: **1,642 blocks in 92 files**
+now carry the existing `# APPARATUS:` prefix on both the line and its
+`[VERSE n]` mark, in place, with nothing deleted, renumbered or reworded
+(`data/english_apparatus_m25_2026-10-04.json` records every line, its before
+and after text, the reader's class and the file hashes; the classes are 445
+scripture arguments, 414 speaker names or stage directions, 227 numerals, 132
+embedded titles, 98 subtitles, dedications and epigraphs, 90 editorial notes,
+82 section headings, 58 datelines, 44 tune lines, 32 ornaments, 19 bylines, 1
+contents line). The banked Watts, Burns and Lovelace classes are wholly inside
+it — 445, 203 and 104, every one-line block in those files. **The 247 blocks
+both readers heard as SUNG stay as they are** — the `Beggar's Opera` duet
+lines, D'Urfey's `Room for, &c.` burdens, the one-line verse speeches the
+speaker labels split out of Barnes's dialogue eclogues — and
+they are now check H's entire English population: 247 residue, 0 in a
+declared shape, over 27 files. The work registry moved by exactly two body
+hashes (Burns's `To A Mountain Daisy` and `My Wife's A Winsome Wee Thing`),
+recorded in the receipt; `quality/test_production_data.py` reads both
+apparatus receipts newest-first and fails by mutation if either is altered.
+**WHAT STAYS OPEN in (a):** (1) **103 of the annotated titles head a
+DIFFERENT poem inside one `--- TITLE:` item** — D'Urfey 42, Barnes 34, Burns
+14, and eight more files — so those items are still false units (`M-20`'s
+family). The title is no longer scored as sung text, but the split is not
+made: it moves item identity and registry keys and is a reading per item,
+and the receipt names every one. (2) Apparatus inside MULTI-LINE blocks, which
+check H never sees (the 33 false matches recorded below are that class). (3)
+The non-English one-line population is untouched: 428 Finnish, 28 Sanskrit,
+22 Welsh and 9 Chinese blocks. (b) and (c) are unchanged.
+`quality/RESULTS_OTTERBEIN_M25_2026-10-04.md` §2 records the pass.
+
 **Found 2026-08-21. Each is a file whose own header or content contradicts how
 it is marked, and none is visible to any current check.**
 

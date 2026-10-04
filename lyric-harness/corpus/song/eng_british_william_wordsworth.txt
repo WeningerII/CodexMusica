@@ -16,7 +16,7 @@
 # edition: Lyrical-Ballads-with-Other-Poems-1800-Volume-2 — 1800 — detected in file: '1800'
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1931 impression — title page states 'Impression of 1931' and 'First edition, 1900'; earlier 1919 attribution withdrawn (2026-09-14).
 # songs: 72
-# lines: 2857
+# lines: 2856
 # attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE NAMING THE SOURCE
 #       THAT DECIDED IT. This file was rebuilt 2026-08-11 because it did not,
 #       and an attribution that lives only in a FILENAME gets checked exactly
@@ -2896,8 +2896,8 @@ A will by sovereign Conscience sanctified;
 Blest while their Spirits from the woods ascend
 Along a Galaxy that knows no end,
 But in His glory who for Sinners died.
-[VERSE 2]
-II
+# APPARATUS: [VERSE 2]
+# APPARATUS: II
 [VERSE 3]
 From Rite and Ordinance abused they fled
 To Wilds where both were utterly unknown;

@@ -79,7 +79,82 @@ carries.
 
 ## 2. M-25(a) — apparatus typed as sung verse
 
-Pending in this batch.
+The population is check H's (`quality/audit_corpus.py`): every `[VERSE]` block
+holding exactly one non-blank line. It was re-enumerated with physical line
+numbers by check H's own rule and controlled against check H's per-file counts
+for all 103 English files that have one (exact in every file).
+
+| | blocks |
+|---|---:|
+| English one-line `[VERSE]` blocks | 1,889 |
+| in a declared apparatus shape | 652 |
+| residue (no declared shape) | 1,237 |
+
+Reading: each block, with its surrounding lines and the item's title, was
+classified by two readers working blind to each other — SUNG, NOT_SUNG or
+UNDECIDED — with the register's own traps in front of them (Watts's titles
+that are first lines, Burns's sung line that looks like a dateline,
+Lovelace's poem that opens inside a note run, songbook one-line burdens,
+capitals that are sung). They agreed on 1,887 blocks; a third reader ruled on
+the other 2 (both NOT_SUNG). No block ended UNDECIDED.
+
+| verdict | blocks | files |
+|---|---:|---:|
+| NOT_SUNG — annotated | 1,642 | 92 |
+| SUNG — left as staged | 247 | 27 |
+
+Remedy: the existing `# APPARATUS:` prefix, on the line and on its `[VERSE n]`
+mark, in place (the convention of `data/english_nonlyric_apparatus.json`). No
+line is deleted, reworded or renumbered; 3,284 physical lines carry the
+prefix. 1,639 rows leave the normalized reader; the other 3 were already
+apparatus to it (parenthetical lines check H reads raw). The receipt is
+`data/english_apparatus_m25_2026-10-04.json`: every line's before and after
+text, the class, the before/after file hashes, the 247 blocks left as sung
+with their reasons, and the 103 false units.
+
+| class | annotated |
+|---|---:|
+| scripture argument (Watts) | 445 |
+| speaker name or stage direction | 414 |
+| numeral | 227 |
+| embedded title | 132 |
+| subtitle, dedication, epigraph, salutation | 98 |
+| editorial note | 90 |
+| section heading | 82 |
+| dateline | 58 |
+| tune line | 44 |
+| ornament or separator | 32 |
+| byline or signature | 19 |
+| contents line | 1 |
+
+Largest files: Watts 445 (all), Barnes 268, Burns 203 (all), Longfellow 132,
+Lovelace 104 (all), D'Urfey 84, Skinner 75, Butterworth 33.
+
+What moved besides the corpus: two Burns items in
+`data/calibration_work_editions.json` changed body hash (`To A Mountain Daisy`,
+`My Wife's A Winsome Wee Thing`; weights unchanged, recorded in the receipt);
+the `# lines:` headers of the Coleridge and Wordsworth files are recounted
+(859 → 858, 2,857 → 2,856); 60 `local:` rows in `data/sources.tsv` are repinned
+with the superseded md5 kept. `quality/test_production_data.py` now reads both
+apparatus receipts, each against its file with every later pass reverted, and
+two mutations (a wrong count; one annotation undone in a file both receipts
+touch) turn it red.
+
+After the pass, check H's English population is exactly the 247 SUNG blocks:
+0 in a declared shape.
+
+Not done, and why:
+
+- **103 false units.** 103 of the annotated titles head a DIFFERENT poem inside
+  one `--- TITLE:` item (D'Urfey 42, Barnes 34, Burns 14, Herrick 4, and seven
+  more files). The title no longer counts as sung text, but the item is not
+  split: a split moves item identity and the registry's keys, and whether two
+  pieces are two works is a reading per item. The receipt lists each.
+- **Multi-line blocks.** Apparatus that shares a block with sung lines is
+  outside check H's population (M-25 records 33 such cases in Watts, Burns and
+  Lovelace).
+- **Other languages.** 487 non-English one-line blocks are untouched: 428
+  Finnish, 28 Sanskrit, 22 Welsh, 9 Chinese.
 
 ## 3. Closing sitting
 
