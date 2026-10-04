@@ -33,10 +33,7 @@
           "fresh_review_ref": "turn15544view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -48,10 +45,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -67,9 +61,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -83,9 +75,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15544view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15544view0"],
         "reuse_provenance_scope": "Historical exact SM58 image reused as generic recording context; not the artist, decks or source recording hardware. Current rights15544view0."
       },
       "resolved_parts_audit": [
@@ -109,9 +99,7 @@
         "name": "Deep Tech House",
         "family": "electronic",
         "lineage": "Deep tech house joins the atmospheric warmth of deep house with economical, groove-focused techno and house production. Producers and DJs circulate it through club sets, independent labels and extended mixes.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -136,22 +124,13 @@
           "cyclicity": 2
         },
         "description": "Restrained percussion, deep bass and melodic or soulful details support gradual dance-floor development. DJs connect tracks through sustained groove and subtle changes in texture. The label overlaps deep house, classic tech house and minimal tech house rather than defining a fixed equipment list or an exclusive regional scene.",
-        "exemplars": [
-          "Andrey Djackonda",
-          "Ron Costa",
-          "Cuartero"
-        ],
+        "exemplars": ["Andrey Djackonda", "Ron Costa", "Cuartero"],
         "status": "documented",
         "signature_tokens": [],
         "crossRefs": []
       },
       "signature_tokens": [],
-      "geo": [
-        55.7558,
-        37.6173,
-        "Moscow",
-        "Europe"
-      ],
+      "geo": [55.7558, 37.6173, "Moscow", "Europe"],
       "geo_rationale": "Documented circulation anchor: interviewed producer remembers the Rodnya club in Moscow as the formative performance setting. Not an exclusive birthplace; Moldovan and Romanian practice is also documented.",
       "sources": [
         {
@@ -195,11 +174,7 @@
       "axis_review": {
         "policy": "Source-positive harmonic warmth, sparse density, recurring electronic dance groove. Unspecified vocal distribution and pitch system stay neutral. No numeric sweep."
       },
-      "primary_retrieval_refs": [
-        "turn15571view0",
-        "turn15571view1",
-        "turn15544view0"
-      ],
+      "primary_retrieval_refs": ["turn15571view0", "turn15571view1", "turn15544view0"],
       "verification_status": "Original0431658 owners preserved; one applicable protected control, browser/connector parity for all four formats and compiled API exact pin pass. Actual literals reviewed coherent: up-tempo describes an authored brisk club rendition, not hypnotic texture being equated with slow tempo. No extra source players, cultural labels or pitch claims.",
       "prior_hold_preservation": {
         "path": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field45/ledger.json",
@@ -241,10 +216,7 @@
           "fresh_review_ref": "turn15721view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -256,10 +228,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -275,9 +244,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -291,9 +258,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15721view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15721view0"],
         "reuse_provenance_scope": "Exact historical SM58 receipt reused as generic recording context only; fresh rights turn15721view0. No artist or drum-machine depiction claimed."
       },
       "source_label": "deep psytrance",
@@ -308,10 +273,7 @@
         "name": "Deep Psytrance",
         "family": "electronic",
         "lineage": "Deep psytrance emphasizes immersive, groove-led psychedelic trance rather than a single label roster. It overlaps dark progressive and Zenonesque practice, combining repetitive dance rhythms with spacious textures, detailed sound design and gradual developments across long DJ journeys.",
-        "instruments": [
-          "dj_playback_mixing_unspecified",
-          "drum_machine_analog"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified", "drum_machine_analog"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -340,21 +302,12 @@
           "cyclicity": 2
         },
         "description": "Hypnotic bass movement, repeating percussion and subtly changing electronic textures give deep psytrance its immersive flow. Darker progressive passages can meet techno-like restraint and psychedelic sound design; mixing and live rhythmic layers build extended journeys without requiring constant peak-time intensity.",
-        "exemplars": [
-          "Jaakko",
-          "Sensient",
-          "Cookies Slayer"
-        ],
+        "exemplars": ["Jaakko", "Sensient", "Cookies Slayer"],
         "status": "documented",
         "crossRefs": [],
         "signature_tokens": []
       },
-      "geo": [
-        41.1579,
-        -8.6291,
-        "Porto",
-        "Europe"
-      ],
+      "geo": [41.1579, -8.6291, "Porto", "Europe"],
       "geo_rationale": "Documented practitioner circulation anchor: Jaakko founded Fusion Gatherings in Porto. Not an exclusive birthplace claim.",
       "signature_tokens": [],
       "sources": [
@@ -450,9 +403,7 @@
         "name": "Chill Breakcore",
         "family": "electronic",
         "lineage": "An online breakcore label used by contemporary producers for atmospheric, melodic and liquid-influenced work, heard in both listening mixes and club DJ practice.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -477,20 +428,12 @@
           "cyclicity": 1
         },
         "description": "Chill breakcore links atmospheric drum-and-bass and liquid textures with the fragmented rhythms of online breakcore. It circulates through producer releases, listening mixes and DJ sets, with substantial overlap with jungle, liquid DnB and the wider breakcore field.",
-        "exemplars": [
-          "DJ Kuroneko",
-          "in explosions"
-        ],
+        "exemplars": ["DJ Kuroneko", "in explosions"],
         "status": "documented",
         "crossRefs": [],
         "signature_tokens": []
       },
-      "geo": [
-        35.6762,
-        139.6503,
-        "Tokyo",
-        "East Asia"
-      ],
+      "geo": [35.6762, 139.6503, "Tokyo", "East Asia"],
       "geo_rationale": "Actual announced performance venue Bacon Okubo, Tokyo; not artist birthplace or virtual-club server location.",
       "sources": [
         {
@@ -527,9 +470,7 @@
       "model_policy": "Representative documented DJ playback/mixing branch; existing neutral owner and its full meaningful control preserved. Embedded source voices/instruments and exact equipment remain unknown. This is not a claim that every studio production uses one instrument or an opaque master replaced by an invented sampler. Live-room presentation is authored; no global tuning or named physical decks imposed.",
       "dependency_audit": {
         "new_dependencies": [],
-        "reused_instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "reused_instruments": ["dj_playback_mixing_unspecified"],
         "baseline_existing": 1658
       },
       "classification_evidence": {
@@ -592,10 +533,7 @@
           "fresh_review_ref": "turn15476view1"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -607,10 +545,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -626,9 +561,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -642,9 +575,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15476view1"
-        ]
+        "fresh_rights_retrieval_refs": ["turn15476view1"]
       },
       "flat_pin_conflicts": [],
       "flat_pin_resolution": {
@@ -661,12 +592,7 @@
       "source_retrieval_caveat": "Fresh exact Chill Breakcore map and SoundCloud page failed; historical observations preserved, fresh artist Bandcamp self-tag and promoter DJ practice independently reproduced.",
       "status": "READY_FOR_INDEPENDENT_REVIEW",
       "signature_tokens": [],
-      "source_review_refs": [
-        "turn9422view0",
-        "turn9444search0",
-        "turn9439view1",
-        "turn9431view0"
-      ],
+      "source_review_refs": ["turn9422view0", "turn9444search0", "turn9439view1", "turn9431view0"],
       "repair_evidence": {
         "prior_packet": "/tmp/batch038/recovery005-006-secondpass-1.json",
         "sha256": "4b5cad4a9c68502543c8c20a233948f7063da6d3a888520db4ac816659f45097",
@@ -676,9 +602,7 @@
             "name": "Chill Breakcore",
             "family": "electronic",
             "lineage": "DJ Kuroneko: complete announced guest DJ act at Goodnight.fm SP33DLUV Vol.01, Bacon Okubo, Tokyo,2December2022. Promoter positively describes this Irish project’s DJ practice and VRChat-to-physical-club appearances, and lists this guest alongside six other distinct acts. Scope is the whole announced DJ Kuroneko act, not the whole multi-act night or a claimed recording/tracklist. Recorded-program playback and DJ mixing are the positive performance roles. Duration, medium, decks, mixing software, constituent studio instrumentation and embedded or additional live voice counts are unknown; no absence of voices asserted. No claim all selections are exclusively Chill Breakcore. Existing neutral DJ playback/mixing identity retains the complete positively announced practice without reconstructing uncredited production layers or specifying source hardware. Controlled live-room playback presentation is authored, not measured Bacon Okubo acoustics. No source deck model, live singer headcount, global pitch framework or original track palette inferred. ExperimentalElec.idmGlitch is an editorial placement for the documented breakcore-facing branch, not a claim every set selection is irregular-percussion IDM.",
-            "instruments": [
-              "dj_playback_mixing_unspecified"
-            ],
+            "instruments": ["dj_playback_mixing_unspecified"],
             "room": "live_room",
             "pin_parts": true,
             "parts": {
@@ -753,11 +677,7 @@
         "name": "Detroit trap en español",
         "family": "hip_hop",
         "lineage": "Detroit trap en español connects Spanish-language rappers and producers with contemporary Detroit-derived rap. Artists such as Gloosito and JayDime participate in a wider Spanish-language scene that adapts this vocabulary through collaborations, releases and live performance.",
-        "instruments": [
-          "voice",
-          "sampler_drum_machine",
-          "sampler_classic"
-        ],
+        "instruments": ["voice", "sampler_drum_machine", "sampler_classic"],
         "room": "studio_auteur_home_pro",
         "pin_parts": true,
         "parts": {
@@ -806,19 +726,11 @@
           "cyclicity": 1
         },
         "description": "Conversational rapping and emphatic rhythmic phrasing ride over programmed percussion and a pitched low kick. Chopped or repeating samples supply melodic and harmonic hooks, leaving space for flexible vocal placement, humorous lines and sharp changes of emphasis.",
-        "exemplars": [
-          "Gloosito",
-          "JayDime"
-        ],
+        "exemplars": ["Gloosito", "JayDime"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        39.4699,
-        -0.3763,
-        "Valencia",
-        "Europe"
-      ],
+      "geo": [39.4699, -0.3763, "Valencia", "Europe"],
       "geo_rationale": "Documented selected performance city; not a claim that the entire language-defined field originated here.",
       "signature_tokens": [],
       "sources": [
@@ -923,11 +835,7 @@
         "new_instruments": [],
         "baseline_existing": 1658,
         "owning_controls": 26,
-        "instruments": [
-          "voice",
-          "sampler_drum_machine",
-          "sampler_classic"
-        ]
+        "instruments": ["voice", "sampler_drum_machine", "sampler_classic"]
       },
       "verification_status": "Author original-loader preflight PASS:18protected owning parts,zero fallbacks,all1638 old owners unchanged,exact historical photo receipt matched,four actual original app formats inspected. No final integrated build/CI claim.",
       "source_scope_limitation": "Genre-level authored rap-production arrangement: one lead rap voice, independently controllable sampled drum/bass-kick programming and melodic sample layers. Producer Dano explicitly describes sampled harmonic beat construction with Gloosito; Gloosito first-person interview describes his modern Detroit-derived rap and beat involvement. Specific modern MPC, 24-bit depth, tight timing and pitched-kick settings are representative editable production choices, not claimed source equipment. Earlier live DJ event remains intact as evidence of an alternate live presentation, not the generic default.",
@@ -970,10 +878,7 @@
           "fresh_review_ref": "turn15696view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -985,10 +890,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1004,9 +906,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1020,10 +920,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn11621view3",
-          "turn15696view2"
-        ]
+        "fresh_rights_retrieval_refs": ["turn11621view3", "turn15696view2"]
       },
       "repair_evidence": {
         "original_packet": "/tmp/batch040/resume024-2.json",
@@ -1034,10 +931,7 @@
             "name": "Detroit trap en español",
             "family": "hip_hop",
             "lineage": "Gloosito — whole LX Music Festival performance, La Marina, Valencia,4October2024. Eyewitness Claudia Iturralde documents Garzi mixing throughout, guest rapper JayDime for much of the set, and audience vocal participation. Retain both named rappers, unknown-size responding audience and DJ playback/mixing; total vocal headcount and embedded playback voices remain unknown. This is the complete reported live act, not a reconstructed studio master or the entire multi-act festival. Separate Diego900 guitars and other festival acts are excluded by their distinct performance scope. No personal audio audition or exact complete setlist claimed. Source-positive live rap, audience response and whole DJ playback remain intact. Aggregate live group preserves unknown total humans; speech-versus-song, pitch, physiology and training stay unspecified because lead rapping coexists with reported audience singing. Live ensemble tracking and neutral unprocessed delivery are explicitly authored rendition choices, not measured source processing or synchrony. DJ source medium/controller and embedded layers remain unknown without substituting an invented sampler for studio instrumentation. Controlled live-room acoustics are authored rather than measured outdoor venue acoustics; no global tuning or invented recording hardware. Rendered up-tempo vocal affect and bodacious playback are authored brisk/exuberant festival-rendition pacing, not measured source BPM or a new genre attribution; eyewitness audience energy supports this editorial presentation.",
-            "instruments": [
-              "voice",
-              "dj_playback_mixing_unspecified"
-            ],
+            "instruments": ["voice", "dj_playback_mixing_unspecified"],
             "room": "live_room",
             "pin_parts": true,
             "parts": {
@@ -1079,9 +973,7 @@
               "cyclicity": 1
             },
             "description": "Gloosito — whole LX Music Festival performance, La Marina, Valencia,4October2024. Eyewitness Claudia Iturralde documents Garzi mixing throughout, guest rapper JayDime for much of the set, and audience vocal participation. Retain both named rappers, unknown-size responding audience and DJ playback/mixing; total vocal headcount and embedded playback voices remain unknown. This is the complete reported live act, not a reconstructed studio master or the entire multi-act festival. Separate Diego900 guitars and other festival acts are excluded by their distinct performance scope. No personal audio audition or exact complete setlist claimed. Exact creator Detroit Trap en Espanol corpus includes Gloosito and JayDime together. Producer Dano explicitly identifies collaborator Gloosito with current Detroit-style rap in his firsthand track commentary. This supports the Spanish-language adoption/community of Detroit-derived rap rather than a new style inferred from one live arrangement. Existing detroit_trap defines the original Detroit/Michigan regional field through Sada Baby, Tee Grizzley and local producers; this language/community branch overlaps and inherits that style while extending its performer/listener network beyond the original regional field. Spanish hip-hop/trap are broader umbrellas; existing emo_trap_en_espanol concerns melodic/sad-trap identity, not all Spanish-language trap. No exclusive sonic grammar, absence of crossover, or blanket Detroit classification of every festival performer is asserted. Source-positive live rap, audience response and whole DJ playback remain intact. Aggregate live group preserves unknown total humans; speech-versus-song, pitch, physiology and training stay unspecified because lead rapping coexists with reported audience singing. Live ensemble tracking and neutral unprocessed delivery are explicitly authored rendition choices, not measured source processing or synchrony. DJ source medium/controller and embedded layers remain unknown without substituting an invented sampler for studio instrumentation. Controlled live-room acoustics are authored rather than measured outdoor venue acoustics; no global tuning or invented recording hardware. Rendered up-tempo vocal affect and bodacious playback are authored brisk/exuberant festival-rendition pacing, not measured source BPM or a new genre attribution; eyewitness audience energy supports this editorial presentation.",
-            "exemplars": [
-              "Gloosito with JayDime, Garzi and audience — LX Music Festival2024"
-            ],
+            "exemplars": ["Gloosito with JayDime, Garzi and audience — LX Music Festival2024"],
             "status": "documented",
             "crossRefs": []
           },
@@ -1089,10 +981,7 @@
           "source_scope_limitation": "Gloosito — whole LX Music Festival performance, La Marina, Valencia,4October2024. Eyewitness Claudia Iturralde documents Garzi mixing throughout, guest rapper JayDime for much of the set, and audience vocal participation. Retain both named rappers, unknown-size responding audience and DJ playback/mixing; total vocal headcount and embedded playback voices remain unknown. This is the complete reported live act, not a reconstructed studio master or the entire multi-act festival. Separate Diego900 guitars and other festival acts are excluded by their distinct performance scope. No personal audio audition or exact complete setlist claimed.",
           "vocal_count_audit": {
             "selected_count": null,
-            "named_lead_rappers": [
-              "Gloosito",
-              "JayDime"
-            ],
+            "named_lead_rappers": ["Gloosito", "JayDime"],
             "named_lead_count": 2,
             "audience_vocal_count": "unknown",
             "embedded_playback_voices": "unknown",
@@ -1109,10 +998,7 @@
         },
         "reason": "User-authorized genre-level repair. Preserve positive rapper/DJ live practice as one coherent genre arrangement while moving named performance, audience count and review-process dossier out of public genre prose. No source roles or physical controls removed.",
         "default_review": "Genre-level authored rap-production arrangement: one lead rap voice, independently controllable sampled drum/bass-kick programming and melodic sample layers. Producer Dano explicitly describes sampled harmonic beat construction with Gloosito; Gloosito first-person interview describes his modern Detroit-derived rap and beat involvement. Specific modern MPC, 24-bit depth, tight timing and pitched-kick settings are representative editable production choices, not claimed source equipment. Earlier live DJ event remains intact as evidence of an alternate live presentation, not the generic default.",
-        "fresh_source_review": [
-          "turn13488view0",
-          "turn13488view1"
-        ],
+        "fresh_source_review": ["turn13488view0", "turn13488view1"],
         "previous_live_branch": {
           "packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-detroit-trap-en-espanol.json",
           "sha256": "2a79d4afbe13b6996ae034082e85b82b50e9ba11a238792c870d7c1dd671c4b1",
@@ -1247,12 +1133,7 @@
         "name": "Modern Jangle Pop",
         "family": "pop_rock",
         "lineage": "Contemporary jangle pop carries bright interlocking electric-guitar figures and melodic songwriting into independent guitar music. It continues earlier jangle traditions while absorbing lo-fi pop, dreamier textures and power-pop energy.",
-        "instruments": [
-          "voice",
-          "electric_guitar_single_coil",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
         "room": "live_room",
         "tuning": "twelve_tet",
         "pin_parts": true,
@@ -1324,22 +1205,13 @@
           "cyclicity": 2
         },
         "description": "Clear guitar arpeggios and chiming chord patterns surround tuneful vocals, melodic bass and a steady drum-kit pulse. Contemporary bands range from wistful, lightly produced songs to brisk and buoyant guitar pop, often combining immediate hooks with reflective or anxious lyrics.",
-        "exemplars": [
-          "Ducks Ltd.",
-          "The Smashing Times",
-          "Lost Ships"
-        ],
+        "exemplars": ["Ducks Ltd.", "The Smashing Times", "Lost Ships"],
         "status": "documented",
         "signature_tokens": [],
         "crossRefs": []
       },
       "signature_tokens": [],
-      "geo": [
-        43.6532,
-        -79.3832,
-        "Toronto",
-        "North America"
-      ],
+      "geo": [43.6532, -79.3832, "Toronto", "North America"],
       "geo_rationale": "Toronto is the documented contemporary Ducks Ltd. practitioner anchor, not an exclusive origin of the international field.",
       "sources": [
         {
@@ -1436,10 +1308,7 @@
           "fresh_review_ref": "turn15616view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1451,10 +1320,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1470,9 +1336,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1486,9 +1350,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15616view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15616view2"],
         "reuse_provenance_scope": "Historical exact microphone image as generic recording context only; fresh rights15616view2."
       },
       "verification_status": "Original043 browser/connector four-format parity and compiled API passed49 owning controls with1658 existing owners unchanged. Four literal outputs inspected: unembellished singing, poised clean electric guitar, focused bass and trudging backbeat are coherent authored guitar-pop rendition; no foreign pitch mechanism or extra role. Full protected controls preserved.",
@@ -1512,10 +1374,7 @@
         "name": "Pop Reggaeton",
         "family": "pop",
         "lineage": "Pop reggaeton brings melodic urban-pop hooks into the rhythmic production of reggaeton. Its Spanish-language crossover field connects performers across Latin America, including a strong Venezuelan singer-songwriter network.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -1557,20 +1416,11 @@
           "cyclicity": 0
         },
         "description": "Sung hooks and romantic lyric address sit over a recurring reggaeton beat. Melodic phrasing and a clear rhythmic pulse support the crossover between dance music and pop song.",
-        "exemplars": [
-          "Sixto Rein",
-          "Gustavo Elis",
-          "Juan Miguel"
-        ],
+        "exemplars": ["Sixto Rein", "Gustavo Elis", "Juan Miguel"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        10.4806,
-        -66.9036,
-        "Caracas",
-        "Latin America & Caribbean"
-      ],
+      "geo": [10.4806, -66.9036, "Caracas", "Latin America & Caribbean"],
       "geo_rationale": "On-land editorial anchor for the documented Venezuelan branch, not a universal origin or selected recording location.",
       "signature_tokens": [],
       "model_policy": "Representative sung urban-pop branch with a human vocal and positively documented produced rhythmic backing. The beat owner preserves source-unknown sound-generation mechanism; no specific drum machine, sampler, stems or exact Ojitos recording reconstruction is claimed. Moderate projected syllabic singing, one authored unprocessed lead vocal with instrumental backing and no doubled vocal tracks; original performer/tracking counts remain unknown, and treated-studio capture are authored choices. Functional-harmonic verse–chorus–bridge organization is an authored new pop rendition, not a measured transcription of any cited master. Regional or individual ornament/physiology remains unspecified. The intended editable rendition uses punctuated rhythmic syllables against a clean, bright, dry produced beat. Original clapping-and-syllabicizing denotes that rhythmic vocal delivery, not added handclap players or nursery repertoire; frosty is the authored clean dry production affect, not a measured original mix or universal mood.",
@@ -1633,10 +1483,7 @@
           "fresh_review_ref": "turn15425view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1648,10 +1495,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1667,9 +1511,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1683,9 +1525,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15425view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15425view2"],
         "fresh_rights_review": "Fresh turn15425view2 rights only; historical bytes and visual observation inherited."
       },
       "dependency_audit": {
@@ -1717,9 +1557,7 @@
         "name": "Calming Instrumental",
         "family": "classical",
         "lineage": "Calming instrumental listening brings gentle instrumental compositions into relaxation, focus and quiet domestic settings. Contemporary piano composers draw on older nocturne forms while using compact melodies and restrained textures suited to these listening contexts.",
-        "instruments": [
-          "upright_piano"
-        ],
+        "instruments": ["upright_piano"],
         "room": "parlor",
         "pin_parts": true,
         "parts": {
@@ -1746,18 +1584,11 @@
           "cyclicity": 0
         },
         "description": "Gentle piano melodies unfold through connected phrases and lightly weighted accompaniment. Motion may be flowing or relatively quick while the touch remains soft; a calm listening purpose does not require every piece to share one tempo. Solo acoustic piano is one branch of a wider instrumental field.",
-        "exemplars": [
-          "SØLYS"
-        ],
+        "exemplars": ["SØLYS"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        43.2557,
-        -79.8711,
-        "Hamilton",
-        "North America"
-      ],
+      "geo": [43.2557, -79.8711, "Hamilton", "North America"],
       "geo_rationale": "Artist-published Hamilton, Canada location supplies this representative branch anchor, not an exclusive origin.",
       "signature_tokens": [],
       "sources": [
@@ -1767,9 +1598,7 @@
           "support_notes": "Artist/label-owned full release states gentle quick solo piano, Field/Chopin-inspired modern nocturne, composer Michael William Chambers and performer/producer SØLYS; explicit calming instrumental tag, Hamilton location and April9 2021 release."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15710view0"
-      ],
+      "primary_retrieval_refs": ["turn15710view0"],
       "model_policy": "Representative newly authored solo-piano rendition of a positively documented calming-instrumental branch. Artist-published Nocturne explicitly establishes complete solo piano, composed modern nocturne and gentle yet quick motion. A standard modern upright, connected classical touch and intimate parlor are editable realization choices, not claims about the recorded piano model, measured room or universal slow tempo. No voices, strings or ambient synthesizers are added; source neighboring recommended albums are not credits for this work.",
       "authored_render_scope": "Representative newly authored solo-piano rendition of a positively documented calming-instrumental branch. Artist-published Nocturne explicitly establishes complete solo piano, composed modern nocturne and gentle yet quick motion. A standard modern upright, connected classical touch and intimate parlor are editable realization choices, not claims about the recorded piano model, measured room or universal slow tempo. No voices, strings or ambient synthesizers are added; source neighboring recommended albums are not credits for this work.",
       "neighbor_distinction": "The issuer explicitly tags the complete original piano composition calming instrumental. This listening-purpose field overlaps full background_music, new_age_piano, classical_piano and contemporary_classical; none is falsely restricted to its selected exemplar. The present acoustic composed branch fits the named listening label without requiring a unique institution or exclusive sound. Exact EveryNoise artist membership has not been recovered and is not asserted; the direct practitioner label and practice are positive. No equivalence is inferred merely from shared piano or relaxation function.",
@@ -1837,10 +1666,7 @@
           "fresh_review_ref": "turn15708view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1852,10 +1678,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1871,9 +1694,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2001,19 +1822,11 @@
           "cyclicity": 2
         },
         "description": "Festive singing meets accessible melodies, dance rhythms and ensemble accompaniment. Accordion, brass, keyboards and rhythm sections can support massed refrains, while intimate song settings also preserve the repertoire.",
-        "exemplars": [
-          "Jocus",
-          "KVV Alaaf Kirchroa"
-        ],
+        "exemplars": ["Jocus", "KVV Alaaf Kirchroa"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        50.7708,
-        6.0186,
-        "Vaals",
-        "Europe"
-      ],
+      "geo": [50.7708, 6.0186, "Vaals", "Europe"],
       "geo_rationale": "Issuing/organizing association explicitly located in Vaals; local carnival repertoire anchor, not measured studio location.",
       "signature_tokens": [],
       "sources": [
@@ -2212,10 +2025,7 @@
           "fresh_review_ref": "turn11604view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2227,10 +2037,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2246,9 +2053,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2270,11 +2075,7 @@
         "unpinned_slots": [],
         "note": "All60 applicable owning controls protected; shared wind_articulation has one flat value applying consistently to trumpet and trombone."
       },
-      "primary_retrieval_refs": [
-        "turn11757view0",
-        "turn11777view0",
-        "turn11775view0"
-      ],
+      "primary_retrieval_refs": ["turn11757view0", "turn11777view0", "turn11775view0"],
       "source_access_limitation": "Public issuer full dedicated song/credits and regional institution read; audio not auditioned. Historical image bytes inherited, fresh Commons rights read.",
       "status": "hold_render_semantics",
       "repair_review": {
@@ -2284,10 +2085,7 @@
             "name": "Carnaval Limburg",
             "family": "vernacular",
             "lineage": "Lambert Erven and Leo Ketelaars — Vols Pakt Oes, complete original1948 recording presented by its local carnival institution CV de Grensülle. The dedicated work page identifies Erven as lyricist/singer and Ketelaars as composer/pianist, prints two complete verses and repeated refrain, and the institutional homepage supplies the audio element. Retain the full published two-person vocal/piano palette. Other carnival bands and brass ensembles on the website are separate activities and are not imported. No personal audio audition, measured duration, exact piano model or session venue claimed. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the complete credited song. The source prints verses and refrain; the connecting bridge organization and chord voicing are authored, not claimed as a transcription of the1948 master. One accompanied singer with neutral physiology and small-note-group neumatic word setting is an authored rendition, not measured historical vocal technique. Generic source piano becomes a standard studio upright with block-chord accompaniment. A brisk up-tempo vocal rendition is authored festive pacing, not measured1948 tempo. Controlled live-room listening presentation is editorial; no historic capture equipment, global tuning or procession-sized ensemble inferred.",
-            "instruments": [
-              "voice",
-              "upright_piano"
-            ],
+            "instruments": ["voice", "upright_piano"],
             "room": "live_room",
             "pin_parts": true,
             "parts": {
@@ -2363,9 +2161,7 @@
           "omissions": "No positively credited role omitted; composer and lyricist credits do not invent extra performers."
         },
         "vocal_count_audit": {
-          "credited_selected_singers": [
-            "Lambert Erven"
-          ],
+          "credited_selected_singers": ["Lambert Erven"],
           "selected_count": 1,
           "count_basis": "Exact recording credit names one singer and separate pianist.",
           "decision": "Lambert Erven and Leo Ketelaars — Vols Pakt Oes, complete original1948 recording presented by its local carnival institution CV de Grensülle. The dedicated work page identifies Erven as lyricist/singer and Ketelaars as composer/pianist, prints two complete verses and repeated refrain, and the institutional homepage supplies the audio element. Retain the full published two-person vocal/piano palette. Other carnival bands and brass ensembles on the website are separate activities and are not imported. No personal audio audition, measured duration, exact piano model or session venue claimed."
@@ -2434,9 +2230,7 @@
         "name": "Chill Lounge",
         "family": "electronic",
         "lineage": "Contemporary chill-lounge listening draws on downtempo electronica, Balearic curation and smooth lounge grooves. Producers, radio programmes and hospitality channels connect spacious electronic textures with relaxed melodic and vocal material.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "parlor",
         "pin_parts": true,
         "parts": {
@@ -2461,21 +2255,11 @@
           "cyclicity": 0
         },
         "description": "Unhurried electronic grooves, soft-edged melodies and spacious production suit relaxed listening. DJ programmes connect instrumental and vocal selections through flowing transitions, with acoustic colors and electronic textures sharing the sound.",
-        "exemplars": [
-          "Afterlife",
-          "Lux",
-          "Rue Du Soleil",
-          "Vargo"
-        ],
+        "exemplars": ["Afterlife", "Lux", "Rue Du Soleil", "Vargo"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        38.9067,
-        1.4206,
-        "Ibiza",
-        "Europe"
-      ],
+      "geo": [38.9067, 1.4206, "Ibiza", "Europe"],
       "geo_rationale": "Ibiza is the documented Balearic sunset-listening community anchor in Afterlife’s own account, not a claim about every creator or the recording location of the selected programme.",
       "signature_tokens": [],
       "model_policy": "Representative whole recorded DJ-programme presentation: Afterlife’s issued59:33 Balearic Classics August2015, tagged downtempo/ambient/chillout/lounge. Neutral playback/mixing preserves all embedded track materials and voices, whose counts and mechanisms remain unknown. No live deck model, one-take session, reconstructed stems or invented source instruments are asserted. An intimate parlor listening presentation is authored for the relaxed listening branch, not measured source venue acoustics or a universal tempo. The broad experimentalElec production/listening parent does not require every selection to be beatless.",
@@ -2538,10 +2322,7 @@
           "fresh_review_ref": "turn15425view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2553,10 +2334,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2572,9 +2350,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2588,9 +2364,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15425view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15425view2"],
         "fresh_rights_review": "Fresh turn15425view2 rights only; historical bytes and visual observation inherited."
       },
       "dependency_audit": {
@@ -2619,9 +2393,7 @@
         "name": "Deep Darkpsy",
         "family": "electronic",
         "lineage": "Deep darkpsy circulates through psychedelic-trance labels, night-time dance events and DJ communities. Producers and selectors connect intense rhythmic repetition with dark electronic textures, using extended mixes to shape a changing dance-floor journey.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -2646,20 +2418,11 @@
           "cyclicity": 1
         },
         "description": "Persistent dance pulses support shifting electronic layers and dark atmospheres. DJ mixing joins recorded pieces into a continuous programme, retaining contrasting textures and occasional recorded voices without requiring one fixed instrumental lineup.",
-        "exemplars": [
-          "Antagon",
-          "Necropsycho",
-          "Noise Gust"
-        ],
+        "exemplars": ["Antagon", "Necropsycho", "Noise Gust"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        53.3498,
-        -6.2603,
-        "Dublin",
-        "Europe"
-      ],
+      "geo": [53.3498, -6.2603, "Dublin", "Europe"],
       "geo_rationale": "Triplag Music’s stated Dublin label location is a documented publishing/community anchor, not exclusive genre origin or master recording site.",
       "signature_tokens": [],
       "sources": [
@@ -2679,11 +2442,7 @@
           "support_notes": "Original2013scene article explicitly distinguishes Shiva Joerg full-on, Dark Shiva deep Darkpsy and separate moderate-bpm Raumtechnik; no transfer of latter sound into darkpsy."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15756view0",
-        "turn15727view0",
-        "turn15731view1"
-      ],
+      "primary_retrieval_refs": ["turn15756view0", "turn15727view0", "turn15731view1"],
       "model_policy": "Representative whole issued DJ-mixed programme: Vic Triplag Pozitive Mixed,1:05:20, separately supplied as track13 alongside the individual selections on the producer-label release. Its full prerecorded vocals, percussion, bass and electronic layers remain embedded; counts and underlying production architectures are unknown. Actual source explicitly credits compiling and mixing. This does not turn an arbitrary unmixed master into a sampler, nor claim a live deck model or subtract the positively credited Mikayo Ryu vocal contribution. A direct, layered treated-studio DJ presentation is authored; programme may cross related psytrance strands rather than every instant satisfying one style definition.",
       "authored_render_scope": "Representative whole issued DJ-mixed programme: Vic Triplag Pozitive Mixed,1:05:20, separately supplied as track13 alongside the individual selections on the producer-label release. Its full prerecorded vocals, percussion, bass and electronic layers remain embedded; counts and underlying production architectures are unknown. Actual source explicitly credits compiling and mixing. This does not turn an arbitrary unmixed master into a sampler, nor claim a live deck model or subtract the positively credited Mikayo Ryu vocal contribution. A direct, layered treated-studio DJ presentation is authored; programme may cross related psytrance strands rather than every instant satisfying one style definition.",
       "neighbor_distinction": "The actual requested creator playlist includes Antagon/Loose Connection1, Necropsycho10/16 and Noise Gust29. These producers connect directly to Triplag’s full mixed release (Antagon within -Z-, Necropsycho and Noise Gust); no selected-track identity or exact Vic Triplag membership is claimed. Original scene magazine independently uses deep Darkpsy for Dark Shiva’s practice, while Triplag’s issuer defines its own programme as dark psychedelic trance. Full existing dark_psytrance and forest_psy substantially overlap; the named discovery/community field is not claimed an exclusive sonic invention, rigid slower-tempo subclass or synonym proved by spelling.",
@@ -2749,10 +2508,7 @@
           "fresh_review_ref": "turn15708view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2764,10 +2520,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2783,9 +2536,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2821,9 +2572,7 @@
         "name": "Ghanaian Alternative",
         "family": "global",
         "lineage": "Ghanaian alternative music grows through independent musicians, producers and creative communities, especially in Accra. DIY collaboration, festivals and platforms such as ACCRA [dot] ALT and Oroko Radio connect local experimentation with international audiences.",
-        "instruments": [
-          "sampler_classic"
-        ],
+        "instruments": ["sampler_classic"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -2852,21 +2601,11 @@
           "cyclicity": 0
         },
         "description": "The field includes experimental beatmaking, electronic dance music, soulful singing and independent rap. Producers reshape sampled phrases and rhythmic fragments into new instrumental textures, while vocal projects explore personal expression and social commentary. Its identity lies in creative communities and varied approaches beyond the dominant radio styles.",
-        "exemplars": [
-          "Gafacci",
-          "Rvdical The Kid",
-          "Alex Wondergem",
-          "Ria Boss"
-        ],
+        "exemplars": ["Gafacci", "Rvdical The Kid", "Alex Wondergem", "Ria Boss"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        5.56,
-        -0.2,
-        "Accra",
-        "Africa"
-      ],
+      "geo": [5.56, -0.2, "Accra", "Africa"],
       "geo_rationale": "Accra community anchor independently documented by Oroko and the artist; selected NTS episode is labeled Lisbon, not recorded in Accra by inference.",
       "sources": [
         {
@@ -2932,9 +2671,7 @@
         "new_instruments": [],
         "baseline_existing": 1658,
         "owning_controls": 5,
-        "instruments": [
-          "sampler_classic"
-        ]
+        "instruments": ["sampler_classic"]
       },
       "photo": {
         "manifest": {
@@ -2968,10 +2705,7 @@
           "fresh_review_ref": "turn15696view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2983,10 +2717,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3002,9 +2733,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3018,10 +2747,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn883201view1",
-          "turn15696view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn883201view1", "turn15696view2"],
         "fresh_rights_review": "Fresh turn883201view1 confirms CC BY2.5 attribution and crop. Original023 exact historical bytes/visual receipt retained, no fresh download."
       },
       "source_scope_limitation": "Genre-practice synthesis, no exact master or waveform reconstruction. Earlier DJ-only record and its source limitations retained in before evidence.",
@@ -3061,9 +2787,7 @@
             "name": "Ghanaian Alternative",
             "family": "electronic",
             "lineage": "Whole NTS Enchufada Na Zona programme with Gafacci, issued 1 July 2019 and labeled Lisbon. Issuer identifies guest DJ selection and lists eleven recordings; the full programme is retained, including every embedded musical and vocal layer. Programme-series description also names Branko and Rastronaut as its label-head hosts; it does not establish their actual mixing participation in this episode. Exact number of mixing operators, running time, playback medium, hardware and live announcements remain unknown. One source-neutral playback/mixing card represents the complete issued programme, not one inferred person or a stripped instrumental excerpt. No audio audition claimed. Authored brisk club-listening realization uses the existing DJ playback/mixing owner with its sole identity control protected. NTS club/batida tags and the artist’s dance-production practice support the broad electronicDance parent. Live room is an editorial listening presentation, not a claim about the programme’s original venue acoustics. No source BPM, named decks, global tuning, recording chain or additional live singer is inferred.",
-            "instruments": [
-              "dj_playback_mixing_unspecified"
-            ],
+            "instruments": ["dj_playback_mixing_unspecified"],
             "room": "live_room",
             "pin_parts": true,
             "parts": {
@@ -3088,18 +2812,11 @@
               "cyclicity": 0
             },
             "description": "Whole NTS Enchufada Na Zona programme with Gafacci, issued 1 July 2019 and labeled Lisbon. Issuer identifies guest DJ selection and lists eleven recordings; the full programme is retained, including every embedded musical and vocal layer. Programme-series description also names Branko and Rastronaut as its label-head hosts; it does not establish their actual mixing participation in this episode. Exact number of mixing operators, running time, playback medium, hardware and live announcements remain unknown. One source-neutral playback/mixing card represents the complete issued programme, not one inferred person or a stripped instrumental excerpt. No audio audition claimed. Ghanaian Alternative denotes the overlapping cross-style independent and alternative community, with positive institutional and first-person evidence beyond nationality. Oroko radio resident Muud Swingz explicitly identifies Gafacci alongside bands and collectives in Accra’s alternative community; the station documents its events, teaching and connections abroad. Gafacci independently describes establishing electronic community events alongside an existing alternative live-musician scene. Full Ghanaian Pop already includes electronic and diasporic singing/rapping, and full Ghanaian Hip Hop describes the national rap field; neither is restricted to its selected exemplar. This addition represents a narrower cross-style production/circulation network overlapping those fields, not a claim electronics alone distinguish it. Azonto and Azontobeats describe named dance practices and overlap Gafacci’s earlier activity without exhausting this broader community. The selected international club programme is one complete practice by a documented community participant; neither its entire repertoire nor all community output is claimed Ghanaian or electronic. Prior reviewer recovered Gafacci on the creator map; current exact-map retrieval failed, so fresh direct community testimony is the independent category evidence. Authored brisk club-listening realization uses the existing DJ playback/mixing owner with its sole identity control protected. NTS club/batida tags and the artist’s dance-production practice support the broad electronicDance parent. Live room is an editorial listening presentation, not a claim about the programme’s original venue acoustics. No source BPM, named decks, global tuning, recording chain or additional live singer is inferred.",
-            "exemplars": [
-              "Gafacci — whole Enchufada Na Zona programme, NTS, 1 July 2019"
-            ],
+            "exemplars": ["Gafacci — whole Enchufada Na Zona programme, NTS, 1 July 2019"],
             "status": "documented",
             "crossRefs": []
           },
-          "geo": [
-            5.56,
-            -0.2,
-            "Accra",
-            "Africa"
-          ],
+          "geo": [5.56, -0.2, "Accra", "Africa"],
           "geo_rationale": "Accra community anchor independently documented by Oroko and the artist; selected NTS episode is labeled Lisbon, not recorded in Accra by inference.",
           "sources": [
             {
@@ -3134,9 +2851,7 @@
           "instrument_role_audit": {
             "scope": "Whole NTS Enchufada Na Zona programme with Gafacci, issued 1 July 2019 and labeled Lisbon. Issuer identifies guest DJ selection and lists eleven recordings; the full programme is retained, including every embedded musical and vocal layer. Programme-series description also names Branko and Rastronaut as its label-head hosts; it does not establish their actual mixing participation in this episode. Exact number of mixing operators, running time, playback medium, hardware and live announcements remain unknown. One source-neutral playback/mixing card represents the complete issued programme, not one inferred person or a stripped instrumental excerpt. No audio audition claimed.",
             "cards": 1,
-            "roles": [
-              "Whole issued DJ programme with all embedded music and voices"
-            ],
+            "roles": ["Whole issued DJ programme with all embedded music and voices"],
             "defaults": "Authored brisk club-listening realization uses the existing DJ playback/mixing owner with its sole identity control protected. NTS club/batida tags and the artist’s dance-production practice support the broad electronicDance parent. Live room is an editorial listening presentation, not a claim about the programme’s original venue acoustics. No source BPM, named decks, global tuning, recording chain or additional live singer is inferred."
           },
           "vocal_count_audit": {
@@ -3155,9 +2870,7 @@
             }
           ],
           "dependency_audit": {
-            "reused_instruments": [
-              "dj_playback_mixing_unspecified"
-            ],
+            "reused_instruments": ["dj_playback_mixing_unspecified"],
             "new_instruments": []
           },
           "photo": {
@@ -3192,10 +2905,7 @@
               "fresh_review_ref": "turn883201view1"
             },
             "full": {
-              "dimensions": [
-                250,
-                720
-              ],
+              "dimensions": [250, 720],
               "bytes": 33015,
               "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
               "content_type": "image/jpeg",
@@ -3207,10 +2917,7 @@
               "receipt_scope": "inherited historical download; not downloaded in current environment"
             },
             "thumbnail": {
-              "dimensions": [
-                250,
-                720
-              ],
+              "dimensions": [250, 720],
               "bytes": 33015,
               "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
               "content_type": "image/jpeg",
@@ -3226,9 +2933,7 @@
               "checked_date": "2026-10-02",
               "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
               "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-              "reviewed_paths": [
-                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-              ],
+              "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
               "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
             },
             "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3242,9 +2947,7 @@
               "fresh_visual_review": false,
               "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
             },
-            "fresh_rights_retrieval_refs": [
-              "turn883201view1"
-            ],
+            "fresh_rights_retrieval_refs": ["turn883201view1"],
             "fresh_rights_review": "Fresh turn883201view1 confirms CC BY2.5 attribution and crop. Original023 exact historical bytes/visual receipt retained, no fresh download."
           },
           "source_scope_limitation": "Whole NTS Enchufada Na Zona programme with Gafacci, issued 1 July 2019 and labeled Lisbon. Issuer identifies guest DJ selection and lists eleven recordings; the full programme is retained, including every embedded musical and vocal layer. Programme-series description also names Branko and Rastronaut as its label-head hosts; it does not establish their actual mixing participation in this episode. Exact number of mixing operators, running time, playback medium, hardware and live announcements remain unknown. One source-neutral playback/mixing card represents the complete issued programme, not one inferred person or a stripped instrumental excerpt. No audio audition claimed.",
@@ -3298,10 +3001,7 @@
         "name": "Ghoststep",
         "family": "electronic",
         "lineage": "Ghoststep is an electronic discovery tag connecting club productions and bass music. Its repertoire includes dubstep, house and techno contributors, with DJ selection and microphone-led performance among the documented practices.",
-        "instruments": [
-          "dj_playback_mixing_unspecified",
-          "voice"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified", "voice"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3343,20 +3043,11 @@
           "cyclicity": 0
         },
         "description": "Recorded bass, percussion and electronic textures form a flexible club-music palette. A representative DJ-and-MC branch combines continuous selection with rhythmic spoken delivery; the discovery field overlaps several established electronic styles.",
-        "exemplars": [
-          "Sub Basics",
-          "Cloudheart",
-          "I Carl"
-        ],
+        "exemplars": ["Sub Basics", "Cloudheart", "I Carl"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        51.5074,
-        -0.1278,
-        "London",
-        "Europe"
-      ],
+      "geo": [51.5074, -0.1278, "London", "Europe"],
       "signature_tokens": [],
       "sources": [
         {
@@ -3453,10 +3144,7 @@
           "fresh_review_ref": "turn15461view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3468,10 +3156,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3487,9 +3172,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3503,9 +3186,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15461view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15461view3"],
         "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
       },
       "geo_rationale": "Documented London broadcaster practice, not universal origin of the discovery field."
@@ -3523,9 +3204,7 @@
         "name": "Grimewave",
         "family": "electronic",
         "lineage": "Grimewave is a discovery label for an interconnected electronic-club repertoire. Its artists work across bass music, grime-derived production, experimental club music and pop, with mixes bringing these overlapping practices together.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3550,20 +3229,11 @@
           "cyclicity": 0
         },
         "description": "Electronic percussion, bass, samples and vocal recordings enter shifting rhythmic combinations. The selector branch brings contrasting tracks into a continuous club programme, without requiring one fixed rhythm, production method or live ensemble.",
-        "exemplars": [
-          "Dinamarca",
-          "Jam City",
-          "Shygirl"
-        ],
+        "exemplars": ["Dinamarca", "Jam City", "Shygirl"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        51.5074,
-        -0.1278,
-        "London",
-        "Europe"
-      ],
+      "geo": [51.5074, -0.1278, "London", "Europe"],
       "signature_tokens": [],
       "sources": [
         {
@@ -3636,10 +3306,7 @@
           "fresh_review_ref": "turn15461view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3651,10 +3318,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3670,9 +3334,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3686,9 +3348,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15461view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15461view3"],
         "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
       },
       "geo_rationale": "Documented broadcaster and club-programme context; the creator community is international."
@@ -3785,22 +3445,13 @@
           "cyclicity": 1
         },
         "description": "Memorable sung melodies, sentimental lyrics and recurring refrains are carried by electric guitar, bass, keyboards and a steady rhythm section. The listening tradition values familiar songs and classic groups across ballad and dance tempos; later arrangements may add percussion, accordion or brass colours.",
-        "exemplars": [
-          "Los Bukis",
-          "Bronco",
-          "Los Yonic’s"
-        ],
+        "exemplars": ["Los Bukis", "Bronco", "Los Yonic’s"],
         "status": "documented",
         "crossRefs": [],
         "signature_tokens": []
       },
       "signature_tokens": [],
-      "geo": [
-        19.4326,
-        -99.1332,
-        "Mexico City",
-        "Latin America & Caribbean"
-      ],
+      "geo": [19.4326, -99.1332, "Mexico City", "Latin America & Caribbean"],
       "geo_rationale": "Documented formative group and recording circuit; not an exclusive birthplace for the wider Mexican repertoire.",
       "sources": [
         {
@@ -3966,10 +3617,7 @@
           "fresh_review_ref": "turn15461view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3981,10 +3629,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4000,9 +3645,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4016,9 +3659,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15461view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15461view3"],
         "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
       },
       "dependency_audit": {
@@ -4047,9 +3688,7 @@
         "name": "J-Division",
         "family": "pop",
         "lineage": "J-Division is a Japanese pop discovery field linking character-song projects, vocal units and real-world pop groups. Its repertoire crosses animated and game franchises, rap battles and dance-pop, with published arrangements extending the songs into instrumental performance.",
-        "instruments": [
-          "upright_piano"
-        ],
+        "instruments": ["upright_piano"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -4076,20 +3715,11 @@
           "cyclicity": 0
         },
         "description": "Distinctive melodies and rhythmic hooks support solo and ensemble vocal identities. Character performances, rap verses and dance-oriented production coexist with pop songwriting; piano arrangements offer one documented instrumental branch of this wider repertoire.",
-        "exemplars": [
-          "J SOUL BROTHERS III",
-          "ST☆RISH",
-          "Hypnosis Mic"
-        ],
+        "exemplars": ["J SOUL BROTHERS III", "ST☆RISH", "Hypnosis Mic"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        35.6762,
-        139.6503,
-        "Tokyo",
-        "East Asia"
-      ],
+      "geo": [35.6762, 139.6503, "Tokyo", "East Asia"],
       "signature_tokens": [],
       "sources": [
         {
@@ -4168,10 +3798,7 @@
           "fresh_review_ref": "turn15461view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4183,10 +3810,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4202,9 +3826,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4218,9 +3840,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15461view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15461view3"],
         "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
       },
       "geo_rationale": "Japanese commercial pop and media-project setting, not an exact recording-site claim."
@@ -4311,11 +3931,7 @@
           "cyclicity": 1
         },
         "description": "Angular guitar figures, direct vocals and contrasting keyboard textures carry concise, rhythm-conscious songs. Drum-band arrangements sit alongside machine-driven technopop, experimental electronics and theatrical performance; the repertoire crosses rock and electronic-pop scenes.",
-        "exemplars": [
-          "Plastics",
-          "Hikashu",
-          "P-Model"
-        ],
+        "exemplars": ["Plastics", "Hikashu", "P-Model"],
         "status": "documented",
         "crossRefs": [],
         "signature_tokens": []
@@ -4348,12 +3964,7 @@
         }
       ],
       "neighbor_distinction": "Existing Japanese electropop, J-synth and Japanese post-punk already cover overlapping historical groups and electronic/rock practice. The requested Japanese New Wave label has positive firsthand practitioner usage across this network; coverage does not assert exclusive technique or a disjoint corpus. No equivalence follows just from shared exemplars. Broader global new wave includes but does not rename the Japanese community.",
-      "geo": [
-        35.6762,
-        139.6503,
-        "Tokyo",
-        "East Asia"
-      ],
+      "geo": [35.6762, 139.6503, "Tokyo", "East Asia"],
       "geo_rationale": "Documented scene/presenter anchor, not universal birthplace or measured session.",
       "signature_tokens": [],
       "resolved_parts_audit": [
@@ -4469,10 +4080,7 @@
           "fresh_review_ref": "turn15722view1"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4484,10 +4092,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4503,9 +4108,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4537,9 +4140,7 @@
         "name": "Kizomba Antigas",
         "family": "global",
         "lineage": "Kizomba antigas is the retrospective listening and dance repertoire of kizomba and its Lusophone Atlantic connections. DJs bring familiar songs back into circulation, connecting Angolan and Cape Verdean performers with related zouk-influenced repertoire.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "parlor",
         "pin_parts": true,
         "parts": {
@@ -4564,20 +4165,11 @@
           "cyclicity": 0
         },
         "description": "Romantic vocal melodies, warm bass and electronic dance accompaniment are revisited in oldies selections. The repertoire changes with listeners and selectors rather than following a universal date cutoff; a continuous DJ programme is one documented presentation.",
-        "exemplars": [
-          "Philip Monteiro",
-          "Tó Semedo",
-          "Nelson Freitas"
-        ],
+        "exemplars": ["Philip Monteiro", "Tó Semedo", "Nelson Freitas"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        -8.839,
-        13.2894,
-        "Luanda",
-        "Africa"
-      ],
+      "geo": [-8.839, 13.2894, "Luanda", "Africa"],
       "signature_tokens": [],
       "sources": [
         {
@@ -4646,10 +4238,7 @@
           "fresh_review_ref": "turn15461view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4661,10 +4250,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4680,9 +4266,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4696,9 +4280,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15461view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15461view3"],
         "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
       },
       "geo_rationale": "Angolan historical dance lineage; repertoire and selectors extend across Lusophone Atlantic communities."
@@ -4716,9 +4298,7 @@
         "name": "Mezmur",
         "family": "sacred",
         "lineage": "Mezmur connects Ethiopian Christian song with church choirs, solo singers and devotional recordings. Shared hymns and newly composed songs circulate through congregations, recordings and community networks.",
-        "instruments": [
-          "voice"
-        ],
+        "instruments": ["voice"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -4759,21 +4339,12 @@
           "cyclicity": 1
         },
         "description": "Group singing gives devotional words a shared melodic and rhythmic shape. Unaccompanied choral settings form one branch alongside keyboard, guitar and fuller instrumental arrangements; soloists and choirs carry both inherited hymns and new songs.",
-        "exemplars": [
-          "Elora Gospel Singers",
-          "Zema 4 Christ",
-          "Hosanna Mekane Yesus A Choir"
-        ],
+        "exemplars": ["Elora Gospel Singers", "Zema 4 Christ", "Hosanna Mekane Yesus A Choir"],
         "status": "documented",
         "crossRefs": []
       },
       "signature_tokens": [],
-      "geo": [
-        7.55,
-        37.85,
-        "Hosanna",
-        "Africa"
-      ],
+      "geo": [7.55, 37.85, "Hosanna", "Africa"],
       "geo_rationale": "Participant-authored choir history identifies Hosanna; linked coordinate page supplies approximate city anchor, not origin of all mezmur.",
       "sources": [
         {
@@ -4837,10 +4408,7 @@
           "fresh_review_ref": "turn15502view4"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4852,10 +4420,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4871,9 +4436,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4887,9 +4450,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15502view4"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15502view4"],
         "fresh_rights_review": "Fresh15502view4 license review; historical download and visual receipt unchanged."
       },
       "dependency_audit": {
@@ -4911,9 +4472,7 @@
         "name": "Modern Enka",
         "family": "pop",
         "lineage": "Modern Enka gathers continuing Japanese enka singers and their contemporary recordings, including crossings into kayōkyoku and pop ballads. Established expressive singing and nostalgic themes coexist with newer arrangements, media circulation and crossover repertoire.",
-        "instruments": [
-          "upright_piano"
-        ],
+        "instruments": ["upright_piano"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -4940,20 +4499,11 @@
           "cyclicity": 0
         },
         "description": "Sustained melodies, expressive phrasing and sentimental song texts remain central, while accompaniment ranges from band and orchestral colours to published keyboard arrangements. This repertoire overlaps the wider enka tradition and contemporary Japanese popular song rather than following a fixed date boundary.",
-        "exemplars": [
-          "Fuyumi Sakamoto",
-          "Kazusa Wakayama",
-          "Aki Yashiro"
-        ],
+        "exemplars": ["Fuyumi Sakamoto", "Kazusa Wakayama", "Aki Yashiro"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        35.6762,
-        139.6503,
-        "Tokyo",
-        "East Asia"
-      ],
+      "geo": [35.6762, 139.6503, "Tokyo", "East Asia"],
       "signature_tokens": [],
       "sources": [
         {
@@ -5040,10 +4590,7 @@
           "fresh_review_ref": "turn15461view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5055,10 +4602,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5074,9 +4618,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -5090,9 +4632,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15461view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15461view3"],
         "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
       },
       "geo_rationale": "Japanese recording/publishing circulation anchor, not selected original session location.",
@@ -5111,9 +4651,7 @@
         "name": "Pygmy music (Central African archival field)",
         "family": "global",
         "lineage": "Central African forest music documented in the Ituri recordings of Colin Turnbull and Francis Chapman during the 1950s. The historical archival label encompasses several communities and musical practices: initiation and forest-devotion singing, hunting and gathering songs, social dances, and instrumental music. Mbuti and Efe repertoires sit within this wider field alongside related regional traditions.",
-        "instruments": [
-          "voice"
-        ],
+        "instruments": ["voice"],
         "room": "forest_clearing",
         "pin_parts": true,
         "parts": {
@@ -5154,18 +4692,11 @@
           "cyclicity": 0
         },
         "description": "Interlocking vocal entries, circulating short phrases and overlapping group parts are characteristic of the polyphonic singing branch. Other practices feature cane flutes, lamellophones, musical bows, zithers, drums and slit-gong signalling. Sacred, occupational and recreational settings support different ensembles and textures; the Alima singing tradition provides a representative canonic vocal setting.",
-        "exemplars": [
-          "Mbuti singers — Bambuti – Alima Song, complete FW03855_209"
-        ],
+        "exemplars": ["Mbuti singers — Bambuti – Alima Song, complete FW03855_209"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        1.56,
-        30.25,
-        "Ituri Forest",
-        "Africa"
-      ],
+      "geo": [1.56, 30.25, "Ituri Forest", "Africa"],
       "geo_rationale": "Editorial onland Ituri regional anchor near Bunia; booklet identifies Ituri Forest, not an exact surveyed recording site.",
       "signature_tokens": [],
       "neighbor_distinction": "The historical archival field includes sacred songs, hunting/gathering and play songs, flute solos/duets, lamellophones, musical bow, and struck instruments, positively documented by Folkways’ Ituri collections. It is broader than existing aka_baka_polyphony, whose full record already includes related Mbuti repertoire but specifically describes complex forest-forager vocal polyphony. This selected Alima performance overlaps that vocal subfield; the distinct boundary is the larger documented instrumental-and-vocal archival field, not an assertion that Mbuti is absent from the existing row. This is not a universal musical technique shared by all peoples historically assigned this outside label.",
@@ -5209,9 +4740,7 @@
         }
       ],
       "dependency_audit": {
-        "reused_instruments": [
-          "voice"
-        ],
+        "reused_instruments": ["voice"],
         "new_instruments": []
       },
       "flat_pin_resolution": {
@@ -5282,10 +4811,7 @@
           "fresh_review_ref": "turn15688view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5297,10 +4823,7 @@
           "receipt_scope": "Inherited historical download, not downloaded in this environment."
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5316,9 +4839,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -5331,9 +4852,7 @@
           "fresh_download": false,
           "fresh_visual_review": false
         },
-        "fresh_rights_retrieval_refs": [
-          "turn11716view1"
-        ]
+        "fresh_rights_retrieval_refs": ["turn11716view1"]
       },
       "preserved_original": {
         "path": "/tmp/batch040/resume119-3.json",
@@ -5343,9 +4862,7 @@
           "name": "Pygmy music (Central African archival field)",
           "family": "global",
           "lineage": "Central African forest peoples’ music (historical catalogue label pygmy music): complete issued Bambuti – Alima Song, Folkways FW03855_209, 1959, 2:09. The original booklet Side II band9 documents three girls and a group of young men in canonic vocal polyphony for the Alima initiation context. Preserve both groups; total headcount is unspecified. The current catalogue artist heading instead says girls and women, a retained metadata discrepancy rather than a reason to omit the booklet’s male chorus. Lead and backing vocals are the complete credited musical palette. The oboe, piano and other documentary-track instruments elsewhere on this compilation do not accompany this separately identified vocal track. One voice-family card represents the complete mixed-age singing group, not a soloist or a fixed three-person choir. Canonic entries are source-positive; the live-ensemble setting is an authored cohesive performance treatment, not proof of original tape editing. Register, timbre physiology, local pitch system, ornament and tessitura remain source-unspecified. Neutral tract and moderate effort are authored physical settings, not measurements. Unprocessed voice and forest-clearing listening space are authored acoustic presentation without asserting the original microphone, tape chain or exact clearing. No global tuning. Broad ritualDevotional/global follows the positively described initiation function; the geographically restricted indigenous child node is not used.",
-          "instruments": [
-            "voice"
-          ],
+          "instruments": ["voice"],
           "room": "forest_clearing",
           "pin_parts": true,
           "parts": {
@@ -5386,19 +4903,14 @@
             "cyclicity": 0
           },
           "description": "Central African forest peoples’ music (historical catalogue label pygmy music): complete issued Bambuti – Alima Song, Folkways FW03855_209, 1959, 2:09. The original booklet Side II band9 documents three girls and a group of young men in canonic vocal polyphony for the Alima initiation context. Preserve both groups; total headcount is unspecified. The current catalogue artist heading instead says girls and women, a retained metadata discrepancy rather than a reason to omit the booklet’s male chorus. Lead and backing vocals are the complete credited musical palette. The oboe, piano and other documentary-track instruments elsewhere on this compilation do not accompany this separately identified vocal track. The historical archival field includes sacred songs, hunting/gathering and play songs, flute solos/duets, lamellophones, musical bow, and struck instruments, positively documented by Folkways’ Ituri collections. It is broader than existing aka_baka_polyphony, whose full record already includes related Mbuti repertoire but specifically describes complex forest-forager vocal polyphony. This selected Alima performance overlaps that vocal subfield; the distinct boundary is the larger documented instrumental-and-vocal archival field, not an assertion that Mbuti is absent from the existing row. This is not a universal musical technique shared by all peoples historically assigned this outside label. One voice-family card represents the complete mixed-age singing group, not a soloist or a fixed three-person choir. Canonic entries are source-positive; the live-ensemble setting is an authored cohesive performance treatment, not proof of original tape editing. Register, timbre physiology, local pitch system, ornament and tessitura remain source-unspecified. Neutral tract and moderate effort are authored physical settings, not measurements. Unprocessed voice and forest-clearing listening space are authored acoustic presentation without asserting the original microphone, tape chain or exact clearing. No global tuning. Broad ritualDevotional/global follows the positively described initiation function; the geographically restricted indigenous child node is not used.",
-          "exemplars": [
-            "Mbuti singers — Bambuti – Alima Song, complete FW03855_209"
-          ],
+          "exemplars": ["Mbuti singers — Bambuti – Alima Song, complete FW03855_209"],
           "status": "documented",
           "crossRefs": []
         }
       },
       "fresh_primary_review": {
         "vocal_practice": "turn15679search0 exact original booklet canonic group singing in4/4; turn15679view0 issuer lead/backing vocals",
-        "broader_field": [
-          "turn15686search1",
-          "turn15686search2"
-        ],
+        "broader_field": ["turn15686search1", "turn15686search2"],
         "old_scope": "Actual complete aka_baka_polyphony read from frozen043, including its explicit related Mbuti repertoire; overlap acknowledged, not absent-artist inference."
       },
       "reassessment_status": "SOURCE_PROFILE_REOPENED_PENDING_CURRENT_RUNTIME_AND_INDEPENDENT_REVIEW"
@@ -5416,9 +4928,7 @@
         "name": "Rominimal",
         "family": "electronic",
         "lineage": "Rominimal names a Romanian minimal electronic-music community associated with extended DJ sets, small labels and club gatherings. Rhadoo, Raresh and Petre Inspirescu helped shape its international circulation, while newer practitioners connect the sound with microhouse, deep tech and psychedelic influences.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -5443,12 +4953,7 @@
           "cyclicity": 2
         },
         "description": "Sparse rhythmic details, repeating bass movement and slowly evolving textures sustain long dance-floor passages. Track selection and gradual blends shape a patient groove, with room for house, techno and more psychedelic colours.",
-        "exemplars": [
-          "Rhadoo",
-          "Raresh",
-          "Petre Inspirescu",
-          "Diju"
-        ],
+        "exemplars": ["Rhadoo", "Raresh", "Petre Inspirescu", "Diju"],
         "status": "documented",
         "crossRefs": [],
         "signature_tokens": []
@@ -5467,12 +4972,7 @@
         }
       ],
       "neighbor_distinction": "Full minimal_tech_house already includes Romanian practitioners and long-form minimal club practice; microhouse and broader house/techno fields also overlap. The requested named field has explicit firsthand practitioner and presenter usage, not just performer nationality. No exclusive sonic boundary is asserted and shared artists do not establish exact semantic equivalence.",
-      "geo": [
-        44.4268,
-        26.1025,
-        "Bucharest",
-        "Europe"
-      ],
+      "geo": [44.4268, 26.1025, "Bucharest", "Europe"],
       "geo_rationale": "Named Rhadoo/community anchor; not every practitioner origin or a recording venue.",
       "signature_tokens": [],
       "resolved_parts_audit": [
@@ -5529,10 +5029,7 @@
           "fresh_review_ref": "turn15722view1"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5544,10 +5041,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5563,9 +5057,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -5579,9 +5071,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15722view1"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15722view1"],
         "reuse_provenance_scope": "Historical exact SM58 preview represents generic recording context only; no fresh download or artist equipment claim."
       },
       "verification_status": "Original453 browser four formats and compiledAPI inspected: single protected playback control, no additional tradition or tuning. Up-tempo expresses authored dance-floor motion, not a measured BPM or uniform pacing of all repertoire; no actual source contradiction.1653 baseline unchanged."
@@ -5598,11 +5088,7 @@
         "name": "Russian Hyperpop",
         "family": "pop",
         "lineage": "Russian hyperpop developed through online youth music communities around the turn of the 2020s, combining pop songwriting with exaggerated electronic production and the circulation of short-form video. Sqwore, 17Seventeen, rizza, treepside and Midix form part of its varied scene.",
-        "instruments": [
-          "voice",
-          "wavetable_synth",
-          "sampler_classic"
-        ],
+        "instruments": ["voice", "wavetable_synth", "sampler_classic"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -5656,12 +5142,7 @@
         ],
         "crossRefs": []
       },
-      "geo": [
-        55.75,
-        37.62,
-        "Russia",
-        "Europe"
-      ],
+      "geo": [55.75, 37.62, "Russia", "Europe"],
       "geo_rationale": "Approximate on-land country anchor for positively documented Russian scene, not source recording city, artist residence or arranger location.",
       "signature_tokens": [],
       "neighbor_distinction": "Russian Hyperpop is a positively documented Russian youth/internet production and listening scene within the broad international hyperpop field. Antipova2026 original research examines a Russian corpus including Sqwore,17Seventeen,rizza,treepside and Midix, its online circulation and specific repertory; it directly analyzes the selected song on Eve. This is evidence of an actual regional scene, not a category inferred only from artist nationality. The paper’s broad psychological or political interpretations are not adopted as factual attributes of listeners. Full existing hyperpop already spans international internet/Discord/SoundCloud/TikTok maximalist pop; Russian Hyperpop overlaps it as a narrower scene, not an absent technical invention. Full hyperpop_rap preserves rap-led crossover rather than all sung/electronic hyperpop, and may overlap. Existing russian_pop, russian_alt_pop and russian_electronic remain broader national fields, not restricted to their selected Neriberry/OQJAV/Kedr examples. The exact creator map and playlist positively identify a Russian hyperpop corpus; selected Sqwore membership is supported by original research, not falsely claimed in the first100 playlist positions. The piano arrangement does not itself establish category distinctness.",
@@ -5732,11 +5213,7 @@
         "new_instruments": [],
         "baseline_existing": 1658,
         "owning_controls": 26,
-        "instruments": [
-          "voice",
-          "wavetable_synth",
-          "sampler_classic"
-        ]
+        "instruments": ["voice", "wavetable_synth", "sampler_classic"]
       },
       "sources": [
         {
@@ -5797,10 +5274,7 @@
           "fresh_review_ref": "turn15696view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5812,10 +5286,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -5831,9 +5302,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -5847,10 +5316,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn12663view3",
-          "turn15696view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn12663view3", "turn15696view2"],
         "fresh_rights_review": "Fresh12663view3 rights only; no fresh download or visual."
       },
       "status": "READY_FOR_REVIEW",
@@ -5864,9 +5330,7 @@
           "name": "Russian Hyperpop",
           "family": "pop",
           "lineage": "Whole separately offered Note-Store Piano.Easy arrangement PEA0334385 of Sqwore’s Пластиковые воспоминания (2021). Publisher specifies piano melody and accompaniment together, distinguishing this edition from Piano&Vocal and four-hand editions. One pianist and zero separately scored singers in this published simplified edition. The full arrangement is selected, not its free first-page preview. Page count and paid notation/audio remain uninspected. No original electronic recording palette, vocal processing, samples or drum programming is reconstructed or collapsed into a piano card; those source-master roles remain unknown. Research independently includes the original song within the Russian hyperpop corpus. Source-unspecified piano is realized as a standard studio upright with connected melodic touch in a controlled live room. These are explicit authored performance choices, not Sqwore’s studio gear. Broad functionalSong represents an authored functional-harmonic verse–chorus–bridge piano rendition of the popular composition, not a transcription of unseen score form/harmony or a claim that hyperpop universally has that structure. The piano edition is a separate repertoire realization, not a claim that electronic genre production consists of acoustic piano. No tempo, global tuning or original capture chain is asserted.",
-          "instruments": [
-            "upright_piano"
-          ],
+          "instruments": ["upright_piano"],
           "room": "live_room",
           "pin_parts": true,
           "parts": {
@@ -5917,10 +5381,7 @@
         "name": "Stomp and Whittle",
         "family": "folk",
         "lineage": "Stomp and whittle groups intimate and inventive indie songwriting, from small acoustic performances to elaborately arranged folk-pop. Personal lyrics, lightly voiced melodies and distinctive instrumental colors connect artists across this listening community.",
-        "instruments": [
-          "voice",
-          "ukulele"
-        ],
+        "instruments": ["voice", "ukulele"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -5964,11 +5425,7 @@
           "cyclicity": 1
         },
         "description": "Melodic singing and rhythmic plucked accompaniment support personal, playful and reflective songs. Small acoustic settings sit beside fuller indie-pop arrangements, with attention to lyrics and individual instrumental color.",
-        "exemplars": [
-          "Danielle Ate the Sandwich",
-          "Kishi Bashi",
-          "Mother Falcon"
-        ],
+        "exemplars": ["Danielle Ate the Sandwich", "Kishi Bashi", "Mother Falcon"],
         "status": "documented",
         "crossRefs": []
       },
@@ -6004,10 +5461,7 @@
           "fresh_review_ref": "turn15647view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -6019,10 +5473,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -6038,9 +5489,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -6054,17 +5503,10 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15647view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15647view0"],
         "fresh_rights_review": "Fresh15647view0 rights only; historical preview bytes and visual receipts inherited."
       },
-      "geo": [
-        39.0997,
-        -94.5786,
-        "Kansas City",
-        "North America"
-      ],
+      "geo": [39.0997, -94.5786, "Kansas City", "North America"],
       "geo_rationale": "Artist primary biography identifies Kansas City as current practice base; no universal origin claim.",
       "model_policy": "Representative singer-and-strummed-ukulele branch supported by the creator-listed artist’s own performance and teaching practice. Soft lilting solo singing and singing-with-chord-strumming are positive primary descriptions. Choose authored concert-size mahogany ukulele, conventional chord strumming and accompanied solo voice; exact source instrument size/wood are not measured. The artist also plays guitar and records full ensembles, but this is the explicitly documented singing/ukulele practice, not a purported complete concert or album reconstruction. Small-note-group word setting is authored, not score transcription. Functional-harmonic verse–chorus–bridge organization is an authored song realization, not a universal or measured form. A brisk but soft-voiced rendition is authored; up-tempo does not assert loudness or an original measured tempo. Collected ukulele indicates poised chordal accompaniment, not a distinct cultural tradition. Instrumental island-lilt vocabulary is an authored gently lilting strum, not Hawaiian repertoire attribution.",
       "neighbor_distinction": "Full indie_folk_2000s already includes acoustic intimacy and varied band arrangements; chamber_pop covers orchestral pop, and stomp_and_holler/stomp_and_flutter describe communal percussive folk-pop branches. Stomp and Whittle is the actual creator discovery field overlapping all these, not an exclusive timbre or a claim that all artists use this duo palette. Full creator100 names Danielle at4/64, Mother Falcon2/63 and Kishi Bashi1/62. No distinct-institution threshold or playlist-only synonym inference is imposed.",
@@ -6082,11 +5524,7 @@
           "note": "Fresh15634search10 own teaching/performance page positively singing and chord strumming; no exact event lineup claim."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15641view0",
-        "turn15634search0",
-        "turn15634search10"
-      ],
+      "primary_retrieval_refs": ["turn15641view0", "turn15634search0", "turn15634search10"],
       "source_scope_limitation": "No named mastered track is reconstructed. Broader guitar and ensemble practices remain acknowledged; source-positive ukulele/song branch is representative.",
       "verification_status": "Original043 all1658 owners preserved,20 applicable controls protected, browser/connector four-format parity and compiled API pinErrors empty. Independent semantic review pending."
     },
@@ -6130,10 +5568,7 @@
           "fresh_review_ref": "turn15688view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -6145,10 +5580,7 @@
           "receipt_scope": "Inherited historical download, not downloaded in this environment."
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -6164,9 +5596,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
         },
         "delivery_note": "Historical exact microphone receipts retained; no fresh download claimed.",
@@ -6185,10 +5615,8 @@
         "name": "Viet Lo-fi",
         "family": "electronic",
         "lineage": "Vietnamese lo-fi developed through online producers and channels including Freak D Music, Orinn and1967. Reworked Vietnamese pop songs circulate alongside instrumental listening music, connecting a local song repertoire with the broader international lo-fi aesthetic.",
-        "instruments": [
-          "software_lofi_reworking"
-        ],
-        "room": "dead_studio",
+        "instruments": ["software_lofi_reworking"],
+        "room": "treated_studio",
         "parts": {
           "software_lofi_reworking_input": "software_lofi_reworking_input_stereo_mix",
           "software_lofi_reworking_tempo": "software_lofi_reworking_tempo_ninety_percent",
@@ -6222,11 +5650,7 @@
           "cyclicity": 0
         },
         "description": "Slowed pacing, softened high frequencies and deliberate recording imperfections give familiar songs a hazy, intimate character. Producers manipulate recorded audio and add textural noise or effects; sung melodies and existing instrumental arrangements remain audible within these transformations.",
-        "exemplars": [
-          "Freak D",
-          "Orinn",
-          "1967"
-        ],
+        "exemplars": ["Freak D", "Orinn", "1967"],
         "status": "documented",
         "crossRefs": []
       },
@@ -6237,12 +5661,7 @@
           "support_notes": "Fresh15698view0 firsthand Freak D producer Quốc Đạt explains deliberate software imperfection; article documents Vietnamese channels, audience and song reworking practice."
         }
       ],
-      "geo": [
-        21.0285,
-        105.8542,
-        "Hanoi",
-        "Southeast Asia"
-      ],
+      "geo": [21.0285, 105.8542, "Hanoi", "Southeast Asia"],
       "geo_rationale": "Editorial national-field anchor reused from the existing Vietnamese electronic record; not a claim that this distributed processing practice or cited producer recorded in Hanoi.",
       "signature_tokens": [],
       "model_policy": "Representative processing practice, not reconstruction of an underlying song. Complete recorded vocals and accompaniment remain in the input. Eleven authored controls specify90percent tempo with preserved pitch, gentle soft clipping,8kHz rolloff and quiet pink-noise overlay; they are a feasible realization supported by software manuals, not reported Freak D settings or a claim that he used Audacity. No live performer count or original instrument models inferred. Existing software playback has no meaningful transformation controls; this owner adds those controls without changing its schema or family.",
@@ -6289,10 +5708,7 @@
         "name": "Voetbal",
         "family": "vernacular",
         "lineage": "Voetbal music connects Dutch football supporters with club songs, national-team anthems and familiar popular melodies. Stadium singing, supporter recordings and commercial releases circulate across club communities, adapting words and refrains to express allegiance and shared celebration.",
-        "instruments": [
-          "voice",
-          "upright_piano"
-        ],
+        "instruments": ["voice", "upright_piano"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -6378,10 +5794,7 @@
           "fresh_review_ref": "turn15647view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -6393,10 +5806,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -6412,9 +5822,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -6428,17 +5836,10 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15647view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15647view0"],
         "fresh_rights_review": "Fresh15647view0 rights only; historical preview bytes and visual receipts inherited."
       },
-      "geo": [
-        52.3676,
-        4.9041,
-        "Amsterdam",
-        "Europe"
-      ],
+      "geo": [52.3676, 4.9041, "Amsterdam", "Europe"],
       "geo_rationale": "Ajax club-song repertoire anchor, not entire Dutch football field origin.",
       "sources": [
         {
