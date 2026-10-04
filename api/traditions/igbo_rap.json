@@ -2,10 +2,10 @@
   "id": "igbo_rap",
   "name": "Igbo rap",
   "family": "hip_hop",
-  "lineage": "Igbo rap is a language-and-cultural rap field with multiple production styles. Jeriq’s Onitsha-rooted rap/highlife-melody and trap branch supplies the selected model.",
+  "lineage": "Igbo rap is a language-and-cultural field encompassing several production styles. Southeastern Nigerian networks connect locally rooted storytelling with contemporary rap; Jeriq exemplifies exchanges between trap and the melodic influence of Igbo highlife.",
   "recipe": "classic modern igbo rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. TR-808, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 302,
-  "score": 23.773,
+  "score": 20.574,
   "config": {
     "traditions": [
       "igbo_rap"
@@ -29,11 +29,12 @@
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.677,
+          "voice_quality": 15.015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,11 +44,12 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.522
+          "voice_multitrack_stack": 0.522,
+          "voice_tessitura": 0
         }
       },
       {
@@ -60,20 +62,20 @@
         "scores": {
           "tr808_voice": 2.6969999999999996,
           "drum_machine_808_context": 0.39,
-          "tr808_production_origin": 0.759
+          "tr808_production_origin": 0.159
         }
       },
       {
         "id": "rompler_workstation",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_preset_bank": "rompler_preset_gm_combo",
           "rompler_context": "rompler_context_band_keyboard",
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.39,
+          "rompler_preset_bank": 0.063,
           "rompler_context": 0,
           "rompler_lineage": 0
         }
@@ -96,7 +98,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "drum_machine_808": [
         "tr808_voice",
@@ -105,6 +108,7 @@
       ],
       "rompler_workstation": [
         "electronic_technique",
+        "rompler_preset_bank",
         "rompler_context",
         "rompler_lineage"
       ]
@@ -119,37 +123,37 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "aural_relative",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "aural_relative",
     "room": "studio_auteur_home_pro",
     "parts": {
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "rap_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "tr808_voice": "tr808_kick_long",
       "drum_machine_808_context": "drum_machine_808_trap",
       "tr808_production_origin": "tr808_tr_8s_modern",
       "rompler_lineage": "rompler_lineage_unspecified",
       "rompler_context": "rompler_context_band_keyboard",
-      "electronic_technique": "electronic_pluck_short"
+      "electronic_technique": "electronic_pluck_short",
+      "rompler_preset_bank": "rompler_preset_gm_combo"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -1,0 +1,12 @@
+Building embedded + lazy HTML…
+Built /tmp/codex_lazy_embed_493391.html (22,178,603 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+Built /tmp/codex_lazy_shell_493391.html (5,016,625 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+Catalog boot failed: Error: browse index fetch failed (404)
+    at about:blank:3:252702
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at process.processTimers (node:internal/timers:568:9)
+LAZY-APP: PASS — lazy shell ≡ embedded app (catalog projection ×6746, 4 rendered surfaces, 6-tradition import + recipe), 1 fetch per action (cached), honest failure states.

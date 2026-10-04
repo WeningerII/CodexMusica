@@ -2,10 +2,10 @@
   "id": "528hz",
   "name": "528 Hz",
   "family": "electronic",
-  "lineage": "Gary James Joynes / Clinker — complete528Hz track5,15:04, from The Solfeggio Series. Artist explicitly states the nine individual tone recordings use pure sine output from a hand-tuned analog Z3000 oscillator captured directly, uncompressed. Only selected528Hz tone is modeled; bonus multitone track10 and other frequencies excluded. No voice, accompaniment, sample playback or keyboard inferred. Broad experimentalElec.ambient represents this sustained electronic listening tone, no verse/chorus or dance beat. Isolated Z3000 sine-output owner retains documented analog oscillator architecture while omitting unused module controls, keyboard, filter and speculative patch. Manufacturer confirms analog VCO; source does not identify MkI/MkII revision. Global temperament omitted because a single nominal frequency does not imply equal temperament. Neutral axes and recording chain are authored present-day rendering settings; no microphone was claimed in the original direct capture.",
+  "lineage": "528 Hz labels listening releases organized around a nominal 528-hertz tone. The category appears in meditation and frequency-themed sound publishing, spanning pure tones and more layered musical settings.",
   "recipe": "classic 528 hz, experimental Elec, ambient branch. analog sine oscillator z3000. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 179,
-  "score": 9.108,
+  "score": 4.16,
   "config": {
     "traditions": [
       "528hz"
@@ -17,7 +17,7 @@
           "z3000_signal_identity": "z3000_direct_sine_signal"
         },
         "scores": {
-          "z3000_signal_identity": 9.108
+          "z3000_signal_identity": 4.159999999999999
         }
       }
     ],

@@ -2,52 +2,34 @@
   "id": "birthday",
   "name": "Birthday",
   "family": "vernacular",
-  "lineage": "Happy Birthday Band — Hapy Birthday, Solo Piano Version (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s birthday, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 157,
-  "score": -0.319,
+  "lineage": "Birthday music accompanies personal celebrations through familiar songs, group singing and instrumental versions of celebratory melodies.",
+  "recipe": "classic birthday, functional Song. upright piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 148,
+  "score": -0.1,
   "config": {
     "traditions": [
       "birthday"
     ],
     "instruments": [
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.126,
-          "grand_piano_brand": 0.1905,
-          "piano_hammer": -0.1,
-          "piano_rim": -0.1,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "upright_use": 0,
+          "upright_piano_size": 0
         }
       }
     ],
     "pinned": {
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ]
     },
     "room": "treated_studio",
@@ -70,14 +52,8 @@
     "room": "treated_studio",
     "parts": {
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

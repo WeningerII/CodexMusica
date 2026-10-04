@@ -1,0 +1,207 @@
+{
+  "entries": [
+    {
+      "source_label": "thai viral pop",
+      "source_url": "https://everynoise.com/engenremap-thaiviralpop.html",
+      "suggested_id": "thai_viral_pop",
+      "allocation_ordinal": 1908,
+      "allocation_group_id": "077",
+      "id": "thai_viral_pop",
+      "status": "CANDIDATE_PENDING_RUNTIME_PEER",
+      "tradition": {
+        "id": "thai_viral_pop",
+        "name": "Thai Viral Pop",
+        "family": "pop",
+        "lineage": "Thai viral pop circulates through short-form video, fan participation and streaming discovery. Catchy Thai-language songs cross pop, R&B, soul and hip-hop networks, with successful hooks receiving new arrangements and performance versions.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "A voice-and-piano rendition gives a circulating pop hook a more intimate setting. Melodic phrases remain foregrounded over chordal accompaniment, while contrasting sections make room for changes of mood and emphasis.",
+        "exemplars": [
+          "BLVCKHEART",
+          "TimeThai"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        13.7563,
+        100.5018,
+        "Bangkok",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Editorial Thai music-industry anchor, not a measured piano-session location.",
+      "signature_tokens": [],
+      "model_policy": "Authored voice-and-piano branch supported by the issuer’s separately published Piano Version and positive artist vocal/pop identity. This is not a claim to transcribe every sounding layer of that recording or the original saxophone-featured master. Standard upright size, studio piano use, block-chord accompaniment, connected syllabic singing, single accompanied lead and unprocessed capture are deliberate new rendition choices; actual piano subtype, exact headcount, vocal physiology, tuning and source signal chain are unknown. Parlor acoustics express an intimate re-arrangement. Functional-harmonic verse–chorus–bridge organization is authored, not a measured original score. Source artist-specific saxophone solo belongs the original production, not a universal viral-pop instrument requirement.",
+      "neighbor_distinction": "The platform-defined Thai circulation field overlaps Thai Pop and Thai Indie Pop rather than excluding their performers. TikTok’s own Thailand report identifies repeatable participatory mechanisms: users reuse songs, create dance trends and help artists reach wider charts. Believe’s own PR report explicitly documents BLVCKHEART and other artists reaching the mainstream through user-created videos. Existing Thai Pop describes mainstream recording lineage and idol production; Thai Indie Pop describes an independent melody/guitar branch. Neither is identical to this cross-style platform-discovery field, and virality is not inferred merely from view counts or a different rendition.",
+      "source_scope_limitation": "Genre-practice piano rendition; no exhaustive master-layer or performance-headcount claim. Exact creator map remains inaccessible and membership is not asserted. Original viral composition and later piano rendition distinguished.",
+      "sources": [
+        {
+          "url": "https://newsroom.tiktok.com/year-on-tiktok-thailand?lang=th-TH",
+          "title": "TikTok Thailand: Year on TikTok 2024",
+          "support_notes": "Fresh14923search0 full local platform account of discovery/participation and named viral songs."
+        },
+        {
+          "url": "https://www.brandbuffet.in.th/2025/08/byond-drives-thai-hip-hop-for-chart-success/",
+          "title": "Believe Artist Services Thailand PR statement and Country Director remarks",
+          "support_notes": "Fresh14926search0 explicitly marked PR News, direct Country Director remarks and BLVCKHEART Have A Good Time TikTok/viral-chart campaign; statistics attributed to issuer."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=sr0mB2sz0lk",
+          "title": "BLVCKHEART official issuer Piano Version",
+          "support_notes": "Fresh14915youtube12 issued2025-10-31, composer/lyricist and producer, positive piano-version branch; no hidden instrumentation claim."
+        },
+        {
+          "url": "https://music.trueid.net/th-th/detail/dP2aYw5xzVQv",
+          "title": "BLVCKHEART original release announcement",
+          "support_notes": "Fresh14924view0/14926search1 pop/R&B/soul and singing; sax solo specifically original master, not the later piano version or this representative rendition."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14923search0",
+        "turn14926search0",
+        "turn14915youtube12",
+        "turn14924view0"
+      ],
+      "classification_evidence": "The platform-defined Thai circulation field overlaps Thai Pop and Thai Indie Pop rather than excluding their performers. TikTok’s own Thailand report identifies repeatable participatory mechanisms: users reuse songs, create dance trends and help artists reach wider charts. Believe’s own PR report explicitly documents BLVCKHEART and other artists reaching the mainstream through user-created videos. Existing Thai Pop describes mainstream recording lineage and idol production; Thai Indie Pop describes an independent melody/guitar branch. Neither is identical to this cross-style platform-discovery field, and virality is not inferred merely from view counts or a different rendition.",
+      "source_retrieval_caveat": "Official indexed issuer description and platform/label PR sources retrieved; no source audio transcription. Historical creator-map failures retained as membership uncertainty.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "thai_viral_pop",
+          "name": "Thai Viral Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not BLVCKHEART or identified piano.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh14898view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5. Historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn14898view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14898view0"
+        ],
+        "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_head": "453cd0f1",
+        "baseline": "/workspace/CodexMusica-qualified041"
+      },
+      "verification_status": "Pending actual runtime and independent review."
+    }
+  ],
+  "instrument_dependencies": []
+}

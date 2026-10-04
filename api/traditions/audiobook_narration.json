@@ -5,7 +5,7 @@
   "lineage": "Solo long-form literary narration tradition rooted in the 1932 American Foundation for the Blind / Library of Congress talking-book program for blind readers and in the 1952 founding of Caedmon Records, whose Dylan Thomas reading of A Child's Christmas in Wales is the commonly cited commercial origin point. It grew through the Books on Tape cassette-rental era of the 1970s-80s into the Audible-era digital industry, with the narrator working alone in a dry, heavily damped close-miked booth, sustaining a consistent voice, pacing, and character palette across many hours of finished audio. Canonical narrators include Jim Dale and Stephen Fry (the US and UK Harry Potter cycles respectively), George Guidall, and Barbara Rosenblat.",
   "recipe": "classic mid-1970s audiobook narration, spoken Word, narration branch podcast conversation documentary voiceover. vocal fry, breath veiled tone, slow rate, interlocked note trading. closet booth. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 293,
-  "score": 154.575,
+  "score": 154.341,
   "config": {
     "traditions": [
       "audiobook_narration",
@@ -41,15 +41,15 @@
           "voice_vibrato": 2.47,
           "voice_articulation": 15.274999999999995,
           "voice_microtone": 15.079999999999993,
-          "voice_tradition": 8.881,
-          "voice_mechanism_compound": 3.3265,
+          "voice_tradition": 8.7025,
+          "voice_mechanism_compound": 3.403,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 15.274999999999995,
           "voice_ensemble_config": 20.279999999999994,
           "voice_ornament_system": 3.2500000000000004,
           "voice_pitch_organization": 2.164,
           "voice_processing_chain": 13.324999999999996,
-          "voice_multitrack_stack": 3.4450000000000003
+          "voice_multitrack_stack": 3.3130000000000006
         }
       }
     ],

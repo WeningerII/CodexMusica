@@ -5,7 +5,7 @@
   "lineage": "Classic OPM brings earlier Original Pilipino Music repertoire into continuing performance and listening traditions. Popular songs remain familiar through singers, bands and new instrumental arrangements.",
   "recipe": "classic classic opm, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 149,
-  "score": 2.591,
+  "score": 2.801,
   "config": {
     "traditions": [
       "classic_opm"
@@ -27,9 +27,9 @@
         "scores": {
           "keyboard_technique": 2.45,
           "grand_piano_size": 0.126,
-          "grand_piano_brand": 0.1905,
+          "grand_piano_brand": 0.3705,
           "piano_hammer": -0.1,
-          "piano_rim": -0.1,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,

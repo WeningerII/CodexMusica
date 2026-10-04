@@ -2,10 +2,10 @@
   "id": "modern_cello",
   "name": "Modern cello",
   "family": "classical",
-  "lineage": "Zoë Keating — Into The Trees (2010), including Optimist live. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s modern cello, art Music, western modern branch. synthetic norway spruce European alpine European maple bosnian source cello, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 252,
-  "score": 104.499,
+  "lineage": "Contemporary cello-led music exploring composition, texture and recording technology.",
+  "recipe": "classic modern cello, art Music, western modern branch. synthetic norway spruce European alpine European maple bosnian source cello, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 72.519,
   "config": {
     "traditions": [
       "modern_cello"
@@ -25,15 +25,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 5.155000000000001,
-          "cello_strings": 4.809999999999999,
-          "cello_top_wood": 4.973,
-          "cello_back_wood": 7.009500000000001,
-          "cello_varnish": 13.249999999999998,
-          "cello_setup_period": 14.825,
-          "cello_bow_grip": 2.47,
-          "cello_rosin": 17.3865,
-          "cello_bow_stick": 14.249999999999998
+          "bowed_technique": 2.605,
+          "cello_strings": 3.6399999999999997,
+          "cello_top_wood": 2.7230000000000003,
+          "cello_back_wood": 2.8595,
+          "cello_varnish": 9.5,
+          "cello_setup_period": 11.075,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 11.936499999999999,
+          "cello_bow_stick": 10.5
         }
       },
       {
@@ -46,11 +46,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 0.9549999999999998,
-          "sampler_archetypes": 10.075,
-          "sampler_bit_depth": 4.419999999999999,
-          "sampler_workflow": 0.49999999999999994,
-          "sampler_classic_context": 4.419999999999999
+          "electronic_technique": 0.325,
+          "sampler_archetypes": 8.575,
+          "sampler_bit_depth": 3.6399999999999997,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 3.6399999999999997
         }
       }
     ],

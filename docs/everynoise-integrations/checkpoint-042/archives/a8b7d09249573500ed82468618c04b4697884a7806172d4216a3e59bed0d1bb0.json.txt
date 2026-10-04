@@ -1,0 +1,188 @@
+{
+  "entries": [
+    {
+      "source_label": "maimouna",
+      "source_url": "https://everynoise.com/engenremap-maimouna.html",
+      "suggested_id": "maimouna",
+      "allocation_ordinal": 3728,
+      "allocation_group_id": "150",
+      "id": "maimouna",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "maimouna",
+        "name": "Maïmouna",
+        "family": "hip_hop",
+        "lineage": "Maïmouna emerged in Abidjan around 2021 as a playful meeting of rap and coupé-décalé. Also called the mouvement des enfants, it links youthful rap delivery with social dancing and the city’s club and maquis culture.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic verses and teasing hooks ride a dance-oriented produced beat. Vocal energy, rhythmic repetition and movement connect the rapper to the gathering; arrangements range from spare instrumentals to layered productions.",
+        "exemplars": [
+          "Jr La Mélo",
+          "Didi B",
+          "Ste Milano"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        5.36,
+        -4.0083,
+        "Abidjan",
+        "Africa"
+      ],
+      "geo_rationale": "Firsthand anthropological report and producer own profile locate the named practice in Abidjan.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "maimouna",
+          "name": "Maïmouna",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn14908view2 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn14908view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14908view2"
+        ],
+        "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative rapper-and-produced-beat arrangement of the source-described dance-rap practice. The producer explicitly offers Maïmouna rap instrumentals; all backing is retained as an unspecified credited beat, not a named sampler, synth, drum machine, or opaque recording-player substitute. This is a genre-level authored accompaniment, not reconstruction of that instrumental master. Solo accompanied lead, moderate effort, rhythmic spoken flow and unprocessed voice are meaningful representative choices; physiology, pitch organization, beat-generation hardware and exact layered sound count are unspecified. The live-room treatment is authored, not an observed venue. No global pitch tuning is imposed.",
+      "neighbor_distinction": "The full existing rap_ivoire field already includes Ivorian rap and Kiff No Beat; Maïmouna is an explicitly named newer dance-oriented branch within it, not a claim that older rap lacks dancing. The full coupe_decale_ivorian field describes its Paris–Abidjan dance lineage; the firsthand artist distinguishes this rap/coupé-décalé combination and its mouvement des enfants community. Zouglou overlaps nightlife settings but has a separate student-song history. No exclusive artist roster or universal instrumentation is asserted.",
+      "sources": [
+        {
+          "url": "https://pan-african-music.com/stories/abijdan-ca-dort-pas-la-nuit/",
+          "title": "Abidjan, ça dort pas la nuit — firsthand ethnographic report and Jr La Mélo interview",
+          "support_notes": "Primary fieldwork and direct artist account identify named rap/coupé-décalé practice, 2021 emergence, youthful amusement/dancing and Abidjan community.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://audiomack.com/gadagadagnahoua/song/instru-maimouna-rap-type-didi-b-x-ste-milano-x-suspect-95-type-beat-dedans",
+          "title": "Schama Beats — own Maïmouna instrumental production offer",
+          "support_notes": "Producer-issued page explicitly names Maïmouna rap beat, producer and Abidjan. It supports produced-beat practice without identifying hardware or reconstructing the master.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14907view0",
+        "turn14920view1"
+      ],
+      "source_scope_limitation": "Genre-level representative voice and produced backing, not an assertion of a complete particular concert or mastered track. Exact performer count, equipment and internal beat layers are unknown and not invented.",
+      "source_retrieval_caveat": "Creator map direct attempt turn14920view0 timed out. Positive named field comes independently from firsthand artist/ethnographic and producer primary evidence; no fabricated fresh creator roster."
+    }
+  ],
+  "instrument_dependencies": []
+}

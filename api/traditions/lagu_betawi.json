@@ -2,10 +2,10 @@
   "id": "lagu_betawi",
   "name": "Lagu Betawi",
   "family": "vernacular",
-  "lineage": "Jamaica Café — complete named Jali-jali performance at WWF Indonesia’s Do Better for Earth event, Plaza Semanggi, Jakarta,31January2010. The organizing institution reports a six-member a cappella group and explicitly no musical instruments. All six people and their collective voice family are retained. Exact individual vocal duties, register distribution and harmony are unspecified; six people is not six inferred written voice parts. The chosen whole named regional song is independently identified within a mixed closing programme that also included ABBA; neither the whole concert nor the group’s entire repertoire is claimed as Betawi. No source audio audition, duration or exact song arrangement is asserted. One existing voice family represents six live people. All physiology, register, pitch system, ornament mechanism and individual parts remain source-unspecified; moderate effort and neutral tract are editorial neutral settings. Live group and unprocessed combined delivery model the positively documented a cappella event, without asserting the original microphone chain. Broad functionalSong selects an authored recurring verse/refrain and functional tonal-harmony rendition compatible with this contemporary vocal-group song presentation; it is not measured analysis of the unavailable arrangement or a universal Betawi form. Controlled live room is an authored listening setting, not the source outdoor platform. No instruments, beatboxing, clapping, global tuning or apparatus are invented.",
-  "recipe": "classic lagu betawi, functional Song. group vocals, unprocessed natural acoustic, live take. live tracking.",
-  "recipe_chars": 107,
-  "score": 14.963,
+  "lineage": "Lagu Betawi connects songs associated with Jakarta’s Betawi cultural heritage to community and contemporary performance. Familiar melodies circulate through varied vocal and instrumental arrangements.",
+  "recipe": "classic lagu betawi, functional Song. live tracking.",
+  "recipe_chars": 52,
+  "score": 0.858,
   "config": {
     "traditions": [
       "lagu_betawi"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 9.372999999999998,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       }

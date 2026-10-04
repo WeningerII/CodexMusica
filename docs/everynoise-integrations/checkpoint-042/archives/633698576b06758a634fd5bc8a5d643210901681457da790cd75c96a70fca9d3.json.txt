@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-1707.json",
+  "sha256": "f0845ca09a1c411d209ed67c19a1b67ddb7f3219fa35ee3d27da385be6669a71",
+  "packet_sha256": "f0845ca09a1c411d209ed67c19a1b67ddb7f3219fa35ee3d27da385be6669a71",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "gaddiyali_pop",
+  "immutable_allocation": {
+    "source_label": "gaddiyali pop",
+    "source_url": "https://everynoise.com/engenremap-gaddiyalipop.html",
+    "suggested_id": "gaddiyali_pop",
+    "allocation_ordinal": 1707,
+    "allocation_group_id": "069"
+  },
+  "source_review": {
+    "finding": "Fresh original field research turn14961view2, pages92/94 (PDF6/8), explicitly documents Poonam Bhardwaj singing Gaddi texts over disco/pop and distinguishes that production from nuala ritual instruments. Full representative produced backing retained; no ritual lineup claimed.",
+    "urls": [
+      "https://journals.ed.ac.uk/himalaya/article/download/7822/11956"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "himachali_pop",
+      "pahadi_pop"
+    ],
+    "finding": "Gaddi linguistic/community production field is narrower than broad Himachali and cross-Himalayan Pahadi pop. Multilingual crossover remains candid. Authored functional-harmonic verse-chorus-bridge structure explicitly an arrangement choice, not measured source form."
+  },
+  "source_limits": [
+    "Genre-level representative branch; no exact master, universal singer count or equipment claims."
+  ],
+  "representative_practice": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 18,
+    "pinned_parts": 18,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Syllabic sung lead remains melodic; clapping-and-syllabicizing lexicon describes punctuated syllabic delivery, with nursery contexts illustrative rather than required handclap instrumentation. This is compatible with the authored text-forward dance-pop branch; no separate handclaps or ritual instruments are asserted. Frosty backing is dry/clean authored production, not a specified generator. Compiled API remains functionalSong with only the target tradition and preserves all18 pins.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/candidate-1707-runtime.json",
+    "runtime_sha256": "9020c22ad932810e61cf09d7ce4cc842e2154b97628c3e6ff1aeec7ff121dfe6"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes."
+}

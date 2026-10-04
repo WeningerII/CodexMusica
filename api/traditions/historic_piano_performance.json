@@ -2,10 +2,10 @@
   "id": "historic_piano_performance",
   "name": "Historic piano performance",
   "family": "classical",
-  "lineage": "Wilhelm Kempff — Beethoven Sonata No. 14, July 1924 Berlin recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-1920s historic piano performance, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 261,
-  "score": 22.652,
+  "lineage": "Historic piano performance preserves earlier pianists’ interpretations through recordings and reissues. Listening to these performances connects changing musical styles with the history of recorded piano sound.",
+  "recipe": "classic historic piano performance, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 251,
+  "score": 22.491,
   "config": {
     "traditions": [
       "historic_piano_performance"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.25,
+          "keyboard_technique": 2.5,
           "grand_piano_size": 0.84,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 3.3365,
-          "piano_rim": 3.548,
-          "piano_soundboard": 3.2,
-          "piano_pinblock": 4.500000000000001,
-          "piano_plate": 3.2630000000000003,
-          "piano_pitch_standard": 0.325
+          "grand_piano_brand": 0.9885000000000002,
+          "piano_hammer": 3.3865,
+          "piano_rim": 3.598,
+          "piano_soundboard": 3.25,
+          "piano_pinblock": 3.25,
+          "piano_plate": 3.313,
+          "piano_pitch_standard": 1.3649999999999998
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "libyan_pop",
   "name": "Libyan pop",
   "family": "vernacular",
-  "lineage": "Ahmed Ben Ali — 2023 interview-described Libyan live-band core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic early-2020s libyan pop, functional Song. single lead single track no stacking. electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, trumpet. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 281,
-  "score": 9.999,
+  "lineage": "Libyan pop brings local song and contemporary popular influences together through recordings and live ensembles. Reggae-inflected performers form one strand within a broader national popular-music field.",
+  "recipe": "classic libyan pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, trumpet. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 318,
+  "score": 11.853,
   "config": {
     "traditions": [
       "libyan_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.69,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -98,9 +98,9 @@
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 3.204,
-          "cymbal_lathing": 3.1500000000000004,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 4.954000000000001,
+          "cymbal_lathing": 4.9,
           "cymbal_finish": 0
         }
       },

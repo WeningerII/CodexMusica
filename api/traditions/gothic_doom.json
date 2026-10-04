@@ -2,10 +2,10 @@
   "id": "gothic_doom",
   "name": "Gothic doom",
   "family": "rock_punk",
-  "lineage": "Angellore — Errances (2013), complete positively credited album palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s gothic doom, distorted Rock, doom branch. duet. conventional tuning standard pitch power chord humbucker electric acoustic guitar, electric bass, melodic band keyboard rompler workstation, maple machine hammered symmetric pattern organized rows full lathed drum kit, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 448,
-  "score": 34.295,
+  "lineage": "Gothic doom combines doom metal’s weight with gothic atmosphere and contrasting vocal expression. Bands may draw on both amplified backlines and quieter acoustic or bowed textures.",
+  "recipe": "classic gothic doom, distorted Rock, doom branch. unprocessed natural acoustic. power chord humbucker electric acoustic guitar, electric bass, rompler workstation, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 371,
+  "score": 29.61,
   "config": {
     "traditions": [
       "gothic_doom"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6315,
+          "voice_ensemble_config": 0.0315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.3315,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 8.71,
+          "electric_technique": 10.01,
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 0.4305,
           "neck_wood": 0.36750000000000005,
           "fretboard": -0.035,
           "pickup_magnet": 0.1365,
@@ -80,9 +80,9 @@
           "string_material": 0.1365,
           "bridge": 0.1365,
           "scale_length": 0.7665,
-          "string_gauge": 1.4785,
+          "string_gauge": 0.1785,
           "finish": 0,
-          "string_tuning": 1.5625
+          "string_tuning": 0.26249999999999996
         }
       },
       {
@@ -97,7 +97,7 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0.2815,
+          "back_sides": -0.035,
           "string_acoustic": 0.36750000000000005,
           "acoustic_om_technique": -0.25
         }
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 0.4305,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.357,
@@ -134,9 +134,9 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.26,
           "rompler_preset_bank": -0.035,
-          "rompler_context": 1.17,
+          "rompler_context": 0.39,
           "rompler_lineage": 0
         }
       },
@@ -157,15 +157,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.69,
+          "drumhead": 0.5354999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.69,
+          "shell_wood": 0.39899999999999997,
           "shell_thickness": 0,
           "bearing_edges": 0.2625,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
-          "cymbal_lathing": 4.376,
+          "cymbal_lathing": 4.776000000000001,
           "cymbal_finish": 0.1365
         }
       },
@@ -184,15 +184,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.035,
+          "bowed_technique": 0.325,
           "orch_strings": 0.063,
           "orch_top_wood": -0.07,
-          "orch_back_wood": 1.5,
+          "orch_back_wood": -0.1,
           "orch_varnish": -0.1,
-          "orch_setup_period": 0.26,
+          "orch_setup_period": 0.6499999999999999,
           "orch_bow": 0.0315,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.29400000000000004,
+          "orch_articulation": 0.39,
           "orch_rosin": -0.1
         }
       }

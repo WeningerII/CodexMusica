@@ -2,10 +2,10 @@
   "id": "musica_infantil_catala",
   "name": "Musica Infantil Catala",
   "family": "vernacular",
-  "lineage": "Enric Capdevila — El racó del piano1, El gegant del pi pedagogical piano setting (B.3686). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-3680s musica infantil catala, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 170,
-  "score": -0.019,
+  "lineage": "Catalan children’s songs, transmitted through singing, play, teaching and instrumental arrangements.",
+  "recipe": "classic musica infantil catala, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 160,
+  "score": 0.821,
   "config": {
     "traditions": [
       "musica_infantil_catala"
@@ -27,9 +27,9 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.126,
-          "grand_piano_brand": 0.1905,
+          "grand_piano_brand": 1.3,
           "piano_hammer": -0.1,
-          "piano_rim": 0.2,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,

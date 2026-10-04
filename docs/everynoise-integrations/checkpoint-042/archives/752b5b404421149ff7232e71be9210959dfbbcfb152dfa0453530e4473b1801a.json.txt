@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-373-final.json",
+  "sha256": "8ce1eb3a5f392034a8d12429269bdcbe122a81283e117b955caf8e982776bed2",
+  "packet_sha256": "8ce1eb3a5f392034a8d12429269bdcbe122a81283e117b955caf8e982776bed2",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "kyrgyz_hip_hop",
+  "immutable_allocation": {
+    "source_label": "kyrgyz hip hop",
+    "source_url": "https://everynoise.com/engenremap-kyrgyzhiphop.html",
+    "suggested_id": "kyrgyz_hip_hop",
+    "allocation_ordinal": 373,
+    "allocation_group_id": "015"
+  },
+  "source_review": {
+    "finding": "Original researcher firsthand reportage independently reproduced indexed turn14936search0: Bishkek battle institutions, older cassette networks, supplied beats, studios, Russian/Kyrgyz expression and national circulation. Direct archive timeout and SSOAR challenge disclosed; successful full indexed researcher article supplies independent primary basis.",
+    "urls": [
+      "https://www.new-east-archive.org/features/show/11655/rap-music-kyrgyzstan-self-sustaining-streaming"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "central_asian_hip_hop",
+      "kyrgyz_pop"
+    ],
+    "finding": "The full Central Asian field spans countries and languages. This is a positively documented Kyrgyz national community with internal linguistic diversity, not a claim the broader row is only Kazakhstan. Kyrgyz melodic pop and traditional recitation are different neighboring practices."
+  },
+  "source_limits": [
+    "Genre-level representative practice, not claimed exact master reconstruction.",
+    "No fresh creator membership claim required or invented; firsthand community evidence independently supports category."
+  ],
+  "representative_practice": "Genre-level authored rhythmic spoken lead plus producer-supplied beat, supported by firsthand production descriptions. The broad beat identity retains the backing role without inventing a sampler, synthesizer, bass instrument or original studio device. Single lead, natural capture and dead room are authored representative choices, not source-wide headcount or exact master claims. Melodic and expanded branches remain acknowledged.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 18,
+    "pinned_parts": 18,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Spoken-flowing/no-pitch is coherent with the deliberately rapped branch; solo-with-instrumental-accompaniment accurately retains the beat. Frosty lexicon denotes clean/clinical brightness, compatible with authored dry production and not an invented instrumental mechanism. Dead-booth capture is authored. No synthetic vocal processing, added singers/instruments, tuning, measured tempo, or cultural performance technique appears. Compiled classic wording is generic template style, not evidence of a historical period.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/candidate-373-final-runtime.json",
+    "runtime_sha256": "6130c5cfeeeeac00923dc75943a8a7edb2fccb6a795f17c31fd08e3d4e5006ab"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes."
+}

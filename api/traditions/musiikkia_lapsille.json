@@ -2,10 +2,10 @@
   "id": "musiikkia_lapsille",
   "name": "Musiikkia lapsille",
   "family": "pop",
-  "lineage": "Fröbelin Palikat — 2022 35th-anniversary documented ensemble practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s musiikkia lapsille, functional Song. group vocals, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 380,
-  "score": 19.739,
+  "lineage": "Finnish children’s music, combining play songs, movement and participatory performance.",
+  "recipe": "classic musiikkia lapsille, functional Song. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 224,
+  "score": 9.183,
   "config": {
     "traditions": [
       "musiikkia_lapsille"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.573,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -73,16 +73,16 @@
           "electric_technique": 2.45,
           "amp_make": 0,
           "body_wood": 0,
-          "neck_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_h",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -114,7 +114,7 @@
           "drum_technique": "sticks_rock",
           "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "shell_wood": "alder_h",
+          "shell_wood": "maple_shell",
           "shell_thickness": "thin_shell",
           "bearing_edges": "edge_45",
           "snare_wires": "wires_20",
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 1.6365,
-          "drumhead": 1.3,
+          "drum_technique": -0.035,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": 4.0040000000000004,
-          "cymbal_lathing": 4.25,
+          "cymbal_alloy": 0.13000000000000003,
+          "cymbal_hammering": 2.454,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       },
@@ -212,15 +212,15 @@
         "keyboard_technique"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -229,7 +229,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -251,7 +251,7 @@
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_h",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -261,14 +261,14 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
       "drum_technique": "sticks_rock",
-      "shell_wood": "alder_h",
+      "shell_wood": "maple_shell",
       "drumhead": "single_coated",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
       "cymbal_finish": "traditional_finish",
@@ -281,12 +281,6 @@
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

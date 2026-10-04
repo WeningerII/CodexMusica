@@ -2,10 +2,10 @@
   "id": "gotico_brasileiro",
   "name": "Gótico brasileiro",
   "family": "rock_punk",
-  "lineage": "Plastique Noir — Dead Pop (2008), original album tracks 1–13. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2000s gótico brasileiro, distorted Rock, gothic rock branch. conventional tuning standard pitch clean strummed humbucker electric acoustic guitar, electric bass, analog poly synth, sampler, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 322,
-  "score": 14.627,
+  "lineage": "Gótico brasileiro connects Brazilian gothic-rock and post-punk communities through bands, recordings and live performance. Electronic production and guitar-based songwriting meet in varied local approaches.",
+  "recipe": "classic gótico brasileiro, distorted Rock, gothic rock branch. duet, live take. humbucker electric acoustic guitar, electric bass, analog poly synth, sampler, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 278,
+  "score": 5.976,
   "config": {
     "traditions": [
       "gotico_brasileiro"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.063,
+          "voice_ensemble_config": 1.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 1.063,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.2945,
+          "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0.6405,
           "neck_wood": 0.504,
@@ -80,9 +80,9 @@
           "string_material": 0.105,
           "bridge": 0,
           "scale_length": 1.0079999999999998,
-          "string_gauge": 1.8835000000000002,
+          "string_gauge": 0.2835,
           "finish": 0.1365,
-          "string_tuning": 1.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -98,7 +98,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.39,
+          "string_acoustic": 0.504,
           "acoustic_om_technique": -0.25
         }
       },
@@ -135,8 +135,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 0.3,
-          "poly_voices": 0.3,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       },
@@ -154,7 +154,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.525,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 3.25
+          "sampler_classic_context": -0.05
         }
       },
       {
@@ -166,7 +166,7 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.3,
+          "kick_voice": 0,
           "snare_voice": 0,
           "hat_voice": 0,
           "shuffle_quantize": 0

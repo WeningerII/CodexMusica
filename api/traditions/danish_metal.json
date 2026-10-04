@@ -5,7 +5,7 @@
   "lineage": "Danish metal encompasses varied heavy styles and rock crossovers. Copenhagen’s Volbeat exemplify a riff-led approach that draws on metal, rock-and-roll and punk-inflected rhythms.",
   "recipe": "classic modern danish metal, distorted Rock, metal branch. one note per syllable, aurally tuned. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 500,
-  "score": 72.98,
+  "score": 71.162,
   "config": {
     "traditions": [
       "danish_metal"
@@ -91,8 +91,8 @@
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 8.786499999999998,
-          "cymbal_lathing": 9.020499999999998,
+          "cymbal_hammering": 8.840499999999999,
+          "cymbal_lathing": 8.786499999999998,
           "cymbal_finish": 0
         }
       },
@@ -128,7 +128,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.5889999999999995,
+          "voice_speech_song": 0.9509999999999998,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5684999999999999,

@@ -1,0 +1,185 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "deep_progressive_house",
+          "name": "Deep Progressive House",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic audio recording microphone context; not a depiction of source DJ gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh independent14925view1 confirms Fergusson original, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn14925view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14925view1"
+        ],
+        "fresh_rights_review": "Fresh14925view1 rights; exact historical023 binary/visual receipt retained without new download claim."
+      },
+      "id": "deep_progressive_house",
+      "suggested_id": "deep_progressive_house",
+      "source_label": "deep progressive house",
+      "source_url": "https://everynoise.com/engenremap-deepprogressivehouse.html",
+      "allocation_ordinal": 36,
+      "allocation_group_id": "002",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "deep_progressive_house",
+        "name": "Deep Progressive House",
+        "family": "electronic",
+        "lineage": "Deep progressive house cultivates the restrained, groove-led side of progressive dance music through specialist labels, remix networks and gradual DJ programming. Pads, rolling bass and detailed percussion build atmosphere without requiring a large festival climax.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.house",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Long transitions let bass movement, percussion and atmospheric layers develop together. Selectors connect tracks through pacing and texture, often placing these sounds in the earlier, deeper portions of extended sets.",
+        "exemplars": [
+          "GMJ",
+          "Alex O’Rion",
+          "Dowden",
+          "Deep Down Music"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.6532,
+        -79.3832,
+        "Toronto",
+        "North America"
+      ],
+      "geo_rationale": "Firsthand founder identifies Toronto base; editorial label-network anchor, not exclusive origin of the international field.",
+      "signature_tokens": [],
+      "model_policy": "Representative documented DJ selection/mixing practice, positively described by the label founder and accompanied by his published Progressive Astronaut mix. This does not turn an opaque produced master into a sampler. All embedded bass, pad, percussion and occasional vocal material remains in the selected recordings; no physical generator, live singer count, source decks or track inventory is guessed. Controlled live-room presentation is authored. No global tuning. Production itself is a separate documented branch, retained in history rather than reconstructed as source hardware.",
+      "neighbor_distinction": "The full existing progressive_house already spans the1992 British evolving-groove lineage and later festival variants; it is not reduced to festival music. Deep Progressive is a narrower ongoing curatorial/production specialization inside that umbrella. Deep Down founder explicitly describes selective early-set programming, a deep/chuggy sound and an A&R/remix network including GMJ, Alex O’Rion and Dowden; Perspectives founder independently identifies an initial Deep Progressive catalog before expansion into melodic techno and other styles. Exact creator map includes these network members. The boundary is positively organized specialization rather than a new artist, era, lower tempo alone, or a claim of disjoint sonic grammar. It overlaps deep/organic/melodic house; not asserted synonymous with any whole umbrella.",
+      "sources": [
+        {
+          "url": "https://progressiveastronaut.com/mark-macleod-interview/",
+          "title": "Deep Down founder interview",
+          "support_notes": "14973view0 direct: selective deeper-progressive A&R, early-set practice, network and own embedded mix."
+        },
+        {
+          "url": "https://electronicgroove.com/mark-macleod-interview-2022/",
+          "title": "Founder first-person production and DJ practice",
+          "support_notes": "14977view1: Toronto, pads/percussion/bass, restrained branch, DJ selection and label community."
+        },
+        {
+          "url": "https://plus.inflyteapp.com/label-of-the-month-perspectives-digital/",
+          "title": "Perspectives founder retrospective",
+          "support_notes": "14973view1 explicit Deep Progressive initial label specialization and later widening."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-deepprogressivehouse.html",
+          "title": "Exact creator full map",
+          "support_notes": "14971view0 positively lists GMJ, Alex O’Rion, Dowden, RIGOONI, Analog Jungs and wider corpus."
+        }
+      ],
+      "source_retrieval_caveat": "Interview and exact creator map freshly read. Embedded SoundCloud restricted on direct follow; no audition, duration or whole tracklist claim. Representative DJ practice rests on firsthand statements, not inaccessible master reconstruction.",
+      "prior_hold_preservation": "Prior ordinal36 hold based only mixed genre slash-list retained in allocation.json. New independent label-founder accounts supply named specialization and practice. Peer must assess boundary; not self-accepted.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Positive DJ practice; unknown playback architecture retained."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

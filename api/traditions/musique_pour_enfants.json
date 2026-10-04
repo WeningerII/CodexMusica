@@ -2,10 +2,10 @@
   "id": "musique_pour_enfants",
   "name": "Musique pour enfants",
   "family": "pop",
-  "lineage": "Nicolas Fischer — SPEACE (2021), seven-song live children’s-musical branch excluding COUNTDOWN. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s musique pour enfants, functional Song. group vocals, live take. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 344,
-  "score": 24.744,
+  "lineage": "French-language children’s music, joining participatory song, storytelling and musical theatre.",
+  "recipe": "classic musique pour enfants, functional Song. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. live tracking.",
+  "recipe_chars": 182,
+  "score": 10.093,
   "config": {
     "traditions": [
       "musique_pour_enfants"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.4730000000000003,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 2.2,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.8000000000000003,
+          "electric_technique": 2.45,
           "amp_make": 0,
-          "body_wood": 0.3,
-          "neck_wood": 0,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.08,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_h",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.3,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.954,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 1.8199999999999998,
-          "cymbal_hammering": 3.204,
-          "cymbal_lathing": 3.7500000000000004,
+          "cymbal_alloy": 1.0399999999999998,
+          "cymbal_hammering": 2.454,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       }
@@ -197,15 +197,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +214,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -236,7 +236,7 @@
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_h",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -264,12 +264,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

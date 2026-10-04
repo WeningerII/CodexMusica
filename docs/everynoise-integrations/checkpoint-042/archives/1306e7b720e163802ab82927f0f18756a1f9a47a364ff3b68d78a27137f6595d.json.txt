@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-309-source-fallback.json",
+  "sha256": "68d92a41fb9b5f81f5e34dc3747b4a1cb7d7d98d714b400f97d9025654c4fdef",
+  "packet_sha256": "68d92a41fb9b5f81f5e34dc3747b4a1cb7d7d98d714b400f97d9025654c4fdef",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "gulf_hip_hop",
+  "immutable_allocation": {
+    "source_label": "gulf hip hop",
+    "source_url": "https://everynoise.com/engenremap-gulfhiphop.html",
+    "suggested_id": "gulf_hip_hop",
+    "allocation_ordinal": 309,
+    "allocation_group_id": "013"
+  },
+  "source_review": [
+    {
+      "url": "https://www.gulfweekly.com/Articles/18951/Rap-music-forges-an-alliance",
+      "ref": "turn14914search0",
+      "finding": "Full indexed firsthand report explicitly connects Bahrain rappers, local and migrant performers, home production, radio and regional Gulf circulation. Fresh337042 direct failed;18951 independently reproduced."
+    },
+    {
+      "url": "https://gulfnews.com/entertainment/music/emirati-producer-icekream-on-adding-spice-to-the-music-world-1.85394525",
+      "ref": "turn14913view1",
+      "finding": "Fresh full firsthand interview confirms Emirati producer practice, rapper/producer division and minimal bass-led beat with rap. Other oud-expanded work is acknowledged as another branch, not deleted from a claimed specific arrangement."
+    }
+  ],
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "arabic_hip_hop",
+      "khaliji_gulf",
+      "khaliji",
+      "gulf_and_western"
+    ],
+    "finding": "A documented cross-border Arabian Gulf rap community spanning local/migrant and English/Arabic expression. Arabic hip-hop remains a broader language field and is not narrowed to its DAM exemplar. Gulf song traditions are overlapping regional fields with distinct repertoire/practice, while Gulf-and-Western is an unrelated US coastal category. Positive regional circulation and institutions, not different artist alone, support this narrower community."
+  },
+  "source_limits": [
+    "No fresh exact EveryNoise membership asserted; independent primary field evidence supports the immutable category.",
+    "Source fallback derivative adds only a primary source record; all musical, photo and immutable fields match reviewed309-final."
+  ],
+  "representative_practice": "Genre-level authored rhythmic spoken lead plus producer-supplied beat, supported by firsthand production descriptions. The broad beat identity retains the backing role without inventing a sampler, synthesizer, bass instrument or original studio device. Single lead, natural capture and dead room are authored representative choices, not source-wide headcount or exact master claims. Melodic and expanded branches remain acknowledged.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 18,
+    "pinned_parts": 18,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Spoken-flowing/no-pitch is coherent with the deliberately rapped branch; solo-with-instrumental-accompaniment accurately retains the beat. Frosty lexicon denotes clean/clinical brightness, compatible with authored dry production and not an invented instrumental mechanism. Dead-booth capture is authored. No synthetic vocal processing, added singers/instruments, tuning, measured tempo, or cultural performance technique appears. Compiled classic wording is generic template style, not evidence of a historical period.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/309-final-runtime.json",
+    "runtime_sha256": "2c633f9a67136cc5b1a02ee386b192019e7d6686c1454aad7cd03f473f99c949"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes."
+}

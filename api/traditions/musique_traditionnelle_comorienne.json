@@ -5,7 +5,7 @@
   "lineage": "Musique traditionnelle comorienne encompasses inherited practices across domestic, ceremonial, dance and devotional life in the Comorian islands. Songs and instrumental traditions take distinct forms according to community and occasion.",
   "recipe": "classic musique traditionnelle comorienne, lullaby. solo with instrumental accompaniment, single lead single track no stacking. comorian firimbi. live tracking.",
   "recipe_chars": 160,
-  "score": 2.199,
+  "score": 2.419,
   "config": {
     "traditions": [
       "musique_traditionnelle_comorienne"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.462,
+          "voice_ensemble_config": 1.609,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.195,
-          "voice_multitrack_stack": 0.5415,
+          "voice_processing_chain": 0.30000000000000004,
+          "voice_multitrack_stack": 0.51,
           "voice_tessitura": 0
         }
       },

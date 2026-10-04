@@ -2,10 +2,10 @@
   "id": "modern_performance",
   "name": "Modern performance",
   "family": "classical",
-  "lineage": "Caroline Shaw / Roomful of Teeth — Partita for 8 Singers: III. Courante. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic modern performance, art Music, western modern branch. group vocals, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 185,
-  "score": 4.582,
+  "lineage": "Contemporary concert performance exploring new compositions, ensemble practices and extended techniques.",
+  "recipe": "classic modern performance, art Music, western modern branch. group vocals, live take. shoebox concert hall.",
+  "recipe_chars": 108,
+  "score": 2.683,
   "config": {
     "traditions": [
       "modern_performance"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.3729999999999998,
+          "voice_ensemble_config": 1.2730000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.27299999999999996,
-          "voice_multitrack_stack": 1.9364999999999999,
+          "voice_multitrack_stack": 1.1365,
           "voice_tessitura": 0
         }
       }
@@ -74,15 +74,15 @@
         "voice_tessitura"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -91,7 +91,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -111,12 +111,6 @@
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

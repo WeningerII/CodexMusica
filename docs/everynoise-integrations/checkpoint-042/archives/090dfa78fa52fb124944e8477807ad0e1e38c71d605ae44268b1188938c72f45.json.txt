@@ -1,0 +1,2624 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 held entries; exact-current public prose only; musical/output holds explicitly retained",
+  "entries": [
+    {
+      "id": "latin_viral_pop",
+      "before": {
+        "tradition": {
+          "id": "latin_viral_pop",
+          "name": "Latin viral pop",
+          "family": "vernacular",
+          "lineage": "Camilo — NPR Tiny Desk (Home) Concert, March 2022, selected vocal/string/brass core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "lap_steel",
+            "electric_bass",
+            "cello",
+            "viola_classical",
+            "trumpet"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "lap_steel_tuning": "lap_steel_c6",
+            "lap_steel_style": "lap_steel_hawaiian_slack",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "bowed_technique": "bowed_legato_classical",
+            "cello_strings": "cello_synthetic",
+            "cello_top_wood": "norway_spruce_alpine_cello",
+            "cello_back_wood": "bosnian_flamed_maple_cello",
+            "cello_varnish": "oil_amber_varnish_cello",
+            "cello_setup_period": "modern_setup_cello",
+            "cello_bow_grip": "french_bow_grip",
+            "cello_rosin": "pirastro_cellisto_rosin",
+            "cello_bow_stick": "pernambuco_stick_cello",
+            "viola_size": "viola_16_inch",
+            "viola_strings": "viola_synthetic",
+            "viola_top_wood": "viola_norway_spruce",
+            "viola_back_wood": "viola_bosnian_flamed_maple",
+            "viola_varnish": "viola_oil_amber",
+            "viola_setup_period": "viola_modern_setup",
+            "viola_bow_stick": "viola_pernambuco",
+            "viola_rosin": "viola_larsen_rosin",
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Latin viral-pop artist branch represented by Camilo’s March 2022 NPR home concert in Miami. Source names one singer, two guitar roles, lap steel, bass, cello, viola and trumpet in the selected core. It explicitly says Evaluna Montaner directs instead of singing here. Reduced string/brass core excludes credited kalimba, sampler, veillette, melodica, steel guitar, guiro, unspecified percussion, ronroco, shekere, mellotron, cowbell and bugle; it does not purport to reproduce the full arrangement. Creator viral-pop membership is artist-level, distinct from asserting that viral distribution itself determines instrumentation. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+          "exemplars": [
+            "Camilo — NPR Tiny Desk (Home) Concert, March 2022, selected vocal/string/brass core"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "latin_viral_pop",
+          "name": "Latin viral pop",
+          "family": "vernacular",
+          "lineage": "Latin viral pop connects Spanish-language popular songs and performers through online circulation and shared audiences. Memorable refrains cross acoustic, regional and contemporary pop production styles.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "lap_steel",
+            "electric_bass",
+            "cello",
+            "viola_classical",
+            "trumpet"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "lap_steel_tuning": "lap_steel_c6",
+            "lap_steel_style": "lap_steel_hawaiian_slack",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "bowed_technique": "bowed_legato_classical",
+            "cello_strings": "cello_synthetic",
+            "cello_top_wood": "norway_spruce_alpine_cello",
+            "cello_back_wood": "bosnian_flamed_maple_cello",
+            "cello_varnish": "oil_amber_varnish_cello",
+            "cello_setup_period": "modern_setup_cello",
+            "cello_bow_grip": "french_bow_grip",
+            "cello_rosin": "pirastro_cellisto_rosin",
+            "cello_bow_stick": "pernambuco_stick_cello",
+            "viola_size": "viola_16_inch",
+            "viola_strings": "viola_synthetic",
+            "viola_top_wood": "viola_norway_spruce",
+            "viola_back_wood": "viola_bosnian_flamed_maple",
+            "viola_varnish": "viola_oil_amber",
+            "viola_setup_period": "viola_modern_setup",
+            "viola_bow_stick": "viola_pernambuco",
+            "viola_rosin": "viola_larsen_rosin",
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voices and guitars can lead melodic arrangements supported by bass, bowed strings and brass. Other versions use electronic textures or dance percussion, with contrasting instrumental colours around recurring hooks.",
+          "exemplars": [
+            "Camilo",
+            "Carín León"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.capradio.org/news/npr/story?storyid=1084895220",
+          "title": "NPR original concert credits syndicated by CapRadio — Camilo Tiny Desk, 11 March 2022",
+          "support_notes": "Camilo, only credited vocalist; Evaluna directs and does not sing in this set; Camilo and Daniel Uribe, guitar; acoustic dreadnought construction authored; Daniel Uribe, lap steel; Oscar Convers, bass; electric construction authored; Manuela López Lambuley, cello; Francia Laurens, viola; josefe, trumpet",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6yZCXdIyG6jxAnWnm2wXKp",
+          "title": "The Sound of Latin Viral Pop creator playlist",
+          "support_notes": "Camilo and Carín León appear on Una Vida Pasada; artist category only, not this concert personnel.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported samul bass/erhuang cello persist; neutral lapsteel song style corrected but C6 western-swing descriptor requires candid branch context.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-candidate.json",
+        "proposal_sha256": "fbeb8faac10a468ccdf106aea53dff8a34f6b10e30d6a6bb991516cd09e6e3dc",
+        "current_before_sha256": "8cbce1be4781d2f2e1eb4d384c565a8d88091d9911dffdf2a3d2bd22cccb44ac",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Camilo, only credited vocalist; Evaluna directs and does not sing in this set"
+              },
+              {
+                "instrument": "acoustic_guitar_dread",
+                "source_role": "Camilo and Daniel Uribe, guitar; acoustic dreadnought construction authored"
+              },
+              {
+                "instrument": "lap_steel",
+                "source_role": "Daniel Uribe, lap steel"
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Oscar Convers, bass; electric construction authored"
+              },
+              {
+                "instrument": "cello",
+                "source_role": "Manuela López Lambuley, cello"
+              },
+              {
+                "instrument": "viola_classical",
+                "source_role": "Francia Laurens, viola"
+              },
+              {
+                "instrument": "trumpet",
+                "source_role": "josefe, trumpet"
+              }
+            ],
+            "authored_defaults": "Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+            "exclusions": "Latin viral-pop artist branch represented by Camilo’s March 2022 NPR home concert in Miami. Source names one singer, two guitar roles, lap steel, bass, cello, viola and trumpet in the selected core. It explicitly says Evaluna Montaner directs instead of singing here. Reduced string/brass core excludes credited kalimba, sampler, veillette, melodica, steel guitar, guiro, unspecified percussion, ronroco, shekere, mellotron, cowbell and bugle; it does not purport to reproduce the full arrangement. Creator viral-pop membership is artist-level, distinct from asserting that viral distribution itself determines instrumentation."
+          }
+        }
+      }
+    },
+    {
+      "id": "libyan_pop",
+      "before": {
+        "tradition": {
+          "id": "libyan_pop",
+          "name": "Libyan pop",
+          "family": "vernacular",
+          "lineage": "Ahmed Ben Ali — 2023 interview-described Libyan live-band core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+          "instruments": [
+            "voice",
+            "electric_bass",
+            "drum_kit",
+            "trumpet"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Libyan popular reggae crossover represented by the live band Ahmed Ben Ali describes in his July 2023 interview: himself singing, bass player, drummer, keyboardist and a pair of trumpeters. Selected core retains voice, bass, drum kit and trumpet timbre; unspecified keyboard type is excluded. One named selected vocalist, not an invented backing chorus; instrumentalists are unnamed in the source. Creator playlist includes his recordings, distinguishing the Libyan-pop category from a generic Jamaican roots-reggae entry. This is the interview-described Libyan band, not his separate solo Turkish performance over instrumentals. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+          "exemplars": [
+            "Ahmed Ben Ali — 2023 interview-described Libyan live-band core"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "libyan_pop",
+          "name": "Libyan pop",
+          "family": "vernacular",
+          "lineage": "Libyan pop brings local song and contemporary popular influences together through recordings and live ensembles. Reggae-inflected performers form one strand within a broader national popular-music field.",
+          "instruments": [
+            "voice",
+            "electric_bass",
+            "drum_kit",
+            "trumpet"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing, bass and drums establish a repeating groove, with keyboards supplying harmonic support and trumpets adding responses. Vocal phrasing and instrumental accents give familiar song patterns distinct character.",
+          "exemplars": [
+            "Ahmed Ben Ali"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.testpressing.org/magazine/i-always-had-faith-in-my-music-an-interview-with-ahmed-ben-ali",
+          "title": "Test Pressing — direct Ahmed Ben Ali interview, 3 July 2023",
+          "support_notes": "Ahmed Ben Ali, singer; Unnamed bass player explicitly reported by Ahmed; Unnamed drummer explicitly reported by Ahmed; Two trumpet players explicitly reported by Ahmed; one timbral instrument card",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/298IiSjgnmBCBH66gf21j2",
+          "title": "The Sound of Libyan Pop creator playlist",
+          "support_notes": "Includes Ahmed Ben Ali, Subhana and Dameek Majeb; exact artist category evidence.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Keyboard source role restored, but samul bass persists in coherent live rendition.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-candidate.json",
+        "proposal_sha256": "fbeb8faac10a468ccdf106aea53dff8a34f6b10e30d6a6bb991516cd09e6e3dc",
+        "current_before_sha256": "2bd0de3631f9f16053c9b12cff7026fdd29a52b9a3ec25e7ae24d4cdfcf7a946",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Ahmed Ben Ali, singer"
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Unnamed bass player explicitly reported by Ahmed"
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Unnamed drummer explicitly reported by Ahmed"
+              },
+              {
+                "instrument": "trumpet",
+                "source_role": "Two trumpet players explicitly reported by Ahmed; one timbral instrument card"
+              }
+            ],
+            "authored_defaults": "Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+            "exclusions": "Libyan popular reggae crossover represented by the live band Ahmed Ben Ali describes in his July 2023 interview: himself singing, bass player, drummer, keyboardist and a pair of trumpeters. Selected core retains voice, bass, drum kit and trumpet timbre; unspecified keyboard type is excluded. One named selected vocalist, not an invented backing chorus; instrumentalists are unnamed in the source. Creator playlist includes his recordings, distinguishing the Libyan-pop category from a generic Jamaican roots-reggae entry. This is the interview-described Libyan band, not his separate solo Turkish performance over instrumentals."
+          }
+        }
+      }
+    },
+    {
+      "id": "malayalam_pop",
+      "before": {
+        "tradition": {
+          "id": "malayalam_pop",
+          "name": "Malayalam pop",
+          "family": "vernacular",
+          "lineage": "Job Kurian Live — official live-band vocal/guitar/bass/drum core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Malayalam popular-song branch represented by Job Kurian Live’s official ensemble. The artist describes independent songs and popular Malayalam tracks, with one named lead singer, acoustic guitar, lead guitar, bass guitar and drums. No unnamed backing vocalist or keyboardist is added. This organic live-band branch differs from purely Carnatic concert forms and generic instrumental film scoring; the source also acknowledges folk, jazz and R&B influences without claiming a uniform arrangement across repertoire. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+          "exemplars": [
+            "Job Kurian Live — official live-band vocal/guitar/bass/drum core"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "malayalam_pop",
+          "name": "Malayalam pop",
+          "family": "vernacular",
+          "lineage": "Malayalam pop connects independent songwriting and popular Malayalam-language repertoire in Kerala and its diaspora. Folk-related phrasing, rock, jazz and R&B influences coexist across performers and arrangements.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Lead singing can sit over acoustic and electric guitars, bass and drums. Contrasting guitar lines and a steady rhythm section support melodic hooks, while other productions broaden the instrumental palette.",
+          "exemplars": [
+            "Job Kurian"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.jobkurian.com/jk-live",
+          "title": "Job Kurian official live-band roster",
+          "support_notes": "Job Kurian, singer and band leader; Rony George, acoustic guitars; dreadnought construction authored; Shikku Dan Jacob, lead guitar; electric pickup construction authored; Balu, bass guitar; Ananthu, drums",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.jobkurian.com/",
+          "title": "Job Kurian official artist biography",
+          "support_notes": "Identifies his singing, Kerala independent music and Malayalam playback repertoire.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/playlist/2pO8ymNNHcGPSq5Uhverc2",
+          "title": "The Sound of Malayalam Pop creator playlist",
+          "support_notes": "Lists Job Kurian and Shaan Rahman, Mandaarame; category membership only, not personnel for selected live roster.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Kora guitar/samul bass persist; full source-positive guitar-band roles retained.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-candidate.json",
+        "proposal_sha256": "fbeb8faac10a468ccdf106aea53dff8a34f6b10e30d6a6bb991516cd09e6e3dc",
+        "current_before_sha256": "2ab0d15784287b5f63b6d782adbb8f23679e356d7e12929660e2419983c441d4",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Job Kurian, singer and band leader"
+              },
+              {
+                "instrument": "acoustic_guitar_dread",
+                "source_role": "Rony George, acoustic guitars; dreadnought construction authored"
+              },
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "Shikku Dan Jacob, lead guitar; electric pickup construction authored"
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Balu, bass guitar"
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Ananthu, drums"
+              }
+            ],
+            "authored_defaults": "Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+            "exclusions": "Malayalam popular-song branch represented by Job Kurian Live’s official ensemble. The artist describes independent songs and popular Malayalam tracks, with one named lead singer, acoustic guitar, lead guitar, bass guitar and drums. No unnamed backing vocalist or keyboardist is added. This organic live-band branch differs from purely Carnatic concert forms and generic instrumental film scoring; the source also acknowledges folk, jazz and R&B influences without claiming a uniform arrangement across repertoire."
+          }
+        }
+      }
+    },
+    {
+      "id": "nz_pop",
+      "before": {
+        "tradition": {
+          "id": "nz_pop",
+          "name": "Nz pop",
+          "family": "vernacular",
+          "lineage": "The Beths — Expert In A Dying Field. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "grand_piano",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Contemporary Auckland guitar-pop album branch, distinguished from classic_nz_pop early-1960s beat-group model. Album-wide core with all four credited singers; two guitars represented by one timbral card. Piano realizes generic keys and poly-synth realizes credited synths as authored family choices, not measured session equipment. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+          "exemplars": [
+            "The Beths — Expert In A Dying Field"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "nz_pop",
+          "name": "Nz pop",
+          "family": "vernacular",
+          "lineage": "NZ pop connects New Zealand songwriters, performers and audiences across guitar-band, electronic and other popular styles. Independent recording communities and wider international circulation support changing approaches to melodic song.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "grand_piano",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Lead and supporting voices can combine with electric guitars, bass and drums, while piano and synthesizer add harmonic colour. Repeated hooks, contrasting sections and coordinated ensemble phrasing shape a guitar-pop branch.",
+          "exemplars": [
+            "The Beths"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://thebethsnz.bandcamp.com/album/expert-in-a-dying-field",
+          "title": "The Beths — Expert In A Dying Field",
+          "support_notes": "Artist identifies Auckland New Zealand guitar-pop quartet. Credits Elizabeth Stokes guitar/vocal; Jonathan Pearce guitar/vocal/keys; Benjamin Sinclair bass/vocal; Tristan Deck drums/vocal. Additional synths credited.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Samul bass persists in guitar-pop live rendition.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-candidate.json",
+        "proposal_sha256": "fbeb8faac10a468ccdf106aea53dff8a34f6b10e30d6a6bb991516cd09e6e3dc",
+        "current_before_sha256": "abfc16c2c2f3669346136a10da7b70f18b670b7d89706eb359d40a927e04d69e",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Artist identifies Auckland New Zealand guitar-pop quartet. Credits Elizabeth Stokes guitar/vocal; Jonathan Pearce guitar/vocal/keys; Benjamin Sinclair bass/vocal; Tristan Deck drums/vocal. Additional synths credited."
+              },
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "Artist identifies Auckland New Zealand guitar-pop quartet. Credits Elizabeth Stokes guitar/vocal; Jonathan Pearce guitar/vocal/keys; Benjamin Sinclair bass/vocal; Tristan Deck drums/vocal. Additional synths credited."
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Artist identifies Auckland New Zealand guitar-pop quartet. Credits Elizabeth Stokes guitar/vocal; Jonathan Pearce guitar/vocal/keys; Benjamin Sinclair bass/vocal; Tristan Deck drums/vocal. Additional synths credited."
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Artist identifies Auckland New Zealand guitar-pop quartet. Credits Elizabeth Stokes guitar/vocal; Jonathan Pearce guitar/vocal/keys; Benjamin Sinclair bass/vocal; Tristan Deck drums/vocal. Additional synths credited."
+              },
+              {
+                "instrument": "grand_piano",
+                "source_role": "Artist identifies Auckland New Zealand guitar-pop quartet. Credits Elizabeth Stokes guitar/vocal; Jonathan Pearce guitar/vocal/keys; Benjamin Sinclair bass/vocal; Tristan Deck drums/vocal. Additional synths credited."
+              },
+              {
+                "instrument": "analog_poly_synth",
+                "source_role": "Artist identifies Auckland New Zealand guitar-pop quartet. Credits Elizabeth Stokes guitar/vocal; Jonathan Pearce guitar/vocal/keys; Benjamin Sinclair bass/vocal; Tristan Deck drums/vocal. Additional synths credited."
+              }
+            ],
+            "authored_defaults": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+            "exclusions": "Contemporary Auckland guitar-pop album branch, distinguished from classic_nz_pop early-1960s beat-group model. Album-wide core with all four credited singers; two guitars represented by one timbral card. Piano realizes generic keys and poly-synth realizes credited synths as authored family choices, not measured session equipment."
+          }
+        }
+      }
+    },
+    {
+      "id": "polish_pop",
+      "before": {
+        "tradition": {
+          "id": "polish_pop",
+          "name": "Polish pop",
+          "family": "vernacular",
+          "lineage": "Kwiat Jabłoni — 2023 Cosmopolite concert roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "mandolin",
+            "grand_piano",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "mandolin_shape": "f_style",
+            "mandolin_top": "adirondack_m",
+            "mandolin_back": "european_maple_loar",
+            "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+            "mandolin_strings": "phosphor_m",
+            "mandolin_fingerboard": "mandolin_ebony_fb",
+            "mandolin_pickup": "mandolin_no_pickup",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Contemporary Polish folk-pop concert band, distinct from classic_polish_pop mid-1960s beat-group repertoire. Selected named concert core retains three credited singers. Unspecified auxiliary percussion and alternative banjolin role excluded; not a complete concert reconstruction. Guitar pickup/construction authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+          "exemplars": [
+            "Kwiat Jabłoni — 2023 Cosmopolite concert roster"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "polish_pop",
+          "name": "Polish pop",
+          "family": "vernacular",
+          "lineage": "Polish pop encompasses contemporary popular-song communities and varied exchanges with folk, rock and electronic music. Performers develop different approaches to melody, accompaniment and lyrical expression.",
+          "instruments": [
+            "voice",
+            "mandolin",
+            "grand_piano",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "mandolin_shape": "f_style",
+            "mandolin_top": "adirondack_m",
+            "mandolin_back": "european_maple_loar",
+            "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+            "mandolin_strings": "phosphor_m",
+            "mandolin_fingerboard": "mandolin_ebony_fb",
+            "mandolin_pickup": "mandolin_no_pickup",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing, piano and mandolin can meet electric guitar, bass and drums in a folk-pop ensemble. Bright plucked phrases and chordal support interact with repeated vocal hooks and a steady backbeat.",
+          "exemplars": [
+            "Kwiat Jabłoni"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://cosmopolite.no/en/program/cosmopolite/2023/may/kwiat-jabloni",
+          "title": "Kwiat Jabłoni — 2023 Cosmopolite concert roster",
+          "support_notes": "Presenter identifies contemporary Polish pop/folk band. Kasia Sienkiewicz sings and plays piano; Jacek Sienkiewicz sings and plays mandolin; Grzegorz Kowalski bass guitar; Marcin Ścierański drums; Paweł Piekarski guitar and backing voice.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Samul bass plus skiffle guitar persist; mandolin becomes compatible feisty in live space.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-candidate.json",
+        "proposal_sha256": "fbeb8faac10a468ccdf106aea53dff8a34f6b10e30d6a6bb991516cd09e6e3dc",
+        "current_before_sha256": "deab62a38a259f1c2b5b6bd81ca2d869b048c4b4323f5f483996c829ce0d6e4e",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Presenter identifies contemporary Polish pop/folk band. Kasia Sienkiewicz sings and plays piano; Jacek Sienkiewicz sings and plays mandolin; Grzegorz Kowalski bass guitar; Marcin Ścierański drums; Paweł Piekarski guitar and backing voice."
+              },
+              {
+                "instrument": "mandolin",
+                "source_role": "Presenter identifies contemporary Polish pop/folk band. Kasia Sienkiewicz sings and plays piano; Jacek Sienkiewicz sings and plays mandolin; Grzegorz Kowalski bass guitar; Marcin Ścierański drums; Paweł Piekarski guitar and backing voice."
+              },
+              {
+                "instrument": "grand_piano",
+                "source_role": "Presenter identifies contemporary Polish pop/folk band. Kasia Sienkiewicz sings and plays piano; Jacek Sienkiewicz sings and plays mandolin; Grzegorz Kowalski bass guitar; Marcin Ścierański drums; Paweł Piekarski guitar and backing voice."
+              },
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "Presenter identifies contemporary Polish pop/folk band. Kasia Sienkiewicz sings and plays piano; Jacek Sienkiewicz sings and plays mandolin; Grzegorz Kowalski bass guitar; Marcin Ścierański drums; Paweł Piekarski guitar and backing voice."
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Presenter identifies contemporary Polish pop/folk band. Kasia Sienkiewicz sings and plays piano; Jacek Sienkiewicz sings and plays mandolin; Grzegorz Kowalski bass guitar; Marcin Ścierański drums; Paweł Piekarski guitar and backing voice."
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Presenter identifies contemporary Polish pop/folk band. Kasia Sienkiewicz sings and plays piano; Jacek Sienkiewicz sings and plays mandolin; Grzegorz Kowalski bass guitar; Marcin Ścierański drums; Paweł Piekarski guitar and backing voice."
+              }
+            ],
+            "authored_defaults": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+            "exclusions": "Contemporary Polish folk-pop concert band, distinct from classic_polish_pop mid-1960s beat-group repertoire. Selected named concert core retains three credited singers. Unspecified auxiliary percussion and alternative banjolin role excluded; not a complete concert reconstruction. Guitar pickup/construction authored."
+          }
+        }
+      }
+    },
+    {
+      "id": "pop_quebecois",
+      "before": {
+        "tradition": {
+          "id": "pop_quebecois",
+          "name": "Pop quebecois",
+          "family": "vernacular",
+          "lineage": "Ariane Roy — medium plaisir (2022), selected lead-vocal band core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Selected single-lead repertoire branch represented by Ce n’est pas de la chance; source credits assign Ariane Roy voice, with additional singers only on other named tracks. Excludes Fille à porter, Miracle, Apprendre encore, Eli, Kundah and Le paradis de l’amour from this branch. Instrumentation is an authored selection of positively credited album-level guitar, bass, drums, piano and synth timbres; not a reconstruction of every instrument on that specific track. Unspecified additional percussion is omitted. No one-singer claim for the whole album.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "grand_piano",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Contemporary Québec pop production branch. Selected album lead-vocal band core excludes track-specific guest/backing singers, flute, pedal steel and unspecified extra percussion; not a complete album roster or claim every core instrument plays every track. Distinct from chanson_quebecois historical-song revival and auteur_compositeur_interprete_quebecois authorship-focused category; this model emphasizes current pop ensemble production. Generic guitar/bass/synth families have authored construction. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Selected single-lead repertoire branch represented by Ce n’est pas de la chance; source credits assign Ariane Roy voice, with additional singers only on other named tracks. Excludes Fille à porter, Miracle, Apprendre encore, Eli, Kundah and Le paradis de l’amour from this branch. Instrumentation is an authored selection of positively credited album-level guitar, bass, drums, piano and synth timbres; not a reconstruction of every instrument on that specific track. Unspecified additional percussion is omitted. No one-singer claim for the whole album.",
+          "exemplars": [
+            "Ariane Roy — medium plaisir (2022), selected lead-vocal band core"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "pop_quebecois",
+          "name": "Pop quebecois",
+          "family": "vernacular",
+          "lineage": "Pop québécois connects Québec’s popular-song writers, performers and recording scenes. Guitar-led, keyboard-based and electronic productions coexist with strong attention to vocal delivery and lyrics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "grand_piano",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Lead singing can move through guitar, bass and drum arrangements enriched by piano and synthesizer. Instrumental responses, layered textures and changes between sections support the song, with further colours varying across performers.",
+          "exemplars": [
+            "Ariane Roy"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://arianeroy.bandcamp.com/album/medium-plaisir",
+          "title": "Ariane Roy — medium plaisir (2022), selected lead-vocal band core",
+          "support_notes": "Artist identifies Québec City pop project; album credits Ariane Roy voice/guitar, Dominique Plante guitar/additional synth, Vincent Gagnon synth/piano, Cédric Martel bass and PE Beaudoin drums/percussion. Credits name guest voice on Fille à porter, backing voices on Miracle/Apprendre encore/Eli, flute on Kundah and pedal steel on Le paradis de l’amour; these tracks are outside selected single-lead branch.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Samul bass/skiffle guitar persist in coherent live pop-band rendition.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-candidate.json",
+        "proposal_sha256": "fbeb8faac10a468ccdf106aea53dff8a34f6b10e30d6a6bb991516cd09e6e3dc",
+        "current_before_sha256": "4add21e3a3958133b558267e640f9cdc2308dd656b24b94a6a02dd8632427f17",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Artist identifies Québec City pop project; album credits Ariane Roy voice/guitar, Dominique Plante guitar/additional synth, Vincent Gagnon synth/piano, Cédric Martel bass and PE Beaudoin drums/percussion."
+              },
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "Artist identifies Québec City pop project; album credits Ariane Roy voice/guitar, Dominique Plante guitar/additional synth, Vincent Gagnon synth/piano, Cédric Martel bass and PE Beaudoin drums/percussion."
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Artist identifies Québec City pop project; album credits Ariane Roy voice/guitar, Dominique Plante guitar/additional synth, Vincent Gagnon synth/piano, Cédric Martel bass and PE Beaudoin drums/percussion."
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Artist identifies Québec City pop project; album credits Ariane Roy voice/guitar, Dominique Plante guitar/additional synth, Vincent Gagnon synth/piano, Cédric Martel bass and PE Beaudoin drums/percussion."
+              },
+              {
+                "instrument": "grand_piano",
+                "source_role": "Artist identifies Québec City pop project; album credits Ariane Roy voice/guitar, Dominique Plante guitar/additional synth, Vincent Gagnon synth/piano, Cédric Martel bass and PE Beaudoin drums/percussion."
+              },
+              {
+                "instrument": "analog_poly_synth",
+                "source_role": "Artist identifies Québec City pop project; album credits Ariane Roy voice/guitar, Dominique Plante guitar/additional synth, Vincent Gagnon synth/piano, Cédric Martel bass and PE Beaudoin drums/percussion."
+              }
+            ],
+            "authored_defaults": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+            "exclusions": "Contemporary Québec pop production branch. Selected album lead-vocal band core excludes track-specific guest/backing singers, flute, pedal steel and unspecified extra percussion; not a complete album roster or claim every core instrument plays every track. Distinct from chanson_quebecois historical-song revival and auteur_compositeur_interprete_quebecois authorship-focused category; this model emphasizes current pop ensemble production. Generic guitar/bass/synth families have authored construction."
+          }
+        }
+      }
+    },
+    {
+      "id": "combos_nacionales",
+      "before": {
+        "tradition": {
+          "id": "combos_nacionales",
+          "name": "Combos Nacionales",
+          "family": "vernacular",
+          "lineage": "The Beachers — Guataca Nights first set (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "tonewheel_organ",
+            "saxophone",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "congas",
+            "cencerro",
+            "guira_dominicana"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_ostinato_groove",
+            "drawbar_setting": "jazz_drawbars",
+            "rotary_speed": "fast_tremolo",
+            "percussion_setting": "percussion_off",
+            "tonewheel_model": "tonewheel_hammond_b3",
+            "leslie_cabinet_model": "leslie_122_canonical",
+            "wind_articulation": "wind_continuous_legato",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_continuous_legato",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "percussion_technique": "percussion_hands_layered",
+            "conga_set": "conga_proper",
+            "conga_skin": "conga_mule_hide",
+            "conga_shell_wood": "conga_oak_staved",
+            "cencerro_bell_type": "cencerro_bongo_bell",
+            "cencerro_context": "cencerro_montuno",
+            "cencerro_build": "cencerro_welded_steel",
+            "guira_dominicana_form": "guira_dominicana_orquesta",
+            "guira_dominicana_pattern": "guira_dominicana_accent_breaks",
+            "guira_dominicana_sheet": "guira_dominicana_steel"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Presenter explicitly identifies The Beachers with Panamanian combos nacionales and documents full first-set ensemble. Second-set guest cuatro/mandolin and audience maracas excluded. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "The Beachers — Guataca Nights first set (2017)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "combos_nacionales",
+          "name": "Combos Nacionales",
+          "family": "vernacular",
+          "lineage": "Combos nacionales developed within Panama’s popular dance-band culture, connecting Afro-Caribbean rhythms with local song and instrumental traditions. Performers combine voices, electric instruments and interlocking percussion.",
+          "instruments": [
+            "voice",
+            "tonewheel_organ",
+            "saxophone",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "congas",
+            "cencerro",
+            "guira_dominicana"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_ostinato_groove",
+            "drawbar_setting": "jazz_drawbars",
+            "rotary_speed": "fast_tremolo",
+            "percussion_setting": "percussion_off",
+            "tonewheel_model": "tonewheel_hammond_b3",
+            "leslie_cabinet_model": "leslie_122_canonical",
+            "wind_articulation": "wind_continuous_legato",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_continuous_legato",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "percussion_technique": "percussion_hands_layered",
+            "conga_set": "conga_proper",
+            "conga_skin": "conga_mule_hide",
+            "conga_shell_wood": "conga_oak_staved",
+            "cencerro_bell_type": "cencerro_bongo_bell",
+            "cencerro_context": "cencerro_montuno",
+            "cencerro_build": "cencerro_welded_steel",
+            "guira_dominicana_form": "guira_dominicana_orquesta",
+            "guira_dominicana_pattern": "guira_dominicana_accent_breaks",
+            "guira_dominicana_sheet": "guira_dominicana_steel"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Organ, guitar and bass can support singing and saxophone responses over drums, congas, bell and scraped percussion. Repeated grooves leave room for melodic exchanges and changes in ensemble intensity.",
+          "exemplars": [
+            "The Beachers"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.guatacanights.com/noticias/2017-8-9-the-beachers-llevaron-sus-ritmos-afrocaribeos-a-guataca-nights",
+          "title": "The Beachers — Guataca Nights first set (2017)",
+          "support_notes": "Presenter explicitly identifies The Beachers with Panamanian combos nacionales and documents full first-set ensemble. Second-set guest cuatro/mandolin and audience maracas excluded.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Samul bass/skiffle guitar; bewildering organ additionally implies fragmented sampled texture not existing tonewheel groove.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-candidate.json",
+        "proposal_sha256": "1c317380a00797fbe98e3c7fea9d046093bc0980e9f764929b8dad587d5c8ae0",
+        "current_before_sha256": "1d6db35938df02fe1348b45c32d68868fe1a43ea169f03dd3d7fdfd49e9bb317",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Presenter explicitly identifies four singers; Alberto Salazar and Sam William named, two other singers unnamed."
+              },
+              {
+                "instrument": "tonewheel_organ",
+                "source_role": "Lloyd Gallimore keyboard assumes organ sound in These Young Girls. Tonewheel and Leslie hardware are authored, not claimed source equipment."
+              },
+              {
+                "instrument": "saxophone",
+                "source_role": "Two saxophones, aggregated; tenor register authored since exact sizes unspecified."
+              },
+              {
+                "instrument": "electric_guitar_humbucker",
+                "source_role": "Billy Herron electric guitar; humbucker choice authored."
+              },
+              {
+                "instrument": "electric_bass",
+                "source_role": "Documented bass role."
+              },
+              {
+                "instrument": "drum_kit",
+                "source_role": "Documented drum set role."
+              },
+              {
+                "instrument": "congas",
+                "source_role": "Larry Earlington congas."
+              },
+              {
+                "instrument": "cencerro",
+                "source_role": "Alberto Salazar campana. Catalog cencerro directly represents handheld Latin cowbell."
+              },
+              {
+                "instrument": "guira_dominicana",
+                "source_role": "Sam William güira. Orquesta-style metal scraper authored, not an assertion of Dominican geographical origin."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "Second-set guest cuatro and mandolin and later audience maracas excluded by first-set scope. All first-set instrumental roles retained; two saxophones aggregate; organ construction and güira pattern authored."
+          }
+        }
+      }
+    },
+    {
+      "id": "danish_experimental",
+      "before": {
+        "tradition": {
+          "id": "danish_experimental",
+          "name": "Danish experimental",
+          "family": "vernacular",
+          "lineage": "Anders Lauge Meldgaard — Music For Six Electric Guitars (2012). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "electric_guitar_humbucker"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist release documents an electric-guitar sextet drawn from the Danish avant-garde and rock scenes, premiering at Copenhagen Jazz Festival in 2010. Minimal repeated compositions become collective improvisation; nine guitarists are credited across the release. Selected Danish experimental-composition branch, not an alias for Danish indie or jazz. One guitar card aggregates the six-guitar arrangement; the nine-person release credit pool is not asserted simultaneously. No voice role documented. Modern pickup/model and clean repetitive articulation are authored, not documented gear. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Anders Lauge Meldgaard — Music For Six Electric Guitars (2012)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "danish_experimental",
+          "name": "Danish experimental",
+          "family": "vernacular",
+          "lineage": "Danish experimental music connects composers and performers across avant-garde, improvising and rock scenes. Projects explore repetition, sound texture and collective interaction through varied instrumental settings.",
+          "instruments": [
+            "electric_guitar_humbucker"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Multiple electric guitars can build repeating patterns into overlapping phrases and collective improvisation. Small changes in attack, duration and coordination reshape the texture without requiring a conventional lead-and-backing hierarchy.",
+          "exemplars": [
+            "Anders Lauge Meldgaard"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://musicforsixelectricguitars.bandcamp.com/",
+          "title": "Anders Lauge Meldgaard — Music For Six Electric Guitars (2012)",
+          "support_notes": "Artist release documents an electric-guitar sextet drawn from the Danish avant-garde and rock scenes, premiering at Copenhagen Jazz Festival in 2010. Minimal repeated compositions become collective improvisation; nine guitarists are credited across the release.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Kora-cascading electric guitar incorrectly adds unrelated named instrumental practice.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-candidate.json",
+        "proposal_sha256": "1c317380a00797fbe98e3c7fea9d046093bc0980e9f764929b8dad587d5c8ae0",
+        "current_before_sha256": "548f2c50a36e75c562279b03f5b4173bbee51c41fddba4622a333d28917dfa6a",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist release documents an electric-guitar sextet drawn from the Danish avant-garde and rock scenes, premiering at Copenhagen Jazz Festival in 2010. Minimal repeated compositions become collective improvisation; nine guitarists are credited across the release. Selected Danish experimental-composition branch, not an alias for Danish indie or jazz. One guitar card aggregates the six-guitar arrangement; the nine-person release credit pool is not asserted simultaneously. No voice role documented. Modern pickup/model and clean repetitive articulation are authored, not documented gear.",
+            "instrumental_evidence": "https://musicforsixelectricguitars.bandcamp.com/",
+            "photo_context": "Selected instrument-family context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+          }
+        }
+      }
+    },
+    {
+      "id": "danish_indie",
+      "before": {
+        "tradition": {
+          "id": "danish_indie",
+          "name": "Danish indie",
+          "family": "rock_punk",
+          "lineage": "Taxidermy — Coin (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Copenhagen artist release tags indie rock alongside noise rock and post-punk. Osvald Reinhold sings and plays guitar; Toke Brejning Frederiksen and Malthe Junge play guitars; Joachim Lorck-Schierning plays bass; Johan Knutz Haavik plays drums. National independent-rock scene represented by the directly classified Copenhagen noise/post-punk branch, broader than experimental composition. One guitar card aggregates three players; one positively credited singer. Power-chord guitar texture is authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Taxidermy — Coin (2024)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "danish_indie",
+          "name": "Danish indie",
+          "family": "rock_punk",
+          "lineage": "Danish indie links independent performers, labels and audiences across a range of local scenes. Guitar music intersects with post-punk, noise and other approaches to songwriting and ensemble texture.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Lead singing and layered guitars can sit over bass and drums. Repeating chords, contrasting guitar lines and dynamic shifts create a band-driven setting, with other projects using different acoustic or electronic colours.",
+          "exemplars": [
+            "Taxidermy"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://taxidermydk.bandcamp.com/album/coin",
+          "title": "Taxidermy — Coin (2024)",
+          "support_notes": "Copenhagen artist release tags indie rock alongside noise rock and post-punk. Osvald Reinhold sings and plays guitar; Toke Brejning Frederiksen and Malthe Junge play guitars; Joachim Lorck-Schierning plays bass; Johan Knutz Haavik plays drums.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Kora guitar and samul bass in literal outputs; source supports noise/postpunk band not those cultures.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-candidate.json",
+        "proposal_sha256": "1c317380a00797fbe98e3c7fea9d046093bc0980e9f764929b8dad587d5c8ae0",
+        "current_before_sha256": "0e55bf6baa5b746421326bac93844d1e66e31ee9324917d7f660de4c07e84bfd",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Copenhagen artist release tags indie rock alongside noise rock and post-punk. Osvald Reinhold sings and plays guitar; Toke Brejning Frederiksen and Malthe Junge play guitars; Joachim Lorck-Schierning plays bass; Johan Knutz Haavik plays drums. National independent-rock scene represented by the directly classified Copenhagen noise/post-punk branch, broader than experimental composition. One guitar card aggregates three players; one positively credited singer. Power-chord guitar texture is authored.",
+            "instrumental_evidence": "https://taxidermydk.bandcamp.com/album/coin",
+            "photo_context": "Selected instrument-family context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+          }
+        }
+      }
+    },
+    {
+      "id": "dark_cabaret",
+      "before": {
+        "tradition": {
+          "id": "dark_cabaret",
+          "name": "Dark cabaret",
+          "family": "pop",
+          "lineage": "Sparkbird — The Light That Comes Through (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "grand_piano",
+            "electric_bass",
+            "drum_kit",
+            "cello",
+            "flute"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "bowed_technique": "bowed_legato_classical",
+            "cello_strings": "cello_synthetic",
+            "cello_top_wood": "norway_spruce_alpine_cello",
+            "cello_back_wood": "bosnian_flamed_maple_cello",
+            "cello_varnish": "oil_amber_varnish_cello",
+            "cello_setup_period": "modern_setup_cello",
+            "cello_bow_grip": "french_bow_grip",
+            "cello_rosin": "pirastro_cellisto_rosin",
+            "cello_bow_stick": "pernambuco_stick_cello",
+            "wind_articulation": "wind_continuous_legato",
+            "flute_size": "concert_flute",
+            "flute_material": "silver_flute",
+            "flute_technique": "classical_flute",
+            "flute_maker_school": "flute_powell_boston"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong.popRock",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist self-describes as dark cabaret folk-pop. Stephan Nance plays piano and sings lead and backing vocals; Josh Frigo plays bass and other instruments, Yoed Nir cello/violin/viola, Josh Plotner flute, Jon Truman drums; two percussionists also credited. Contemporary dark-cabaret folk-pop branch, not historical cabaret or broad chamber folk equivalence. Selected lead-voice/piano/bass/drums/cello/flute arrangement explicitly omits credited backing-vocal overdubs, banjo, guitars, harmonium, other keys, violin, viola and auxiliary percussion. One selected singer; piano construction is an authored nine-foot concert grand choice, not source gear. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Sparkbird — The Light That Comes Through (2025)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "dark_cabaret",
+          "name": "Dark cabaret",
+          "family": "pop",
+          "lineage": "Dark cabaret combines theatrical songwriting with shadowed moods and contrasting popular-music textures. Contemporary performers bring cabaret-related expression into folk-pop, chamber and band arrangements.",
+          "instruments": [
+            "voice",
+            "grand_piano",
+            "electric_bass",
+            "drum_kit",
+            "cello",
+            "flute"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "bowed_technique": "bowed_legato_classical",
+            "cello_strings": "cello_synthetic",
+            "cello_top_wood": "norway_spruce_alpine_cello",
+            "cello_back_wood": "bosnian_flamed_maple_cello",
+            "cello_varnish": "oil_amber_varnish_cello",
+            "cello_setup_period": "modern_setup_cello",
+            "cello_bow_grip": "french_bow_grip",
+            "cello_rosin": "pirastro_cellisto_rosin",
+            "cello_bow_stick": "pernambuco_stick_cello",
+            "wind_articulation": "wind_continuous_legato",
+            "flute_size": "concert_flute",
+            "flute_material": "silver_flute",
+            "flute_technique": "classical_flute",
+            "flute_maker_school": "flute_powell_boston"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong.popRock",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voice and piano can lead an ensemble with bass, drums, cello and flute. Alternating intimacy and dramatic emphasis allow melodic lines and instrumental colours to reinforce the song’s narrative character.",
+          "exemplars": [
+            "Sparkbird"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://sparkbird.bandcamp.com/track/the-light-that-comes-through",
+          "title": "Sparkbird — The Light That Comes Through (2025)",
+          "support_notes": "Artist self-describes as dark cabaret folk-pop. Stephan Nance plays piano and sings lead and backing vocals; Josh Frigo plays bass and other instruments, Yoed Nir cello/violin/viola, Josh Plotner flute, Jon Truman drums; two percussionists also credited.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Samul bass/erhuang cello; no primary support for those named practices.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-candidate.json",
+        "proposal_sha256": "1c317380a00797fbe98e3c7fea9d046093bc0980e9f764929b8dad587d5c8ae0",
+        "current_before_sha256": "d264b5620f987e8c350d8539eb6f1389b529d30fc9b1c8e8f7ec69c0902b4450",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist self-describes as dark cabaret folk-pop. Stephan Nance plays piano and sings lead and backing vocals; Josh Frigo plays bass and other instruments, Yoed Nir cello/violin/viola, Josh Plotner flute, Jon Truman drums; two percussionists also credited. Contemporary dark-cabaret folk-pop branch, not historical cabaret or broad chamber folk equivalence. Selected lead-voice/piano/bass/drums/cello/flute arrangement explicitly omits credited backing-vocal overdubs, banjo, guitars, harmonium, other keys, violin, viola and auxiliary percussion. One selected singer; piano construction is an authored nine-foot concert grand choice, not source gear.",
+            "instrumental_evidence": "https://sparkbird.bandcamp.com/track/the-light-that-comes-through",
+            "photo_context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+          }
+        }
+      }
+    }
+  ]
+}

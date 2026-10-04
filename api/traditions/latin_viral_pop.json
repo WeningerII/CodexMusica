@@ -2,10 +2,10 @@
   "id": "latin_viral_pop",
   "name": "Latin viral pop",
   "family": "vernacular",
-  "lineage": "Camilo — NPR Tiny Desk (Home) Concert, March 2022, selected vocal/string/brass core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic early-2020s latin viral pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, lap steel, electric bass, European maple bosnian source flamed figure cello, synthetic core European maple bosnian source flamed figure viola classical, yellow brass canonical 70 30 bach stradivarius trumpet. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 497,
-  "score": 15.345,
+  "lineage": "Latin viral pop connects Spanish-language popular songs and performers through online circulation and shared audiences. Memorable refrains cross acoustic, regional and contemporary pop production styles.",
+  "recipe": "classic latin viral pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, lap steel, electric bass, cello, viola classical, trumpet. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 327,
+  "score": 10.168,
   "config": {
     "traditions": [
       "latin_viral_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5715000000000001,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.69,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 3.95,
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
@@ -76,7 +76,7 @@
           "lap_steel_style": "lap_steel_hawaiian_slack"
         },
         "scores": {
-          "lap_steel_tuning": 0.6,
+          "lap_steel_tuning": 0,
           "lap_steel_style": 0
         }
       },
@@ -118,13 +118,13 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 0.3,
+          "cello_strings": 0,
           "cello_top_wood": -0.1,
-          "cello_back_wood": 1.95,
+          "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
           "cello_setup_period": 0.254,
-          "cello_bow_grip": 0.39,
-          "cello_rosin": 0.2,
+          "cello_bow_grip": 0.3705,
+          "cello_rosin": -0.1,
           "cello_bow_stick": -0.10500000000000001
         }
       },
@@ -144,13 +144,13 @@
         "scores": {
           "bowed_technique": -0.05,
           "viola_size": 0,
-          "viola_strings": 2.08,
+          "viola_strings": 0.522,
           "viola_top_wood": -0.1,
-          "viola_back_wood": 1.95,
+          "viola_back_wood": -0.07,
           "viola_varnish": -0.1,
           "viola_setup_period": 0.254,
           "viola_bow_stick": -0.10500000000000001,
-          "viola_rosin": 0.2
+          "viola_rosin": -0.1
         }
       },
       {
@@ -168,9 +168,9 @@
           "wind_articulation": -0.10500000000000001,
           "brass_size": 0.054,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0.3,
+          "brass_mute": 0,
           "trumpet_technique": -0.10500000000000001,
-          "trumpet_bell_metal": 1.3,
+          "trumpet_bell_metal": 0.3,
           "trumpet_maker_school": 0
         }
       }

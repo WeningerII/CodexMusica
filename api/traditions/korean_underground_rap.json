@@ -5,7 +5,7 @@
   "lineage": "Korean underground rap connects independent crews, producers, DJs and club audiences within the wider Korean hip-hop scene. Networks such as Daenamhyup and Rock Bottom combine self-organized collaboration with international touring and exchanges with the commercial music industry.",
   "recipe": "classic korean underground rap, mc Rhythm. rhythmic spoken flow no pitch. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 120,
-  "score": 12.403,
+  "score": 12.481,
   "config": {
     "traditions": [
       "korean_underground_rap"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.591999999999999,
+          "voice_speech_song": 11.697,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },

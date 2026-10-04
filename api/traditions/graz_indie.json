@@ -2,10 +2,10 @@
   "id": "graz_indie",
   "name": "Graz indie",
   "family": "rock",
-  "lineage": "The Base — documented Parkhouse Graz live trio, July 4, 2025. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s graz indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 395,
-  "score": 32.029,
+  "lineage": "Graz indie connects independent musicians with the Austrian city’s venues and recording communities. Guitar-band arrangements form one strand within a broader local scene.",
+  "recipe": "classic graz indie, distorted Rock, alternative branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 324,
+  "score": 23.975,
   "config": {
     "traditions": [
       "graz_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.449,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.546,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
-          "drumhead": 1.4365,
+          "drum_technique": 6.25,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.8415000000000001,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 6.9315,
-          "cymbal_lathing": 7.036499999999999,
+          "cymbal_hammering": 6.181500000000001,
+          "cymbal_lathing": 6.2865,
           "cymbal_finish": 0
         }
       }

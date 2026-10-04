@@ -5,7 +5,7 @@
   "lineage": "Mluvené slovo is the Czech spoken-word publishing field, encompassing literary narration and other recorded voice forms. It includes adult fiction as well as children’s stories, dramatic readings and related spoken repertoire.",
   "recipe": "classic mluvené slovo, spoken Word, narration branch. conversational. treated studio.",
   "recipe_chars": 85,
-  "score": 2.169,
+  "score": 1.801,
   "config": {
     "traditions": [
       "mluvene_slovo"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0.9240000000000002,
+          "voice_quality": 0.6194999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3255,
+          "voice_speech_song": 0.29400000000000004,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.2625,
+          "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }
       }

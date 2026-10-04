@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "base": "7ed80fbcc14597af3cdefff1e683ed4a30ffd7c1",
+  "frozen_musical_source": "251545a3451647afa77af76dd47a4640c760a288",
+  "shared_engine_schema_ui_tests_unchanged": true,
+  "only_app_change": "generated tradition signature mirror; canonical check passes",
+  "pr481_ancestor_preserved": true,
+  "instrument_source_unchanged": true,
+  "source_sha256": {
+    "references/05_traditions.js": "8a9b0c310a50174edd54d19970f6a14440e46d37fc4bb6989078689f6789ce6f",
+    "references/06_extras.js": "a4a0552c2ff1ad37fe67ead2c8e93b695475af272587ea59bd11bf07f211c3f6",
+    "references/02_instruments.js": "96d15f67e5a540b25989e0409d4a2b67b857ac0716724db780d045d1eef6fc8a"
+  }
+}

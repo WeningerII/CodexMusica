@@ -1,0 +1,186 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 positions521–530; genre/data only",
+  "entries": [
+    {
+      "id": "grunneger_muziek",
+      "before": {
+        "tradition": {
+          "id": "grunneger_muziek",
+          "name": "Grunneger muziek",
+          "family": "vernacular",
+          "lineage": "Jan Henk de Groot and Reinout Douma — Tiepelzinneg, announced2027 duo program. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Presenting venue describes Groningen regional-language troubadour Jan Henk de Groot singing without his guitars, alongside pianist Reinout Douma in new piano arrangements. Creator-owned Grunneger Muziek playlist includes De Groot: Mamme van Michel and Fiene. The venue event is announced for11February2027, not a completed recording. Groningen Low Saxon/regional-language song category distinct from Dutch pop broadly and Netherlands folk in general. Selected complete announced voice-and-piano duo; explicit source guitar exclusion, no invented band backing. Modern recording recipe realizes this documented forthcoming arrangement without claiming it has occurred. Ballad/song-poetry root selected for narrative intimate regional-language songwriting; Anglosphere and Romance-language children are inapplicable. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+          "exemplars": [
+            "Jan Henk de Groot and Reinout Douma — Tiepelzinneg, announced2027 duo program"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "grunneger_muziek",
+          "name": "Grunneger muziek",
+          "family": "vernacular",
+          "lineage": "Grunneger muziek connects Groningen regional-language songwriters and listeners. Troubadour and song-poetry traditions continue through concerts, recordings and renewed arrangements.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A singer with piano can bring narrative words and melody into an intimate setting. Sustained accompaniment and changes in emphasis support the vocal line; guitar and larger ensembles provide other approaches.",
+          "exemplars": [
+            "Jan Henk de Groot"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore concise genre history/style and individually examine representative roles and physical defaults.",
+      "sources": [
+        {
+          "url": "https://www.spotgroningen.nl/programma/jan-henk-de-groot-reinout-douma/",
+          "title": "Jan Henk de Groot and Reinout Douma — Tiepelzinneg, announced2027 duo program",
+          "support_notes": "Presenting venue describes Groningen regional-language troubadour Jan Henk de Groot singing without his guitars, alongside pianist Reinout Douma in new piano arrangements. Creator-owned Grunneger Muziek playlist includes De Groot: Mamme van Michel and Fiene. The venue event is announced for11February2027, not a completed recording.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6df6TceBOi5yfpogHq8Man",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Creator The Sound of Grunneger Muziek positively includes Jan Henk De Groot. Membership supports artist category, not instrumentation of the separately announced duo.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed original primary genre/practice evidence and current owning controls. Public prose describes a supported representative branch rather than a historical session recipe. Physical choices are authored, with source personnel and exact recording evidence preserved separately.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "rationale": "Presenting venue describes Groningen regional-language troubadour Jan Henk de Groot singing without his guitars, alongside pianist Reinout Douma in new piano arrangements. Creator-owned Grunneger Muziek playlist includes De Groot: Mamme van Michel and Fiene. The venue event is announced for11February2027, not a completed recording. Groningen Low Saxon/regional-language song category distinct from Dutch pop broadly and Netherlands folk in general. Selected complete announced voice-and-piano duo; explicit source guitar exclusion, no invented band backing. Modern recording recipe realizes this documented forthcoming arrangement without claiming it has occurred. Ballad/song-poetry root selected for narrative intimate regional-language songwriting; Anglosphere and Romance-language children are inapplicable.",
+          "instrumental_evidence": "https://www.spotgroningen.nl/programma/jan-henk-de-groot-reinout-douma/",
+          "photo_context": "Verified selected instrument-family context only; not the named performer, actual source instrument, source venue or entire ensemble."
+        }
+      }
+    }
+  ]
+}

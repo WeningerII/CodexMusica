@@ -2,10 +2,10 @@
   "id": "italian_experimental",
   "name": "Italian Experimental",
   "family": "electronic",
-  "lineage": "A Quiet Guy — S.1 e.2 Sapere tutto, conoscere nulla (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2020s italian experimental, experimental Elec, ambient branch. humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 200,
-  "score": 2.647,
+  "lineage": "Italian experimental music connects artists exploring unconventional composition and sound. Guitar-based ambient work forms one branch within a broader field of approaches.",
+  "recipe": "classic italian experimental, experimental Elec, ambient branch. humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 2.367,
   "config": {
     "traditions": [
       "italian_experimental"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.6499999999999999,
           "amp_make": 0,
           "body_wood": 0.3045,
           "neck_wood": 0.3045,
@@ -37,9 +37,9 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0,
+          "bridge": 0.3,
           "scale_length": 0.609,
-          "string_gauge": 1.534,
+          "string_gauge": 0.23399999999999999,
           "finish": 0,
           "string_tuning": 0
         }

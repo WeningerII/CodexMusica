@@ -5,7 +5,7 @@
   "lineage": "Polish underground rap developed through independent releases, DIY circulation and local club networks, including Warsaw’s experimental scene. Acts such as TONFA connect rap with turntablism, live percussion and cross-genre collaboration.",
   "recipe": "classic polish underground rap, mc Rhythm. rhythmic spoken flow no pitch, duet, live take. turntable, drum kit. live tracking.",
   "recipe_chars": 126,
-  "score": 16.184,
+  "score": 16.232,
   "config": {
     "traditions": [
       "polish_underground_rap"
@@ -80,13 +80,13 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0,
+          "drumhead": 0.105,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.126,
+          "bearing_edges": 0.063,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14600000000000002,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

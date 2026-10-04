@@ -5,7 +5,7 @@
   "lineage": "Howard Finster — Man of Many Voices (1984), spoken-storytelling core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
   "recipe": "classic mid-1980s children's story, spoken Word, narration branch. conversational, no pitch organization speech, single lead single track no stacking. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 242,
-  "score": 5.7,
+  "score": 5.668,
   "config": {
     "traditions": [
       "children_s_story"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0.3,
-          "voice_speech_song": 1.7575,
+          "voice_speech_song": 1.726,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

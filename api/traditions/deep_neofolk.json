@@ -2,10 +2,10 @@
   "id": "deep_neofolk",
   "name": "Deep Neofolk",
   "family": "vernacular",
-  "lineage": "David A. Jaycock — Study No2 (Solo Guitar). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic deep neofolk, functional Song. deep singing indian rosewood rosewood acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "lineage": "Deep neofolk gathers acoustic and folk-related repertoire that intersects with experimental songwriting and recording. Musicians develop intimate instrumental and vocal approaches alongside electronic or psychedelic colours.",
+  "recipe": "classic deep neofolk, functional Song. indian rosewood rosewood fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 192,
-  "score": 1.34,
+  "score": 5.371,
   "config": {
     "traditions": [
       "deep_neofolk"
@@ -23,9 +23,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.126,
-          "back_sides": 1.2125,
+          "back_sides": 2.3925,
           "string_acoustic": 0.252,
-          "acoustic_om_technique": -0.25
+          "acoustic_om_technique": 2.6000000000000005
         }
       }
     ],

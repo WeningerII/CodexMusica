@@ -2,10 +2,10 @@
   "id": "harp",
   "name": "Harp",
   "family": "classical",
-  "lineage": "Alice Giles — Harfe solo-harp recording1986. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic harp, art Music. concert harp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 137,
-  "score": 2.6,
+  "lineage": "Harp repertoire spans solo concert performance and varied ensemble traditions. The modern pedal harp supports a wide range of composed and arranged instrumental music.",
+  "recipe": "classic harp, art Music. concert harp. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 143,
+  "score": 3.9,
   "config": {
     "traditions": [
       "harp"
@@ -18,7 +18,7 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 1.3,
+          "harp_strings": 2.6,
           "harp_pedals": 1.3
         }
       }
@@ -29,7 +29,7 @@
         "harp_pedals"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "transformerless",
@@ -46,7 +46,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "harp_strings": "harp_47_string",
       "harp_pedals": "harp_double_pedal"

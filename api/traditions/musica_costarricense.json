@@ -2,10 +2,10 @@
   "id": "musica_costarricense",
   "name": "Musica Costarricense",
   "family": "classical",
-  "lineage": "José Daniel Zúñiga — Caña dulce, Manuel Matarrita piano-solo adaptation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Costa Rican music, including popular songs, regional traditions and concert interpretations of national repertoire.",
   "recipe": "classic musica costarricense, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 213,
-  "score": 16.472,
+  "score": 15.231,
   "config": {
     "traditions": [
       "musica_costarricense"
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": 2.5,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.105,
+          "grand_piano_brand": 0.39,
           "piano_hammer": 2.45,
           "piano_rim": 2.5445,
           "piano_soundboard": 2.45,
           "piano_pinblock": 2.45,
           "piano_plate": 2.45,
-          "piano_pitch_standard": 1.4915
+          "piano_pitch_standard": -0.035
         }
       }
     ],

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "reviewer": "recover_024",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice004-kurdish-remix.json",
+  "sha256": "d8164ecdcd5e9eb78efd97d8a8b81b84db8aa66a8520f68a9ad98c6a9fe25910",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "primary_refs": [
+    "turn14996view0",
+    "turn14997youtube0",
+    "turn14997youtube1",
+    "turn14925view1"
+  ],
+  "source_review": "Fresh official artist HaNinay description explicitly retains traditional vocal, new trap backing, keyboard and flute. Second official Meryemme corroborates sung/keyboard practice; flute not transferred into that separate recording. Fresh full returned creator playlist includes Kejoo6 and trap/drill/house song reworkings. Representative source-backed arrangement, not exact-master reconstruction.",
+  "category_review": "Full KurdishPop, KurdishHipHop and KurdishFolk current records read. All overlap; remix workflow and creator-defined producer circulation field spans sung traditional material and Turkish repertoire, distinct from whole national/language umbrellas or rap alone. No claim those fields exclude electronic production.",
+  "default_review": "21 existing protected controls remain meaningful, architecture/physiology unspecified. Sung solo, keyboard chord/melody, produced beat and flute all retained. Broad electronicDance fits authored remix rendition. Actual up-tempo/witty/bodacious/cheery descriptors compatible with explicitly energetic remake and no protected sustained/slow instruction. No cultural/tuning inference.",
+  "validation": {
+    "owning_parts": 21,
+    "four_browser_connector_formats": "PASS",
+    "max_chars": 390,
+    "compiled_api_only_self": true,
+    "pin_errors": [],
+    "existing_owners_preserved": true,
+    "evidence": "practice004-independent-runtime024.json"
+  },
+  "photo_review": "LOW generic mic; exact historical023 hash/bytes/dimensions plus fresh14925view1 CC BY2.5 attribution verified. No new visual/download claim.",
+  "immutable": "Packet unchanged; no registry/repository writes."
+}

@@ -2,10 +2,10 @@
   "id": "musica_sergipana",
   "name": "Música Sergipana",
   "family": "blues_gospel",
-  "lineage": "The Baggios with Mateus Santana — Projeto Verão2010. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic música sergipana, functional Song, blues electric branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch bent note blues lead humbucker electric guitar, maple bronze bell bronze machine hammered symmetric pattern drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 504,
-  "score": 54.311,
+  "lineage": "Music associated with Sergipe, including independent blues-rock and psychedelic bands.",
+  "recipe": "classic música sergipana, functional Song, blues electric branch. solo with instrumental accompaniment. overdriven singing bent note blues lead humbucker electric guitar, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. live tracking.",
+  "recipe_chars": 375,
+  "score": 63.718,
   "config": {
     "traditions": [
       "musica_sergipana"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.5435,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_bent_note_blues_lead",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.5100000000000002,
+          "electric_technique": 4.81,
           "amp_make": 0,
-          "body_wood": 0.3045,
-          "neck_wood": 0.3045,
+          "body_wood": 0.063,
+          "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.22049999999999997,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.609,
-          "string_gauge": 1.3315000000000001,
+          "string_gauge": 0.7314999999999999,
           "finish": 0,
-          "string_tuning": 1.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -101,16 +101,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 1.9364999999999999,
-          "drumhead": 1.3315000000000001,
+          "drum_technique": 3.3865,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.363,
+          "shell_wood": 0.063,
           "shell_thickness": 0,
-          "bearing_edges": 0.063,
+          "bearing_edges": 0.363,
           "snare_wires": 0,
-          "cymbal_alloy": 5.100000000000001,
-          "cymbal_hammering": 1.4629999999999999,
-          "cymbal_lathing": 1.5995,
+          "cymbal_alloy": 6.85,
+          "cymbal_hammering": 4.013,
+          "cymbal_lathing": 4.1495,
           "cymbal_finish": 0
         }
       },
@@ -125,12 +125,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.063,
-          "harmonica_comb": 6.667000000000001,
-          "harmonica_reed": 5.5360000000000005,
-          "harmonica_technique": 7.087000000000001,
-          "harmonica_maker_school": 7.930000000000001,
-          "harmonica_tuning": 3.12
+          "harmonica_type": 0.363,
+          "harmonica_comb": 7.5169999999999995,
+          "harmonica_reed": 7.286,
+          "harmonica_technique": 8.236999999999998,
+          "harmonica_maker_school": 9.034999999999998,
+          "harmonica_tuning": 3.6399999999999997
         }
       }
     ],
@@ -191,15 +191,15 @@
         "harmonica_tuning"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -208,7 +208,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -229,8 +229,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_bent_note_blues_lead",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -258,12 +258,6 @@
       "harmonica_maker_school": "harmonica_hohner_marine_band",
       "harmonica_tuning": "harmonica_richter_canonical"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "mathgrind",
   "name": "Mathgrind",
   "family": "rock",
-  "lineage": "Thin — the overlapping nature of things (2025), complete EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s mathgrind, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. nitrocellulose conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 415,
-  "score": 49.686,
+  "lineage": "Grindcore developed through tightly coordinated, complex riff-and-rhythm writing.",
+  "recipe": "classic mathgrind, distorted Rock, metal branch. solo with instrumental accompaniment. distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 255,
+  "score": 37.188,
   "config": {
     "traditions": [
       "mathgrind"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 1.17,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,27 +70,27 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.735,
+          "electric_technique": 7.15,
           "amp_make": 0,
-          "body_wood": 0.8399999999999999,
-          "neck_wood": 0.5775,
+          "body_wood": 0.168,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0.105,
           "pickup_winding": 0.0315,
           "string_material": 0.21,
           "bridge": 0.105,
           "scale_length": 1.155,
-          "string_gauge": 1.747,
-          "finish": 1.105,
-          "string_tuning": 1.363
+          "string_gauge": 0.847,
+          "finish": 0.105,
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.8399999999999999,
+          "body_wood": 0.168,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
-          "bass_technique": 7.226000000000001,
+          "bass_technique": 6.3260000000000005,
           "electric_bass_string_configuration": 0
         }
       },
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 6.2815,
-          "drumhead": 1.573,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.768,
+          "shell_wood": 0.168,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 0.10000000000000002,
-          "cymbal_hammering": 7.0865,
-          "cymbal_lathing": 7.4495000000000005,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 6.2865,
+          "cymbal_lathing": 6.349500000000001,
           "cymbal_finish": 0.105
         }
       }
@@ -197,15 +197,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +214,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -235,8 +235,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_power_chord",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -264,12 +264,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

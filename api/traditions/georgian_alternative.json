@@ -2,10 +2,10 @@
   "id": "georgian_alternative",
   "name": "Georgian Alternative",
   "family": "rock",
-  "lineage": "Bedford Falls — artist-profile Tbilisi quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Georgian alternative connects independent musicians and audiences in Georgia, including Tbilisi’s guitar-band communities. Local groups develop their own approaches within wider alternative-rock networks.",
   "recipe": "classic georgian alternative, distorted Rock, alternative branch. single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 27.782,
+  "score": 30.837,
   "config": {
     "traditions": [
       "georgian_alternative"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.868,
+          "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0.441,
           "neck_wood": 0.5775,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
+          "drum_technique": 8.75,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
@@ -132,8 +132,8 @@
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 6.9315,
-          "cymbal_lathing": 7.036499999999999,
+          "cymbal_hammering": 8.681499999999998,
+          "cymbal_lathing": 8.786499999999998,
           "cymbal_finish": 0
         }
       }

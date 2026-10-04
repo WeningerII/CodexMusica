@@ -2,10 +2,10 @@
   "id": "swedish_folk_pop",
   "name": "Swedish folk pop",
   "family": "pop",
-  "lineage": "RYA! — Juliregn (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s swedish folk pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. European maple bosnian source flamed figure violin orchestral, clarinet, strummed open chord ringing overtones dreadnought acoustic guitar, 7 ply quartersawn maple block chord grand piano, analog poly synth, legato single line trombone, European maple bosnian source flamed figure double bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 591,
-  "score": 44.177,
+  "lineage": "Swedish folk pop brings folk-related melodies into contemporary popular-song arrangements. Performers combine acoustic instruments with jazz-influenced ensemble writing and electronic colour.",
+  "recipe": "classic swedish folk pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. violin orchestral, clarinet, strummed open chord ringing overtones dreadnought acoustic guitar, block chord grand piano, analog poly synth, legato single line trombone, double bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 508,
+  "score": 44.87,
   "config": {
     "traditions": [
       "swedish_folk_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.78,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "bowed_technique": 0.25,
           "orch_strings": 0,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.56,
+          "orch_back_wood": -0.07,
           "orch_varnish": -0.1,
-          "orch_setup_period": 0.5539999999999999,
+          "orch_setup_period": 0.254,
           "orch_bow": 0,
           "orch_bow_stick": -0.10500000000000001,
           "orch_articulation": 0,
@@ -106,7 +106,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 6.449999999999999,
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
@@ -127,15 +127,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 6.449999999999999,
+          "keyboard_technique": 7.45,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.1905,
+          "grand_piano_brand": 0.39,
           "piano_hammer": -0.07,
-          "piano_rim": 0.26,
+          "piano_rim": -0.07,
           "piano_soundboard": 0.2,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -166,10 +166,10 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "trombone_type": 1.6905000000000001,
+          "trombone_type": 2.9905,
           "trombone_mouthpiece": -0.1,
           "trombone_mute": 0,
-          "trombone_technique": 1.734,
+          "trombone_technique": 2.734,
           "trombone_bell_metal": 0,
           "trombone_maker_school": 0
         }
@@ -193,11 +193,11 @@
           "bass_size": 0,
           "bass_strings": 0.054,
           "bass_top_wood": -0.1,
-          "bass_back_wood": 1.56,
+          "bass_back_wood": -0.07,
           "bass_varnish": -0.1,
-          "bass_setup_period": 0.5539999999999999,
+          "bass_setup_period": 0.254,
           "bass_play": 0.39,
-          "bass_rosin": 0.5539999999999999,
+          "bass_rosin": 0.254,
           "bass_bow_stick": -0.10500000000000001
         }
       },
@@ -218,15 +218,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6540000000000001,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 2.795,
-          "cymbal_hammering": 6.454,
-          "cymbal_lathing": 6.3999999999999995,
+          "cymbal_alloy": 3.0550000000000006,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
         }
       }

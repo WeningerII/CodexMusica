@@ -5,7 +5,7 @@
   "lineage": "Rock nacional feminino highlights women-fronted projects across Brazil’s rock and underground scenes. Collections such as A Cena é Delas bring together bands working in varied rock, punk and metal approaches.",
   "recipe": "classic rock nacional feminino, distorted Rock. solo with instrumental accompaniment. distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 254,
-  "score": 75.482,
+  "score": 76.102,
   "config": {
     "traditions": [
       "rock_nacional_feminino"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3,
-          "voice_ensemble_config": 0.6405,
+          "voice_speech_song": 0.3315,
+          "voice_ensemble_config": 1.0499999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
+          "voice_processing_chain": 0.4095,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

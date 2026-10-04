@@ -2,10 +2,10 @@
   "id": "indie_tucumano",
   "name": "Indie tucumano",
   "family": "vernacular",
-  "lineage": "Mauro Meloni — What is Lost is Lost (title track, 2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s indie tucumano, ballad Poetry, Latin am troubadour branch. duet. fingerpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 225,
-  "score": 5.141,
+  "lineage": "Indie tucumano connects independent songwriters and listeners in Tucumán. Acoustic folk-related writing is one branch of the regional scene.",
+  "recipe": "classic indie tucumano, ballad Poetry, Latin am troubadour branch. unprocessed natural acoustic. fingerpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 237,
+  "score": 7.412,
   "config": {
     "traditions": [
       "indie_tucumano"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.47250000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.36750000000000005,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 3.6314999999999995,
+          "acoustic_technique": 4.931500000000001,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,

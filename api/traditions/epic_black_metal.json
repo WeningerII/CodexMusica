@@ -5,7 +5,7 @@
   "lineage": "Epic black metal is retained as the source discovery-cluster label, with Zuriaake explicitly present in its artist roster. This selected long-form atmospheric branch emphasizes melodic electric-guitar lines, bass, drums, harsh voice and sampled environmental/traditional timbres. The official Gu Yan EP contains extended pieces rather than a short verse-chorus template; contemporary concert reporting establishes the real band and sample roles. Epic does not impose Tolkien themes, a European folk ensemble or symphonic instrumentation on every member.",
   "recipe": "classic modern epic black metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. maple stainless steel steel humbucker electric guitar, treble-extended stainless steel roundwound electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 512,
-  "score": 34.836,
+  "score": 33.562,
   "config": {
     "traditions": [
       "epic_black_metal"
@@ -123,16 +123,16 @@
           "voice_effort": 0.07799999999999999,
           "voice_vibrato": 0,
           "voice_articulation": -0.05,
-          "voice_microtone": 3.669000000000001,
+          "voice_microtone": 3.500000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.159,
+          "voice_speech_song": 0.6909999999999998,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5534999999999999,
           "voice_processing_chain": 1.43,
-          "voice_multitrack_stack": 0.7559999999999998
+          "voice_multitrack_stack": 0.288
         }
       },
       {
@@ -149,7 +149,7 @@
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0.41400000000000003,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 0.16899999999999998
+          "sampler_classic_context": 0
         }
       }
     ],

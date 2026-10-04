@@ -2,10 +2,10 @@
   "id": "glass",
   "name": "Glass",
   "family": "classical",
-  "lineage": "Thomas Bloch — Mozart Adagio K356, complete solo track6 from Music for Glass Harmonica. Source-supported Franklin-type rotating bowls and wet-finger excitation are both pinned. One complete solo work, no quartet or album singers imported. No specific historical pitch or global temperament imposed: performer reports instruments at442 and430Hz, selected session pitch unspecified. Authored spacious concert-hall listening rendition supports sustained acoustic tones; this is a source-compatible modern recital setting, not a claim about original Naxos session acoustics or apparatus. Optional signal-chain apparatus is omitted. Western common-practice parent applies to selected Mozart work, not every Glass network member.",
-  "recipe": "classic glass, art Music, western common practice branch. spun bowls wetted finger glass harmonica. shoebox concert hall.",
-  "recipe_chars": 121,
-  "score": 3.099,
+  "lineage": "Glass music centers instruments whose vibrating glass produces sustained or struck tones. The glass harmonica forms an important branch, with repertoire ranging from historical compositions to newer concert work.",
+  "recipe": "classic glass, art Music, western common practice branch. glass harmonica. shoebox concert hall.",
+  "recipe_chars": 96,
+  "score": 0.499,
   "config": {
     "traditions": [
       "glass"
@@ -18,8 +18,8 @@
           "glass_harmonica_technique": "glass_harmonica_wetted_finger"
         },
         "scores": {
-          "glass_harmonica_type": 1.6315000000000002,
-          "glass_harmonica_technique": 1.468
+          "glass_harmonica_type": 0.3315,
+          "glass_harmonica_technique": 0.16799999999999998
         }
       }
     ],

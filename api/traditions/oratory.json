@@ -5,7 +5,7 @@
   "lineage": "John F. Kennedy — Address at Rice University on the Space Effort,12September1962, sole-speaker address. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic oratory, spoken Word. no pitch organization speech. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 158,
-  "score": 1.421,
+  "score": 1.212,
   "config": {
     "traditions": [
       "oratory"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.357,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.252,
+          "voice_multitrack_stack": 0.22049999999999997,
           "voice_tessitura": 0
         }
       }

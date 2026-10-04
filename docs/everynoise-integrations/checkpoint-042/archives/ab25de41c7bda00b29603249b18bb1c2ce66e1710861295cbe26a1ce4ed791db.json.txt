@@ -1,0 +1,380 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 held entries; exact-current public prose only; musical/output holds explicitly retained",
+  "entries": [
+    {
+      "id": "jacksonville_indie",
+      "before": {
+        "tradition": {
+          "id": "jacksonville_indie",
+          "name": "Jacksonville indie",
+          "family": "rock_punk",
+          "lineage": "Yaupon Holly — Feel This Way (2023). Representative authored modern recording palette. Full credited instrument types retained; guitar card represents the two credited lead/rhythm guitar roles collectively, not a claim of one guitar player or exact performance reconstruction. Humbucker construction, shared overdriven setting, bass playing, kit construction, tuning and chain are editorial choices, not original equipment facts.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_overdriven_lead",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "stoptail",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Jacksonville label release explicitly tags indie rock and credits Jason Kerr vocals, Marcelo Celi lead guitar, Bryson Hunt rhythm guitar, Padraig Mee bass and Michael Glime drums. Recording credits name Warehouse Studios in Jacksonville. Joe Thompson is credited for music/lyrics, not as an additional singer. This local indie-rock recording is distinct from Jacksonville-associated Southern-rock categories. Representative authored modern recording palette. Full credited instrument types retained; guitar card represents the two credited lead/rhythm guitar roles collectively, not a claim of one guitar player or exact performance reconstruction. Humbucker construction, shared overdriven setting, bass playing, kit construction, tuning and chain are editorial choices, not original equipment facts.",
+          "exemplars": [
+            "Yaupon Holly — Feel This Way (2023)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "jacksonville_indie",
+          "name": "Jacksonville indie",
+          "family": "rock_punk",
+          "lineage": "Jacksonville indie connects independent bands, songwriters and audiences in Jacksonville. Guitar-centered rock is one branch within the local scene.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_overdriven_lead",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "stoptail",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voice, lead and rhythm guitars, bass and drums can form an energetic song arrangement. Interlocking guitar parts and shifts in intensity support melodic hooks.",
+          "exemplars": [
+            "Yaupon Holly"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://warehousejax.bandcamp.com/track/feel-this-way",
+          "title": "Yaupon Holly — Feel This Way (2023)",
+          "support_notes": "Complete five-person vocal/guitars/bass/drums roles, indie-rock tag, and Jacksonville studio credit.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated kora-cascading guitar.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-candidate.json",
+        "proposal_sha256": "8e0aee1cc9d6182ac01a4c0097dc9fa69220e02b0a1a861b5ceaff507c593af9",
+        "current_before_sha256": "7e3457beeac45fb6e5b0051ee14b51d430e0321fa95c720aeeca977c07a0d017",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Jacksonville label release explicitly tags indie rock and credits Jason Kerr vocals, Marcelo Celi lead guitar, Bryson Hunt rhythm guitar, Padraig Mee bass and Michael Glime drums. Recording credits name Warehouse Studios in Jacksonville. Joe Thompson is credited for music/lyrics, not as an additional singer. This local indie-rock recording is distinct from Jacksonville-associated Southern-rock categories. Representative authored modern recording palette. Full credited instrument types retained; guitar card represents the two credited lead/rhythm guitar roles collectively, not a claim of one guitar player or exact performance reconstruction. Humbucker construction, shared overdriven setting, bass playing, kit construction, tuning and chain are editorial choices, not original equipment facts.",
+            "instrumental_evidence": "https://warehousejax.bandcamp.com/track/feel-this-way",
+            "photo_context": "Electric-guitar context; not source musician, performance or exact guitar model."
+          }
+        }
+      }
+    },
+    {
+      "id": "japanese_guitar",
+      "before": {
+        "tradition": {
+          "id": "japanese_guitar",
+          "name": "Japanese guitar",
+          "family": "global",
+          "lineage": "Yukihiro Atsumi — Etenraku Solo Guitar Version, Japanese Guitar Song Book (2016). Authored present-day solo classical-guitar realization. Sources establish repertoire, solo role and Japanese Guitar category; materials, technique, tuning, recording chain and numeric axes are editorial choices, not measured source-session facts.",
+          "instruments": [
+            "classical_nylon_string_guitar"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "acoustic_technique": "acoustic_chord_melody",
+            "string_tuning": "standard_tuning",
+            "top_wood_classical": "cedar_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_normal_cl",
+            "attack_technique_cl": "tirando_cl"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.eastAsian",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -2,
+            "cyclicity": 0
+          },
+          "description": "Atsumi explicitly names this track a solo-guitar version of Etenraku. His release defines Japanese Guitar as a contemporary approach translating Japanese traditional structures into guitar music; its classical-guitar tag supports the selected nylon-string instrument. This is a modern instrumental adaptation, not a gagaku ensemble reconstruction or a generic classical-guitar school. Authored present-day solo classical-guitar realization. Sources establish repertoire, solo role and Japanese Guitar category; materials, technique, tuning, recording chain and numeric axes are editorial choices, not measured source-session facts.",
+          "exemplars": [
+            "Yukihiro Atsumi — Etenraku Solo Guitar Version, Japanese Guitar Song Book (2016)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "japanese_guitar",
+          "name": "Japanese guitar",
+          "family": "global",
+          "lineage": "Japanese guitar repertoire connects performers and composers with both inherited melodies and new instrumental work. Solo classical-guitar arrangements offer one approach to that varied field.",
+          "instruments": [
+            "classical_nylon_string_guitar"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "acoustic_technique": "acoustic_chord_melody",
+            "string_tuning": "standard_tuning",
+            "top_wood_classical": "cedar_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_normal_cl",
+            "attack_technique_cl": "tirando_cl"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.eastAsian",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -2,
+            "cyclicity": 0
+          },
+          "description": "Plucked melody and accompanying voices can share a single nylon-string guitar. Contrasting registers, articulation and resonance bring out the shape of a tune.",
+          "exemplars": [
+            "Yukihiro Atsumi"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://hogaku2point0.bandcamp.com/track/etenraku-solo-guitar-version",
+          "title": "Yukihiro Atsumi — Etenraku Solo Guitar Version, Japanese Guitar Song Book (2016)",
+          "support_notes": "Artist track title positively identifies solo guitar.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://hogaku2point0.bandcamp.com/album/japanese-guitar-song-book",
+          "title": "Artist category statement and album metadata",
+          "support_notes": "Artist defines Japanese Guitar and Hogaku2.0, tags classical guitar and Kyoto, and dates album August1 2016.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unrelated choro-bantering on Japanese solo-guitar branch.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-020-candidate.json",
+        "proposal_sha256": "8e0aee1cc9d6182ac01a4c0097dc9fa69220e02b0a1a861b5ceaff507c593af9",
+        "current_before_sha256": "ffaa98caeef86f77de9a5af2d403a0794348e6ab409805f1e269b08746d90c58",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Explicit solo-guitar title plus album classical-guitar tag. No gagaku/koto/shamisen roles added from historical discussion.",
+            "instrumental_evidence": "https://hogaku2point0.bandcamp.com/track/etenraku-solo-guitar-version",
+            "photo_context": "Nylon-string classical-guitar context; not artist or source instrument."
+          }
+        }
+      }
+    }
+  ]
+}

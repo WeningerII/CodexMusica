@@ -2,10 +2,10 @@
   "id": "barnsagor",
   "name": "Barnsagor (Swedish children’s narration)",
   "family": "global",
-  "lineage": "Astrid Lindgren — original author-read children’s audiobooks. Representative authored present-day recording arrangement. Sources establish the selected roles and bounded category relationship. Exact construction, hardware, playing settings, room, chain, temperament and numeric axes are authored choices, not original-session facts or universal genre traits.",
-  "recipe": "classic barnsagor, functional Song. conversational. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 150,
-  "score": 1.852,
+  "lineage": "Swedish children's storytelling includes author readings, narrated audiobooks and dramatized adaptations.",
+  "recipe": "classic barnsagor, spoken Word, narration branch. conversational. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 1.874,
   "config": {
     "traditions": [
       "barnsagor"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 1.3,
+          "voice_quality": 0.8310000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.054,
+          "voice_ensemble_config": 0.2535,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.108,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.2625,
           "voice_tessitura": 0
         }
       }
@@ -84,13 +84,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",

@@ -2,10 +2,10 @@
   "id": "german_boom_bap",
   "name": "German Boom Bap",
   "family": "hip_hop",
-  "lineage": "Adlib Swayze — Drunken Bamboo (2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2010s german boom bap, mc Rhythm, intl hip hop branch. sampler drum machine, turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 198,
-  "score": 10.734,
+  "lineage": "German boom bap connects hip-hop producers and performers through sample-based beats and rhythmic vocal traditions. Instrumental beat releases and scratch-based performance form part of the same wider community.",
+  "recipe": "classic german boom bap, mc Rhythm, intl hip hop branch. sampled chopped sampler drum machine, sampled chopped turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 220,
+  "score": 19.433,
   "config": {
     "traditions": [
       "german_boom_bap"
@@ -20,9 +20,9 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 2.2,
+          "electronic_technique": 4,
           "sample_bitdepth": 0.1785,
-          "sample_swing": 3.9,
+          "sample_swing": 6.5,
           "sample_processing": -0.05
         }
       },
@@ -33,8 +33,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.2,
-          "turntable_technique": 2.305
+          "electronic_technique": 4,
+          "turntable_technique": 4.805000000000001
         }
       }
     ],
@@ -60,13 +60,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "electronic_technique": "electronic_sample_chopped",

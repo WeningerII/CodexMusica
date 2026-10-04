@@ -2,10 +2,10 @@
   "id": "japanese_jazztronica",
   "name": "Japanese Jazztronica",
   "family": "jazz",
-  "lineage": "Diavola — complete2:41 single issued8August2024 by Ted Taforo, ddddeeeellllaaa and Emiliano Lasansky. Whole single credits saxophone to Taforo, keyboards and beat to ddddeeeellllaaa, bass to Lasansky: three people, four positive sounding-role families. No singer credited; no invented vocal person or claim forensic absence of embedded vocal material. Beat denotes the credited rhythm-production role, not the whole finished master, and does not subsume saxophone, keyboards or bass. No additional album guests transferred from the later Professional Pizza Makers release. Authored present-day jazz-electronic ensemble rendition. Saxophone becomes a medium-reed yellow-brass tenor with hard-rubber mouthpiece and continuous legato; source gives no size or maker. Source keys become a neutral electronic-keyboard realization within explicitly jazztronica production, generator and model unknown. Source bass becomes plucked gut-string upright as an authored jazz timbral realization, not a claim Lasansky played that construction in this session. The separately credited beat retains a neutral rhythmic-production owner: no drum-machine, physical kit, MIDI, DAW, sample or synthesizer mechanism is invented. All unknown original beat layers remain encompassed within that literal credited role, with no opaque whole-master shortcut. Controlled live-room rendering is authored, not original session capture. No global tuning imposed. Existing fusion parent is used for this issuer-tagged jazz-fusion/jazz-electronic branch, not every Japanese electronic recording.",
-  "recipe": "classic japanese jazztronica, improv On Frame, fusion branch. tenor yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris rubber saxophone, electronic keyboard credited beat unspecified, vintage gut upright bass. live tracking.",
-  "recipe_chars": 248,
-  "score": 92.786,
+  "lineage": "Japanese jazztronica connects jazz-oriented musicians and electronic production through releases and collaborative networks. Acoustic playing and programmed rhythm meet in varied instrumental arrangements.",
+  "recipe": "classic japanese jazztronica, improv On Frame, fusion branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electronic keyboard credited beat unspecified, upright bass. live tracking.",
+  "recipe_chars": 220,
+  "score": 29.016,
   "config": {
     "traditions": [
       "japanese_jazztronica"
@@ -23,13 +23,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.5000000000000004,
-          "sax_size": 1.15,
+          "wind_articulation": -0.1,
+          "sax_size": -0.15000000000000002,
           "sax_reed": 0,
-          "sax_body_alloy": 2.8465000000000007,
-          "sax_mouthpiece": 1.3,
-          "sax_technique": 27.100000000000005,
-          "sax_maker_school": 31.785000000000004
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
+          "sax_technique": 8.75,
+          "sax_maker_school": 11.309999999999999
         }
       },
       {
@@ -40,7 +40,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.1365,
-          "keyboard_technique": 0.168
+          "keyboard_technique": 0.39
         }
       },
       {
@@ -59,8 +59,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.3,
-          "upright_play": 24.500000000000007
+          "upright_strings": 0,
+          "upright_play": 8.75
         }
       }
     ],

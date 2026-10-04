@@ -5,7 +5,7 @@
   "lineage": "KC indie is the independent-music network of the Kansas City metropolitan area across Kansas and Missouri. Loud guitar groups, melodic pop bands and other independent artists share local venues, studios and audiences within a scene broader than any one ensemble.",
   "recipe": "classic kc indie, distorted Rock. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 264,
-  "score": 36.54,
+  "score": 36.477,
   "config": {
     "traditions": [
       "kc_indie"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 0.1575,
+          "voice_processing_chain": 0.4095,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.9870000000000001,
+          "string_gauge": 0.714,
           "finish": 0,
           "string_tuning": 0
         }

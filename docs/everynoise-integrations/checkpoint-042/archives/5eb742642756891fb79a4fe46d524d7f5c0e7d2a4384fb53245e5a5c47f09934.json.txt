@@ -1,0 +1,439 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 positions541–550; genre/data only",
+  "entries": [
+    {
+      "id": "harp",
+      "before": {
+        "tradition": {
+          "id": "harp",
+          "name": "Harp",
+          "family": "classical",
+          "lineage": "Alice Giles — Harfe solo-harp recording1986. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "concert_harp"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "harp_strings": "harp_47_string",
+            "harp_pedals": "harp_double_pedal"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist lists exact solo recording first made for Aulos in Germany1986; no chamber ensemble or voices imported from her separate chamber album. Harp creator discovery playlist explicitly includes Alice Giles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Alice Giles — Harfe solo-harp recording1986"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "harp",
+          "name": "Harp",
+          "family": "classical",
+          "lineage": "Harp repertoire spans solo concert performance and varied ensemble traditions. The modern pedal harp supports a wide range of composed and arranged instrumental music.",
+          "instruments": [
+            "concert_harp"
+          ],
+          "room": "concert_hall_shoebox",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "harp_strings": "harp_47_string",
+            "harp_pedals": "harp_double_pedal"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A concert harp can carry melodic lines, chords and bass within one plucked texture. Register changes and contrasts in articulation shape phrases as ringing strings overlap.",
+          "exemplars": [
+            "Alice Giles"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered prose and review representative defaults; correct device claim where source supports only DJ practice.",
+      "sources": [
+        {
+          "url": "https://www.alicegiles.com/recordings-1/alicegilesharpsolocd",
+          "title": "Alice Giles — Harfe solo-harp recording1986",
+          "support_notes": "Artist lists exact solo recording first made for Aulos in Germany1986; no chamber ensemble or voices imported from her separate chamber album. Harp creator discovery playlist explicitly includes Alice Giles.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/532PtpsJMVHeWcE0XOvUKp",
+          "title": "The Sound of Harp",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary practice sources and instrument-owning controls. Public prose describes broad genre history and a documented representative branch; exact session dossiers remain archived. Physical controls and production are authored, not universal historical claims. Authored controlled concert/listening room retains all sound roles and physical choices, supporting resonant concert delivery or live loop layering.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "concert_harp",
+              "source_role": "Artist explicitly identifies Harp Solo CD, featuring Fauré, Tournier, Debussy and Salzedo solo repertoire; concert-pedal construction authored."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "haur_kantak",
+      "before": {
+        "tradition": {
+          "id": "haur_kantak",
+          "name": "Haur Kantak",
+          "family": "vernacular",
+          "lineage": "Itziar Azpirotz Alkotz — Haurren munduko hiztegi txikia children-song CD2010. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "nurseryRhyme.european",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Navarre government publication credits one singer on copyright page and explains its traditional Basque children-song CD was recorded without instruments. Includes play songs as well as lullabies; no invented child choir or backing ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Itziar Azpirotz Alkotz — Haurren munduko hiztegi txikia children-song CD2010"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "haur_kantak",
+          "name": "Haur Kantak",
+          "family": "vernacular",
+          "lineage": "Haur kantak connects Basque-language children’s songs with family play, learning and entertainment. Lullabies and interactive songs circulate through collections and everyday singing.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "nurseryRhyme.european",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "An unaccompanied singer can use clear syllabic phrasing and returning melodic patterns. Accompanied and group versions provide other settings for participation and shared listening.",
+          "exemplars": [
+            "Itziar Azpirotz Alkotz"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered prose and review representative defaults; correct device claim where source supports only DJ practice.",
+      "sources": [
+        {
+          "url": "https://www.navarra.es/NR/rdonlyres/7A01DDAB-275F-4311-996B-14C8739764BC/160476/ContenidoHaurren.pdf",
+          "title": "Itziar Azpirotz Alkotz — Haurren munduko hiztegi txikia children-song CD2010",
+          "support_notes": "PDF page index2 credits Itziar Azpirotz Alkotz (kantaria); printed page102 explicitly says songs recorded ahots hutsez without instruments. Printed pages104–105 enumerate lullabies, infant play and entertainment songs.",
+          "checked_date": "2026-10-02",
+          "retrieval_ref": "turn1722view0"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary practice sources and instrument-owning controls. Public prose describes broad genre history and a documented representative branch; exact session dossiers remain archived. Physical controls and production are authored, not universal historical claims. Remove unnecessary global equal temperament from unaccompanied child-song branch; no measured tuning is asserted.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Publisher credits Itziar Azpirotz Alkotz as singer and expressly records the children-song collection with voices alone, no instrument accompaniment."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "high_tech_minimal",
+      "before": {
+        "tradition": {
+          "id": "high_tech_minimal",
+          "name": "High-Tech Minimal",
+          "family": "electronic",
+          "lineage": "Boris Brejcha — Cercle Arènes de Nîmes DJ-set performance scope. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "akai_s1000",
+            "sampler_bit_depth": "sampler_sixteen_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_edm"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance.techno",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Cercle identifies High-Tech Minimal, Boris Brejcha DJ set and Nîmes venue. Selected musical DJ-set segments exclude separately timestamped introductory/interview speech. Complete tracks remain recorded playback, including featured recorded vocals credited Ginger, Désirée and Malena Narvay; no live vocalist is claimed. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Boris Brejcha — Cercle Arènes de Nîmes DJ-set performance scope"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "high_tech_minimal",
+          "name": "High-Tech Minimal",
+          "family": "electronic",
+          "lineage": "High-Tech Minimal connects Boris Brejcha’s electronic dance approach with club and DJ performance. Repeated patterns and changing layers organize extended listening and dance programmes.",
+          "instruments": [
+            "dj_playback_mixing_unspecified"
+          ],
+          "room": "treated_studio",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance.techno",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Recorded electronic tracks can be mixed into a continuous DJ programme. Rhythmic continuity and transitions between contrasting textures shape the performance without implying that every recorded sound is played live.",
+          "exemplars": [
+            "Boris Brejcha"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered prose and review representative defaults; correct device claim where source supports only DJ practice.",
+      "sources": [
+        {
+          "url": "https://soundcloud.com/cerclelive/boris-brejcha-nime-2022-test-upload",
+          "title": "Boris Brejcha — Cercle Arènes de Nîmes DJ-set performance scope",
+          "support_notes": "Cercle identifies High-Tech Minimal, Boris Brejcha DJ set and Nîmes venue. Selected musical DJ-set segments exclude separately timestamped introductory/interview speech. Complete tracks remain recorded playback, including featured recorded vocals credited Ginger, Désirée and Malena Narvay; no live vocalist is claimed.",
+          "checked_date": "2026-10-02",
+          "read_mode": "primary_presenter_page_search_index",
+          "retrieval_ref": "turn242191search0"
+        },
+        {
+          "url": "https://wartiste.com/en/artists/boris-brejcha",
+          "title": "Boris Brejcha booking representative",
+          "support_notes": "Representative explicitly identifies DJ Set / Live Electro, Minimal / High-Tech Minimal and artist-created genre.",
+          "retrieval_ref": "turn546832view1",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary practice sources and instrument-owning controls. Public prose describes broad genre history and a documented representative branch; exact session dossiers remain archived. Physical controls and production are authored, not universal historical claims. Correct unsupported sampler-hardware reconstruction of positive DJ practice to existing medium-unspecified playback/mixing owner. Full embedded recorded tracks and voices retained; no manufactured live ensemble or fixed universal tuning.",
+        "instrumentation_changed": true,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "sampler_classic",
+              "source_role": "Cercle explicitly publishes recorded DJ set of Boris Brejcha own tracks. Authored layered recorded-media playback realization retains complete source tracks, not asserted Akai hardware, live synthesis, or reconstruction of original production stems."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "Introductory speech and separately timestamped concluding interview outside musical-set scope; no playback track layer removed. No original studio stem or live-vocal reconstruction claimed."
+        }
+      }
+    }
+  ]
+}

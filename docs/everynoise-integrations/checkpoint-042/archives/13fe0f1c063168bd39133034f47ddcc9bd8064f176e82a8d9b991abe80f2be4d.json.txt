@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "reviewer": "recover_024",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice003-pop-romantico-chord-melody.json",
+  "sha256": "062905b8351c6f15d9f322596c325b23eb25bb900d3396bf834f70b9459814cb",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "sources": [
+    {
+      "url": "https://www.musicachilena.cl/v2/alexia-naomi-explora-el-pop-romantico-en-el-single-pedazos-de-mi/",
+      "ref": "turn14925view0",
+      "finding": "Firsthand composer describes whole guitar-written intimate song; publisher explicitly names romantic pop beyond simple ballad. This supports representative authored voice/guitar practice, not a complete master reconstruction."
+    },
+    {
+      "url": "https://www.musicachilena.cl/v2/wp-content/uploads/2024/03/ELCantodeTodas-vol4-def.pdf",
+      "ref": "turn14925search0",
+      "finding": "Full indexed Schuster profile explicitly contrasts only-ballad attribution with evolving romantic pop using diverse resources, with firsthand stylistic continuity statement. Supports named field rather than different exemplar alone."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "ref": "turn14925view1",
+      "finding": "Fresh CC BY2.5/Iain Fergusson/crop Binksternet verified; historical exact preview SHA/bytes/dimensions/URLs independently matched baps023 receipt."
+    }
+  ],
+  "category_review": "Read full current latin_ballad tradition/extras: positively slow codified balada with orchestral/dramatic tradition, not simply any romantic pop. Read full latin_pop: broad multilingual production/song field containing romantic pop. Candidate honestly overlaps both; positive evolving romantic-song practice supports narrower named field within Latin Pop without geographical exclusivity or claiming all ballads excluded. Creator retrieval limitation retained, no invented membership.",
+  "default_review": "Connected sung solo plus acoustic chord-melody accompaniment is a meaningful new arrangement of the positively documented guitar-writing branch. Harmonic support and melodic answers are musically compatible; exact original technique/wood/string claims expressly absent. Prior fingerpicking kora-render hold preserved. Diff is only acoustic_technique, synchronized model_policy and amendment; sources/photo/other physical controls unchanged. Explicit authored functional verse-chorus-bridge form fits popular song practice.",
+  "controls": {
+    "owning_parts": 22,
+    "protected_parts": 22,
+    "missing_or_invalid": 0,
+    "orphan_flat_parts": 0,
+    "api_protected_parts_unchanged": true
+  },
+  "runtime": {
+    "browser_connector_four_formats": "PASS independently rerun",
+    "max_chars": 474,
+    "literal_semantics": "wabi-rustic lexicon explicitly soft/plain rustic tone, affectionate explicitly intimate warmth: compatible with documented intimacy and authored parlor. No Japanese repertoire assertion or unsupported instrumental roles. Full rich/prose/tags/compact read.",
+    "compiled_api": "PASS original unchanged search/translate on frozen453cd in-memory candidate; only pop_romantico selected, no foreign blend.",
+    "evidence": [
+      "practice003-independent-runtime024.json",
+      "practice003-independent-api024.json"
+    ]
+  },
+  "limitations": [
+    "No new photo download/visual inspection claimed; exact historical receipt reused with fresh rights read.",
+    "No registry or repository edits; independent qualification only."
+  ]
+}

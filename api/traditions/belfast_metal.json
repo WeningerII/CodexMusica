@@ -3,9 +3,9 @@
   "name": "Belfast metal",
   "family": "rock_punk",
   "lineage": "Belfast geographic metal scope represented by Sweet Savage and its early Vivian Campbell guitar lineage. The historical two-guitar band and later power-trio arrangements are documented by bassist/singer Ray Haller.",
-  "recipe": "classic modern belfast metal, distorted Rock, metal branch. equal tempered, one note per syllable, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 414,
-  "score": 28.238,
+  "recipe": "classic modern belfast metal, distorted Rock, metal branch. equal tempered, one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 376,
+  "score": 27.865,
   "config": {
     "traditions": [
       "belfast_metal"
@@ -36,7 +36,7 @@
           "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0.0315,
-          "string_material": 0.42674999999999996,
+          "string_material": 0.3525,
           "bridge": 0.5775,
           "scale_length": 1.155,
           "string_gauge": 0,
@@ -60,7 +60,7 @@
           "amp_make": 0,
           "body_wood": 0.5775,
           "pickup_config": 0,
-          "string_type": 0.265875,
+          "string_type": 0.22874999999999998,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
           "bass_technique": 3.776125,
@@ -90,7 +90,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
           "cymbal_lathing": 4.125500000000001,
           "cymbal_finish": 0
@@ -132,7 +132,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0.376125,
-          "voice_multitrack_stack": 0.53175
+          "voice_multitrack_stack": 0.21
         }
       }
     ],

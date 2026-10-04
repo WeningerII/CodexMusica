@@ -1,0 +1,1214 @@
+{
+  "owner": "sourceaudit",
+  "baseline": "2541e078c9f4326c2d75826779813d933a27f1bb",
+  "entries": [
+    {
+      "id": "indian_violin",
+      "before": {
+        "tradition": {
+          "id": "indian_violin",
+          "name": "Indian violin",
+          "family": "classical",
+          "lineage": "Lalgudi Jayaraman with Palghat Raghu and Vinayakram — complete Parvathi Mysore concert (1973). Authored present-day rendition of the complete credited instrumental programme. Lalgudi violin lineage follows the actual featured violinist; Palghat mridangam lineage is positively supported by a first-person fellow musician’s account of Raghu studying with Mani Iyer. Microtonally inflected bowing, seated South Indian posture, tonic/fifth violin tuning and synthetic strings are explicit representative choices, not measured 1973 equipment. Mridangam jackwood/goat-buffalo construction and standard heads are authored. Ghatam Manamadurai denotes an authored clay-temper construction choice, not Vinayakram’s personal pedagogical lineage or identified historical pot; full-bowl strike is an authored default, not an assertion excluding other gestures. Controlled live room and neutral numeric axes are authored; global temperament and capture apparatus omitted. No new instrument owner or source-inferred lineage is introduced.",
+          "instruments": [
+            "violin_carnatic",
+            "mridangam",
+            "ghatam"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "bowed_technique": "bowed_microtonal_inflected",
+            "violin_carnatic_tuning": "violin_carnatic_carnatic",
+            "violin_carnatic_posture": "violin_carnatic_seated_south",
+            "violin_carnatic_strings": "violin_carnatic_synthetic",
+            "violin_carnatic_lineage": "violin_carnatic_lalgudi",
+            "mridangam_heads": "mridangam_standard",
+            "mridangam_use": "mridangam_carnatic",
+            "mridangam_shell_wood": "mridangam_jackwood_canonical",
+            "mridangam_heads_material": "mridangam_goat_buffalo",
+            "mridangam_lineage": "mridangam_palghat",
+            "ghatam_school": "ghatam_manamadurai",
+            "ghatam_technique": "ghatam_full"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.southAsian",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "The family-supplied venue archive issues the complete 1973 concert with violin, mridangam and ghatam; its fourteen-piece programme includes a raga-tanam-pallavi and closing pieces. Three credited instrumentalists, no separately credited vocal performer. Later concerts with the violinist’s children are explicitly outside this dated programme. Indian violin denotes the Indian violin-performance repertoire field, overlapping broad violin and Indian classical umbrellas without being equivalent to either. The exact creator roster includes Lalgudi Jayaraman alongside Carnatic and Hindustani players and contemporary popular interpretations. Existing indian_classical remains a broad Indian art-music umbrella, not merely its sarangi exemplar; existing violin likewise remains broad instrumental repertoire, not just its Bartok source. The present instrument-and-practice intersection retains a complete Carnatic concert branch, not a claim all Indian violin uses this trio. Jazz/pop/baroque violin categories overlap particular practices but do not cover this named Indian performance field. Queued regional Indian popular/folk categories do not impose a violin-specific repertoire field. Selected concert practice supports artMusic.southAsian, without assigning every creator-list recording to classical music. Authored present-day rendition of the complete credited instrumental programme. Lalgudi violin lineage follows the actual featured violinist; Palghat mridangam lineage is positively supported by a first-person fellow musician’s account of Raghu studying with Mani Iyer. Microtonally inflected bowing, seated South Indian posture, tonic/fifth violin tuning and synthetic strings are explicit representative choices, not measured 1973 equipment. Mridangam jackwood/goat-buffalo construction and standard heads are authored. Ghatam Manamadurai denotes an authored clay-temper construction choice, not Vinayakram’s personal pedagogical lineage or identified historical pot; full-bowl strike is an authored default, not an assertion excluding other gestures. Controlled live room and neutral numeric axes are authored; global temperament and capture apparatus omitted. No new instrument owner or source-inferred lineage is introduced.",
+          "exemplars": [
+            "Lalgudi Jayaraman with Palghat Raghu and Vinayakram — complete Parvathi Mysore concert (1973)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "indian_violin",
+          "name": "Indian violin",
+          "family": "classical",
+          "lineage": "Indian violin encompasses the instrument’s roles in Indian art-music traditions and related performance fields. Carnatic violin has developed distinctive melodic, tuning and accompaniment practices through established teaching lineages.",
+          "instruments": [
+            "violin_carnatic",
+            "mridangam",
+            "ghatam"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "bowed_technique": "bowed_microtonal_inflected",
+            "violin_carnatic_tuning": "violin_carnatic_carnatic",
+            "violin_carnatic_posture": "violin_carnatic_seated_south",
+            "violin_carnatic_strings": "violin_carnatic_synthetic",
+            "violin_carnatic_lineage": "violin_carnatic_lalgudi",
+            "mridangam_heads": "mridangam_standard",
+            "mridangam_use": "mridangam_carnatic",
+            "mridangam_shell_wood": "mridangam_jackwood_canonical",
+            "mridangam_heads_material": "mridangam_goat_buffalo",
+            "mridangam_lineage": "mridangam_palghat",
+            "ghatam_school": "ghatam_manamadurai",
+            "ghatam_technique": "ghatam_full"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.southAsian",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A solo violin can unfold ornamented melodic phrases with mridangam and ghatam accompaniment. Bowing inflections, rhythmic exchanges and changing phrase lengths shape a concert-oriented instrumental texture.",
+          "exemplars": [
+            "Lalgudi Jayaraman with Palghat Raghu and Vinayakram — complete Parvathi Mysore concert (1973)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively supported Carnatic concert branch, trained violin/mridangam lineages and all physical controls. Ghatam clay temper is an authored construction, not performer lineage; brisk cue is editorial concert treatment, not uniform measured tempo. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively supported Carnatic concert branch, trained violin/mridangam lineages and all physical controls. Ghatam clay temper is an authored construction, not performer lineage; brisk cue is editorial concert treatment, not uniform measured tempo. ",
+        "owning_control_review": {
+          "applicable": 12,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Indian violin, up-tempo carnatic-violin: synthetic-core-modern cross-legged scroll-on-foot south-Indian fifths-and-octaves microtonal lalgudi-lineage-carnatic traditional, refined mridangam: jackwood-barrel-canonical-carnatic palghat-lineage-canonical-carnatic goat-buffalo-rice-paste-karanai classical virtuoso, bodacious ghatam: deep-bass professional foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Indian violin, up-tempo carnatic-violin, refined mridangam, bodacious ghatam, treated-live-room-reflective-but-controlled.",
+          "tags": "Indian violin, up-tempo carnatic-violin: synthetic-core-modern cross-legged scroll-on-foot south-Indian fifths-and-octaves microtonal lalgudi-lineage-carnatic traditional, refined mridangam: jackwood-barrel-canonical-carnatic palghat-lineage-canonical-carnatic goat-buffalo-rice-paste-karanai classical virtuoso, bodacious ghatam: deep-bass professional foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Indian violin, up-tempo carnatic violin · Treated live room (reflective but controlled),\nrefined mridangam · Treated live room (reflective but controlled),\nbodacious ghatam · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "indie_sudcaliforniano",
+      "before": {
+        "tradition": {
+          "id": "indie_sudcaliforniano",
+          "name": "Indie Sudcaliforniano",
+          "family": "rock",
+          "lineage": "Sónica — Nada, complete twelve-track2002 album. Authored energetic amplified-band rendition retains one accompanied singer, humbucker electric guitar with alder/maple construction and power-chord rhythm, dual-single-coil fingerstyle electric bass, and a maple stick-played kit with machine-hammered fully lathed traditional-finish cymbals. These materials and playing gestures are representative choices, not measured source equipment. The positively credited requinto uses the existing construction-unspecified owner, avoiding a false Veracruz/jarocho tradition or invented tuning and string count. Vocal register, physiology, pitch organization and ornament remain source-neutral; solo lead tracking is authored, not proof of absent original overdubs. Controlled live room is editorial, and optional capture apparatus/global tuning omitted. Whole-album union is not a claim the guest plays all twelve songs.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "credited_requinto_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+            "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+            "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+            "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+            "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "The artist-issued album explicitly credits Jorge “Koky” Álvarez guitar and voice, José Antonio Cital bass and Webo drums, plus Omar de la Rosa requinto on Kinder. All four people and all five families are retained across the whole twelve-track album; the guest is not erased by choosing a convenient track. Manuel and Omar also produced/recorded/mixed, but those technical credits do not create further instrumental roles. Artist biography positively describes distorted guitars, energetic rhythms and rock/grunge in the Sudcalifornian alternative scene since the1990s. The exact creator programme positively includes Sónica at items4/57/92 alongside the broad Baja California Sur independent network, including guitar bands, hip-hop and experimental performers. Artist-owned primary independently locates this band and its alternative-scene practice in La Paz, Baja California Sur; this is more than an incidental recording visit. Full existing baja_indie concerns the northern Baja California/Tijuana network, not all of the peninsula. Existing musica_sudcaliforniana explicitly documents the regional traditional/corrido community, whose geographical overlap is acknowledged without treating its selected trio as its entire definition. Mexican_indie and indie_rock_mexicano remain broad national overlapping independent fields, not exclusions of this southern regional network. A different guitar model or album is not itself the category boundary. Authored energetic amplified-band rendition retains one accompanied singer, humbucker electric guitar with alder/maple construction and power-chord rhythm, dual-single-coil fingerstyle electric bass, and a maple stick-played kit with machine-hammered fully lathed traditional-finish cymbals. These materials and playing gestures are representative choices, not measured source equipment. The positively credited requinto uses the existing construction-unspecified owner, avoiding a false Veracruz/jarocho tradition or invented tuning and string count. Vocal register, physiology, pitch organization and ornament remain source-neutral; solo lead tracking is authored, not proof of absent original overdubs. Controlled live room is editorial, and optional capture apparatus/global tuning omitted. Whole-album union is not a claim the guest plays all twelve songs.",
+          "exemplars": [
+            "Sónica — Nada, complete twelve-track2002 album"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "indie_sudcaliforniano",
+          "name": "Indie Sudcaliforniano",
+          "family": "rock",
+          "lineage": "Indie sudcaliforniano connects independent music networks in Baja California Sur, Mexico. Local bands and releases bring varied rock and popular-song approaches into a regional field.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "credited_requinto_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+            "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+            "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+            "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+            "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing, electric guitar, bass and drums create an amplified band foundation. A requinto can add a contrasting melodic voice in arrangements that combine different guitar roles.",
+          "exemplars": [
+            "Sónica — Nada, complete twelve-track2002 album"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain meaningful amplified regional-band branch and neutral requinto identity. Power-chord guitar and locked fingerstyle bass are authored energetic band choices, not measured source hardware. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain meaningful amplified regional-band branch and neutral requinto identity. Power-chord guitar and locked fingerstyle bass are authored energetic band choices, not measured source hardware. ",
+        "owning_control_review": {
+          "applicable": 54,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Indie Sudcaliforniano, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted breathing present subtle classic full-bodied low-mid-thick, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, bodacious credited-requinto: plucked, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Indie Sudcaliforniano, up-tempo voice, cheery humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, bodacious credited-requinto, treated-live-room-reflective-but-controlled.",
+          "tags": "Indie Sudcaliforniano, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted breathing present subtle classic full-bodied low-mid-thick, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, bodacious credited-requinto: plucked, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Indie Sudcaliforniano, up-tempo voice · Treated live room (reflective but controlled),\ncheery humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nbodacious Credited requinto · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "indonesian_worship",
+      "before": {
+        "tradition": {
+          "id": "indonesian_worship",
+          "name": "Indonesian Worship",
+          "family": "global",
+          "lineage": "JPCC Worship Choir — Bersinar Terang, complete official lyric-video edition issued8April2021 from the FOUND choir EP. Publisher credits Devina Karyasasmita lead vocal and Yehuda Manusama acoustic guitar; the named choir ensemble is retained in full with unknown headcount and unknown vocal layering. This is not reduced to the one named lead singer. Vocal arrangers Marthin and Denny Saba and producer Pongky Prasetyo are not invented additional performers. Other FOUND tracks have different credits and their electric guitar, drums, bass or strings are not transferred to this track. Complete published credited palette, not a listening-based assertion of waveform exclusivity; no duration invented. Authored present-day choir-and-acoustic-guitar sacred-song realization. The human-voice ensemble owner keeps lead plus choir while source headcount, tracking, physiology and registers remain unspecified. Small note-group singing is editorial phrasing, not a transcription of every syllable. Generic credited acoustic guitar becomes an all-mahogany steel-string dreadnought with phosphor-bronze strings, standard guitar tuning and flatpicked notes; these are authored construction/gesture choices, not measured source equipment. Controlled live room is editorial, not the measured Practice Room/Baritone studios credited by the publisher. Optional capture apparatus and global tuning are omitted. Christian sacred-song parent follows the explicit worship function, without inferring Pentecostal denomination.",
+          "instruments": [
+            "human_voice_ensemble_unspecified",
+            "acoustic_guitar_dread"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "JPCC Worship Choir — Bersinar Terang, complete official lyric-video edition issued8April2021 from the FOUND choir EP. Publisher credits Devina Karyasasmita lead vocal and Yehuda Manusama acoustic guitar; the named choir ensemble is retained in full with unknown headcount and unknown vocal layering. This is not reduced to the one named lead singer. Vocal arrangers Marthin and Denny Saba and producer Pongky Prasetyo are not invented additional performers. Other FOUND tracks have different credits and their electric guitar, drums, bass or strings are not transferred to this track. Complete published credited palette, not a listening-based assertion of waveform exclusivity; no duration invented. The issuer explicitly identifies JPCC Worship as the praise-and-worship team of Jakarta Praise Community Church, Indonesia, and publishes this original Indonesian-language Christian praise song with complete verses, prechorus, chorus and bridge. Indonesian Worship is the narrower Indonesian church/repertoire community within overlapping global Christian worship. Full existing CCM already includes contemporary megachurch worship, contemporary_worship spans global congregational export, and world_worship includes localization; none is falsely restricted to one exemplar or declared disjoint. This locally authored Indonesian-language church repertoire supplies a positive community axis rather than nationality of an unrelated secular performer or a different acoustic arrangement alone. No exact EveryNoise member claim or universal denominational ancestry is made. Authored present-day choir-and-acoustic-guitar sacred-song realization. The human-voice ensemble owner keeps lead plus choir while source headcount, tracking, physiology and registers remain unspecified. Small note-group singing is editorial phrasing, not a transcription of every syllable. Generic credited acoustic guitar becomes an all-mahogany steel-string dreadnought with phosphor-bronze strings, standard guitar tuning and flatpicked notes; these are authored construction/gesture choices, not measured source equipment. Controlled live room is editorial, not the measured Practice Room/Baritone studios credited by the publisher. Optional capture apparatus and global tuning are omitted. Christian sacred-song parent follows the explicit worship function, without inferring Pentecostal denomination.",
+          "exemplars": [
+            "JPCC Worship Choir — Bersinar Terang, complete official lyric-video edition2021"
+          ],
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "indonesian_worship",
+          "name": "Indonesian Worship",
+          "family": "global",
+          "lineage": "Indonesian worship connects Christian devotional songs and musical communities in Indonesia. Choirs, soloists and groups circulate repertoire through churches, performances and recordings.",
+          "instruments": [
+            "human_voice_ensemble_unspecified",
+            "acoustic_guitar_dread"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Lead and ensemble singing can share melodic phrases over acoustic guitar. Repeated lines and chordal support create an accessible devotional texture, alongside more extensively arranged versions.",
+          "exemplars": [
+            "JPCC Worship Choir — Bersinar Terang, complete official lyric-video edition2021"
+          ],
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively documented vocal/acoustic devotional branch with all meaningful voice and guitar controls; wider worship instrumentation remains variable. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively documented vocal/acoustic devotional branch with all meaningful voice and guitar controls; wider worship instrumentation remains variable. ",
+        "owning_control_review": {
+          "applicable": 22,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Indonesian Worship, up-tempo human-voice-count-unspecified: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Indonesian Worship, up-tempo human-voice-count-unspecified, callous dreadnought-acoustic-guitar, treated-live-room-reflective-but-controlled.",
+          "tags": "Indonesian Worship, up-tempo human-voice-count-unspecified: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Indonesian Worship, up-tempo human-voice-count-unspecified · Treated live room (reflective but controlled),\ncallous dreadnought acoustic guitar · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "japanese_boom_bap",
+      "before": {
+        "tradition": {
+          "id": "japanese_boom_bap",
+          "name": "Japanese Boom Bap",
+          "family": "hip_hop",
+          "lineage": "DJ Woodz-N / NOIR WORDZ — whole33:16 Japanese Boom Bap MIX Vol.2, self-issued15June2022 on own SoundCloud. Issuer explicitly calls it a DJ mix and attributes DJ Woodz-N; entire published programme retained as recorded-program playback/mixing. Available primary text exposes only opening three full selections and truncated fourth: MILES WORD/NAGMATIC WordUp; DUSTY HUSKY featuring MILES WORD GapToKub; BES featuring BLAHRMY LockdownStory. These do not become a falsely complete tracklist or a three-track reduction. No source production instruments, deck medium, software, live versus edited mixing workflow, embedded voice count or separately performed voice count are inferred. No additional live singer card. Artist profile separately describes Kyoto rapper identity; that does not imply live rapping over this issued DJ mix. Authored playback/mixing realization using existing neutral DJ owner. This preserves all mixed source layers without reconstructing individual masters or replacing unknown music production with a sampler. Controlled live-room listening presentation is editorial, not original mixing venue or recording apparatus. All medium/controller/patch/live voice uncertainties remain explicit; optional global tuning and capture chain omitted. International hip-hop parent represents this Japanese repertoire selection, not a claim the DJ mechanism is unique to hip-hop.",
+          "instruments": [
+            "dj_playback_mixing_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "DJ Woodz-N / NOIR WORDZ — whole33:16 Japanese Boom Bap MIX Vol.2, self-issued15June2022 on own SoundCloud. Issuer explicitly calls it a DJ mix and attributes DJ Woodz-N; entire published programme retained as recorded-program playback/mixing. Available primary text exposes only opening three full selections and truncated fourth: MILES WORD/NAGMATIC WordUp; DUSTY HUSKY featuring MILES WORD GapToKub; BES featuring BLAHRMY LockdownStory. These do not become a falsely complete tracklist or a three-track reduction. No source production instruments, deck medium, software, live versus edited mixing workflow, embedded voice count or separately performed voice count are inferred. No additional live singer card. Artist profile separately describes Kyoto rapper identity; that does not imply live rapping over this issued DJ mix. The issuer positively names Japanese Boom Bap and curates Japanese MC/producer repertoire. Exact creator SoundOfJapaneseBoomBap playlist independently includes MILES WORD, NAGMATIC, BES and BLAHRMY, matching positively retrieved opening-programme artists; this is a repertoire bridge, not a claim Woodz-N himself is a creator member. Existing Japanese Hip Hop explicitly spans underground, mainstream and newer contemporary waves, so the named boom-bap production/repertoire axis is narrower and overlapping. Existing Japanese Underground Rap already contains sample-focused MC practice including Nujabes/Shing02; underground circulation is not equated to every boom-bap recording, and source does not exclude that overlap. Global Boom Bap gives the broader NewYork-derived production lineage with later revivals; this is its positively self-named Japanese repertoire field. Jazz Rap and Jazzy Hip Hop overlap sample vocabularies but respectively foreground jazz materials or mellow productivity-listening; neither exhausts the issuer selected MC-centred Japanese boom-bap programme. No new universal sonic rule, pure-style entire-set claim or actual sample architecture of each recording invented. Authored playback/mixing realization using existing neutral DJ owner. This preserves all mixed source layers without reconstructing individual masters or replacing unknown music production with a sampler. Controlled live-room listening presentation is editorial, not original mixing venue or recording apparatus. All medium/controller/patch/live voice uncertainties remain explicit; optional global tuning and capture chain omitted. International hip-hop parent represents this Japanese repertoire selection, not a claim the DJ mechanism is unique to hip-hop.",
+          "exemplars": [
+            "DJ Woodz-N — Japanese Boom Bap MIX Vol.2, complete33:16programme2022"
+          ],
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "japanese_boom_bap",
+          "name": "Japanese Boom Bap",
+          "family": "hip_hop",
+          "lineage": "Japanese boom bap connects Japanese rap and beat-making with sample-oriented hip-hop production. Artists and producers develop local voices within a wider international network of releases, DJ practice and collaboration.",
+          "instruments": [
+            "voice",
+            "sampler_classic"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "akai_mpc",
+            "sampler_bit_depth": "sampler_twelve_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_hiphop"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Rhythmic verses meet layered samples and recurring beat patterns. Changes in flow, emphasis and loop texture create contrast while keeping the lyric in the foreground.",
+          "exemplars": [
+            "DJ Woodz-N — Japanese Boom Bap MIX Vol.2, complete33:16programme2022"
+          ],
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Restore rap and sampled beat production rather than DJ-only playback. Existing voice and sampler controls are complete; authored Akai/loop production is representative, not exact source hardware or reconstructed full mixed masters. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Restore rap and sampled beat production rather than DJ-only playback. Existing voice and sampler controls are complete; authored Akai/loop production is representative, not exact source hardware or reconstructed full mixed masters. ",
+        "owning_control_review": {
+          "applicable": 22,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Japanese Boom Bap, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syncopated-speech-rhythm unprocessed-natural-acoustic forward conversational, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Japanese Boom Bap, spoken-flowing voice, concrete-precise sampler, treated-live-room-reflective-but-controlled.",
+          "tags": "Japanese Boom Bap, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syncopated-speech-rhythm unprocessed-natural-acoustic forward conversational, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Japanese Boom Bap, spoken-flowing voice · Treated live room (reflective but controlled),\nconcrete-precise sampler · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "japanese_celtic",
+      "before": {
+        "tradition": {
+          "id": "japanese_celtic",
+          "name": "Japanese Celtic",
+          "family": "vernacular",
+          "lineage": "John John Festival — whole current three-person practice, official full member biographies read3October2026. john* fiddle and vocals; annie guitar and vocals, also piano on many songs; Toshi Bodhran bodhran and unspecified additional percussion. Three people, two positively credited singers, six sound-family cards. Full member biographies take precedence over the shorter four-role headline. All piano/percussion doublings retained as a practice union, not six simultaneous players or a reconstructed album. Separate collaborations with other artists are outside this standard trio scope. Selected Celtic session-derived realization uses improvOnFrame.celticTraditional: the source musician trained in Irish pub sessions and runs session-derived events, while the trio plays Irish/Scottish Celtic repertoire. Embellished fiddle variations over tune frames are authored within that documented practice, not a measured transcription or a claim every song is improvised. Authored steel-string Celtic-session fiddle, dark rosin and no mute; string count unspecified. Generic guitar becomes all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes. Unspecified piano construction becomes a standard upright with block-chord accompaniment. Bodhran uses an authored ash-shell/goatskin Kerry-style playing setup, not source make or measured stroke. Additional percussion remains a neutral credited role without guessed drums. Two source singers receive a new live-duet realization with neutral physiology, small note-group phrasing with articulation unspecified and no claimed original overdub count. Controlled live-room acoustic is authored; no original venue, recording apparatus or global temperament asserted.",
+          "instruments": [
+            "voice",
+            "fiddle",
+            "acoustic_guitar_dread",
+            "upright_piano",
+            "bodhran",
+            "credited_auxiliary_percussion"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "bowed_technique": "bowed_celtic_session",
+            "fiddle_strings": "steel_core",
+            "fiddle_bow": "dark_rosin",
+            "fiddle_mute": "no_mute",
+            "fiddle_articulation": "arco",
+            "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard",
+            "bodhran_play": "bodhran_kerry",
+            "bodhran_skin": "bodhran_goatskin",
+            "bodhran_shell_wood": "bodhran_ash_traditional",
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "John John Festival — whole current three-person practice, official full member biographies read3October2026. john* fiddle and vocals; annie guitar and vocals, also piano on many songs; Toshi Bodhran bodhran and unspecified additional percussion. Three people, two positively credited singers, six sound-family cards. Full member biographies take precedence over the shorter four-role headline. All piano/percussion doublings retained as a practice union, not six simultaneous players or a reconstructed album. Separate collaborations with other artists are outside this standard trio scope. The artist explicitly identifies Japanese Celtic music and Ireland/Scotland repertoire. Its member-led TOKYO IRISH COMPANY positively organizes domestic Irish/Celtic bands and recordings, Irish-session-based live events and visiting artists: an actual Japanese transmission/community field, not birthplace alone. Existing celtic_irish_trad is the broader Irish session lineage and celtic_folk_revival the international arranged revival field; both overlap this Japanese community rather than exclude it. Canadian Celtic documents another regional network. Existing japanese_indie_folk is Japanese independent acoustic/songcraft, not synonymous with the positively Celtic-repertoire/session network. No exclusive ethnic identity, uniquely Japanese acoustic timbre, or exact creator playlist membership is claimed. Selected Celtic session-derived realization uses improvOnFrame.celticTraditional: the source musician trained in Irish pub sessions and runs session-derived events, while the trio plays Irish/Scottish Celtic repertoire. Embellished fiddle variations over tune frames are authored within that documented practice, not a measured transcription or a claim every song is improvised. Authored steel-string Celtic-session fiddle, dark rosin and no mute; string count unspecified. Generic guitar becomes all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes. Unspecified piano construction becomes a standard upright with block-chord accompaniment. Bodhran uses an authored ash-shell/goatskin Kerry-style playing setup, not source make or measured stroke. Additional percussion remains a neutral credited role without guessed drums. Two source singers receive a new live-duet realization with neutral physiology, small note-group phrasing with articulation unspecified and no claimed original overdub count. Controlled live-room acoustic is authored; no original venue, recording apparatus or global temperament asserted.",
+          "exemplars": [
+            "John John Festival — complete current trio practice"
+          ],
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "japanese_celtic",
+          "name": "Japanese Celtic",
+          "family": "vernacular",
+          "lineage": "Japanese Celtic music connects musicians and listeners in Japan with Irish, Scottish and related repertories. Sessions, touring ensembles and local communities sustain varied approaches to tunes and songs.",
+          "instruments": [
+            "voice",
+            "fiddle",
+            "acoustic_guitar_dread",
+            "upright_piano",
+            "bodhran",
+            "credited_auxiliary_percussion"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "bowed_technique": "bowed_celtic_session",
+            "fiddle_strings": "steel_core",
+            "fiddle_bow": "dark_rosin",
+            "fiddle_mute": "no_mute",
+            "fiddle_articulation": "arco",
+            "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard",
+            "bodhran_play": "bodhran_kerry",
+            "bodhran_skin": "bodhran_goatskin",
+            "bodhran_shell_wood": "bodhran_ash_traditional",
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Fiddle and guitar can meet singing, piano and bodhran accompaniment. Ornamented melodies and rhythmic variation shape the tune, with supporting percussion adding color in some ensembles.",
+          "exemplars": [
+            "John John Festival — complete current trio practice"
+          ],
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain source-positive session-derived ensemble branch and meaningful doublings. Kerry-style bodhran gesture is a representative Irish-session choice, not the performer’s documented personal training lineage. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain source-positive session-derived ensemble branch and meaningful doublings. Kerry-style bodhran gesture is a representative Irish-session choice, not the performer’s documented personal training lineage. ",
+        "owning_control_review": {
+          "applicable": 35,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Japanese Celtic, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic duet live-ensemble live-take, cheery fiddle: steel grippy present direct sustaining soloistic treble-extended ornamented projecting full melodic, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, aloof bodhrán: ash-pre-modern-traditional-irish goat-skin-canonical-irish rural low-fundamental-tuning, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Japanese Celtic, up-tempo voice, cheery fiddle, callous dreadnought-acoustic-guitar, refined upright-piano, aloof bodhrán, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled.",
+          "tags": "Japanese Celtic, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic duet live-ensemble live-take, cheery fiddle: steel grippy present direct sustaining soloistic treble-extended ornamented projecting full melodic, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, aloof bodhrán: ash-pre-modern-traditional-irish goat-skin-canonical-irish rural low-fundamental-tuning, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Japanese Celtic, up-tempo voice · Treated live room (reflective but controlled),\ncheery fiddle · Treated live room (reflective but controlled),\ncallous dreadnought acoustic guitar · Treated live room (reflective but controlled),\nrefined upright piano · Treated live room (reflective but controlled),\naloof bodhrán · Treated live room (reflective but controlled),\nbodacious Unspecified credited percussion · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "japanese_experimental",
+      "before": {
+        "tradition": {
+          "id": "japanese_experimental",
+          "name": "Japanese experimental",
+          "family": "global",
+          "lineage": "Yousei Umeki — Extra Light, complete sixteen-piece acoustic improvisation release (2019). Senri Records explicitly credits the duo Yousei Suzuki and Haruyuki Umeki and describes the full source as improvisation with two acoustic guitars, accumulated during home gatherings over approximately five years. All sixteen pieces and both instrumental performers are included; one existing guitar-family card aggregates the two like instruments, not a claim of a solo performer. No separately credited singer. The issuer explicitly tags Japanese experimental music, avant-garde and primitive guitar; the Japanese text also states two acoustic guitars and improvisation. The actual existing japanoise row specifies maximal-density electronics and saturation; this positively self-described Japanese experimental acoustic improvisation practice demonstrates a broader experimental field rather than a renamed noise subgenre. Existing free_improvisation is a non-idiomatic European/American process tradition and overlaps this selected practice; the regional experimental discovery umbrella also crosses processes and is not asserted to invent a separate guitar technique. Parent improvOnFrame.jamFree explicitly includes loosely structured collective free improvisation and fits this complete release, without asserting every Japanese experimental piece is improvised. Contemporary all-mahogany steel-string dreadnought construction and flatpicked note articulation are a candid representative authored realization of unspecified acoustic guitars, not measured original models, strings or exact gestures. Controlled live-room capture is authored rather than a claim to reconstruct the actual homes.",
+          "instruments": [
+            "acoustic_guitar_dread"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.jamFree",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Senri Records explicitly credits the duo Yousei Suzuki and Haruyuki Umeki and describes the full source as improvisation with two acoustic guitars, accumulated during home gatherings over approximately five years. All sixteen pieces and both instrumental performers are included; one existing guitar-family card aggregates the two like instruments, not a claim of a solo performer. No separately credited singer. The issuer explicitly tags Japanese experimental music, avant-garde and primitive guitar; the Japanese text also states two acoustic guitars and improvisation. The actual existing japanoise row specifies maximal-density electronics and saturation; this positively self-described Japanese experimental acoustic improvisation practice demonstrates a broader experimental field rather than a renamed noise subgenre. Existing free_improvisation is a non-idiomatic European/American process tradition and overlaps this selected practice; the regional experimental discovery umbrella also crosses processes and is not asserted to invent a separate guitar technique. Parent improvOnFrame.jamFree explicitly includes loosely structured collective free improvisation and fits this complete release, without asserting every Japanese experimental piece is improvised. Contemporary all-mahogany steel-string dreadnought construction and flatpicked note articulation are a candid representative authored realization of unspecified acoustic guitars, not measured original models, strings or exact gestures. Controlled live-room capture is authored rather than a claim to reconstruct the actual homes. Japanese indie rock/pop/folk and psychedelic-rock records remain broader full songcraft/rock fields, not limited to selected old artists. This issuer names experimental/avant-garde practice expressly and releases complete acoustic free improvisations, not merely a new indie guitar exemplar. Queued Japanese Celtic concerns Celtic-session repertoire and Japanese Jazztronica a jazz/beat-production intersection; neither exhausts this experimental field. No exact EveryNoise membership claim.",
+          "exemplars": [
+            "Yousei Umeki — Extra Light, complete sixteen-piece acoustic improvisation release (2019)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "japanese_experimental",
+          "name": "Japanese experimental",
+          "family": "global",
+          "lineage": "Japanese experimental music connects diverse exploratory practices across composition, improvisation and sound-making. Its field extends beyond amplified noise to quieter acoustic work and collective musical exchange.",
+          "instruments": [
+            "acoustic_guitar_dread"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.jamFree",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Acoustic guitars can build loosely structured dialogue through contrasting gestures, resonance and repeated figures. Listening and response guide changes in texture without a fixed song form.",
+          "exemplars": [
+            "Yousei Umeki — Extra Light, complete sixteen-piece acoustic improvisation release (2019)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively documented acoustic improvisation; all-mahogany steel-string construction and flatpick articulation are representative possibilities, not claims about original artists’ guitars. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively documented acoustic improvisation; all-mahogany steel-string construction and flatpick articulation are representative possibilities, not claims about original artists’ guitars. ",
+        "owning_control_review": {
+          "applicable": 5,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Japanese experimental, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Japanese experimental, callous dreadnought-acoustic-guitar, treated-live-room-reflective-but-controlled.",
+          "tags": "Japanese experimental, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Japanese experimental, callous dreadnought acoustic guitar · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "japanese_jazztronica",
+      "before": {
+        "tradition": {
+          "id": "japanese_jazztronica",
+          "name": "Japanese Jazztronica",
+          "family": "jazz",
+          "lineage": "Diavola — complete2:41 single issued8August2024 by Ted Taforo, ddddeeeellllaaa and Emiliano Lasansky. Whole single credits saxophone to Taforo, keyboards and beat to ddddeeeellllaaa, bass to Lasansky: three people, four positive sounding-role families. No singer credited; no invented vocal person or claim forensic absence of embedded vocal material. Beat denotes the credited rhythm-production role, not the whole finished master, and does not subsume saxophone, keyboards or bass. No additional album guests transferred from the later Professional Pizza Makers release. Authored present-day jazz-electronic ensemble rendition. Saxophone becomes a medium-reed yellow-brass tenor with hard-rubber mouthpiece and continuous legato; source gives no size or maker. Source keys become a neutral electronic-keyboard realization within explicitly jazztronica production, generator and model unknown. Source bass becomes plucked gut-string upright as an authored jazz timbral realization, not a claim Lasansky played that construction in this session. The separately credited beat retains a neutral rhythmic-production owner: no drum-machine, physical kit, MIDI, DAW, sample or synthesizer mechanism is invented. All unknown original beat layers remain encompassed within that literal credited role, with no opaque whole-master shortcut. Controlled live-room rendering is authored, not original session capture. No global tuning imposed. Existing fusion parent is used for this issuer-tagged jazz-fusion/jazz-electronic branch, not every Japanese electronic recording.",
+          "instruments": [
+            "saxophone",
+            "electronic_keyboard_unspecified",
+            "credited_beat_unspecified",
+            "upright_bass"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "wind_articulation": "wind_continuous_legato",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_continuous_legato",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal",
+            "credited_beat_identity": "credited_beat_mechanism_unspecified",
+            "upright_strings": "gut_upright",
+            "upright_play": "pizz_upright"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.americanJazz.fusion",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Diavola — complete2:41 single issued8August2024 by Ted Taforo, ddddeeeellllaaa and Emiliano Lasansky. Whole single credits saxophone to Taforo, keyboards and beat to ddddeeeellllaaa, bass to Lasansky: three people, four positive sounding-role families. No singer credited; no invented vocal person or claim forensic absence of embedded vocal material. Beat denotes the credited rhythm-production role, not the whole finished master, and does not subsume saxophone, keyboards or bass. No additional album guests transferred from the later Professional Pizza Makers release. The exact issuer explicitly tags this jazz/hip-hop collaboration jazztronica and identifies its Tokyo-based Japanese keyboardist/beatmaker. His separately published AGAMAY positively identifies a three-Japanese-producer jazztronica/experimental/hip-hop collaboration with konb and Watasino, providing a wider domestic network rather than nationality of one selected performer alone; the same Japan-based Seto Chord issuer connects these releases. Japanese Jazz remains the broader national jazz field, not restricted to its Hiromi piano exemplar, and Japanese Jazz Fusion overlaps but documents jazz-rock band interplay. This producer/beat-construction intersection with jazz is the positively named narrower practice; global jazztronica/nu jazz are broader transnational fields. Japanese Chillhop remains an overlapping related discovery label, not asserted integrated equivalent or excluded by tags. No exact EveryNoise membership, exclusive nationality or wholly Japanese participant roster is claimed: the selected collaboration explicitly bridges Tokyo and Los Angeles. Authored present-day jazz-electronic ensemble rendition. Saxophone becomes a medium-reed yellow-brass tenor with hard-rubber mouthpiece and continuous legato; source gives no size or maker. Source keys become a neutral electronic-keyboard realization within explicitly jazztronica production, generator and model unknown. Source bass becomes plucked gut-string upright as an authored jazz timbral realization, not a claim Lasansky played that construction in this session. The separately credited beat retains a neutral rhythmic-production owner: no drum-machine, physical kit, MIDI, DAW, sample or synthesizer mechanism is invented. All unknown original beat layers remain encompassed within that literal credited role, with no opaque whole-master shortcut. Controlled live-room rendering is authored, not original session capture. No global tuning imposed. Existing fusion parent is used for this issuer-tagged jazz-fusion/jazz-electronic branch, not every Japanese electronic recording.",
+          "exemplars": [
+            "Ted Taforo, ddddeeeellllaaa, Emiliano Lasansky — Diavola, whole2024single"
+          ],
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "japanese_jazztronica",
+          "name": "Japanese Jazztronica",
+          "family": "jazz",
+          "lineage": "Japanese jazztronica connects jazz-oriented musicians and electronic production through releases and collaborative networks. Acoustic playing and programmed rhythm meet in varied instrumental arrangements.",
+          "instruments": [
+            "saxophone",
+            "electronic_keyboard_unspecified",
+            "credited_beat_unspecified",
+            "upright_bass"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "wind_articulation": "wind_continuous_legato",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_continuous_legato",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal",
+            "credited_beat_identity": "credited_beat_mechanism_unspecified",
+            "upright_strings": "gut_upright",
+            "upright_play": "pizz_upright"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.americanJazz.fusion",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Saxophone lines, keyboards and bass interact with electronic beat production. Melodic phrasing and rhythmic variation connect improvisatory playing to repeated patterns.",
+          "exemplars": [
+            "Ted Taforo, ddddeeeellllaaa, Emiliano Lasansky — Diavola, whole2024single"
+          ],
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain complete meaningful acoustic/electronic jazz roles, including independently credited beat production. Neutral beat architecture does not subsume the other musicians or claim a whole mastered recording as one instrument. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain complete meaningful acoustic/electronic jazz roles, including independently credited beat production. Neutral beat architecture does not subsume the other musicians or claim a whole mastered recording as one instrument. ",
+        "owning_control_review": {
+          "applicable": 12,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Japanese Jazztronica, refined saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass central cu-zn-70-30 balanced-bright rubber modern-standard tenor low-overtone-rich husky continuous-airflow round legato traditional versatile, witty electronic-keyboard: amplified chordal melodic, up-tempo credited-beat, bodacious upright-bass: gut thumpy round vintage, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Japanese Jazztronica, refined saxophone, witty electronic-keyboard, up-tempo credited-beat, bodacious upright-bass, treated-live-room-reflective-but-controlled.",
+          "tags": "Japanese Jazztronica, refined saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass central cu-zn-70-30 balanced-bright rubber modern-standard tenor low-overtone-rich husky continuous-airflow round legato traditional versatile, witty electronic-keyboard: amplified chordal melodic, up-tempo credited-beat, bodacious upright-bass: gut thumpy round vintage, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Japanese Jazztronica, refined saxophone · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),\nup-tempo Credited beat · Treated live room (reflective but controlled),\nbodacious upright bass · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "japanese_worship",
+      "before": {
+        "tradition": {
+          "id": "japanese_worship",
+          "name": "Japanese worship",
+          "family": "blues_gospel",
+          "lineage": "Takahiro Tone Nakamine — Ai No Iro, documented regular solo-acoustic performance practice. The artist’s self-written discography explicitly states that Ai No Iro is regularly performed at Tone’s solo acoustic shows. The official Heroes EP notes identify this particular work as an acoustic worship song in Japanese, and its complete published lyrics address Jesus and the cross. Select the complete documented solo-acoustic rendition practice: one singer accompanying himself on acoustic guitar. This is not an asserted transcription of the2013 studio master or an arbitrary stripping of the full band EP. Bass, drums and backing singers credited to other versions/full EP are not attributed to the explicitly solo performance. Japanese worship is a Japanese-language/local Christian devotional repertoire and community, overlapping global contemporary worship without being identical to its codified evangelical congregational rock-band practice. The artist documents ongoing church/community activity around Tokyo and Yokohama and explicitly identifies Japanese acoustic worship repertoire. Existing christian_rock traces an American evangelical/CCM rock industry; this named regional-language sacred field also contains a positively documented solo acoustic branch. No claim that American churches exclude acoustic music, or that one performer proves a unique national timbre. Broad ritualDevotional captures the actual praise/prayer function without assuming a Pentecostal denomination or metal sound from the artist’s broader identity. All-mahogany steel-string dreadnought construction and flatpicked note articulation are authored modern acoustic realization choices, not source guitar model or measured gestures. One real singer remains one voice with source-unspecified physiology and no invented choir. Controlled live-room acoustics and omitted apparatus/global tuning are authored rather than claimed session facts.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "The artist’s self-written discography explicitly states that Ai No Iro is regularly performed at Tone’s solo acoustic shows. The official Heroes EP notes identify this particular work as an acoustic worship song in Japanese, and its complete published lyrics address Jesus and the cross. Select the complete documented solo-acoustic rendition practice: one singer accompanying himself on acoustic guitar. This is not an asserted transcription of the2013 studio master or an arbitrary stripping of the full band EP. Bass, drums and backing singers credited to other versions/full EP are not attributed to the explicitly solo performance. Japanese worship is a Japanese-language/local Christian devotional repertoire and community, overlapping global contemporary worship without being identical to its codified evangelical congregational rock-band practice. The artist documents ongoing church/community activity around Tokyo and Yokohama and explicitly identifies Japanese acoustic worship repertoire. Existing christian_rock traces an American evangelical/CCM rock industry; this named regional-language sacred field also contains a positively documented solo acoustic branch. No claim that American churches exclude acoustic music, or that one performer proves a unique national timbre. Broad ritualDevotional captures the actual praise/prayer function without assuming a Pentecostal denomination or metal sound from the artist’s broader identity. All-mahogany steel-string dreadnought construction and flatpicked note articulation are authored modern acoustic realization choices, not source guitar model or measured gestures. One real singer remains one voice with source-unspecified physiology and no invented choir. Controlled live-room acoustics and omitted apparatus/global tuning are authored rather than claimed session facts. Full existing CCM, contemporary_worship and world_worship already include international Christian worship and localized songs; overlap is acknowledged. The positively documented Japanese-language original repertoire and Japan-based church/concert network supply the narrower community axis, not a claim that global worship excludes Japan. Queued French/Indonesian worship likewise remain other overlapping language/community fields.",
+          "exemplars": [
+            "Takahiro Tone Nakamine — Ai No Iro, documented regular solo-acoustic performance practice"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "japanese_worship",
+          "name": "Japanese worship",
+          "family": "blues_gospel",
+          "lineage": "Japanese worship connects Japanese-language Christian songs with local church and devotional communities. Artists use solo, group and recorded settings to circulate praise and reflective repertoire.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A singing voice and acoustic guitar can carry prayerful lyrics through repeated melodic phrases. Chordal accompaniment supports the text in an intimate branch alongside fuller ensemble arrangements.",
+          "exemplars": [
+            "Takahiro Tone Nakamine — Ai No Iro, documented regular solo-acoustic performance practice"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively documented vocal/acoustic devotional branch with all meaningful voice and guitar controls; wider worship instrumentation remains variable. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary genre, institution, artist and performer evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace specific cast, release and audit dossier with positive genre history and style. Complete original source evidence remains in before; representative branches do not claim universal personnel or measured source gear. Retain positively documented vocal/acoustic devotional branch with all meaningful voice and guitar controls; wider worship instrumentation remains variable. ",
+        "owning_control_review": {
+          "applicable": 22,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Japanese worship, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Japanese worship, up-tempo voice, callous dreadnought-acoustic-guitar, treated-live-room-reflective-but-controlled.",
+          "tags": "Japanese worship, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Japanese worship, up-tempo voice · Treated live room (reflective but controlled),\ncallous dreadnought acoustic guitar · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    }
+  ]
+}

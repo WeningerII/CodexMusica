@@ -2,10 +2,10 @@
   "id": "halifax_indie",
   "name": "Halifax indie",
   "family": "vernacular",
-  "lineage": "Mushkat — Chaintown from A Time in Place (2021). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic early-2020s halifax indie, ballad Poetry, indie folk branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. fingerpicked acoustic guitar, electric bass, maple brushes-and-sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 376,
-  "score": 21.525,
+  "lineage": "Halifax indie connects independent songwriters and bands in the Nova Scotian city. Folk-related acoustic writing forms one strand alongside more amplified local approaches.",
+  "recipe": "classic halifax indie, ballad Poetry, indie folk branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. fingerpicked acoustic guitar, electric bass, brushes-and-sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 320,
+  "score": 16.298,
   "config": {
     "traditions": [
       "halifax_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.714,
+          "voice_speech_song": 1.3,
           "voice_ensemble_config": 0.9450000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.2285000000000001,
-          "voice_multitrack_stack": 0.78,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.336,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0.483,
-          "acoustic_om_technique": 8.396
+          "acoustic_om_technique": 9.196
         }
       },
       {
@@ -108,16 +108,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.979999999999999,
-          "drumhead": 1.51,
+          "drum_technique": 2.34,
+          "drumhead": 0.21,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.51,
+          "shell_wood": 0.21,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 0.19500000000000003,
-          "cymbal_lathing": -0.10500000000000001,
+          "cymbal_hammering": -0.10500000000000001,
+          "cymbal_lathing": 0.19500000000000003,
           "cymbal_finish": 0
         }
       }

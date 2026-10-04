@@ -5,7 +5,7 @@
   "lineage": "Chinese talent-show music circulates through televised and streamed competitions, contestant performances and programme-linked releases. Shows such as CHUANG and The Coming One connect developing singers with production teams, music platforms and fan communities.",
   "recipe": "classic chinese talent show, functional Song. one note per syllable, solo with instrumental accompaniment. dreadnought acoustic guitar. live tracking.",
   "recipe_chars": 150,
-  "score": 3.276,
+  "score": 3.197,
   "config": {
     "traditions": [
       "chinese_talent_show"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.3,
+          "voice_speech_song": 1.222,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

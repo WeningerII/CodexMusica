@@ -1,0 +1,120 @@
+{
+  "status": "PARTIAL_PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/repairs-next-2765/review024/api-taxonomy-followups/candidates.json",
+  "sha256": "fd974befbd4255b685644c0a772ceae70c3e950184ce083821c6f3aba485a239",
+  "packet_sha256": "fd974befbd4255b685644c0a772ceae70c3e950184ce083821c6f3aba485a239",
+  "original_packet": "/tmp/batch041/qualified-frozen194.json",
+  "original_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "validation_scope": "Independent original browser/connector and compiled search+translate replay on frozen453 with only the four candidate rows overlaid in memory, rather than relying solely on author full194 context. All original owners unchanged upon injection. No production writes.",
+  "approved_ids": [
+    "musique_urbaine_brazzaville",
+    "jain_bhajan",
+    "reading"
+  ],
+  "held_ids": [
+    "vintage_italian_soundtrack"
+  ],
+  "entries": [
+    {
+      "id": "musique_urbaine_brazzaville",
+      "status": "PASS",
+      "qualified_scope": "Taxonomy-only parent/crossRefs and supporting classification evidence; no source-role, part, room, tuning or photo edits.",
+      "changed_paths": [
+        "/classification_evidence",
+        "/extras/crossRefs",
+        "/extras/parent",
+        "/taxonomy_repair_evidence"
+      ],
+      "source_url": "https://talents2kin.com/lemergence-du-congo-brazzaville-vit-a-travers-les-rythmes-de-la-musique-urbaine-tribune-de-niamba-malafi/",
+      "rationale": "Firsthand Talents2Kin practitioner testimony independently reproduced turn14939view0 names rap/slam and beatmaking within the broader Brazzaville scene. Primary mcRhythm.intlHipHop fits the selected rhythmic-spoken-flow branch more directly than functional song. Broader dance-song remains in public prose; global MC cross-reference need not blend unrelated national rap fields.",
+      "controls": 18,
+      "before_api_traditions": [
+        "musique_urbaine_brazzaville",
+        "czsk_emo_rap",
+        "detroit_trap_brasileiro"
+      ],
+      "after_api_traditions": [
+        "musique_urbaine_brazzaville"
+      ],
+      "all_browser_formats_unchanged": true,
+      "actual_compiled_config_and_recipe_inspected": true,
+      "literal_semantics": "Unchanged huge/immense descriptors describe expansive authored hall presentation; drone remains sustained. Reading piano stays legato and general-purpose. Brazzaville spoken/no-pitch voice fits rap and beat. Vintage bass issue remains explicitly unqualified."
+    },
+    {
+      "id": "vintage_italian_soundtrack",
+      "status": "HOLD_MUSICAL_RENDER",
+      "qualified_scope": "Taxonomy-only parent/crossRefs and supporting classification evidence; no source-role, part, room, tuning or photo edits.",
+      "changed_paths": [
+        "/extras/crossRefs",
+        "/taxonomy_repair_evidence"
+      ],
+      "source_url": "https://sonormusiceditions.com/i_marc_4",
+      "rationale": "Taxonomy delta eliminates unrelated world-art-music blends, but unchanged literal raging electric-bass remains separately held. No authorization to clear that substantive render concern in this review.",
+      "controls": 38,
+      "before_api_traditions": [
+        "vintage_italian_soundtrack",
+        "khmer_pinpeat",
+        "canadian_contemporary_classical"
+      ],
+      "after_api_traditions": [
+        "vintage_italian_soundtrack"
+      ],
+      "all_browser_formats_unchanged": true,
+      "actual_compiled_config_and_recipe_inspected": true,
+      "literal_semantics": "Unchanged huge/immense descriptors describe expansive authored hall presentation; drone remains sustained. Reading piano stays legato and general-purpose. Brazzaville spoken/no-pitch voice fits rap and beat. Vintage bass issue remains explicitly unqualified."
+    },
+    {
+      "id": "jain_bhajan",
+      "status": "PASS",
+      "qualified_scope": "Taxonomy-only parent/crossRefs and supporting classification evidence; no source-role, part, room, tuning or photo edits.",
+      "changed_paths": [
+        "/classification_evidence",
+        "/extras/crossRefs",
+        "/extras/parent",
+        "/taxonomy_repair_evidence"
+      ],
+      "source_url": "https://www.tandfonline.com/doi/full/10.1080/17448727.2019.1565304",
+      "rationale": "Fresh scholarly primary turn14943search0 confirms Jain praise recordings with voice, drone and tabla; turn14943search1 identifies Jain stavan/bhajan praise. Existing praiseSong.indianSubcontinent explicitly includes Jain. Hindu cross-reference is not a faithful classification merely from regional proximity; removing it avoids unrelated faith repertoire mixing without changing the full accompaniment.",
+      "controls": 26,
+      "before_api_traditions": [
+        "jain_bhajan",
+        "mappila_paattu",
+        "naat_south_asian"
+      ],
+      "after_api_traditions": [
+        "jain_bhajan"
+      ],
+      "all_browser_formats_unchanged": true,
+      "actual_compiled_config_and_recipe_inspected": true,
+      "literal_semantics": "Unchanged huge/immense descriptors describe expansive authored hall presentation; drone remains sustained. Reading piano stays legato and general-purpose. Brazzaville spoken/no-pitch voice fits rap and beat. Vintage bass issue remains explicitly unqualified."
+    },
+    {
+      "id": "reading",
+      "status": "PASS",
+      "qualified_scope": "Taxonomy-only parent/crossRefs and supporting classification evidence; no source-role, part, room, tuning or photo edits.",
+      "changed_paths": [
+        "/taxonomy_repair_evidence",
+        "/extras/crossRefs"
+      ],
+      "source_url": "https://soothingrelaxation.com/products/bright-future-album",
+      "rationale": "Fresh issuer album turn14939view1 confirms the quiet piano programme supporting the established reading branch. Existing ambient parent retains listening-environment scope; the broader experimentalElec ancestor reference adds no supported distinct affinity. Removing that redundant cross-reference avoids unrelated acid IDM while preserving all authored piano settings.",
+      "controls": 3,
+      "before_api_traditions": [
+        "reading",
+        "acid_idm"
+      ],
+      "after_api_traditions": [
+        "reading"
+      ],
+      "all_browser_formats_unchanged": true,
+      "actual_compiled_config_and_recipe_inspected": true,
+      "literal_semantics": "Unchanged huge/immense descriptors describe expansive authored hall presentation; drone remains sustained. Reading piano stays legato and general-purpose. Brazzaville spoken/no-pitch voice fits rap and beat. Vintage bass issue remains explicitly unqualified."
+    }
+  ],
+  "runtime_files": [
+    "/workspace/genre-continuation/research/remaining436-practice-pass/review461/taxonomy-before-runtime.json",
+    "/workspace/genre-continuation/research/remaining436-practice-pass/review461/taxonomy-after-runtime.json"
+  ]
+}

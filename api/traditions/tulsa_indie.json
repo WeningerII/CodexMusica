@@ -5,7 +5,7 @@
   "lineage": "Hey Judy — What Now, complete nine-track album (2019). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic late-2010s tulsa indie, distorted Rock. duet, unprocessed natural acoustic, live take. conventional tuning standard pitch humbucker electric dreadnought acoustic guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 369,
-  "score": 40.31,
+  "score": 40.566,
   "config": {
     "traditions": [
       "tulsa_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.6,
+          "voice_ensemble_config": 0.6315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.431,
-          "voice_multitrack_stack": 0.6,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 0.6315,
           "voice_tessitura": 0
         }
       },
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 2.21,
           "amp_make": 0,
-          "body_wood": 0.8999999999999999,
+          "body_wood": 0.9314999999999999,
           "neck_wood": 0.3,
           "fretboard": 0.25,
           "pickup_magnet": 0,
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.8999999999999999,
+          "body_wood": 0.9314999999999999,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

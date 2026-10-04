@@ -2,10 +2,10 @@
   "id": "greek_guitar",
   "name": "Greek guitar",
   "family": "classical",
-  "lineage": "Eva Fampas — Greek Guitar Music (Naxos 8.573322, 2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s greek guitar, art Music, western modern branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 233,
-  "score": 11.813,
+  "lineage": "Greek guitar repertoire connects classical-guitar performers with modern Greek composers and teaching traditions. Concert pieces and arrangements bring different regional and compositional influences into solo performance.",
+  "recipe": "classic greek guitar, art Music, western modern branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 12.302,
   "config": {
     "traditions": [
       "greek_guitar"
@@ -22,12 +22,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.5499999999999998,
+          "acoustic_technique": -0.25,
           "string_tuning": 0,
           "top_wood_classical": 0.39,
           "bracing_classical": 0.7245,
-          "string_classical": 4.8100000000000005,
-          "attack_technique_cl": 5.338
+          "string_classical": 5.85,
+          "attack_technique_cl": 5.588
         }
       }
     ],

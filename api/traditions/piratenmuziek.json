@@ -2,24 +2,15 @@
   "id": "piratenmuziek",
   "name": "Piratenmuziek",
   "family": "pop",
-  "lineage": "DJ Onslow — complete creator-issued Onslow’s Puike Platenpaleis episode110,1:59:25. The issuer explicitly names piratenmuziek, Dutch-language music and Brabantse slappe klets (Brabant chat), and the Friday14:00–16:00 Radio Favoriet programme. Retain both the entire record-playing programme and spoken hosting. One named DJ/host; any uncredited guests and total embedded singers remain unknown. Programme date is unspecified: relative upload age is not converted into an invented event date. No complete track list is published, and no audition is claimed. This is an actual issued radio programme, not an opaque studio master reclassified as a DJ performance. Existing source-unspecified DJ owner retains complete record playback/mixing without invented media format, decks, synthesis or studio stems. Original voice owner keeps all17 controls, neutral physiology and pure spoken delivery for the explicitly named host. Single-lead/no-overdub is the authored one-host realization, not evidence that no guest or embedded voices occur. All unknown embedded layers remain in playback. Broad functionalSong represents an authored verse/refrain and functional-harmony realization of this popular-song programme, not a transcription claiming every selection shares that form; incidental hosting stays present. Spacious hall-like listening environment is an authored new spatial presentation, not the station’s measured room or a concert claim. No global tuning or capture apparatus asserted.",
-  "recipe": "classic piratenmuziek, functional Song. no pitch organization speech, solo with instrumental accompaniment, single lead single track no stacking. dj playback mixing unspecified. shoebox concert hall.",
-  "recipe_chars": 199,
-  "score": 21.376,
+  "lineage": "Piratenmuziek connects Dutch-language popular songs with pirate-radio traditions and their listeners. Broadcasters and local communities circulate familiar repertoire across styles and generations.",
+  "recipe": "classic piratenmuziek, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. upright piano, drum machine analog. shoebox concert hall.",
+  "recipe_chars": 196,
+  "score": 4.139,
   "config": {
     "traditions": [
       "piratenmuziek"
     ],
     "instruments": [
-      {
-        "id": "dj_playback_mixing_unspecified",
-        "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
-        },
-        "scores": {
-          "dj_playback_mixing_identity": 0
-        }
-      },
       {
         "id": "voice",
         "slots": {
@@ -28,12 +19,12 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "legato_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -52,20 +43,45 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 8.203999999999999,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 0.8565,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 11.924,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ],
       "voice": [
         "voice_register",
         "voice_quality",
@@ -84,6 +100,17 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -103,24 +130,30 @@
   "source": {
     "room": "concert_hall_shoebox",
     "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_articulation": "legato_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_speech_song": "voice_syllabic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

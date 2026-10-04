@@ -5,7 +5,7 @@
   "lineage": "Motivation connects spoken recordings and readings directed toward encouragement, self-development and practical reflection. Historical self-help writing, contemporary talks and personal testimony offer contrasting approaches to this purpose-based listening field.",
   "recipe": "classic motivation, spoken Word, narration branch. live tracking.",
   "recipe_chars": 65,
-  "score": 0.956,
+  "score": 0.892,
   "config": {
     "traditions": [
       "motivation"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3255,
+          "voice_speech_song": 0.29400000000000004,
           "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.2625,
+          "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }
       }

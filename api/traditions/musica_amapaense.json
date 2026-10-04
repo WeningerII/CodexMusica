@@ -2,10 +2,10 @@
   "id": "musica_amapaense",
   "name": "Música Amapaense",
   "family": "vernacular",
-  "lineage": "Patrícia Bastos, Enrico Di Miceli, José Inácio Vieira de Melo and Alan Gomes — Roseiral / A Rosa Viva, artist-published2015 performance. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic música amapaense, ballad Poetry. group vocals, unprocessed natural acoustic, live take. cedar fingerpicked classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 9.902,
+  "lineage": "Music of Amapá, connecting regional song, poetry and varied contemporary performance practices.",
+  "recipe": "classic música amapaense, ballad Poetry. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 170,
+  "score": 3.422,
   "config": {
     "traditions": [
       "musica_amapaense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8999999999999999,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.2,
-          "voice_multitrack_stack": 0.8999999999999999,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,12 +63,12 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 3.1229999999999998,
+          "acoustic_technique": 2.323,
           "string_tuning": 0,
-          "top_wood_classical": 2.0095,
-          "bracing_classical": 1.17,
-          "string_classical": 0.3,
-          "attack_technique_cl": 0.3
+          "top_wood_classical": 0.40950000000000003,
+          "bracing_classical": 0.39,
+          "string_classical": 0,
+          "attack_technique_cl": 0
         }
       }
     ],

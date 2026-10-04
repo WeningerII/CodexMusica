@@ -2,10 +2,10 @@
   "id": "belgian_jazz",
   "name": "Belgian jazz",
   "family": "jazz",
-  "lineage": "Belgium-connected jazz lineages, represented by Brussels-born Toots Thielemans’s international European Quartet. A chromatic harmonica lead joins piano, acoustic bass and drums in this selected late-career instrumental branch.",
+  "lineage": "Belgian jazz connects local scenes with international improvising traditions. Brussels-born Toots Thielemans made the chromatic harmonica a distinctive melodic voice in this history, bringing lyrical phrasing to small-group jazz and collaborations abroad.",
   "recipe": "classic modern belgian jazz, improv On Frame, bop branch. solo canonical chromatic lead chromatic harmonica, a 440 modern pitch us standard grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 380,
-  "score": 80.537,
+  "score": 90.977,
   "config": {
     "traditions": [
       "belgian_jazz"
@@ -22,12 +22,12 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "harmonica_type": 6.24,
+          "harmonica_type": 7.15,
           "harmonica_comb": -0.035,
           "harmonica_reed": -0.07,
-          "harmonica_technique": 14.0315,
+          "harmonica_technique": 14.7815,
           "harmonica_maker_school": 0,
-          "harmonica_tuning": 13.205125
+          "harmonica_tuning": 14.955125
         }
       },
       {
@@ -44,7 +44,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": 0.95,
           "grand_piano_size": 0,
           "grand_piano_brand": 0,
           "piano_hammer": -0.07,
@@ -63,7 +63,7 @@
         },
         "scores": {
           "upright_strings": 0.17924999999999996,
-          "upright_play": 12
+          "upright_play": 13.75
         }
       },
       {
@@ -82,16 +82,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.58,
+          "drum_technique": 8.71,
           "drumhead": 0.06862499999999999,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0315,
           "shell_thickness": 0,
           "bearing_edges": 0.168,
           "snare_wires": 0.0315,
-          "cymbal_alloy": 11.849999999999998,
-          "cymbal_hammering": 12.117999999999999,
-          "cymbal_lathing": -0.11850000000000002,
+          "cymbal_alloy": 13.599999999999998,
+          "cymbal_hammering": 13.867999999999999,
+          "cymbal_lathing": 0.18150000000000002,
           "cymbal_finish": 0.03712499999999999
         }
       }
