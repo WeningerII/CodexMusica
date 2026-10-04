@@ -1,6 +1,6 @@
 {
   "status": "PARTIAL_REVIEWED_QUEUE_PROJECTION_NOT_FINAL_DELIVERY",
-  "generated_at": "2026-10-04T01:32:16.868902+00:00",
+  "generated_at": "2026-10-04T01:46:38.485430+00:00",
   "entries": [
     {
       "source_label": "dark progressive house",
@@ -63416,6 +63416,231 @@
         "runtime": "/tmp/batch040/anak-runtime461.json",
         "judgment": "All four literal outputs preserve positively sung lead and piano. Wabi-rustic describes plain soft intimate timbral affect, not an assertion of Japanese repertoire. Affectionate piano is compatible family-song affect; no unrelated instruments or no-pitch voice language emitted."
       }
+    },
+    {
+      "tradition": {
+        "id": "tibetan_folk_pop",
+        "name": "Tibetan Folk Pop",
+        "family": "pop",
+        "lineage": "Tibetan folk pop carries familiar Tibetan song traditions into contemporary recordings, concerts and diaspora songwriting. Performers such as Techung connect inherited melodies and Tibetan-language poetry with new compositions and collaborations, sustaining links between cultural memory and present-day popular listening.",
+        "instruments": ["voice", "upright_piano"],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "voice": 2,
+          "density": -1,
+          "percussion": -1
+        },
+        "description": "Expressive singing and memorable melodic phrases foreground Tibetan words and folk-derived contours. Acoustic instruments and modern accompaniment coexist; intimate voice-and-piano settings emphasize the song text, while other arrangements retain plucked lutes or use larger contemporary ensembles.",
+        "exemplars": ["Techung", "Techung and Kit Walker"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "tibetan_folk_pop",
+          "name": "Tibetan Folk Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn13962view0 confirms original Iain Fergusson, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn13962view0"
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13962view0; exact historical byte/visual receipt retained.",
+        "fresh_rights_retrieval_refs": ["turn13962view0"]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative lyric-centred voice-and-piano branch of contemporary Tibetan folk song. Artist primary explicitly documents piano-supported singing alongside traditional and modern work; the artist-issued Sky Treasure album is category/repertoire evidence, not an exhaustively reconstructed master. Other dranyen, ensemble and electronic collaborations remain acknowledged as alternate practices. Standard upright/block-chord accompaniment and connected syllabic solo singing are authored intimate song settings, not measured Techung or Kit Walker instruments, original note mapping or physiology. No fixed global temperament or source venue asserted. Broad balladPoetry applies to this lyric-centred intimate rendition, not every recording in the field."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Representative lyric-centred voice-and-piano branch of contemporary Tibetan folk song. Artist primary explicitly documents piano-supported singing alongside traditional and modern work; the artist-issued Sky Treasure album is category/repertoire evidence, not an exhaustively reconstructed master. Other dranyen, ensemble and electronic collaborations remain acknowledged as alternate practices. Standard upright/block-chord accompaniment and connected syllabic solo singing are authored intimate song settings, not measured Techung or Kit Walker instruments, original note mapping or physiology. No fixed global temperament or source venue asserted. Broad balladPoetry applies to this lyric-centred intimate rendition, not every recording in the field."
+        }
+      ],
+      "source_label": "tibetan folk pop",
+      "source_url": "https://everynoise.com/engenremap-tibetanfolkpop.html",
+      "suggested_id": "tibetan_folk_pop",
+      "allocation_ordinal": 1909,
+      "allocation_group_id": "077",
+      "id": "tibetan_folk_pop",
+      "status": "author_pending_literal_render_review",
+      "geo": [32.219, 76.323, "Dharamshala", "South Asia"],
+      "geo_rationale": "Documented Tibetan exile music and songwriting centre in the original ethnography and artist biography; not an exclusive homeland or origin assertion.",
+      "signature_tokens": [],
+      "model_policy": "Representative lyric-centred voice-and-piano branch of contemporary Tibetan folk song. Artist primary explicitly documents piano-supported singing alongside traditional and modern work; the artist-issued Sky Treasure album is category/repertoire evidence, not an exhaustively reconstructed master. Other dranyen, ensemble and electronic collaborations remain acknowledged as alternate practices. Standard upright/block-chord accompaniment and connected syllabic solo singing are authored intimate song settings, not measured Techung or Kit Walker instruments, original note mapping or physiology. No fixed global temperament or source venue asserted. Broad balladPoetry applies to this lyric-centred intimate rendition, not every recording in the field.",
+      "neighbor_distinction": "The full existing tibetan_pop is a broad Tibetan popular-music umbrella; its Dennis Rea experimental arrangement is only one example and does not make the whole category electronic. Tibetan Folk Pop is a narrower overlapping folk-derived song repertoire, supported by the creator corpus, the artist and label descriptions of traditional/contemporary folk songwriting, and original ethnography distinguishing revitalized folk music from the wider Tibetan popular soundscape. This is not a different-artist or piano-only boundary. Tibetan ache lhamo is staged folk opera, Tibetan yang/mantra are devotional recitation fields, and their overlap in performers does not erase the contemporary folk-song branch. The ethnography concerns exile practice and is not generalized as an exhaustive definition of all plateau music.",
+      "classification_evidence": "The full existing tibetan_pop is a broad Tibetan popular-music umbrella; its Dennis Rea experimental arrangement is only one example and does not make the whole category electronic. Tibetan Folk Pop is a narrower overlapping folk-derived song repertoire, supported by the creator corpus, the artist and label descriptions of traditional/contemporary folk songwriting, and original ethnography distinguishing revitalized folk music from the wider Tibetan popular soundscape. This is not a different-artist or piano-only boundary. Tibetan ache lhamo is staged folk opera, Tibetan yang/mantra are devotional recitation fields, and their overlap in performers does not erase the contemporary folk-song branch. The ethnography concerns exile practice and is not generalized as an exhaustive definition of all plateau music.",
+      "source_scope_limitation": "Representative lyric-centred voice-and-piano branch of contemporary Tibetan folk song. Artist primary explicitly documents piano-supported singing alongside traditional and modern work; the artist-issued Sky Treasure album is category/repertoire evidence, not an exhaustively reconstructed master. Other dranyen, ensemble and electronic collaborations remain acknowledged as alternate practices. Standard upright/block-chord accompaniment and connected syllabic solo singing are authored intimate song settings, not measured Techung or Kit Walker instruments, original note mapping or physiology. No fixed global temperament or source venue asserted. Broad balladPoetry applies to this lyric-centred intimate rendition, not every recording in the field.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Artist folk and freedom singing/songwriting practice."
+        },
+        {
+          "instrument": "upright_piano",
+          "basis": "Artist EPK explicitly documents piano-supported performance with Philip Glass; intimate upright arrangement authored, not original concert hardware."
+        }
+      ],
+      "vocal_count_audit": {
+        "genre_headcount": "variable",
+        "authored_default": "one accompanied sung lead",
+        "physiology": "unspecified"
+      },
+      "sources": [
+        {
+          "url": "https://techung.com/epk",
+          "primary": true,
+          "evidence_ref": "turn13964search3",
+          "supports": "Artist traditional/contemporary folk practice; explicit piano collaboration and dranyen singing."
+        },
+        {
+          "url": "https://techung.bandcamp.com/album/sky-treasure",
+          "primary": true,
+          "evidence_ref": "turn13964view0; turn13965view1",
+          "supports": "Artist-issued traditional and contemporary Tibetan songs, with Tibetan lyrics and freedom/homeland themes."
+        },
+        {
+          "url": "https://www.arcmusic.co.uk/blog/tibetan-singer-songwriter-tashi-d-sharzur-%28techung%29-arts-fellows-and-finalists.html",
+          "primary": true,
+          "evidence_ref": "turn13968view0",
+          "supports": "Artist label identifies folk songwriter, traditional and original collaborative records, and modern repertoire."
+        },
+        {
+          "url": "https://content.ucpress.edu/pages/9499/9499.intro.pdf",
+          "primary": true,
+          "evidence_ref": "turn13968view1",
+          "supports": "Original ethnography distinguishes revitalized folk and other Tibetan popular-song practices within a diverse exile soundscape."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/65faCB9BE08hrJ3X21DCLx",
+          "primary": true,
+          "evidence_ref": "turn13968view2",
+          "supports": "Exact named creator field includes Techung and Kit Walker alongside wider Tibetan folk-pop repertoire."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn13964search3",
+        "turn13964view0",
+        "turn13968view0",
+        "turn13968view1",
+        "turn13968view2"
+      ],
+      "source_retrieval_caveat": "Artist, label and publisher evidence read; no audio audition or full liner inspection claimed. Bandcamp liner invitation exposes no retrieved working link; complete master closure is not required for the documented representative practice. Exact creator membership does not by itself establish the boundary."
     }
   ],
   "instrument_dependencies": [
@@ -67460,6 +67685,12 @@
       "original_packet": "/tmp/batch040/resume461-musik-anak-anak-practice.json",
       "selected_packet": "/tmp/batch040/resume461-musik-anak-anak-practice.json",
       "review": "/tmp/batch040/resume461-musik-anak-anak-practice-root-acceptance.json"
+    },
+    {
+      "id": "tibetan_folk_pop",
+      "original_packet": "/tmp/batch040/resume119-49.json",
+      "selected_packet": "/tmp/batch040/resume119-49.json",
+      "review": "/tmp/batch040/resume119-49-root-acceptance.json"
     }
   ],
   "pending_old_queue_reassessment": [
