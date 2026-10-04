@@ -965,7 +965,12 @@ def cmd_fit(a):
 #       rule prefers it. E3: C2 turns at N=2888, disclosed.
 # mattr C1, anaphora C2 and predictability CK (the recorded §4 deviation) hold.
 # Measurement: quality/results/otterbein_m25_2026-10-04/curves-measurement.txt.
-SHIPPED_MODEL = {"mattr": "C1", "fwr": "C2", "anaphora": "C2", "cv": "C2",
+# REPINNED AGAIN THE SAME DAY over the final tree of the batch (the label and
+# apparatus pass removed 1,344 rows and stripped 348 label prefixes; 8,597
+# works, 21 bins): fwr ~~C2~~ -> C1, because C1 now passes all 21 bins and the
+# rule takes the fewest parameters; cv stays C2 (C1 fails 2 of 21). Measurement:
+# quality/results/otterbein_m25_2026-10-04/final/curves-measurement.txt.
+SHIPPED_MODEL = {"mattr": "C1", "fwr": "C1", "anaphora": "C2", "cv": "C2",
                  "predictability": "CK"}
 KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
           "anaphora": "anaphora_max", "cv": "line_length_cv_min",
