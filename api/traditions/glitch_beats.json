@@ -1,0 +1,91 @@
+{
+  "id": "glitch_beats",
+  "name": "Glitch Beats",
+  "family": "electronic",
+  "lineage": "Glitch beats brings finely edited rhythms and synthetic sound design into experimental electronic production. Its discovery community spans intimate studio composition, beat-oriented pieces and manipulated digital textures.",
+  "recipe": "classic glitch beats, experimental Elec. apple es2 software synth, midi programmed sound unspecified. treated studio.",
+  "recipe_chars": 117,
+  "score": 1.332,
+  "config": {
+    "traditions": [
+      "glitch_beats"
+    ],
+    "instruments": [
+      {
+        "id": "apple_es2_software_synth",
+        "slots": {
+          "es2_engine": "es2_hybrid_software",
+          "es2_oscillator_bank": "es2_three_oscillator_bank",
+          "es2_waveform": "es2_waveform_unspecified",
+          "es2_amplitude_envelope": "es2_plucked_decay",
+          "es2_voice_mode": "es2_voice_mode_unspecified",
+          "es2_filter_routing": "es2_filter_routing_unspecified",
+          "es2_modulation": "es2_modulation_unspecified"
+        },
+        "scores": {
+          "es2_engine": 1,
+          "es2_oscillator_bank": 0,
+          "es2_waveform": 0,
+          "es2_amplitude_envelope": 0.3,
+          "es2_voice_mode": 0,
+          "es2_filter_routing": 0,
+          "es2_modulation": 0
+        }
+      },
+      {
+        "id": "midi_programmed_sound_unspecified",
+        "slots": {
+          "midi_programmed_sound_identity": "midi_programmed_generator_unspecified",
+          "electronic_technique": "midi_programmed_event_sequence"
+        },
+        "scores": {
+          "midi_programmed_sound_identity": 0.0315,
+          "electronic_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "apple_es2_software_synth": [
+        "es2_engine",
+        "es2_oscillator_bank",
+        "es2_waveform",
+        "es2_amplitude_envelope",
+        "es2_voice_mode",
+        "es2_filter_routing",
+        "es2_modulation"
+      ],
+      "midi_programmed_sound_unspecified": [
+        "midi_programmed_sound_identity",
+        "electronic_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "es2_engine": "es2_hybrid_software",
+      "es2_oscillator_bank": "es2_three_oscillator_bank",
+      "es2_waveform": "es2_waveform_unspecified",
+      "es2_amplitude_envelope": "es2_plucked_decay",
+      "es2_voice_mode": "es2_voice_mode_unspecified",
+      "es2_filter_routing": "es2_filter_routing_unspecified",
+      "es2_modulation": "es2_modulation_unspecified",
+      "midi_programmed_sound_identity": "midi_programmed_generator_unspecified",
+      "electronic_technique": "midi_programmed_event_sequence"
+    },
+    "pin_parts": true
+  }
+}

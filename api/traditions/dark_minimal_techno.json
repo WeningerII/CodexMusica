@@ -1,0 +1,50 @@
+{
+  "id": "dark_minimal_techno",
+  "name": "Dark minimal techno",
+  "family": "electronic",
+  "lineage": "Dark minimal techno develops sparse, ominous club music through independent production and label communities. Plazma Records and related artists combine restrained rhythmic repetition with unusual recorded sounds, dissonant details and carefully spaced electronic figures.",
+  "recipe": "classic dark minimal techno, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 108,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "dark_minimal_techno"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

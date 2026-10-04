@@ -1,0 +1,230 @@
+{
+  "id": "apple_es2_software_synth",
+  "name": "Apple ES2 software hybrid synthesizer",
+  "short": "ES2 software synthesizer",
+  "family": "electronic",
+  "class": "apple_es2_software_synth",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "description": "Software synthesizer combining subtractive synthesis, frequency modulation and Digiwave oscillators. Its three-oscillator bank feeds configurable filters and an amplitude envelope.",
+  "parts": [
+    {
+      "id": "es2_engine",
+      "name": "Synthesis engine",
+      "variants": [
+        {
+          "id": "es2_hybrid_software",
+          "name": "Software subtractive synthesis with FM and Digiwave capabilities",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es2_oscillator_bank",
+      "name": "Oscillator bank",
+      "variants": [
+        {
+          "id": "es2_three_oscillator_bank",
+          "name": "Three software oscillators; enabled oscillator mix unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_waveform",
+      "name": "Selected waveform",
+      "variants": [
+        {
+          "id": "es2_waveform_unspecified",
+          "name": "Analog-style or Digiwave selection unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_amplitude_envelope",
+      "name": "Amplitude envelope",
+      "variants": [
+        {
+          "id": "es2_plucked_decay",
+          "name": "Authored plucked short-decay envelope",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es2_voice_mode",
+      "name": "Voice allocation",
+      "variants": [
+        {
+          "id": "es2_voice_mode_unspecified",
+          "name": "Mono/poly allocation and voice count unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_filter_routing",
+      "name": "Filter arrangement",
+      "variants": [
+        {
+          "id": "es2_filter_routing_unspecified",
+          "name": "Filter topology, routing and cutoff unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_modulation",
+      "name": "Modulation routing",
+      "variants": [
+        {
+          "id": "es2_modulation_unspecified",
+          "name": "Modulation routing and depth unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://support.apple.com/en-euro/guide/logicpro/lgsia12923e/10.7/mac/11.0",
+    "https://support.apple.com/guide/logicpro/envelopes-overview-lgsi619bb1f2/mac",
+    "https://www.cyclicdefrost.com/2008/12/aeriae-interview-by-chris-downton/"
+  ],
+  "_ownParts": [
+    {
+      "id": "es2_engine",
+      "name": "Synthesis engine",
+      "variants": [
+        {
+          "id": "es2_hybrid_software",
+          "name": "Software subtractive synthesis with FM and Digiwave capabilities",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es2_oscillator_bank",
+      "name": "Oscillator bank",
+      "variants": [
+        {
+          "id": "es2_three_oscillator_bank",
+          "name": "Three software oscillators; enabled oscillator mix unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_waveform",
+      "name": "Selected waveform",
+      "variants": [
+        {
+          "id": "es2_waveform_unspecified",
+          "name": "Analog-style or Digiwave selection unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_amplitude_envelope",
+      "name": "Amplitude envelope",
+      "variants": [
+        {
+          "id": "es2_plucked_decay",
+          "name": "Authored plucked short-decay envelope",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es2_voice_mode",
+      "name": "Voice allocation",
+      "variants": [
+        {
+          "id": "es2_voice_mode_unspecified",
+          "name": "Mono/poly allocation and voice count unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_filter_routing",
+      "name": "Filter arrangement",
+      "variants": [
+        {
+          "id": "es2_filter_routing_unspecified",
+          "name": "Filter topology, routing and cutoff unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "es2_modulation",
+      "name": "Modulation routing",
+      "variants": [
+        {
+          "id": "es2_modulation_unspecified",
+          "name": "Modulation routing and depth unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

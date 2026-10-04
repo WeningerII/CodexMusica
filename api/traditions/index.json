@@ -1,5 +1,5 @@
 {
-  "count": 6904,
+  "count": 6932,
   "items": [
     {
       "id": "honky_tonk",
@@ -41424,6 +41424,174 @@
       "name": "Westcoast Flow",
       "family": "hip_hop",
       "href": "traditions/westcoast_flow.json"
+    },
+    {
+      "id": "deep_turkish_pop",
+      "name": "Deep Turkish Pop",
+      "family": "pop",
+      "href": "traditions/deep_turkish_pop.json"
+    },
+    {
+      "id": "carnaval_cadiz",
+      "name": "Carnaval de Cádiz",
+      "family": "vernacular",
+      "href": "traditions/carnaval_cadiz.json"
+    },
+    {
+      "id": "pop_electronico",
+      "name": "Pop Electrónico",
+      "family": "pop",
+      "href": "traditions/pop_electronico.json"
+    },
+    {
+      "id": "dark_minimal_techno",
+      "name": "Dark minimal techno",
+      "family": "electronic",
+      "href": "traditions/dark_minimal_techno.json"
+    },
+    {
+      "id": "dutch_drill",
+      "name": "Dutch Drill",
+      "family": "hip_hop",
+      "href": "traditions/dutch_drill.json"
+    },
+    {
+      "id": "polish_trap",
+      "name": "Polish Trap",
+      "family": "hip_hop",
+      "href": "traditions/polish_trap.json"
+    },
+    {
+      "id": "soda_pop",
+      "name": "Soda Pop",
+      "family": "pop",
+      "href": "traditions/soda_pop.json"
+    },
+    {
+      "id": "deep_pop_edm",
+      "name": "Deep Pop EDM",
+      "family": "electronic",
+      "href": "traditions/deep_pop_edm.json"
+    },
+    {
+      "id": "twee_indie_pop",
+      "name": "Twee Indie Pop",
+      "family": "pop",
+      "href": "traditions/twee_indie_pop.json"
+    },
+    {
+      "id": "deep_big_room",
+      "name": "Deep Big Room",
+      "family": "electronic",
+      "href": "traditions/deep_big_room.json"
+    },
+    {
+      "id": "czsk_electropop",
+      "name": "czsk electropop",
+      "family": "electronic",
+      "href": "traditions/czsk_electropop.json"
+    },
+    {
+      "id": "melanesian_pop",
+      "name": "Melanesian Pop",
+      "family": "pop",
+      "href": "traditions/melanesian_pop.json"
+    },
+    {
+      "id": "marathi_hip_hop",
+      "name": "Marathi hip hop",
+      "family": "hip_hop",
+      "href": "traditions/marathi_hip_hop.json"
+    },
+    {
+      "id": "study_beats",
+      "name": "Study Beats",
+      "family": "electronic",
+      "href": "traditions/study_beats.json"
+    },
+    {
+      "id": "greek_fem_rap",
+      "name": "Greek Fem Rap",
+      "family": "hip_hop",
+      "href": "traditions/greek_fem_rap.json"
+    },
+    {
+      "id": "deep_discofox",
+      "name": "Deep Discofox",
+      "family": "electronic",
+      "href": "traditions/deep_discofox.json"
+    },
+    {
+      "id": "dutch_indie",
+      "name": "Dutch Indie",
+      "family": "rock",
+      "href": "traditions/dutch_indie.json"
+    },
+    {
+      "id": "hjemmesnekk",
+      "name": "Hjemmesnekk",
+      "family": "pop",
+      "href": "traditions/hjemmesnekk.json"
+    },
+    {
+      "id": "belarusian_hip_hop",
+      "name": "Belarusian Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/belarusian_hip_hop.json"
+    },
+    {
+      "id": "rap_regio",
+      "name": "Rap Regio",
+      "family": "hip_hop",
+      "href": "traditions/rap_regio.json"
+    },
+    {
+      "id": "gothic_alternative",
+      "name": "gothic alternative",
+      "family": "rock",
+      "href": "traditions/gothic_alternative.json"
+    },
+    {
+      "id": "aesthetic_rap",
+      "name": "Aesthetic Rap",
+      "family": "hip_hop",
+      "href": "traditions/aesthetic_rap.json"
+    },
+    {
+      "id": "libyan_hip_hop",
+      "name": "Libyan Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/libyan_hip_hop.json"
+    },
+    {
+      "id": "russian_trap_metal",
+      "name": "Russian Trap Metal",
+      "family": "hip_hop",
+      "href": "traditions/russian_trap_metal.json"
+    },
+    {
+      "id": "glitch_beats",
+      "name": "Glitch Beats",
+      "family": "electronic",
+      "href": "traditions/glitch_beats.json"
+    },
+    {
+      "id": "taiwanese_indie",
+      "name": "Taiwanese Indie",
+      "family": "rock",
+      "href": "traditions/taiwanese_indie.json"
+    },
+    {
+      "id": "flamenco_fusion",
+      "name": "Flamenco Fusion",
+      "family": "global",
+      "href": "traditions/flamenco_fusion.json"
+    },
+    {
+      "id": "redneck",
+      "name": "Redneck",
+      "family": "hip_hop",
+      "href": "traditions/redneck.json"
     }
   ]
 }

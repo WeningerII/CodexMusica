@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 6904,
+  "count": 6932,
   "items": [
     {
       "id": "honky_tonk",
@@ -15869,7 +15869,7 @@
       "id": "plunderphonics",
       "name": "Plunderphonics",
       "family": "global",
-      "lineage": "1980s-onward sample-collage composition tradition coined by John Oswald (Plunderphonics 1989) — characterized by appropriated-pop-recording manipulation as compositional material; the Negativland (Christianity Is Stupid 1987), the Tape-beatles, People Like Us / Vicki Bennett lineage, and the broader fair-use-and-copyright contested terrain",
+      "lineage": "1980-present sample-collage composition tradition coined by John Oswald (Plunderphonics 1989) — characterized by appropriated-pop-recording manipulation as compositional material; the Negativland (Christianity Is Stupid 1987), the Tape-beatles, People Like Us / Vicki Bennett lineage, and the broader fair-use-and-copyright contested terrain",
       "parent": "experimentalElec.musiqueConcrete",
       "axes": [
         0,
@@ -243152,6 +243152,902 @@
         "Kalan.FrFr",
         "1takeocho",
         "Bino Rideaux"
+      ]
+    },
+    {
+      "id": "deep_turkish_pop",
+      "name": "Deep Turkish Pop",
+      "family": "pop",
+      "lineage": "Deep Turkish pop is a discovery grouping within Turkish popular song, spanning dance-oriented releases, melodic ballads and acoustic reinterpretations. Its repertoire circulates through recordings, remixes and published instrumental arrangements, with no single production style implied by the word deep.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "In a solo-piano rendition, the song melody remains in the foreground above a light harmonic accompaniment. Connected phrasing carries the tune without reproducing the vocal timbre or studio backing of the original pop recording.",
+      "exemplars": [
+        "Simge"
+      ]
+    },
+    {
+      "id": "carnaval_cadiz",
+      "name": "Carnaval de Cádiz",
+      "family": "vernacular",
+      "lineage": "Cádiz Carnival sustains a civic tradition of topical songs, parody and costumed street performance. Neighborhood associations, rehearsals and the official competition connect coros, comparsas, chirigotas and cuartetos, each with its own vocal organization and repertoire. The tango, pasodoble, cuplé and comic sketch give these groups distinct ways to comment on public life.",
+      "parent": "carnivalProcessional",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "kazoo"
+      ],
+      "description": "Comic dialogue, topical verses and sung cuplés share the stage in the cuarteto branch, with buzzing carnival pitos providing pitch cues. Cádiz also sustains harmonized comparsas, guitar-and-percussion chirigotas and plucked-string coros, each with its own repertoire and ensemble practice.",
+      "exemplars": [
+        "Cádiz chirigotas",
+        "Cádiz comparsas",
+        "Cádiz coros",
+        "Cádiz cuartetos"
+      ]
+    },
+    {
+      "id": "pop_electronico",
+      "name": "Pop Electrónico",
+      "family": "pop",
+      "lineage": "Pop electrónico connects Spanish-language songwriting with synthesized textures, programmed accompaniment and electronic performance. Its Latin American and diaspora scenes span intimate trip-hop-influenced songs, dance-oriented pop and more expansive live arrangements.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_synthesizer_unspecified",
+        "credited_programming_unspecified"
+      ],
+      "description": "A melodic vocal line moves through synthesized layers and programmed accompaniment. Textured electronic layers connect intimate singing with the movement of dance-oriented pop.",
+      "exemplars": [
+        "Shan Batiste",
+        "Ibiza Pareo",
+        "Javiera Mena"
+      ]
+    },
+    {
+      "id": "dark_minimal_techno",
+      "name": "Dark minimal techno",
+      "family": "electronic",
+      "lineage": "Dark minimal techno develops sparse, ominous club music through independent production and label communities. Plazma Records and related artists combine restrained rhythmic repetition with unusual recorded sounds, dissonant details and carefully spaced electronic figures.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Small loops, sampled transients and synthesizer patterns leave pronounced spaces between events. Gradual changes in filtering, repetition and placement sustain an uneasy atmosphere without requiring a dense wall of distortion.",
+      "exemplars": [
+        "Planctophob",
+        "Rausch&Metrik",
+        "Chris Corner"
+      ]
+    },
+    {
+      "id": "dutch_drill",
+      "name": "Dutch Drill",
+      "family": "hip_hop",
+      "lineage": "Dutch drill developed through local rap networks and exchanges with British and American drill. Amsterdam and Rotterdam performers use neighborhood references, Dutch speech and varied personal subjects, with direct street rap and more melodic crossover approaches coexisting.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic verses ride ominous produced beats, with sharply placed drum attacks and spaces that emphasize the rapper’s cadence. Local slang and neighborhood references shape the delivery; some artists favor melodic hooks or dance-oriented crossover arrangements.",
+      "exemplars": [
+        "73 De Pijp",
+        "Qlas & Blacka"
+      ]
+    },
+    {
+      "id": "polish_trap",
+      "name": "Polish Trap",
+      "family": "hip_hop",
+      "lineage": "Polish trap connects local MCs and producers with international trap production and contemporary Polish rap. Online circulation and collaborations support a broad field, from direct verse-led delivery to melodic hooks and crossover songs.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rap cadence and repeated phrases move against produced rhythmic and tonal backing. Direct verses coexist with melodic delivery and electronic textures; producers vary the density, mood and placement of the beat around the voice.",
+      "exemplars": [
+        "Kaz Bałagane",
+        "Kubi Producent",
+        "Young Igi"
+      ]
+    },
+    {
+      "id": "soda_pop",
+      "name": "Soda Pop",
+      "family": "pop",
+      "lineage": "Soda pop gathers romantic vocal-group pop and its revival performers, drawing especially on doo-wop and early rhythm-and-blues harmonies. Lead melodies, answering voices and repeated backing syllables carry compact songs; contemporary vocal ensembles keep this repertoire in circulation alongside historical recordings.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Interlocking lead and backing voices shape tuneful, harmony-led songs with rhythmic vocables and recurring refrains. A cappella groups emphasize the blend and conversational exchange of the voices, while related recordings also use instrumental rhythm sections.",
+      "exemplars": [
+        "The Velvet Candles",
+        "The Royal Jesters",
+        "Norman Fox & The Rob-Roys"
+      ]
+    },
+    {
+      "id": "deep_pop_edm",
+      "name": "Deep Pop EDM",
+      "family": "electronic",
+      "lineage": "Deep Pop EDM is a melodic dance-pop discovery field connecting electronic producers, songwriters and featured singers. Catchy melodies and relaxed house-inflected movement coexist with acoustic instrumental colors and radio-oriented arrangements.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "saxophone",
+        "credited_programming_unspecified"
+      ],
+      "description": "A clear vocal melody sits among gentle piano figures, lyrical saxophone lines and electronic accompaniment. The balance favors memorable melodic phrases and an approachable dance pulse, while other artists emphasize different acoustic and electronic colors.",
+      "exemplars": [
+        "Marcus Mouya",
+        "Hogland",
+        "Lucas Estrada"
+      ]
+    },
+    {
+      "id": "twee_indie_pop",
+      "name": "Twee Indie Pop",
+      "family": "pop",
+      "lineage": "Twee indie pop links small-label guitar-pop songs, understated vocals and bright melodic hooks across international independent scenes. Its discovery repertoire connects older DIY releases with later bands and collaborations, sharing the intimate scale and melodic directness associated with twee pop.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Clear guitar figures, bass and a modest drum backbeat frame an unshowy lead vocal. Melodic details and concise song forms take priority over spectacle, while the wider field also includes acoustic collaborations and richer studio arrangements.",
+      "exemplars": [
+        "Charming",
+        "Boy Crazy",
+        "Holiday Flyer"
+      ]
+    },
+    {
+      "id": "deep_big_room",
+      "name": "Deep Big Room",
+      "family": "electronic",
+      "lineage": "Deep big room gathers a deeper discovery cohort of festival-oriented electronic producers. Strong melodic hooks, staged builds and forceful drops connect big-room house with trance and progressive-house influences, circulating through releases, remixes and mixed programmes.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Bright leads, emphatic kick patterns and build-and-release phrasing give the repertoire its large-scale dance energy. Recorded mixing links selections into longer programmes, including club and exercise settings.",
+      "exemplars": [
+        "Stefan Bors",
+        "G-Sus",
+        "THRML"
+      ]
+    },
+    {
+      "id": "czsk_electropop",
+      "name": "czsk electropop",
+      "family": "electronic",
+      "lineage": "CZSK Electropop connects Czech and Slovak electronic-pop artists, from independent synthesizer projects to singer-led productions. Local radio, clubs and cross-border collaborations bring together Czech, Slovak and English-language songs.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "credited_programming_unspecified"
+      ],
+      "description": "A sung melody moves against synthesizer hooks and programmed rhythm. Retro electronic colors coexist with contemporary production, visual presentation and varied song forms; acoustic and more experimental approaches also appear within the field.",
+      "exemplars": [
+        "Giudi",
+        "Fallgrapp",
+        "FVLCRVM"
+      ]
+    },
+    {
+      "id": "melanesian_pop",
+      "name": "Melanesian Pop",
+      "family": "pop",
+      "lineage": "Melanesian pop connects popular-song communities across Papua New Guinea, the Solomon Islands and neighboring Pacific networks. Touring singers and bands combine local languages and melodies with reggae, R&B and other contemporary song styles.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "electronic_keyboard_unspecified",
+        "credited_auxiliary_percussion"
+      ],
+      "description": "Lead and supporting voices meet guitar, bass, keyboards and percussion in a dance-oriented band setting. Repeating song phrases and relaxed or lively grooves carry local language and identity across an active regional touring circuit.",
+      "exemplars": [
+        "Sharzy",
+        "Funky and Rushy",
+        "Twin Tribes"
+      ]
+    },
+    {
+      "id": "marathi_hip_hop",
+      "name": "Marathi hip hop",
+      "family": "hip_hop",
+      "lineage": "Marathi hip hop gives Maharashtra’s regional language and local experiences a place within Indian rap. Artists such as Sambata build on international hip-hop influences while using Marathi vernaculars to express neighborhood identity, personal ambition and social criticism.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Rhythmic verses and emphatic phrasing move over producer-built beats. Repeated drum patterns, edited samples and contrasting backing textures support rhyme, flow and narrative, while collaborations connect local voices to wider Indian hip-hop production.",
+      "exemplars": [
+        "Sambata"
+      ]
+    },
+    {
+      "id": "study_beats",
+      "name": "Study Beats",
+      "family": "electronic",
+      "lineage": "Study beats developed within online instrumental hip-hop listening, where beatmakers, labels and streaming channels connect relaxed grooves with studying and everyday concentration. Chillhop and its collaborators helped circulate this listening culture through curated streams, compilations and producer exchanges.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "software_sample_playback",
+        "credited_programmed_drums_unspecified"
+      ],
+      "description": "Repeating sampled phrases and carefully spaced drum patterns create a steady instrumental backdrop. Jazz and soul colours, soft melodic fragments and restrained changes are common, while producers also develop original compositions. The music can reward attentive listening as well as accompany study.",
+      "exemplars": [
+        "Philanthrope",
+        "Moods",
+        "Chillhop Music"
+      ]
+    },
+    {
+      "id": "greek_fem_rap",
+      "name": "Greek Fem Rap",
+      "family": "hip_hop",
+      "lineage": "Greek fem rap brings women-led rap and feminist organizing into Greece’s wider hip-hop communities. Independent recordings, collective performances and local networks connect personal testimony, social criticism and changing approaches to beat-making.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic verses, punchlines and repeated vocal phrases move over produced beats. Direct speech-like delivery can open into melodic hooks, while arrangements range from sparse rap backing to more elaborate electronic and traditional influences.",
+      "exemplars": [
+        "Aeon",
+        "0-100 seirene",
+        "Aria"
+      ]
+    },
+    {
+      "id": "deep_discofox",
+      "name": "Deep Discofox",
+      "family": "electronic",
+      "lineage": "Deep discofox is a discovery label within German-language party and Schlager music. Familiar vocal hooks, recurring dance rhythms and festive refrains connect its performers to discofox dancing, party releases and club DJ programmes.",
+      "parent": "electronicDance.continental",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Direct melodies and steady dance patterns keep the repertoire accessible for communal celebration and partner dancing. DJs connect songs through mixed sets, while party-oriented recordings share space with Schlager and popular dance music.",
+      "exemplars": [
+        "DJ MucMike",
+        "Jäger DJ Alex"
+      ]
+    },
+    {
+      "id": "dutch_indie",
+      "name": "Dutch Indie",
+      "family": "rock",
+      "lineage": "Dutch indie connects independent musicians, small labels and live venues across the Netherlands. DIY collaboration links guitar bands with folk, electronic pop and more experimental songwriting; labels such as Snowstar and international showcases help these overlapping local networks reach listeners abroad.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Interlocking guitars, bass and drums can support conversational vocals, melodic refrains and deliberately rough edges. Other branches favor intimate folk or electronic textures. Collaboration and independent circulation connect the field without imposing one language, ensemble or production style.",
+      "exemplars": [
+        "Lewsberg",
+        "I Am Oak",
+        "De Toegift"
+      ]
+    },
+    {
+      "id": "hjemmesnekk",
+      "name": "Hjemmesnekk",
+      "family": "pop",
+      "lineage": "Hjemmesnekk is the participatory song-making strand of Norwegian russetid. Graduation groups write and record their own identities into songs, sometimes making the backing themselves and often collaborating with professional producers. The finished recordings circulate at celebrations and through streaming platforms.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        -1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Catchy sung refrains, personal group lyrics and a produced rhythmic backing connect collective participation with studio songcraft. Singers record repeated takes and producers shape the vocal balance, pitch and arrangement; the music can borrow from dance, pop and rap rather than requiring a single beat style.",
+      "exemplars": [
+        "Mike Parda",
+        "Norwegian House Mafia",
+        "Russesnekk producer network"
+      ]
+    },
+    {
+      "id": "belarusian_hip_hop",
+      "name": "Belarusian Hip Hop",
+      "family": "hip_hop",
+      "lineage": "Belarusian hip hop connects local and diaspora rap communities through Belarusian- and Russian-language writing. International hip-hop influences meet neighborhood experience, personal reflection and changing social contexts, with artists moving between underground releases and wider popular circulation.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic spoken verses ride producer-built beats, leaving space for rhyme, accent and personal narrative. Some artists emphasize Belarusian vernacular expression, while melodic collaborations and live-band experiments widen the field.",
+      "exemplars": [
+        "лайтовы",
+        "Никита Мастяк"
+      ]
+    },
+    {
+      "id": "rap_regio",
+      "name": "Rap Regio",
+      "family": "hip_hop",
+      "lineage": "Rap regio connects Monterrey and its surrounding communities through local MCs, studios, producers and independent releases. Neighborhood networks and collaborations have sustained both lyrical rap and changing electronic production practices.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic verses, personal narratives and local expressions move over producer-built beats. Repetition and contrasting backing textures support rhyme and flow, while the regional scene embraces multiple production approaches.",
+      "exemplars": [
+        "Siervo",
+        "Sociedad de Cerdos"
+      ]
+    },
+    {
+      "id": "gothic_alternative",
+      "name": "gothic alternative",
+      "family": "rock",
+      "lineage": "Gothic Alternative brings together alternative-rock and metal artists whose songs combine emotive singing with heavier guitar textures. The discovery field overlaps gothic rock and gothic metal while also including melodic hard-rock, acoustic and electronically produced branches.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "upright_piano"
+      ],
+      "description": "A melodic lead voice contrasts with overdriven guitar lines, a grounded bass pulse and a firm drum backbeat. Piano chords can support quieter passages or reinforce the harmony as the band builds in intensity.",
+      "exemplars": [
+        "EarlyRise"
+      ]
+    },
+    {
+      "id": "aesthetic_rap",
+      "name": "Aesthetic Rap",
+      "family": "hip_hop",
+      "lineage": "Aesthetic rap developed through online rap communities, SoundCloud releases and collaborative Discord networks. Its artists connect internet imagery and short, memorable tracks with varied approaches to sample-based production.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Restrained rhythmic voices contrast with bright sampled melodies and hard drum patterns. Other branches favor hazy production and reverberant vocals; internet circulation links these approaches without making every recording sound alike.",
+      "exemplars": [
+        "1nonly",
+        "lilbubblegum"
+      ]
+    },
+    {
+      "id": "libyan_hip_hop",
+      "name": "Libyan Hip Hop",
+      "family": "hip_hop",
+      "lineage": "Libyan hip hop joins local MCs and producers with diaspora collaborators. Rhythmic Arabic writing has carried personal experience, public criticism and changing hopes, while studio networks connect artists in Libya with the wider North African scene.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Direct rap phrasing rides producer-built beats and repeating rhythmic foundations. Language, flow and lyrical viewpoint shape the delivery; some projects also bring local instruments into the production, widening the field without prescribing one ensemble.",
+      "exemplars": [
+        "MC SWAT",
+        "Tika",
+        "Ibn Thabit"
+      ]
+    },
+    {
+      "id": "russian_trap_metal",
+      "name": "Russian Trap Metal",
+      "family": "hip_hop",
+      "lineage": "Russian trap metal connects aggressive rap delivery and metal-influenced vocal intensity with producer-built beats. Artists in Russia and the diaspora use online releases and collaborations to move between trap, heavy electronic music and metal aesthetics.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Forceful bars and screams sit above hard rhythmic production. Vocal distortion and abrupt changes can heighten the tension, while beatmakers shape the backing through varied electronic methods; individual tracks may add guitars or other layers.",
+      "exemplars": [
+        "n0trixx",
+        "Sagath",
+        "LAZZY2WICE"
+      ]
+    },
+    {
+      "id": "glitch_beats",
+      "name": "Glitch Beats",
+      "family": "electronic",
+      "lineage": "Glitch beats brings finely edited rhythms and synthetic sound design into experimental electronic production. Its discovery community spans intimate studio composition, beat-oriented pieces and manipulated digital textures.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "apple_es2_software_synth",
+        "midi_programmed_sound_unspecified"
+      ],
+      "description": "Short synthesized tones and intricately placed rhythmic events create patterns that shift between groove and interruption. Detailed software editing lets small attacks, pauses and timbral changes shape the arrangement.",
+      "exemplars": [
+        "Aeriae"
+      ]
+    },
+    {
+      "id": "taiwanese_indie",
+      "name": "Taiwanese Indie",
+      "family": "rock",
+      "lineage": "Taiwanese Indie is an overlapping independent-song discovery category spanning rock, folk and experimental band practice. The selected Sorry Youth approach brings three singing members together with electric guitar, bass and drums; regional-language song is one documented practice within the broader independent scene.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Independent songs combine personal expression, everyday imagery and varied rock, folk and experimental textures. This representative live-band arrangement retains group singing, clean electric guitar, bass and drums. Taiwan Indie and Taiwanese Indie overlap as scene terms and named discovery cohorts; no exclusive language or universal stylistic boundary is asserted.",
+      "exemplars": [
+        "Sorry Youth",
+        "Lilium",
+        "Kid King"
+      ]
+    },
+    {
+      "id": "flamenco_fusion",
+      "name": "Flamenco Fusion",
+      "family": "global",
+      "lineage": "Flamenco fusion extends flamenco singing, guitar and dance through contemporary composition and cross-cultural collaboration. Acoustic companies and larger amplified ensembles coexist, connecting Andalusian musical vocabulary with new theatrical and popular-music settings.",
+      "parent": "functionalSong.iberian",
+      "axes": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        -1,
+        1,
+        2,
+        -1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "flamenco_guitar",
+        "credited_auxiliary_percussion",
+        "flamenco_zapateado_shoes"
+      ],
+      "description": "Ornamented singing and sharply articulated guitar interweave with percussion and the dancer’s rhythmic footwork. Contrasting vocal passages and instrumental responses create a theatrical dialogue, while contemporary arrangements can draw on a wider palette.",
+      "exemplars": [
+        "Siudy Garrido",
+        "José Luis de la Paz"
+      ]
+    },
+    {
+      "id": "redneck",
+      "name": "Redneck",
+      "family": "hip_hop",
+      "lineage": "Redneck is a discovery label connecting rural Southern rap, country crossover and related rock performers. Storytelling about backroads, working life and outdoor gatherings links much of this repertoire, while MC-and-DJ performances coexist with expanded live bands.",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "In the MC-and-DJ branch, rhythmic storytelling is carried by recorded beats and country-inflected backing. The live lead remains separate from the mixed accompaniment, preserving its embedded instrumental and vocal material.",
+      "exemplars": [
+        "Big Smo",
+        "Colt Ford",
+        "The Lacs"
       ]
     }
   ]
