@@ -5,7 +5,7 @@
   "lineage": "Contemporary jangle pop carries bright interlocking electric-guitar figures and melodic songwriting into independent guitar music. It continues earlier jangle traditions while absorbing lo-fi pop, dreamier textures and power-pop energy.",
   "recipe": "classic modern jangle pop, functional Song, pop rock branch. conversational, equal tempered, modern pop training. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 262,
-  "score": 95.347,
+  "score": 96.007,
   "config": {
     "traditions": [
       "modern_jangle_pop"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0.8365,
+          "voice_quality": 0.9099999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.09449999999999999,
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.0315,
+          "voice_processing_chain": 0.08549999999999999,
+          "voice_multitrack_stack": 0.08549999999999999,
           "voice_tessitura": 0
         }
       },
@@ -77,7 +77,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.0315,
-          "string_gauge": 0.8995,
+          "string_gauge": 0.9099999999999999,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.7815,
+          "drum_technique": 3.8355,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
@@ -132,8 +132,8 @@
           "bearing_edges": 1.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 22.0125,
-          "cymbal_lathing": 22.238999999999997,
+          "cymbal_hammering": 22.1925,
+          "cymbal_lathing": 22.472999999999995,
           "cymbal_finish": 0
         }
       }

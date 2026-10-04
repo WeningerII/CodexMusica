@@ -5,7 +5,7 @@
   "lineage": "PNG pop is Papua New Guinea’s contemporary popular-song field, joining local melodies and languages with rock, reggae, country-pop, R&B and other international styles.",
   "recipe": "classic png pop, functional Song. one note per syllable. clean strummed single coil electric guitar, electric bass, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio.",
   "recipe_chars": 254,
-  "score": 42.069,
+  "score": 42.195,
   "config": {
     "traditions": [
       "png_pop"
@@ -77,7 +77,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0.054,
           "string_material": 0,
-          "string_gauge": 0.126,
+          "string_gauge": 0.252,
           "bridge": 0.054,
           "scale_length": 0,
           "finish": 0,

@@ -3,14 +3,14 @@
   "name": "Hardstyle",
   "family": "electronic",
   "lineage": "Late-1990s onward Dutch hard-electronic-dance genre evolved from hardcore-techno and gabber through tempo deceleration to 150 bpm and the addition of reverse-bass kick-drum compositional convention — codified through Showtek, Headhunterz, Brennan Heart, Wildstylez, and the Q-dance festival-and-event-promotion network, with the form serving as the Dutch hard-dance commercial mainstream",
-  "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance balkan beats french touch / filter house. digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 323,
-  "score": 80.235,
+  "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance balkan beats deep discofox. digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 309,
+  "score": 42.915,
   "config": {
     "traditions": [
       "hardstyle",
       "balkan_beats",
-      "french_touch"
+      "deep_discofox"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.990000000000001,
-          "va_archetypes": 0.975,
-          "digital_subtractive_context": 22.49000000000001
+          "electronic_technique": 1.4949999999999999,
+          "va_archetypes": 0.78,
+          "digital_subtractive_context": 13.519999999999998
         }
       },
       {
@@ -34,7 +34,7 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 4.419999999999999,
+          "tr909_voice": 0.795,
           "drum_machine_909_context": 1.885,
           "tr909_production_origin": 0.045
         }
@@ -43,17 +43,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.105,
-          "sampler_archetypes": 1.625,
-          "sampler_bit_depth": 2.2099999999999995,
+          "electronic_technique": 0.06499999999999999,
+          "sampler_archetypes": 1.54,
+          "sampler_bit_depth": 0.5700000000000001,
           "sampler_workflow": 0.325,
-          "sampler_classic_context": 31.752500000000012
+          "sampler_classic_context": 18.72
         }
       }
     ],

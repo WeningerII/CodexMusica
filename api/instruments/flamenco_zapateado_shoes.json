@@ -1,0 +1,220 @@
+{
+  "id": "flamenco_zapateado_shoes",
+  "name": "Flamenco zapateado shoes",
+  "short": "flamenco shoes",
+  "family": "percussion",
+  "class": "foot_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "zapateado_upper",
+      "name": "Footwear upper",
+      "variants": [
+        {
+          "id": "zapateado_leather_upper",
+          "name": "Leather upper",
+          "descriptors": [],
+          "match_tokens": [],
+          "default": true
+        },
+        {
+          "id": "zapateado_suede_upper",
+          "name": "Suede upper",
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "zapateado_upper_unspecified",
+          "name": "Upper material unspecified",
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "zapateado_striking_construction",
+      "name": "Sounding sole and heel",
+      "variants": [
+        {
+          "id": "zapateado_clavos_firm_sole",
+          "name": "Firm leather sole with clustered heel and toe nails; sturdy heel",
+          "descriptors": [],
+          "match_tokens": [],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "zapateado_action",
+      "name": "Foot striking action",
+      "variants": [
+        {
+          "id": "zapateado_mixed_footwork",
+          "name": "Alternating ball, heel and whole-foot strikes",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": [],
+          "default": true
+        },
+        {
+          "id": "zapateado_heelwork",
+          "name": "Heel strikes",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "zapateado_flat_strikes",
+          "name": "Whole-foot strikes",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "zapateado_action_unspecified",
+          "name": "Striking sequence unspecified",
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "zapateado_surface",
+      "name": "Floor construction",
+      "variants": [
+        {
+          "id": "zapateado_surface_unspecified",
+          "name": "Floor construction unspecified",
+          "descriptors": [],
+          "match_tokens": [],
+          "default": true
+        },
+        {
+          "id": "zapateado_wood_floor",
+          "name": "Wooden performance floor",
+          "descriptors": [
+            "wood-floor"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Purpose-built flamenco footwear sounded by the dancer: firm soles and small clustered nails at heel and toe provide percussive articulation. This differs physically from tap-shoe plates, wooden clogs and generic boot stomping. Register and dynamics are representative editorial coordinates, not measurements. Floor type can remain unknown.",
+  "sources": [
+    "https://www.siudyflamenco.org/blog/flamenco-shoes-guide",
+    "https://flamenco-vivo.org/wp-content/uploads/2017/09/Flamenco-Vivo-Performance-Guide.pdf",
+    "https://www.flamencoexport.com/flamenco-shoes"
+  ],
+  "_ownParts": [
+    {
+      "id": "zapateado_upper",
+      "name": "Footwear upper",
+      "variants": [
+        {
+          "id": "zapateado_leather_upper",
+          "name": "Leather upper",
+          "descriptors": [],
+          "match_tokens": [],
+          "default": true
+        },
+        {
+          "id": "zapateado_suede_upper",
+          "name": "Suede upper",
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "zapateado_upper_unspecified",
+          "name": "Upper material unspecified",
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "zapateado_striking_construction",
+      "name": "Sounding sole and heel",
+      "variants": [
+        {
+          "id": "zapateado_clavos_firm_sole",
+          "name": "Firm leather sole with clustered heel and toe nails; sturdy heel",
+          "descriptors": [],
+          "match_tokens": [],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "zapateado_action",
+      "name": "Foot striking action",
+      "variants": [
+        {
+          "id": "zapateado_mixed_footwork",
+          "name": "Alternating ball, heel and whole-foot strikes",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": [],
+          "default": true
+        },
+        {
+          "id": "zapateado_heelwork",
+          "name": "Heel strikes",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "zapateado_flat_strikes",
+          "name": "Whole-foot strikes",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "zapateado_action_unspecified",
+          "name": "Striking sequence unspecified",
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "zapateado_surface",
+      "name": "Floor construction",
+      "variants": [
+        {
+          "id": "zapateado_surface_unspecified",
+          "name": "Floor construction unspecified",
+          "descriptors": [],
+          "match_tokens": [],
+          "default": true
+        },
+        {
+          "id": "zapateado_wood_floor",
+          "name": "Wooden performance floor",
+          "descriptors": [
+            "wood-floor"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}
