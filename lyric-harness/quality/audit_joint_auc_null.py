@@ -330,7 +330,7 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
 # instrument that cannot fire and an instrument that fired and found nothing
 # are different results, and collapsing them is a false negative dressed as a
 # finding. `--check` names the missing coordinate and exits 2, the code this
-# repo already uses for a refusal (CLAUDE.md's `brief`/`verify`/`revise`).
+# repo already uses for a refusal (HANDBOOK.md's `brief`/`verify`/`revise`).
 #
 # Doctrine 58 for all of it: argue these and repin with the date; do not tune
 # the measurement to meet them.

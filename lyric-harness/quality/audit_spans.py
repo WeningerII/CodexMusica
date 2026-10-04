@@ -599,7 +599,7 @@ def sweep_record(lex, decl, verbose=True):
 #: violation. ~~violations 82~~ -> 35 and ~~violations_claimed 36~~ -> 7
 #: (doctrine 17 — the superseded values stay visible).
 #:
-#: THE MOVE IS ONE-DIRECTIONAL AND ALREADY ACCOUNTED FOR ELSEWHERE: CLAUDE.md's
+#: THE MOVE IS ONE-DIRECTIONAL AND ALREADY ACCOUNTED FOR ELSEWHERE: HANDBOOK.md's
 #: Test discipline records the same 82 -> 35 as **47 pairs stopped violating, 0
 #: newly violated, being 38 CONSONANCE and 9 ASSONANCE**, and 82 - 47 = 35
 #: exactly. So this is a SECOND instrument reproducing the battery's own
@@ -624,7 +624,7 @@ def sweep_record(lex, decl, verbose=True):
 #: exited 0 while printing that 382 of 1014 report lines name a pair that did
 #: not produce their number. A check that cannot fail is decoration
 #: (doctrine 48) -- the same defect found in `verify_doctrines.py`'s
-#: contiguity check the same day, and this instrument is the one CLAUDE.md
+#: contiguity check the same day, and this instrument is the one HANDBOOK.md
 #: calls adversary 7, so it is the worst place in the layer to have it.
 #: Doctrine 58: these are thresholds nobody wrote down until now. Argue them
 #: and repin; do not tune anything to meet them.
@@ -649,7 +649,7 @@ def sweep_record(lex, decl, verbose=True):
 #: `--write-oracle` into both oracle records.
 #: RE-MEASURED the same day after `nucleus_agreement` became "licensed":
 #: 958/106/7 -> 936/128/9, claimed 600 -> 586, ties 109 -> 108.
-#: REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
+#: REPINNED 2026-10-01, THE ANY-READING RULE (HANDBOOK.md standing rule 5):
 #: the 71 pairs that refused only because their readings disagreed are
 #: judged. 936/128/9 -> 1007/57/15; claimed 586 -> 631, ties 108 -> 121
 #: (the judged denominator grew by 71); violations_claimed 1 -> 4 and
@@ -662,7 +662,7 @@ PINNED = {
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
-    #: violating, 0 newly violate; CLAUDE.md's Test discipline carries the
+    #: violating, 0 newly violate; HANDBOOK.md's Test discipline carries the
     #: same ladder, so this stays a second instrument reproducing the
     #: battery's figure rather than a file tuned to it); 14 since the
     #: near-relation pricing cut ASSONANCE at 0.82 (M-138, 2026-09-02 —

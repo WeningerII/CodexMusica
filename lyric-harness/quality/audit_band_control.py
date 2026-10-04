@@ -6,7 +6,7 @@ THE CLAIMS UNDER AUDIT
       Whitman, 150 lines, theta 0.82: 26.0% -> 20.0% lines captured in chains.
       "This is the number the fitted matrix went the wrong way on, and it is
        why the band is shipped as the default while the matrix is not."
-  CLAUDE.md, test discipline: "Whitman 20.0% chained at theta 0.82, down from
+  HANDBOOK.md, test discipline: "Whitman 20.0% chained at theta 0.82, down from
       26.0%: the band tightened the negative control, which is why it ships
       and the fitted matrix does not."
   quality/RESULTS_MATRIX.md, P5 table, hand-set rows: 20.0% at theta 0.82 and
@@ -68,7 +68,7 @@ ONE STATISTIC, TWO MEANINGS -- read the column header, not the sign.
   This report prints TWO excesses and the record has been quoting both under
   the single word "excess":
     * EXCESS over the null MEDIAN -- the +6.7 / +3.3 / +9.3 / +5.3 series
-      that CLAUDE.md, METHOD § doctrine 71 and RESULTS_NULL_SHAPES.md §1.3
+      that HANDBOOK.md, METHOD § doctrine 71 and RESULTS_NULL_SHAPES.md §1.3
       all track. A median is a location estimate; it is stable in n.
     * EXCESS over the null MAX -- the +17.9 pp METHOD § doctrine 71 cites for
       the sonnets. A MAX is an EXTREMUM: it grows with the replicate count,
@@ -362,7 +362,7 @@ def main(n=200):
 #: AND AGAIN THE SAME DAY when `nucleus_agreement` became "licensed": the
 #: band's nucleus channel is a predicate now, so band ON again drops edges band
 #: OFF keeps — whitman on ~~36~~ 27, sonnet on ~~441~~ 431; OFF rows held.
-#: REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5: a
+#: REPINNED 2026-10-01, THE ANY-READING RULE (HANDBOOK.md standing rule 5: a
 #: small word may be sung stressed). ALL FOUR CAPTURE COUNTS MOVED, BOTH ARMS,
 #: and the localiser's third cell -- the scorer's INPUT, not the band -- is
 #: where: `infer_chains` reads `line_anchors(lex, line)`, whose default now
@@ -417,7 +417,7 @@ def preconditions():
     comparator, without the Whitman anchor there is no recorded slice, without
     the sonnets there is no matched positive corpus. `--check` names the
     missing one and exits 2 -- the code this repo already uses for a refusal
-    (CLAUDE.md's `brief`/`verify`/`revise`) -- rather than raising three frames
+    (HANDBOOK.md's `brief`/`verify`/`revise`) -- rather than raising three frames
     down or, worse, reporting a PASS on an arm that never ran.
     """
     out = []

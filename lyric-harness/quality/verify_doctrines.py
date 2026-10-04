@@ -780,7 +780,7 @@ def references():
 def definitions():
     """-> {number: [relpath, ...]} across the two doctrine files."""
     out = {}
-    for rel in ("CLAUDE.md", "quality/METHOD.md"):
+    for rel in ("HANDBOOK.md", "quality/METHOD.md"):
         path = os.path.join(ROOT, rel)
         if not os.path.exists(path):
             continue
@@ -800,7 +800,7 @@ def definitions():
 
 def gap_check():
     """`known gap N` must still resolve against CLAUDE.md's own list."""
-    claude = open(os.path.join(ROOT, "CLAUDE.md"), encoding="utf-8").read()
+    claude = open(os.path.join(ROOT, "HANDBOOK.md"), encoding="utf-8").read()
     body = claude.split("## Known gaps, priority order")[1].split("\n## ")[0]
     defined = {int(m.group(1)) for m in DEF.finditer(body)}
     cited = set()
@@ -881,7 +881,7 @@ def _verdict(dtitle, ititle, skip=()):
 def def_titles():
     """-> ({n: (rel, part, title)}, problems) for both doctrine files."""
     out, problems = {}, []
-    for rel in ("CLAUDE.md", "quality/METHOD.md"):
+    for rel in ("HANDBOOK.md", "quality/METHOD.md"):
         text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
         parts = [(m.start(), m.group(1)) for m in METHOD_PART.finditer(text)]
         for run in re.finditer(
@@ -897,7 +897,7 @@ def def_titles():
                         f"`**` is probably missing. Not compared.")
                     continue
                 pos = off + m.start()
-                part = "W" if rel == "CLAUDE.md" else None
+                part = "W" if rel == "HANDBOOK.md" else None
                 for start, letter in parts:
                     if start < pos:
                         part = letter
@@ -907,7 +907,7 @@ def def_titles():
 
 def index_rows():
     """-> ({n: (letter, title)}, problems), read only from the index section."""
-    text = open(os.path.join(ROOT, "CLAUDE.md"), encoding="utf-8").read()
+    text = open(os.path.join(ROOT, "HANDBOOK.md"), encoding="utf-8").read()
     if INDEX_HEAD not in text:
         return {}, [f"CLAUDE.md carries no `{INDEX_HEAD}` section, so the "
                     f"index cannot be checked at all."]
@@ -945,7 +945,7 @@ def index_check(defs):
         letter, ititle = rows[n]
         rel, part, dtitle = dt[n]
         if part != letter:
-            where = "CLAUDE.md" if letter == "W" else f"METHOD part {letter}"
+            where = "HANDBOOK.md" if letter == "W" else f"METHOD part {letter}"
             problems.append(
                 f"doctrine {n}: the index says `{letter}` ({where}) and the "
                 f"definition is in {rel}"
@@ -1016,7 +1016,7 @@ def write_baseline():
             "commit_subject": "CHECKPOINT: cell K's Syllable change, in "
                               "progress and not yet reported",
             "commit_date": "2026-08-11",
-            "path": "lyric-harness/CLAUDE.md",
+            "path": "lyric-harness/HANDBOOK.md",
             "why": "the commit immediately before d11ca0a, 'Split the doctrine "
                    "file: 20 for writing, 75 for method, numbering intact' -- "
                    "the last tree in which every doctrine was defined in one "

@@ -638,16 +638,16 @@ def doctrines():
                          % (n, [i for i in range(1, max(run) + 1)
                                 if i not in defs]))
     gap_defined, _ = VD.gap_check()
-    claude = open(os.path.join(ROOT, "CLAUDE.md"), encoding="utf-8").read()
+    claude = open(os.path.join(ROOT, "HANDBOOK.md"), encoding="utf-8").read()
     bare = len(re.findall(r"^\d+\. \*\*", claude, re.M))
     cell = ("**%d**, a contiguous run 1–%d with no number in both files "
-            "(%d in `CLAUDE.md`, %d in `quality/METHOD.md`)"
-            % (n, n, per.get("CLAUDE.md", 0), per.get("quality/METHOD.md", 0)))
+            "(%d in `HANDBOOK.md`, %d in `quality/METHOD.md`)"
+            % (n, n, per.get("HANDBOOK.md", 0), per.get("quality/METHOD.md", 0)))
     ev = ("`known gap N` is a SEPARATE numbering, 1–%d, %d items — not part of "
-          "the run. CLAUDE.md's bare `^N. **` count is %d = %d doctrines + %d "
+          "the run. HANDBOOK.md's bare `^N. **` count is %d = %d doctrines + %d "
           "known gaps, which is where the recorded 27 (and so 102) came from."
           % (max(gap_defined), len(gap_defined), bare,
-             per.get("CLAUDE.md", 0), bare - per.get("CLAUDE.md", 0)))
+             per.get("HANDBOOK.md", 0), bare - per.get("HANDBOOK.md", 0)))
     return Answered(cell, ev)
 
 
