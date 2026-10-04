@@ -40348,5 +40348,26 @@
     104.19,
     "China",
     "East Asia"
-  ]
+  ],
+  "deep_progressive_house": [43.6532,-79.3832,"Toronto","North America"],
+  "assamese_hip_hop": [26.1445,91.7362,"Guwahati","South Asia"],
+  "azeri_rap": [40.4093,49.8671,"Baku","Caucasus & Central Asia"],
+  "canadian_drill": [45.5019,-73.5674,"Montreal","North America"],
+  "gulf_hip_hop": [25.2048,55.2708,"Dubai","Middle East"],
+  "indonesian_trap": [-6.2088,106.8456,"Jakarta","Southeast Asia"],
+  "kyrgyz_hip_hop": [42.8746,74.5698,"Bishkek","Caucasus & Central Asia"],
+  "myanmar_hip_hop": [16.8409,96.1735,"Yangon","Southeast Asia"],
+  "pinoy_drill": [14.5995,120.9842,"Manila","Southeast Asia"],
+  "sichuanese_hip_hop": [30.5728,104.0668,"Chengdu","East Asia"],
+  "thai_trap": [13.6906,100.484,"Chom Thong, Bangkok","Southeast Asia"],
+  "ua_trap": [49.8397,24.0297,"Lviv","Europe"],
+  "gaddiyali_pop": [32.219,76.3234,"Dharamsala","South Asia"],
+  "pop_romantico": [-33.4489,-70.6693,"Santiago","Latin America & Caribbean"],
+  "sepedi_pop": [-23.9045,29.4689,"Polokwane","Africa"],
+  "thai_viral_pop": [13.7563,100.5018,"Bangkok","Southeast Asia"],
+  "kurdish_remix": [37.9144,40.2306,"Diyarbakır","Asia"],
+  "lo_fi_latino": [34.0522,-118.2437,"Los Angeles","North America"],
+  "maimouna": [5.36,-4.0083,"Abidjan","Africa"],
+  "musique_urbaine_brazzaville": [-4.2634,15.2429,"Brazzaville","Africa"],
+  "reading": [60,8,"Norway","Europe"]
 }
