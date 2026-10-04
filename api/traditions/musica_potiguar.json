@@ -5,7 +5,7 @@
   "lineage": "Music of Rio Grande do Norte, including popular songwriting and Brazilian-jazz interpretation.",
   "recipe": "classic música potiguar, improv On Frame, Latin jazz branch. solo with instrumental accompaniment. grand piano, upright bass, bronze bell bronze brushes drum kit. live tracking.",
   "recipe_chars": 177,
-  "score": 29.523,
+  "score": 29.67,
   "config": {
     "traditions": [
       "musica_potiguar"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -67,7 +67,7 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.0945,
+          "grand_piano_size": 0.063,
           "grand_piano_brand": 0.3315,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
@@ -109,9 +109,9 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0945,
           "shell_thickness": 0,
-          "bearing_edges": 0.1995,
+          "bearing_edges": 0.3045,
           "snare_wires": 0,
-          "cymbal_alloy": 9.381499999999997,
+          "cymbal_alloy": 9.486499999999998,
           "cymbal_hammering": -0.15000000000000002,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0.0315

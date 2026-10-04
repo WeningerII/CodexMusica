@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/held16-research117/malayalam_hip_hop-cassette-final.json",
+  "packet_sha256": "d5d7c3f86b1aaa98c7d01eced461e537f21d39ac5625d023534f843ee6e70b0b",
+  "reviewer": "review461",
+  "baseline": "12c8438a50527b5df6ba8eb63a880a9fc025b78d",
+  "immutable_five_fields": "Exact values and types match immutable allocation391/016",
+  "primary_review": [
+    {
+      "url": "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html",
+      "ref": "turn15457view0",
+      "finding": "Full founder firsthand article independently reproduced. 1999 pause-tape cut-and-paste beats plus spoken words; subsequent Malayalam-language adaptation and independent Kerala crew/network. Later soul/jazz/ambient/glitch/grime and keyboard collaborator are subsequent practices, not omitted components of this explicitly historical representative branch."
+    },
+    {
+      "url": "https://open.spotify.com/embed/playlist/0fUhZu1asF2EgEPctPsC8v",
+      "ref": "turn15457view1",
+      "finding": "Exact named creator field reproduced; Street Academics item23, The Imbachi6, Earthgrime46."
+    }
+  ],
+  "category": "Full existing desi_hip_hop, desi_trap, malayalam_pop, malayalam_indie and mappila_paattu records read. Language-community rap branch overlaps Desi umbrella without claiming it excludes Malayalam; regional practitioner history and creator field positively support label. No independent exclusive timbre requirement or invented equivalence. mcRhythm fits rhythmic words and repeated beats.",
+  "palette_and_authorship": "Rap plus genuine manual analog cassette beat construction. Present-day group rendition of documented early practice explicitly authored; no asserted1999 headcount, exact master reconstruction, later acappella backing, or digital MPC architecture. Unknown media speed/channels/processing remain meaningful separate controls. Recorded beat contents not claimed exhaustively identified.",
+  "dependency": "Five original-schema parts preserve analog medium/manual repetition and unresolved speed/channel/processing. Existing1658 merged owner objects unchanged; one new distinct production architecture. No engine/family/descriptor mutation.",
+  "controls": 22,
+  "runtime_file": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/malayalam-cassette-runtime.json",
+  "literal_review": "All four browser outputs personally read and original compiled API target-only config inspected. Voice remains unprocessed rhythmic spoken/no-pitch group/live ensemble; analog looped cassette retained. Lexicon burlesque note and tokens inspected: projected lively syncopated theatrical delivery is an authored affect compatible with this rendition; no extra brass instrument or cabaret ancestry inferred. Up-tempo cassette playback is explicitly authored brisk phrasing, not observed source speed. No source-positive contrary pacing supplied. All22 owning pins survive full staple API search.",
+  "atlas": "Original validateEntry returns no errors for Kerala/South Asia and retained coordinates.",
+  "photo": "Entry/dependency generic recording microphone context LOW; instrument kind correct in both dependency manifests. CC BY2.5 Iain Fergusson/Binksternet crop independently confirmed in turn15413view2. Exact inherited023 download/visual receipt clearly historical; no fresh byte/visual claim. Rights, attribution and changes notice preserved.",
+  "limitations": [
+    "Source approval only; addition still needs root combined global qualification and integration.",
+    "Brisk group rendition is representative authored practice, not an acoustic reconstruction of a1999 recording."
+  ],
+  "mutations": "None; packet, prior held cypher and repository unchanged."
+}

@@ -1,0 +1,143 @@
+{
+  "id": "malayalam_hip_hop",
+  "name": "Malayalam Hip Hop",
+  "family": "hip_hop",
+  "lineage": "Malayalam hip-hop developed through independent Kerala-based crews, online circulation and experimentation with the rhythms of the Malayalam language. Street Academics links early spoken-word and cassette-loop practices with later influences from jazz, soul, ambient music, glitch and grime.",
+  "recipe": "classic malayalam hip hop, mc Rhythm. rhythmic spoken flow no pitch. cassette pause tape looping. live tracking.",
+  "recipe_chars": 112,
+  "score": 10.817,
+  "config": {
+    "traditions": [
+      "malayalam_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 10.597,
+          "voice_ensemble_config": 0.0945,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.063,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "cassette_pause_tape_looping",
+        "slots": {
+          "cassette_pause_tape_looping_medium": "cassette_pause_tape_looping_medium_cassette",
+          "cassette_pause_tape_looping_repetition": "cassette_pause_tape_looping_repetition_manual_loop",
+          "cassette_pause_tape_looping_speed": "cassette_pause_tape_looping_speed_unspecified",
+          "cassette_pause_tape_looping_channels": "cassette_pause_tape_looping_channels_unspecified",
+          "cassette_pause_tape_looping_processing": "cassette_pause_tape_looping_processing_unspecified"
+        },
+        "scores": {
+          "cassette_pause_tape_looping_medium": 0,
+          "cassette_pause_tape_looping_repetition": 0.0315,
+          "cassette_pause_tape_looping_speed": 0,
+          "cassette_pause_tape_looping_channels": 0,
+          "cassette_pause_tape_looping_processing": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "cassette_pause_tape_looping": [
+        "cassette_pause_tape_looping_medium",
+        "cassette_pause_tape_looping_repetition",
+        "cassette_pause_tape_looping_speed",
+        "cassette_pause_tape_looping_channels",
+        "cassette_pause_tape_looping_processing"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "cassette_pause_tape_looping_medium": "cassette_pause_tape_looping_medium_cassette",
+      "cassette_pause_tape_looping_repetition": "cassette_pause_tape_looping_repetition_manual_loop",
+      "cassette_pause_tape_looping_speed": "cassette_pause_tape_looping_speed_unspecified",
+      "cassette_pause_tape_looping_channels": "cassette_pause_tape_looping_channels_unspecified",
+      "cassette_pause_tape_looping_processing": "cassette_pause_tape_looping_processing_unspecified"
+    },
+    "pin_parts": true
+  }
+}

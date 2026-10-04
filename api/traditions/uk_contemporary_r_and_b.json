@@ -5,7 +5,7 @@
   "lineage": "UK contemporary R&B brings soul-derived singing into dialogue with current rhythmic production, including garage and rap influences. Artists such as Jorja Smith combine personal melodic interpretation with both live ensemble and electronic arrangements.",
   "recipe": "classic modern uk contemporary r&b, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment. single coil electric guitar, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 373,
-  "score": 5.606,
+  "score": 5.614,
   "config": {
     "traditions": [
       "uk_contemporary_r_and_b"
@@ -70,7 +70,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.187125,
+          "electric_technique": 0.19500000000000003,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,

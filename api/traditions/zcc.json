@@ -5,7 +5,7 @@
   "lineage": "The Zion Christian Church’s musical culture includes communal singing, choirs, bands and distinctive dance practices. Mokhukhu at Moria combines collective song and prayer with forceful, coordinated boot stamping.",
   "recipe": "classic zcc, ritual Devotional. small note groups per syllable. stomp boot foot stomp. live tracking.",
   "recipe_chars": 101,
-  "score": 2.856,
+  "score": 2.762,
   "config": {
     "traditions": [
       "zcc"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.1575,
-          "voice_ensemble_config": 0.2205,
+          "voice_ensemble_config": 0.189,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.2205,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },

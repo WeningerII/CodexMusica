@@ -1,0 +1,7 @@
+
+=== app ≡ connector, 6781 traditions × 4 format(s) ===
+  ok   rich     6781/6781 byte-identical
+  ok   prose    6781/6781 byte-identical
+  ok   tags     6781/6781 byte-identical
+  ok   compact  6781/6781 byte-identical
+PASS — every advertised format reproduces the app Current Recipe catalog-wide (108.1s)

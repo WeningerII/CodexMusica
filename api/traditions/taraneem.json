@@ -5,7 +5,7 @@
   "lineage": "Arabic Christian hymn and devotional-song traditions, practiced in church communities and contemporary recordings. Singing communicates sacred texts through both inherited melodies and newer arrangements.",
   "recipe": "classic taraneem, ritual Devotional. small note groups per syllable. upright piano, articulate contemporary nylon plastic oud. live tracking.",
   "recipe_chars": 141,
-  "score": 3.095,
+  "score": 3.168,
   "config": {
     "traditions": [
       "taraneem"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.2205,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -78,9 +78,9 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.035,
-          "oud_school": 0.063,
+          "oud_school": 0.0945,
           "oud_strings": 0.1365,
-          "oud_pick": 1.168,
+          "oud_pick": 1.2730000000000001,
           "oud_body_wood": 0,
           "oud_soundboard_wood": 0,
           "oud_string_material": 0

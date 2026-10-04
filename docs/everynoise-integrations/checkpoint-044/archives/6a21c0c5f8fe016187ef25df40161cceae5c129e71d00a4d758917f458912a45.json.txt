@@ -1,0 +1,242 @@
+{
+  "entries": [
+    {
+      "source_label": "nova musica amazonense",
+      "source_url": "https://everynoise.com/engenremap-novamusicaamazonense.html",
+      "suggested_id": "nova_musica_amazonense",
+      "allocation_ordinal": 4040,
+      "allocation_group_id": "162",
+      "id": "nova_musica_amazonense",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "nova_musica_amazonense",
+        "name": "Nova Música Amazonense",
+        "family": "pop",
+        "lineage": "Nova música amazonense brings contemporary songwriting from Amazonas into local stages, independent releases and wider Brazilian festival circuits. Rock, MPB, R&B, rap and regional influences coexist within a scene centered on Manaus and connected to other northern cities.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Original songs combine expressive voices with acoustic accompaniment, amplified bands or electronic production. The intimate voice-and-guitar branch leaves room for clear melodic phrases and chordal movement while the wider scene embraces heavier, dance-oriented and experimental sounds.",
+        "exemplars": [
+          "Karen Francis",
+          "Luneta Mágica",
+          "The Stone Ramos"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -3.119,
+        -60.0217,
+        "Manaus",
+        "Latin America & Caribbean"
+      ],
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.manaus.am.gov.br/noticia/cultura/dia-da-musica-tera-palco-no-cafe-teatro/",
+          "support_notes": "Fresh15480search0 municipal firsthand producer interview/NoitesdoNorte festival network from brega to rock; local/interstate exchange."
+        },
+        {
+          "url": "https://capricho.abril.com.br/entretenimento/conheca-a-cantora-karen-francis-confirmada-no-primavera-sound-2022/",
+          "support_notes": "Fresh15480search7 first-person Francis interview voice-and-guitar everyday songwriting practice and Expectativa composition; not reduced studio master."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4RwE62FqRp8gLKq8UrJy2b",
+          "support_notes": "Fresh15480view0/15483view0 full100 actual community; Karen7/72, Espantalho10, Luneta14, Stone20. Shared older names retained candidly."
+        }
+      ],
+      "neighbor_distinction": "Full musica_popular_amazonense already includes contemporary popular styles and Espantalho; it is not restricted to that example or only heritage. NovaMúsicaAmazonense overlaps this regional umbrella as the actual named discovery/community and current festival-circuit tag. No exclusive sound, rigid age cutoff or novel institution required; no semantic alias inferred merely from shared artists.",
+      "model_policy": "Representative acoustic songwriting/performance branch supported by creator-linked Karen Francis’s own account of singing and guitar work. This does not reconstruct her fuller records or the distinct Sessão432Hz performance with additional vocal-pedal/doubling effects; those source contexts remain separate. Solo accompanied syllabic singing, moderate effort, single lead and unprocessed voice are authored for an acoustic song rendition. All-mahogany steel-string dreadnought,80/20 strings,standard tuning and flatpicked single-note figures outlining the harmony are editable physical choices, not observed artist gear/attack. Functional-harmonic verse–chorus–bridge organization and controlled live room are authored, not universal source structure. Regional R&B/rock/electronic branches remain in public scope. A brisk, forward-moving acoustic rendition is deliberately authored, not a measured tempo of Karen’s original recording or all regional songs.",
+      "authored_render_scope": "Representative acoustic songwriting/performance branch supported by creator-linked Karen Francis’s own account of singing and guitar work. This does not reconstruct her fuller records or the distinct Sessão432Hz performance with additional vocal-pedal/doubling effects; those source contexts remain separate. Solo accompanied syllabic singing, moderate effort, single lead and unprocessed voice are authored for an acoustic song rendition. All-mahogany steel-string dreadnought,80/20 strings,standard tuning and flatpicked single-note figures outlining the harmony are editable physical choices, not observed artist gear/attack. Functional-harmonic verse–chorus–bridge organization and controlled live room are authored, not universal source structure. Regional R&B/rock/electronic branches remain in public scope. A brisk, forward-moving acoustic rendition is deliberately authored, not a measured tempo of Karen’s original recording or all regional songs.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative acoustic songwriting/performance branch supported by creator-linked Karen Francis’s own account of singing and guitar work. This does not reconstruct her fuller records or the distinct Sessão432Hz performance with additional vocal-pedal/doubling effects; those source contexts remain separate. Solo accompanied syllabic singing, moderate effort, single lead and unprocessed voice are authored for an acoustic song rendition. All-mahogany steel-string dreadnought,80/20 strings,standard tuning and flatpicked single-note figures outlining the harmony are editable physical choices, not observed artist gear/attack. Functional-harmonic verse–chorus–bridge organization and controlled live room are authored, not universal source structure. Regional R&B/rock/electronic branches remain in public scope. A brisk, forward-moving acoustic rendition is deliberately authored, not a measured tempo of Karen’s original recording or all regional songs."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Representative acoustic songwriting/performance branch supported by creator-linked Karen Francis’s own account of singing and guitar work. This does not reconstruct her fuller records or the distinct Sessão432Hz performance with additional vocal-pedal/doubling effects; those source contexts remain separate. Solo accompanied syllabic singing, moderate effort, single lead and unprocessed voice are authored for an acoustic song rendition. All-mahogany steel-string dreadnought,80/20 strings,standard tuning and flatpicked single-note figures outlining the harmony are editable physical choices, not observed artist gear/attack. Functional-harmonic verse–chorus–bridge organization and controlled live room are authored, not universal source structure. Regional R&B/rock/electronic branches remain in public scope. A brisk, forward-moving acoustic rendition is deliberately authored, not a measured tempo of Karen’s original recording or all regional songs."
+        }
+      ],
+      "instrument_role_audit": {
+        "voice": "Positive singing practice; solo accompanied representative branch.",
+        "acoustic_guitar_dread": "Positive violão; steel-string construction and attack explicitly authored, not source measurement."
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "Every applicable owning control protected; no collision."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 1,
+        "scope": "Representative solo accompanied singing, not entire regional headcount or recording reconstruction."
+      },
+      "source_scope_limitation": "Full regional field is not acoustic-only; source singer-guitar practice is an ordinary supported branch.",
+      "source_retrieval_caveat": "Municipal and first-person artist accounts freshly indexed; exact creator corpus fresh full. No source audio audition or exact gear claim.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "nova_musica_amazonense",
+          "name": "Nova Música Amazonense",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic audio recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh15461view3 confirms original/crop attribution and CC BY2.5.",
+          "fresh_review_ref": "turn15461view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15461view3"
+        ],
+        "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
+      },
+      "geo_rationale": "Documented regional festival and music-community center, not universal performer birthplace."
+    }
+  ],
+  "instrument_dependencies": []
+}

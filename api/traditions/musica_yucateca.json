@@ -2,10 +2,10 @@
   "id": "musica_yucateca",
   "name": "Música yucateca",
   "family": "vernacular",
-  "lineage": "Hermanitas Pech Bolio — opening intimate duo segment, Entre Cuerdas y Tradición (30May2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Music of Yucatán, including the poetic song tradition of trova yucateca.",
   "recipe": "classic música yucateca, ballad Poetry. classical nylon-string guitar, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 4.472,
+  "score": 3.502,
   "config": {
     "traditions": [
       "musica_yucateca"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -63,9 +63,9 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 2.623,
+          "acoustic_technique": 2.323,
           "string_tuning": 0,
-          "top_wood_classical": 0.78,
+          "top_wood_classical": 0.40950000000000003,
           "bracing_classical": 0.40950000000000003,
           "string_classical": 0,
           "attack_technique_cl": -0.05

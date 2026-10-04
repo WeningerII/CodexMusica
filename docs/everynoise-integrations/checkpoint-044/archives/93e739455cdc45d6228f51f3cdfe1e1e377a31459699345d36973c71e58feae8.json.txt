@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/held16-research117/chhattisgarhi_pop-live-realization-scope-final.json",
+  "sha256": "1970bc72caf79a3034c0d4be41b732daad718b196f13a6b0707e0e5f34f6d37d",
+  "reviewer": "research116",
+  "timestamp_utc": "2026-10-04T08:38:26.020828+00:00",
+  "source_review": {
+    "fresh_primary_urls": [
+      "https://www.nitindubeyofficial.com/biography",
+      "https://www.thehitavada.com/Encyc/2025/5/14/Singer-Nitin-Dubey-elevates-Chhattisgarhiregional-pop-to-national-prominence.amp.html"
+    ],
+    "fresh_role_source": "https://cgfilm.in/aaja-re-3/",
+    "refs": [
+      "turn15428view0",
+      "turn15428view1",
+      "turn15428view2"
+    ],
+    "finding": "Regional artist-owned festival and film/album practice plus original practitioner interview support a contemporary Chhattisgarhi-language field. Industry reproduction of actual credits retains duet, programming, electronic rhythm and sound effects. Rapper lyric credit is not a vocal role. Broader regional practice permits a representative stage rendition; no complete named-recording reconstruction asserted."
+  },
+  "musical_review": {
+    "role_families": 4,
+    "protected_controls": 20,
+    "original_owners_preserved": 1653,
+    "room_change": "One authored controlled live-room rendition, grounded in documented festival-stage practice; no unsubstantiated original venue measurement or omitted source role.",
+    "literal_semantics": "Punctuated syllabic sung duet remains pitched and text-forward. Clapping-and-syllabicizing is read per actual lexicon as vocal articulation, not an added handclap instrument. Brisk beat, bold lightly swung programming and sunny effects are explicit editable stage-pop choices; no funk ancestry or measured source tempo is asserted. Known roles and neutral generator identities remain.",
+    "taxonomy": "functionalSong contract explicitly authored verse–chorus–bridge over functional harmonic progressions, not source transcription.",
+    "runtime": "/workspace/genre-continuation/research/held16-research117/chhattisgarhi-pop-final-peer116-runtime.json",
+    "formats": 4,
+    "max_chars": 344,
+    "compiled_pin_errors": []
+  },
+  "metadata_review": {
+    "immutable_five_fields_preserved": true,
+    "axes_13_complete": true,
+    "axes_derivative_comparison": "Independent actual before/after results exactly equal, including four strings and compiled config.",
+    "final_delta": "Only model_policy and repeated owning policy clarifications beyond axes derivative; tradition/extras/photos/sources/geo unchanged.",
+    "geo": "Raipur / South Asia remains honest regional industry anchor.",
+    "rights": "Fresh independent Commons turn15425view2 confirms same CC BY2.5 creator/crop. Exact historical URL,250x720,33015bytes/SHA7a97 retained; no fresh binary or visual claim."
+  },
+  "limitations": [
+    "Prior source and held versions remain immutable. This approves only this derivative as a recovery of an existing held queue item, not an additional registration.",
+    "Historical source refs and photo receipts remain historical, with fresh independent corroboration recorded here."
+  ]
+}

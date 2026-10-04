@@ -5,7 +5,7 @@
   "lineage": "Rosary prayer is a Catholic Marian devotional practice organized around repeated prayers and meditation on sacred mysteries. Spoken, sung and accompanied versions circulate through personal prayer, communal worship and devotional recordings.",
   "recipe": "classic rosary, ritual Devotional. single lead single track no stacking. treated studio.",
   "recipe_chars": 88,
-  "score": 1.639,
+  "score": 1.577,
   "config": {
     "traditions": [
       "rosary"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.378,
+          "voice_speech_song": 0.34650000000000003,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.8085,
+          "voice_multitrack_stack": 0.7769999999999999,
           "voice_tessitura": 0
         }
       }

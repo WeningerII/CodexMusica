@@ -5,7 +5,7 @@
   "lineage": "Experimental bass connects producers exploring sound design and combinations across bass-music styles. Synthesizers, sampling and processing provide varied routes through a field that overlaps dubstep, hip-hop and other electronic traditions.",
   "recipe": "classic experimental bass, bass System. low sub bass digital subtractive, drum machine analog. treated studio.",
   "recipe_chars": 110,
-  "score": 16.029,
+  "score": 16.04,
   "config": {
     "traditions": [
       "experimental_bass"
@@ -19,7 +19,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 10.9775,
+          "electronic_technique": 11.0195,
           "va_archetypes": 0,
           "digital_subtractive_context": 5.069999999999999
         }
@@ -34,7 +34,7 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.0315,
+          "snare_voice": 0,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }

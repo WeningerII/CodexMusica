@@ -2,10 +2,10 @@
   "id": "polish_early_music",
   "name": "Polish early music",
   "family": "classical",
-  "lineage": "Michał Gondko and Marcin Zalewski — By lutnia mówić umiała… (DUX0408). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic polish early music, art Music, western early branch. lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 177,
-  "score": 11.076,
+  "lineage": "Polish early repertoire and historical-performance traditions, including Renaissance lute music.",
+  "recipe": "classic polish early music, art Music, western early branch. alpine spruce Italian pistoy bass gut plain gut treble lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 232,
+  "score": 12.326,
   "config": {
     "traditions": [
       "polish_early_music"
@@ -22,12 +22,12 @@
           "lute_renaissance_strings": "lute_pistoy_bass_gut"
         },
         "scores": {
-          "plucked_traditional_technique": 3.2815,
+          "plucked_traditional_technique": 2.5315,
           "lute_courses": 0.378,
-          "lute_renaissance_context": 5.9799999999999995,
-          "lute_renaissance_ribs": 0.3315,
-          "lute_renaissance_soundboard": 0.78,
-          "lute_renaissance_strings": 0.325
+          "lute_renaissance_context": 6.89,
+          "lute_renaissance_ribs": 0.0315,
+          "lute_renaissance_soundboard": 1.2599999999999998,
+          "lute_renaissance_strings": 1.2349999999999999
         }
       }
     ],

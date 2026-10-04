@@ -1,5 +1,5 @@
 {
-  "count": 6765,
+  "count": 6781,
   "items": [
     {
       "id": "honky_tonk",
@@ -40590,6 +40590,102 @@
       "name": "Rave",
       "family": "electronic",
       "href": "traditions/rave.json"
+    },
+    {
+      "id": "south_african_soulful_deep_house",
+      "name": "South African Soulful Deep House",
+      "family": "electronic",
+      "href": "traditions/south_african_soulful_deep_house.json"
+    },
+    {
+      "id": "deep_dubstep",
+      "name": "Deep Dubstep",
+      "family": "electronic",
+      "href": "traditions/deep_dubstep.json"
+    },
+    {
+      "id": "malayalam_hip_hop",
+      "name": "Malayalam Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/malayalam_hip_hop.json"
+    },
+    {
+      "id": "chhattisgarhi_pop",
+      "name": "Chhattisgarhi pop",
+      "family": "pop",
+      "href": "traditions/chhattisgarhi_pop.json"
+    },
+    {
+      "id": "dakke_dak",
+      "name": "Dakke Dak",
+      "family": "hip_hop",
+      "href": "traditions/dakke_dak.json"
+    },
+    {
+      "id": "healing_hz",
+      "name": "Healing Hz",
+      "family": "electronic",
+      "href": "traditions/healing_hz.json"
+    },
+    {
+      "id": "hopebeat",
+      "name": "Hopebeat",
+      "family": "pop",
+      "href": "traditions/hopebeat.json"
+    },
+    {
+      "id": "louvor",
+      "name": "Louvor",
+      "family": "sacred",
+      "href": "traditions/louvor.json"
+    },
+    {
+      "id": "modern_downshift",
+      "name": "Modern Downshift",
+      "family": "rock",
+      "href": "traditions/modern_downshift.json"
+    },
+    {
+      "id": "movie_tunes",
+      "name": "Movie Tunes",
+      "family": "pop",
+      "href": "traditions/movie_tunes.json"
+    },
+    {
+      "id": "new_jack_smooth",
+      "name": "New Jack Smooth",
+      "family": "pop",
+      "href": "traditions/new_jack_smooth.json"
+    },
+    {
+      "id": "nova_musica_amazonense",
+      "name": "Nova Música Amazonense",
+      "family": "pop",
+      "href": "traditions/nova_musica_amazonense.json"
+    },
+    {
+      "id": "oeteldonk",
+      "name": "Oeteldonk",
+      "family": "global",
+      "href": "traditions/oeteldonk.json"
+    },
+    {
+      "id": "sunset_lounge",
+      "name": "Sunset Lounge",
+      "family": "electronic",
+      "href": "traditions/sunset_lounge.json"
+    },
+    {
+      "id": "swazi_traditional",
+      "name": "Swazi Traditional",
+      "family": "global",
+      "href": "traditions/swazi_traditional.json"
+    },
+    {
+      "id": "underground_amapiano",
+      "name": "Underground Amapiano",
+      "family": "electronic",
+      "href": "traditions/underground_amapiano.json"
     }
   ]
 }

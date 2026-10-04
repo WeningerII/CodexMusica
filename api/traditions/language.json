@@ -5,7 +5,7 @@
   "lineage": "Language-learning audio — spoken demonstration, instruction and conversational practice.",
   "recipe": "classic language, spoken Word. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 129,
-  "score": 0.848,
+  "score": 0.906,
   "config": {
     "traditions": [
       "language"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.063,
+          "voice_ensemble_config": 0.0945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.363,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }

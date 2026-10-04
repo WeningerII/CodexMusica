@@ -5,7 +5,7 @@
   "lineage": "Modern Italian progressive rock — contemporary developments of the country’s 1970s progressive-rock tradition.",
   "recipe": "classic mid-1970s italian modern prog, distorted Rock, progressive rock branch. one note per syllable. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 407,
-  "score": 120.906,
+  "score": 120.433,
   "config": {
     "traditions": [
       "italian_modern_prog"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.861,
+          "voice_speech_song": 0.6825,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -68,13 +68,13 @@
         "scores": {
           "keyboard_technique": -0.07,
           "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_brand": 0.168,
           "piano_hammer": 15.6,
           "piano_rim": 15.6,
           "piano_soundboard": 5.826,
-          "piano_pinblock": 5.826,
+          "piano_pinblock": 5.794499999999999,
           "piano_plate": 5.699999999999999,
-          "piano_pitch_standard": 6.868999999999999
+          "piano_pitch_standard": 6.805999999999999
         }
       },
       {
@@ -105,9 +105,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.378,
+          "string_gauge": 0.2415,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.063
         }
       },
       {
@@ -150,9 +150,9 @@
         },
         "scores": {
           "drum_technique": 15.75,
-          "drumhead": 0.0945,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.189,
+          "shell_wood": 0.1575,
           "shell_thickness": 0,
           "bearing_edges": 2.9899999999999998,
           "snare_wires": 0,

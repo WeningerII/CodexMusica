@@ -1,0 +1,15 @@
+{
+  "status": "PASS_EXACT_DATA_PROJECTION",
+  "packet": "/workspace/genre-continuation/repairs197-on043-119/candidate.json",
+  "packet_sha256": "1ae2290c4bb97976d67c86911fc1a29b9d132f1af6457988258951fe7667a331",
+  "base_source": "current guarded worktree",
+  "applied": 197,
+  "total": 6781,
+  "other_records_exactly_preserved": 6584,
+  "source_hashes": {
+    "references/05_traditions.js": "4334f66ad6ae27b0a77e94a1c219a70983f1f836efd026a84d1712c46a00d4b4",
+    "references/06_extras.js": "7d7fec2fbd03b4de527ad22213c04e8f6fb9f15db72afcd1a48211ccd2239208"
+  },
+  "engine_schema_snapshots": "not edited",
+  "api_build": "NOT RUN"
+}

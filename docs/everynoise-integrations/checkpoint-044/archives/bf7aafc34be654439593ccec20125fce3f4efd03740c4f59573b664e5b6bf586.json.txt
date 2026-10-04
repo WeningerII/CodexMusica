@@ -1,0 +1,18 @@
+{
+  "status": "PASS_ROOT_QUEUE_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-005.json",
+  "packet_sha256": "998128b06af81f4e298bb0e9b1fe3f32a3e756f01e32abb688b4543fbce5fd4b",
+  "ids": [
+    "oeteldonk",
+    "old_school_nederhop",
+    "rumba",
+    "russian_indie",
+    "sound"
+  ],
+  "checked_at": "2026-10-04T00:09:58.112922+00:00",
+  "checks": [
+    "Root read all public profiles/roles/current default policies and every prose output. Source and author full-format reviews retained.",
+    "Original four-format parity/ceiling and strict perowner/import/photo tests pass. Taiwan student chorus, Oeteldonk sung/percussion branch and Spanish rumba singing/guitar restored from positive practice evidence, not forced master reconstruction.",
+    "Original5metadata exacttypes and photos unchanged; historical source and control dossiers retained. Final combined validation pending."
+  ]
+}

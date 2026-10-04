@@ -5,7 +5,7 @@
   "lineage": "Downtempo bass connects slower bass-music production and listening programmes with the wider electronic bass scene. Producers develop a grounded rhythmic feel distinct from both beatless ambient music and their more intense dance sets.",
   "recipe": "classic downtempo bass, bass System. sub bass analog poly synth, drum machine analog. treated studio.",
   "recipe_chars": 101,
-  "score": 7.277,
+  "score": 7.245,
   "config": {
     "traditions": [
       "downtempo_bass"
@@ -36,7 +36,7 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.0315,
+          "snare_voice": 0,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }

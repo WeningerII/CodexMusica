@@ -1,0 +1,12 @@
+=== Differential: random edit scripts through both surfaces ===
+
+  scripts: 24 × up to 10 ops
+  comparisons: 960 (4 formats after every applied op)
+  ops applied: add_tradition=36  remove_tradition=33  add_instrument=37  add_guest=27  remove_instrument=22  set_variant=27  set_preface=35  set_environment=23
+  multi-card comparisons: 187
+  states with an env-less cards[0]: 39
+  card-less set_environment on an env-less cards[0]: 4
+
+EDIT DIFFERENTIAL: PASS — 960 byte comparisons across 24 random edit
+scripts; the app and the connector never diverged, and the run exercised every op,
+multi-card rosters, and env-less-head states.

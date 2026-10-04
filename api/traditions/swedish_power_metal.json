@@ -3,9 +3,9 @@
   "name": "Swedish power metal",
   "family": "rock_punk",
   "lineage": "Swedish power metal develops traditional heavy metal through prominent sung themes and coordinated guitar writing.",
-  "recipe": "classic swedish power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 456,
-  "score": 32.133,
+  "recipe": "classic swedish power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 418,
+  "score": 32.007,
   "config": {
     "traditions": [
       "swedish_power_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.38849999999999996,
           "finish": 0.0315,
-          "string_tuning": 0.2205
+          "string_tuning": 0.189
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.189,
+          "drumhead": 0.1575,
           "drum_kit_kick_pedal": 0.78
         }
       },
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.525,
+          "voice_multitrack_stack": 0.4620000000000001,
           "voice_tessitura": 0
         }
       }

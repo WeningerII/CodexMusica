@@ -5,7 +5,7 @@
   "lineage": "Tearout is a hard-edged branch of dubstep-related bass music, connected through producers, labels and heavy-bass events. Aggressive sound design and sharply articulated rhythmic changes distinguish its musical emphasis within the wider scene.",
   "recipe": "classic tearout, bass System. sub bass digital subtractive, drum machine analog. live tracking.",
   "recipe_chars": 95,
-  "score": 11.812,
+  "score": 11.78,
   "config": {
     "traditions": [
       "tearout"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.0315,
+          "snare_voice": 0,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }

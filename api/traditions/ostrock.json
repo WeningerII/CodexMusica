@@ -5,7 +5,7 @@
   "lineage": "East German rock produced from the late 1960s to 1990 under the state Amiga label and the mandatory 60-percent domestic-repertoire rule, with Puhdys, City, Karat, Silly and Pankow writing German-language songs that fold Anglo hard-rock riffing and progressive keyboard arrangements into radio-length forms, using Hammond and string-machine pads, folk violin colour, restrained heavy-rock guitar and lyrics coded to slip past censors.",
   "recipe": "classic Central European 1967-1969 ostrock, distorted Rock, classic branch, progressive rock distorted rock, European protest song classic canadian rock symphonic rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, string machine, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 854,
-  "score": 444.795,
+  "score": 444.51,
   "config": {
     "traditions": [
       "ostrock",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 11.699999999999992,
           "voice_ornament_system": 0.195,
           "voice_pitch_organization": 1,
-          "voice_processing_chain": 4.11,
+          "voice_processing_chain": 4.065,
           "voice_multitrack_stack": 4.485
         }
       },
@@ -78,9 +78,9 @@
           "pickup_magnet": 0,
           "pickup_winding": 1.9949999999999999,
           "string_material": 1.1099999999999999,
-          "bridge": 0.54,
+          "bridge": 0.345,
           "scale_length": 0,
-          "string_gauge": 0.54,
+          "string_gauge": 0.345,
           "finish": 0,
           "string_tuning": 20.865000000000002
         }
@@ -101,7 +101,7 @@
           "amp_make": 17.81,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 41,
+          "string_type": 41.15,
           "scale_length_b": 0,
           "fretted_or_not": 0.39,
           "bass_technique": 32.7,

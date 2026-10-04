@@ -5,7 +5,7 @@
   "lineage": "Dansk lovsang connects Danish-language Christian worship songs with congregational, concert and recorded practice. Hymn traditions and newer devotional songwriting meet through varied musical settings.",
   "recipe": "classic dansk lovsang, ritual Devotional. one note per syllable. upright piano. shoebox concert hall.",
   "recipe_chars": 101,
-  "score": 1.45,
+  "score": 1.387,
   "config": {
     "traditions": [
       "dansk_lovsang"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.2205,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },

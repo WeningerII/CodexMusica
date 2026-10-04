@@ -2,10 +2,10 @@
   "id": "noel_quebecois",
   "name": "Noël Québécois",
   "family": "vernacular",
-  "lineage": "Duo Stella — Noël québécois published concert program. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic noël québécois, ballad Poetry. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. 17 ply hard rock maple 7 ply quartersawn maple grand piano, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 359,
-  "score": 20.134,
+  "lineage": "Quebec Christmas repertoire, bringing local seasonal songs together with inherited and immigrant traditions.",
+  "recipe": "classic noël québécois, ballad Poetry. solo with instrumental accompaniment, single lead single track no stacking. grand piano, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 245,
+  "score": 2.883,
   "config": {
     "traditions": [
       "noel_quebecois"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.56,
-          "voice_ensemble_config": 1.56,
+          "voice_speech_song": 0.40950000000000003,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 2.3,
+          "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }
       },
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.3,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
-          "piano_hammer": 0.7,
-          "piano_rim": 1.5999999999999999,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 1.9999999999999998,
-          "piano_plate": 0.9999999999999998,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -92,16 +92,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.0499999999999998,
+          "bowed_technique": -0.05,
           "orch_strings": 0,
-          "orch_top_wood": 0.9999999999999998,
-          "orch_back_wood": 2.2,
-          "orch_varnish": 0.7,
-          "orch_setup_period": 0.7,
+          "orch_top_wood": -0.1,
+          "orch_back_wood": -0.1,
+          "orch_varnish": -0.1,
+          "orch_setup_period": -0.1,
           "orch_bow": 0,
-          "orch_bow_stick": 0.6499999999999999,
-          "orch_articulation": 0.39,
-          "orch_rosin": 0.7
+          "orch_bow_stick": -0.15000000000000002,
+          "orch_articulation": 0.40950000000000003,
+          "orch_rosin": -0.1
         }
       }
     ],

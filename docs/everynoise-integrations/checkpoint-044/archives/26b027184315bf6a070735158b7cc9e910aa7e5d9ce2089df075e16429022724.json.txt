@@ -1,0 +1,3092 @@
+{
+  "baseline": "/tmp/CodexMusica-next043/",
+  "head": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "sha256": "0d786fd4c67290ed0bc5b293b074bd07507f1fb9f5c6373688a4cac120093227",
+  "instrument_count": 1659,
+  "status": "MECHANICAL_PASS_REQUIRES_LITERAL_REVIEW",
+  "entries": [
+    {
+      "id": "south_african_soulful_deep_house",
+      "controls": 1,
+      "audits": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "part": "dj_playback_mixing_identity",
+          "variant": "dj_playback_mixing_source_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "South African Soulful Deep House, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "South African Soulful Deep House, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled.",
+        "tags": "South African Soulful Deep House, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "South African Soulful Deep House, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic south african soulful deep house, electronic Dance. dj playback mixing unspecified. live tracking.",
+        "config": {
+          "traditions": [
+            "south_african_soulful_deep_house"
+          ],
+          "instruments": [
+            {
+              "id": "dj_playback_mixing_unspecified",
+              "slots": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "scores": {
+                "dj_playback_mixing_identity": 0.10012499999999999
+              }
+            }
+          ],
+          "pinned": {
+            "dj_playback_mixing_unspecified": [
+              "dj_playback_mixing_identity"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 0.10012499999999999
+      }
+    },
+    {
+      "id": "deep_dubstep",
+      "controls": 1,
+      "audits": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "part": "dj_playback_mixing_identity",
+          "variant": "dj_playback_mixing_source_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "Deep Dubstep, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Deep Dubstep, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled.",
+        "tags": "Deep Dubstep, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Deep Dubstep, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic deep dubstep, bass System, uk soundsystem branch. dj playback mixing unspecified. live tracking.",
+        "config": {
+          "traditions": [
+            "deep_dubstep"
+          ],
+          "instruments": [
+            {
+              "id": "dj_playback_mixing_unspecified",
+              "slots": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "scores": {
+                "dj_playback_mixing_identity": 0
+              }
+            }
+          ],
+          "pinned": {
+            "dj_playback_mixing_unspecified": [
+              "dj_playback_mixing_identity"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 0
+      }
+    },
+    {
+      "id": "malayalam_hip_hop",
+      "controls": 22,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_rhythmic_spoken_flow"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_live_group"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "cassette_pause_tape_looping",
+          "part": "cassette_pause_tape_looping_medium",
+          "variant": "cassette_pause_tape_looping_medium_cassette"
+        },
+        {
+          "instrument": "cassette_pause_tape_looping",
+          "part": "cassette_pause_tape_looping_repetition",
+          "variant": "cassette_pause_tape_looping_repetition_manual_loop"
+        },
+        {
+          "instrument": "cassette_pause_tape_looping",
+          "part": "cassette_pause_tape_looping_speed",
+          "variant": "cassette_pause_tape_looping_speed_unspecified"
+        },
+        {
+          "instrument": "cassette_pause_tape_looping",
+          "part": "cassette_pause_tape_looping_channels",
+          "variant": "cassette_pause_tape_looping_channels_unspecified"
+        },
+        {
+          "instrument": "cassette_pause_tape_looping",
+          "part": "cassette_pause_tape_looping_processing",
+          "variant": "cassette_pause_tape_looping_processing_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "Malayalam Hip Hop, burlesque voice: rhythmic-spoken-flow-no-pitch syncopated-speech-rhythm unprocessed-natural-acoustic group-vocals live-ensemble live-take, up-tempo cassette-beat-loops: looped analog, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Malayalam Hip Hop, burlesque voice, up-tempo cassette-beat-loops, treated-live-room-reflective-but-controlled.",
+        "tags": "Malayalam Hip Hop, burlesque voice: rhythmic-spoken-flow-no-pitch syncopated-speech-rhythm unprocessed-natural-acoustic group-vocals live-ensemble live-take, up-tempo cassette-beat-loops: looped analog, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Malayalam Hip Hop, burlesque voice · Treated live room (reflective but controlled),\nup-tempo Cassette beat loops · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic malayalam hip hop, mc Rhythm. rhythmic spoken flow no pitch. cassette pause tape looping. live tracking.",
+        "config": {
+          "traditions": [
+            "malayalam_hip_hop"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_rhythmic_spoken_flow",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 10.597,
+                "voice_ensemble_config": 0.0945,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0.0315,
+                "voice_multitrack_stack": 0.063,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "cassette_pause_tape_looping",
+              "slots": {
+                "cassette_pause_tape_looping_medium": "cassette_pause_tape_looping_medium_cassette",
+                "cassette_pause_tape_looping_repetition": "cassette_pause_tape_looping_repetition_manual_loop",
+                "cassette_pause_tape_looping_speed": "cassette_pause_tape_looping_speed_unspecified",
+                "cassette_pause_tape_looping_channels": "cassette_pause_tape_looping_channels_unspecified",
+                "cassette_pause_tape_looping_processing": "cassette_pause_tape_looping_processing_unspecified"
+              },
+              "scores": {
+                "cassette_pause_tape_looping_medium": 0,
+                "cassette_pause_tape_looping_repetition": 0.0315,
+                "cassette_pause_tape_looping_speed": 0,
+                "cassette_pause_tape_looping_channels": 0,
+                "cassette_pause_tape_looping_processing": 0
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "cassette_pause_tape_looping": [
+              "cassette_pause_tape_looping_medium",
+              "cassette_pause_tape_looping_repetition",
+              "cassette_pause_tape_looping_speed",
+              "cassette_pause_tape_looping_channels",
+              "cassette_pause_tape_looping_processing"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 10.817499999999999
+      }
+    },
+    {
+      "id": "chhattisgarhi_pop",
+      "controls": 20,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_live_duet"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "part": "credited_beat_identity",
+          "variant": "credited_beat_mechanism_unspecified"
+        },
+        {
+          "instrument": "credited_programming_unspecified",
+          "part": "credited_programming_unspecified_identity",
+          "variant": "credited_programming_unspecified_generator_unspecified"
+        },
+        {
+          "instrument": "credited_sound_effect_unspecified",
+          "part": "credited_sound_effect_unspecified_identity",
+          "variant": "credited_sound_effect_unspecified_source_identity"
+        }
+      ],
+      "browser": {
+        "rich": "Chhattisgarhi pop, clapping-and-syllabicizing voice: plain-direct-line syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic duet live-ensemble live-take, up-tempo credited-beat, bodacious credited-programmed-sound, cheery credited-sound-effect, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Chhattisgarhi pop, clapping-and-syllabicizing voice, up-tempo credited-beat, bodacious credited-programmed-sound, cheery credited-sound-effect, treated-live-room-reflective-but-controlled.",
+        "tags": "Chhattisgarhi pop, clapping-and-syllabicizing voice: plain-direct-line syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic duet live-ensemble live-take, up-tempo credited-beat, bodacious credited-programmed-sound, cheery credited-sound-effect, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Chhattisgarhi pop, clapping-and-syllabicizing voice · Treated live room (reflective but controlled),\nup-tempo Credited beat · Treated live room (reflective but controlled),\nbodacious credited programmed sound · Treated live room (reflective but controlled),\ncheery Credited sound effect · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic chhattisgarhi pop, functional Song. one note per syllable. credited beat credited programming credited sound effect unspecified. live tracking.",
+        "config": {
+          "traditions": [
+            "chhattisgarhi_pop"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_live_duet",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 1.69,
+                "voice_ensemble_config": 0.1365,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0,
+                "voice_multitrack_stack": 0.1365,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "credited_beat_unspecified",
+              "slots": {
+                "credited_beat_identity": "credited_beat_mechanism_unspecified"
+              },
+              "scores": {
+                "credited_beat_identity": 0
+              }
+            },
+            {
+              "id": "credited_programming_unspecified",
+              "slots": {
+                "credited_programming_unspecified_identity": "credited_programming_unspecified_generator_unspecified"
+              },
+              "scores": {
+                "credited_programming_unspecified_identity": 0
+              }
+            },
+            {
+              "id": "credited_sound_effect_unspecified",
+              "slots": {
+                "credited_sound_effect_unspecified_identity": "credited_sound_effect_unspecified_source_identity"
+              },
+              "scores": {
+                "credited_sound_effect_unspecified_identity": 0
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "credited_beat_unspecified": [
+              "credited_beat_identity"
+            ],
+            "credited_programming_unspecified": [
+              "credited_programming_unspecified_identity"
+            ],
+            "credited_sound_effect_unspecified": [
+              "credited_sound_effect_unspecified_identity"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 1.963
+      }
+    },
+    {
+      "id": "dakke_dak",
+      "controls": 18,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_pure_spoken_no_pitch"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_solo_accompanied"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_single_lead"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "part": "credited_beat_identity",
+          "variant": "credited_beat_mechanism_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "Dakke Dak, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-with-instrumental-accompaniment speech-rhythm-only unprocessed-natural-acoustic, bodacious credited-beat, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Dakke Dak, up-tempo voice, bodacious credited-beat, treated-live-room-reflective-but-controlled.",
+        "tags": "Dakke Dak, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-with-instrumental-accompaniment speech-rhythm-only unprocessed-natural-acoustic, bodacious credited-beat, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Dakke Dak, up-tempo voice · Treated live room (reflective but controlled),\nbodacious Credited beat · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic dakke dak, mc Rhythm, intl hip hop branch. no pitch organization speech. credited beat unspecified. live tracking.",
+        "config": {
+          "traditions": [
+            "dakke_dak"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_pure_spoken_no_pitch",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 1.95,
+                "voice_ensemble_config": 0.39,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0,
+                "voice_multitrack_stack": 0,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "credited_beat_unspecified",
+              "slots": {
+                "credited_beat_identity": "credited_beat_mechanism_unspecified"
+              },
+              "scores": {
+                "credited_beat_identity": 0
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "credited_beat_unspecified": [
+              "credited_beat_identity"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 2.34
+      }
+    },
+    {
+      "id": "healing_hz",
+      "controls": 1,
+      "audits": [
+        {
+          "instrument": "analog_sine_oscillator_z3000",
+          "part": "z3000_signal_identity",
+          "variant": "z3000_direct_sine_signal"
+        }
+      ],
+      "browser": {
+        "rich": "Healing Hz, austere analog-sine-oscillator: beat-free pure-tone sustained-tone drone-like, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Healing Hz, austere analog-sine-oscillator, treated-live-room-reflective-but-controlled.",
+        "tags": "Healing Hz, austere analog-sine-oscillator: beat-free pure-tone sustained-tone drone-like, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Healing Hz, austere Analog sine oscillator · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic healing hz, experimental Elec, ambient branch. analog sine oscillator z3000. live tracking.",
+        "config": {
+          "traditions": [
+            "healing_hz"
+          ],
+          "instruments": [
+            {
+              "id": "analog_sine_oscillator_z3000",
+              "slots": {
+                "z3000_signal_identity": "z3000_direct_sine_signal"
+              },
+              "scores": {
+                "z3000_signal_identity": 1.69
+              }
+            }
+          ],
+          "pinned": {
+            "analog_sine_oscillator_z3000": [
+              "z3000_signal_identity"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 1.69
+      }
+    },
+    {
+      "id": "hopebeat",
+      "controls": 43,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_solo_accompanied"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_single_lead"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "electric_technique",
+          "variant": "electric_clean_strummed"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "amp_make",
+          "variant": "amp_unspecified"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "variant": "alder"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "neck_wood",
+          "variant": "maple"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "fretboard",
+          "variant": "rosewood_fb"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "pickup_magnet",
+          "variant": "alnico_2"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_material",
+          "variant": "pure_nickel"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "variant": "g_10"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "bridge",
+          "variant": "two_point_trem"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "scale_length",
+          "variant": "scale_fender"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "finish",
+          "variant": "nitro"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "variant": "standard_tuning"
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "single_coil_pickup_construction",
+          "variant": "single_coil_construction_unspecified"
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "part": "electronic_keyboard_identity",
+          "variant": "electronic_keyboard_architecture_unspecified"
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "part": "keyboard_technique",
+          "variant": "electronic_keyboard_melodic_chordal"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "variant": "sticks_rock"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "shell_wood",
+          "variant": "maple_shell"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "shell_thickness",
+          "variant": "thin_shell"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "bearing_edges",
+          "variant": "edge_45"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "variant": "single_coated"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "snare_wires",
+          "variant": "wires_20"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_kit_kick_pedal",
+          "variant": "dk_kick_single_felt"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_alloy",
+          "variant": "b20"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_hammering",
+          "variant": "machine_symmetric_hammering"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_lathing",
+          "variant": "full_lathe_both_sides"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_finish",
+          "variant": "traditional_finish"
+        }
+      ],
+      "browser": {
+        "rich": "Hopebeat, up-tempo voice: plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic, happy single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced treble-rolled-off breathing present taut full-bodied glassy thin snappy strummed low-mid-rich-spectrum stable treble-extended woody, witty electronic-keyboard: amplified chordal, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage modern, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Hopebeat, up-tempo voice, happy single-coil-solid-body-electric-guitar, witty electronic-keyboard, trudging drum-kit, treated-live-room-reflective-but-controlled.",
+        "tags": "Hopebeat, up-tempo voice: plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic, happy single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced treble-rolled-off breathing present taut full-bodied glassy thin snappy strummed low-mid-rich-spectrum stable treble-extended woody, witty electronic-keyboard: amplified chordal, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage modern, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Hopebeat, up-tempo voice · Treated live room (reflective but controlled),\nhappy single-coil solid-body electric guitar · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic hopebeat, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed single coil electric guitar, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+        "config": {
+          "traditions": [
+            "hopebeat"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 0.063,
+                "voice_ensemble_config": 2.9899999999999998,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0.0315,
+                "voice_multitrack_stack": 0.1575,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "electric_guitar_single_coil",
+              "slots": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder",
+                "neck_wood": "maple",
+                "fretboard": "rosewood_fb",
+                "pickup_magnet": "alnico_2",
+                "string_material": "pure_nickel",
+                "string_gauge": "g_10",
+                "bridge": "two_point_trem",
+                "scale_length": "scale_fender",
+                "finish": "nitro",
+                "string_tuning": "standard_tuning",
+                "single_coil_pickup_construction": "single_coil_construction_unspecified"
+              },
+              "scores": {
+                "electric_technique": 9.6075,
+                "amp_make": 0,
+                "body_wood": 0.063,
+                "neck_wood": 0.0315,
+                "fretboard": -0.035,
+                "pickup_magnet": 0,
+                "string_material": 0,
+                "string_gauge": 0.8995,
+                "bridge": 0.1365,
+                "scale_length": 0,
+                "finish": 0,
+                "string_tuning": 0,
+                "single_coil_pickup_construction": 0
+              }
+            },
+            {
+              "id": "electronic_keyboard_unspecified",
+              "slots": {
+                "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+                "keyboard_technique": "electronic_keyboard_melodic_chordal"
+              },
+              "scores": {
+                "electronic_keyboard_identity": 0,
+                "keyboard_technique": 0.78
+              }
+            },
+            {
+              "id": "drum_kit",
+              "slots": {
+                "drum_technique": "sticks_rock",
+                "drumhead": "single_coated",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "snare_wires": "wires_20",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "scores": {
+                "drum_technique": 7.031499999999999,
+                "drumhead": 0,
+                "drum_kit_kick_pedal": 0,
+                "shell_wood": 0,
+                "shell_thickness": 0,
+                "bearing_edges": 0.168,
+                "snare_wires": 0,
+                "cymbal_alloy": -0.14,
+                "cymbal_hammering": 17.7125,
+                "cymbal_lathing": 17.938999999999997,
+                "cymbal_finish": 0
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "electric_guitar_single_coil": [
+              "electric_technique",
+              "amp_make",
+              "body_wood",
+              "neck_wood",
+              "fretboard",
+              "pickup_magnet",
+              "string_material",
+              "string_gauge",
+              "bridge",
+              "scale_length",
+              "finish",
+              "string_tuning",
+              "single_coil_pickup_construction"
+            ],
+            "electronic_keyboard_unspecified": [
+              "electronic_keyboard_identity",
+              "keyboard_technique"
+            ],
+            "drum_kit": [
+              "drum_technique",
+              "shell_wood",
+              "shell_thickness",
+              "bearing_edges",
+              "drumhead",
+              "snare_wires",
+              "drum_kit_kick_pedal",
+              "cymbal_alloy",
+              "cymbal_hammering",
+              "cymbal_lathing",
+              "cymbal_finish"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 57.436
+      }
+    },
+    {
+      "id": "louvor",
+      "controls": 20,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_neumatic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_solo_accompanied"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_single_lead"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "upright_piano",
+          "part": "keyboard_technique",
+          "variant": "keyboard_block_chord_pop"
+        },
+        {
+          "instrument": "upright_piano",
+          "part": "upright_use",
+          "variant": "upright_studio"
+        },
+        {
+          "instrument": "upright_piano",
+          "part": "upright_piano_size",
+          "variant": "upright_piano_standard"
+        }
+      ],
+      "browser": {
+        "rich": "Louvor, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Louvor, up-tempo voice, refined upright-piano, treated-live-room-reflective-but-controlled.",
+        "tags": "Louvor, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Louvor, up-tempo voice · Treated live room (reflective but controlled),\nrefined upright piano · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic louvor, ritual Devotional, christian gospel branch. small note groups per syllable, solo with instrumental accompaniment. upright piano. live tracking.",
+        "config": {
+          "traditions": [
+            "louvor"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_neumatic_singing",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 1.573,
+                "voice_ensemble_config": 3.1654999999999998,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0,
+                "voice_multitrack_stack": 0.15599999999999997,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "upright_piano",
+              "slots": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "scores": {
+                "keyboard_technique": -0.1,
+                "upright_use": 0,
+                "upright_piano_size": 0.49350000000000005
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "upright_piano": [
+              "keyboard_technique",
+              "upright_use",
+              "upright_piano_size"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 5.288
+      }
+    },
+    {
+      "id": "modern_downshift",
+      "controls": 49,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_projected"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_live_group"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "electric_technique",
+          "variant": "electric_power_chord"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "amp_make",
+          "variant": "amp_unspecified"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "body_wood",
+          "variant": "alder_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "neck_wood",
+          "variant": "maple_neck_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "fretboard",
+          "variant": "rosewood_fb_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "variant": "alnico_2_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "variant": "mid_wind"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_material",
+          "variant": "pure_nickel_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "variant": "vibrato_arm"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "variant": "scale_gibson_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "variant": "g_10_hum"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "finish",
+          "variant": "nitro_hum"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_tuning",
+          "variant": "standard_tuning"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "amp_make",
+          "variant": "amp_unspecified"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "variant": "alder_h"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "variant": "soapbar"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "string_type",
+          "variant": "roundwound_n"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "variant": "long_scale_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "variant": "fretted"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "bass_technique",
+          "variant": "fingerstyle_locked"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "electric_bass_string_configuration",
+          "variant": "electric_bass_string_configuration_unspecified"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "variant": "sticks_rock"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "shell_wood",
+          "variant": "maple_shell"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "shell_thickness",
+          "variant": "medium_shell"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "bearing_edges",
+          "variant": "edge_45"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "variant": "single_coated"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "snare_wires",
+          "variant": "wires_20"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_kit_kick_pedal",
+          "variant": "dk_kick_single_felt"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_alloy",
+          "variant": "b20"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_hammering",
+          "variant": "hand_random_hammering"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_lathing",
+          "variant": "full_lathe_both_sides"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_finish",
+          "variant": "traditional_finish"
+        }
+      ],
+      "browser": {
+        "rich": "Modern Downshift, clapping-and-syllabicizing voice: plain-direct-line raised-subglottal-pressure syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic projected carrying group-vocals live-ensemble live-take, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted breathing present subtle classic full-bodied, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed dark-uneven full-lathed organic-decay random-pattern standard-finish attacky hand-hammered washy all-purpose backbeat bright-clear musical sticks asymmetric low-fundamental-tuning overtone-rich crisp, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Modern Downshift, clapping-and-syllabicizing voice, cheery humbucker-solid-body-electric-guitar, confident electric-bass, trudging drum-kit, treated-live-room-reflective-but-controlled.",
+        "tags": "Modern Downshift, clapping-and-syllabicizing voice: plain-direct-line raised-subglottal-pressure syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic projected carrying group-vocals live-ensemble live-take, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted breathing present subtle classic full-bodied, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed dark-uneven full-lathed organic-decay random-pattern standard-finish attacky hand-hammered washy all-purpose backbeat bright-clear musical sticks asymmetric low-fundamental-tuning overtone-rich crisp, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Modern Downshift, clapping-and-syllabicizing voice · Treated live room (reflective but controlled),\ncheery humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nconfident electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic modern downshift, distorted Rock, alternative branch. power chord humbucker electric guitar, electric bass, full lathed both sides lathed sticks backbeat drum kit. live tracking.",
+        "config": {
+          "traditions": [
+            "modern_downshift"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_projected",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0.1365,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 0.38925,
+                "voice_ensemble_config": 0.273,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0.168,
+                "voice_multitrack_stack": 0,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "electric_guitar_humbucker",
+              "slots": {
+                "electric_technique": "electric_power_chord",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "neck_wood": "maple_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_10_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "scores": {
+                "electric_technique": 5.135,
+                "amp_make": 0,
+                "body_wood": 0.40950000000000003,
+                "neck_wood": 0.105,
+                "fretboard": -0.035,
+                "pickup_magnet": 0,
+                "pickup_winding": 0,
+                "string_material": 0,
+                "bridge": 0,
+                "scale_length": 0.8820000000000001,
+                "string_gauge": 0.9099999999999999,
+                "finish": 0,
+                "string_tuning": 0
+              }
+            },
+            {
+              "id": "electric_bass",
+              "slots": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "scores": {
+                "amp_make": 0,
+                "body_wood": 0.40950000000000003,
+                "pickup_config": 2.273,
+                "string_type": 0.042749999999999996,
+                "scale_length_b": 0.17925000000000002,
+                "fretted_or_not": 0.11624999999999999,
+                "bass_technique": 0.15000000000000002,
+                "electric_bass_string_configuration": 0
+              }
+            },
+            {
+              "id": "drum_kit",
+              "slots": {
+                "drum_technique": "sticks_rock",
+                "drumhead": "single_coated",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "medium_shell",
+                "bearing_edges": "edge_45",
+                "snare_wires": "wires_20",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "hand_random_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "scores": {
+                "drum_technique": 11.55,
+                "drumhead": 0.1365,
+                "drum_kit_kick_pedal": 0,
+                "shell_wood": 0.2415,
+                "shell_thickness": 0,
+                "bearing_edges": 2.105,
+                "snare_wires": 0.042749999999999996,
+                "cymbal_alloy": -0.2,
+                "cymbal_hammering": -0.07,
+                "cymbal_lathing": 16.3365,
+                "cymbal_finish": 0
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "electric_guitar_humbucker": [
+              "electric_technique",
+              "amp_make",
+              "body_wood",
+              "neck_wood",
+              "fretboard",
+              "pickup_magnet",
+              "pickup_winding",
+              "string_material",
+              "bridge",
+              "scale_length",
+              "string_gauge",
+              "finish",
+              "string_tuning"
+            ],
+            "electric_bass": [
+              "amp_make",
+              "body_wood",
+              "pickup_config",
+              "string_type",
+              "scale_length_b",
+              "fretted_or_not",
+              "bass_technique",
+              "electric_bass_string_configuration"
+            ],
+            "drum_kit": [
+              "drum_technique",
+              "shell_wood",
+              "shell_thickness",
+              "bearing_edges",
+              "drumhead",
+              "snare_wires",
+              "drum_kit_kick_pedal",
+              "cymbal_alloy",
+              "cymbal_hammering",
+              "cymbal_lathing",
+              "cymbal_finish"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 41.68625
+      }
+    },
+    {
+      "id": "movie_tunes",
+      "controls": 3,
+      "audits": [
+        {
+          "instrument": "upright_piano",
+          "part": "keyboard_technique",
+          "variant": "keyboard_block_chord_pop"
+        },
+        {
+          "instrument": "upright_piano",
+          "part": "upright_use",
+          "variant": "upright_studio"
+        },
+        {
+          "instrument": "upright_piano",
+          "part": "upright_piano_size",
+          "variant": "upright_piano_standard"
+        }
+      ],
+      "browser": {
+        "rich": "Movie Tunes, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Movie Tunes, refined upright-piano, treated-live-room-reflective-but-controlled.",
+        "tags": "Movie Tunes, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Movie Tunes, refined upright piano · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic movie tunes, functional Song. upright piano. live tracking.",
+        "config": {
+          "traditions": [
+            "movie_tunes"
+          ],
+          "instruments": [
+            {
+              "id": "upright_piano",
+              "slots": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "scores": {
+                "keyboard_technique": 2.45,
+                "upright_use": 0.3,
+                "upright_piano_size": 0
+              }
+            }
+          ],
+          "pinned": {
+            "upright_piano": [
+              "keyboard_technique",
+              "upright_use",
+              "upright_piano_size"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 2.75
+      }
+    },
+    {
+      "id": "new_jack_smooth",
+      "controls": 1,
+      "audits": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "part": "dj_playback_mixing_identity",
+          "variant": "dj_playback_mixing_source_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "New Jack Smooth, wabi-rustic dj-playback-and-mixing: amplified layered, front-parlor-period-furniture-rugs-drapes: cozy plush soft.",
+        "prose": "New Jack Smooth, wabi-rustic dj-playback-and-mixing, front-parlor-period-furniture-rugs-drapes.",
+        "tags": "New Jack Smooth, wabi-rustic dj-playback-and-mixing: amplified layered, front-parlor-period-furniture-rugs-drapes: cozy plush soft.",
+        "compact": "New Jack Smooth, wabi-rustic DJ playback and mixing · Front parlor (period furniture, rugs, drapes),"
+      },
+      "compiled_api": {
+        "recipe": "classic new jack smooth, functional Song, soul R&B branch. dj playback mixing unspecified. parlor.",
+        "config": {
+          "traditions": [
+            "new_jack_smooth"
+          ],
+          "instruments": [
+            {
+              "id": "dj_playback_mixing_unspecified",
+              "slots": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "scores": {
+                "dj_playback_mixing_identity": 0.21
+              }
+            }
+          ],
+          "pinned": {
+            "dj_playback_mixing_unspecified": [
+              "dj_playback_mixing_identity"
+            ]
+          },
+          "room": "parlor",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 0.21
+      }
+    },
+    {
+      "id": "nova_musica_amazonense",
+      "controls": 22,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_solo_accompanied"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_single_lead"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "part": "acoustic_technique",
+          "variant": "acoustic_flatpicked"
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "part": "string_tuning",
+          "variant": "standard_tuning"
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "part": "top_wood",
+          "variant": "mahogany_top"
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "part": "back_sides",
+          "variant": "mahogany_bs"
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "part": "string_acoustic",
+          "variant": "eighty_twenty"
+        }
+      ],
+      "browser": {
+        "rich": "Nova Música Amazonense, up-tempo voice: plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: bronze mahogany midrange-thick flatpicked fresh fundamental 80-20-cu-zn articulated snappy treble-extended woody dry, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Nova Música Amazonense, up-tempo voice, cheery dreadnought-acoustic-guitar, treated-live-room-reflective-but-controlled.",
+        "tags": "Nova Música Amazonense, up-tempo voice: plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: bronze mahogany midrange-thick flatpicked fresh fundamental 80-20-cu-zn articulated snappy treble-extended woody dry, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Nova Música Amazonense, up-tempo voice · Treated live room (reflective but controlled),\ncheery dreadnought acoustic guitar · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic nova música amazonense, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. dreadnought acoustic guitar. live tracking.",
+        "config": {
+          "traditions": [
+            "nova_musica_amazonense"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 0.8565,
+                "voice_ensemble_config": 0.78,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0.39,
+                "voice_multitrack_stack": 1.224,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "acoustic_guitar_dread",
+              "slots": {
+                "acoustic_technique": "acoustic_flatpicked",
+                "string_tuning": "standard_tuning",
+                "top_wood": "mahogany_top",
+                "back_sides": "mahogany_bs",
+                "string_acoustic": "eighty_twenty"
+              },
+              "scores": {
+                "acoustic_technique": -0.1,
+                "string_tuning": 0,
+                "top_wood": 0,
+                "back_sides": 0,
+                "string_acoustic": 0.054
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "acoustic_guitar_dread": [
+              "acoustic_technique",
+              "string_tuning",
+              "top_wood",
+              "back_sides",
+              "string_acoustic"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 3.2045
+      }
+    },
+    {
+      "id": "oeteldonk",
+      "controls": 50,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "voice_articulation_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_neumatic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_live_group"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        },
+        {
+          "instrument": "trumpet",
+          "part": "wind_articulation",
+          "variant": "wind_punchy_ensemble"
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_size",
+          "variant": "trumpet_b_flat"
+        },
+        {
+          "instrument": "trumpet",
+          "part": "trumpet_mouthpiece",
+          "variant": "bach_trumpet_mp_7c"
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_mute",
+          "variant": "no_mute_brass"
+        },
+        {
+          "instrument": "trumpet",
+          "part": "trumpet_technique",
+          "variant": "trumpet_punchy_ensemble"
+        },
+        {
+          "instrument": "trumpet",
+          "part": "trumpet_bell_metal",
+          "variant": "trumpet_yellow_brass"
+        },
+        {
+          "instrument": "trumpet",
+          "part": "trumpet_maker_school",
+          "variant": "trumpet_bach_stradivarius"
+        },
+        {
+          "instrument": "trombone",
+          "part": "wind_articulation",
+          "variant": "wind_punchy_ensemble"
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_type",
+          "variant": "tenor_trombone"
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_mouthpiece",
+          "variant": "bach_trombone_mp_6half_al"
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_mute",
+          "variant": "no_mute_trb"
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_technique",
+          "variant": "big_band_punch"
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_bell_metal",
+          "variant": "trombone_yellow_brass"
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_maker_school",
+          "variant": "trombone_bach_42"
+        },
+        {
+          "instrument": "saxophone_section_alto_tenor",
+          "part": "alto_tenor_section_articulation",
+          "variant": "alto_tenor_section_articulation_short"
+        },
+        {
+          "instrument": "baritone_horn_bb",
+          "part": "baritone_horn_bb_identity",
+          "variant": "baritone_horn_bb_scored"
+        },
+        {
+          "instrument": "tuba",
+          "part": "wind_articulation",
+          "variant": "wind_punchy_ensemble"
+        },
+        {
+          "instrument": "tuba",
+          "part": "tuba_pitch",
+          "variant": "tuba_bbb"
+        },
+        {
+          "instrument": "tuba",
+          "part": "tuba_context",
+          "variant": "tuba_brass_band"
+        },
+        {
+          "instrument": "tuba",
+          "part": "tuba_bell_metal",
+          "variant": "tuba_yellow_brass"
+        },
+        {
+          "instrument": "tuba",
+          "part": "tuba_valve_system",
+          "variant": "tuba_rotary_german"
+        },
+        {
+          "instrument": "tuba",
+          "part": "tuba_maker_school",
+          "variant": "tuba_miraphone_german"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "variant": "sticks_rock"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "shell_wood",
+          "variant": "maple_shell"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "shell_thickness",
+          "variant": "thin_shell"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "bearing_edges",
+          "variant": "edge_45"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "variant": "single_coated"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "snare_wires",
+          "variant": "wires_20"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_kit_kick_pedal",
+          "variant": "dk_kick_single_felt"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_alloy",
+          "variant": "b20"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_hammering",
+          "variant": "machine_symmetric_hammering"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_lathing",
+          "variant": "full_lathe_both_sides"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "cymbal_finish",
+          "variant": "traditional_finish"
+        }
+      ],
+      "browser": {
+        "rich": "Oeteldonk, bodacious voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic group-vocals, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup, eager trombone: yellow-brass-canonical-70-30-bach-42-standard horn-section bach-42-canonical-american-orchestral-tenor section-locked standard-backbore tenor-standard medium-cup, happy alto-tenor-saxophone-section: short, cheery b-flat-baritone-horn, energetic tuba: yellow-brass-canonical-orchestral horn-section British-tradition miraphone-canonical-german-orchestral rotary-valves-canonical-german-orchestral ensemble-bass fast-attack-transient, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "prose": "Oeteldonk, bodacious voice, up-tempo trumpet, eager trombone, happy alto-tenor-saxophone-section, cheery b-flat-baritone-horn, energetic tuba, trudging drum-kit, treated-live-room-reflective-but-controlled.",
+        "tags": "Oeteldonk, bodacious voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic group-vocals, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup, eager trombone: yellow-brass-canonical-70-30-bach-42-standard horn-section bach-42-canonical-american-orchestral-tenor section-locked standard-backbore tenor-standard medium-cup, happy alto-tenor-saxophone-section: short, cheery b-flat-baritone-horn, energetic tuba: yellow-brass-canonical-orchestral horn-section British-tradition miraphone-canonical-german-orchestral rotary-valves-canonical-german-orchestral ensemble-bass fast-attack-transient, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows, treated-live-room-reflective-but-controlled: present lively controlled.",
+        "compact": "Oeteldonk, bodacious voice · Treated live room (reflective but controlled),\nup-tempo trumpet · Treated live room (reflective but controlled),\neager trombone · Treated live room (reflective but controlled),\nhappy alto-tenor saxophone section · Treated live room (reflective but controlled),\ncheery b-flat baritone horn · Treated live room (reflective but controlled),\nenergetic tuba · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),"
+      },
+      "compiled_api": {
+        "recipe": "classic oeteldonk, carnival Processional. trumpet, trombone, saxophone section alto tenor, baritone horn bb, tuba, drum kit. live tracking.",
+        "config": {
+          "traditions": [
+            "oeteldonk"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_neumatic_singing",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 0.0975,
+                "voice_ensemble_config": 0.09,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0.0225,
+                "voice_multitrack_stack": 0,
+                "voice_tessitura": 0
+              }
+            },
+            {
+              "id": "trumpet",
+              "slots": {
+                "wind_articulation": "wind_punchy_ensemble",
+                "brass_size": "trumpet_b_flat",
+                "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+                "brass_mute": "no_mute_brass",
+                "trumpet_technique": "trumpet_punchy_ensemble",
+                "trumpet_bell_metal": "trumpet_yellow_brass",
+                "trumpet_maker_school": "trumpet_bach_stradivarius"
+              },
+              "scores": {
+                "wind_articulation": -0.12750000000000003,
+                "brass_size": 0,
+                "trumpet_mouthpiece": -0.1,
+                "brass_mute": 0.0225,
+                "trumpet_technique": -0.12750000000000003,
+                "trumpet_bell_metal": 0.363,
+                "trumpet_maker_school": 0.075
+              }
+            },
+            {
+              "id": "trombone",
+              "slots": {
+                "wind_articulation": "wind_punchy_ensemble",
+                "trombone_type": "tenor_trombone",
+                "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+                "trombone_mute": "no_mute_trb",
+                "trombone_technique": "big_band_punch",
+                "trombone_bell_metal": "trombone_yellow_brass",
+                "trombone_maker_school": "trombone_bach_42"
+              },
+              "scores": {
+                "wind_articulation": -0.12750000000000003,
+                "trombone_type": -0.035,
+                "trombone_mouthpiece": -0.1,
+                "trombone_mute": 0.0225,
+                "trombone_technique": 0.3765,
+                "trombone_bell_metal": 0.363,
+                "trombone_maker_school": 0.075
+              }
+            },
+            {
+              "id": "saxophone_section_alto_tenor",
+              "slots": {
+                "alto_tenor_section_articulation": "alto_tenor_section_articulation_short"
+              },
+              "scores": {
+                "alto_tenor_section_articulation": 0
+              }
+            },
+            {
+              "id": "baritone_horn_bb",
+              "slots": {
+                "baritone_horn_bb_identity": "baritone_horn_bb_scored"
+              },
+              "scores": {
+                "baritone_horn_bb_identity": 0
+              }
+            },
+            {
+              "id": "tuba",
+              "slots": {
+                "wind_articulation": "wind_punchy_ensemble",
+                "tuba_pitch": "tuba_bbb",
+                "tuba_context": "tuba_brass_band",
+                "tuba_bell_metal": "tuba_yellow_brass",
+                "tuba_valve_system": "tuba_rotary_german",
+                "tuba_maker_school": "tuba_miraphone_german"
+              },
+              "scores": {
+                "wind_articulation": -0.12750000000000003,
+                "tuba_pitch": 0,
+                "tuba_context": 0.39,
+                "tuba_bell_metal": 0.363,
+                "tuba_valve_system": 0,
+                "tuba_maker_school": 0
+              }
+            },
+            {
+              "id": "drum_kit",
+              "slots": {
+                "drum_technique": "sticks_rock",
+                "drumhead": "single_coated",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "snare_wires": "wires_20",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "scores": {
+                "drum_technique": -0.05,
+                "drumhead": 0.3315,
+                "drum_kit_kick_pedal": 0,
+                "shell_wood": 0.3315,
+                "shell_thickness": 0,
+                "bearing_edges": 0,
+                "snare_wires": 0,
+                "cymbal_alloy": -0.14,
+                "cymbal_hammering": -0.12750000000000003,
+                "cymbal_lathing": -0.10500000000000001,
+                "cymbal_finish": 0
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ],
+            "trumpet": [
+              "wind_articulation",
+              "brass_size",
+              "trumpet_mouthpiece",
+              "brass_mute",
+              "trumpet_technique",
+              "trumpet_bell_metal",
+              "trumpet_maker_school"
+            ],
+            "trombone": [
+              "wind_articulation",
+              "trombone_type",
+              "trombone_mouthpiece",
+              "trombone_mute",
+              "trombone_technique",
+              "trombone_bell_metal",
+              "trombone_maker_school"
+            ],
+            "saxophone_section_alto_tenor": [
+              "alto_tenor_section_articulation"
+            ],
+            "baritone_horn_bb": [
+              "baritone_horn_bb_identity"
+            ],
+            "tuba": [
+              "wind_articulation",
+              "tuba_pitch",
+              "tuba_context",
+              "tuba_bell_metal",
+              "tuba_valve_system",
+              "tuba_maker_school"
+            ],
+            "drum_kit": [
+              "drum_technique",
+              "shell_wood",
+              "shell_thickness",
+              "bearing_edges",
+              "drumhead",
+              "snare_wires",
+              "drum_kit_kick_pedal",
+              "cymbal_alloy",
+              "cymbal_hammering",
+              "cymbal_lathing",
+              "cymbal_finish"
+            ]
+          },
+          "room": "live_room",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 1.7559999999999998
+      }
+    },
+    {
+      "id": "sunset_lounge",
+      "controls": 1,
+      "audits": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "part": "dj_playback_mixing_identity",
+          "variant": "dj_playback_mixing_source_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "Sunset Lounge, wabi-rustic dj-playback-and-mixing: amplified layered, front-parlor-period-furniture-rugs-drapes: cozy plush soft.",
+        "prose": "Sunset Lounge, wabi-rustic dj-playback-and-mixing, front-parlor-period-furniture-rugs-drapes.",
+        "tags": "Sunset Lounge, wabi-rustic dj-playback-and-mixing: amplified layered, front-parlor-period-furniture-rugs-drapes: cozy plush soft.",
+        "compact": "Sunset Lounge, wabi-rustic DJ playback and mixing · Front parlor (period furniture, rugs, drapes),"
+      },
+      "compiled_api": {
+        "recipe": "classic sunset lounge, electronic Dance, house branch. dj playback mixing unspecified. parlor.",
+        "config": {
+          "traditions": [
+            "sunset_lounge"
+          ],
+          "instruments": [
+            {
+              "id": "dj_playback_mixing_unspecified",
+              "slots": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "scores": {
+                "dj_playback_mixing_identity": 0
+              }
+            }
+          ],
+          "pinned": {
+            "dj_playback_mixing_unspecified": [
+              "dj_playback_mixing_identity"
+            ]
+          },
+          "room": "parlor",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 0
+      }
+    },
+    {
+      "id": "swazi_traditional",
+      "controls": 17,
+      "audits": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_projected"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "staccato_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "voice_microtone_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_compound_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_live_group"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_system_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "variant": "voice_tessitura_source_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "Swazi Traditional, clapping-and-syllabicizing voice: plain-direct-line raised-subglottal-pressure syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic projected punctuated carrying percussive group-vocals live-ensemble live-take rhythmic, field-recording-handheld-ambient: capsule-noise off-axis-bleed immediate.",
+        "prose": "Swazi Traditional, clapping-and-syllabicizing voice, field-recording-handheld-ambient.",
+        "tags": "Swazi Traditional, clapping-and-syllabicizing voice: plain-direct-line raised-subglottal-pressure syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic projected punctuated carrying percussive group-vocals live-ensemble live-take rhythmic, field-recording-handheld-ambient: capsule-noise off-axis-bleed immediate.",
+        "compact": "Swazi Traditional, clapping-and-syllabicizing voice · Field recording (handheld, ambient),"
+      },
+      "compiled_api": {
+        "recipe": "classic swazi traditional, praise Song. field recording.",
+        "config": {
+          "traditions": [
+            "swazi_traditional"
+          ],
+          "instruments": [
+            {
+              "id": "voice",
+              "slots": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_projected",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "staccato_voice",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "scores": {
+                "voice_register": 0,
+                "voice_quality": 0,
+                "voice_vocal_tract": 0,
+                "voice_effort": 0,
+                "voice_vibrato": 0,
+                "voice_articulation": 0.0195,
+                "voice_microtone": 0,
+                "voice_tradition": 0,
+                "voice_mechanism_compound": 0,
+                "voice_estill_quality": 0,
+                "voice_speech_song": 0.22425,
+                "voice_ensemble_config": 0.405,
+                "voice_ornament_system": 0,
+                "voice_pitch_organization": 0,
+                "voice_processing_chain": 0,
+                "voice_multitrack_stack": 0.18525,
+                "voice_tessitura": 0
+              }
+            }
+          ],
+          "pinned": {
+            "voice": [
+              "voice_register",
+              "voice_quality",
+              "voice_vocal_tract",
+              "voice_effort",
+              "voice_vibrato",
+              "voice_articulation",
+              "voice_microtone",
+              "voice_tradition",
+              "voice_mechanism_compound",
+              "voice_estill_quality",
+              "voice_speech_song",
+              "voice_ensemble_config",
+              "voice_ornament_system",
+              "voice_pitch_organization",
+              "voice_processing_chain",
+              "voice_multitrack_stack",
+              "voice_tessitura"
+            ]
+          },
+          "room": "field_recording",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 0.8340000000000001
+      }
+    },
+    {
+      "id": "underground_amapiano",
+      "controls": 1,
+      "audits": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "part": "dj_playback_mixing_identity",
+          "variant": "dj_playback_mixing_source_unspecified"
+        }
+      ],
+      "browser": {
+        "rich": "Underground Amapiano, huge dj-playback-and-mixing: amplified layered, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+        "prose": "Underground Amapiano, huge dj-playback-and-mixing, treated-concert-hall-shoebox.",
+        "tags": "Underground Amapiano, huge dj-playback-and-mixing: amplified layered, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+        "compact": "Underground Amapiano, huge DJ playback and mixing · Treated concert hall (shoebox),"
+      },
+      "compiled_api": {
+        "recipe": "classic underground amapiano, electronic Dance, African dance branch. dj playback mixing unspecified. shoebox concert hall.",
+        "config": {
+          "traditions": [
+            "underground_amapiano"
+          ],
+          "instruments": [
+            {
+              "id": "dj_playback_mixing_unspecified",
+              "slots": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "scores": {
+                "dj_playback_mixing_identity": 0
+              }
+            }
+          ],
+          "pinned": {
+            "dj_playback_mixing_unspecified": [
+              "dj_playback_mixing_identity"
+            ]
+          },
+          "room": "concert_hall_shoebox",
+          "inline_chain": {
+            "mic": null,
+            "pre": null,
+            "console": null,
+            "comp": null,
+            "eq": null,
+            "amp": null,
+            "medium": null
+          },
+          "aesthetic": null,
+          "arrangement": null,
+          "fx_extras": []
+        },
+        "score": 0
+      }
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "lineage": "NYC pop grows through New York City’s overlapping independent bands, songwriters and recording communities. Intimate melodic writing and contemporary pop production connect small performances with fuller band arrangements.",
   "recipe": "classic nyc pop, functional Song. solo with instrumental accompaniment. block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 195,
-  "score": 10.979,
+  "score": 11.075,
   "config": {
     "traditions": [
       "nyc_pop"
@@ -67,12 +67,12 @@
         },
         "scores": {
           "keyboard_technique": 8.2,
-          "grand_piano_size": 0.054,
+          "grand_piano_size": 0.18,
           "grand_piano_brand": 0.1365,
           "piano_hammer": -0.1,
           "piano_rim": -0.1,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.07,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.07,
           "piano_pitch_standard": 0.7149999999999999
         }

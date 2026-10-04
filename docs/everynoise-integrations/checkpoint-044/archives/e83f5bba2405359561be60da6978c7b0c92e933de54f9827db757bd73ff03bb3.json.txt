@@ -1,0 +1,11 @@
+{
+  "status": "TWO_CONCERNS_NOT_RESOLVED_BY_197",
+  "contexts_replayed": 113,
+  "same_problem_configs": {
+    "tropical_house": true,
+    "raggacore": true
+  },
+  "other_config_changes_vs_standalone": [
+    "microhouse"
+  ]
+}

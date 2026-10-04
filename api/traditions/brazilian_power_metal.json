@@ -3,9 +3,9 @@
   "name": "Brazilian power metal",
   "family": "rock_punk",
   "lineage": "Brazilian metal practice documented by Angra’s own musicians, with this entry selecting the power metal branch rather than treating all national metal as one sound.",
-  "recipe": "classic modern brazilian power metal, distorted Rock, power branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 427,
-  "score": 28.458,
+  "recipe": "classic modern brazilian power metal, distorted Rock, power branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 389,
+  "score": 28.364,
   "config": {
     "traditions": [
       "brazilian_power_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.49349999999999994,
           "finish": 0.0315,
-          "string_tuning": 0.252
+          "string_tuning": 0.2205
         }
       },
       {
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.5565
+          "voice_multitrack_stack": 0.49350000000000005
         }
       },
       {

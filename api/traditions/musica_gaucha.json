@@ -2,10 +2,10 @@
   "id": "musica_gaucha",
   "name": "Musica Gaucha",
   "family": "global",
-  "lineage": "Gabriel Romano & Equilíbrio Dinâmico — Ecarta Santa Cruz concert,11 July2025. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic musica gaucha, art Music. hohner gola canonical premium German concert accordion, flute, humbucker electric guitar, electric bass, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 300,
-  "score": 5.79,
+  "lineage": "Music of southern Brazil’s gaúcho cultural traditions, spanning song, dance and instrumental composition.",
+  "recipe": "classic musica gaucha, art Music. accordion, flute, humbucker electric guitar, electric bass, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 1.2,
   "config": {
     "traditions": [
       "musica_gaucha"
@@ -29,7 +29,7 @@
           "reed_config": 0,
           "bellows": 0.1365,
           "voicing_chamber": 0,
-          "accordion_maker_school": 2.08
+          "accordion_maker_school": 0.39
         }
       },
       {
@@ -77,7 +77,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.999,
+          "string_gauge": 0.399,
           "finish": 0.0315,
           "string_tuning": 0
         }
@@ -123,7 +123,7 @@
           "bowed_technique": -0.035,
           "orch_strings": 0.0315,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.2,
+          "orch_back_wood": -0.1,
           "orch_varnish": -0.1,
           "orch_setup_period": -0.1,
           "orch_bow": 0.0315,

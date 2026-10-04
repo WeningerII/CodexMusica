@@ -5,7 +5,7 @@
   "lineage": "British choir: The Tallis Scholars — documented unaccompanied sacred-choral branch. A documented branch is realized as an authored current studio arrangement.",
   "recipe": "classic british choir, art Music, western common practice branch. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 2.631,
+  "score": 2.774,
   "config": {
     "traditions": [
       "british_choir"
@@ -23,7 +23,7 @@
           "choir_size": 1.3,
           "choir_polyphonic_configuration": 0.0315,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 1.3
+          "choir_ensemble_repertoire": 1.4425000000000001
         }
       }
     ],

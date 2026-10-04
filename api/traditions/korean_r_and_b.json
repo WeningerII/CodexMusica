@@ -5,7 +5,7 @@
   "lineage": "Korean R&B includes Korean artists’ locally released soul-inflected songs and studio production. Crush’s NAPPA anchors a documented voice-and-guitar branch, with song and arrangement authorship rather than any claimed traditional Korean instrumentation.",
   "recipe": "classic modern korean r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 329,
-  "score": 3.873,
+  "score": 3.912,
   "config": {
     "traditions": [
       "korean_r_and_b"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.40612499999999996
+          "voice_multitrack_stack": 0.4451249999999999
         }
       },
       {

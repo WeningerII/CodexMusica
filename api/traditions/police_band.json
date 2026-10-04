@@ -2,10 +2,10 @@
   "id": "police_band",
   "name": "Police band",
   "family": "classical",
-  "lineage": "NSW Police Band Saxophone Quartet — St Stephen’s Friday Music,16 June2023. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Music performed by police-affiliated ensembles in ceremonial and public-concert settings.",
   "recipe": "classic police band, art Music, western modern branch. saxophone quartet soprano alto tenor baritone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 200,
-  "score": 0.736,
+  "score": 0.137,
   "config": {
     "traditions": [
       "police_band"
@@ -17,7 +17,7 @@
           "saxophone_quartet_articulation": "saxophone_quartet_legato"
         },
         "scores": {
-          "saxophone_quartet_articulation": 0.7364999999999999
+          "saxophone_quartet_articulation": 0.1365
         }
       }
     ],
