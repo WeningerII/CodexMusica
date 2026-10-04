@@ -5,7 +5,7 @@
   "lineage": "Magyar trap is Hungary’s contemporary trap scene, adapting 808-heavy hip-hop production to Hungarian-language verses, short hooks and playful ad-libs.",
   "recipe": "classic magyar trap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 13.577,
+  "score": 13.683,
   "config": {
     "traditions": [
       "magyar_trap"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.18,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 3.897,
-          "drum_machine_808_context": 0.42000000000000004,
+          "drum_machine_808_context": 0.34650000000000003,
           "tr808_production_origin": -0.035
         }
       }

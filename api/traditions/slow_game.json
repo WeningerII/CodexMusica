@@ -1,0 +1,50 @@
+{
+  "id": "slow_game",
+  "name": "Slow Game",
+  "family": "hip_hop",
+  "lineage": "Slow game is an online discovery label connecting contemporary R&B singers, melodic rap collaborations and club-oriented DJ productions. Its cohort includes West Coast radio and mixtape networks alongside artists from other regions, with romantic hooks, rhythmic vocal exchanges and polished electronic backing.",
+  "recipe": "classic slow game, mc Rhythm. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 76,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "slow_game"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

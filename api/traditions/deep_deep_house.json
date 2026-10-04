@@ -5,7 +5,7 @@
   "lineage": "Deep deep house is a discovery label connecting producers and DJs in warm, melodic deep-house networks. Continuous mixes join rounded bass, fluid synth melodies and occasional vocal passages into extended dance-floor sequences.",
   "recipe": "classic deep deep house, electronic Dance, deep house branch. dj playback mixing unspecified. parlor.",
   "recipe_chars": 101,
-  "score": 0.354,
+  "score": 0.332,
   "config": {
     "traditions": [
       "deep_deep_house"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.354
+          "dj_playback_mixing_identity": 0.3315
         }
       }
     ],

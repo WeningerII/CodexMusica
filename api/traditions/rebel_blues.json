@@ -1,0 +1,58 @@
+{
+  "id": "rebel_blues",
+  "name": "Rebel Blues",
+  "family": "pop",
+  "lineage": "Rebel blues is a discovery field connecting forceful rock songs, blues-inflected voices and cinematic pop. Its repertoire includes artists whose work circulates through film, television and promotional soundtracks, alongside quieter arrangements of the same songwriters.",
+  "recipe": "classic rebel blues, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 79,
+  "score": 4.95,
+  "config": {
+    "traditions": [
+      "rebel_blues"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.95,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

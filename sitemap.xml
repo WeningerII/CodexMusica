@@ -6870,6 +6870,49 @@
   <url><loc>https://codexmusica.com/api/traditions/vintage_old_time.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/vintage_radio_show.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/wind_symphony.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_soul_house.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_tropical_house.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/soulful_house.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_german_hip_hop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/drill_brasileiro.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/emo_trap_italiana.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/new_school_turkce_rap.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/norwegian_pop_rap.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/outer_hip_hop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_melodic_metalcore.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_metalcore.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_happy_hardcore.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_hardcore.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_psychobilly.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_soft_rock.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/rebel_blues.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/boom_bap_espanol.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/classic_bollywood.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/classic_cantopop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/covertrance.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/covertronica.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_chill.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_comedy.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_rai.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_talent_show.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/downtempo_fusion.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/electropowerpop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/emoplugg.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/flick_hop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/groove_room.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/muzica_copii.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/novos_talentos_brasileiros.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nubian_traditional.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/polka_nortena.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/proto_hyperpop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/punjabi_lo_fi.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/remix_product.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/sky_room.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/slow_game.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/speed_up_brasileiro.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/twin_cities_indie.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/voidgrind.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/westcoast_flow.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/choir_ensemble.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/griot_voice.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/pansori_voice.json</loc></url>
@@ -8531,4 +8574,5 @@
   <url><loc>https://codexmusica.com/api/instruments/cassette_pause_tape_looping.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/software_lofi_reworking.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/triple_fipple_flute_tenenexpan.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/recorded_music_rate_processing.json</loc></url>
 </urlset>

@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 6861,
+  "count": 6904,
   "items": [
     {
       "id": "honky_tonk",
@@ -241788,6 +241788,1370 @@
       "exemplars": [
         "Ohio State Wind Symphony",
         "Dallas Wind Symphony"
+      ]
+    },
+    {
+      "id": "deep_soul_house",
+      "name": "Deep Soul House",
+      "family": "electronic",
+      "lineage": "Deep soul house gathers a contemporary house discovery community drawing on deep-house, soul and disco traditions. Producers and DJs connect harmonic warmth and repeated rhythmic patterns with underground dance-floor circulation.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Continuous house selections develop through track transitions and changing rhythmic or harmonic textures. The DJ branch retains the recorded layers inside its mixed programme.",
+      "exemplars": [
+        "Brawther",
+        "Genius Of Time",
+        "Alex Agore"
+      ]
+    },
+    {
+      "id": "deep_tropical_house",
+      "name": "Deep Tropical House",
+      "family": "electronic",
+      "lineage": "Deep tropical house connects melodic, vocal-centered house with the softer textures of the 2010s tropical-house crossover. Producers and DJs link radio-friendly songs with club and festival sets.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Light rhythmic motion, clear melodic hooks and vocal warmth connect deep-house pacing with tropical-pop arrangements. Plucked synth colors, sampled or recorded instrumental layers and accessible song structures appear across the repertoire. DJ sets may lift the energy beyond the gentler radio versions.",
+      "exemplars": [
+        "Sam Feldt",
+        "Deepend"
+      ]
+    },
+    {
+      "id": "soulful_house",
+      "name": "Soulful House",
+      "family": "electronic",
+      "lineage": "Soulful house connects house rhythms with soul and gospel singing, jazz-derived harmony and producer-DJ communities. Labels, vocalists and musicians sustain the field through releases, remixes and dance-floor programmes.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "A flowing DJ programme presents layered soulful house selections with a steady dance pulse. Mixing within and between records maintains rhythmic continuity while recorded vocals and instrumental layers remain in the programme.",
+      "exemplars": [
+        "DJ Spen",
+        "Reelsoul",
+        "Sean McCabe"
+      ]
+    },
+    {
+      "id": "deep_german_hip_hop",
+      "name": "Deep German Hip Hop",
+      "family": "hip_hop",
+      "lineage": "Deep German hip hop gathers German-language underground and independent rap artists whose careers connect recorded releases, online video battles and live competitive circuits. Performers such as Cashisclay, Twizzy and Punch Arogunz move between these overlapping spaces. Written a cappella events provide one performance branch alongside their wider recorded repertoire.",
+      "parent": "spokenWord",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Prepared rhymes, rhythmic speech and emphatic phrasing foreground verbal delivery. In the unaccompanied battle branch, two MCs take alternating turns, allowing cadence, pauses and changes of emphasis to shape the performance without an instrumental backing.",
+      "exemplars": [
+        "Cashisclay",
+        "Twizzy",
+        "Punch Arogunz"
+      ]
+    },
+    {
+      "id": "drill_brasileiro",
+      "name": "Drill brasileiro",
+      "family": "hip_hop",
+      "lineage": "Brazilian drill localizes Chicago and British drill influences within Brazil’s rap scenes, developing through performers such as Vandal, LEALL, VND and L7nnon. MCs and producers connect its heavy beats with Portuguese flows, local street narratives, football culture and exchanges with Brazilian funk.",
+      "parent": "mcRhythm.drill",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "description": "Sliding electronic bass, distinctive hi-hat and snare placements, and forceful rhythmic verses form a recognizable production vocabulary. Brazilian artists adapt these patterns to local language and experience, with collaboration and overlap across grime, trap and funk communities.",
+      "exemplars": [
+        "Vandal",
+        "LEALL",
+        "VND",
+        "L7nnon"
+      ]
+    },
+    {
+      "id": "emo_trap_italiana",
+      "name": "Emo Trap Italiana",
+      "family": "hip_hop",
+      "lineage": "Emo trap italiana connects Italian-language emotional songwriting with trap and rock influences. Artists move between rap-led and melodic delivery, introspective themes and popular-song arrangements, including instrumental reinterpretations of their repertoire.",
+      "parent": "functionalSong",
+      "axes": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "A solo piano rendition carries the song melody over chordal accompaniment. Connected melodic lines and a compact harmonic texture present the repertoire in an intimate acoustic setting.",
+      "exemplars": [
+        "Drast",
+        "Jack Out",
+        "Shama24k"
+      ]
+    },
+    {
+      "id": "new_school_turkce_rap",
+      "name": "New School Türkçe Rap",
+      "family": "hip_hop",
+      "lineage": "New school Türkçe rap gathers a contemporary Turkish-language rap cohort shaped by independent crews, producer collaborations and online circulation. Rhythmic verses move across trap, West Coast-influenced beats, grime and other current production styles.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "A foreground MC delivers rhythmically articulated verses over a produced beat. Changes of flow and accent carry the phrasing, with backing textures left open to the chosen production.",
+      "exemplars": [
+        "Jefe",
+        "Motive",
+        "Wegh"
+      ]
+    },
+    {
+      "id": "norwegian_pop_rap",
+      "name": "Norwegian pop rap",
+      "family": "hip_hop",
+      "lineage": "Norwegian pop rap connects rhythmic verses with melodic hooks and popular-song production. Artists such as Karpe, Madcon and Paperboys helped bring Norwegian rap into radio and mainstream pop, while multilingual and diasporic influences widened its lyrical and melodic vocabulary.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Rap verses and sung refrains share space over programmed drums, sampled phrases and polished melodic backing. Songs move between personal stories, social observation and broadly accessible hooks. The field overlaps national hip-hop and contemporary Norwegian pop, with artists working across both audiences.",
+      "exemplars": [
+        "Karpe",
+        "Madcon",
+        "Paperboys"
+      ]
+    },
+    {
+      "id": "outer_hip_hop",
+      "name": "Outer Hip Hop",
+      "family": "hip_hop",
+      "lineage": "Outer hip hop gathers independent rap and producer networks including Canadian prairie musicians and their collaborators. Personal narratives, social observation and inventive wordplay meet producer-built beats through self-released recordings and small-label circulation.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "Rhythmic lead verses sit over a produced beat in a compact studio arrangement. Verbal phrasing and changes of accent remain foregrounded, while the backing texture can vary between productions.",
+      "exemplars": [
+        "Mcenroe",
+        "Pip Skid",
+        "Birdapres"
+      ]
+    },
+    {
+      "id": "deep_melodic_metalcore",
+      "name": "Deep Melodic Metalcore",
+      "family": "rock_punk",
+      "lineage": "Deep melodic metalcore gathers bands that combine heavy hardcore-derived attacks with melodic metal phrasing. Interlocking electric guitars, bass and drums support a foreground vocalist, balancing tightly accented riffs with more open melodic passages.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "A heavy electric band balances palm-muted guitar attacks with melodic phrase development. Picked bass reinforces the low register, while a stick-driven kit joins a foreground lead voice.",
+      "exemplars": [
+        "With Life In Mind",
+        "Carcer City",
+        "Adaliah"
+      ]
+    },
+    {
+      "id": "deep_metalcore",
+      "name": "Deep Metalcore",
+      "family": "rock_punk",
+      "lineage": "Deep metalcore is a discovery label connecting contemporary heavy bands with metal riffing, hardcore rhythm and contrasting vocal approaches. Amplified guitars and bass lock into forceful drums, with changes between dense attacks and more open phrases.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_electronics_unspecified"
+      ],
+      "description": "Palm-muted guitar figures and picked bass reinforce a heavy stick-driven pulse. Contrasting vocal parts move between compact rhythmic attacks and broader phrases, while electronic textures extend the amplified band sound.",
+      "exemplars": [
+        "Patient Sixty-Seven",
+        "Stain the Canvas",
+        "Wake Up Hate"
+      ]
+    },
+    {
+      "id": "deep_happy_hardcore",
+      "name": "Deep Happy Hardcore",
+      "family": "electronic",
+      "lineage": "Deep happy hardcore gathers a contemporary hardcore producer and DJ cohort around fast dance beats, buoyant melodic hooks and energetic vocal refrains. Label mixes and club performances connect established UK hardcore practices with internationally circulating releases.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "An energetic DJ presentation joins melodic hardcore selections through continuous playback and transitions. The whole mixed programme retains its embedded voices and instrumental layers rather than treating them as a new live ensemble.",
+      "exemplars": [
+        "Technikore",
+        "JTS",
+        "Hoodzie"
+      ]
+    },
+    {
+      "id": "deep_hardcore",
+      "name": "Deep Hardcore",
+      "family": "electronic",
+      "lineage": "Deep hardcore gathers an electronic hardcore discovery cohort with early rave, gabber and experimental club connections. Distorted rhythms, sampled phrases and changes of electronic texture circulate through records and DJ programmes; the field is distinct from hardcore punk instrumentation.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        -1,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "A continuous DJ programme connects older hardcore selections with contrasting rhythmic weight and atmosphere. This listening-oriented branch keeps the complete mixed repertoire and its embedded sound layers.",
+      "exemplars": [
+        "Undercover Anarchist",
+        "DJ Jordens",
+        "Ralphie Dee"
+      ]
+    },
+    {
+      "id": "deep_psychobilly",
+      "name": "Deep Psychobilly",
+      "family": "rock_punk",
+      "lineage": "Deep psychobilly gathers underground and revival bands connecting rockabilly rhythm with punk force, twanging amplified guitars and horror or rowdy rock-and-roll imagery. The scene spans early British bands and later international performers.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "upright_bass",
+        "electric_guitar_humbucker",
+        "drum_kit"
+      ],
+      "description": "A foreground lead voice rides a percussive slapped upright bass, forceful electric-guitar chords and a stick-driven drum kit. The compact band texture combines rockabilly bounce with a heavier punk attack.",
+      "exemplars": [
+        "The Surf Rats",
+        "Luna Vegas",
+        "The Neutronz"
+      ]
+    },
+    {
+      "id": "deep_soft_rock",
+      "name": "Deep Soft Rock",
+      "family": "pop_rock",
+      "lineage": "Deep soft rock is a discovery label around melodic soft-rock songwriters and musicians whose work often crosses pop, jazz and soul. Piano-led arrangements, expressive sung melodies and supple rhythm sections sit alongside the broader guitar-led and richly arranged repertoire.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_bass",
+        "drum_kit",
+        "upright_piano"
+      ],
+      "description": "A clear sung melody and chordal piano sit over a relaxed bass-and-drum foundation. The song remains central, with room for rhythmic inflection and brief instrumental elaboration rather than a fixed notion of sonic depth.",
+      "exemplars": [
+        "Bill Cantos",
+        "Bill LaBounty",
+        "Ned Doheny"
+      ]
+    },
+    {
+      "id": "rebel_blues",
+      "name": "Rebel Blues",
+      "family": "pop",
+      "lineage": "Rebel blues is a discovery field connecting forceful rock songs, blues-inflected voices and cinematic pop. Its repertoire includes artists whose work circulates through film, television and promotional soundtracks, alongside quieter arrangements of the same songwriters.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -2,
+        1,
+        -1,
+        -2,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Memorable melodic hooks and dramatic contrasts link the repertoire across band, electronic and acoustic treatments. Piano arrangements bring out the song melody and chordal support without reproducing the original vocal or production layers.",
+      "exemplars": [
+        "Sam Tinnesz",
+        "Oh The Larceny",
+        "Blues Saraceno"
+      ]
+    },
+    {
+      "id": "boom_bap_espanol",
+      "name": "Boom Bap Español",
+      "family": "hip_hop",
+      "lineage": "Boom bap español gathers Spanish-language rap shaped by beatmaking traditions and a foregrounded MC. Producers and rappers sustain an underground network through collaborations, releases and performance, with recurring rhythmic backings supporting narrative, wordplay and confrontational delivery.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "A single rhythmic rap lead works against a produced beat. The representative arrangement emphasizes sharply articulated phrases and a steady rhythmic foundation, leaving the backing’s specific sampled or synthesized architecture open.",
+      "exemplars": [
+        "N-Wise Allah",
+        "MDE Click",
+        "Dheformer"
+      ]
+    },
+    {
+      "id": "classic_bollywood",
+      "name": "Classic Bollywood",
+      "family": "pop",
+      "lineage": "Classic Bollywood gathers the enduring playback-song repertoire associated with Hindi cinema and its established singers and music directors. Romantic melodies, memorable refrains and contrasting instrumental passages circulate through recordings, film revivals and new instrumental arrangements.",
+      "parent": "functionalSong.southAsianPop",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -2,
+        1,
+        -1,
+        -2,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Melody remains prominent across intimate ballads and larger film arrangements. Piano adaptations carry the tune over chordal support, preserving the song while allowing a smaller acoustic presentation.",
+      "exemplars": [
+        "Lata Mangeshkar",
+        "Madan Mohan",
+        "Mohammed Rafi"
+      ]
+    },
+    {
+      "id": "classic_cantopop",
+      "name": "Classic Cantopop",
+      "family": "pop",
+      "lineage": "Classic Cantopop brings enduring Hong Kong popular songs and television and film themes into renewed listening and performance. Cantonese songwriting developed alongside Western pop and rock influences, with singers and songwriters such as Sam Hui helping establish its local voice.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -2,
+        1,
+        -1,
+        -2,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Lyrical tunes, familiar refrains and expressive contrasts connect ballads, film themes and more rhythmic songs. Piano adaptations let the melody and harmonic accompaniment carry this repertoire in an intimate instrumental setting.",
+      "exemplars": [
+        "Sam Hui",
+        "Roman Tam",
+        "Liza Wang"
+      ]
+    },
+    {
+      "id": "covertrance",
+      "name": "Covertrance",
+      "family": "electronic",
+      "lineage": "Covertrance gathers dance-oriented cover versions and reinterpretations of familiar songs and themes. Trance and club producers recast recognizable melodies through electronic arrangements, vocal versions and instrumental mixes, with lounge adaptations also circulating in the wider catalogue.",
+      "parent": "electronicDance.trance",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        -1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "credited_synthesizer_unspecified",
+        "credited_beat_unspecified"
+      ],
+      "description": "Recognizable hooks meet repeating electronic bass, synthesizer figures and a steady programmed club pulse. Sung versions and extended instrumental treatments can reshape the same material for different listening and dancing settings.",
+      "exemplars": [
+        "Tunnel Alliance",
+        "New Life Generation",
+        "Vinylmoverz"
+      ]
+    },
+    {
+      "id": "covertronica",
+      "name": "Covertronica",
+      "family": "electronic",
+      "lineage": "Covertronica gathers electronic dance reinterpretations of familiar songs, connecting vocal remakes and remix production with club and streaming circulation. Producers rebuild recognizable hooks for contemporary dance arrangements, while DJs bring those records into continuous programmes.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "In the club-programming branch, a DJ blends electronic cover records into a continuous dance sequence. Recorded voices and instrumental layers remain embedded in the tracks, with transitions shaping momentum between familiar songs.",
+      "exemplars": [
+        "Jolyon Petch"
+      ]
+    },
+    {
+      "id": "deep_chill",
+      "name": "Deep Chill",
+      "family": "electronic",
+      "lineage": "Deep chill connects relaxed electronic listening with lounge, Balearic and chill-house repertoire. Producers and selectors circulate melodic recordings through albums, compilations and continuous radio mixes, balancing gentle rhythmic movement with spacious textures.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        -2,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Unhurried transitions and contrasting recorded selections sustain a relaxed listening flow. Instrumental colors and occasional vocals share the programme, while restrained grooves support rather than dominate the atmosphere.",
+      "exemplars": [
+        "DJ Maretimo",
+        "Project Blue Sun",
+        "Chris Le Blanc"
+      ]
+    },
+    {
+      "id": "deep_comedy",
+      "name": "Deep Comedy",
+      "family": "vernacular",
+      "lineage": "Deep Comedy gathers recorded stand-up and comic monologues circulated through comedy clubs, specialist labels and streaming discovery. Personal stories, social observation and topical jokes depend on speech rhythm, pauses and audience address rather than a sung melody.",
+      "parent": "spokenWord.stagePerformance",
+      "axes": [
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "A solo comic shapes a spoken monologue through conversational emphasis, pauses, character and punchline timing. Dark social observation and everyday storytelling coexist within this recorded-comedy discovery field.",
+      "exemplars": [
+        "Sean Kent"
+      ]
+    },
+    {
+      "id": "deep_rai",
+      "name": "Deep Rai",
+      "family": "global",
+      "lineage": "Deep rai is a discovery label connecting Algerian and wider Maghrebi popular-song repertoires with diaspora producers and DJs. Its listening network includes singers such as Zahouania and Cheb Faycal alongside producers including DJ Kim, keeping older raï songs in circulation through contemporary records and dance programmes.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified",
+        "electronic_keyboard_unspecified"
+      ],
+      "description": "Expressive song melodies and recurring dance rhythms connect vocal recordings with electronic performance. In a club branch, mixed records interact with live keyboard-synthesizer lines; other parts of the repertoire retain different acoustic and electric accompaniments.",
+      "exemplars": [
+        "DJ Kim",
+        "Zahouania",
+        "Cheb Faycal",
+        "Kader Japonais"
+      ]
+    },
+    {
+      "id": "deep_talent_show",
+      "name": "Deep Talent Show",
+      "family": "pop",
+      "lineage": "Deep talent show gathers a deeper discovery cohort of televised singing-competition performers and their later recordings. Acoustic pop, close vocal harmonies and familiar song interpretations sit alongside fuller studio productions, connecting televised performances with independent releases and concert careers.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Blended lead and harmony voices carry a popular-song melody above acoustic-guitar chords and melodic fills. The compact acoustic branch highlights ensemble phrasing and song structure, while the broader discovery field also includes amplified bands and electronic production.",
+      "exemplars": [
+        "Girl Named Tom",
+        "Amber Carrington",
+        "Sylvia Yacoub"
+      ]
+    },
+    {
+      "id": "downtempo_fusion",
+      "name": "Downtempo Fusion",
+      "family": "electronic",
+      "lineage": "Downtempo fusion gathers artists combining relaxed electronic rhythms with song, jazz, soul and atmospheric production. Its discovery repertoire ranges from vocal-led groups to instrumental producers, with DJ programmes connecting these materials across listening and dance settings.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        -2,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Layered selections unfold with relaxed pacing and gradual transitions. This DJ branch preserves recorded vocal and instrumental textures inside a continuous programme, alongside the field’s separately documented live-band and studio-production approaches.",
+      "exemplars": [
+        "Celeste Lear",
+        "Karmacoda",
+        "Anomie Belle"
+      ]
+    },
+    {
+      "id": "electropowerpop",
+      "name": "Electropowerpop",
+      "family": "pop_rock",
+      "lineage": "Electropowerpop connects catchy pop-rock songwriting with electronic production, tuned vocal textures and dance-oriented rhythms. Its online discovery cohort includes bands and bedroom projects from the late-2000s alternative-pop scene, spanning electronic arrangements and expanded live guitar bands.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "credited_electronics_unspecified"
+      ],
+      "description": "A tuned sung lead moves through compact pop hooks above electronic textures and a guitar, bass and drum foundation. Clean guitar figures and a locked bass pulse leave space for the electronic layers, while the live rhythm section gives the arrangement physical drive.",
+      "exemplars": [
+        "Breathe Electric",
+        "Kill Paradise",
+        "The Medic Droid"
+      ]
+    },
+    {
+      "id": "emoplugg",
+      "name": "Emoplugg",
+      "family": "hip_hop",
+      "lineage": "Emoplugg is an online melodic rap label linking emotional vocal expression with plugg-related electronic beat production. Its discovery community overlaps emo rap and melodic internet rap, with processed sung phrases and intimate lyrics carried by producer-built rhythms.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "description": "A melodic lead rides a produced beat, with vocal treatment shaping the intimate sung phrases. The arrangement leaves the beat mechanism open while keeping the singer and rhythmic production separately controllable.",
+      "exemplars": [
+        "coldspades",
+        "kairo6k",
+        "Nodust"
+      ]
+    },
+    {
+      "id": "flick_hop",
+      "name": "Flick Hop",
+      "family": "hip_hop",
+      "lineage": "Flick hop is a discovery label connecting underground rap producers and MCs across North American and European networks. Its artist corpus includes Snowgoons, Sicknature, Virtuoso, Chief Kamachi and related independent collaborators, with sample-based production and MC-led songs forming a prominent branch.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Rhythmic verses ride recurring sampled phrases and programmed drum patterns. Producers build a groove around the character of a chosen loop, adjusting drum weight and layering to its mood; other artists and releases extend the palette with keyboards, scratches and different vocal arrangements.",
+      "exemplars": [
+        "Snowgoons",
+        "Sicknature",
+        "Virtuoso",
+        "Chief Kamachi"
+      ]
+    },
+    {
+      "id": "groove_room",
+      "name": "Groove Room",
+      "family": "electronic",
+      "lineage": "Groove Room brings together a contemporary network of melodic house producers and remixers. Labels and online DJ programmes connect rounded dance rhythms, tuneful electronic textures and vocal material with both club and relaxed listening.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Steady house pulses support smooth melodic phrases and recurring vocal or instrumental hooks. Mixed programmes extend the groove across tracks, balancing dance momentum with spacious transitions and polished electronic sound.",
+      "exemplars": [
+        "Housenick",
+        "Pete Bellis & Tommy",
+        "Costa Mee"
+      ]
+    },
+    {
+      "id": "muzica_copii",
+      "name": "Muzică copii",
+      "family": "global",
+      "lineage": "Romanian music for children encompasses play songs, educational singing and purpose-composed instrumental repertoire. Composers and educators draw on folk idioms and contemporary popular material alongside graded pieces for young listeners and learners.",
+      "parent": "artMusic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Clear melodic figures, compact forms and accessible contrasts support listening, singing and early musical learning. In the composed piano branch, connected lines and modest harmonic textures develop from simple ideas toward richer interplay.",
+      "exemplars": [
+        "Liviu Comes"
+      ]
+    },
+    {
+      "id": "novos_talentos_brasileiros",
+      "name": "Novos Talentos Brasileiros",
+      "family": "pop",
+      "lineage": "Novos talentos brasileiros is a discovery label centered on emerging Brazilian singers, including a substantial cohort associated with televised youth singing competitions. Their repertoire crosses MPB, pop and regional song, and extends into independent releases and local concert appearances.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "credited_auxiliary_percussion"
+      ],
+      "description": "A small vocal ensemble shares popular-song melodies over acoustic-guitar figures and percussion. This intimate stage branch gives familiar repertoire a flexible group presentation, alongside the broader field’s larger television and studio arrangements.",
+      "exemplars": [
+        "Isa Pagnota",
+        "Luiza Gattai",
+        "Tainá Delfino"
+      ]
+    },
+    {
+      "id": "nubian_traditional",
+      "name": "Nubian Traditional",
+      "family": "global",
+      "lineage": "Nubian traditional music connects Nile Valley heritage with the musical lives of communities in Egypt, Sudan and their diasporas. Song, poetry and dance sustain local memories, while twentieth-century oud interpreters and amplified ensembles have developed contrasting concert and popular-song branches.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "oud"
+      ],
+      "description": "An intimate song branch pairs an expressive lead voice with ornamented, fretless oud lines. Other practices use group responses, frame drums and dance rhythms, and modern ensembles add amplified instruments. The repertoire carries memories of place and community across the Nile Valley and its diasporas.",
+      "exemplars": [
+        "Hamza El Din",
+        "Ali Hassan Kuban",
+        "Mohammed Wardi"
+      ]
+    },
+    {
+      "id": "polka_nortena",
+      "name": "Polka Norteña",
+      "family": "global",
+      "lineage": "Polka norteña is the northern Mexican adaptation of the European polka, developed through local dance, instrumental ensembles and commercial recordings. Its lively melodies and duple dance pulse circulate through accordion conjuntos, wind and string groups, and piano interpretations.",
+      "parent": "artMusic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Clear melodic strains and a buoyant duple pulse shape this dance repertoire. A composed solo-piano interpretation carries melody and accompaniment within one instrument, alongside the more widely heard accordion and ensemble branches.",
+      "exemplars": [
+        "Antonio Tanguma",
+        "Los Montañeses del Álamo",
+        "KeysByLuis"
+      ]
+    },
+    {
+      "id": "proto_hyperpop",
+      "name": "Proto-hyperpop",
+      "family": "electronic",
+      "lineage": "Proto-hyperpop gathers electronic-pop experimenters in an online discovery cohort spanning PC Music associates, digital pop producers and newer internet artists. Its repertoire connects exaggerated pop textures, electronic sound design and club mixing, with substantial overlap with hyperpop.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "In the DJ branch, contrasting pop fragments and club tracks are joined through quick transitions, edits and playful changes of direction. Recorded voices and instrumental layers remain within the mixed programme.",
+      "exemplars": [
+        "umru",
+        "A. G. Cook",
+        "SOPHIE"
+      ]
+    },
+    {
+      "id": "punjabi_lo_fi",
+      "name": "Punjabi Lo-fi",
+      "family": "electronic",
+      "lineage": "Punjabi lo-fi connects Punjabi popular-song repertoire with online remix and bedroom-production communities. Producers such as MixSingh and Swattrex circulate new songs alongside softened, slowed and reverberant versions of existing recordings. The discovery field also overlaps bilingual South Asian pop and international lo-fi remix culture.",
+      "parent": "experimentalElec.lofi",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "software_lofi_reworking"
+      ],
+      "description": "Sung melodies and existing instrumental layers can be retained within complete recorded-song reworkings. Slower pacing, extended reverberation and softened bandwidth reshape the listening texture, while the broader field also includes newly produced bedroom songs.",
+      "exemplars": [
+        "MixSingh",
+        "Swattrex"
+      ]
+    },
+    {
+      "id": "remix_product",
+      "name": "Remix Product",
+      "family": "electronic",
+      "lineage": "Remix product is a discovery label gathering commercial dance remixes, cover versions and edited club tracks. Its documented repertoire connects familiar vocal hooks with hands-up, hard-dance and other electronic club treatments, circulating through releases and mixed compilations.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "An energetic DJ mix connects edited dance selections, contrasting melodic hooks and rhythmic drops. The playback-and-mixing branch retains recorded vocal and instrumental layers without pretending to identify every original production instrument.",
+      "exemplars": [
+        "Nick Skitz",
+        "Basslouder",
+        "Quickdrop"
+      ]
+    },
+    {
+      "id": "sky_room",
+      "name": "Sky Room",
+      "family": "electronic",
+      "lineage": "Sky room is a discovery label connecting festival-oriented electronic dance producers. Its documented listening cohort brings together big-room, progressive and electro-house repertoire, with forceful rhythmic passages, melodic hooks and large-scale builds.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "A DJ-led club presentation moves between melodic rises, rhythmic drops and contrasting recorded selections. Vocal and instrumental material can share the mix; the default preserves playback and mixing without inventing the original tracks’ instruments or hardware.",
+      "exemplars": [
+        "Blasterjaxx",
+        "Maddix",
+        "Matisse & Sadko"
+      ]
+    },
+    {
+      "id": "slow_game",
+      "name": "Slow Game",
+      "family": "hip_hop",
+      "lineage": "Slow game is an online discovery label connecting contemporary R&B singers, melodic rap collaborations and club-oriented DJ productions. Its cohort includes West Coast radio and mixtape networks alongside artists from other regions, with romantic hooks, rhythmic vocal exchanges and polished electronic backing.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "The DJ branch presents sung hooks and rap passages within mixed recorded tracks, connecting R&B intimacy with club energy. The broader field also includes original songs and producer-led collaborations; the label does not prescribe a single tempo or a uniformly slow performance.",
+      "exemplars": [
+        "DJ Carisma",
+        "Illijah",
+        "Jonn Hart"
+      ]
+    },
+    {
+      "id": "speed_up_brasileiro",
+      "name": "Speed Up Brasileiro",
+      "family": "electronic",
+      "lineage": "Speed Up Brasileiro gathers accelerated versions of Brazilian popular recordings circulating through streaming and short-video platforms. Singers and producers rework their own songs alongside remixers, shortening their temporal scale while retaining recognizable vocal hooks and backing tracks.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        -2,
+        2,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "recorded_music_rate_processing"
+      ],
+      "description": "Accelerated sung phrases and a produced beat compress a familiar song into a brisk remix. Melody and accompaniment move together through continuous phrases, with pitch treatment varying between versions.",
+      "exemplars": [
+        "Gapes",
+        "dreko",
+        "Kweller"
+      ]
+    },
+    {
+      "id": "twin_cities_indie",
+      "name": "Twin Cities indie",
+      "family": "rock",
+      "lineage": "Twin Cities indie encompasses independent music rooted in Minneapolis and Saint Paul. Its regional networks bring together guitar rock, pop songwriting and folk-influenced approaches, with electronic production also entering contemporary bands.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "credited_synthesizer_unspecified",
+        "credited_programmed_drums_unspecified"
+      ],
+      "description": "A vocal-led electric band combines strummed guitar, bass and acoustic drums with synthesizer layers and programmed percussion. This electronic indie-pop branch sits within a wider metropolitan community of contrasting sounds.",
+      "exemplars": [
+        "WHY NOT"
+      ]
+    },
+    {
+      "id": "voidgrind",
+      "name": "Voidgrind",
+      "family": "rock_punk",
+      "lineage": "Voidgrind groups underground extreme-metal discoveries, including death-metal bands with dense riffs and forceful rhythmic interplay. The listening cohort overlaps cavernous, technical and grinding metal practices rather than requiring a single playing technique.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Electric guitars move between accented riffs and lead phrases above picked bass and a forceful drum kit. A foreground voice joins the amplified band, with changes of density and articulation shaping its momentum.",
+      "exemplars": [
+        "Cemetery Filth"
+      ]
+    },
+    {
+      "id": "westcoast_flow",
+      "name": "Westcoast Flow",
+      "family": "hip_hop",
+      "lineage": "Westcoast flow gathers contemporary West Coast rap and melodic vocal production. The named discovery cohort includes Los Angeles artists who combine conversational rhythmic delivery, sung hooks and producer-led beats, with connections to local R&B and club music.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "An alternating rap-and-sung foreground sits over layered sampled rhythmic and melodic phrases. This representative studio branch leaves vocal register and the balance of speech and melody open, while supporting a clear groove and compact hooks.",
+      "exemplars": [
+        "Kalan.FrFr",
+        "1takeocho",
+        "Bino Rideaux"
       ]
     }
   ]

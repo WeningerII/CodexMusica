@@ -1,0 +1,58 @@
+{
+  "id": "classic_bollywood",
+  "name": "Classic Bollywood",
+  "family": "pop",
+  "lineage": "Classic Bollywood gathers the enduring playback-song repertoire associated with Hindi cinema and its established singers and music directors. Romantic melodies, memorable refrains and contrasting instrumental passages circulate through recordings, film revivals and new instrumental arrangements.",
+  "recipe": "classic classic bollywood, functional Song, south Asian pop branch. block chord upright piano. live tracking.",
+  "recipe_chars": 109,
+  "score": 6.546,
+  "config": {
+    "traditions": [
+      "classic_bollywood"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 6.2,
+          "upright_use": 0.34650000000000003,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

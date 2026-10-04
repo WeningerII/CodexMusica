@@ -5,7 +5,7 @@
   "lineage": "Polish drill — Polish-language rap adapting British-influenced drill production and delivery.",
   "recipe": "classic polish drill, mc Rhythm, drill branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 236,
-  "score": 10.197,
+  "score": 10.134,
   "config": {
     "traditions": [
       "polish_drill"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.126,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },

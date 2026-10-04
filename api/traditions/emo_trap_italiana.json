@@ -1,0 +1,58 @@
+{
+  "id": "emo_trap_italiana",
+  "name": "Emo Trap Italiana",
+  "family": "hip_hop",
+  "lineage": "Emo trap italiana connects Italian-language emotional songwriting with trap and rock influences. Artists move between rap-led and melodic delivery, introspective themes and popular-song arrangements, including instrumental reinterpretations of their repertoire.",
+  "recipe": "classic emo trap italiana, functional Song. upright piano. parlor.",
+  "recipe_chars": 66,
+  "score": -0.05,
+  "config": {
+    "traditions": [
+      "emo_trap_italiana"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "parlor",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "parlor",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Korean drill — South Korean rap adapting the rhythmic delivery and bass-heavy production of the international drill scene.",
   "recipe": "classic korean drill, mc Rhythm, drill branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 246,
-  "score": 18.356,
+  "score": 18.722,
   "config": {
     "traditions": [
       "korean_drill"
@@ -38,17 +38,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.2535,
+          "voice_articulation": 1.3,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 7.995,
-          "voice_ensemble_config": 0.9899999999999999,
+          "voice_ensemble_config": 1.3725,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.126,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
